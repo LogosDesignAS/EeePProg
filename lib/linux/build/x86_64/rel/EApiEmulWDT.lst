@@ -1,0 +1,481 @@
+GAS LISTING /tmp/ccV5aDHq.s 			page 1
+
+
+   1              		.file	"EApiEmulWDT.c"
+   2              		.text
+   3              		.section	.rodata.str1.1,"aMS",@progbits,1
+   4              	.LC0:
+   5 0000 25730A00 		.string	"%s\n"
+   6              	.LC1:
+   7 0004 45417069 		.string	"EApiWDogGetCapEmul"
+   7      57446F67 
+   7      47657443 
+   7      6170456D 
+   7      756C00
+   8              		.section	.rodata.str1.8,"aMS",@progbits,1
+   9              		.align 8
+  10              	.LC2:
+  11 0000 2F686F6D 		.string	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c"
+  11      652F686B 
+  11      682F6769 
+  11      742F6561 
+  11      7069646B 
+  12              		.section	.rodata.str1.1
+  13              	.LC3:
+  14 0017 00       		.string	""
+  15              		.text
+  16              		.p2align 4
+  17              		.globl	EApiWDogGetCapEmul
+  19              	EApiWDogGetCapEmul:
+  20              	.LFB66:
+  21              		.cfi_startproc
+  22 0000 F30F1EFA 		endbr64
+  23 0004 4883EC10 		subq	$16, %rsp
+  24              		.cfi_def_cfa_offset 24
+  25 0008 488D0500 		leaq	.LC3(%rip), %rax
+  25      000000
+  26 000f C707C027 		movl	$600000, (%rdi)
+  26      0900
+  27 0015 4531C0   		xorl	%r8d, %r8d
+  28 0018 C706C027 		movl	$600000, (%rsi)
+  28      0900
+  29 001e B94F0000 		movl	$79, %ecx
+  29      00
+  30 0023 4C8D0D00 		leaq	.LC0(%rip), %r9
+  30      000000
+  31 002a 488D3500 		leaq	.LC2(%rip), %rsi
+  31      000000
+  32 0031 C702C027 		movl	$600000, (%rdx)
+  32      0900
+  33 0037 BF4C0000 		movl	$76, %edi
+  33      00
+  34 003c 488D1500 		leaq	.LC1(%rip), %rdx
+  34      000000
+  35 0043 50       		pushq	%rax
+  36              		.cfi_def_cfa_offset 32
+  37 0044 31C0     		xorl	%eax, %eax
+  38 0046 E8000000 		call	siFormattedMessage_SC@PLT
+  38      00
+  39 004b 31C0     		xorl	%eax, %eax
+  40 004d 4883C418 		addq	$24, %rsp
+GAS LISTING /tmp/ccV5aDHq.s 			page 2
+
+
+  41              		.cfi_def_cfa_offset 8
+  42 0051 C3       		ret
+  43              		.cfi_endproc
+  44              	.LFE66:
+  46              		.section	.rodata.str1.1
+  47              	.LC4:
+  48 0018 45417069 		.string	"EApiWDogStartEmul"
+  48      57446F67 
+  48      53746172 
+  48      74456D75 
+  48      6C00
+  49              		.section	.rodata.str1.8
+  50 003f 00       		.align 8
+  51              	.LC5:
+  52 0040 57617463 		.string	"Watchdog alread runing, need to stop before starting"
+  52      68646F67 
+  52      20616C72 
+  52      65616420 
+  52      72756E69 
+  53              		.section	.rodata.str1.1
+  54              	.LC6:
+  55 002a 2844656C 		.string	"(Delay>pMaxDelay)"
+  55      61793E70 
+  55      4D617844 
+  55      656C6179 
+  55      2900
+  56              		.section	.rodata.str1.8
+  57 0075 000000   		.align 8
+  58              	.LC7:
+  59 0078 28457665 		.string	"(EventTimeout>pMaxEventTimeout)"
+  59      6E745469 
+  59      6D656F75 
+  59      743E704D 
+  59      61784576 
+  60              		.align 8
+  61              	.LC8:
+  62 0098 28526573 		.string	"(ResetTimeout>pMaxResetTimeout)"
+  62      65745469 
+  62      6D656F75 
+  62      743E704D 
+  62      61785265 
+  63              		.text
+  64 0052 66662E0F 		.p2align 4
+  64      1F840000 
+  64      0000000F 
+  64      1F00
+  65              		.globl	EApiWDogStartEmul
+  66              		.hidden	EApiWDogStartEmul
+  68              	EApiWDogStartEmul:
+  69              	.LFB67:
+  70              		.cfi_startproc
+  71 0060 F30F1EFA 		endbr64
+  72 0064 4883EC08 		subq	$8, %rsp
+  73              		.cfi_def_cfa_offset 16
+  74 0068 833D0000 		cmpl	$-1, WatchdogState(%rip)
+  74      0000FF
+  75 006f 0F84FB00 		je	.L12
+GAS LISTING /tmp/ccV5aDHq.s 			page 3
+
+
+  75      0000
+  76 0075 81FFC027 		cmpl	$600000, %edi
+  76      0900
+  77 007b 0F87AF00 		ja	.L13
+  77      0000
+  78 0081 81FEC027 		cmpl	$600000, %esi
+  78      0900
+  79 0087 0F87C300 		ja	.L14
+  79      0000
+  80 008d 81FAC027 		cmpl	$600000, %edx
+  80      0900
+  81 0093 7753     		ja	.L15
+  82 0095 4883EC08 		subq	$8, %rsp
+  83              		.cfi_def_cfa_offset 24
+  84 0099 4531C0   		xorl	%r8d, %r8d
+  85 009c B9770000 		movl	$119, %ecx
+  85      00
+  86 00a1 BF4C0000 		movl	$76, %edi
+  86      00
+  87 00a6 488D0500 		leaq	.LC3(%rip), %rax
+  87      000000
+  88 00ad 488D1500 		leaq	.LC4(%rip), %rdx
+  88      000000
+  89 00b4 C7050000 		movl	$-1, WatchdogState(%rip)
+  89      0000FFFF 
+  89      FFFF
+  90 00be 50       		pushq	%rax
+  91              		.cfi_def_cfa_offset 32
+  92 00bf 4C8D0D00 		leaq	.LC0(%rip), %r9
+  92      000000
+  93 00c6 488D3500 		leaq	.LC2(%rip), %rsi
+  93      000000
+  94 00cd 31C0     		xorl	%eax, %eax
+  95 00cf E8000000 		call	siFormattedMessage_SC@PLT
+  95      00
+  96 00d4 58       		popq	%rax
+  97              		.cfi_def_cfa_offset 24
+  98 00d5 31C0     		xorl	%eax, %eax
+  99 00d7 5A       		popq	%rdx
+ 100              		.cfi_def_cfa_offset 16
+ 101              	.L6:
+ 102 00d8 F30F1EFA 		endbr64
+ 103              	.L4:
+ 104 00dc 4883C408 		addq	$8, %rsp
+ 105              		.cfi_remember_state
+ 106              		.cfi_def_cfa_offset 8
+ 107 00e0 C3       		ret
+ 108              		.p2align 4,,10
+ 109 00e1 0F1F8000 		.p2align 3
+ 109      000000
+ 110              	.L15:
+ 111              		.cfi_restore_state
+ 112 00e8 4883EC08 		subq	$8, %rsp
+ 113              		.cfi_def_cfa_offset 24
+ 114 00ec 488D0500 		leaq	.LC8(%rip), %rax
+ 114      000000
+ 115 00f3 B9710000 		movl	$113, %ecx
+GAS LISTING /tmp/ccV5aDHq.s 			page 4
+
+
+ 115      00
+ 116 00f8 41B8FFFE 		movl	$-257, %r8d
+ 116      FFFF
+ 117 00fe 50       		pushq	%rax
+ 118              		.cfi_def_cfa_offset 32
+ 119 00ff 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 119      000000
+ 120              	.L11:
+ 121 0106 488D3500 		leaq	.LC2(%rip), %rsi
+ 121      000000
+ 122 010d 488D1500 		leaq	.LC4(%rip), %rdx
+ 122      000000
+ 123 0114 BF450000 		movl	$69, %edi
+ 123      00
+ 124 0119 31C0     		xorl	%eax, %eax
+ 125 011b E8000000 		call	siFormattedMessage_SC@PLT
+ 125      00
+ 126 0120 59       		popq	%rcx
+ 127              		.cfi_def_cfa_offset 24
+ 128 0121 5E       		popq	%rsi
+ 129              		.cfi_def_cfa_offset 16
+ 130 0122 B8FFFEFF 		movl	$-257, %eax
+ 130      FF
+ 131 0127 4883C408 		addq	$8, %rsp
+ 132              		.cfi_remember_state
+ 133              		.cfi_def_cfa_offset 8
+ 134 012b C3       		ret
+ 135 012c 0F1F4000 		.p2align 4,,10
+ 136              		.p2align 3
+ 137              	.L13:
+ 138              		.cfi_restore_state
+ 139 0130 4883EC08 		subq	$8, %rsp
+ 140              		.cfi_remember_state
+ 141              		.cfi_def_cfa_offset 24
+ 142 0134 488D0500 		leaq	.LC6(%rip), %rax
+ 142      000000
+ 143 013b B9670000 		movl	$103, %ecx
+ 143      00
+ 144 0140 41B8FFFE 		movl	$-257, %r8d
+ 144      FFFF
+ 145 0146 50       		pushq	%rax
+ 146              		.cfi_def_cfa_offset 32
+ 147 0147 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 147      000000
+ 148 014e EBB6     		jmp	.L11
+ 149              		.p2align 4,,10
+ 150              		.p2align 3
+ 151              	.L14:
+ 152              		.cfi_restore_state
+ 153 0150 4883EC08 		subq	$8, %rsp
+ 154              		.cfi_remember_state
+ 155              		.cfi_def_cfa_offset 24
+ 156 0154 488D0500 		leaq	.LC7(%rip), %rax
+ 156      000000
+ 157 015b B96C0000 		movl	$108, %ecx
+ 157      00
+ 158 0160 41B8FFFE 		movl	$-257, %r8d
+GAS LISTING /tmp/ccV5aDHq.s 			page 5
+
+
+ 158      FFFF
+ 159 0166 50       		pushq	%rax
+ 160              		.cfi_def_cfa_offset 32
+ 161 0167 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 161      000000
+ 162 016e EB96     		jmp	.L11
+ 163              		.p2align 4,,10
+ 164              		.p2align 3
+ 165              	.L12:
+ 166              		.cfi_restore_state
+ 167 0170 4883EC08 		subq	$8, %rsp
+ 168              		.cfi_def_cfa_offset 24
+ 169 0174 41B8FAFE 		movl	$-262, %r8d
+ 169      FFFF
+ 170 017a 488D0500 		leaq	.LC5(%rip), %rax
+ 170      000000
+ 171 0181 BF450000 		movl	$69, %edi
+ 171      00
+ 172 0186 50       		pushq	%rax
+ 173              		.cfi_def_cfa_offset 32
+ 174 0187 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 174      000000
+ 175 018e 31C0     		xorl	%eax, %eax
+ 176 0190 B9610000 		movl	$97, %ecx
+ 176      00
+ 177 0195 488D1500 		leaq	.LC4(%rip), %rdx
+ 177      000000
+ 178 019c 488D3500 		leaq	.LC2(%rip), %rsi
+ 178      000000
+ 179 01a3 E8000000 		call	siFormattedMessage_SC@PLT
+ 179      00
+ 180 01a8 5F       		popq	%rdi
+ 181              		.cfi_def_cfa_offset 24
+ 182 01a9 B8FAFEFF 		movl	$-262, %eax
+ 182      FF
+ 183 01ae 4158     		popq	%r8
+ 184              		.cfi_def_cfa_offset 16
+ 185 01b0 E927FFFF 		jmp	.L4
+ 185      FF
+ 186              		.cfi_endproc
+ 187              	.LFE67:
+ 189              		.section	.rodata.str1.1
+ 190              	.LC9:
+ 191 003c 45417069 		.string	"EApiWDogTriggerEmul"
+ 191      57446F67 
+ 191      54726967 
+ 191      67657245 
+ 191      6D756C00 
+ 192              		.section	.rodata.str1.8
+ 193              		.align 8
+ 194              	.LC10:
+ 195 00b8 57617463 		.string	"Watchdog Disabled therefore not possible to trigger"
+ 195      68646F67 
+ 195      20446973 
+ 195      61626C65 
+ 195      64207468 
+ 196              		.text
+GAS LISTING /tmp/ccV5aDHq.s 			page 6
+
+
+ 197 01b5 66662E0F 		.p2align 4
+ 197      1F840000 
+ 197      000000
+ 198              		.globl	EApiWDogTriggerEmul
+ 199              		.hidden	EApiWDogTriggerEmul
+ 201              	EApiWDogTriggerEmul:
+ 202              	.LFB68:
+ 203              		.cfi_startproc
+ 204 01c0 F30F1EFA 		endbr64
+ 205 01c4 4883EC08 		subq	$8, %rsp
+ 206              		.cfi_def_cfa_offset 16
+ 207 01c8 8B3D0000 		movl	WatchdogState(%rip), %edi
+ 207      0000
+ 208 01ce 85FF     		testl	%edi, %edi
+ 209 01d0 7446     		je	.L20
+ 210              	.L18:
+ 211 01d2 F30F1EFA 		endbr64
+ 212 01d6 4883EC08 		subq	$8, %rsp
+ 213              		.cfi_def_cfa_offset 24
+ 214 01da 4531C0   		xorl	%r8d, %r8d
+ 215 01dd B9870000 		movl	$135, %ecx
+ 215      00
+ 216 01e2 BF4C0000 		movl	$76, %edi
+ 216      00
+ 217 01e7 488D0500 		leaq	.LC3(%rip), %rax
+ 217      000000
+ 218 01ee 488D1500 		leaq	.LC9(%rip), %rdx
+ 218      000000
+ 219 01f5 50       		pushq	%rax
+ 220              		.cfi_def_cfa_offset 32
+ 221 01f6 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 221      000000
+ 222 01fd 488D3500 		leaq	.LC2(%rip), %rsi
+ 222      000000
+ 223 0204 31C0     		xorl	%eax, %eax
+ 224 0206 E8000000 		call	siFormattedMessage_SC@PLT
+ 224      00
+ 225 020b 58       		popq	%rax
+ 226              		.cfi_def_cfa_offset 24
+ 227 020c 5A       		popq	%rdx
+ 228              		.cfi_def_cfa_offset 16
+ 229 020d 31C0     		xorl	%eax, %eax
+ 230 020f 4883C408 		addq	$8, %rsp
+ 231              		.cfi_remember_state
+ 232              		.cfi_def_cfa_offset 8
+ 233 0213 C3       		ret
+ 234              		.p2align 4,,10
+ 235 0214 0F1F4000 		.p2align 3
+ 236              	.L20:
+ 237              		.cfi_restore_state
+ 238 0218 4883EC08 		subq	$8, %rsp
+ 239              		.cfi_def_cfa_offset 24
+ 240 021c 488D0500 		leaq	.LC10(%rip), %rax
+ 240      000000
+ 241 0223 B9800000 		movl	$128, %ecx
+ 241      00
+ 242 0228 41B8FFF0 		movl	$-3841, %r8d
+GAS LISTING /tmp/ccV5aDHq.s 			page 7
+
+
+ 242      FFFF
+ 243 022e 50       		pushq	%rax
+ 244              		.cfi_def_cfa_offset 32
+ 245 022f 488D3500 		leaq	.LC2(%rip), %rsi
+ 245      000000
+ 246 0236 31C0     		xorl	%eax, %eax
+ 247 0238 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 247      000000
+ 248 023f 488D1500 		leaq	.LC9(%rip), %rdx
+ 248      000000
+ 249 0246 BF450000 		movl	$69, %edi
+ 249      00
+ 250 024b E8000000 		call	siFormattedMessage_SC@PLT
+ 250      00
+ 251 0250 59       		popq	%rcx
+ 252              		.cfi_def_cfa_offset 24
+ 253 0251 5E       		popq	%rsi
+ 254              		.cfi_def_cfa_offset 16
+ 255 0252 B8FFF0FF 		movl	$-3841, %eax
+ 255      FF
+ 256 0257 4883C408 		addq	$8, %rsp
+ 257              		.cfi_def_cfa_offset 8
+ 258 025b C3       		ret
+ 259              		.cfi_endproc
+ 260              	.LFE68:
+ 262              		.section	.rodata.str1.1
+ 263              	.LC11:
+ 264 0050 45417069 		.string	"EApiWDogStopEmul"
+ 264      57446F67 
+ 264      53746F70 
+ 264      456D756C 
+ 264      00
+ 265              		.text
+ 266 025c 0F1F4000 		.p2align 4
+ 267              		.globl	EApiWDogStopEmul
+ 268              		.hidden	EApiWDogStopEmul
+ 270              	EApiWDogStopEmul:
+ 271              	.LFB69:
+ 272              		.cfi_startproc
+ 273 0260 F30F1EFA 		endbr64
+ 274 0264 4883EC10 		subq	$16, %rsp
+ 275              		.cfi_def_cfa_offset 24
+ 276 0268 4531C0   		xorl	%r8d, %r8d
+ 277 026b B9940000 		movl	$148, %ecx
+ 277      00
+ 278 0270 BF4C0000 		movl	$76, %edi
+ 278      00
+ 279 0275 488D0500 		leaq	.LC3(%rip), %rax
+ 279      000000
+ 280 027c 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 280      000000
+ 281 0283 C7050000 		movl	$0, WatchdogState(%rip)
+ 281      00000000 
+ 281      0000
+ 282 028d 50       		pushq	%rax
+ 283              		.cfi_def_cfa_offset 32
+ 284 028e 488D1500 		leaq	.LC11(%rip), %rdx
+GAS LISTING /tmp/ccV5aDHq.s 			page 8
+
+
+ 284      000000
+ 285 0295 488D3500 		leaq	.LC2(%rip), %rsi
+ 285      000000
+ 286 029c 31C0     		xorl	%eax, %eax
+ 287 029e E8000000 		call	siFormattedMessage_SC@PLT
+ 287      00
+ 288 02a3 31C0     		xorl	%eax, %eax
+ 289 02a5 4883C418 		addq	$24, %rsp
+ 290              		.cfi_def_cfa_offset 8
+ 291 02a9 C3       		ret
+ 292              		.cfi_endproc
+ 293              	.LFE69:
+ 295              		.local	WatchdogState
+ 296              		.comm	WatchdogState,4,4
+ 297              		.ident	"GCC: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
+ 298              		.section	.note.GNU-stack,"",@progbits
+ 299              		.section	.note.gnu.property,"a"
+ 300              		.align 8
+ 301 0000 04000000 		.long	 1f - 0f
+ 302 0004 10000000 		.long	 4f - 1f
+ 303 0008 05000000 		.long	 5
+ 304              	0:
+ 305 000c 474E5500 		.string	 "GNU"
+ 306              	1:
+ 307              		.align 8
+ 308 0010 020000C0 		.long	 0xc0000002
+ 309 0014 04000000 		.long	 3f - 2f
+ 310              	2:
+ 311 0018 03000000 		.long	 0x3
+ 312              	3:
+ 313 001c 00000000 		.align 8
+ 314              	4:
+GAS LISTING /tmp/ccV5aDHq.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulWDT.c
+     /tmp/ccV5aDHq.s:19     .text:0000000000000000 EApiWDogGetCapEmul
+     /tmp/ccV5aDHq.s:68     .text:0000000000000060 EApiWDogStartEmul
+     /tmp/ccV5aDHq.s:296    .bss:0000000000000000 WatchdogState
+     /tmp/ccV5aDHq.s:201    .text:00000000000001c0 EApiWDogTriggerEmul
+     /tmp/ccV5aDHq.s:270    .text:0000000000000260 EApiWDogStopEmul
+     /tmp/ccV5aDHq.s:13     .rodata.str1.1:0000000000000017 .LC3
+     /tmp/ccV5aDHq.s:4      .rodata.str1.1:0000000000000000 .LC0
+     /tmp/ccV5aDHq.s:10     .rodata.str1.8:0000000000000000 .LC2
+     /tmp/ccV5aDHq.s:6      .rodata.str1.1:0000000000000004 .LC1
+     /tmp/ccV5aDHq.s:47     .rodata.str1.1:0000000000000018 .LC4
+     /tmp/ccV5aDHq.s:61     .rodata.str1.8:0000000000000098 .LC8
+     /tmp/ccV5aDHq.s:54     .rodata.str1.1:000000000000002a .LC6
+     /tmp/ccV5aDHq.s:58     .rodata.str1.8:0000000000000078 .LC7
+     /tmp/ccV5aDHq.s:51     .rodata.str1.8:0000000000000040 .LC5
+     /tmp/ccV5aDHq.s:190    .rodata.str1.1:000000000000003c .LC9
+     /tmp/ccV5aDHq.s:194    .rodata.str1.8:00000000000000b8 .LC10
+     /tmp/ccV5aDHq.s:263    .rodata.str1.1:0000000000000050 .LC11
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+siFormattedMessage_SC

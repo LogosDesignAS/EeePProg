@@ -1,0 +1,834 @@
+GAS LISTING /tmp/cc35Sv8U.s 			page 1
+
+
+   1              		.file	"EApiEmulStorage.c"
+   2              		.text
+   3              		.section	.rodata.str1.1,"aMS",@progbits,1
+   4              	.LC0:
+   5 0000 25730A00 		.string	"%s\n"
+   6              	.LC1:
+   7 0004 45417069 		.string	"EApiStorageCapEmul"
+   7      53746F72 
+   7      61676543 
+   7      6170456D 
+   7      756C00
+   8              		.section	.rodata.str1.8,"aMS",@progbits,1
+   9              		.align 8
+  10              	.LC2:
+  11 0000 2F686F6D 		.string	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c"
+  11      652F686B 
+  11      682F6769 
+  11      742F6561 
+  11      7069646B 
+  12              		.section	.rodata.str1.1
+  13              	.LC3:
+  14 0017 556E7265 		.string	"Unrecognised Storage ID"
+  14      636F676E 
+  14      69736564 
+  14      2053746F 
+  14      72616765 
+  15              	.LC4:
+  16 002f 45417069 		.string	"EApiStorageCap"
+  16      53746F72 
+  16      61676543 
+  16      617000
+  17              	.LC5:
+  18 003e 00       		.string	""
+  19              		.text
+  20              		.p2align 4
+  21              		.globl	EApiStorageCapEmul
+  22              		.hidden	EApiStorageCapEmul
+  24              	EApiStorageCapEmul:
+  25              	.LFB89:
+  26              		.cfi_startproc
+  27 0000 F30F1EFA 		endbr64
+  28 0004 4883EC08 		subq	$8, %rsp
+  29              		.cfi_def_cfa_offset 16
+  30 0008 3B3D0000 		cmpl	StorageAreaTbl(%rip), %edi
+  30      0000
+  31 000e 7450     		je	.L4
+  32 0010 3B3D0000 		cmpl	40+StorageAreaTbl(%rip), %edi
+  32      0000
+  33 0016 0F849400 		je	.L5
+  33      0000
+  34 001c 4883EC08 		subq	$8, %rsp
+  35              		.cfi_def_cfa_offset 24
+  36 0020 488D0500 		leaq	.LC3(%rip), %rax
+  36      000000
+  37 0027 B9690000 		movl	$105, %ecx
+  37      00
+  38 002c 41B8FFFC 		movl	$-769, %r8d
+GAS LISTING /tmp/cc35Sv8U.s 			page 2
+
+
+  38      FFFF
+  39 0032 50       		pushq	%rax
+  40              		.cfi_def_cfa_offset 32
+  41 0033 488D3500 		leaq	.LC2(%rip), %rsi
+  41      000000
+  42 003a 31C0     		xorl	%eax, %eax
+  43 003c 4C8D0D00 		leaq	.LC0(%rip), %r9
+  43      000000
+  44 0043 488D1500 		leaq	.LC1(%rip), %rdx
+  44      000000
+  45 004a BF450000 		movl	$69, %edi
+  45      00
+  46 004f E8000000 		call	siFormattedMessage_SC@PLT
+  46      00
+  47 0054 59       		popq	%rcx
+  48              		.cfi_def_cfa_offset 24
+  49 0055 B8FFFCFF 		movl	$-769, %eax
+  49      FF
+  50 005a 5E       		popq	%rsi
+  51              		.cfi_def_cfa_offset 16
+  52              	.L1:
+  53 005b 4883C408 		addq	$8, %rsp
+  54              		.cfi_remember_state
+  55              		.cfi_def_cfa_offset 8
+  56 005f C3       		ret
+  57              		.p2align 4,,10
+  58              		.p2align 3
+  59              	.L4:
+  60              		.cfi_restore_state
+  61 0060 488D0500 		leaq	StorageAreaTbl(%rip), %rax
+  61      000000
+  62              	.L2:
+  63              	.L3:
+  64 0067 F30F1EFA 		endbr64
+  65 006b 8B4804   		movl	4(%rax), %ecx
+  66 006e 4883EC08 		subq	$8, %rsp
+  67              		.cfi_def_cfa_offset 24
+  68 0072 4531C0   		xorl	%r8d, %r8d
+  69 0075 BF4C0000 		movl	$76, %edi
+  69      00
+  70 007a 4C8D0D00 		leaq	.LC0(%rip), %r9
+  70      000000
+  71 0081 890E     		movl	%ecx, (%rsi)
+  72 0083 8B4008   		movl	8(%rax), %eax
+  73 0086 B9660000 		movl	$102, %ecx
+  73      00
+  74 008b 488D3500 		leaq	.LC2(%rip), %rsi
+  74      000000
+  75 0092 8902     		movl	%eax, (%rdx)
+  76 0094 488D0500 		leaq	.LC5(%rip), %rax
+  76      000000
+  77 009b 488D1500 		leaq	.LC4(%rip), %rdx
+  77      000000
+  78 00a2 50       		pushq	%rax
+  79              		.cfi_def_cfa_offset 32
+  80 00a3 31C0     		xorl	%eax, %eax
+  81 00a5 E8000000 		call	siFormattedMessage_SC@PLT
+GAS LISTING /tmp/cc35Sv8U.s 			page 3
+
+
+  81      00
+  82 00aa 58       		popq	%rax
+  83              		.cfi_def_cfa_offset 24
+  84 00ab 31C0     		xorl	%eax, %eax
+  85 00ad 5A       		popq	%rdx
+  86              		.cfi_def_cfa_offset 16
+  87 00ae EBAB     		jmp	.L1
+  88              		.p2align 4,,10
+  89              		.p2align 3
+  90              	.L5:
+  91 00b0 488D0500 		leaq	40+StorageAreaTbl(%rip), %rax
+  91      000000
+  92 00b7 EBAE     		jmp	.L2
+  93              		.cfi_endproc
+  94              	.LFE89:
+  96              		.section	.rodata.str1.1
+  97              	.LC6:
+  98 003f 45417069 		.string	"EApiStorageAreaReadEmul"
+  98      53746F72 
+  98      61676541 
+  98      72656152 
+  98      65616445 
+  99              		.section	.rodata.str1.8
+ 100 0043 00000000 		.align 8
+ 100      00
+ 101              	.LC7:
+ 102 0048 52656164 		.string	"Read Len extends beyond End of Storage Area"
+ 102      204C656E 
+ 102      20657874 
+ 102      656E6473 
+ 102      20626579 
+ 103              		.section	.rodata.str1.1
+ 104              	.LC8:
+ 105 0057 45417069 		.string	"EApiStorageAreaRead"
+ 105      53746F72 
+ 105      61676541 
+ 105      72656152 
+ 105      65616400 
+ 106              		.text
+ 107 00b9 0F1F8000 		.p2align 4
+ 107      000000
+ 108              		.globl	EApiStorageAreaReadEmul
+ 109              		.hidden	EApiStorageAreaReadEmul
+ 111              	EApiStorageAreaReadEmul:
+ 112              	.LFB90:
+ 113              		.cfi_startproc
+ 114 00c0 F30F1EFA 		endbr64
+ 115 00c4 55       		pushq	%rbp
+ 116              		.cfi_def_cfa_offset 16
+ 117              		.cfi_offset 6, -16
+ 118 00c5 4889D5   		movq	%rdx, %rbp
+ 119 00c8 53       		pushq	%rbx
+ 120              		.cfi_def_cfa_offset 24
+ 121              		.cfi_offset 3, -24
+ 122 00c9 4883EC18 		subq	$24, %rsp
+ 123              		.cfi_def_cfa_offset 48
+ 124 00cd 3B3D0000 		cmpl	StorageAreaTbl(%rip), %edi
+GAS LISTING /tmp/cc35Sv8U.s 			page 4
+
+
+ 124      0000
+ 125 00d3 745B     		je	.L12
+ 126 00d5 3B3D0000 		cmpl	40+StorageAreaTbl(%rip), %edi
+ 126      0000
+ 127 00db 0F84CF00 		je	.L13
+ 127      0000
+ 128 00e1 4883EC08 		subq	$8, %rsp
+ 129              		.cfi_def_cfa_offset 56
+ 130 00e5 41B8FFFC 		movl	$-769, %r8d
+ 130      FFFF
+ 131 00eb 488D0500 		leaq	.LC3(%rip), %rax
+ 131      000000
+ 132 00f2 BF450000 		movl	$69, %edi
+ 132      00
+ 133 00f7 50       		pushq	%rax
+ 134              		.cfi_def_cfa_offset 64
+ 135 00f8 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 135      000000
+ 136 00ff 31C0     		xorl	%eax, %eax
+ 137 0101 B9980000 		movl	$152, %ecx
+ 137      00
+ 138 0106 488D1500 		leaq	.LC6(%rip), %rdx
+ 138      000000
+ 139 010d 488D3500 		leaq	.LC2(%rip), %rsi
+ 139      000000
+ 140 0114 E8000000 		call	siFormattedMessage_SC@PLT
+ 140      00
+ 141 0119 5F       		popq	%rdi
+ 142              		.cfi_def_cfa_offset 56
+ 143 011a B8FFFCFF 		movl	$-769, %eax
+ 143      FF
+ 144 011f 4158     		popq	%r8
+ 145              		.cfi_def_cfa_offset 48
+ 146              	.L8:
+ 147 0121 4883C418 		addq	$24, %rsp
+ 148              		.cfi_remember_state
+ 149              		.cfi_def_cfa_offset 24
+ 150 0125 5B       		popq	%rbx
+ 151              		.cfi_def_cfa_offset 16
+ 152 0126 5D       		popq	%rbp
+ 153              		.cfi_def_cfa_offset 8
+ 154 0127 C3       		ret
+ 155 0128 0F1F8400 		.p2align 4,,10
+ 155      00000000 
+ 156              		.p2align 3
+ 157              	.L12:
+ 158              		.cfi_restore_state
+ 159 0130 488D1D00 		leaq	StorageAreaTbl(%rip), %rbx
+ 159      000000
+ 160              	.L9:
+ 161 0137 8D040E   		leal	(%rsi,%rcx), %eax
+ 162 013a 3B4304   		cmpl	4(%rbx), %eax
+ 163 013d 0F877D00 		ja	.L15
+ 163      0000
+ 164              	.L10:
+ 165 0143 F30F1EFA 		endbr64
+ 166 0147 488B7B20 		movq	32(%rbx), %rdi
+GAS LISTING /tmp/cc35Sv8U.s 			page 5
+
+
+ 167 014b 89F6     		movl	%esi, %esi
+ 168 014d 31D2     		xorl	%edx, %edx
+ 169 014f 894C240C 		movl	%ecx, 12(%rsp)
+ 170 0153 E8000000 		call	fseek@PLT
+ 170      00
+ 171 0158 4C8B4320 		movq	32(%rbx), %r8
+ 172 015c 8B54240C 		movl	12(%rsp), %edx
+ 173 0160 4889EF   		movq	%rbp, %rdi
+ 174 0163 BE010000 		movl	$1, %esi
+ 174      00
+ 175 0168 4C89C1   		movq	%r8, %rcx
+ 176 016b E8000000 		call	fread@PLT
+ 176      00
+ 177 0170 4883EC08 		subq	$8, %rsp
+ 178              		.cfi_def_cfa_offset 56
+ 179 0174 4531C0   		xorl	%r8d, %r8d
+ 180 0177 488D0500 		leaq	.LC5(%rip), %rax
+ 180      000000
+ 181 017e 50       		pushq	%rax
+ 182              		.cfi_def_cfa_offset 64
+ 183 017f 488D1500 		leaq	.LC8(%rip), %rdx
+ 183      000000
+ 184 0186 31C0     		xorl	%eax, %eax
+ 185 0188 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 185      000000
+ 186 018f B9950000 		movl	$149, %ecx
+ 186      00
+ 187 0194 488D3500 		leaq	.LC2(%rip), %rsi
+ 187      000000
+ 188 019b BF4C0000 		movl	$76, %edi
+ 188      00
+ 189 01a0 E8000000 		call	siFormattedMessage_SC@PLT
+ 189      00
+ 190 01a5 58       		popq	%rax
+ 191              		.cfi_def_cfa_offset 56
+ 192 01a6 31C0     		xorl	%eax, %eax
+ 193 01a8 5A       		popq	%rdx
+ 194              		.cfi_def_cfa_offset 48
+ 195 01a9 E973FFFF 		jmp	.L8
+ 195      FF
+ 196 01ae 6690     		.p2align 4,,10
+ 197              		.p2align 3
+ 198              	.L13:
+ 199 01b0 488D1D00 		leaq	40+StorageAreaTbl(%rip), %rbx
+ 199      000000
+ 200 01b7 E97BFFFF 		jmp	.L9
+ 200      FF
+ 201 01bc 0F1F4000 		.p2align 4,,10
+ 202              		.p2align 3
+ 203              	.L15:
+ 204 01c0 4883EC08 		subq	$8, %rsp
+ 205              		.cfi_def_cfa_offset 56
+ 206 01c4 488D0500 		leaq	.LC7(%rip), %rax
+ 206      000000
+ 207 01cb B9860000 		movl	$134, %ecx
+ 207      00
+ 208 01d0 41B8FDFE 		movl	$-259, %r8d
+GAS LISTING /tmp/cc35Sv8U.s 			page 6
+
+
+ 208      FFFF
+ 209 01d6 50       		pushq	%rax
+ 210              		.cfi_def_cfa_offset 64
+ 211 01d7 488D3500 		leaq	.LC2(%rip), %rsi
+ 211      000000
+ 212 01de 31C0     		xorl	%eax, %eax
+ 213 01e0 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 213      000000
+ 214 01e7 488D1500 		leaq	.LC6(%rip), %rdx
+ 214      000000
+ 215 01ee BF450000 		movl	$69, %edi
+ 215      00
+ 216 01f3 E8000000 		call	siFormattedMessage_SC@PLT
+ 216      00
+ 217 01f8 59       		popq	%rcx
+ 218              		.cfi_def_cfa_offset 56
+ 219 01f9 B8FDFEFF 		movl	$-259, %eax
+ 219      FF
+ 220 01fe 5E       		popq	%rsi
+ 221              		.cfi_def_cfa_offset 48
+ 222 01ff E91DFFFF 		jmp	.L8
+ 222      FF
+ 223              		.cfi_endproc
+ 224              	.LFE90:
+ 226              		.section	.rodata.str1.1
+ 227              	.LC9:
+ 228 006b 45417069 		.string	"EApiStorageAreaWrite"
+ 228      53746F72 
+ 228      61676541 
+ 228      72656157 
+ 228      72697465 
+ 229              	.LC10:
+ 230 0080 45417069 		.string	"EApiStorageAreaWriteEmul"
+ 230      53746F72 
+ 230      61676541 
+ 230      72656157 
+ 230      72697465 
+ 231              	.LC11:
+ 232 0099 57726974 		.string	"Write length Not Aligned"
+ 232      65206C65 
+ 232      6E677468 
+ 232      204E6F74 
+ 232      20416C69 
+ 233              		.section	.rodata.str1.8
+ 234 0074 00000000 		.align 8
+ 235              	.LC12:
+ 236 0078 57726974 		.string	"Write Base Address Not Aligned"
+ 236      65204261 
+ 236      73652041 
+ 236      64647265 
+ 236      7373204E 
+ 237 0097 00       		.align 8
+ 238              	.LC13:
+ 239 0098 57726974 		.string	"Write Len extends beyond End of Storage Area"
+ 239      65204C65 
+ 239      6E206578 
+ 239      74656E64 
+GAS LISTING /tmp/cc35Sv8U.s 			page 7
+
+
+ 239      73206265 
+ 240              		.text
+ 241 0204 66662E0F 		.p2align 4
+ 241      1F840000 
+ 241      00000090 
+ 242              		.globl	EApiStorageAreaWriteEmul
+ 243              		.hidden	EApiStorageAreaWriteEmul
+ 245              	EApiStorageAreaWriteEmul:
+ 246              	.LFB91:
+ 247              		.cfi_startproc
+ 248 0210 F30F1EFA 		endbr64
+ 249 0214 4154     		pushq	%r12
+ 250              		.cfi_def_cfa_offset 16
+ 251              		.cfi_offset 12, -16
+ 252 0216 55       		pushq	%rbp
+ 253              		.cfi_def_cfa_offset 24
+ 254              		.cfi_offset 6, -24
+ 255 0217 4889D5   		movq	%rdx, %rbp
+ 256 021a 53       		pushq	%rbx
+ 257              		.cfi_def_cfa_offset 32
+ 258              		.cfi_offset 3, -32
+ 259 021b 4883EC10 		subq	$16, %rsp
+ 260              		.cfi_def_cfa_offset 48
+ 261 021f 3B3D0000 		cmpl	StorageAreaTbl(%rip), %edi
+ 261      0000
+ 262 0225 7461     		je	.L22
+ 263 0227 3B3D0000 		cmpl	40+StorageAreaTbl(%rip), %edi
+ 263      0000
+ 264 022d 0F84F500 		je	.L23
+ 264      0000
+ 265 0233 4883EC08 		subq	$8, %rsp
+ 266              		.cfi_def_cfa_offset 56
+ 267 0237 B9D10000 		movl	$209, %ecx
+ 267      00
+ 268 023c BF450000 		movl	$69, %edi
+ 268      00
+ 269 0241 41B8FFFC 		movl	$-769, %r8d
+ 269      FFFF
+ 270 0247 488D0500 		leaq	.LC3(%rip), %rax
+ 270      000000
+ 271 024e 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 271      000000
+ 272 0255 41BCFFFC 		movl	$-769, %r12d
+ 272      FFFF
+ 273 025b 50       		pushq	%rax
+ 274              		.cfi_def_cfa_offset 64
+ 275 025c 488D1500 		leaq	.LC9(%rip), %rdx
+ 275      000000
+ 276 0263 488D3500 		leaq	.LC2(%rip), %rsi
+ 276      000000
+ 277 026a 31C0     		xorl	%eax, %eax
+ 278 026c E8000000 		call	siFormattedMessage_SC@PLT
+ 278      00
+ 279 0271 4159     		popq	%r9
+ 280              		.cfi_def_cfa_offset 56
+ 281 0273 415A     		popq	%r10
+ 282              		.cfi_def_cfa_offset 48
+GAS LISTING /tmp/cc35Sv8U.s 			page 8
+
+
+ 283              	.L16:
+ 284 0275 4883C410 		addq	$16, %rsp
+ 285              		.cfi_remember_state
+ 286              		.cfi_def_cfa_offset 32
+ 287 0279 4489E0   		movl	%r12d, %eax
+ 288 027c 5B       		popq	%rbx
+ 289              		.cfi_def_cfa_offset 24
+ 290 027d 5D       		popq	%rbp
+ 291              		.cfi_def_cfa_offset 16
+ 292 027e 415C     		popq	%r12
+ 293              		.cfi_def_cfa_offset 8
+ 294 0280 C3       		ret
+ 295              		.p2align 4,,10
+ 296 0281 0F1F8000 		.p2align 3
+ 296      000000
+ 297              	.L22:
+ 298              		.cfi_restore_state
+ 299 0288 488D1D00 		leaq	StorageAreaTbl(%rip), %rbx
+ 299      000000
+ 300              	.L17:
+ 301 028f 8B7B08   		movl	8(%rbx), %edi
+ 302 0292 89C8     		movl	%ecx, %eax
+ 303 0294 31D2     		xorl	%edx, %edx
+ 304 0296 F7F7     		divl	%edi
+ 305 0298 85D2     		testl	%edx, %edx
+ 306 029a 0F85D900 		jne	.L26
+ 306      0000
+ 307 02a0 89F0     		movl	%esi, %eax
+ 308 02a2 31D2     		xorl	%edx, %edx
+ 309 02a4 F7F7     		divl	%edi
+ 310 02a6 4189D4   		movl	%edx, %r12d
+ 311 02a9 85D2     		testl	%edx, %edx
+ 312 02ab 0F850E01 		jne	.L27
+ 312      0000
+ 313 02b1 8D0431   		leal	(%rcx,%rsi), %eax
+ 314 02b4 3B4304   		cmpl	4(%rbx), %eax
+ 315 02b7 777B     		ja	.L28
+ 316              	.L18:
+ 317 02b9 F30F1EFA 		endbr64
+ 318 02bd 488B7B20 		movq	32(%rbx), %rdi
+ 319 02c1 89F6     		movl	%esi, %esi
+ 320 02c3 31D2     		xorl	%edx, %edx
+ 321 02c5 894C240C 		movl	%ecx, 12(%rsp)
+ 322 02c9 E8000000 		call	fseek@PLT
+ 322      00
+ 323 02ce 4C8B4320 		movq	32(%rbx), %r8
+ 324 02d2 8B54240C 		movl	12(%rsp), %edx
+ 325 02d6 4889EF   		movq	%rbp, %rdi
+ 326 02d9 BE010000 		movl	$1, %esi
+ 326      00
+ 327 02de 4C89C1   		movq	%r8, %rcx
+ 328 02e1 E8000000 		call	fwrite@PLT
+ 328      00
+ 329 02e6 4883EC08 		subq	$8, %rsp
+ 330              		.cfi_def_cfa_offset 56
+ 331 02ea 4531C0   		xorl	%r8d, %r8d
+ 332 02ed 488D0500 		leaq	.LC5(%rip), %rax
+GAS LISTING /tmp/cc35Sv8U.s 			page 9
+
+
+ 332      000000
+ 333 02f4 50       		pushq	%rax
+ 334              		.cfi_def_cfa_offset 64
+ 335 02f5 488D1500 		leaq	.LC10(%rip), %rdx
+ 335      000000
+ 336 02fc 31C0     		xorl	%eax, %eax
+ 337 02fe 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 337      000000
+ 338 0305 B9CE0000 		movl	$206, %ecx
+ 338      00
+ 339 030a 488D3500 		leaq	.LC2(%rip), %rsi
+ 339      000000
+ 340 0311 BF4C0000 		movl	$76, %edi
+ 340      00
+ 341 0316 E8000000 		call	siFormattedMessage_SC@PLT
+ 341      00
+ 342 031b 58       		popq	%rax
+ 343              		.cfi_def_cfa_offset 56
+ 344 031c 5A       		popq	%rdx
+ 345              		.cfi_def_cfa_offset 48
+ 346 031d E953FFFF 		jmp	.L16
+ 346      FF
+ 347              		.p2align 4,,10
+ 348 0322 660F1F44 		.p2align 3
+ 348      0000
+ 349              	.L23:
+ 350 0328 488D1D00 		leaq	40+StorageAreaTbl(%rip), %rbx
+ 350      000000
+ 351 032f E95BFFFF 		jmp	.L17
+ 351      FF
+ 352              	.L28:
+ 353 0334 4883EC08 		subq	$8, %rsp
+ 354              		.cfi_def_cfa_offset 56
+ 355 0338 488D0500 		leaq	.LC13(%rip), %rax
+ 355      000000
+ 356 033f B9C10000 		movl	$193, %ecx
+ 356      00
+ 357 0344 41B8FDFE 		movl	$-259, %r8d
+ 357      FFFF
+ 358 034a 50       		pushq	%rax
+ 359              		.cfi_def_cfa_offset 64
+ 360 034b 488D3500 		leaq	.LC2(%rip), %rsi
+ 360      000000
+ 361 0352 31C0     		xorl	%eax, %eax
+ 362 0354 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 362      000000
+ 363 035b 488D1500 		leaq	.LC10(%rip), %rdx
+ 363      000000
+ 364 0362 BF450000 		movl	$69, %edi
+ 364      00
+ 365 0367 41BCFDFE 		movl	$-259, %r12d
+ 365      FFFF
+ 366 036d E8000000 		call	siFormattedMessage_SC@PLT
+ 366      00
+ 367 0372 59       		popq	%rcx
+ 368              		.cfi_def_cfa_offset 56
+ 369 0373 5E       		popq	%rsi
+GAS LISTING /tmp/cc35Sv8U.s 			page 10
+
+
+ 370              		.cfi_def_cfa_offset 48
+ 371 0374 E9FCFEFF 		jmp	.L16
+ 371      FF
+ 372              	.L26:
+ 373 0379 4883EC08 		subq	$8, %rsp
+ 374              		.cfi_def_cfa_offset 56
+ 375 037d 488D0500 		leaq	.LC11(%rip), %rax
+ 375      000000
+ 376 0384 B9B50000 		movl	$181, %ecx
+ 376      00
+ 377 0389 41B8FEFE 		movl	$-258, %r8d
+ 377      FFFF
+ 378 038f 50       		pushq	%rax
+ 379              		.cfi_def_cfa_offset 64
+ 380 0390 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 380      000000
+ 381              	.L25:
+ 382 0397 BF450000 		movl	$69, %edi
+ 382      00
+ 383 039c 488D1500 		leaq	.LC10(%rip), %rdx
+ 383      000000
+ 384 03a3 31C0     		xorl	%eax, %eax
+ 385 03a5 41BCFEFE 		movl	$-258, %r12d
+ 385      FFFF
+ 386 03ab 488D3500 		leaq	.LC2(%rip), %rsi
+ 386      000000
+ 387 03b2 E8000000 		call	siFormattedMessage_SC@PLT
+ 387      00
+ 388 03b7 5F       		popq	%rdi
+ 389              		.cfi_def_cfa_offset 56
+ 390 03b8 4158     		popq	%r8
+ 391              		.cfi_def_cfa_offset 48
+ 392 03ba E9B6FEFF 		jmp	.L16
+ 392      FF
+ 393              	.L27:
+ 394 03bf 4883EC08 		subq	$8, %rsp
+ 395              		.cfi_def_cfa_offset 56
+ 396 03c3 488D0500 		leaq	.LC12(%rip), %rax
+ 396      000000
+ 397 03ca B9BB0000 		movl	$187, %ecx
+ 397      00
+ 398 03cf 41B8FEFE 		movl	$-258, %r8d
+ 398      FFFF
+ 399 03d5 50       		pushq	%rax
+ 400              		.cfi_def_cfa_offset 64
+ 401 03d6 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 401      000000
+ 402 03dd EBB8     		jmp	.L25
+ 403              		.cfi_endproc
+ 404              	.LFE91:
+ 406              		.section	.rodata.str1.1
+ 407              	.LC14:
+ 408 00b2 72622B00 		.string	"rb+"
+ 409              	.LC15:
+ 410 00b6 77622B00 		.string	"wb+"
+ 411              		.text
+ 412 03df 90       		.p2align 4
+GAS LISTING /tmp/cc35Sv8U.s 			page 11
+
+
+ 413              		.globl	OpenEepromFiles
+ 414              		.hidden	OpenEepromFiles
+ 416              	OpenEepromFiles:
+ 417              	.LFB92:
+ 418              		.cfi_startproc
+ 419 03e0 F30F1EFA 		endbr64
+ 420 03e4 4154     		pushq	%r12
+ 421              		.cfi_def_cfa_offset 16
+ 422              		.cfi_offset 12, -16
+ 423 03e6 55       		pushq	%rbp
+ 424              		.cfi_def_cfa_offset 24
+ 425              		.cfi_offset 6, -24
+ 426 03e7 488D2D00 		leaq	.LC14(%rip), %rbp
+ 426      000000
+ 427 03ee 53       		pushq	%rbx
+ 428              		.cfi_def_cfa_offset 32
+ 429              		.cfi_offset 3, -32
+ 430 03ef 488D1D00 		leaq	StorageAreaTbl(%rip), %rbx
+ 430      000000
+ 431 03f6 4C8D6350 		leaq	80(%rbx), %r12
+ 432              	.L33:
+ 433 03fa 488B7B18 		movq	24(%rbx), %rdi
+ 434 03fe 4889EE   		movq	%rbp, %rsi
+ 435 0401 E8000000 		call	fopen@PLT
+ 435      00
+ 436 0406 48894320 		movq	%rax, 32(%rbx)
+ 437 040a 4885C0   		testq	%rax, %rax
+ 438 040d 7439     		je	.L36
+ 439              	.L30:
+ 440 040f BA020000 		movl	$2, %edx
+ 440      00
+ 441 0414 31F6     		xorl	%esi, %esi
+ 442 0416 4889C7   		movq	%rax, %rdi
+ 443 0419 E8000000 		call	fseek@PLT
+ 443      00
+ 444 041e 488B7B20 		movq	32(%rbx), %rdi
+ 445 0422 E8000000 		call	ftell@PLT
+ 445      00
+ 446 0427 4989C0   		movq	%rax, %r8
+ 447 042a 48634304 		movslq	4(%rbx), %rax
+ 448 042e 4939C0   		cmpq	%rax, %r8
+ 449 0431 7C35     		jl	.L37
+ 450              	.L31:
+ 451 0433 4883C328 		addq	$40, %rbx
+ 452 0437 4C39E3   		cmpq	%r12, %rbx
+ 453 043a 75BE     		jne	.L33
+ 454 043c 5B       		popq	%rbx
+ 455              		.cfi_remember_state
+ 456              		.cfi_def_cfa_offset 24
+ 457 043d 31C0     		xorl	%eax, %eax
+ 458 043f 5D       		popq	%rbp
+ 459              		.cfi_def_cfa_offset 16
+ 460 0440 415C     		popq	%r12
+ 461              		.cfi_def_cfa_offset 8
+ 462 0442 C3       		ret
+ 463              		.p2align 4,,10
+ 464 0443 0F1F4400 		.p2align 3
+GAS LISTING /tmp/cc35Sv8U.s 			page 12
+
+
+ 464      00
+ 465              	.L36:
+ 466              		.cfi_restore_state
+ 467 0448 488B7B18 		movq	24(%rbx), %rdi
+ 468 044c 488D3500 		leaq	.LC15(%rip), %rsi
+ 468      000000
+ 469 0453 E8000000 		call	fopen@PLT
+ 469      00
+ 470 0458 48894320 		movq	%rax, 32(%rbx)
+ 471 045c 4885C0   		testq	%rax, %rax
+ 472 045f 74D2     		je	.L31
+ 473 0461 EBAC     		jmp	.L30
+ 474              		.p2align 4,,10
+ 475 0463 0F1F4400 		.p2align 3
+ 475      00
+ 476              	.L37:
+ 477 0468 488B7B20 		movq	32(%rbx), %rdi
+ 478 046c E8000000 		call	rewind@PLT
+ 478      00
+ 479 0471 488B4B20 		movq	32(%rbx), %rcx
+ 480 0475 8B5304   		movl	4(%rbx), %edx
+ 481 0478 BE010000 		movl	$1, %esi
+ 481      00
+ 482 047d 488B7B10 		movq	16(%rbx), %rdi
+ 483 0481 E8000000 		call	fwrite@PLT
+ 483      00
+ 484 0486 EBAB     		jmp	.L31
+ 485              		.cfi_endproc
+ 486              	.LFE92:
+ 488 0488 0F1F8400 		.p2align 4
+ 488      00000000 
+ 489              		.globl	CloseEepromFiles
+ 490              		.hidden	CloseEepromFiles
+ 492              	CloseEepromFiles:
+ 493              	.LFB93:
+ 494              		.cfi_startproc
+ 495 0490 F30F1EFA 		endbr64
+ 496 0494 4883EC08 		subq	$8, %rsp
+ 497              		.cfi_def_cfa_offset 16
+ 498 0498 488B3D00 		movq	32+StorageAreaTbl(%rip), %rdi
+ 498      000000
+ 499 049f 4885FF   		testq	%rdi, %rdi
+ 500 04a2 7410     		je	.L39
+ 501 04a4 E8000000 		call	fclose@PLT
+ 501      00
+ 502 04a9 48C70500 		movq	$0, 32+StorageAreaTbl(%rip)
+ 502      00000000 
+ 502      000000
+ 503              	.L39:
+ 504 04b4 488B3D00 		movq	72+StorageAreaTbl(%rip), %rdi
+ 504      000000
+ 505 04bb 4885FF   		testq	%rdi, %rdi
+ 506 04be 7410     		je	.L40
+ 507 04c0 E8000000 		call	fclose@PLT
+ 507      00
+ 508 04c5 48C70500 		movq	$0, 72+StorageAreaTbl(%rip)
+ 508      00000000 
+GAS LISTING /tmp/cc35Sv8U.s 			page 13
+
+
+ 508      000000
+ 509              	.L40:
+ 510 04d0 31C0     		xorl	%eax, %eax
+ 511 04d2 4883C408 		addq	$8, %rsp
+ 512              		.cfi_def_cfa_offset 8
+ 513 04d6 C3       		ret
+ 514              		.cfi_endproc
+ 515              	.LFE93:
+ 517              		.hidden	StorageAreaTbl
+ 518              		.globl	StorageAreaTbl
+ 519              		.section	.rodata.str1.1
+ 520              	.LC16:
+ 521 00ba 45417069 		.string	"EApiStorage0.EMUL"
+ 521      53746F72 
+ 521      61676530 
+ 521      2E454D55 
+ 521      4C00
+ 522              	.LC17:
+ 523 00cc 45417069 		.string	"EApiStorage1.EMUL"
+ 523      53746F72 
+ 523      61676531 
+ 523      2E454D55 
+ 523      4C00
+ 524              		.section	.data.rel.local,"aw"
+ 525              		.align 32
+ 528              	StorageAreaTbl:
+ 529 0000 00000000 		.long	0
+ 530 0004 20000000 		.long	32
+ 531 0008 01000000 		.long	1
+ 532 000c 00000000 		.zero	4
+ 533 0010 00000000 		.quad	StorageID0
+ 533      00000000 
+ 534 0018 00000000 		.quad	.LC16
+ 534      00000000 
+ 535 0020 00000000 		.quad	0
+ 535      00000000 
+ 536 0028 001074FA 		.long	-93057024
+ 537 002c 00100000 		.long	4096
+ 538 0030 00040000 		.long	1024
+ 539 0034 00000000 		.zero	4
+ 540 0038 00000000 		.quad	StorageID1
+ 540      00000000 
+ 541 0040 00000000 		.quad	.LC17
+ 541      00000000 
+ 542 0048 00000000 		.quad	0
+ 542      00000000 
+ 543              		.local	StorageID1
+ 544              		.comm	StorageID1,4096,32
+ 545              		.local	StorageID0
+ 546              		.comm	StorageID0,32,32
+ 547              		.ident	"GCC: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
+ 548              		.section	.note.GNU-stack,"",@progbits
+ 549              		.section	.note.gnu.property,"a"
+ 550              		.align 8
+ 551 0000 04000000 		.long	 1f - 0f
+ 552 0004 10000000 		.long	 4f - 1f
+ 553 0008 05000000 		.long	 5
+GAS LISTING /tmp/cc35Sv8U.s 			page 14
+
+
+ 554              	0:
+ 555 000c 474E5500 		.string	 "GNU"
+ 556              	1:
+ 557              		.align 8
+ 558 0010 020000C0 		.long	 0xc0000002
+ 559 0014 04000000 		.long	 3f - 2f
+ 560              	2:
+ 561 0018 03000000 		.long	 0x3
+ 562              	3:
+ 563 001c 00000000 		.align 8
+ 564              	4:
+GAS LISTING /tmp/cc35Sv8U.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulStorage.c
+     /tmp/cc35Sv8U.s:24     .text:0000000000000000 EApiStorageCapEmul
+     /tmp/cc35Sv8U.s:528    .data.rel.local:0000000000000000 StorageAreaTbl
+     /tmp/cc35Sv8U.s:111    .text:00000000000000c0 EApiStorageAreaReadEmul
+     /tmp/cc35Sv8U.s:245    .text:0000000000000210 EApiStorageAreaWriteEmul
+     /tmp/cc35Sv8U.s:416    .text:00000000000003e0 OpenEepromFiles
+     /tmp/cc35Sv8U.s:492    .text:0000000000000490 CloseEepromFiles
+     /tmp/cc35Sv8U.s:546    .bss:0000000000001000 StorageID0
+     /tmp/cc35Sv8U.s:544    .bss:0000000000000000 StorageID1
+     /tmp/cc35Sv8U.s:13     .rodata.str1.1:0000000000000017 .LC3
+     /tmp/cc35Sv8U.s:10     .rodata.str1.8:0000000000000000 .LC2
+     /tmp/cc35Sv8U.s:4      .rodata.str1.1:0000000000000000 .LC0
+     /tmp/cc35Sv8U.s:6      .rodata.str1.1:0000000000000004 .LC1
+     /tmp/cc35Sv8U.s:17     .rodata.str1.1:000000000000003e .LC5
+     /tmp/cc35Sv8U.s:15     .rodata.str1.1:000000000000002f .LC4
+     /tmp/cc35Sv8U.s:97     .rodata.str1.1:000000000000003f .LC6
+     /tmp/cc35Sv8U.s:104    .rodata.str1.1:0000000000000057 .LC8
+     /tmp/cc35Sv8U.s:101    .rodata.str1.8:0000000000000048 .LC7
+     /tmp/cc35Sv8U.s:227    .rodata.str1.1:000000000000006b .LC9
+     /tmp/cc35Sv8U.s:229    .rodata.str1.1:0000000000000080 .LC10
+     /tmp/cc35Sv8U.s:238    .rodata.str1.8:0000000000000098 .LC13
+     /tmp/cc35Sv8U.s:231    .rodata.str1.1:0000000000000099 .LC11
+     /tmp/cc35Sv8U.s:235    .rodata.str1.8:0000000000000078 .LC12
+     /tmp/cc35Sv8U.s:407    .rodata.str1.1:00000000000000b2 .LC14
+     /tmp/cc35Sv8U.s:409    .rodata.str1.1:00000000000000b6 .LC15
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+siFormattedMessage_SC
+fseek
+fread
+fwrite
+fopen
+ftell
+rewind
+fclose

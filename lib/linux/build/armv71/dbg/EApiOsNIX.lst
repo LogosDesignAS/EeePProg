@@ -1,0 +1,246 @@
+ARM GAS  /tmp/ccfsVxnt.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiOsNIX.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.rodata
+  17              		.align	2
+  18              	.LC0:
+  19 0000 696E6974 		.ascii	"initializing\000"
+  19      69616C69 
+  19      7A696E67 
+  19      00
+  20              		.text
+  21              		.align	2
+  22              		.arch armv7-a
+  23              		.arch_extension mp
+  24              		.arch_extension sec
+  25              		.syntax unified
+  26              		.arm
+  27              		.fpu vfpv3
+  29              	init:
+  30              	.LFB1:
+  31              		.file 1 "EApiOsNIX.c"
+   1:EApiOsNIX.c   **** /*
+   2:EApiOsNIX.c   ****  *<KHeader>
+   3:EApiOsNIX.c   ****  *+=========================================================================
+   4:EApiOsNIX.c   ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:EApiOsNIX.c   ****  *+=========================================================================
+   6:EApiOsNIX.c   ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/linux/EApiOsNIX.c $
+   7:EApiOsNIX.c   ****  *+=========================================================================
+   8:EApiOsNIX.c   ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:EApiOsNIX.c   ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:EApiOsNIX.c   ****  *I
+  11:EApiOsNIX.c   ****  *I     License: All rights reserved. This program and the accompanying 
+  12:EApiOsNIX.c   ****  *I              materials are licensed and made available under the 
+  13:EApiOsNIX.c   ****  *I              terms and conditions of the BSD License which 
+  14:EApiOsNIX.c   ****  *I              accompanies this distribution. The full text of the 
+  15:EApiOsNIX.c   ****  *I              license may be found at 
+  16:EApiOsNIX.c   ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:EApiOsNIX.c   ****  *I              
+  18:EApiOsNIX.c   ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:EApiOsNIX.c   ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:EApiOsNIX.c   ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:EApiOsNIX.c   ****  *I
+  22:EApiOsNIX.c   ****  *I Description: Auto Created for EApiOsNIX.c
+  23:EApiOsNIX.c   ****  *I
+  24:EApiOsNIX.c   ****  *+-------------------------------------------------------------------------
+ARM GAS  /tmp/ccfsVxnt.s 			page 2
+
+
+  25:EApiOsNIX.c   ****  *I
+  26:EApiOsNIX.c   ****  *I  File Name            : EApiOsNIX.c
+  27:EApiOsNIX.c   ****  *I  File Location        : lib\linux
+  28:EApiOsNIX.c   ****  *I  Last committed       : $Revision: 38 $
+  29:EApiOsNIX.c   ****  *I  Last changed by      : $Author: dethrophes $
+  30:EApiOsNIX.c   ****  *I  Last changed date    : $Date: 2010-01-26 06:48:22 +0000 (Tue, 26 Jan 2010) $
+  31:EApiOsNIX.c   ****  *I  ID                   : $Id: EApiOsNIX.c 38 2010-01-26 06:48:22Z dethrophes $
+  32:EApiOsNIX.c   ****  *I
+  33:EApiOsNIX.c   ****  *+=========================================================================
+  34:EApiOsNIX.c   ****  *</KHeader>
+  35:EApiOsNIX.c   ****  */
+  36:EApiOsNIX.c   ****   #include <EApiLib.h>
+  37:EApiOsNIX.c   ****   #include <stdio.h>
+  38:EApiOsNIX.c   ****   #include <time.h>
+  39:EApiOsNIX.c   ****   
+  40:EApiOsNIX.c   **** 
+  41:EApiOsNIX.c   **** 
+  42:EApiOsNIX.c   **** static void init (void) __attribute__ ((constructor));
+  43:EApiOsNIX.c   **** static void fini (void) __attribute__ ((destructor));
+  44:EApiOsNIX.c   **** void init (void)
+  45:EApiOsNIX.c   **** { 
+  32              		.loc 1 45 1
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36 0000 00482DE9 		push	{fp, lr}
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 11, -8
+  39              		.cfi_offset 14, -4
+  40 0004 04B08DE2 		add	fp, sp, #4
+  41              		.cfi_def_cfa 11, 4
+  46:EApiOsNIX.c   ****   printf("initializing\n");
+  42              		.loc 1 46 3
+  43 0008 10309FE5 		ldr	r3, .L3
+  44              	.LPIC0:
+  45 000c 03308FE0 		add	r3, pc, r3
+  46 0010 0300A0E1 		mov	r0, r3
+  47 0014 FEFFFFEB 		bl	puts(PLT)
+  47:EApiOsNIX.c   **** 	return ;
+  48              		.loc 1 47 2
+  49 0018 00F020E3 		nop
+  48:EApiOsNIX.c   **** }
+  50              		.loc 1 48 1
+  51 001c 0088BDE8 		pop	{fp, pc}
+  52              	.L4:
+  53              		.align	2
+  54              	.L3:
+  55 0020 0C000000 		.word	.LC0-(.LPIC0+8)
+  56              		.cfi_endproc
+  57              	.LFE1:
+  59              		.section	.init_array,"aw",%init_array
+  60              		.align	2
+  61 0000 00000000 		.word	init(target1)
+  62              		.section	.rodata
+  63 000d 000000   		.align	2
+  64              	.LC1:
+  65 0010 66696E69 		.ascii	"finishing\000"
+ARM GAS  /tmp/ccfsVxnt.s 			page 3
+
+
+  65      7368696E 
+  65      6700
+  66              		.text
+  67              		.align	2
+  68              		.syntax unified
+  69              		.arm
+  70              		.fpu vfpv3
+  72              	fini:
+  73              	.LFB2:
+  49:EApiOsNIX.c   **** 
+  50:EApiOsNIX.c   **** void fini (void)
+  51:EApiOsNIX.c   **** { 
+  74              		.loc 1 51 1
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 1, uses_anonymous_args = 0
+  78 0024 00482DE9 		push	{fp, lr}
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 11, -8
+  81              		.cfi_offset 14, -4
+  82 0028 04B08DE2 		add	fp, sp, #4
+  83              		.cfi_def_cfa 11, 4
+  52:EApiOsNIX.c   ****   printf("finishing\n");
+  84              		.loc 1 52 3
+  85 002c 10309FE5 		ldr	r3, .L7
+  86              	.LPIC1:
+  87 0030 03308FE0 		add	r3, pc, r3
+  88 0034 0300A0E1 		mov	r0, r3
+  89 0038 FEFFFFEB 		bl	puts(PLT)
+  53:EApiOsNIX.c   **** 	return ;
+  90              		.loc 1 53 2
+  91 003c 00F020E3 		nop
+  54:EApiOsNIX.c   **** }
+  92              		.loc 1 54 1
+  93 0040 0088BDE8 		pop	{fp, pc}
+  94              	.L8:
+  95              		.align	2
+  96              	.L7:
+  97 0044 1C000000 		.word	.LC1-(.LPIC1+8)
+  98              		.cfi_endproc
+  99              	.LFE2:
+ 101              		.section	.fini_array,"aw",%fini_array
+ 102              		.align	2
+ 103 0000 00000000 		.word	fini(target1)
+ 104              		.text
+ 105              		.align	2
+ 106              		.global	EApiSleepns
+ 107              		.hidden	EApiSleepns
+ 108              		.syntax unified
+ 109              		.arm
+ 110              		.fpu vfpv3
+ 112              	EApiSleepns:
+ 113              	.LFB3:
+  55:EApiOsNIX.c   **** 
+  56:EApiOsNIX.c   **** 
+  57:EApiOsNIX.c   **** void EApiSleepns(unsigned long ns)  
+  58:EApiOsNIX.c   **** { 
+ARM GAS  /tmp/ccfsVxnt.s 			page 4
+
+
+ 114              		.loc 1 58 1
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 8
+ 117              		@ frame_needed = 1, uses_anonymous_args = 0
+ 118 0048 00482DE9 		push	{fp, lr}
+ 119              		.cfi_def_cfa_offset 8
+ 120              		.cfi_offset 11, -8
+ 121              		.cfi_offset 14, -4
+ 122 004c 04B08DE2 		add	fp, sp, #4
+ 123              		.cfi_def_cfa 11, 4
+ 124 0050 08D04DE2 		sub	sp, sp, #8
+ 125 0054 08000BE5 		str	r0, [fp, #-8]
+  59:EApiOsNIX.c   **** #if _POSIX_C_SOURCE >= 199309L
+  60:EApiOsNIX.c   ****   struct timespec Request;
+  61:EApiOsNIX.c   ****   struct timespec Remain;
+  62:EApiOsNIX.c   ****   Request.tv_sec=ns/1000000000;
+  63:EApiOsNIX.c   ****   Request.tv_nsec=ns%1000000000;
+  64:EApiOsNIX.c   ****   nanosleep(&Request, &Remain);
+  65:EApiOsNIX.c   **** #else
+  66:EApiOsNIX.c   ****   usleep(ns/1000000);
+ 126              		.loc 1 66 12
+ 127 0058 08201BE5 		ldr	r2, [fp, #-8]
+ 128 005c 833E0DE3 		movw	r3, #56963
+ 129 0060 1B3344E3 		movt	r3, 17179
+ 130 0064 932283E0 		umull	r2, r3, r3, r2
+ 131 0068 2339A0E1 		lsr	r3, r3, #18
+ 132              		.loc 1 66 3
+ 133 006c 0300A0E1 		mov	r0, r3
+ 134 0070 FEFFFFEB 		bl	usleep(PLT)
+  67:EApiOsNIX.c   **** #endif
+  68:EApiOsNIX.c   ****   return ;
+ 135              		.loc 1 68 3
+ 136 0074 00F020E3 		nop
+  69:EApiOsNIX.c   **** }
+ 137              		.loc 1 69 1
+ 138 0078 04D04BE2 		sub	sp, fp, #4
+ 139              		.cfi_def_cfa 13, 8
+ 140              		@ sp needed
+ 141 007c 0088BDE8 		pop	{fp, pc}
+ 142              		.cfi_endproc
+ 143              	.LFE3:
+ 145              	.Letext0:
+ 146              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ARM GAS  /tmp/ccfsVxnt.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiOsNIX.c
+     /tmp/ccfsVxnt.s:17     .rodata:0000000000000000 $d
+     /tmp/ccfsVxnt.s:21     .text:0000000000000000 $a
+     /tmp/ccfsVxnt.s:29     .text:0000000000000000 init
+     /tmp/ccfsVxnt.s:55     .text:0000000000000020 $d
+     /tmp/ccfsVxnt.s:60     .init_array:0000000000000000 $d
+     /tmp/ccfsVxnt.s:67     .text:0000000000000024 $a
+     /tmp/ccfsVxnt.s:72     .text:0000000000000024 fini
+     /tmp/ccfsVxnt.s:97     .text:0000000000000044 $d
+     /tmp/ccfsVxnt.s:102    .fini_array:0000000000000000 $d
+     /tmp/ccfsVxnt.s:105    .text:0000000000000048 $a
+     /tmp/ccfsVxnt.s:112    .text:0000000000000048 EApiSleepns
+
+UNDEFINED SYMBOLS
+puts
+usleep

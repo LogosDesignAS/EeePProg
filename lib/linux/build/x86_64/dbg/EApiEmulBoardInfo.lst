@@ -1,0 +1,740 @@
+GAS LISTING /tmp/cch6ibeL.s 			page 1
+
+
+   1              		.file	"EApiEmulBoardInfo.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.hidden	StringLookup
+   5              		.globl	StringLookup
+   6              		.section	.rodata
+   7              	.LC0:
+   8 0000 5049434D 		.string	"PICMG"
+   8      4700
+   9              	.LC1:
+  10 0006 53414D50 		.string	"SAMPLE API"
+  10      4C452041 
+  10      504900
+  11              	.LC2:
+  12 0011 53616D70 		.string	"Sample Serial Number"
+  12      6C652053 
+  12      65726961 
+  12      6C204E75 
+  12      6D626572 
+  13              	.LC3:
+  14 0026 5049434D 		.string	"PICMGR2.0"
+  14      4752322E 
+  14      3000
+  15              	.LC4:
+  16 0030 434F4D45 		.string	"COMExpress"
+  16      78707265 
+  16      737300
+  17              		.section	.data.rel.ro.local,"aw"
+  18              		.align 32
+  21              	StringLookup:
+  22 0000 00000000 		.long	0
+  23 0004 00000000 		.zero	4
+  24 0008 00000000 		.quad	.LC0
+  24      00000000 
+  25 0010 01000000 		.long	1
+  26 0014 00000000 		.zero	4
+  27 0018 00000000 		.quad	.LC1
+  27      00000000 
+  28 0020 03000000 		.long	3
+  29 0024 00000000 		.zero	4
+  30 0028 00000000 		.quad	.LC2
+  30      00000000 
+  31 0030 04000000 		.long	4
+  32 0034 00000000 		.zero	4
+  33 0038 00000000 		.quad	.LC3
+  33      00000000 
+  34 0040 06000000 		.long	6
+  35 0044 00000000 		.zero	4
+  36 0048 00000000 		.quad	.LC4
+  36      00000000 
+  37              		.section	.rodata
+  38              	.LC5:
+  39 003b 25730A00 		.string	"%s\n"
+  40              	.LC6:
+  41 003f 45417069 		.string	"EApiBoardGetStringAEmul"
+  41      426F6172 
+  41      64476574 
+GAS LISTING /tmp/cch6ibeL.s 			page 2
+
+
+  41      53747269 
+  41      6E674145 
+  42 0057 00       		.align 8
+  43              	.LC7:
+  44 0058 2F686F6D 		.string	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c"
+  44      652F686B 
+  44      682F6769 
+  44      742F6561 
+  44      7069646B 
+  45              	.LC8:
+  46 009d 70427566 		.string	"pBuffer Overrun Prevented"
+  46      66657220 
+  46      4F766572 
+  46      72756E20 
+  46      50726576 
+  47              	.LC9:
+  48 00b7 00       		.string	""
+  49              	.LC10:
+  50 00b8 556E7265 		.string	"Unrecognised String ID"
+  50      636F676E 
+  50      69736564 
+  50      20537472 
+  50      696E6720 
+  51              		.text
+  52              		.globl	EApiBoardGetStringAEmul
+  53              		.hidden	EApiBoardGetStringAEmul
+  55              	EApiBoardGetStringAEmul:
+  56              	.LFB6:
+  57              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/EApiEmulBoardInfo.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I Description: Auto Created for EApiEmulBoardInfo.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  File Name            : EApiEmulBoardInfo.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  File Location        : lib
+  28:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  Last committed       : $Revision: 74 $
+GAS LISTING /tmp/cch6ibeL.s 			page 3
+
+
+  29:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I  ID                   : $Id: EApiEmulBoardInfo.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+  37:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #include <EApiLib.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+  39:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+  40:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** /*
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+  42:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *  
+  43:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+  44:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *  Get String
+  45:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+  46:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+  47:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+  48:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  */
+  49:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** typedef struct StringLookupTbl_s{
+  50:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   EApiId_t Id          ; /* EAPI String Id */
+  51:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   char    *StringPtr   ; /* Pointer to Return String */
+  52:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** }StringLookupTbl_t;
+  53:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** const StringLookupTbl_t StringLookup[]={
+  54:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_MANUFACTURER_STR  , "PICMG"                  },
+  55:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_NAME_STR          , "SAMPLE API"             },
+  56:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_SERIAL_STR        , "Sample Serial Number"   },
+  57:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_BIOS_REVISION_STR , "PICMGR2.0"              },
+  58:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #if (EAPI_PLATFORM==EAPI_PLATFORM_COM0)
+  59:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_TYPE_STR , EAPI_COM0_PLATFORM_STR    },
+  60:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #elif (EAPI_PLATFORM==EAPI_PLATFORM_ETX)
+  61:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_TYPE_STR , EAPI_ETX_PLATFORM_STR    },
+  62:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #elif (EAPI_PLATFORM==EAPI_PLATFORM_Q7) 
+  63:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_TYPE_STR , EAPI_Q7_PLATFORM_STR     },
+  64:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #elif (EAPI_PLATFORM==EAPI_PLATFORM_TCA)
+  65:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_TYPE_STR , EAPI_TCA_PLATFORM_STR     },
+  66:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #else
+  67:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_TYPE_STR , "Unknown Platform Type"  },
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #endif
+  69:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** };
+  70:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+  71:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** EApiStatus_t 
+  72:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** EApiBoardGetStringAEmul( 
+  73:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     __IN    EApiId_t  Id      , 
+  74:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     __OUT       char *pBuffer , 
+  75:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     __INOUT uint32_t *pBufLen
+  76:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     )
+  77:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** {
+  58              		.loc 1 77 1
+  59              		.cfi_startproc
+  60 0000 F30F1EFA 		endbr64
+  61 0004 55       		pushq	%rbp
+  62              		.cfi_def_cfa_offset 16
+  63              		.cfi_offset 6, -16
+  64 0005 4889E5   		movq	%rsp, %rbp
+  65              		.cfi_def_cfa_register 6
+GAS LISTING /tmp/cch6ibeL.s 			page 4
+
+
+  66 0008 4883EC30 		subq	$48, %rsp
+  67 000c 897DEC   		movl	%edi, -20(%rbp)
+  68 000f 488975E0 		movq	%rsi, -32(%rbp)
+  69 0013 488955D8 		movq	%rdx, -40(%rbp)
+  78:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+  70              		.loc 1 78 16
+  71 0017 C745F400 		movl	$0, -12(%rbp)
+  71      000000
+  79:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   uint32_t i;
+  80:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   uint32_t BufLenSav;
+  81:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+  82:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   BufLenSav=*pBufLen;
+  72              		.loc 1 82 12
+  73 001e 488B45D8 		movq	-40(%rbp), %rax
+  74 0022 8B00     		movl	(%rax), %eax
+  75 0024 8945FC   		movl	%eax, -4(%rbp)
+  83:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   for(i=0;i<ARRAY_SIZE(StringLookup);i++)
+  76              		.loc 1 84 8
+  77 0027 C745F800 		movl	$0, -8(%rbp)
+  77      000000
+  78              		.loc 1 84 3
+  79 002e E9460100 		jmp	.L2
+  79      00
+  80              	.L9:
+  85:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {
+  86:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****       if(StringLookup[i].Id==Id)
+  81              		.loc 1 86 25
+  82 0033 8B45F8   		movl	-8(%rbp), %eax
+  83 0036 48C1E004 		salq	$4, %rax
+  84 003a 4889C2   		movq	%rax, %rdx
+  85 003d 488D0500 		leaq	StringLookup(%rip), %rax
+  85      000000
+  86 0044 8B0402   		movl	(%rdx,%rax), %eax
+  87              		.loc 1 86 9
+  88 0047 3945EC   		cmpl	%eax, -20(%rbp)
+  89 004a 0F852501 		jne	.L3
+  89      0000
+  87:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****       {
+  88:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         /* 
+  89:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****          * Basically equivilant to
+  90:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****          * strncpy(pBuffer, StringLookup[i].StringPtr, *pBufLen);
+  91:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****          * StringLookup[i].StringPtr[*pBufLen-1]='\0';
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****          * *pBufLen=strlen(StringLookup[i].StringPtr);
+  93:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****          *
+  94:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****          */
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         *pBufLen=(uint32_t)strlen(StringLookup[i].StringPtr)+1;
+  90              		.loc 1 95 50
+  91 0050 8B45F8   		movl	-8(%rbp), %eax
+  92 0053 48C1E004 		salq	$4, %rax
+  93 0057 4889C2   		movq	%rax, %rdx
+  94 005a 488D0500 		leaq	8+StringLookup(%rip), %rax
+  94      000000
+  95 0061 488B0402 		movq	(%rdx,%rax), %rax
+  96              		.loc 1 95 28
+  97 0065 4889C7   		movq	%rax, %rdi
+  98 0068 E8000000 		call	strlen@PLT
+GAS LISTING /tmp/cch6ibeL.s 			page 5
+
+
+  98      00
+  99              		.loc 1 95 61
+ 100 006d 8D5001   		leal	1(%rax), %edx
+ 101              		.loc 1 95 17
+ 102 0070 488B45D8 		movq	-40(%rbp), %rax
+ 103 0074 8910     		movl	%edx, (%rax)
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         if(BufLenSav<*pBufLen)
+ 104              		.loc 1 96 22
+ 105 0076 488B45D8 		movq	-40(%rbp), %rax
+ 106 007a 8B00     		movl	(%rax), %eax
+ 107              		.loc 1 96 11
+ 108 007c 3945FC   		cmpl	%eax, -4(%rbp)
+ 109 007f 7309     		jnb	.L4
+  97:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         {
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****           StatusCode=EAPI_STATUS_MORE_DATA;
+ 110              		.loc 1 98 21
+ 111 0081 C745F4FF 		movl	$-1537, -12(%rbp)
+ 111      F9FFFF
+ 112 0088 EB09     		jmp	.L5
+ 113              	.L4:
+  99:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         }
+ 100:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         else
+ 101:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         {
+ 102:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****           BufLenSav=*pBufLen;
+ 114              		.loc 1 102 20
+ 115 008a 488B45D8 		movq	-40(%rbp), %rax
+ 116 008e 8B00     		movl	(%rax), %eax
+ 117 0090 8945FC   		movl	%eax, -4(%rbp)
+ 118              	.L5:
+ 103:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         }
+ 104:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         if(BufLenSav && (pBuffer!=NULL))
+ 119              		.loc 1 104 11
+ 120 0093 837DFC00 		cmpl	$0, -4(%rbp)
+ 121 0097 7440     		je	.L6
+ 122              		.loc 1 104 22 discriminator 1
+ 123 0099 48837DE0 		cmpq	$0, -32(%rbp)
+ 123      00
+ 124 009e 7439     		je	.L6
+ 105:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 	{
+ 106:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****           memcpy(pBuffer, StringLookup[i].StringPtr, BufLenSav);
+ 125              		.loc 1 106 11
+ 126 00a0 8B55FC   		movl	-4(%rbp), %edx
+ 127              		.loc 1 106 42
+ 128 00a3 8B45F8   		movl	-8(%rbp), %eax
+ 129 00a6 48C1E004 		salq	$4, %rax
+ 130 00aa 4889C1   		movq	%rax, %rcx
+ 131 00ad 488D0500 		leaq	8+StringLookup(%rip), %rax
+ 131      000000
+ 132 00b4 488B0C01 		movq	(%rcx,%rax), %rcx
+ 133              		.loc 1 106 11
+ 134 00b8 488B45E0 		movq	-32(%rbp), %rax
+ 135 00bc 4889CE   		movq	%rcx, %rsi
+ 136 00bf 4889C7   		movq	%rax, %rdi
+ 137 00c2 E8000000 		call	memcpy@PLT
+ 137      00
+ 107:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****           pBuffer[BufLenSav-1]='\0';
+ 138              		.loc 1 107 28
+GAS LISTING /tmp/cch6ibeL.s 			page 6
+
+
+ 139 00c7 8B45FC   		movl	-4(%rbp), %eax
+ 140 00ca 83E801   		subl	$1, %eax
+ 141 00cd 89C2     		movl	%eax, %edx
+ 142              		.loc 1 107 18
+ 143 00cf 488B45E0 		movq	-32(%rbp), %rax
+ 144 00d3 4801D0   		addq	%rdx, %rax
+ 145              		.loc 1 107 31
+ 146 00d6 C60000   		movb	$0, (%rax)
+ 147              	.L6:
+ 108:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         }
+ 109:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 148              		.loc 1 109 9
+ 149 00d9 817DF4FF 		cmpl	$-1537, -12(%rbp)
+ 149      F9FFFF
+ 150 00e0 754B     		jne	.L7
+ 151              		.loc 1 109 9 is_stmt 0 discriminator 1
+ 152 00e2 4883EC08 		subq	$8, %rsp
+ 153 00e6 488D0500 		leaq	.LC8(%rip), %rax
+ 153      000000
+ 154 00ed 50       		pushq	%rax
+ 155 00ee 4C8D0D00 		leaq	.LC5(%rip), %r9
+ 155      000000
+ 156 00f5 41B8FFF9 		movl	$-1537, %r8d
+ 156      FFFF
+ 157 00fb B96D0000 		movl	$109, %ecx
+ 157      00
+ 158 0100 488D1500 		leaq	.LC6(%rip), %rdx
+ 158      000000
+ 159 0107 488D3500 		leaq	.LC7(%rip), %rsi
+ 159      000000
+ 160 010e BF450000 		movl	$69, %edi
+ 160      00
+ 161 0113 B8000000 		movl	$0, %eax
+ 161      00
+ 162 0118 E8000000 		call	siFormattedMessage_SC@PLT
+ 162      00
+ 163 011d 4883C410 		addq	$16, %rsp
+ 164 0121 C745F4FF 		movl	$-1537, -12(%rbp)
+ 164      F9FFFF
+ 165 0128 E99D0000 		jmp	.L8
+ 165      00
+ 166              	.L7:
+ 110:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		EApiBoardGetStringAEmul, 
+ 111:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		(StatusCode==EAPI_STATUS_MORE_DATA), 
+ 112:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		EAPI_STATUS_MORE_DATA  , 
+ 113:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		"pBuffer Overrun Prevented"
+ 114:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		);
+ 115:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         EAPI_LIB_RETURN_SUCCESS(
+ 167              		.loc 1 115 9 is_stmt 1
+ 168 012d 4883EC08 		subq	$8, %rsp
+ 169 0131 488D0500 		leaq	.LC9(%rip), %rax
+ 169      000000
+ 170 0138 50       		pushq	%rax
+ 171 0139 4C8D0D00 		leaq	.LC5(%rip), %r9
+ 171      000000
+ 172 0140 41B80000 		movl	$0, %r8d
+ 172      0000
+GAS LISTING /tmp/cch6ibeL.s 			page 7
+
+
+ 173 0146 B9730000 		movl	$115, %ecx
+ 173      00
+ 174 014b 488D1500 		leaq	.LC6(%rip), %rdx
+ 174      000000
+ 175 0152 488D3500 		leaq	.LC7(%rip), %rsi
+ 175      000000
+ 176 0159 BF4C0000 		movl	$76, %edi
+ 176      00
+ 177 015e B8000000 		movl	$0, %eax
+ 177      00
+ 178 0163 E8000000 		call	siFormattedMessage_SC@PLT
+ 178      00
+ 179 0168 4883C410 		addq	$16, %rsp
+ 180 016c C745F400 		movl	$0, -12(%rbp)
+ 180      000000
+ 181 0173 EB55     		jmp	.L8
+ 182              	.L3:
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {
+ 183              		.loc 1 84 39 discriminator 2
+ 184 0175 8345F801 		addl	$1, -8(%rbp)
+ 185              	.L2:
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {
+ 186              		.loc 1 84 3 discriminator 1
+ 187 0179 837DF804 		cmpl	$4, -8(%rbp)
+ 188 017d 0F86B0FE 		jbe	.L9
+ 188      FFFF
+ 116:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		EApiBoardGetStringAEmul, 
+ 117:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		""
+ 118:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		);
+ 119:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****       }
+ 120:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   }
+ 121:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   EAPI_LIB_RETURN_ERROR(
+ 189              		.loc 1 121 3
+ 190 0183 4883EC08 		subq	$8, %rsp
+ 191 0187 488D0500 		leaq	.LC10(%rip), %rax
+ 191      000000
+ 192 018e 50       		pushq	%rax
+ 193 018f 4C8D0D00 		leaq	.LC5(%rip), %r9
+ 193      000000
+ 194 0196 41B8FFFC 		movl	$-769, %r8d
+ 194      FFFF
+ 195 019c B9790000 		movl	$121, %ecx
+ 195      00
+ 196 01a1 488D1500 		leaq	.LC6(%rip), %rdx
+ 196      000000
+ 197 01a8 488D3500 		leaq	.LC7(%rip), %rsi
+ 197      000000
+ 198 01af BF450000 		movl	$69, %edi
+ 198      00
+ 199 01b4 B8000000 		movl	$0, %eax
+ 199      00
+ 200 01b9 E8000000 		call	siFormattedMessage_SC@PLT
+ 200      00
+ 201 01be 4883C410 		addq	$16, %rsp
+ 202 01c2 C745F4FF 		movl	$-769, -12(%rbp)
+ 202      FCFFFF
+ 203 01c9 90       		nop
+GAS LISTING /tmp/cch6ibeL.s 			page 8
+
+
+ 204              	.L8:
+ 122:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 	EApiBoardGetStringAEmul, 
+ 123:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 	EAPI_STATUS_UNSUPPORTED  , 
+ 124:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 	"Unrecognised String ID"
+ 125:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 	);
+ 126:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** EAPI_LIB_ASSERT_EXIT
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+ 128:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   return StatusCode;
+ 205              		.loc 1 128 10
+ 206 01ca 8B45F4   		movl	-12(%rbp), %eax
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** }
+ 207              		.loc 1 129 1
+ 208 01cd C9       		leave
+ 209              		.cfi_def_cfa 7, 8
+ 210 01ce C3       		ret
+ 211              		.cfi_endproc
+ 212              	.LFE6:
+ 214              		.hidden	ValueLookup
+ 215              		.globl	ValueLookup
+ 216              		.section	.rodata
+ 217 00cf 00000000 		.align 32
+ 217      00000000 
+ 217      00000000 
+ 217      00000000 
+ 217      00
+ 220              	ValueLookup:
+ 221 00e0 01000000 		.long	1
+ 222 00e4 10000000 		.long	16
+ 223 00e8 02000000 		.long	2
+ 224 00ec 00000100 		.long	65536
+ 225 00f0 03000000 		.long	3
+ 226 00f4 41A70000 		.long	42817
+ 227 00f8 04000000 		.long	4
+ 228 00fc 00000002 		.long	33554432
+ 229 0100 00000100 		.long	65536
+ 230 0104 00000000 		.long	0
+ 231 0108 01000100 		.long	65537
+ 232 010c D1030500 		.long	328657
+ 233 0110 00000200 		.long	131072
+ 234 0114 940E0000 		.long	3732
+ 235 0118 01000200 		.long	131073
+ 236 011c 790C0000 		.long	3193
+ 237 0120 02000200 		.long	131074
+ 238 0124 E6080000 		.long	2278
+ 239 0128 04100200 		.long	135172
+ 240 012c 14050000 		.long	1300
+ 241 0130 08100200 		.long	135176
+ 242 0134 C4090000 		.long	2500
+ 243 0138 0C100200 		.long	135180
+ 244 013c E40C0000 		.long	3300
+ 245 0140 10100200 		.long	135184
+ 246 0144 B80B0000 		.long	3000
+ 247 0148 14100200 		.long	135188
+ 248 014c 88130000 		.long	5000
+ 249 0150 18100200 		.long	135192
+ 250 0154 88130000 		.long	5000
+ 251 0158 1C100200 		.long	135196
+GAS LISTING /tmp/cch6ibeL.s 			page 9
+
+
+ 252 015c E02E0000 		.long	12000
+ 253 0160 00200200 		.long	139264
+ 254 0164 88130000 		.long	5000
+ 255 0168 01200200 		.long	139265
+ 256 016c C4090000 		.long	2500
+ 257              	.LC11:
+ 258 0170 45417069 		.string	"EApiBoardGetValueEmul"
+ 258      426F6172 
+ 258      64476574 
+ 258      56616C75 
+ 258      65456D75 
+ 259              	.LC12:
+ 260 0186 556E7265 		.string	"Unrecognised Value ID"
+ 260      636F676E 
+ 260      69736564 
+ 260      2056616C 
+ 260      75652049 
+ 261              		.text
+ 262              		.globl	EApiBoardGetValueEmul
+ 263              		.hidden	EApiBoardGetValueEmul
+ 265              	EApiBoardGetValueEmul:
+ 266              	.LFB7:
+ 130:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+ 131:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** /*
+ 132:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+ 133:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *  
+ 134:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+ 135:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *  Get Value
+ 136:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+ 137:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+ 138:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  *
+ 139:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****  */
+ 140:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** typedef struct ValueLookupTbl_s{
+ 141:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   EApiId_t Id          ; /* EAPI Value Id */
+ 142:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   uint32_t Value       ; /* Return Value for ID */
+ 143:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** }ValueLookupTbl_t;
+ 144:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** const ValueLookupTbl_t ValueLookup[]={
+ 145:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_BOOT_COUNTER_VAL       , 0x00000010              },
+ 146:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_RUNNING_TIME_METER_VAL , 0x00010000              },
+ 147:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PNPID_VAL              , EAPI_PNPID_PICMG        },
+ 148:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #if (EAPI_PLATFORM==EAPI_PLATFORM_COM0)
+ 149:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_REV_VAL       , EAPI_COM0_REV_2_0       },
+ 150:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #elif (EAPI_PLATFORM==EAPI_PLATFORM_ETX)
+ 151:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_REV_VAL       , EAPI_ETX_REV_3_0        },
+ 152:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #elif (EAPI_PLATFORM==EAPI_PLATFORM_Q7) 
+ 153:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_PLATFORM_REV_VAL       , EAPI_Q7_REV_1_0         },
+ 154:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #else
+ 155:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** /*   {EAPI_ID_BOARD_PLATFORM_REV_VAL       , EAPI_VER_CREATE(0,0,0)  }, */
+ 156:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** #endif
+ 157:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+ 158:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_DRIVER_VERSION_VAL     , EAPI_VER_CREATE(0,0,0)  },
+ 159:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_BOARD_LIB_VERSION_VAL        , EAPI_VER_CREATE(LIB_VERSION, LIB_REVISION, LIB_BUILD)},
+ 160:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   /* HWMON */
+ 161:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   /* Temperature */
+ 162:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_CPU_TEMP               , EAPI_ENCODE_CELCIUS(100.1)  },
+ 163:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_CHIPSET_TEMP           , EAPI_ENCODE_CELCIUS(46.2)  },
+ 164:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_SYSTEM_TEMP            , EAPI_ENCODE_CELCIUS(-45.3)  },
+GAS LISTING /tmp/cch6ibeL.s 			page 10
+
+
+ 165:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   /* Voltage */
+ 166:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_VCORE          ,  1300  },
+ 167:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_2V5            ,  2500  },
+ 168:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_3V3            ,  3300  },
+ 169:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_VBAT           ,  3000  },
+ 170:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_5V             ,  5000  },
+ 171:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_5VSB           ,  5000  },
+ 172:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_VOLTAGE_12V            , 12000  },
+ 173:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   /* Voltage */
+ 174:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_FAN_CPU                ,  5000  },
+ 175:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {EAPI_ID_HWMON_FAN_SYSTEM             ,  2500  },
+ 176:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** };
+ 177:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+ 178:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** EApiStatus_t
+ 179:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** EApiBoardGetValueEmul( 
+ 180:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     __IN  EApiId_t Id     , 
+ 181:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     __OUT uint32_t *pValue
+ 182:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****     )
+ 183:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** {
+ 267              		.loc 1 183 1
+ 268              		.cfi_startproc
+ 269 01cf F30F1EFA 		endbr64
+ 270 01d3 55       		pushq	%rbp
+ 271              		.cfi_def_cfa_offset 16
+ 272              		.cfi_offset 6, -16
+ 273 01d4 4889E5   		movq	%rsp, %rbp
+ 274              		.cfi_def_cfa_register 6
+ 275 01d7 4883EC20 		subq	$32, %rsp
+ 276 01db 897DEC   		movl	%edi, -20(%rbp)
+ 277 01de 488975E0 		movq	%rsi, -32(%rbp)
+ 184:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 278              		.loc 1 184 16
+ 279 01e2 C745F800 		movl	$0, -8(%rbp)
+ 279      000000
+ 185:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   unsigned i;
+ 186:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+ 187:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   for(i=0;i<ARRAY_SIZE(ValueLookup);i++)
+ 280              		.loc 1 187 8
+ 281 01e9 C745FC00 		movl	$0, -4(%rbp)
+ 281      000000
+ 282              		.loc 1 187 3
+ 283 01f0 E9810000 		jmp	.L12
+ 283      00
+ 284              	.L15:
+ 188:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {
+ 189:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****       if(ValueLookup[i].Id==Id)
+ 285              		.loc 1 189 24
+ 286 01f5 8B45FC   		movl	-4(%rbp), %eax
+ 287 01f8 488D14C5 		leaq	0(,%rax,8), %rdx
+ 287      00000000 
+ 288 0200 488D0500 		leaq	ValueLookup(%rip), %rax
+ 288      000000
+ 289 0207 8B0402   		movl	(%rdx,%rax), %eax
+ 290              		.loc 1 189 9
+ 291 020a 3945EC   		cmpl	%eax, -20(%rbp)
+ 292 020d 7563     		jne	.L13
+ 190:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****       {
+GAS LISTING /tmp/cch6ibeL.s 			page 11
+
+
+ 191:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         *pValue=ValueLookup[i].Value;
+ 293              		.loc 1 191 31
+ 294 020f 8B45FC   		movl	-4(%rbp), %eax
+ 295 0212 488D14C5 		leaq	0(,%rax,8), %rdx
+ 295      00000000 
+ 296 021a 488D0500 		leaq	4+ValueLookup(%rip), %rax
+ 296      000000
+ 297 0221 8B1402   		movl	(%rdx,%rax), %edx
+ 298              		.loc 1 191 16
+ 299 0224 488B45E0 		movq	-32(%rbp), %rax
+ 300 0228 8910     		movl	%edx, (%rax)
+ 192:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****         EAPI_LIB_RETURN_SUCCESS(EApiBoardGetValueEmul, "");
+ 301              		.loc 1 192 9
+ 302 022a 4883EC08 		subq	$8, %rsp
+ 303 022e 488D0500 		leaq	.LC9(%rip), %rax
+ 303      000000
+ 304 0235 50       		pushq	%rax
+ 305 0236 4C8D0D00 		leaq	.LC5(%rip), %r9
+ 305      000000
+ 306 023d 41B80000 		movl	$0, %r8d
+ 306      0000
+ 307 0243 B9C00000 		movl	$192, %ecx
+ 307      00
+ 308 0248 488D1500 		leaq	.LC11(%rip), %rdx
+ 308      000000
+ 309 024f 488D3500 		leaq	.LC7(%rip), %rsi
+ 309      000000
+ 310 0256 BF4C0000 		movl	$76, %edi
+ 310      00
+ 311 025b B8000000 		movl	$0, %eax
+ 311      00
+ 312 0260 E8000000 		call	siFormattedMessage_SC@PLT
+ 312      00
+ 313 0265 4883C410 		addq	$16, %rsp
+ 314 0269 C745F800 		movl	$0, -8(%rbp)
+ 314      000000
+ 315 0270 EB55     		jmp	.L14
+ 316              	.L13:
+ 187:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {
+ 317              		.loc 1 187 38 discriminator 2
+ 318 0272 8345FC01 		addl	$1, -4(%rbp)
+ 319              	.L12:
+ 187:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   {
+ 320              		.loc 1 187 3 discriminator 1
+ 321 0276 837DFC11 		cmpl	$17, -4(%rbp)
+ 322 027a 0F8675FF 		jbe	.L15
+ 322      FFFF
+ 193:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****       }
+ 194:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   }
+ 195:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   EAPI_LIB_RETURN_ERROR(
+ 323              		.loc 1 195 3
+ 324 0280 4883EC08 		subq	$8, %rsp
+ 325 0284 488D0500 		leaq	.LC12(%rip), %rax
+ 325      000000
+ 326 028b 50       		pushq	%rax
+ 327 028c 4C8D0D00 		leaq	.LC5(%rip), %r9
+ 327      000000
+GAS LISTING /tmp/cch6ibeL.s 			page 12
+
+
+ 328 0293 41B8FFFC 		movl	$-769, %r8d
+ 328      FFFF
+ 329 0299 B9C30000 		movl	$195, %ecx
+ 329      00
+ 330 029e 488D1500 		leaq	.LC11(%rip), %rdx
+ 330      000000
+ 331 02a5 488D3500 		leaq	.LC7(%rip), %rsi
+ 331      000000
+ 332 02ac BF450000 		movl	$69, %edi
+ 332      00
+ 333 02b1 B8000000 		movl	$0, %eax
+ 333      00
+ 334 02b6 E8000000 		call	siFormattedMessage_SC@PLT
+ 334      00
+ 335 02bb 4883C410 		addq	$16, %rsp
+ 336 02bf C745F8FF 		movl	$-769, -8(%rbp)
+ 336      FCFFFF
+ 337 02c6 90       		nop
+ 338              	.L14:
+ 196:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 			EApiBoardGetValueEmul, 
+ 197:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 			EAPI_STATUS_UNSUPPORTED  , 
+ 198:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 			"Unrecognised Value ID"
+ 199:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 		);
+ 200:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** EAPI_LIB_ASSERT_EXIT
+ 201:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** 
+ 202:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c ****   return StatusCode;
+ 339              		.loc 1 202 10
+ 340 02c7 8B45F8   		movl	-8(%rbp), %eax
+ 203:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBoardInfo.c **** }
+ 341              		.loc 1 203 1
+ 342 02ca C9       		leave
+ 343              		.cfi_def_cfa 7, 8
+ 344 02cb C3       		ret
+ 345              		.cfi_endproc
+ 346              	.LFE7:
+ 348              	.Letext0:
+ 349              		.file 2 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 350              		.file 3 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h"
+ 351              		.file 4 "/usr/include/stdint.h"
+ 352              		.file 5 "/usr/include/unistd.h"
+ 353              		.file 6 "/usr/include/x86_64-linux-gnu/bits/getopt_core.h"
+ 354              		.file 7 "/usr/include/time.h"
+ 355              		.file 8 "../../include/EApi.h"
+ 1211              		.section	.note.gnu.property,"a"
+ 1212              		.align 8
+ 1213 0000 04000000 		.long	 1f - 0f
+ 1214 0004 10000000 		.long	 4f - 1f
+ 1215 0008 05000000 		.long	 5
+ 1216              	0:
+ 1217 000c 474E5500 		.string	 "GNU"
+ 1218              	1:
+ 1219              		.align 8
+ 1220 0010 020000C0 		.long	 0xc0000002
+ 1221 0014 04000000 		.long	 3f - 2f
+ 1222              	2:
+ 1223 0018 03000000 		.long	 0x3
+ 1224              	3:
+GAS LISTING /tmp/cch6ibeL.s 			page 13
+
+
+ 1225 001c 00000000 		.align 8
+ 1226              	4:
+GAS LISTING /tmp/cch6ibeL.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulBoardInfo.c
+     /tmp/cch6ibeL.s:21     .data.rel.ro.local:0000000000000000 StringLookup
+     /tmp/cch6ibeL.s:55     .text:0000000000000000 EApiBoardGetStringAEmul
+     /tmp/cch6ibeL.s:220    .rodata:00000000000000e0 ValueLookup
+     /tmp/cch6ibeL.s:265    .text:00000000000001cf EApiBoardGetValueEmul
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+strlen
+memcpy
+siFormattedMessage_SC

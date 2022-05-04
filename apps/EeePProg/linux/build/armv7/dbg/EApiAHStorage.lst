@@ -1,0 +1,630 @@
+ARM GAS  /tmp/cclCpI4N.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiAHStorage.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.rodata
+  17              		.align	2
+  18              	.LC0:
+  19 0000 45417069 		.ascii	"EApiAHWriteStorage\000"
+  19      41485772 
+  19      69746553 
+  19      746F7261 
+  19      676500
+  20 0013 00       		.align	2
+  21              	.LC1:
+  22 0014 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/l"
+  22      652F686B 
+  22      682F6769 
+  22      742F6561 
+  22      7069646B 
+  23 0047 696E7578 		.ascii	"inux/../../common/EApiAHStorage.c\000"
+  23      2F2E2E2F 
+  23      2E2E2F63 
+  23      6F6D6D6F 
+  23      6E2F4541 
+  24 0069 000000   		.align	2
+  25              	.LC2:
+  26 006c 28704275 		.ascii	"(pBuffer==NULL)\000"
+  26      66666572 
+  26      3D3D4E55 
+  26      4C4C2900 
+  27              		.align	2
+  28              	.LC3:
+  29 007c 25730A00 		.ascii	"%s\012\000"
+  30              		.align	2
+  31              	.LC4:
+  32 0080 28427974 		.ascii	"(ByteCnt==0)\000"
+  32      65436E74 
+  32      3D3D3029 
+  32      00
+  33 008d 000000   		.align	2
+  34              	.LC5:
+  35 0090 28284279 		.ascii	"((ByteOffset+ByteCnt)>MaxLen)\000"
+  35      74654F66 
+  35      66736574 
+  35      2B427974 
+  35      65436E74 
+ARM GAS  /tmp/cclCpI4N.s 			page 2
+
+
+  36              		.global	__aeabi_uidivmod
+  37 00ae 0000     		.align	2
+  38              	.LC6:
+  39 00b0 28284164 		.ascii	"((AdjOffset+AdjLength)>MaxLen)\000"
+  39      6A4F6666 
+  39      7365742B 
+  39      41646A4C 
+  39      656E6774 
+  40 00cf 00       		.align	2
+  41              	.LC7:
+  42 00d0 416C6C6F 		.ascii	"Allocating Page Buffer\000"
+  42      63617469 
+  42      6E672050 
+  42      61676520 
+  42      42756666 
+  43              		.text
+  44              		.align	2
+  45              		.global	EApiAHWriteStorage
+  46              		.arch armv7-a
+  47              		.arch_extension mp
+  48              		.arch_extension sec
+  49              		.syntax unified
+  50              		.arm
+  51              		.fpu vfpv3
+  53              	EApiAHWriteStorage:
+  54              	.LFB1:
+  55              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/common/EApiAHStorage.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I Description: Auto Created for EApiAHStorage.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  File Name            : EApiAHStorage.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  File Location        : apps\common
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+ARM GAS  /tmp/cclCpI4N.s 			page 3
+
+
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I  ID                   : $Id: EApiAHStorage.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****   #include <EApiApp.h>
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** 
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** 
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** EApiStatus_t 
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** EApiAHWriteStorage(
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     __IN  EApiId_t         Id          , 
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     __IN  const uint32_t   ByteOffset  , 
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     __IN  void *           pBuffer     , 
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     __IN  const uint32_t   ByteCnt 
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     )
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** {
+  56              		.loc 1 46 1
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 48
+  59              		@ frame_needed = 1, uses_anonymous_args = 0
+  60 0000 00482DE9 		push	{fp, lr}
+  61              		.cfi_def_cfa_offset 8
+  62              		.cfi_offset 11, -8
+  63              		.cfi_offset 14, -4
+  64 0004 04B08DE2 		add	fp, sp, #4
+  65              		.cfi_def_cfa 11, 4
+  66 0008 40D04DE2 		sub	sp, sp, #64
+  67 000c 28000BE5 		str	r0, [fp, #-40]
+  68 0010 2C100BE5 		str	r1, [fp, #-44]
+  69 0014 30200BE5 		str	r2, [fp, #-48]
+  70 0018 34300BE5 		str	r3, [fp, #-52]
+  71              		.loc 1 46 1
+  72 001c C0239FE5 		ldr	r2, .L19
+  73              	.LPIC20:
+  74 0020 02208FE0 		add	r2, pc, r2
+  75 0024 BC339FE5 		ldr	r3, .L19+4
+  76 0028 033092E7 		ldr	r3, [r2, r3]
+  77 002c 003093E5 		ldr	r3, [r3]
+  78 0030 08300BE5 		str	r3, [fp, #-8]
+  79 0034 0030A0E3 		mov	r3, #0
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+  80              		.loc 1 47 18
+  81 0038 0030A0E3 		mov	r3, #0
+  82 003c 1C300BE5 		str	r3, [fp, #-28]
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     uint32_t MaxLen, alignment;
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     uint32_t AdjOffset=ByteOffset, AdjLength=ByteCnt;
+  83              		.loc 1 49 14
+  84 0040 2C301BE5 		ldr	r3, [fp, #-44]
+  85 0044 18300BE5 		str	r3, [fp, #-24]
+  86              		.loc 1 49 36
+  87 0048 34301BE5 		ldr	r3, [fp, #-52]
+  88 004c 14300BE5 		str	r3, [fp, #-20]
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     int_least8_t * pLclBuffer=NULL;
+  89              		.loc 1 50 20
+  90 0050 0030A0E3 		mov	r3, #0
+  91 0054 10300BE5 		str	r3, [fp, #-16]
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     uint32_t BufferOffset=0;
+ARM GAS  /tmp/cclCpI4N.s 			page 4
+
+
+  92              		.loc 1 51 14
+  93 0058 0030A0E3 		mov	r3, #0
+  94 005c 0C300BE5 		str	r3, [fp, #-12]
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+  95              		.loc 1 53 5
+  96 0060 30301BE5 		ldr	r3, [fp, #-48]
+  97 0064 000053E3 		cmp	r3, #0
+  98 0068 1100001A 		bne	.L2
+  99              		.loc 1 53 5 is_stmt 0 discriminator 1
+ 100 006c 78339FE5 		ldr	r3, .L19+8
+ 101              	.LPIC0:
+ 102 0070 03308FE0 		add	r3, pc, r3
+ 103 0074 08308DE5 		str	r3, [sp, #8]
+ 104 0078 70339FE5 		ldr	r3, .L19+12
+ 105              	.LPIC1:
+ 106 007c 03308FE0 		add	r3, pc, r3
+ 107 0080 04308DE5 		str	r3, [sp, #4]
+ 108 0084 013CE0E3 		mvn	r3, #256
+ 109 0088 00308DE5 		str	r3, [sp]
+ 110 008c 3530A0E3 		mov	r3, #53
+ 111 0090 5C239FE5 		ldr	r2, .L19+16
+ 112              	.LPIC2:
+ 113 0094 02208FE0 		add	r2, pc, r2
+ 114 0098 58139FE5 		ldr	r1, .L19+20
+ 115              	.LPIC3:
+ 116 009c 01108FE0 		add	r1, pc, r1
+ 117 00a0 4500A0E3 		mov	r0, #69
+ 118 00a4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 119 00a8 013CE0E3 		mvn	r3, #256
+ 120 00ac 1C300BE5 		str	r3, [fp, #-28]
+ 121 00b0 B80000EA 		b	.L3
+ 122              	.L2:
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EApiAHWriteStorage, 
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         pBuffer
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         );
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     EAPI_APP_ASSERT_PARAMATER_ZERO(
+ 123              		.loc 1 58 5 is_stmt 1
+ 124 00b4 34301BE5 		ldr	r3, [fp, #-52]
+ 125 00b8 000053E3 		cmp	r3, #0
+ 126 00bc 1100001A 		bne	.L4
+ 127              		.loc 1 58 5 is_stmt 0 discriminator 1
+ 128 00c0 34339FE5 		ldr	r3, .L19+24
+ 129              	.LPIC4:
+ 130 00c4 03308FE0 		add	r3, pc, r3
+ 131 00c8 08308DE5 		str	r3, [sp, #8]
+ 132 00cc 2C339FE5 		ldr	r3, .L19+28
+ 133              	.LPIC5:
+ 134 00d0 03308FE0 		add	r3, pc, r3
+ 135 00d4 04308DE5 		str	r3, [sp, #4]
+ 136 00d8 013CE0E3 		mvn	r3, #256
+ 137 00dc 00308DE5 		str	r3, [sp]
+ 138 00e0 3A30A0E3 		mov	r3, #58
+ 139 00e4 18239FE5 		ldr	r2, .L19+32
+ 140              	.LPIC6:
+ 141 00e8 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/cclCpI4N.s 			page 5
+
+
+ 142 00ec 14139FE5 		ldr	r1, .L19+36
+ 143              	.LPIC7:
+ 144 00f0 01108FE0 		add	r1, pc, r1
+ 145 00f4 4500A0E3 		mov	r0, #69
+ 146 00f8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 147 00fc 013CE0E3 		mvn	r3, #256
+ 148 0100 1C300BE5 		str	r3, [fp, #-28]
+ 149 0104 A30000EA 		b	.L3
+ 150              	.L4:
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EApiAHWriteStorage, 
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         ByteCnt
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         );
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     /* Get Storage Capabilities */
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     StatusCode=EApiStorageCap(Id, &MaxLen, &alignment);
+ 151              		.loc 1 64 16 is_stmt 1
+ 152 0108 20204BE2 		sub	r2, fp, #32
+ 153 010c 24304BE2 		sub	r3, fp, #36
+ 154 0110 0310A0E1 		mov	r1, r3
+ 155 0114 28001BE5 		ldr	r0, [fp, #-40]
+ 156 0118 FEFFFFEB 		bl	EApiStorageCap(PLT)
+ 157 011c 1C000BE5 		str	r0, [fp, #-28]
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     if(!EAPI_TEST_SUCCESS(StatusCode))
+ 158              		.loc 1 65 7
+ 159 0120 1C301BE5 		ldr	r3, [fp, #-28]
+ 160 0124 000053E3 		cmp	r3, #0
+ 161 0128 9700001A 		bne	.L17
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       goto ErrorExit;
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** 
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     /* Is the write possible? */
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     EAPI_APP_ASSERT_PARAMATER_CHECK_S(
+ 162              		.loc 1 69 5
+ 163 012c 2C201BE5 		ldr	r2, [fp, #-44]
+ 164 0130 34301BE5 		ldr	r3, [fp, #-52]
+ 165 0134 032082E0 		add	r2, r2, r3
+ 166 0138 24301BE5 		ldr	r3, [fp, #-36]
+ 167 013c 030052E1 		cmp	r2, r3
+ 168 0140 1100009A 		bls	.L7
+ 169              		.loc 1 69 5 is_stmt 0 discriminator 1
+ 170 0144 C0329FE5 		ldr	r3, .L19+40
+ 171              	.LPIC8:
+ 172 0148 03308FE0 		add	r3, pc, r3
+ 173 014c 08308DE5 		str	r3, [sp, #8]
+ 174 0150 B8329FE5 		ldr	r3, .L19+44
+ 175              	.LPIC9:
+ 176 0154 03308FE0 		add	r3, pc, r3
+ 177 0158 04308DE5 		str	r3, [sp, #4]
+ 178 015c 013CE0E3 		mvn	r3, #256
+ 179 0160 00308DE5 		str	r3, [sp]
+ 180 0164 4530A0E3 		mov	r3, #69
+ 181 0168 A4229FE5 		ldr	r2, .L19+48
+ 182              	.LPIC10:
+ 183 016c 02208FE0 		add	r2, pc, r2
+ 184 0170 A0129FE5 		ldr	r1, .L19+52
+ 185              	.LPIC11:
+ 186 0174 01108FE0 		add	r1, pc, r1
+ 187 0178 4500A0E3 		mov	r0, #69
+ARM GAS  /tmp/cclCpI4N.s 			page 6
+
+
+ 188 017c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 189 0180 013CE0E3 		mvn	r3, #256
+ 190 0184 1C300BE5 		str	r3, [fp, #-28]
+ 191 0188 820000EA 		b	.L3
+ 192              	.L7:
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EApiAHWriteStorage, 
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         ((ByteOffset+ByteCnt)>MaxLen) 
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         );
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** 
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     if(ByteOffset%alignment){
+ 193              		.loc 1 75 18 is_stmt 1
+ 194 018c 20201BE5 		ldr	r2, [fp, #-32]
+ 195 0190 2C301BE5 		ldr	r3, [fp, #-44]
+ 196 0194 0210A0E1 		mov	r1, r2
+ 197 0198 0300A0E1 		mov	r0, r3
+ 198 019c FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 199 01a0 0130A0E1 		mov	r3, r1
+ 200              		.loc 1 75 7
+ 201 01a4 000053E3 		cmp	r3, #0
+ 202 01a8 0E00000A 		beq	.L8
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       BufferOffset=ByteOffset%alignment     ; /* Calculate Alignment Offset */
+ 203              		.loc 1 76 30
+ 204 01ac 20201BE5 		ldr	r2, [fp, #-32]
+ 205              		.loc 1 76 19
+ 206 01b0 2C301BE5 		ldr	r3, [fp, #-44]
+ 207 01b4 0210A0E1 		mov	r1, r2
+ 208 01b8 0300A0E1 		mov	r0, r3
+ 209 01bc FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 210 01c0 0130A0E1 		mov	r3, r1
+ 211 01c4 0C300BE5 		str	r3, [fp, #-12]
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       AdjOffset=ByteOffset - BufferOffset   ; /* Align Bottom of window */
+ 212              		.loc 1 77 16
+ 213 01c8 2C201BE5 		ldr	r2, [fp, #-44]
+ 214 01cc 0C301BE5 		ldr	r3, [fp, #-12]
+ 215 01d0 033042E0 		sub	r3, r2, r3
+ 216 01d4 18300BE5 		str	r3, [fp, #-24]
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       AdjLength=ByteCnt+BufferOffset        ; /* Increase block length to adjust for new base */
+ 217              		.loc 1 78 16
+ 218 01d8 34201BE5 		ldr	r2, [fp, #-52]
+ 219 01dc 0C301BE5 		ldr	r3, [fp, #-12]
+ 220 01e0 033082E0 		add	r3, r2, r3
+ 221 01e4 14300BE5 		str	r3, [fp, #-20]
+ 222              	.L8:
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     }
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     if(AdjLength%alignment){
+ 223              		.loc 1 80 17
+ 224 01e8 20201BE5 		ldr	r2, [fp, #-32]
+ 225 01ec 14301BE5 		ldr	r3, [fp, #-20]
+ 226 01f0 0210A0E1 		mov	r1, r2
+ 227 01f4 0300A0E1 		mov	r0, r3
+ 228 01f8 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 229 01fc 0130A0E1 		mov	r3, r1
+ 230              		.loc 1 80 7
+ 231 0200 000053E3 		cmp	r3, #0
+ 232 0204 0B00000A 		beq	.L9
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       /* Adjust Block length so its a multiple of alignment */
+ARM GAS  /tmp/cclCpI4N.s 			page 7
+
+
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       AdjLength=AdjLength-(AdjLength%alignment)+alignment;  
+ 233              		.loc 1 82 37
+ 234 0208 20201BE5 		ldr	r2, [fp, #-32]
+ 235 020c 14301BE5 		ldr	r3, [fp, #-20]
+ 236 0210 0210A0E1 		mov	r1, r2
+ 237 0214 0300A0E1 		mov	r0, r3
+ 238 0218 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 239 021c 0130A0E1 		mov	r3, r1
+ 240 0220 0320A0E1 		mov	r2, r3
+ 241              		.loc 1 82 26
+ 242 0224 14301BE5 		ldr	r3, [fp, #-20]
+ 243 0228 022043E0 		sub	r2, r3, r2
+ 244              		.loc 1 82 48
+ 245 022c 20301BE5 		ldr	r3, [fp, #-32]
+ 246              		.loc 1 82 16
+ 247 0230 033082E0 		add	r3, r2, r3
+ 248 0234 14300BE5 		str	r3, [fp, #-20]
+ 249              	.L9:
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     }
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     if(AdjLength!=ByteCnt){
+ 250              		.loc 1 84 7
+ 251 0238 14201BE5 		ldr	r2, [fp, #-20]
+ 252 023c 34301BE5 		ldr	r3, [fp, #-52]
+ 253 0240 030052E1 		cmp	r2, r3
+ 254 0244 4900000A 		beq	.L10
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       /* This Error can only occur if the Storage 
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****        * area isn't a multiple of its alignment 
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****        */
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       EAPI_APP_ASSERT_PARAMATER_CHECK_S(
+ 255              		.loc 1 88 7
+ 256 0248 18201BE5 		ldr	r2, [fp, #-24]
+ 257 024c 14301BE5 		ldr	r3, [fp, #-20]
+ 258 0250 032082E0 		add	r2, r2, r3
+ 259 0254 24301BE5 		ldr	r3, [fp, #-36]
+ 260 0258 030052E1 		cmp	r2, r3
+ 261 025c 1100009A 		bls	.L11
+ 262              		.loc 1 88 7 is_stmt 0 discriminator 1
+ 263 0260 B4319FE5 		ldr	r3, .L19+56
+ 264              	.LPIC12:
+ 265 0264 03308FE0 		add	r3, pc, r3
+ 266 0268 08308DE5 		str	r3, [sp, #8]
+ 267 026c AC319FE5 		ldr	r3, .L19+60
+ 268              	.LPIC13:
+ 269 0270 03308FE0 		add	r3, pc, r3
+ 270 0274 04308DE5 		str	r3, [sp, #4]
+ 271 0278 0F3CE0E3 		mvn	r3, #3840
+ 272 027c 00308DE5 		str	r3, [sp]
+ 273 0280 5830A0E3 		mov	r3, #88
+ 274 0284 98219FE5 		ldr	r2, .L19+64
+ 275              	.LPIC14:
+ 276 0288 02208FE0 		add	r2, pc, r2
+ 277 028c 94119FE5 		ldr	r1, .L19+68
+ 278              	.LPIC15:
+ 279 0290 01108FE0 		add	r1, pc, r1
+ 280 0294 4500A0E3 		mov	r0, #69
+ 281 0298 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 282 029c 0F3CE0E3 		mvn	r3, #3840
+ARM GAS  /tmp/cclCpI4N.s 			page 8
+
+
+ 283 02a0 1C300BE5 		str	r3, [fp, #-28]
+ 284 02a4 3B0000EA 		b	.L3
+ 285              	.L11:
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****           EApiAHWriteStorage, 
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****           EAPI_STATUS_ERROR, 
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****           ((AdjOffset+AdjLength)>MaxLen)
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****           );
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       pLclBuffer=malloc(AdjLength);
+ 286              		.loc 1 93 18 is_stmt 1
+ 287 02a8 14001BE5 		ldr	r0, [fp, #-20]
+ 288 02ac FEFFFFEB 		bl	malloc(PLT)
+ 289 02b0 0030A0E1 		mov	r3, r0
+ 290 02b4 10300BE5 		str	r3, [fp, #-16]
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       EAPI_APP_RETURN_ERROR_IF(
+ 291              		.loc 1 94 7
+ 292 02b8 10301BE5 		ldr	r3, [fp, #-16]
+ 293 02bc 000053E3 		cmp	r3, #0
+ 294 02c0 1100001A 		bne	.L12
+ 295              		.loc 1 94 7 is_stmt 0 discriminator 1
+ 296 02c4 60319FE5 		ldr	r3, .L19+72
+ 297              	.LPIC16:
+ 298 02c8 03308FE0 		add	r3, pc, r3
+ 299 02cc 08308DE5 		str	r3, [sp, #8]
+ 300 02d0 58319FE5 		ldr	r3, .L19+76
+ 301              	.LPIC17:
+ 302 02d4 03308FE0 		add	r3, pc, r3
+ 303 02d8 04308DE5 		str	r3, [sp, #4]
+ 304 02dc 0230E0E3 		mvn	r3, #2
+ 305 02e0 00308DE5 		str	r3, [sp]
+ 306 02e4 5E30A0E3 		mov	r3, #94
+ 307 02e8 44219FE5 		ldr	r2, .L19+80
+ 308              	.LPIC18:
+ 309 02ec 02208FE0 		add	r2, pc, r2
+ 310 02f0 40119FE5 		ldr	r1, .L19+84
+ 311              	.LPIC19:
+ 312 02f4 01108FE0 		add	r1, pc, r1
+ 313 02f8 4500A0E3 		mov	r0, #69
+ 314 02fc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 315 0300 0230E0E3 		mvn	r3, #2
+ 316 0304 1C300BE5 		str	r3, [fp, #-28]
+ 317 0308 220000EA 		b	.L3
+ 318              	.L12:
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EApiAHWriteStorage, 
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         pLclBuffer==NULL,
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         EAPI_STATUS_ALLOC_ERROR, 
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         "Allocating Page Buffer"
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         );
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       StatusCode=EApiStorageAreaRead(Id, AdjOffset, pLclBuffer, AdjLength, AdjLength);
+ 319              		.loc 1 100 18 is_stmt 1
+ 320 030c 14301BE5 		ldr	r3, [fp, #-20]
+ 321 0310 00308DE5 		str	r3, [sp]
+ 322 0314 14301BE5 		ldr	r3, [fp, #-20]
+ 323 0318 10201BE5 		ldr	r2, [fp, #-16]
+ 324 031c 18101BE5 		ldr	r1, [fp, #-24]
+ 325 0320 28001BE5 		ldr	r0, [fp, #-40]
+ 326 0324 FEFFFFEB 		bl	EApiStorageAreaRead(PLT)
+ 327 0328 1C000BE5 		str	r0, [fp, #-28]
+ARM GAS  /tmp/cclCpI4N.s 			page 9
+
+
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       if(!EAPI_TEST_SUCCESS(StatusCode))
+ 328              		.loc 1 101 9
+ 329 032c 1C301BE5 		ldr	r3, [fp, #-28]
+ 330 0330 000053E3 		cmp	r3, #0
+ 331 0334 1600001A 		bne	.L18
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****         goto ErrorExit;
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       memcpy(&pLclBuffer[BufferOffset], pBuffer, ByteCnt);
+ 332              		.loc 1 103 14
+ 333 0338 10201BE5 		ldr	r2, [fp, #-16]
+ 334 033c 0C301BE5 		ldr	r3, [fp, #-12]
+ 335 0340 033082E0 		add	r3, r2, r3
+ 336              		.loc 1 103 7
+ 337 0344 34201BE5 		ldr	r2, [fp, #-52]
+ 338 0348 30101BE5 		ldr	r1, [fp, #-48]
+ 339 034c 0300A0E1 		mov	r0, r3
+ 340 0350 FEFFFFEB 		bl	memcpy(PLT)
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       StatusCode=EApiStorageAreaWrite(Id, AdjOffset, pLclBuffer, AdjLength);
+ 341              		.loc 1 104 18
+ 342 0354 14301BE5 		ldr	r3, [fp, #-20]
+ 343 0358 10201BE5 		ldr	r2, [fp, #-16]
+ 344 035c 18101BE5 		ldr	r1, [fp, #-24]
+ 345 0360 28001BE5 		ldr	r0, [fp, #-40]
+ 346 0364 FEFFFFEB 		bl	EApiStorageAreaWrite(PLT)
+ 347 0368 1C000BE5 		str	r0, [fp, #-28]
+ 348 036c 090000EA 		b	.L3
+ 349              	.L10:
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     }else{
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       StatusCode=EApiStorageAreaWrite(Id, ByteOffset, pBuffer, ByteCnt);
+ 350              		.loc 1 106 18
+ 351 0370 34301BE5 		ldr	r3, [fp, #-52]
+ 352 0374 30201BE5 		ldr	r2, [fp, #-48]
+ 353 0378 2C101BE5 		ldr	r1, [fp, #-44]
+ 354 037c 28001BE5 		ldr	r0, [fp, #-40]
+ 355 0380 FEFFFFEB 		bl	EApiStorageAreaWrite(PLT)
+ 356 0384 1C000BE5 		str	r0, [fp, #-28]
+ 357 0388 020000EA 		b	.L3
+ 358              	.L6:
+ 359              	.L17:
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** 
+ 360              		.loc 1 66 7
+ 361 038c 00F020E3 		nop
+ 362 0390 000000EA 		b	.L3
+ 363              	.L18:
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****       memcpy(&pLclBuffer[BufferOffset], pBuffer, ByteCnt);
+ 364              		.loc 1 102 9
+ 365 0394 00F020E3 		nop
+ 366              	.L3:
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     }
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** ErrorExit:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** EAPI_APP_ASSERT_EXIT
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     if(pLclBuffer!=NULL)free(pLclBuffer);
+ 367              		.loc 1 110 7
+ 368 0398 10301BE5 		ldr	r3, [fp, #-16]
+ 369 039c 000053E3 		cmp	r3, #0
+ 370 03a0 0100000A 		beq	.L14
+ 371              		.loc 1 110 25 discriminator 1
+ 372 03a4 10001BE5 		ldr	r0, [fp, #-16]
+ARM GAS  /tmp/cclCpI4N.s 			page 10
+
+
+ 373 03a8 FEFFFFEB 		bl	free(PLT)
+ 374              	.L14:
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** 
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     return StatusCode;
+ 375              		.loc 1 112 12
+ 376 03ac 1C301BE5 		ldr	r3, [fp, #-28]
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 377              		.loc 1 46 1
+ 378 03b0 84109FE5 		ldr	r1, .L19+88
+ 379              	.LPIC21:
+ 380 03b4 01108FE0 		add	r1, pc, r1
+ 113:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHStorage.c **** }
+ 381              		.loc 1 113 1
+ 382 03b8 28209FE5 		ldr	r2, .L19+4
+ 383 03bc 022091E7 		ldr	r2, [r1, r2]
+ 384 03c0 001092E5 		ldr	r1, [r2]
+ 385 03c4 08201BE5 		ldr	r2, [fp, #-8]
+ 386 03c8 011032E0 		eors	r1, r2, r1
+ 387 03cc 0020A0E3 		mov	r2, #0
+ 388 03d0 0000000A 		beq	.L16
+ 389 03d4 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 390              	.L16:
+ 391 03d8 0300A0E1 		mov	r0, r3
+ 392 03dc 04D04BE2 		sub	sp, fp, #4
+ 393              		.cfi_def_cfa 13, 8
+ 394              		@ sp needed
+ 395 03e0 0088BDE8 		pop	{fp, pc}
+ 396              	.L20:
+ 397              		.align	2
+ 398              	.L19:
+ 399 03e4 BC030000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC20+8)
+ 400 03e8 00000000 		.word	__stack_chk_guard(GOT)
+ 401 03ec E0030000 		.word	.LC2-(.LPIC0+8)
+ 402 03f0 E8030000 		.word	.LC3-(.LPIC1+8)
+ 403 03f4 58030000 		.word	.LC0-(.LPIC2+8)
+ 404 03f8 68030000 		.word	.LC1-(.LPIC3+8)
+ 405 03fc B0030000 		.word	.LC4-(.LPIC4+8)
+ 406 0400 A4030000 		.word	.LC3-(.LPIC5+8)
+ 407 0404 14030000 		.word	.LC0-(.LPIC6+8)
+ 408 0408 24030000 		.word	.LC1-(.LPIC7+8)
+ 409 040c 4C030000 		.word	.LC5-(.LPIC8+8)
+ 410 0410 30030000 		.word	.LC3-(.LPIC9+8)
+ 411 0414 A0020000 		.word	.LC0-(.LPIC10+8)
+ 412 0418 B0020000 		.word	.LC1-(.LPIC11+8)
+ 413 041c 60020000 		.word	.LC6-(.LPIC12+8)
+ 414 0420 24020000 		.word	.LC3-(.LPIC13+8)
+ 415 0424 94010000 		.word	.LC0-(.LPIC14+8)
+ 416 0428 A4010000 		.word	.LC1-(.LPIC15+8)
+ 417 042c 2C020000 		.word	.LC7-(.LPIC16+8)
+ 418 0430 D0010000 		.word	.LC3-(.LPIC17+8)
+ 419 0434 40010000 		.word	.LC0-(.LPIC18+8)
+ 420 0438 50010000 		.word	.LC1-(.LPIC19+8)
+ 421 043c 80000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC21+8)
+ 422              		.cfi_endproc
+ 423              	.LFE1:
+ 425              	.Letext0:
+ 426              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ARM GAS  /tmp/cclCpI4N.s 			page 11
+
+
+ 427              		.file 3 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 428              		.file 4 "../../../include/EApi.h"
+ 429              		.file 5 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 430              		.file 6 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 431              		.file 7 "../../include/DbgChk.h"
+ARM GAS  /tmp/cclCpI4N.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiAHStorage.c
+     /tmp/cclCpI4N.s:17     .rodata:0000000000000000 $d
+     /tmp/cclCpI4N.s:44     .text:0000000000000000 $a
+     /tmp/cclCpI4N.s:53     .text:0000000000000000 EApiAHWriteStorage
+     /tmp/cclCpI4N.s:399    .text:00000000000003e4 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidivmod
+siFormattedMessage_SC
+EApiStorageCap
+malloc
+EApiStorageAreaRead
+memcpy
+EApiStorageAreaWrite
+free
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard

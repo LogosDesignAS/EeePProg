@@ -1,0 +1,1537 @@
+ARM GAS  /tmp/cchJxJqO.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiEmulGPIO.c"
+  13              		.text
+  14              		.align	2
+  15              		.global	EApiReadIO32Delay
+  16              		.hidden	EApiReadIO32Delay
+  17              		.arch armv7-a
+  18              		.arch_extension mp
+  19              		.arch_extension sec
+  20              		.syntax unified
+  21              		.arm
+  22              		.fpu vfpv3
+  24              	EApiReadIO32Delay:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27 0000 10402DE9 		push	{r4, lr}
+  28 0004 0040A0E1 		mov	r4, r0
+  29 0008 780500E3 		movw	r0, #1400
+  30 000c FEFFFFEB 		bl	EApiSleepns(PLT)
+  31 0010 043084E2 		add	r3, r4, #4
+  32 0014 100053E3 		cmp	r3, #16
+  33 0018 0300008A 		bhi	.L3
+  34 001c 10309FE5 		ldr	r3, .L6
+  35              	.LPIC0:
+  36 0020 03308FE0 		add	r3, pc, r3
+  37 0024 040093E7 		ldr	r0, [r3, r4]
+  38 0028 1080BDE8 		pop	{r4, pc}
+  39              	.L3:
+  40 002c 0000A0E3 		mov	r0, #0
+  41 0030 1080BDE8 		pop	{r4, pc}
+  42              	.L7:
+  43              		.align	2
+  44              	.L6:
+  45 0034 0C000000 		.word	.LANCHOR0-(.LPIC0+8)
+  47              		.align	2
+  48              		.global	EApiWriteIO32Delay
+  49              		.hidden	EApiWriteIO32Delay
+  50              		.syntax unified
+  51              		.arm
+  52              		.fpu vfpv3
+  54              	EApiWriteIO32Delay:
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0038 70402DE9 		push	{r4, r5, r6, lr}
+  58 003c 0040A0E1 		mov	r4, r0
+  59 0040 780500E3 		movw	r0, #1400
+  60 0044 0150A0E1 		mov	r5, r1
+ARM GAS  /tmp/cchJxJqO.s 			page 2
+
+
+  61 0048 FEFFFFEB 		bl	EApiSleepns(PLT)
+  62 004c 043084E2 		add	r3, r4, #4
+  63 0050 100053E3 		cmp	r3, #16
+  64 0054 08309F95 		ldrls	r3, .L11
+  65              	.LPIC1:
+  66 0058 03308F90 		addls	r3, pc, r3
+  67 005c 04508397 		strls	r5, [r3, r4]
+  68 0060 7080BDE8 		pop	{r4, r5, r6, pc}
+  69              	.L12:
+  70              		.align	2
+  71              	.L11:
+  72 0064 04000000 		.word	.LANCHOR0-(.LPIC1+8)
+  74              		.align	2
+  75              		.global	EApiReadIO32
+  76              		.hidden	EApiReadIO32
+  77              		.syntax unified
+  78              		.arm
+  79              		.fpu vfpv3
+  81              	EApiReadIO32:
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85 0068 043080E2 		add	r3, r0, #4
+  86 006c 100053E3 		cmp	r3, #16
+  87 0070 0300008A 		bhi	.L15
+  88 0074 10309FE5 		ldr	r3, .L16
+  89              	.LPIC2:
+  90 0078 03308FE0 		add	r3, pc, r3
+  91 007c 000093E7 		ldr	r0, [r3, r0]
+  92 0080 1EFF2FE1 		bx	lr
+  93              	.L15:
+  94 0084 0000A0E3 		mov	r0, #0
+  95 0088 1EFF2FE1 		bx	lr
+  96              	.L17:
+  97              		.align	2
+  98              	.L16:
+  99 008c 0C000000 		.word	.LANCHOR0-(.LPIC2+8)
+ 101              		.align	2
+ 102              		.global	EApiWriteIO32
+ 103              		.hidden	EApiWriteIO32
+ 104              		.syntax unified
+ 105              		.arm
+ 106              		.fpu vfpv3
+ 108              	EApiWriteIO32:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112 0090 043080E2 		add	r3, r0, #4
+ 113 0094 100053E3 		cmp	r3, #16
+ 114 0098 08309F95 		ldrls	r3, .L20
+ 115              	.LPIC3:
+ 116 009c 03308F90 		addls	r3, pc, r3
+ 117 00a0 00108397 		strls	r1, [r3, r0]
+ 118 00a4 1EFF2FE1 		bx	lr
+ 119              	.L21:
+ 120              		.align	2
+ 121              	.L20:
+ARM GAS  /tmp/cchJxJqO.s 			page 3
+
+
+ 122 00a8 04000000 		.word	.LANCHOR0-(.LPIC3+8)
+ 124              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 125              		.align	2
+ 126              	.LC0:
+ 127 0000 45417069 		.ascii	"EApiGPIOGetLevelEmul\000"
+ 127      4750494F 
+ 127      4765744C 
+ 127      6576656C 
+ 127      456D756C 
+ 128 0015 000000   		.align	2
+ 129              	.LC1:
+ 130 0018 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+ 130      652F686B 
+ 130      682F6769 
+ 130      742F6561 
+ 130      7069646B 
+ 131 004b 7069456D 		.ascii	"piEmulGPIO.c\000"
+ 131      756C4750 
+ 131      494F2E63 
+ 131      00
+ 132              		.align	2
+ 133              	.LC2:
+ 134 0058 4269742D 		.ascii	"Bit-mask Selects Invalid Bits\000"
+ 134      6D61736B 
+ 134      2053656C 
+ 134      65637473 
+ 134      20496E76 
+ 135 0076 0000     		.align	2
+ 136              	.LC3:
+ 137 0078 25730A00 		.ascii	"%s\012\000"
+ 138              		.align	2
+ 139              	.LC4:
+ 140 007c 45417069 		.ascii	"EApiGPIOGetLevel\000"
+ 140      4750494F 
+ 140      4765744C 
+ 140      6576656C 
+ 140      00
+ 141 008d 000000   		.align	2
+ 142              	.LC5:
+ 143 0090 00       		.ascii	"\000"
+ 144 0091 000000   		.align	2
+ 145              	.LC6:
+ 146 0094 556E7265 		.ascii	"Unrecognised GPIO ID\000"
+ 146      636F676E 
+ 146      69736564 
+ 146      20475049 
+ 146      4F204944 
+ 147              		.text
+ 148              		.align	2
+ 149              		.global	EApiGPIOGetLevelEmul
+ 150              		.hidden	EApiGPIOGetLevelEmul
+ 151              		.syntax unified
+ 152              		.arm
+ 153              		.fpu vfpv3
+ 155              	EApiGPIOGetLevelEmul:
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/cchJxJqO.s 			page 4
+
+
+ 158 00ac 010850E3 		cmp	r0, #65536
+ 159 00b0 F0472DE9 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 160 00b4 0180A0E1 		mov	r8, r1
+ 161 00b8 10D04DE2 		sub	sp, sp, #16
+ 162 00bc 0290A0E1 		mov	r9, r2
+ 163 00c0 2100000A 		beq	.L37
+ 164 00c4 040050E3 		cmp	r0, #4
+ 165 00c8 6E00000A 		beq	.L38
+ 166 00cc 050050E3 		cmp	r0, #5
+ 167 00d0 6E00000A 		beq	.L39
+ 168 00d4 060050E3 		cmp	r0, #6
+ 169 00d8 6E00000A 		beq	.L40
+ 170 00dc 070050E3 		cmp	r0, #7
+ 171 00e0 6E00000A 		beq	.L41
+ 172 00e4 000050E3 		cmp	r0, #0
+ 173 00e8 6E00000A 		beq	.L42
+ 174 00ec 010050E3 		cmp	r0, #1
+ 175 00f0 6E00000A 		beq	.L43
+ 176 00f4 020050E3 		cmp	r0, #2
+ 177 00f8 6E00000A 		beq	.L44
+ 178 00fc 030050E3 		cmp	r0, #3
+ 179 0100 0820A003 		moveq	r2, #8
+ 180 0104 1100000A 		beq	.L23
+ 181 0108 B0C19FE5 		ldr	ip, .L52
+ 182 010c 036CE0E3 		mvn	r6, #768
+ 183 0110 AC019FE5 		ldr	r0, .L52+4
+ 184 0114 573FA0E3 		mov	r3, #348
+ 185 0118 A8219FE5 		ldr	r2, .L52+8
+ 186 011c A8119FE5 		ldr	r1, .L52+12
+ 187              	.LPIC17:
+ 188 0120 0CC08FE0 		add	ip, pc, ip
+ 189              	.LPIC18:
+ 190 0124 00008FE0 		add	r0, pc, r0
+ 191              	.LPIC15:
+ 192 0128 02208FE0 		add	r2, pc, r2
+ 193              	.LPIC16:
+ 194 012c 01108FE0 		add	r1, pc, r1
+ 195              	.L51:
+ 196              	.L29:
+ 197 0130 01108DE9 		stmib	sp, {r0, ip}
+ 198 0134 4500A0E3 		mov	r0, #69
+ 199 0138 00608DE5 		str	r6, [sp]
+ 200 013c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 201 0140 0600A0E1 		mov	r0, r6
+ 202 0144 10D08DE2 		add	sp, sp, #16
+ 203              		@ sp needed
+ 204 0148 F087BDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 205              	.L37:
+ 206 014c 0020A0E3 		mov	r2, #0
+ 207              	.L23:
+ 208 0150 78319FE5 		ldr	r3, .L52+16
+ 209              	.LPIC4:
+ 210 0154 03308FE0 		add	r3, pc, r3
+ 211 0158 023283E0 		add	r3, r3, r2, lsl #4
+ 212 015c 086093E5 		ldr	r6, [r3, #8]
+ 213 0160 0C2093E5 		ldr	r2, [r3, #12]
+ 214 0164 026086E1 		orr	r6, r6, r2
+ARM GAS  /tmp/cchJxJqO.s 			page 5
+
+
+ 215 0168 0660D8E1 		bics	r6, r8, r6
+ 216 016c 3A00001A 		bne	.L25
+ 217 0170 044093E5 		ldr	r4, [r3, #4]
+ 218 0174 003094E5 		ldr	r3, [r4]
+ 219 0178 010073E3 		cmn	r3, #1
+ 220 017c 0430A011 		movne	r3, r4
+ 221 0180 0610A011 		movne	r1, r6
+ 222 0184 0400000A 		beq	.L31
+ 223              	.L30:
+ 224 0188 042093E5 		ldr	r2, [r3, #4]
+ 225 018c 001082E5 		str	r1, [r2]
+ 226 0190 0820B3E5 		ldr	r2, [r3, #8]!
+ 227 0194 010072E3 		cmn	r2, #1
+ 228 0198 FAFFFF1A 		bne	.L30
+ 229              	.L31:
+ 230 019c 0030A0E3 		mov	r3, #0
+ 231 01a0 003089E5 		str	r3, [r9]
+ 232 01a4 003094E5 		ldr	r3, [r4]
+ 233 01a8 010073E3 		cmn	r3, #1
+ 234 01ac 0150A013 		movne	r5, #1
+ 235 01b0 08408412 		addne	r4, r4, #8
+ 236 01b4 05A0A011 		movne	r10, r5
+ 237 01b8 1500000A 		beq	.L28
+ 238              	.L36:
+ 239 01bc 050018E1 		tst	r8, r5
+ 240 01c0 0F00000A 		beq	.L33
+ 241 01c4 047014E5 		ldr	r7, [r4, #-4]
+ 242 01c8 002097E5 		ldr	r2, [r7]
+ 243 01cc 000052E3 		cmp	r2, #0
+ 244 01d0 0600001A 		bne	.L34
+ 245 01d4 183097E5 		ldr	r3, [r7, #24]
+ 246 01d8 0C0097E5 		ldr	r0, [r7, #12]
+ 247 01dc 33FF2FE1 		blx	r3
+ 248 01e0 040087E5 		str	r0, [r7, #4]
+ 249 01e4 047014E5 		ldr	r7, [r4, #-4]
+ 250 01e8 00A087E5 		str	r10, [r7]
+ 251 01ec 083014E5 		ldr	r3, [r4, #-8]
+ 252              	.L34:
+ 253 01f0 042097E5 		ldr	r2, [r7, #4]
+ 254 01f4 020013E1 		tst	r3, r2
+ 255 01f8 00309915 		ldrne	r3, [r9]
+ 256 01fc 05308311 		orrne	r3, r3, r5
+ 257 0200 00308915 		strne	r3, [r9]
+ 258              	.L33:
+ 259 0204 083094E4 		ldr	r3, [r4], #8
+ 260 0208 8550A0E1 		lsl	r5, r5, #1
+ 261 020c 010073E3 		cmn	r3, #1
+ 262 0210 E9FFFF1A 		bne	.L36
+ 263              	.L28:
+ 264 0214 B8109FE5 		ldr	r1, .L52+20
+ 265 0218 00C0A0E3 		mov	ip, #0
+ 266 021c B4009FE5 		ldr	r0, .L52+24
+ 267 0220 593100E3 		movw	r3, #345
+ 268 0224 B0209FE5 		ldr	r2, .L52+28
+ 269              	.LPIC14:
+ 270 0228 01108FE0 		add	r1, pc, r1
+ 271 022c 00C08DE5 		str	ip, [sp]
+ARM GAS  /tmp/cchJxJqO.s 			page 6
+
+
+ 272 0230 04108DE5 		str	r1, [sp, #4]
+ 273              	.LPIC13:
+ 274 0234 00008FE0 		add	r0, pc, r0
+ 275 0238 A0109FE5 		ldr	r1, .L52+32
+ 276              	.LPIC11:
+ 277 023c 02208FE0 		add	r2, pc, r2
+ 278 0240 08008DE5 		str	r0, [sp, #8]
+ 279 0244 4C00A0E3 		mov	r0, #76
+ 280              	.LPIC12:
+ 281 0248 01108FE0 		add	r1, pc, r1
+ 282 024c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 283 0250 0600A0E1 		mov	r0, r6
+ 284 0254 10D08DE2 		add	sp, sp, #16
+ 285              		@ sp needed
+ 286 0258 F087BDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 287              	.L25:
+ 288 025c 80C09FE5 		ldr	ip, .L52+36
+ 289 0260 416FE0E3 		mvn	r6, #260
+ 290 0264 7C009FE5 		ldr	r0, .L52+40
+ 291 0268 053DA0E3 		mov	r3, #320
+ 292 026c 78209FE5 		ldr	r2, .L52+44
+ 293 0270 78109FE5 		ldr	r1, .L52+48
+ 294              	.LPIC9:
+ 295 0274 0CC08FE0 		add	ip, pc, ip
+ 296              	.LPIC10:
+ 297 0278 00008FE0 		add	r0, pc, r0
+ 298              	.LPIC7:
+ 299 027c 02208FE0 		add	r2, pc, r2
+ 300              	.LPIC8:
+ 301 0280 01108FE0 		add	r1, pc, r1
+ 302 0284 A9FFFFEA 		b	.L51
+ 303              	.L38:
+ 304 0288 0120A0E3 		mov	r2, #1
+ 305 028c AFFFFFEA 		b	.L23
+ 306              	.L39:
+ 307 0290 0220A0E3 		mov	r2, #2
+ 308 0294 ADFFFFEA 		b	.L23
+ 309              	.L40:
+ 310 0298 0320A0E3 		mov	r2, #3
+ 311 029c ABFFFFEA 		b	.L23
+ 312              	.L41:
+ 313 02a0 0420A0E3 		mov	r2, #4
+ 314 02a4 A9FFFFEA 		b	.L23
+ 315              	.L42:
+ 316 02a8 0520A0E3 		mov	r2, #5
+ 317 02ac A7FFFFEA 		b	.L23
+ 318              	.L43:
+ 319 02b0 0620A0E3 		mov	r2, #6
+ 320 02b4 A5FFFFEA 		b	.L23
+ 321              	.L44:
+ 322 02b8 0720A0E3 		mov	r2, #7
+ 323 02bc A3FFFFEA 		b	.L23
+ 324              	.L53:
+ 325              		.align	2
+ 326              	.L52:
+ 327 02c0 98010000 		.word	.LC6-(.LPIC17+8)
+ 328 02c4 98010000 		.word	.LC3-(.LPIC18+8)
+ARM GAS  /tmp/cchJxJqO.s 			page 7
+
+
+ 329 02c8 98010000 		.word	.LC4-(.LPIC15+8)
+ 330 02cc 98010000 		.word	.LC1-(.LPIC16+8)
+ 331 02d0 74010000 		.word	.LANCHOR1-(.LPIC4+8)
+ 332 02d4 A4000000 		.word	.LC3-(.LPIC14+8)
+ 333 02d8 9C000000 		.word	.LC5-(.LPIC13+8)
+ 334 02dc 98000000 		.word	.LC4-(.LPIC11+8)
+ 335 02e0 90000000 		.word	.LC1-(.LPIC12+8)
+ 336 02e4 68000000 		.word	.LC2-(.LPIC9+8)
+ 337 02e8 68000000 		.word	.LC3-(.LPIC10+8)
+ 338 02ec 68000000 		.word	.LC0-(.LPIC7+8)
+ 339 02f0 68000000 		.word	.LC1-(.LPIC8+8)
+ 341              		.section	.rodata.str1.4
+ 342 00a9 000000   		.align	2
+ 343              	.LC7:
+ 344 00ac 45417069 		.ascii	"EApiGPIOSetLevel\000"
+ 344      4750494F 
+ 344      5365744C 
+ 344      6576656C 
+ 344      00
+ 345 00bd 000000   		.align	2
+ 346              	.LC8:
+ 347 00c0 45417069 		.ascii	"EApiGPIOSetLevelEmul\000"
+ 347      4750494F 
+ 347      5365744C 
+ 347      6576656C 
+ 347      456D756C 
+ 348 00d5 000000   		.align	2
+ 349              	.LC9:
+ 350 00d8 43616E74 		.ascii	"Cant Set Level on Pin that is set to input\000"
+ 350      20536574 
+ 350      204C6576 
+ 350      656C206F 
+ 350      6E205069 
+ 351              		.text
+ 352              		.align	2
+ 353              		.global	EApiGPIOSetLevelEmul
+ 354              		.hidden	EApiGPIOSetLevelEmul
+ 355              		.syntax unified
+ 356              		.arm
+ 357              		.fpu vfpv3
+ 359              	EApiGPIOSetLevelEmul:
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362 02f4 010850E3 		cmp	r0, #65536
+ 363 02f8 F04F2DE9 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 364 02fc 0170A0E1 		mov	r7, r1
+ 365 0300 14D04DE2 		sub	sp, sp, #20
+ 366 0304 02A0A0E1 		mov	r10, r2
+ 367 0308 2100000A 		beq	.L70
+ 368 030c 040050E3 		cmp	r0, #4
+ 369 0310 8700000A 		beq	.L71
+ 370 0314 050050E3 		cmp	r0, #5
+ 371 0318 8700000A 		beq	.L72
+ 372 031c 060050E3 		cmp	r0, #6
+ 373 0320 8700000A 		beq	.L73
+ 374 0324 070050E3 		cmp	r0, #7
+ 375 0328 8700000A 		beq	.L74
+ARM GAS  /tmp/cchJxJqO.s 			page 8
+
+
+ 376 032c 000050E3 		cmp	r0, #0
+ 377 0330 8700000A 		beq	.L75
+ 378 0334 010050E3 		cmp	r0, #1
+ 379 0338 9200000A 		beq	.L76
+ 380 033c 020050E3 		cmp	r0, #2
+ 381 0340 9200000A 		beq	.L77
+ 382 0344 030050E3 		cmp	r0, #3
+ 383 0348 0810A003 		moveq	r1, #8
+ 384 034c 1100000A 		beq	.L55
+ 385 0350 40C29FE5 		ldr	ip, .L93
+ 386 0354 038CE0E3 		mvn	r8, #768
+ 387 0358 3C029FE5 		ldr	r0, .L93+4
+ 388 035c A73100E3 		movw	r3, #423
+ 389 0360 38229FE5 		ldr	r2, .L93+8
+ 390 0364 38129FE5 		ldr	r1, .L93+12
+ 391              	.LPIC36:
+ 392 0368 0CC08FE0 		add	ip, pc, ip
+ 393              	.LPIC37:
+ 394 036c 00008FE0 		add	r0, pc, r0
+ 395              	.LPIC34:
+ 396 0370 02208FE0 		add	r2, pc, r2
+ 397              	.LPIC35:
+ 398 0374 01108FE0 		add	r1, pc, r1
+ 399              	.L90:
+ 400              	.L59:
+ 401 0378 01108DE9 		stmib	sp, {r0, ip}
+ 402 037c 4500A0E3 		mov	r0, #69
+ 403 0380 00808DE5 		str	r8, [sp]
+ 404 0384 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 405 0388 0800A0E1 		mov	r0, r8
+ 406 038c 14D08DE2 		add	sp, sp, #20
+ 407              		@ sp needed
+ 408 0390 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 409              	.L70:
+ 410 0394 0010A0E3 		mov	r1, #0
+ 411              	.L55:
+ 412 0398 08329FE5 		ldr	r3, .L93+16
+ 413              	.LPIC19:
+ 414 039c 03308FE0 		add	r3, pc, r3
+ 415 03a0 013283E0 		add	r3, r3, r1, lsl #4
+ 416 03a4 088093E5 		ldr	r8, [r3, #8]
+ 417 03a8 0C1093E5 		ldr	r1, [r3, #12]
+ 418 03ac 018088E1 		orr	r8, r8, r1
+ 419 03b0 0880D7E1 		bics	r8, r7, r8
+ 420 03b4 6800001A 		bne	.L57
+ 421 03b8 049093E5 		ldr	r9, [r3, #4]
+ 422 03bc 003099E5 		ldr	r3, [r9]
+ 423 03c0 010073E3 		cmn	r3, #1
+ 424 03c4 09B0A011 		movne	fp, r9
+ 425 03c8 0910A011 		movne	r1, r9
+ 426 03cc 08C0A011 		movne	ip, r8
+ 427 03d0 3000000A 		beq	.L66
+ 428              	.L60:
+ 429 03d4 040091E5 		ldr	r0, [r1, #4]
+ 430 03d8 00C080E5 		str	ip, [r0]
+ 431 03dc 0800B1E5 		ldr	r0, [r1, #8]!
+ 432 03e0 010070E3 		cmn	r0, #1
+ARM GAS  /tmp/cchJxJqO.s 			page 9
+
+
+ 433 03e4 FAFFFF1A 		bne	.L60
+ 434 03e8 0150A0E3 		mov	r5, #1
+ 435 03ec 086089E2 		add	r6, r9, #8
+ 436              	.L65:
+ 437 03f0 050017E1 		tst	r7, r5
+ 438 03f4 1800000A 		beq	.L61
+ 439 03f8 044016E5 		ldr	r4, [r6, #-4]
+ 440 03fc 001094E5 		ldr	r1, [r4]
+ 441 0400 000051E3 		cmp	r1, #0
+ 442 0404 0C00001A 		bne	.L62
+ 443 0408 183094E5 		ldr	r3, [r4, #24]
+ 444 040c 0C0094E5 		ldr	r0, [r4, #12]
+ 445 0410 33FF2FE1 		blx	r3
+ 446 0414 040084E5 		str	r0, [r4, #4]
+ 447 0418 044016E5 		ldr	r4, [r6, #-4]
+ 448 041c 183094E5 		ldr	r3, [r4, #24]
+ 449 0420 100094E5 		ldr	r0, [r4, #16]
+ 450 0424 33FF2FE1 		blx	r3
+ 451 0428 080084E5 		str	r0, [r4, #8]
+ 452 042c 0130A0E3 		mov	r3, #1
+ 453 0430 044016E5 		ldr	r4, [r6, #-4]
+ 454 0434 003084E5 		str	r3, [r4]
+ 455 0438 083016E5 		ldr	r3, [r6, #-8]
+ 456              	.L62:
+ 457 043c 081094E5 		ldr	r1, [r4, #8]
+ 458 0440 010013E1 		tst	r3, r1
+ 459 0444 2F00001A 		bne	.L91
+ 460 0448 041094E5 		ldr	r1, [r4, #4]
+ 461 044c 05001AE1 		tst	r10, r5
+ 462 0450 01108311 		orrne	r1, r3, r1
+ 463 0454 0310C101 		biceq	r1, r1, r3
+ 464 0458 041084E5 		str	r1, [r4, #4]
+ 465              	.L61:
+ 466 045c 083096E4 		ldr	r3, [r6], #8
+ 467 0460 8550A0E1 		lsl	r5, r5, #1
+ 468 0464 010073E3 		cmn	r3, #1
+ 469 0468 E0FFFF1A 		bne	.L65
+ 470 046c 003099E5 		ldr	r3, [r9]
+ 471 0470 010073E3 		cmn	r3, #1
+ 472 0474 0700000A 		beq	.L66
+ 473 0478 0040A0E3 		mov	r4, #0
+ 474              	.L69:
+ 475 047c 04309BE5 		ldr	r3, [fp, #4]
+ 476 0480 002093E5 		ldr	r2, [r3]
+ 477 0484 010052E3 		cmp	r2, #1
+ 478 0488 1400000A 		beq	.L92
+ 479 048c 0830BBE5 		ldr	r3, [fp, #8]!
+ 480 0490 010073E3 		cmn	r3, #1
+ 481 0494 F8FFFF1A 		bne	.L69
+ 482              	.L66:
+ 483 0498 0C119FE5 		ldr	r1, .L93+20
+ 484 049c 00C0A0E3 		mov	ip, #0
+ 485 04a0 08019FE5 		ldr	r0, .L93+24
+ 486 04a4 693FA0E3 		mov	r3, #420
+ 487 04a8 04219FE5 		ldr	r2, .L93+28
+ 488              	.LPIC25:
+ 489 04ac 01108FE0 		add	r1, pc, r1
+ARM GAS  /tmp/cchJxJqO.s 			page 10
+
+
+ 490 04b0 00C08DE5 		str	ip, [sp]
+ 491 04b4 04108DE5 		str	r1, [sp, #4]
+ 492              	.LPIC24:
+ 493 04b8 00008FE0 		add	r0, pc, r0
+ 494 04bc F4109FE5 		ldr	r1, .L93+32
+ 495              	.LPIC22:
+ 496 04c0 02208FE0 		add	r2, pc, r2
+ 497 04c4 08008DE5 		str	r0, [sp, #8]
+ 498 04c8 4C00A0E3 		mov	r0, #76
+ 499              	.LPIC23:
+ 500 04cc 01108FE0 		add	r1, pc, r1
+ 501 04d0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 502 04d4 0800A0E1 		mov	r0, r8
+ 503 04d8 14D08DE2 		add	sp, sp, #20
+ 504              		@ sp needed
+ 505 04dc F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 506              	.L92:
+ 507 04e0 142093E5 		ldr	r2, [r3, #20]
+ 508 04e4 041093E5 		ldr	r1, [r3, #4]
+ 509 04e8 0C0093E5 		ldr	r0, [r3, #12]
+ 510 04ec 32FF2FE1 		blx	r2
+ 511 04f0 04309BE5 		ldr	r3, [fp, #4]
+ 512 04f4 004083E5 		str	r4, [r3]
+ 513 04f8 0830BBE5 		ldr	r3, [fp, #8]!
+ 514 04fc 010073E3 		cmn	r3, #1
+ 515 0500 DDFFFF1A 		bne	.L69
+ 516 0504 E3FFFFEA 		b	.L66
+ 517              	.L91:
+ 518 0508 ACC09FE5 		ldr	ip, .L93+36
+ 519 050c 018CE0E3 		mvn	r8, #256
+ 520 0510 A8009FE5 		ldr	r0, .L93+40
+ 521 0514 8D3100E3 		movw	r3, #397
+ 522 0518 A4209FE5 		ldr	r2, .L93+44
+ 523 051c A4109FE5 		ldr	r1, .L93+48
+ 524              	.LPIC32:
+ 525 0520 0CC08FE0 		add	ip, pc, ip
+ 526              	.LPIC33:
+ 527 0524 00008FE0 		add	r0, pc, r0
+ 528              	.LPIC30:
+ 529 0528 02208FE0 		add	r2, pc, r2
+ 530              	.LPIC31:
+ 531 052c 01108FE0 		add	r1, pc, r1
+ 532 0530 90FFFFEA 		b	.L90
+ 533              	.L71:
+ 534 0534 0110A0E3 		mov	r1, #1
+ 535 0538 96FFFFEA 		b	.L55
+ 536              	.L72:
+ 537 053c 0210A0E3 		mov	r1, #2
+ 538 0540 94FFFFEA 		b	.L55
+ 539              	.L73:
+ 540 0544 0310A0E3 		mov	r1, #3
+ 541 0548 92FFFFEA 		b	.L55
+ 542              	.L74:
+ 543 054c 0410A0E3 		mov	r1, #4
+ 544 0550 90FFFFEA 		b	.L55
+ 545              	.L75:
+ 546 0554 0510A0E3 		mov	r1, #5
+ARM GAS  /tmp/cchJxJqO.s 			page 11
+
+
+ 547 0558 8EFFFFEA 		b	.L55
+ 548              	.L57:
+ 549 055c 68C09FE5 		ldr	ip, .L93+52
+ 550 0560 418FE0E3 		mvn	r8, #260
+ 551 0564 64009FE5 		ldr	r0, .L93+56
+ 552 0568 5D3FA0E3 		mov	r3, #372
+ 553 056c 60209FE5 		ldr	r2, .L93+60
+ 554 0570 60109FE5 		ldr	r1, .L93+64
+ 555              	.LPIC28:
+ 556 0574 0CC08FE0 		add	ip, pc, ip
+ 557              	.LPIC29:
+ 558 0578 00008FE0 		add	r0, pc, r0
+ 559              	.LPIC26:
+ 560 057c 02208FE0 		add	r2, pc, r2
+ 561              	.LPIC27:
+ 562 0580 01108FE0 		add	r1, pc, r1
+ 563 0584 7BFFFFEA 		b	.L90
+ 564              	.L76:
+ 565 0588 0610A0E3 		mov	r1, #6
+ 566 058c 81FFFFEA 		b	.L55
+ 567              	.L77:
+ 568 0590 0710A0E3 		mov	r1, #7
+ 569 0594 7FFFFFEA 		b	.L55
+ 570              	.L94:
+ 571              		.align	2
+ 572              	.L93:
+ 573 0598 28020000 		.word	.LC6-(.LPIC36+8)
+ 574 059c 28020000 		.word	.LC3-(.LPIC37+8)
+ 575 05a0 28020000 		.word	.LC7-(.LPIC34+8)
+ 576 05a4 28020000 		.word	.LC1-(.LPIC35+8)
+ 577 05a8 04020000 		.word	.LANCHOR1-(.LPIC19+8)
+ 578 05ac F8000000 		.word	.LC3-(.LPIC25+8)
+ 579 05b0 F0000000 		.word	.LC5-(.LPIC24+8)
+ 580 05b4 EC000000 		.word	.LC7-(.LPIC22+8)
+ 581 05b8 E4000000 		.word	.LC1-(.LPIC23+8)
+ 582 05bc 94000000 		.word	.LC9-(.LPIC32+8)
+ 583 05c0 94000000 		.word	.LC3-(.LPIC33+8)
+ 584 05c4 94000000 		.word	.LC7-(.LPIC30+8)
+ 585 05c8 94000000 		.word	.LC1-(.LPIC31+8)
+ 586 05cc 50000000 		.word	.LC2-(.LPIC28+8)
+ 587 05d0 50000000 		.word	.LC3-(.LPIC29+8)
+ 588 05d4 50000000 		.word	.LC8-(.LPIC26+8)
+ 589 05d8 50000000 		.word	.LC1-(.LPIC27+8)
+ 591              		.section	.rodata.str1.4
+ 592 0103 00       		.align	2
+ 593              	.LC10:
+ 594 0104 45417069 		.ascii	"EApiGPIOGetDirectionEmul\000"
+ 594      4750494F 
+ 594      47657444 
+ 594      69726563 
+ 594      74696F6E 
+ 595 011d 000000   		.align	2
+ 596              	.LC11:
+ 597 0120 45417069 		.ascii	"EApiGPIOGetDirection\000"
+ 597      4750494F 
+ 597      47657444 
+ 597      69726563 
+ARM GAS  /tmp/cchJxJqO.s 			page 12
+
+
+ 597      74696F6E 
+ 598              		.text
+ 599              		.align	2
+ 600              		.global	EApiGPIOGetDirectionEmul
+ 601              		.hidden	EApiGPIOGetDirectionEmul
+ 602              		.syntax unified
+ 603              		.arm
+ 604              		.fpu vfpv3
+ 606              	EApiGPIOGetDirectionEmul:
+ 607              		@ args = 0, pretend = 0, frame = 0
+ 608              		@ frame_needed = 0, uses_anonymous_args = 0
+ 609 05dc 010850E3 		cmp	r0, #65536
+ 610 05e0 F0472DE9 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 611 05e4 0180A0E1 		mov	r8, r1
+ 612 05e8 10D04DE2 		sub	sp, sp, #16
+ 613 05ec 0290A0E1 		mov	r9, r2
+ 614 05f0 2100000A 		beq	.L110
+ 615 05f4 040050E3 		cmp	r0, #4
+ 616 05f8 6E00000A 		beq	.L111
+ 617 05fc 050050E3 		cmp	r0, #5
+ 618 0600 6E00000A 		beq	.L112
+ 619 0604 060050E3 		cmp	r0, #6
+ 620 0608 6E00000A 		beq	.L113
+ 621 060c 070050E3 		cmp	r0, #7
+ 622 0610 6E00000A 		beq	.L114
+ 623 0614 000050E3 		cmp	r0, #0
+ 624 0618 6E00000A 		beq	.L115
+ 625 061c 010050E3 		cmp	r0, #1
+ 626 0620 6E00000A 		beq	.L116
+ 627 0624 020050E3 		cmp	r0, #2
+ 628 0628 6E00000A 		beq	.L117
+ 629 062c 030050E3 		cmp	r0, #3
+ 630 0630 0820A003 		moveq	r2, #8
+ 631 0634 1100000A 		beq	.L96
+ 632 0638 B0C19FE5 		ldr	ip, .L125
+ 633 063c 036CE0E3 		mvn	r6, #768
+ 634 0640 AC019FE5 		ldr	r0, .L125+4
+ 635 0644 DB3100E3 		movw	r3, #475
+ 636 0648 A8219FE5 		ldr	r2, .L125+8
+ 637 064c A8119FE5 		ldr	r1, .L125+12
+ 638              	.LPIC51:
+ 639 0650 0CC08FE0 		add	ip, pc, ip
+ 640              	.LPIC52:
+ 641 0654 00008FE0 		add	r0, pc, r0
+ 642              	.LPIC49:
+ 643 0658 02208FE0 		add	r2, pc, r2
+ 644              	.LPIC50:
+ 645 065c 01108FE0 		add	r1, pc, r1
+ 646              	.L124:
+ 647              	.L102:
+ 648 0660 01108DE9 		stmib	sp, {r0, ip}
+ 649 0664 4500A0E3 		mov	r0, #69
+ 650 0668 00608DE5 		str	r6, [sp]
+ 651 066c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 652 0670 0600A0E1 		mov	r0, r6
+ 653 0674 10D08DE2 		add	sp, sp, #16
+ 654              		@ sp needed
+ARM GAS  /tmp/cchJxJqO.s 			page 13
+
+
+ 655 0678 F087BDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 656              	.L110:
+ 657 067c 0020A0E3 		mov	r2, #0
+ 658              	.L96:
+ 659 0680 78319FE5 		ldr	r3, .L125+16
+ 660              	.LPIC38:
+ 661 0684 03308FE0 		add	r3, pc, r3
+ 662 0688 023283E0 		add	r3, r3, r2, lsl #4
+ 663 068c 086093E5 		ldr	r6, [r3, #8]
+ 664 0690 0C2093E5 		ldr	r2, [r3, #12]
+ 665 0694 026086E1 		orr	r6, r6, r2
+ 666 0698 0660D8E1 		bics	r6, r8, r6
+ 667 069c 3A00001A 		bne	.L98
+ 668 06a0 044093E5 		ldr	r4, [r3, #4]
+ 669 06a4 003094E5 		ldr	r3, [r4]
+ 670 06a8 010073E3 		cmn	r3, #1
+ 671 06ac 0430A011 		movne	r3, r4
+ 672 06b0 0610A011 		movne	r1, r6
+ 673 06b4 0400000A 		beq	.L104
+ 674              	.L103:
+ 675 06b8 042093E5 		ldr	r2, [r3, #4]
+ 676 06bc 001082E5 		str	r1, [r2]
+ 677 06c0 0820B3E5 		ldr	r2, [r3, #8]!
+ 678 06c4 010072E3 		cmn	r2, #1
+ 679 06c8 FAFFFF1A 		bne	.L103
+ 680              	.L104:
+ 681 06cc 0030A0E3 		mov	r3, #0
+ 682 06d0 003089E5 		str	r3, [r9]
+ 683 06d4 003094E5 		ldr	r3, [r4]
+ 684 06d8 010073E3 		cmn	r3, #1
+ 685 06dc 0150A013 		movne	r5, #1
+ 686 06e0 08408412 		addne	r4, r4, #8
+ 687 06e4 05A0A011 		movne	r10, r5
+ 688 06e8 1500000A 		beq	.L101
+ 689              	.L109:
+ 690 06ec 050018E1 		tst	r8, r5
+ 691 06f0 0F00000A 		beq	.L106
+ 692 06f4 047014E5 		ldr	r7, [r4, #-4]
+ 693 06f8 002097E5 		ldr	r2, [r7]
+ 694 06fc 000052E3 		cmp	r2, #0
+ 695 0700 0600001A 		bne	.L107
+ 696 0704 183097E5 		ldr	r3, [r7, #24]
+ 697 0708 100097E5 		ldr	r0, [r7, #16]
+ 698 070c 33FF2FE1 		blx	r3
+ 699 0710 040087E5 		str	r0, [r7, #4]
+ 700 0714 047014E5 		ldr	r7, [r4, #-4]
+ 701 0718 00A087E5 		str	r10, [r7]
+ 702 071c 083014E5 		ldr	r3, [r4, #-8]
+ 703              	.L107:
+ 704 0720 042097E5 		ldr	r2, [r7, #4]
+ 705 0724 020013E1 		tst	r3, r2
+ 706 0728 00309915 		ldrne	r3, [r9]
+ 707 072c 05308311 		orrne	r3, r3, r5
+ 708 0730 00308915 		strne	r3, [r9]
+ 709              	.L106:
+ 710 0734 083094E4 		ldr	r3, [r4], #8
+ 711 0738 8550A0E1 		lsl	r5, r5, #1
+ARM GAS  /tmp/cchJxJqO.s 			page 14
+
+
+ 712 073c 010073E3 		cmn	r3, #1
+ 713 0740 E9FFFF1A 		bne	.L109
+ 714              	.L101:
+ 715 0744 B8109FE5 		ldr	r1, .L125+20
+ 716 0748 00C0A0E3 		mov	ip, #0
+ 717 074c B4009FE5 		ldr	r0, .L125+24
+ 718 0750 763FA0E3 		mov	r3, #472
+ 719 0754 B0209FE5 		ldr	r2, .L125+28
+ 720              	.LPIC48:
+ 721 0758 01108FE0 		add	r1, pc, r1
+ 722 075c 00C08DE5 		str	ip, [sp]
+ 723 0760 04108DE5 		str	r1, [sp, #4]
+ 724              	.LPIC47:
+ 725 0764 00008FE0 		add	r0, pc, r0
+ 726 0768 A0109FE5 		ldr	r1, .L125+32
+ 727              	.LPIC45:
+ 728 076c 02208FE0 		add	r2, pc, r2
+ 729 0770 08008DE5 		str	r0, [sp, #8]
+ 730 0774 4C00A0E3 		mov	r0, #76
+ 731              	.LPIC46:
+ 732 0778 01108FE0 		add	r1, pc, r1
+ 733 077c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 734 0780 0600A0E1 		mov	r0, r6
+ 735 0784 10D08DE2 		add	sp, sp, #16
+ 736              		@ sp needed
+ 737 0788 F087BDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 738              	.L98:
+ 739 078c 80C09FE5 		ldr	ip, .L125+36
+ 740 0790 416FE0E3 		mvn	r6, #260
+ 741 0794 7C009FE5 		ldr	r0, .L125+40
+ 742 0798 073DA0E3 		mov	r3, #448
+ 743 079c 78209FE5 		ldr	r2, .L125+44
+ 744 07a0 78109FE5 		ldr	r1, .L125+48
+ 745              	.LPIC43:
+ 746 07a4 0CC08FE0 		add	ip, pc, ip
+ 747              	.LPIC44:
+ 748 07a8 00008FE0 		add	r0, pc, r0
+ 749              	.LPIC41:
+ 750 07ac 02208FE0 		add	r2, pc, r2
+ 751              	.LPIC42:
+ 752 07b0 01108FE0 		add	r1, pc, r1
+ 753 07b4 A9FFFFEA 		b	.L124
+ 754              	.L111:
+ 755 07b8 0120A0E3 		mov	r2, #1
+ 756 07bc AFFFFFEA 		b	.L96
+ 757              	.L112:
+ 758 07c0 0220A0E3 		mov	r2, #2
+ 759 07c4 ADFFFFEA 		b	.L96
+ 760              	.L113:
+ 761 07c8 0320A0E3 		mov	r2, #3
+ 762 07cc ABFFFFEA 		b	.L96
+ 763              	.L114:
+ 764 07d0 0420A0E3 		mov	r2, #4
+ 765 07d4 A9FFFFEA 		b	.L96
+ 766              	.L115:
+ 767 07d8 0520A0E3 		mov	r2, #5
+ 768 07dc A7FFFFEA 		b	.L96
+ARM GAS  /tmp/cchJxJqO.s 			page 15
+
+
+ 769              	.L116:
+ 770 07e0 0620A0E3 		mov	r2, #6
+ 771 07e4 A5FFFFEA 		b	.L96
+ 772              	.L117:
+ 773 07e8 0720A0E3 		mov	r2, #7
+ 774 07ec A3FFFFEA 		b	.L96
+ 775              	.L126:
+ 776              		.align	2
+ 777              	.L125:
+ 778 07f0 98010000 		.word	.LC6-(.LPIC51+8)
+ 779 07f4 98010000 		.word	.LC3-(.LPIC52+8)
+ 780 07f8 98010000 		.word	.LC11-(.LPIC49+8)
+ 781 07fc 98010000 		.word	.LC1-(.LPIC50+8)
+ 782 0800 74010000 		.word	.LANCHOR1-(.LPIC38+8)
+ 783 0804 A4000000 		.word	.LC3-(.LPIC48+8)
+ 784 0808 9C000000 		.word	.LC5-(.LPIC47+8)
+ 785 080c 98000000 		.word	.LC11-(.LPIC45+8)
+ 786 0810 90000000 		.word	.LC1-(.LPIC46+8)
+ 787 0814 68000000 		.word	.LC2-(.LPIC43+8)
+ 788 0818 68000000 		.word	.LC3-(.LPIC44+8)
+ 789 081c 68000000 		.word	.LC10-(.LPIC41+8)
+ 790 0820 68000000 		.word	.LC1-(.LPIC42+8)
+ 792              		.section	.rodata.str1.4
+ 793 0135 000000   		.align	2
+ 794              	.LC12:
+ 795 0138 45417069 		.ascii	"EApiGPIOSetDirectionEmul\000"
+ 795      4750494F 
+ 795      53657444 
+ 795      69726563 
+ 795      74696F6E 
+ 796 0151 000000   		.align	2
+ 797              	.LC13:
+ 798 0154 556E7375 		.ascii	"Unsupported Input Bits\000"
+ 798      70706F72 
+ 798      74656420 
+ 798      496E7075 
+ 798      74204269 
+ 799 016b 00       		.align	2
+ 800              	.LC14:
+ 801 016c 45417069 		.ascii	"EApiGPIOSetDirection\000"
+ 801      4750494F 
+ 801      53657444 
+ 801      69726563 
+ 801      74696F6E 
+ 802 0181 000000   		.align	2
+ 803              	.LC15:
+ 804 0184 556E7375 		.ascii	"Unsupported Output Bits\000"
+ 804      70706F72 
+ 804      74656420 
+ 804      4F757470 
+ 804      75742042 
+ 805              		.text
+ 806              		.align	2
+ 807              		.global	EApiGPIOSetDirectionEmul
+ 808              		.hidden	EApiGPIOSetDirectionEmul
+ 809              		.syntax unified
+ 810              		.arm
+ARM GAS  /tmp/cchJxJqO.s 			page 16
+
+
+ 811              		.fpu vfpv3
+ 813              	EApiGPIOSetDirectionEmul:
+ 814              		@ args = 0, pretend = 0, frame = 0
+ 815              		@ frame_needed = 0, uses_anonymous_args = 0
+ 816 0824 010850E3 		cmp	r0, #65536
+ 817 0828 F04F2DE9 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 818 082c 0160A0E1 		mov	r6, r1
+ 819 0830 14D04DE2 		sub	sp, sp, #20
+ 820 0834 02B0A0E1 		mov	fp, r2
+ 821 0838 2100000A 		beq	.L144
+ 822 083c 040050E3 		cmp	r0, #4
+ 823 0840 8700000A 		beq	.L145
+ 824 0844 050050E3 		cmp	r0, #5
+ 825 0848 8700000A 		beq	.L146
+ 826 084c 060050E3 		cmp	r0, #6
+ 827 0850 8700000A 		beq	.L147
+ 828 0854 070050E3 		cmp	r0, #7
+ 829 0858 8700000A 		beq	.L148
+ 830 085c 000050E3 		cmp	r0, #0
+ 831 0860 8700000A 		beq	.L149
+ 832 0864 010050E3 		cmp	r0, #1
+ 833 0868 9200000A 		beq	.L150
+ 834 086c 020050E3 		cmp	r0, #2
+ 835 0870 9200000A 		beq	.L151
+ 836 0874 030050E3 		cmp	r0, #3
+ 837 0878 0820A003 		moveq	r2, #8
+ 838 087c 1100000A 		beq	.L128
+ 839 0880 70C29FE5 		ldr	ip, .L168
+ 840 0884 037CE0E3 		mvn	r7, #768
+ 841 0888 6C029FE5 		ldr	r0, .L168+4
+ 842 088c 293200E3 		movw	r3, #553
+ 843 0890 68229FE5 		ldr	r2, .L168+8
+ 844 0894 68129FE5 		ldr	r1, .L168+12
+ 845              	.LPIC74:
+ 846 0898 0CC08FE0 		add	ip, pc, ip
+ 847              	.LPIC75:
+ 848 089c 00008FE0 		add	r0, pc, r0
+ 849              	.LPIC72:
+ 850 08a0 02208FE0 		add	r2, pc, r2
+ 851              	.LPIC73:
+ 852 08a4 01108FE0 		add	r1, pc, r1
+ 853              	.L164:
+ 854              	.L131:
+ 855 08a8 01108DE9 		stmib	sp, {r0, ip}
+ 856 08ac 4500A0E3 		mov	r0, #69
+ 857 08b0 00708DE5 		str	r7, [sp]
+ 858 08b4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 859 08b8 0700A0E1 		mov	r0, r7
+ 860 08bc 14D08DE2 		add	sp, sp, #20
+ 861              		@ sp needed
+ 862 08c0 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 863              	.L144:
+ 864 08c4 0020A0E3 		mov	r2, #0
+ 865              	.L128:
+ 866 08c8 38329FE5 		ldr	r3, .L168+16
+ 867              	.LPIC53:
+ 868 08cc 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/cchJxJqO.s 			page 17
+
+
+ 869 08d0 023283E0 		add	r3, r3, r2, lsl #4
+ 870 08d4 082093E5 		ldr	r2, [r3, #8]
+ 871 08d8 0C0093E5 		ldr	r0, [r3, #12]
+ 872 08dc 001082E1 		orr	r1, r2, r0
+ 873 08e0 0110D6E1 		bics	r1, r6, r1
+ 874 08e4 6800001A 		bne	.L165
+ 875 08e8 0B1006E0 		and	r1, r6, fp
+ 876 08ec 0010D1E1 		bics	r1, r1, r0
+ 877 08f0 7400001A 		bne	.L166
+ 878 08f4 0B70C6E1 		bic	r7, r6, fp
+ 879 08f8 0270D7E1 		bics	r7, r7, r2
+ 880 08fc 4C00001A 		bne	.L133
+ 881 0900 04A093E5 		ldr	r10, [r3, #4]
+ 882 0904 00309AE5 		ldr	r3, [r10]
+ 883 0908 010073E3 		cmn	r3, #1
+ 884 090c 0A50A011 		movne	r5, r10
+ 885 0910 0A10A011 		movne	r1, r10
+ 886 0914 07C0A011 		movne	ip, r7
+ 887 0918 2900000A 		beq	.L140
+ 888              	.L135:
+ 889 091c 040091E5 		ldr	r0, [r1, #4]
+ 890 0920 00C080E5 		str	ip, [r0]
+ 891 0924 0800B1E5 		ldr	r0, [r1, #8]!
+ 892 0928 010070E3 		cmn	r0, #1
+ 893 092c FAFFFF1A 		bne	.L135
+ 894 0930 0140A0E3 		mov	r4, #1
+ 895 0934 08908AE2 		add	r9, r10, #8
+ 896              	.L139:
+ 897 0938 040016E1 		tst	r6, r4
+ 898 093c 1100000A 		beq	.L136
+ 899 0940 048019E5 		ldr	r8, [r9, #-4]
+ 900 0944 001098E5 		ldr	r1, [r8]
+ 901 0948 000051E3 		cmp	r1, #0
+ 902 094c 0700001A 		bne	.L137
+ 903 0950 183098E5 		ldr	r3, [r8, #24]
+ 904 0954 100098E5 		ldr	r0, [r8, #16]
+ 905 0958 33FF2FE1 		blx	r3
+ 906 095c 040088E5 		str	r0, [r8, #4]
+ 907 0960 0130A0E3 		mov	r3, #1
+ 908 0964 048019E5 		ldr	r8, [r9, #-4]
+ 909 0968 003088E5 		str	r3, [r8]
+ 910 096c 083019E5 		ldr	r3, [r9, #-8]
+ 911              	.L137:
+ 912 0970 041098E5 		ldr	r1, [r8, #4]
+ 913 0974 04001BE1 		tst	fp, r4
+ 914 0978 010083E1 		orr	r0, r3, r1
+ 915 097c 0310C1E1 		bic	r1, r1, r3
+ 916 0980 04008815 		strne	r0, [r8, #4]
+ 917 0984 04108805 		streq	r1, [r8, #4]
+ 918              	.L136:
+ 919 0988 083099E4 		ldr	r3, [r9], #8
+ 920 098c 8440A0E1 		lsl	r4, r4, #1
+ 921 0990 010073E3 		cmn	r3, #1
+ 922 0994 E7FFFF1A 		bne	.L139
+ 923 0998 00309AE5 		ldr	r3, [r10]
+ 924 099c 010073E3 		cmn	r3, #1
+ 925 09a0 0700000A 		beq	.L140
+ARM GAS  /tmp/cchJxJqO.s 			page 18
+
+
+ 926 09a4 0040A0E3 		mov	r4, #0
+ 927              	.L143:
+ 928 09a8 043095E5 		ldr	r3, [r5, #4]
+ 929 09ac 002093E5 		ldr	r2, [r3]
+ 930 09b0 010052E3 		cmp	r2, #1
+ 931 09b4 1400000A 		beq	.L167
+ 932 09b8 0830B5E5 		ldr	r3, [r5, #8]!
+ 933 09bc 010073E3 		cmn	r3, #1
+ 934 09c0 F8FFFF1A 		bne	.L143
+ 935              	.L140:
+ 936 09c4 40119FE5 		ldr	r1, .L168+20
+ 937 09c8 00C0A0E3 		mov	ip, #0
+ 938 09cc 3C019FE5 		ldr	r0, .L168+24
+ 939 09d0 263200E3 		movw	r3, #550
+ 940 09d4 38219FE5 		ldr	r2, .L168+28
+ 941              	.LPIC67:
+ 942 09d8 01108FE0 		add	r1, pc, r1
+ 943 09dc 00C08DE5 		str	ip, [sp]
+ 944 09e0 04108DE5 		str	r1, [sp, #4]
+ 945              	.LPIC66:
+ 946 09e4 00008FE0 		add	r0, pc, r0
+ 947 09e8 28119FE5 		ldr	r1, .L168+32
+ 948              	.LPIC64:
+ 949 09ec 02208FE0 		add	r2, pc, r2
+ 950 09f0 08008DE5 		str	r0, [sp, #8]
+ 951 09f4 4C00A0E3 		mov	r0, #76
+ 952              	.LPIC65:
+ 953 09f8 01108FE0 		add	r1, pc, r1
+ 954 09fc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 955 0a00 0700A0E1 		mov	r0, r7
+ 956 0a04 14D08DE2 		add	sp, sp, #20
+ 957              		@ sp needed
+ 958 0a08 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 959              	.L167:
+ 960 0a0c 142093E5 		ldr	r2, [r3, #20]
+ 961 0a10 041093E5 		ldr	r1, [r3, #4]
+ 962 0a14 100093E5 		ldr	r0, [r3, #16]
+ 963 0a18 32FF2FE1 		blx	r2
+ 964 0a1c 043095E5 		ldr	r3, [r5, #4]
+ 965 0a20 004083E5 		str	r4, [r3]
+ 966 0a24 0830B5E5 		ldr	r3, [r5, #8]!
+ 967 0a28 010073E3 		cmn	r3, #1
+ 968 0a2c DDFFFF1A 		bne	.L143
+ 969 0a30 E3FFFFEA 		b	.L140
+ 970              	.L133:
+ 971 0a34 E0C09FE5 		ldr	ip, .L168+36
+ 972 0a38 FC7E0FE3 		movw	r7, #65276
+ 973 0a3c DC009FE5 		ldr	r0, .L168+40
+ 974 0a40 FF7F4FE3 		movt	r7, 65535
+ 975 0a44 D8209FE5 		ldr	r2, .L168+44
+ 976 0a48 FF3100E3 		movw	r3, #511
+ 977 0a4c D4109FE5 		ldr	r1, .L168+48
+ 978              	.LPIC70:
+ 979 0a50 0CC08FE0 		add	ip, pc, ip
+ 980              	.LPIC71:
+ 981 0a54 00008FE0 		add	r0, pc, r0
+ 982              	.LPIC68:
+ARM GAS  /tmp/cchJxJqO.s 			page 19
+
+
+ 983 0a58 02208FE0 		add	r2, pc, r2
+ 984              	.LPIC69:
+ 985 0a5c 01108FE0 		add	r1, pc, r1
+ 986 0a60 90FFFFEA 		b	.L164
+ 987              	.L145:
+ 988 0a64 0120A0E3 		mov	r2, #1
+ 989 0a68 96FFFFEA 		b	.L128
+ 990              	.L146:
+ 991 0a6c 0220A0E3 		mov	r2, #2
+ 992 0a70 94FFFFEA 		b	.L128
+ 993              	.L147:
+ 994 0a74 0320A0E3 		mov	r2, #3
+ 995 0a78 92FFFFEA 		b	.L128
+ 996              	.L148:
+ 997 0a7c 0420A0E3 		mov	r2, #4
+ 998 0a80 90FFFFEA 		b	.L128
+ 999              	.L149:
+ 1000 0a84 0520A0E3 		mov	r2, #5
+ 1001 0a88 8EFFFFEA 		b	.L128
+ 1002              	.L165:
+ 1003 0a8c 98C09FE5 		ldr	ip, .L168+52
+ 1004 0a90 417FE0E3 		mvn	r7, #260
+ 1005 0a94 94009FE5 		ldr	r0, .L168+56
+ 1006 0a98 F33100E3 		movw	r3, #499
+ 1007 0a9c 90209FE5 		ldr	r2, .L168+60
+ 1008 0aa0 90109FE5 		ldr	r1, .L168+64
+ 1009              	.LPIC57:
+ 1010 0aa4 0CC08FE0 		add	ip, pc, ip
+ 1011              	.LPIC58:
+ 1012 0aa8 00008FE0 		add	r0, pc, r0
+ 1013              	.LPIC55:
+ 1014 0aac 02208FE0 		add	r2, pc, r2
+ 1015              	.LPIC56:
+ 1016 0ab0 01108FE0 		add	r1, pc, r1
+ 1017 0ab4 7BFFFFEA 		b	.L164
+ 1018              	.L150:
+ 1019 0ab8 0620A0E3 		mov	r2, #6
+ 1020 0abc 81FFFFEA 		b	.L128
+ 1021              	.L151:
+ 1022 0ac0 0720A0E3 		mov	r2, #7
+ 1023 0ac4 7FFFFFEA 		b	.L128
+ 1024              	.L166:
+ 1025 0ac8 6CC09FE5 		ldr	ip, .L168+68
+ 1026 0acc FC7E0FE3 		movw	r7, #65276
+ 1027 0ad0 68009FE5 		ldr	r0, .L168+72
+ 1028 0ad4 FF7F4FE3 		movt	r7, 65535
+ 1029 0ad8 64209FE5 		ldr	r2, .L168+76
+ 1030 0adc F93100E3 		movw	r3, #505
+ 1031 0ae0 60109FE5 		ldr	r1, .L168+80
+ 1032              	.LPIC61:
+ 1033 0ae4 0CC08FE0 		add	ip, pc, ip
+ 1034              	.LPIC62:
+ 1035 0ae8 00008FE0 		add	r0, pc, r0
+ 1036              	.LPIC59:
+ 1037 0aec 02208FE0 		add	r2, pc, r2
+ 1038              	.LPIC60:
+ 1039 0af0 01108FE0 		add	r1, pc, r1
+ARM GAS  /tmp/cchJxJqO.s 			page 20
+
+
+ 1040 0af4 6BFFFFEA 		b	.L164
+ 1041              	.L169:
+ 1042              		.align	2
+ 1043              	.L168:
+ 1044 0af8 58020000 		.word	.LC6-(.LPIC74+8)
+ 1045 0afc 58020000 		.word	.LC3-(.LPIC75+8)
+ 1046 0b00 58020000 		.word	.LC14-(.LPIC72+8)
+ 1047 0b04 58020000 		.word	.LC1-(.LPIC73+8)
+ 1048 0b08 34020000 		.word	.LANCHOR1-(.LPIC53+8)
+ 1049 0b0c 2C010000 		.word	.LC3-(.LPIC67+8)
+ 1050 0b10 24010000 		.word	.LC5-(.LPIC66+8)
+ 1051 0b14 20010000 		.word	.LC14-(.LPIC64+8)
+ 1052 0b18 18010000 		.word	.LC1-(.LPIC65+8)
+ 1053 0b1c C4000000 		.word	.LC15-(.LPIC70+8)
+ 1054 0b20 C4000000 		.word	.LC3-(.LPIC71+8)
+ 1055 0b24 C4000000 		.word	.LC12-(.LPIC68+8)
+ 1056 0b28 C4000000 		.word	.LC1-(.LPIC69+8)
+ 1057 0b2c 80000000 		.word	.LC2-(.LPIC57+8)
+ 1058 0b30 80000000 		.word	.LC3-(.LPIC58+8)
+ 1059 0b34 80000000 		.word	.LC12-(.LPIC55+8)
+ 1060 0b38 80000000 		.word	.LC1-(.LPIC56+8)
+ 1061 0b3c 50000000 		.word	.LC13-(.LPIC61+8)
+ 1062 0b40 50000000 		.word	.LC3-(.LPIC62+8)
+ 1063 0b44 50000000 		.word	.LC12-(.LPIC59+8)
+ 1064 0b48 50000000 		.word	.LC1-(.LPIC60+8)
+ 1066              		.section	.rodata.str1.4
+ 1067              		.align	2
+ 1068              	.LC16:
+ 1069 019c 45417069 		.ascii	"EApiGPIOGetDirectionCaps\000"
+ 1069      4750494F 
+ 1069      47657444 
+ 1069      69726563 
+ 1069      74696F6E 
+ 1070              		.text
+ 1071              		.align	2
+ 1072              		.global	EApiGPIOGetDirectionCapsEmul
+ 1073              		.hidden	EApiGPIOGetDirectionCapsEmul
+ 1074              		.syntax unified
+ 1075              		.arm
+ 1076              		.fpu vfpv3
+ 1078              	EApiGPIOGetDirectionCapsEmul:
+ 1079              		@ args = 0, pretend = 0, frame = 0
+ 1080              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1081 0b4c 010850E3 		cmp	r0, #65536
+ 1082 0b50 10402DE9 		push	{r4, lr}
+ 1083 0b54 02C0A0E1 		mov	ip, r2
+ 1084 0b58 10D04DE2 		sub	sp, sp, #16
+ 1085 0b5c 2100000A 		beq	.L174
+ 1086 0b60 040050E3 		cmp	r0, #4
+ 1087 0b64 3900000A 		beq	.L175
+ 1088 0b68 050050E3 		cmp	r0, #5
+ 1089 0b6c 3900000A 		beq	.L176
+ 1090 0b70 060050E3 		cmp	r0, #6
+ 1091 0b74 3900000A 		beq	.L177
+ 1092 0b78 070050E3 		cmp	r0, #7
+ 1093 0b7c 3900000A 		beq	.L178
+ 1094 0b80 000050E3 		cmp	r0, #0
+ARM GAS  /tmp/cchJxJqO.s 			page 21
+
+
+ 1095 0b84 3900000A 		beq	.L179
+ 1096 0b88 010050E3 		cmp	r0, #1
+ 1097 0b8c 3900000A 		beq	.L180
+ 1098 0b90 020050E3 		cmp	r0, #2
+ 1099 0b94 3900000A 		beq	.L181
+ 1100 0b98 030050E3 		cmp	r0, #3
+ 1101 0b9c 0800A003 		moveq	r0, #8
+ 1102 0ba0 1100000A 		beq	.L171
+ 1103              	.L173:
+ 1104 0ba4 DCC09FE5 		ldr	ip, .L183
+ 1105 0ba8 034CE0E3 		mvn	r4, #768
+ 1106 0bac D8009FE5 		ldr	r0, .L183+4
+ 1107 0bb0 463200E3 		movw	r3, #582
+ 1108 0bb4 D4209FE5 		ldr	r2, .L183+8
+ 1109 0bb8 D4109FE5 		ldr	r1, .L183+12
+ 1110              	.LPIC84:
+ 1111 0bbc 0CC08FE0 		add	ip, pc, ip
+ 1112              	.LPIC85:
+ 1113 0bc0 00008FE0 		add	r0, pc, r0
+ 1114 0bc4 00408DE5 		str	r4, [sp]
+ 1115 0bc8 01108DE9 		stmib	sp, {r0, ip}
+ 1116              	.LPIC82:
+ 1117 0bcc 02208FE0 		add	r2, pc, r2
+ 1118              	.LPIC83:
+ 1119 0bd0 01108FE0 		add	r1, pc, r1
+ 1120 0bd4 4500A0E3 		mov	r0, #69
+ 1121 0bd8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1122 0bdc 0400A0E1 		mov	r0, r4
+ 1123 0be0 10D08DE2 		add	sp, sp, #16
+ 1124              		@ sp needed
+ 1125 0be4 1080BDE8 		pop	{r4, pc}
+ 1126              	.L174:
+ 1127 0be8 0000A0E3 		mov	r0, #0
+ 1128              	.L171:
+ 1129 0bec A4309FE5 		ldr	r3, .L183+16
+ 1130 0bf0 0040A0E3 		mov	r4, #0
+ 1131 0bf4 A0209FE5 		ldr	r2, .L183+20
+ 1132 0bf8 00408DE5 		str	r4, [sp]
+ 1133              	.LPIC76:
+ 1134 0bfc 03308FE0 		add	r3, pc, r3
+ 1135 0c00 003283E0 		add	r3, r3, r0, lsl #4
+ 1136              	.LPIC80:
+ 1137 0c04 02208FE0 		add	r2, pc, r2
+ 1138 0c08 08208DE5 		str	r2, [sp, #8]
+ 1139 0c0c 8C209FE5 		ldr	r2, .L183+24
+ 1140 0c10 0CE093E5 		ldr	lr, [r3, #12]
+ 1141 0c14 080093E5 		ldr	r0, [r3, #8]
+ 1142 0c18 433200E3 		movw	r3, #579
+ 1143              	.LPIC81:
+ 1144 0c1c 02208FE0 		add	r2, pc, r2
+ 1145 0c20 04208DE5 		str	r2, [sp, #4]
+ 1146 0c24 00E081E5 		str	lr, [r1]
+ 1147 0c28 74209FE5 		ldr	r2, .L183+28
+ 1148 0c2c 74109FE5 		ldr	r1, .L183+32
+ 1149 0c30 00008CE5 		str	r0, [ip]
+ 1150 0c34 4C00A0E3 		mov	r0, #76
+ 1151              	.LPIC78:
+ARM GAS  /tmp/cchJxJqO.s 			page 22
+
+
+ 1152 0c38 02208FE0 		add	r2, pc, r2
+ 1153              	.LPIC79:
+ 1154 0c3c 01108FE0 		add	r1, pc, r1
+ 1155 0c40 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1156 0c44 0400A0E1 		mov	r0, r4
+ 1157 0c48 10D08DE2 		add	sp, sp, #16
+ 1158              		@ sp needed
+ 1159 0c4c 1080BDE8 		pop	{r4, pc}
+ 1160              	.L175:
+ 1161 0c50 0100A0E3 		mov	r0, #1
+ 1162 0c54 E4FFFFEA 		b	.L171
+ 1163              	.L176:
+ 1164 0c58 0200A0E3 		mov	r0, #2
+ 1165 0c5c E2FFFFEA 		b	.L171
+ 1166              	.L177:
+ 1167 0c60 0300A0E3 		mov	r0, #3
+ 1168 0c64 E0FFFFEA 		b	.L171
+ 1169              	.L178:
+ 1170 0c68 0400A0E3 		mov	r0, #4
+ 1171 0c6c DEFFFFEA 		b	.L171
+ 1172              	.L179:
+ 1173 0c70 0500A0E3 		mov	r0, #5
+ 1174 0c74 DCFFFFEA 		b	.L171
+ 1175              	.L180:
+ 1176 0c78 0600A0E3 		mov	r0, #6
+ 1177 0c7c DAFFFFEA 		b	.L171
+ 1178              	.L181:
+ 1179 0c80 0700A0E3 		mov	r0, #7
+ 1180 0c84 D8FFFFEA 		b	.L171
+ 1181              	.L184:
+ 1182              		.align	2
+ 1183              	.L183:
+ 1184 0c88 C4000000 		.word	.LC6-(.LPIC84+8)
+ 1185 0c8c C4000000 		.word	.LC3-(.LPIC85+8)
+ 1186 0c90 BC000000 		.word	.LC16-(.LPIC82+8)
+ 1187 0c94 BC000000 		.word	.LC1-(.LPIC83+8)
+ 1188 0c98 94000000 		.word	.LANCHOR1-(.LPIC76+8)
+ 1189 0c9c 90000000 		.word	.LC5-(.LPIC80+8)
+ 1190 0ca0 7C000000 		.word	.LC3-(.LPIC81+8)
+ 1191 0ca4 64000000 		.word	.LC16-(.LPIC78+8)
+ 1192 0ca8 64000000 		.word	.LC1-(.LPIC79+8)
+ 1194              		.hidden	GPIOIDMapping
+ 1195              		.global	GPIOIDMapping
+ 1196              		.hidden	GpioMappingID8
+ 1197              		.global	GpioMappingID8
+ 1198              		.hidden	GpioMappingID7
+ 1199              		.global	GpioMappingID7
+ 1200              		.hidden	GpioMappingID6
+ 1201              		.global	GpioMappingID6
+ 1202              		.hidden	GpioMappingID5
+ 1203              		.global	GpioMappingID5
+ 1204              		.hidden	GpioMappingID4
+ 1205              		.global	GpioMappingID4
+ 1206              		.hidden	GpioMappingID3
+ 1207              		.global	GpioMappingID3
+ 1208              		.hidden	GpioMappingID2
+ 1209              		.global	GpioMappingID2
+ARM GAS  /tmp/cchJxJqO.s 			page 23
+
+
+ 1210              		.hidden	GpioMappingID1
+ 1211              		.global	GpioMappingID1
+ 1212              		.hidden	GpioMappingID0
+ 1213              		.global	GpioMappingID0
+ 1214              		.hidden	Port2Desc
+ 1215              		.global	Port2Desc
+ 1216              		.hidden	Port1Desc
+ 1217              		.global	Port1Desc
+ 1218              		.data
+ 1219              		.align	2
+ 1220              		.set	.LANCHOR0,. + 0
+ 1223              	EmulatedIoBlock:
+ 1224 0000 00A08200 		.word	8560640
+ 1225 0004 00008200 		.word	8519680
+ 1226 0008 00A08200 		.word	8560640
+ 1227 000c 00008200 		.word	8519680
+ 1228              		.section	.data.rel.local,"aw"
+ 1229              		.align	2
+ 1232              	Port2Desc:
+ 1233 0000 00000000 		.word	0
+ 1234 0004 00000000 		.word	0
+ 1235 0008 00000000 		.word	0
+ 1236 000c 0C000000 		.word	12
+ 1237 0010 08000000 		.word	8
+ 1238 0014 00000000 		.word	EApiWriteIO32Delay
+ 1239 0018 00000000 		.word	EApiReadIO32Delay
+ 1242              	Port1Desc:
+ 1243 001c 00000000 		.word	0
+ 1244 0020 00000000 		.word	0
+ 1245 0024 00000000 		.word	0
+ 1246 0028 04000000 		.word	4
+ 1247 002c 00000000 		.word	0
+ 1248 0030 00000000 		.word	EApiWriteIO32Delay
+ 1249 0034 00000000 		.word	EApiReadIO32Delay
+ 1250              		.section	.data.rel.ro.local,"aw"
+ 1251              		.align	2
+ 1252              		.set	.LANCHOR1,. + 0
+ 1255              	GPIOIDMapping:
+ 1256 0000 00000100 		.word	65536
+ 1257 0004 00000000 		.word	GpioMappingID0
+ 1258 0008 F0000000 		.word	240
+ 1259 000c 0F000000 		.word	15
+ 1260 0010 04000000 		.word	4
+ 1261 0014 00000000 		.word	GpioMappingID1
+ 1262 0018 00000000 		.word	0
+ 1263 001c 01000000 		.word	1
+ 1264 0020 05000000 		.word	5
+ 1265 0024 00000000 		.word	GpioMappingID2
+ 1266 0028 00000000 		.word	0
+ 1267 002c 01000000 		.word	1
+ 1268 0030 06000000 		.word	6
+ 1269 0034 00000000 		.word	GpioMappingID3
+ 1270 0038 00000000 		.word	0
+ 1271 003c 01000000 		.word	1
+ 1272 0040 07000000 		.word	7
+ 1273 0044 00000000 		.word	GpioMappingID4
+ 1274 0048 00000000 		.word	0
+ARM GAS  /tmp/cchJxJqO.s 			page 24
+
+
+ 1275 004c 01000000 		.word	1
+ 1276 0050 00000000 		.word	0
+ 1277 0054 00000000 		.word	GpioMappingID5
+ 1278 0058 01000000 		.word	1
+ 1279 005c 00000000 		.word	0
+ 1280 0060 01000000 		.word	1
+ 1281 0064 00000000 		.word	GpioMappingID6
+ 1282 0068 01000000 		.word	1
+ 1283 006c 00000000 		.word	0
+ 1284 0070 02000000 		.word	2
+ 1285 0074 00000000 		.word	GpioMappingID7
+ 1286 0078 01000000 		.word	1
+ 1287 007c 00000000 		.word	0
+ 1288 0080 03000000 		.word	3
+ 1289 0084 00000000 		.word	GpioMappingID8
+ 1290 0088 01000000 		.word	1
+ 1291 008c 00000000 		.word	0
+ 1294              	GpioMappingID8:
+ 1295 0090 01000000 		.word	1
+ 1296 0094 00000000 		.word	Port1Desc
+ 1297 0098 FFFFFFFF 		.word	-1
+ 1298 009c 00000000 		.word	0
+ 1301              	GpioMappingID7:
+ 1302 00a0 00000080 		.word	-2147483648
+ 1303 00a4 00000000 		.word	Port1Desc
+ 1304 00a8 FFFFFFFF 		.word	-1
+ 1305 00ac 00000000 		.word	0
+ 1308              	GpioMappingID6:
+ 1309 00b0 40000000 		.word	64
+ 1310 00b4 00000000 		.word	Port1Desc
+ 1311 00b8 FFFFFFFF 		.word	-1
+ 1312 00bc 00000000 		.word	0
+ 1315              	GpioMappingID5:
+ 1316 00c0 10000000 		.word	16
+ 1317 00c4 00000000 		.word	Port1Desc
+ 1318 00c8 FFFFFFFF 		.word	-1
+ 1319 00cc 00000000 		.word	0
+ 1322              	GpioMappingID4:
+ 1323 00d0 00000200 		.word	131072
+ 1324 00d4 00000000 		.word	Port1Desc
+ 1325 00d8 FFFFFFFF 		.word	-1
+ 1326 00dc 00000000 		.word	0
+ 1329              	GpioMappingID3:
+ 1330 00e0 00200000 		.word	8192
+ 1331 00e4 00000000 		.word	Port1Desc
+ 1332 00e8 FFFFFFFF 		.word	-1
+ 1333 00ec 00000000 		.word	0
+ 1336              	GpioMappingID2:
+ 1337 00f0 00800000 		.word	32768
+ 1338 00f4 00000000 		.word	Port1Desc
+ 1339 00f8 FFFFFFFF 		.word	-1
+ 1340 00fc 00000000 		.word	0
+ 1343              	GpioMappingID1:
+ 1344 0100 00008000 		.word	8388608
+ 1345 0104 00000000 		.word	Port1Desc
+ 1346 0108 FFFFFFFF 		.word	-1
+ 1347 010c 00000000 		.word	0
+ARM GAS  /tmp/cchJxJqO.s 			page 25
+
+
+ 1350              	GpioMappingID0:
+ 1351 0110 00008000 		.word	8388608
+ 1352 0114 00000000 		.word	Port1Desc
+ 1353 0118 00800000 		.word	32768
+ 1354 011c 00000000 		.word	Port1Desc
+ 1355 0120 00200000 		.word	8192
+ 1356 0124 00000000 		.word	Port1Desc
+ 1357 0128 00000200 		.word	131072
+ 1358 012c 00000000 		.word	Port1Desc
+ 1359 0130 10000000 		.word	16
+ 1360 0134 00000000 		.word	Port1Desc
+ 1361 0138 40000000 		.word	64
+ 1362 013c 00000000 		.word	Port1Desc
+ 1363 0140 00000080 		.word	-2147483648
+ 1364 0144 00000000 		.word	Port1Desc
+ 1365 0148 01000000 		.word	1
+ 1366 014c 00000000 		.word	Port1Desc
+ 1367 0150 FFFFFFFF 		.word	-1
+ 1368 0154 00000000 		.word	0
+ 1369              		.ident	"GCC: (Buildroot 2022.02) 11.2.0"
+ 1370              		.section	.note.GNU-stack,"",%progbits
+ARM GAS  /tmp/cchJxJqO.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulGPIO.c
+     /tmp/cchJxJqO.s:14     .text:0000000000000000 $a
+     /tmp/cchJxJqO.s:24     .text:0000000000000000 EApiReadIO32Delay
+     /tmp/cchJxJqO.s:45     .text:0000000000000034 $d
+     /tmp/cchJxJqO.s:47     .text:0000000000000038 $a
+     /tmp/cchJxJqO.s:54     .text:0000000000000038 EApiWriteIO32Delay
+     /tmp/cchJxJqO.s:72     .text:0000000000000064 $d
+     /tmp/cchJxJqO.s:74     .text:0000000000000068 $a
+     /tmp/cchJxJqO.s:81     .text:0000000000000068 EApiReadIO32
+     /tmp/cchJxJqO.s:99     .text:000000000000008c $d
+     /tmp/cchJxJqO.s:101    .text:0000000000000090 $a
+     /tmp/cchJxJqO.s:108    .text:0000000000000090 EApiWriteIO32
+     /tmp/cchJxJqO.s:122    .text:00000000000000a8 $d
+     /tmp/cchJxJqO.s:125    .rodata.str1.4:0000000000000000 $d
+     /tmp/cchJxJqO.s:126    .rodata.str1.4:0000000000000000 .LC0
+     /tmp/cchJxJqO.s:129    .rodata.str1.4:0000000000000018 .LC1
+     /tmp/cchJxJqO.s:133    .rodata.str1.4:0000000000000058 .LC2
+     /tmp/cchJxJqO.s:136    .rodata.str1.4:0000000000000078 .LC3
+     /tmp/cchJxJqO.s:139    .rodata.str1.4:000000000000007c .LC4
+     /tmp/cchJxJqO.s:142    .rodata.str1.4:0000000000000090 .LC5
+     /tmp/cchJxJqO.s:145    .rodata.str1.4:0000000000000094 .LC6
+     /tmp/cchJxJqO.s:148    .text:00000000000000ac $a
+     /tmp/cchJxJqO.s:155    .text:00000000000000ac EApiGPIOGetLevelEmul
+     /tmp/cchJxJqO.s:327    .text:00000000000002c0 $d
+     /tmp/cchJxJqO.s:343    .rodata.str1.4:00000000000000ac .LC7
+     /tmp/cchJxJqO.s:346    .rodata.str1.4:00000000000000c0 .LC8
+     /tmp/cchJxJqO.s:349    .rodata.str1.4:00000000000000d8 .LC9
+     /tmp/cchJxJqO.s:352    .text:00000000000002f4 $a
+     /tmp/cchJxJqO.s:359    .text:00000000000002f4 EApiGPIOSetLevelEmul
+     /tmp/cchJxJqO.s:573    .text:0000000000000598 $d
+     /tmp/cchJxJqO.s:593    .rodata.str1.4:0000000000000104 .LC10
+     /tmp/cchJxJqO.s:596    .rodata.str1.4:0000000000000120 .LC11
+     /tmp/cchJxJqO.s:599    .text:00000000000005dc $a
+     /tmp/cchJxJqO.s:606    .text:00000000000005dc EApiGPIOGetDirectionEmul
+     /tmp/cchJxJqO.s:778    .text:00000000000007f0 $d
+     /tmp/cchJxJqO.s:794    .rodata.str1.4:0000000000000138 .LC12
+     /tmp/cchJxJqO.s:797    .rodata.str1.4:0000000000000154 .LC13
+     /tmp/cchJxJqO.s:800    .rodata.str1.4:000000000000016c .LC14
+     /tmp/cchJxJqO.s:803    .rodata.str1.4:0000000000000184 .LC15
+     /tmp/cchJxJqO.s:806    .text:0000000000000824 $a
+     /tmp/cchJxJqO.s:813    .text:0000000000000824 EApiGPIOSetDirectionEmul
+     /tmp/cchJxJqO.s:1044   .text:0000000000000af8 $d
+     /tmp/cchJxJqO.s:1068   .rodata.str1.4:000000000000019c .LC16
+     /tmp/cchJxJqO.s:1071   .text:0000000000000b4c $a
+     /tmp/cchJxJqO.s:1078   .text:0000000000000b4c EApiGPIOGetDirectionCapsEmul
+     /tmp/cchJxJqO.s:1184   .text:0000000000000c88 $d
+     /tmp/cchJxJqO.s:1255   .data.rel.ro.local:0000000000000000 GPIOIDMapping
+     /tmp/cchJxJqO.s:1294   .data.rel.ro.local:0000000000000090 GpioMappingID8
+     /tmp/cchJxJqO.s:1301   .data.rel.ro.local:00000000000000a0 GpioMappingID7
+     /tmp/cchJxJqO.s:1308   .data.rel.ro.local:00000000000000b0 GpioMappingID6
+     /tmp/cchJxJqO.s:1315   .data.rel.ro.local:00000000000000c0 GpioMappingID5
+     /tmp/cchJxJqO.s:1322   .data.rel.ro.local:00000000000000d0 GpioMappingID4
+     /tmp/cchJxJqO.s:1329   .data.rel.ro.local:00000000000000e0 GpioMappingID3
+     /tmp/cchJxJqO.s:1336   .data.rel.ro.local:00000000000000f0 GpioMappingID2
+     /tmp/cchJxJqO.s:1343   .data.rel.ro.local:0000000000000100 GpioMappingID1
+     /tmp/cchJxJqO.s:1350   .data.rel.ro.local:0000000000000110 GpioMappingID0
+ARM GAS  /tmp/cchJxJqO.s 			page 27
+
+
+     /tmp/cchJxJqO.s:1232   .data.rel.local:0000000000000000 Port2Desc
+     /tmp/cchJxJqO.s:1242   .data.rel.local:000000000000001c Port1Desc
+     /tmp/cchJxJqO.s:1219   .data:0000000000000000 $d
+     /tmp/cchJxJqO.s:1223   .data:0000000000000000 EmulatedIoBlock
+     /tmp/cchJxJqO.s:1229   .data.rel.local:0000000000000000 $d
+     /tmp/cchJxJqO.s:1251   .data.rel.ro.local:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+EApiSleepns
+siFormattedMessage_SC

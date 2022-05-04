@@ -1,0 +1,524 @@
+GAS LISTING /tmp/ccA04091.s 			page 1
+
+
+   1              		.file	"EApiEmulBacklight.c"
+   2              		.text
+   3              		.section	.rodata.str1.1,"aMS",@progbits,1
+   4              	.LC0:
+   5 0000 25730A00 		.string	"%s\n"
+   6              	.LC1:
+   7 0004 45417069 		.string	"EApiVgaGetBacklightEnableEmul"
+   7      56676147 
+   7      65744261 
+   7      636B6C69 
+   7      67687445 
+   8              		.section	.rodata.str1.8,"aMS",@progbits,1
+   9              		.align 8
+  10              	.LC2:
+  11 0000 2F686F6D 		.string	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c"
+  11      652F686B 
+  11      682F6769 
+  11      742F6561 
+  11      7069646B 
+  12              		.section	.rodata.str1.1
+  13              	.LC3:
+  14 0022 556E7265 		.string	"Unrecognised Backlight ID"
+  14      636F676E 
+  14      69736564 
+  14      20426163 
+  14      6B6C6967 
+  15              	.LC4:
+  16 003c 00       		.string	""
+  17              		.text
+  18              		.p2align 4
+  19              		.globl	EApiVgaGetBacklightEnableEmul
+  20              		.hidden	EApiVgaGetBacklightEnableEmul
+  22              	EApiVgaGetBacklightEnableEmul:
+  23              	.LFB66:
+  24              		.cfi_startproc
+  25 0000 F30F1EFA 		endbr64
+  26 0004 4883EC08 		subq	$8, %rsp
+  27              		.cfi_def_cfa_offset 16
+  28 0008 3B3D0000 		cmpl	BacklightLookup(%rip), %edi
+  28      0000
+  29 000e 7450     		je	.L4
+  30 0010 3B3D0000 		cmpl	12+BacklightLookup(%rip), %edi
+  30      0000
+  31 0016 0F849C00 		je	.L5
+  31      0000
+  32 001c 4883EC08 		subq	$8, %rsp
+  33              		.cfi_def_cfa_offset 24
+  34 0020 488D0500 		leaq	.LC3(%rip), %rax
+  34      000000
+  35 0027 B94F0000 		movl	$79, %ecx
+  35      00
+  36 002c 41B8FFFC 		movl	$-769, %r8d
+  36      FFFF
+  37 0032 50       		pushq	%rax
+  38              		.cfi_def_cfa_offset 32
+  39 0033 488D3500 		leaq	.LC2(%rip), %rsi
+  39      000000
+GAS LISTING /tmp/ccA04091.s 			page 2
+
+
+  40 003a 31C0     		xorl	%eax, %eax
+  41 003c 4C8D0D00 		leaq	.LC0(%rip), %r9
+  41      000000
+  42 0043 488D1500 		leaq	.LC1(%rip), %rdx
+  42      000000
+  43 004a BF450000 		movl	$69, %edi
+  43      00
+  44 004f E8000000 		call	siFormattedMessage_SC@PLT
+  44      00
+  45 0054 59       		popq	%rcx
+  46              		.cfi_def_cfa_offset 24
+  47 0055 B8FFFCFF 		movl	$-769, %eax
+  47      FF
+  48 005a 5E       		popq	%rsi
+  49              		.cfi_def_cfa_offset 16
+  50              	.L1:
+  51 005b 4883C408 		addq	$8, %rsp
+  52              		.cfi_remember_state
+  53              		.cfi_def_cfa_offset 8
+  54 005f C3       		ret
+  55              		.p2align 4,,10
+  56              		.p2align 3
+  57              	.L4:
+  58              		.cfi_restore_state
+  59 0060 31C0     		xorl	%eax, %eax
+  60              	.L2:
+  61              	.L3:
+  62 0062 F30F1EFA 		endbr64
+  63 0066 488D1400 		leaq	(%rax,%rax), %rdx
+  64 006a 4883EC08 		subq	$8, %rsp
+  65              		.cfi_def_cfa_offset 24
+  66 006e 4531C0   		xorl	%r8d, %r8d
+  67 0071 B9490000 		movl	$73, %ecx
+  67      00
+  68 0076 4801D0   		addq	%rdx, %rax
+  69 0079 488D1500 		leaq	BacklightLookup(%rip), %rdx
+  69      000000
+  70 0080 4C8D0D00 		leaq	.LC0(%rip), %r9
+  70      000000
+  71 0087 BF4C0000 		movl	$76, %edi
+  71      00
+  72 008c 8B448204 		movl	4(%rdx,%rax,4), %eax
+  73 0090 488D1500 		leaq	.LC1(%rip), %rdx
+  73      000000
+  74 0097 8906     		movl	%eax, (%rsi)
+  75 0099 488D0500 		leaq	.LC4(%rip), %rax
+  75      000000
+  76 00a0 488D3500 		leaq	.LC2(%rip), %rsi
+  76      000000
+  77 00a7 50       		pushq	%rax
+  78              		.cfi_def_cfa_offset 32
+  79 00a8 31C0     		xorl	%eax, %eax
+  80 00aa E8000000 		call	siFormattedMessage_SC@PLT
+  80      00
+  81 00af 58       		popq	%rax
+  82              		.cfi_def_cfa_offset 24
+  83 00b0 31C0     		xorl	%eax, %eax
+GAS LISTING /tmp/ccA04091.s 			page 3
+
+
+  84 00b2 5A       		popq	%rdx
+  85              		.cfi_def_cfa_offset 16
+  86 00b3 EBA6     		jmp	.L1
+  87              		.p2align 4,,10
+  88 00b5 0F1F00   		.p2align 3
+  89              	.L5:
+  90 00b8 B8010000 		movl	$1, %eax
+  90      00
+  91 00bd EBA3     		jmp	.L2
+  92              		.cfi_endproc
+  93              	.LFE66:
+  95              		.section	.rodata.str1.1
+  96              	.LC5:
+  97 003d 45417069 		.string	"EApiVgaSetBacklightEnableEmul"
+  97      56676153 
+  97      65744261 
+  97      636B6C69 
+  97      67687445 
+  98              		.text
+  99 00bf 90       		.p2align 4
+ 100              		.globl	EApiVgaSetBacklightEnableEmul
+ 101              		.hidden	EApiVgaSetBacklightEnableEmul
+ 103              	EApiVgaSetBacklightEnableEmul:
+ 104              	.LFB67:
+ 105              		.cfi_startproc
+ 106 00c0 F30F1EFA 		endbr64
+ 107 00c4 4883EC08 		subq	$8, %rsp
+ 108              		.cfi_def_cfa_offset 16
+ 109 00c8 3B3D0000 		cmpl	BacklightLookup(%rip), %edi
+ 109      0000
+ 110 00ce 7450     		je	.L11
+ 111 00d0 3B3D0000 		cmpl	12+BacklightLookup(%rip), %edi
+ 111      0000
+ 112 00d6 0F849C00 		je	.L12
+ 112      0000
+ 113 00dc 4883EC08 		subq	$8, %rsp
+ 114              		.cfi_def_cfa_offset 24
+ 115 00e0 488D0500 		leaq	.LC3(%rip), %rax
+ 115      000000
+ 116 00e7 B96D0000 		movl	$109, %ecx
+ 116      00
+ 117 00ec 41B8FFFC 		movl	$-769, %r8d
+ 117      FFFF
+ 118 00f2 50       		pushq	%rax
+ 119              		.cfi_def_cfa_offset 32
+ 120 00f3 488D3500 		leaq	.LC2(%rip), %rsi
+ 120      000000
+ 121 00fa 31C0     		xorl	%eax, %eax
+ 122 00fc 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 122      000000
+ 123 0103 488D1500 		leaq	.LC5(%rip), %rdx
+ 123      000000
+ 124 010a BF450000 		movl	$69, %edi
+ 124      00
+ 125 010f E8000000 		call	siFormattedMessage_SC@PLT
+ 125      00
+ 126 0114 59       		popq	%rcx
+GAS LISTING /tmp/ccA04091.s 			page 4
+
+
+ 127              		.cfi_def_cfa_offset 24
+ 128 0115 B8FFFCFF 		movl	$-769, %eax
+ 128      FF
+ 129 011a 5E       		popq	%rsi
+ 130              		.cfi_def_cfa_offset 16
+ 131              	.L8:
+ 132 011b 4883C408 		addq	$8, %rsp
+ 133              		.cfi_remember_state
+ 134              		.cfi_def_cfa_offset 8
+ 135 011f C3       		ret
+ 136              		.p2align 4,,10
+ 137              		.p2align 3
+ 138              	.L11:
+ 139              		.cfi_restore_state
+ 140 0120 31C0     		xorl	%eax, %eax
+ 141              	.L9:
+ 142              	.L10:
+ 143 0122 F30F1EFA 		endbr64
+ 144 0126 488D1400 		leaq	(%rax,%rax), %rdx
+ 145 012a 4883EC08 		subq	$8, %rsp
+ 146              		.cfi_def_cfa_offset 24
+ 147 012e 4531C0   		xorl	%r8d, %r8d
+ 148 0131 B9670000 		movl	$103, %ecx
+ 148      00
+ 149 0136 4801D0   		addq	%rdx, %rax
+ 150 0139 488D1500 		leaq	BacklightLookup(%rip), %rdx
+ 150      000000
+ 151 0140 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 151      000000
+ 152 0147 BF4C0000 		movl	$76, %edi
+ 152      00
+ 153 014c 89748204 		movl	%esi, 4(%rdx,%rax,4)
+ 154 0150 488D0500 		leaq	.LC4(%rip), %rax
+ 154      000000
+ 155 0157 488D1500 		leaq	.LC5(%rip), %rdx
+ 155      000000
+ 156 015e 50       		pushq	%rax
+ 157              		.cfi_def_cfa_offset 32
+ 158 015f 488D3500 		leaq	.LC2(%rip), %rsi
+ 158      000000
+ 159 0166 31C0     		xorl	%eax, %eax
+ 160 0168 E8000000 		call	siFormattedMessage_SC@PLT
+ 160      00
+ 161 016d 58       		popq	%rax
+ 162              		.cfi_def_cfa_offset 24
+ 163 016e 31C0     		xorl	%eax, %eax
+ 164 0170 5A       		popq	%rdx
+ 165              		.cfi_def_cfa_offset 16
+ 166 0171 EBA8     		jmp	.L8
+ 167              		.p2align 4,,10
+ 168 0173 0F1F4400 		.p2align 3
+ 168      00
+ 169              	.L12:
+ 170 0178 B8010000 		movl	$1, %eax
+ 170      00
+ 171 017d EBA3     		jmp	.L9
+ 172              		.cfi_endproc
+GAS LISTING /tmp/ccA04091.s 			page 5
+
+
+ 173              	.LFE67:
+ 175              		.section	.rodata.str1.8
+ 176 0045 000000   		.align 8
+ 177              	.LC6:
+ 178 0048 45417069 		.string	"EApiVgaGetBacklightBrightnessEmul"
+ 178      56676147 
+ 178      65744261 
+ 178      636B6C69 
+ 178      67687442 
+ 179              		.text
+ 180 017f 90       		.p2align 4
+ 181              		.globl	EApiVgaGetBacklightBrightnessEmul
+ 182              		.hidden	EApiVgaGetBacklightBrightnessEmul
+ 184              	EApiVgaGetBacklightBrightnessEmul:
+ 185              	.LFB68:
+ 186              		.cfi_startproc
+ 187 0180 F30F1EFA 		endbr64
+ 188 0184 4883EC08 		subq	$8, %rsp
+ 189              		.cfi_def_cfa_offset 16
+ 190 0188 3B3D0000 		cmpl	BacklightLookup(%rip), %edi
+ 190      0000
+ 191 018e 7450     		je	.L17
+ 192 0190 3B3D0000 		cmpl	12+BacklightLookup(%rip), %edi
+ 192      0000
+ 193 0196 0F849C00 		je	.L18
+ 193      0000
+ 194 019c 4883EC08 		subq	$8, %rsp
+ 195              		.cfi_def_cfa_offset 24
+ 196 01a0 488D0500 		leaq	.LC3(%rip), %rax
+ 196      000000
+ 197 01a7 B98A0000 		movl	$138, %ecx
+ 197      00
+ 198 01ac 41B8FFFC 		movl	$-769, %r8d
+ 198      FFFF
+ 199 01b2 50       		pushq	%rax
+ 200              		.cfi_def_cfa_offset 32
+ 201 01b3 488D3500 		leaq	.LC2(%rip), %rsi
+ 201      000000
+ 202 01ba 31C0     		xorl	%eax, %eax
+ 203 01bc 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 203      000000
+ 204 01c3 488D1500 		leaq	.LC6(%rip), %rdx
+ 204      000000
+ 205 01ca BF450000 		movl	$69, %edi
+ 205      00
+ 206 01cf E8000000 		call	siFormattedMessage_SC@PLT
+ 206      00
+ 207 01d4 59       		popq	%rcx
+ 208              		.cfi_def_cfa_offset 24
+ 209 01d5 B8FFFCFF 		movl	$-769, %eax
+ 209      FF
+ 210 01da 5E       		popq	%rsi
+ 211              		.cfi_def_cfa_offset 16
+ 212              	.L14:
+ 213 01db 4883C408 		addq	$8, %rsp
+ 214              		.cfi_remember_state
+ 215              		.cfi_def_cfa_offset 8
+GAS LISTING /tmp/ccA04091.s 			page 6
+
+
+ 216 01df C3       		ret
+ 217              		.p2align 4,,10
+ 218              		.p2align 3
+ 219              	.L17:
+ 220              		.cfi_restore_state
+ 221 01e0 31C0     		xorl	%eax, %eax
+ 222              	.L15:
+ 223              	.L16:
+ 224 01e2 F30F1EFA 		endbr64
+ 225 01e6 488D1400 		leaq	(%rax,%rax), %rdx
+ 226 01ea 4883EC08 		subq	$8, %rsp
+ 227              		.cfi_def_cfa_offset 24
+ 228 01ee 4531C0   		xorl	%r8d, %r8d
+ 229 01f1 B9840000 		movl	$132, %ecx
+ 229      00
+ 230 01f6 4801D0   		addq	%rdx, %rax
+ 231 01f9 488D1500 		leaq	BacklightLookup(%rip), %rdx
+ 231      000000
+ 232 0200 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 232      000000
+ 233 0207 BF4C0000 		movl	$76, %edi
+ 233      00
+ 234 020c 8B448208 		movl	8(%rdx,%rax,4), %eax
+ 235 0210 488D1500 		leaq	.LC6(%rip), %rdx
+ 235      000000
+ 236 0217 8906     		movl	%eax, (%rsi)
+ 237 0219 488D0500 		leaq	.LC4(%rip), %rax
+ 237      000000
+ 238 0220 488D3500 		leaq	.LC2(%rip), %rsi
+ 238      000000
+ 239 0227 50       		pushq	%rax
+ 240              		.cfi_def_cfa_offset 32
+ 241 0228 31C0     		xorl	%eax, %eax
+ 242 022a E8000000 		call	siFormattedMessage_SC@PLT
+ 242      00
+ 243 022f 58       		popq	%rax
+ 244              		.cfi_def_cfa_offset 24
+ 245 0230 31C0     		xorl	%eax, %eax
+ 246 0232 5A       		popq	%rdx
+ 247              		.cfi_def_cfa_offset 16
+ 248 0233 EBA6     		jmp	.L14
+ 249              		.p2align 4,,10
+ 250 0235 0F1F00   		.p2align 3
+ 251              	.L18:
+ 252 0238 B8010000 		movl	$1, %eax
+ 252      00
+ 253 023d EBA3     		jmp	.L15
+ 254              		.cfi_endproc
+ 255              	.LFE68:
+ 257              		.section	.rodata.str1.8
+ 258 006a 00000000 		.align 8
+ 258      0000
+ 259              	.LC7:
+ 260 0070 45417069 		.string	"EApiVgaSetBacklightBrightnessEmul"
+ 260      56676153 
+ 260      65744261 
+ 260      636B6C69 
+GAS LISTING /tmp/ccA04091.s 			page 7
+
+
+ 260      67687442 
+ 261              		.section	.rodata.str1.1
+ 262              	.LC8:
+ 263 005b 45417069 		.string	"EApiVgaSetBacklightBrightness"
+ 263      56676153 
+ 263      65744261 
+ 263      636B6C69 
+ 263      67687442 
+ 264              		.text
+ 265 023f 90       		.p2align 4
+ 266              		.globl	EApiVgaSetBacklightBrightnessEmul
+ 267              		.hidden	EApiVgaSetBacklightBrightnessEmul
+ 269              	EApiVgaSetBacklightBrightnessEmul:
+ 270              	.LFB69:
+ 271              		.cfi_startproc
+ 272 0240 F30F1EFA 		endbr64
+ 273 0244 4883EC08 		subq	$8, %rsp
+ 274              		.cfi_def_cfa_offset 16
+ 275 0248 3B3D0000 		cmpl	BacklightLookup(%rip), %edi
+ 275      0000
+ 276 024e 7450     		je	.L23
+ 277 0250 3B3D0000 		cmpl	12+BacklightLookup(%rip), %edi
+ 277      0000
+ 278 0256 0F849C00 		je	.L24
+ 278      0000
+ 279 025c 4883EC08 		subq	$8, %rsp
+ 280              		.cfi_def_cfa_offset 24
+ 281 0260 488D0500 		leaq	.LC3(%rip), %rax
+ 281      000000
+ 282 0267 B9A80000 		movl	$168, %ecx
+ 282      00
+ 283 026c 41B8FFFC 		movl	$-769, %r8d
+ 283      FFFF
+ 284 0272 50       		pushq	%rax
+ 285              		.cfi_def_cfa_offset 32
+ 286 0273 488D3500 		leaq	.LC2(%rip), %rsi
+ 286      000000
+ 287 027a 31C0     		xorl	%eax, %eax
+ 288 027c 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 288      000000
+ 289 0283 488D1500 		leaq	.LC7(%rip), %rdx
+ 289      000000
+ 290 028a BF450000 		movl	$69, %edi
+ 290      00
+ 291 028f E8000000 		call	siFormattedMessage_SC@PLT
+ 291      00
+ 292 0294 59       		popq	%rcx
+ 293              		.cfi_def_cfa_offset 24
+ 294 0295 B8FFFCFF 		movl	$-769, %eax
+ 294      FF
+ 295 029a 5E       		popq	%rsi
+ 296              		.cfi_def_cfa_offset 16
+ 297              	.L20:
+ 298 029b 4883C408 		addq	$8, %rsp
+ 299              		.cfi_remember_state
+ 300              		.cfi_def_cfa_offset 8
+ 301 029f C3       		ret
+GAS LISTING /tmp/ccA04091.s 			page 8
+
+
+ 302              		.p2align 4,,10
+ 303              		.p2align 3
+ 304              	.L23:
+ 305              		.cfi_restore_state
+ 306 02a0 31C0     		xorl	%eax, %eax
+ 307              	.L21:
+ 308              	.L22:
+ 309 02a2 F30F1EFA 		endbr64
+ 310 02a6 488D1400 		leaq	(%rax,%rax), %rdx
+ 311 02aa 4883EC08 		subq	$8, %rsp
+ 312              		.cfi_def_cfa_offset 24
+ 313 02ae 4531C0   		xorl	%r8d, %r8d
+ 314 02b1 B9A20000 		movl	$162, %ecx
+ 314      00
+ 315 02b6 4801D0   		addq	%rdx, %rax
+ 316 02b9 488D1500 		leaq	BacklightLookup(%rip), %rdx
+ 316      000000
+ 317 02c0 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 317      000000
+ 318 02c7 BF4C0000 		movl	$76, %edi
+ 318      00
+ 319 02cc 89748208 		movl	%esi, 8(%rdx,%rax,4)
+ 320 02d0 488D0500 		leaq	.LC4(%rip), %rax
+ 320      000000
+ 321 02d7 488D1500 		leaq	.LC8(%rip), %rdx
+ 321      000000
+ 322 02de 50       		pushq	%rax
+ 323              		.cfi_def_cfa_offset 32
+ 324 02df 488D3500 		leaq	.LC2(%rip), %rsi
+ 324      000000
+ 325 02e6 31C0     		xorl	%eax, %eax
+ 326 02e8 E8000000 		call	siFormattedMessage_SC@PLT
+ 326      00
+ 327 02ed 58       		popq	%rax
+ 328              		.cfi_def_cfa_offset 24
+ 329 02ee 31C0     		xorl	%eax, %eax
+ 330 02f0 5A       		popq	%rdx
+ 331              		.cfi_def_cfa_offset 16
+ 332 02f1 EBA8     		jmp	.L20
+ 333              		.p2align 4,,10
+ 334 02f3 0F1F4400 		.p2align 3
+ 334      00
+ 335              	.L24:
+ 336 02f8 B8010000 		movl	$1, %eax
+ 336      00
+ 337 02fd EBA3     		jmp	.L21
+ 338              		.cfi_endproc
+ 339              	.LFE69:
+ 341              		.data
+ 342              		.align 16
+ 345              	BacklightLookup:
+ 346 0000 00000000 		.long	0
+ 347 0004 00000000 		.long	0
+ 348 0008 00000000 		.long	0
+ 349 000c 01000000 		.long	1
+ 350 0010 FFFFFFFF 		.long	-1
+ 351 0014 FF000000 		.long	255
+GAS LISTING /tmp/ccA04091.s 			page 9
+
+
+ 352              		.ident	"GCC: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
+ 353              		.section	.note.GNU-stack,"",@progbits
+ 354              		.section	.note.gnu.property,"a"
+ 355              		.align 8
+ 356 0000 04000000 		.long	 1f - 0f
+ 357 0004 10000000 		.long	 4f - 1f
+ 358 0008 05000000 		.long	 5
+ 359              	0:
+ 360 000c 474E5500 		.string	 "GNU"
+ 361              	1:
+ 362              		.align 8
+ 363 0010 020000C0 		.long	 0xc0000002
+ 364 0014 04000000 		.long	 3f - 2f
+ 365              	2:
+ 366 0018 03000000 		.long	 0x3
+ 367              	3:
+ 368 001c 00000000 		.align 8
+ 369              	4:
+GAS LISTING /tmp/ccA04091.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulBacklight.c
+     /tmp/ccA04091.s:22     .text:0000000000000000 EApiVgaGetBacklightEnableEmul
+     /tmp/ccA04091.s:345    .data:0000000000000000 BacklightLookup
+     /tmp/ccA04091.s:103    .text:00000000000000c0 EApiVgaSetBacklightEnableEmul
+     /tmp/ccA04091.s:184    .text:0000000000000180 EApiVgaGetBacklightBrightnessEmul
+     /tmp/ccA04091.s:269    .text:0000000000000240 EApiVgaSetBacklightBrightnessEmul
+     /tmp/ccA04091.s:13     .rodata.str1.1:0000000000000022 .LC3
+     /tmp/ccA04091.s:10     .rodata.str1.8:0000000000000000 .LC2
+     /tmp/ccA04091.s:4      .rodata.str1.1:0000000000000000 .LC0
+     /tmp/ccA04091.s:6      .rodata.str1.1:0000000000000004 .LC1
+     /tmp/ccA04091.s:15     .rodata.str1.1:000000000000003c .LC4
+     /tmp/ccA04091.s:96     .rodata.str1.1:000000000000003d .LC5
+     /tmp/ccA04091.s:177    .rodata.str1.8:0000000000000048 .LC6
+     /tmp/ccA04091.s:259    .rodata.str1.8:0000000000000070 .LC7
+     /tmp/ccA04091.s:262    .rodata.str1.1:000000000000005b .LC8
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+siFormattedMessage_SC

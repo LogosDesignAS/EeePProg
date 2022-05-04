@@ -1,0 +1,1284 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+                              build/armv71/dbg/StrPrint.o (__aeabi_uidiv)
+/home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+                              build/armv71/dbg/Str2Value.o (__aeabi_ldivmod)
+/home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+                              /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
+/home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+                              /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o) (__udivmoddi4)
+
+Discarded input sections
+
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/EeePProg.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/EApiAHI2C.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/EApiAHStorage.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/EApiAHStr.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/ArgParse.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/BinFuncs.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/CfgParser.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/CfgPHelper.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/EeePCfg.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/EeePDB.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/StrFuncs.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/TokenFunc.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/RangeFunc.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/DbgChk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/Str2Value.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 build/armv71/dbg/StrPrint.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+LOAD /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+LOAD /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/libdl.a
+LOAD build/armv71/dbg/EeePProg.o
+LOAD build/armv71/dbg/EApiAHI2C.o
+LOAD build/armv71/dbg/EApiAHStorage.o
+LOAD build/armv71/dbg/EApiAHStr.o
+LOAD build/armv71/dbg/ArgParse.o
+LOAD build/armv71/dbg/BinFuncs.o
+LOAD build/armv71/dbg/CfgParser.o
+LOAD build/armv71/dbg/CfgPHelper.o
+LOAD build/armv71/dbg/EeePCfg.o
+LOAD build/armv71/dbg/EeePDB.o
+LOAD build/armv71/dbg/StrFuncs.o
+LOAD build/armv71/dbg/TokenFunc.o
+LOAD build/armv71/dbg/RangeFunc.o
+LOAD build/armv71/dbg/DbgChk.o
+LOAD build/armv71/dbg/Str2Value.o
+LOAD build/armv71/dbg/StrPrint.o
+LOAD ../../bin/Linux/armv71/dbg/libEApiPMG.so.1.0
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/../../../../arm-buildroot-linux-musleabihf/lib/libgcc_s.so
+START GROUP
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/../../../../arm-buildroot-linux-musleabihf/lib/libgcc_s.so.1
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a
+END GROUP
+LOAD /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/libc.so
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/../../../../arm-buildroot-linux-musleabihf/lib/libgcc_s.so
+START GROUP
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/../../../../arm-buildroot-linux-musleabihf/lib/libgcc_s.so.1
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a
+END GROUP
+LOAD /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+LOAD /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x0))
+                0x0000000000000134                . = (SEGMENT_START ("text-segment", 0x0) + SIZEOF_HEADERS)
+
+.interp         0x0000000000000134       0x18
+ *(.interp)
+ .interp        0x0000000000000134       0x18 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash           0x000000000000014c      0x198
+ *(.hash)
+ .hash          0x000000000000014c      0x198 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.gnu.hash       0x00000000000002e4       0x24
+ *(.gnu.hash)
+ .gnu.hash      0x00000000000002e4       0x24 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.dynsym         0x0000000000000308      0x3f0
+ *(.dynsym)
+ .dynsym        0x0000000000000308      0x3f0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.dynstr         0x00000000000006f8      0x28e
+ *(.dynstr)
+ .dynstr        0x00000000000006f8      0x28e /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.gnu.version    0x0000000000000986        0x0
+ *(.gnu.version)
+ .gnu.version   0x0000000000000986        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.gnu.version_d  0x0000000000000988        0x0
+ *(.gnu.version_d)
+ .gnu.version_d
+                0x0000000000000988        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.gnu.version_r  0x0000000000000988        0x0
+ *(.gnu.version_r)
+ .gnu.version_r
+                0x0000000000000988        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.rel.dyn        0x0000000000000988     0x3800
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ .rel.text      0x0000000000000988        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ .rel.data.rel.ro
+                0x0000000000000988        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .rel.data.rel.ro.local
+                0x0000000000000988      0x1a0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ .rel.data.rel.local
+                0x0000000000000b28     0x16b8 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .rel.data.rel  0x00000000000021e0     0x1f38 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ .rel.got       0x0000000000004118       0x60 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ .rel.bss       0x0000000000004178        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.rel.iplt)
+ .rel.iplt      0x0000000000004178        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .rel.init_array
+                0x0000000000004178        0x8 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .rel.fini_array
+                0x0000000000004180        0x8 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.rela.dyn
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rela.iplt)
+
+.rel.plt        0x0000000000004188      0x1a8
+ *(.rel.plt)
+ .rel.plt       0x0000000000004188      0x1a8 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.rela.plt
+ *(.rela.plt)
+
+.init           0x0000000000004330        0xc
+ *(SORT_NONE(.init))
+ .init          0x0000000000004330        0x4 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+                0x0000000000004330                _init
+ .init          0x0000000000004334        0x8 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+
+.plt            0x000000000000433c      0x290
+ *(.plt)
+ .plt           0x000000000000433c      0x290 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.iplt           0x00000000000045cc        0x0
+ *(.iplt)
+ .iplt          0x00000000000045cc        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.text           0x00000000000045cc    0x17a70
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(SORT_BY_NAME(.text.sorted.*))
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x00000000000045cc       0x24 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+                0x00000000000045cc                _start
+ .text._start_c
+                0x00000000000045f0       0x58 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+                0x00000000000045f0                _start_c
+ .text          0x0000000000004648        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+ .text          0x0000000000004648      0x168 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .text          0x00000000000047b0     0x1f08 build/armv71/dbg/EeePProg.o
+                0x00000000000047b0                CreateTxtFilePtr
+                0x0000000000004978                FreeFilePtr
+                0x0000000000004a08                CMD_CreateCOM0R20_MEEPCfg
+                0x0000000000004b7c                CMD_CreateCOM0R20_CBCfg
+                0x0000000000004cf0                CMD_CreateCOM0R20_EeePExtCfg
+                0x0000000000004e64                CMD_CreateCOM0R20CB_EEP
+                0x0000000000004fe0                CMD_CreateCOM0R20M_EEP
+                0x000000000000515c                CMD_CreateEeePExt_EEP
+                0x00000000000052ec                CMD_ProgramCOM0R20CB_EEP
+                0x00000000000054ec                CMD_ProgramCOM0R20M_EEP
+                0x00000000000056ec                CMD_ProgramEeePExt_EEP
+                0x0000000000005900                CMD_StoreEeePExt_EEP
+                0x0000000000005a90                CMD_StoreCOM0R20_CB_EEP
+                0x0000000000005b30                CMD_StoreCOM0R20_M_EEP
+                0x0000000000005bd0                CMD_ListDBlocksEeePExt_EEP
+                0x0000000000005d58                CMD_ListDBlocksCOM0R20_CB_EEP
+                0x0000000000005de4                CMD_ListDBlocksCOM0R20_M_EEP
+                0x0000000000005e70                CMD_CreateExtEepEEP_IMG
+                0x0000000000005ff0                CMD_CreateCOM0R20M_IMG
+                0x0000000000006170                CMD_CreateCOM0R20CB_IMG
+                0x00000000000062f0                CMD_ListDBlocks_IMG
+                0x0000000000006468                main
+ .text          0x00000000000066b8      0xdf8 build/armv71/dbg/EApiAHI2C.o
+                0x00000000000066b8                EApiAHI2CCCreateAddrOffset
+                0x0000000000006a18                ValidEEPDevDesc
+                0x0000000000006ab0                EApiAHI2CWriteEeprom
+                0x0000000000006fe0                EApiAHI2CReadEeprom
+ .text          0x00000000000074b0      0x440 build/armv71/dbg/EApiAHStorage.o
+                0x00000000000074b0                EApiAHWriteStorage
+ .text          0x00000000000078f0     0x1ac0 build/armv71/dbg/EApiAHStr.o
+                0x00000000000078f0                EApiAHCreateErrorString
+                0x0000000000007ac0                EApiAHCreateErrorStringAlloc
+                0x0000000000007c78                EApiAHGetString
+                0x0000000000007efc                EApiAHGetStringAlloc
+                0x00000000000081d8                EApiAHCreateDecimalString
+                0x00000000000082f0                EApiAHCreateHexString
+                0x0000000000008408                EApiAHCreateVoltageString
+                0x0000000000008570                EApiAHCreateRotationsString
+                0x0000000000008680                EApiAHCreateTempString
+                0x00000000000087e8                EApiAHCreateTimeString
+                0x0000000000008b44                EApiAHCreateSVersionString
+                0x0000000000008c74                EApiAHCreateVersionString
+                0x0000000000008db0                EApiAHCreatePNPIDString
+                0x0000000000008f68                EApiStrLenA
+                0x0000000000009004                EApiStrCpyA
+                0x0000000000009090                EApiSprintfA
+                0x000000000000918c                EApiStrLen
+                0x0000000000009228                EApiStrCpy
+                0x00000000000092b4                EApiSprintf
+ .text          0x00000000000093b0     0x1214 build/armv71/dbg/ArgParse.o
+                0x00000000000093b0                StringArg
+                0x00000000000093f0                SizeArg
+                0x00000000000094a4                NumberArg
+                0x0000000000009550                PrintUsage
+                0x00000000000097f8                ParseArgsBuffer
+                0x0000000000009aec                CreateArgvArgcBuffer
+                0x0000000000009cc0                ParseArgsFile
+                0x0000000000009efc                ParseSubArgs
+                0x000000000000a034                ParseArgs
+ .text          0x000000000000a5c4     0x1c7c build/armv71/dbg/BinFuncs.o
+                0x000000000000a5c4                u32ChecksumBlock
+                0x000000000000a630                u16ChecksumBlock
+                0x000000000000a664                u8ChecksumBlock
+                0x000000000000a698                u16CRC_CCITT_init
+                0x000000000000a7bc                u16CRC_CCITT_bytes
+                0x000000000000a92c                u16CRC_CCITT_fini
+                0x000000000000aa04                u16CRC_CCITT_verify
+                0x000000000000ab6c                u16CRC_CCITT
+                0x000000000000ad40                cBin2Ascii
+                0x000000000000ad88                siBin2Ascii
+                0x000000000000ae94                PrintHexAsciiTableEx
+                0x000000000000b374                PrintHexAsciiTable
+                0x000000000000b3b8                LclWriteFile
+                0x000000000000b61c                LclReadFile
+                0x000000000000b8e0                WriteBinaryFile
+                0x000000000000b924                ReadBinaryFile
+                0x000000000000b968                WriteTextFile
+                0x000000000000b9ac                ReadTextFile
+                0x000000000000b9f0                EeeP_Set16BitValue_BE
+                0x000000000000ba44                EeeP_Get16BitValue_BE
+                0x000000000000ba90                EeeP_Set32BitValue_BE
+                0x000000000000bb0c                EeeP_Get32BitValue_BE
+                0x000000000000bb74                EeeP_Set64BitValue_BE
+                0x000000000000bcac                EeeP_Get64BitValue_BE
+                0x000000000000be18                EeeP_Set16BitValue_LE
+                0x000000000000be6c                EeeP_Get16BitValue_LE
+                0x000000000000beb8                EeeP_Set32BitValue_LE
+                0x000000000000bf34                EeeP_Get32BitValue_LE
+                0x000000000000bf9c                EeeP_Set64BitValue_LE
+                0x000000000000c0d4                EeeP_Get64BitValue_LE
+ .text          0x000000000000c240     0x1c0c build/armv71/dbg/CfgParser.o
+                0x000000000000c240                PrintCfgFile_Sub
+                0x000000000000ca38                PrintCfgFile
+                0x000000000000cbb0                CleanStruct_sub
+                0x000000000000ce40                CleanStruct
+                0x000000000000cfa8                GetElementDesc
+                0x000000000000d1a0                ParseCfgFile_sub
+                0x000000000000dae4                ParseCfgFile
+ .text          0x000000000000de4c     0x2290 build/armv71/dbg/CfgPHelper.o
+                0x000000000000de4c                No_Default_Txt
+                0x000000000000de78                TokenNum_List_Default
+                0x000000000000e044                Token_List_Default
+                0x000000000000e090                Range_Default_Txt
+                0x000000000000e0ec                GUID_Default
+                0x000000000000e130                String_Help
+                0x000000000000e2ac                Range_List_Help
+                0x000000000000e570                TokenNum_List_Help
+                0x000000000000e784                Token_List_Help
+                0x000000000000e858                GUID_Help
+                0x000000000000e89c                SpecRev_Help
+                0x000000000000e8e0                PNPID_Help
+                0x000000000000e924                I2C_EEPROM_Help
+                0x000000000000e968                Dealloc_Element
+                0x000000000000eb00                GenClear_Element
+                0x000000000000ecf4                String_Element
+                0x000000000000ef28                GUID_Element
+                0x000000000000f2a8                Number_Element
+                0x000000000000f488                Size_Element
+                0x000000000000f678                I2C_EEPROM_Addr
+                0x000000000000f880                Token_Element
+                0x000000000000fa08                TokenNum_Element
+                0x000000000000fbfc                SpecRev_Element
+                0x000000000000fde0                PNPID_Element
+ .text          0x00000000000100dc     0x378c build/armv71/dbg/EeePCfg.o
+                0x00000000000100dc                SMBIOS_CE_Help
+                0x0000000000010264                SMBIOS_CE_Element
+                0x00000000000104a8                COM0PCIe_Help
+                0x0000000000010620                COM0PCIe_Element
+                0x00000000000108ec                HandleCOM0R20CBHeaderBlock
+                0x0000000000010ce4                HandleCOM0R20MHeaderBlock
+                0x0000000000010ddc                HandleEeePExpEepHeaderBlock
+                0x0000000000010ebc                DBlockAllocWrap
+                0x00000000000110c8                HandleEeePExpI2CBlock
+                0x00000000000112c8                HandleCOM0R20SerialCfgBlock
+                0x00000000000114d4                HandleCOM0R20ExpCardCfgBlock
+                0x00000000000117ac                HandleSmbiosChassisBlock
+                0x0000000000011db0                HandleSmbiosSystemBlock
+                0x000000000001239c                HandleSmbiosModuleBlock
+                0x0000000000012ab0                HandleVendorBlock
+                0x0000000000012d30                HandleLFPDescBlock
+                0x0000000000012f8c                HandleCustomBlock
+                0x00000000000131d8                EeeP_CreateEEPROMImage
+                0x00000000000136ac                EeeP_CreateCOM0R20_CBImage
+                0x0000000000013704                EeeP_CreateCOM0R20_MEEPImage
+                0x000000000001375c                EeeP_CreateEeePExtEEPImage
+                0x00000000000137b4                EeeP_CreateCOM0R20_CBCfg
+                0x00000000000137f0                EeeP_CreateCOM0R20_MEEPCfg
+                0x000000000001382c                EeeP_CreateEeePExtEEPCfg
+ .text          0x0000000000013868     0x36d4 build/armv71/dbg/EeePDB.o
+                0x0000000000013868                GetString
+                0x0000000000013918                GetDBlckIdString
+                0x000000000001395c                EeePAdjLength
+                0x0000000000013988                EeePAlignLength
+                0x00000000000139b4                SetBlockLength
+                0x0000000000013b38                GetBlockLength
+                0x0000000000013b90                GetNextBlock
+                0x0000000000013c60                SetDynBlockHeader
+                0x0000000000013d14                ReduceBlockLength
+                0x0000000000013f98                EeePCreateNewBuffer
+                0x00000000000144dc                EeePFreeBuffer
+                0x000000000001459c                EeePGetFirstDB
+                0x0000000000014790                EeePMapBuffer
+                0x0000000000014b70                EeePListBlocks
+                0x0000000000014f74                EeePSetCRC
+                0x00000000000152bc                EeePCheckCRC
+                0x0000000000015610                EeePAddBlock
+                0x0000000000015ae0                EeePFindBlock
+                0x0000000000015e38                EeePFindVendorBlock
+                0x00000000000161d0                EeePFindSmbiosBlock
+                0x00000000000164e4                EeePWriteBufferToFile
+                0x0000000000016684                EeePReadBufferFromFile
+                0x0000000000016948                EeePSetI2CDeviceDesc
+                0x0000000000016b04                EeePWriteBufferToEEP
+                0x0000000000016c1c                EeePReadBufferFromEEP
+ .text          0x0000000000016f3c      0xafc build/armv71/dbg/StrFuncs.o
+                0x0000000000016f3c                skipWhiteSpaces
+                0x0000000000016fc0                stripWhiteSpaces
+                0x0000000000017048                szFindStr
+                0x0000000000017114                szFindCharMap
+                0x0000000000017214                szStrCmp
+                0x00000000000172a8                szFindWord
+                0x00000000000174cc                strrstr
+                0x0000000000017580                InitStrDesc
+                0x0000000000017734                FreeStrDesc
+                0x00000000000177f0                ReplaceSubStr
+ .text          0x0000000000017a38      0x344 build/armv71/dbg/TokenFunc.o
+                0x0000000000017a38                GetTokenFlags
+                0x0000000000017bc8                GetValueToken
+                0x0000000000017c88                GetTokenValue
+                0x0000000000017d30                GetTokenValueStrip
+ .text          0x0000000000017d7c      0x298 build/armv71/dbg/RangeFunc.o
+                0x0000000000017d7c                RangeCheckAll
+                0x0000000000017ec8                RangeCheckAny
+ .text          0x0000000000018014      0x344 build/armv71/dbg/DbgChk.o
+                0x0000000000018014                EApiGetErrorStringA
+                0x00000000000180b0                GetLastOccurance
+                0x000000000001811c                siFormattedMessage_M2
+                0x0000000000018220                siFormattedMessage_SC
+ .text          0x0000000000018358     0x3410 build/armv71/dbg/Str2Value.o
+                0x0000000000018358                ReturnEnvVar
+                0x00000000000183b0                ulConvertStr2NumEx
+                0x00000000000185d0                DoOperation
+                0x0000000000018b08                ParserWrapper
+                0x0000000000018ba0                ParseOpcodeTokensAscii
+                0x0000000000018cb8                ParseAsciiEqu_13
+                0x00000000000191d8                ParseAsciiEqu_cmn
+                0x000000000001954c                ParseAscii_8
+                0x0000000000019744                ParseAsciiEqu_2
+                0x00000000000199f4                ParseAsciiEqu_1
+                0x0000000000019cb4                ExpandEnviromentVariables
+                0x0000000000019f88                ExpandMacros
+                0x000000000001a214                ParseAsciiEquEx
+                0x000000000001a554                ParseAsciiEqu
+                0x000000000001a588                AssignValue_VA
+                0x000000000001a9f4                AssignValue_VAB
+                0x000000000001ad54                RecoverValue_VA
+                0x000000000001afe4                RecoverValue_VAB
+                0x000000000001b2dc                ParseAsciiEqu_VA
+                0x000000000001b520                ParseAsciiEquEx_VA
+ .text          0x000000000001b768      0x610 build/armv71/dbg/StrPrint.o
+                0x000000000001b768                StringBlock
+                0x000000000001ba30                PrintStringBlock
+                0x000000000001bd0c                PrintStringBlockA
+ .text          0x000000000001bd78       0xc8 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+                0x000000000001bd78                __udivsi3
+                0x000000000001bd78                __aeabi_uidiv
+                0x000000000001be20                __aeabi_uidivmod
+ .text          0x000000000001be40       0xd4 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+                0x000000000001be40                __aeabi_ldivmod
+ .text          0x000000000001bf14       0x10 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+                0x000000000001bf14                __aeabi_ldiv0
+                0x000000000001bf14                __aeabi_idiv0
+ .text          0x000000000001bf24      0x118 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+                0x000000000001bf24                __udivmoddi4
+ .text          0x000000000001c03c        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+ .text          0x000000000001c03c        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x000000000001c03c        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x000000000001c03c        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x000000000001c03c        0x0 linker stubs
+ *(.v4_bx)
+ .v4_bx         0x000000000001c03c        0x0 linker stubs
+
+.fini           0x000000000001c03c        0xc
+ *(SORT_NONE(.fini))
+ .fini          0x000000000001c03c        0x4 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+                0x000000000001c03c                _fini
+ .fini          0x000000000001c040        0x8 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata         0x000000000001c048     0x6f90
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x000000000001c048       0x90 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .rodata        0x000000000001c0d8      0xf52 build/armv71/dbg/EeePProg.o
+                0x000000000001c0d8                cszTitle
+                0x000000000001c1cc                syntaxErrMes
+ *fill*         0x000000000001d02a        0x2 
+ .rodata        0x000000000001d02c      0x181 build/armv71/dbg/EApiAHI2C.o
+ *fill*         0x000000000001d1ad        0x3 
+ .rodata        0x000000000001d1b0       0xe7 build/armv71/dbg/EApiAHStorage.o
+ *fill*         0x000000000001d297        0x1 
+ .rodata        0x000000000001d298      0x466 build/armv71/dbg/EApiAHStr.o
+ *fill*         0x000000000001d6fe        0x2 
+ .rodata        0x000000000001d700      0x505 build/armv71/dbg/ArgParse.o
+                0x000000000001d828                cszHeader
+                0x000000000001d91c                cszFooter
+ *fill*         0x000000000001dc05        0x3 
+ .rodata        0x000000000001dc08      0x312 build/armv71/dbg/BinFuncs.o
+ *fill*         0x000000000001df1a        0x2 
+ .rodata        0x000000000001df1c     0x1024 build/armv71/dbg/CfgParser.o
+                0x000000000001df1c                szComment
+                0x000000000001df20                szComment2
+ .rodata        0x000000000001ef40      0xbb7 build/armv71/dbg/CfgPHelper.o
+ *fill*         0x000000000001faf7        0x1 
+ .rodata        0x000000000001faf8     0x1c1a build/armv71/dbg/EeePCfg.o
+ *fill*         0x0000000000021712        0x2 
+ .rodata        0x0000000000021714      0xbf4 build/armv71/dbg/EeePDB.o
+ .rodata        0x0000000000022308       0xa8 build/armv71/dbg/StrFuncs.o
+                0x0000000000022308                szWordDelimns
+ .rodata        0x00000000000223b0       0x1f build/armv71/dbg/TokenFunc.o
+ *fill*         0x00000000000223cf        0x1 
+ .rodata        0x00000000000223d0      0x14d build/armv71/dbg/DbgChk.o
+                0x00000000000224dc                cszLogFormat
+ *fill*         0x000000000002251d        0x3 
+ .rodata        0x0000000000022520      0x9fb build/armv71/dbg/Str2Value.o
+                0x0000000000022a64                cszEnvStartMarker
+                0x0000000000022a68                cszEnvEndMarker
+ *fill*         0x0000000000022f1b        0x1 
+ .rodata        0x0000000000022f1c       0x2c build/armv71/dbg/StrPrint.o
+ .rodata        0x0000000000022f48       0x90 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+
+.rodata1
+ *(.rodata1)
+
+.ARM.extab      0x0000000000022fd8        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab     0x0000000000022fd8        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.ARM.exidx      0x0000000000022fd8        0x8
+                [!provide]                        PROVIDE (__exidx_start = .)
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x0000000000022fd8        0x8 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+                [!provide]                        PROVIDE (__exidx_end = .)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame       0x0000000000022fe0        0x4
+ *(.eh_frame)
+ .eh_frame      0x0000000000022fe0        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .eh_frame      0x0000000000022fe0        0x4 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges*)
+                0x0000000000033c58                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges*)
+
+.tdata          0x0000000000033c58        0x0
+                [!provide]                        PROVIDE (__tdata_start = .)
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000000033c58        0x0
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x0000000000033c58        0x4
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+ .init_array    0x0000000000033c58        0x4 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x0000000000033c5c        0x4
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+ .fini_array    0x0000000000033c5c        0x4 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+                [!provide]                        PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro    0x0000000000033c60      0x1a0
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ .data.rel.ro.local
+                0x0000000000033c60       0x98 build/armv71/dbg/EApiAHStr.o
+                0x0000000000033c60                ErrorLookup
+ .data.rel.ro.local
+                0x0000000000033cf8       0x98 build/armv71/dbg/DbgChk.o
+                0x0000000000033cf8                ErrorLookupA
+ .data.rel.ro.local
+                0x0000000000033d90       0x70 build/armv71/dbg/Str2Value.o
+                0x0000000000033d90                cMultDiv
+                0x0000000000033da8                cAddSub
+                0x0000000000033db8                cBitShift
+                0x0000000000033dc8                cCompare
+                0x0000000000033dd8                cBitwiseAnd
+                0x0000000000033de0                cBitwiseXor
+                0x0000000000033de8                cBitwiseOr
+                0x0000000000033df0                cLogicalAnd
+                0x0000000000033df8                cLogicalOr
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+ .data.rel.ro   0x0000000000033e00        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+
+.dynamic        0x0000000000033e00       0xf0
+ *(.dynamic)
+ .dynamic       0x0000000000033e00       0xf0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+                0x0000000000033e00                _DYNAMIC
+
+.got            0x0000000000033ef0      0x110
+ *(.got.plt)
+ .got.plt       0x0000000000033ef0       0xe0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+                0x0000000000033ef0                _GLOBAL_OFFSET_TABLE_
+ *(.igot.plt)
+ .igot.plt      0x0000000000033fd0        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.got)
+ .got           0x0000000000033fd0       0x30 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.igot)
+                0x0000000000034000                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000000034000     0x51f4
+                [!provide]                        PROVIDE (__data_start = .)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000034000        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .data          0x0000000000034000        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+ .data          0x0000000000034000        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .data.rel.local
+                0x0000000000034000        0x4 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+                0x0000000000034000                __dso_handle
+ .data          0x0000000000034004        0x0 build/armv71/dbg/EeePProg.o
+ .data.rel      0x0000000000034004      0x1b0 build/armv71/dbg/EeePProg.o
+                0x0000000000034004                COM0R20M_Cfg
+                0x0000000000034014                COM0R20M_Img
+                0x0000000000034034                COM0R20M_EEP
+                0x0000000000034044                COM0R20CB_Cfg
+                0x0000000000034054                COM0R20CB_Img
+                0x0000000000034074                COM0R20CB_EEP
+                0x0000000000034084                EeePExpEEP_Cfg
+                0x0000000000034094                EeePExpEEP_Img
+                0x00000000000340b4                EeePExpEEP_EEP
+                0x00000000000340e4                EeePExpEEP_PEEP
+                0x0000000000034114                COM0R20CB_IMG
+                0x0000000000034124                COM0R20M_IMG
+                0x0000000000034134                EeePExpEEP_IMG
+                0x0000000000034164                COM0R20CB_PEEP
+                0x0000000000034174                COM0R20M_PEEP
+                0x0000000000034184                GEN_LIST_DBLOCKS_FILE
+                0x0000000000034194                GEN_LIST_DBLOCKS_EEP
+ .data.rel.local
+                0x00000000000341b4      0x2e0 build/armv71/dbg/EeePProg.o
+                0x00000000000341b4                ArgsDesc
+ .data          0x0000000000034494        0x0 build/armv71/dbg/EApiAHI2C.o
+ .data          0x0000000000034494        0x0 build/armv71/dbg/EApiAHStorage.o
+ .data          0x0000000000034494       0x20 build/armv71/dbg/EApiAHStr.o
+                0x0000000000034494                CompressedAsciiLookup
+ .data          0x00000000000344b4        0x0 build/armv71/dbg/ArgParse.o
+ .data.rel.local
+                0x00000000000344b4       0x28 build/armv71/dbg/ArgParse.o
+ .data          0x00000000000344dc        0x0 build/armv71/dbg/BinFuncs.o
+ .data.rel.local
+                0x00000000000344dc       0x14 build/armv71/dbg/BinFuncs.o
+                0x00000000000344dc                CRC_CCITT
+ .data          0x00000000000344f0       0x7b build/armv71/dbg/CfgParser.o
+ *fill*         0x000000000003456b        0x1 
+ .data          0x000000000003456c       0x30 build/armv71/dbg/CfgPHelper.o
+                0x000000000003456c                UINT8Range
+                0x0000000000034578                UINT16Range
+                0x0000000000034584                UINT32Range
+                0x0000000000034590                PreserveTrailingSpaces
+ .data.rel.local
+                0x000000000003459c       0xf0 build/armv71/dbg/CfgPHelper.o
+                0x000000000003459c                String_Element_funcs
+                0x00000000000345ac                Number_Element_funcs
+                0x00000000000345bc                Size_Element_funcs
+                0x00000000000345cc                TokenNum_Element_funcs
+                0x00000000000345dc                Token_Element_funcs
+                0x00000000000345ec                SpecRev_Element_funcs
+                0x00000000000345fc                PNPID_Element_funcs
+                0x000000000003460c                I2C_EEPROM_Addr_funcs
+                0x000000000003461c                GUID_Element_funcs
+                0x000000000003462c                DeletePreserve
+                0x000000000003465c                UINT8RangeDesc
+                0x0000000000034664                UINT16RangeDesc
+                0x000000000003466c                UINT32RangeDesc
+                0x0000000000034674                InsideCrcTokens
+                0x0000000000034684                InsideCrcTL
+ .data          0x000000000003468c      0x1f0 build/armv71/dbg/EeePCfg.o
+                0x000000000003468c                ValidHandles
+                0x0000000000034698                COM0_SMBIOS_Module
+                0x00000000000346f4                COM0_SMBIOS_Carrier
+                0x0000000000034750                COM0_SMBIOS_System
+                0x0000000000034788                COM0_SMBIOS_Chassis
+                0x00000000000347f0                COM0R20_ECard1_cgf
+                0x000000000003481c                ValidMinSize
+                0x0000000000034828                ValidUsbHSRange
+                0x0000000000034834                ValidUsbSSRange
+                0x0000000000034840                ValidModuleTypes
+                0x0000000000034858                ValidCOM0PCIePort
+                0x0000000000034864                ValidCOM0USBPort
+                0x0000000000034870                ValidIOAddrPort
+ .data.rel      0x000000000003487c     0x32e0 build/armv71/dbg/EeePCfg.o
+                0x000000000003487c                COM0PCIe_Element_funcs
+                0x000000000003488c                SMBIOS_CE_Element_funcs
+                0x000000000003489c                SmbiosModuleDesc
+                0x0000000000034b74                SmbiosCarrierDesc
+                0x0000000000034e4c                SmbiosSystemDesc
+                0x000000000003507c                SmbiosChassisDesc
+                0x000000000003531c                LFPData0Desc
+                0x0000000000035434                LFPData1Desc
+                0x000000000003554c                LFPData2Desc
+                0x0000000000035664                LFPData3Desc
+                0x000000000003577c                VendorBlock0Desc
+                0x00000000000358cc                VendorBlock1Desc
+                0x0000000000035a1c                VendorBlock2Desc
+                0x0000000000035b6c                VendorBlock3Desc
+                0x0000000000035cbc                VendorBlock4Desc
+                0x0000000000035e0c                VendorBlock5Desc
+                0x0000000000035f5c                VendorBlock6Desc
+                0x00000000000360ac                CustomBlock0Desc
+                0x00000000000361c4                CustomBlock1Desc
+                0x00000000000362dc                CustomBlock2Desc
+                0x00000000000363f4                CustomBlock3Desc
+                0x000000000003650c                CustomBlock4Desc
+                0x0000000000036624                CustomBlock5Desc
+                0x000000000003673c                CustomBlock6Desc
+                0x0000000000036854                ExtI2CDevice0Desc
+                0x00000000000369dc                ExtI2CDevice1Desc
+                0x0000000000036b64                COM0R20_CB_Desc
+                0x00000000000373b4                COM0R20_M_Desc
+                0x00000000000375ac                EeePExpHdr_Desc
+                0x0000000000037734                COM0R20_ExpCard0Desc
+                0x0000000000037884                COM0R20_ExpCard1Desc
+                0x00000000000379d4                COM0R20_SerialPortsDesc
+ .data.rel.local
+                0x0000000000037b5c     0x14f0 build/armv71/dbg/EeePCfg.o
+                0x0000000000037b5c                SmbiosStructureTypesTokens
+                0x0000000000037cac                SmbiosStructureTypesTL
+                0x0000000000037cb4                SmbiosBoardTypesTokens
+                0x0000000000037d14                SmbiosBoardTypesTL
+                0x0000000000037d1c                PCIeLaneWidths
+                0x0000000000037d4c                PCIeLaneWidthsTL
+                0x0000000000037d54                PCIeGeneration
+                0x0000000000037d6c                PCIeGenerationTL
+                0x0000000000037d74                SasTokens
+                0x0000000000037d8c                SasTL
+                0x0000000000037d94                ImpNotImpTokens
+                0x0000000000037da4                ImpNotImpTL
+                0x0000000000037dac                DDI1Tokens
+                0x0000000000037dd4                DDI1TL
+                0x0000000000037ddc                DDI2Tokens
+                0x0000000000037dfc                DDI2TL
+                0x0000000000037e04                DisplayInterfaceTokens
+                0x0000000000037e34                DisplayInterfaceTL
+                0x0000000000037e3c                I2CBusTokens
+                0x0000000000037e84                I2CBusTL
+                0x0000000000037e8c                StandardExtendedTokens
+                0x0000000000037e9c                StandardExtendedTL
+                0x0000000000037ea4                SmbiosModuleFeatureFlagsTokens
+                0x0000000000037ecc                SmbiSmbiosModuleFeatureFlagsTL
+                0x0000000000037ed4                SmbiosChassisTypesTokens
+                0x0000000000037f94                SmbiosChassisTypesTL
+                0x0000000000037f9c                ValidHandlesDesc
+                0x0000000000037fa4                IRQTokens
+                0x000000000003801c                IRQTL
+                0x0000000000038024                ValidMinSizeDesc
+                0x000000000003802c                EEPDeviceSizeTokens
+                0x00000000000380ec                EEPDeviceSizeTL
+                0x00000000000380f4                EeePEEPWriteLenTokens
+                0x0000000000038134                EeePEEPWriteLenTL
+                0x000000000003813c                ValidUsbHSRangeDesc
+                0x0000000000038144                ValidUsbSSRangeDesc
+                0x000000000003814c                ValidModuleTypesDesc
+                0x0000000000038154                ValidCOM0PCIePortDesc
+                0x000000000003815c                ValidCOM0USBPortDesc
+                0x0000000000038164                ValidIOAddrPortDesc
+                0x000000000003816c                COM0R20_CB_CfgDesc
+                0x00000000000386e4                COM0R20_M_CfgDesc
+                0x0000000000038ad4                EeePExpEEP_CfgDesc
+ .data          0x000000000003904c       0x20 build/armv71/dbg/EeePDB.o
+                0x000000000003904c                WriteSizes
+ .data.rel.local
+                0x000000000003906c       0x50 build/armv71/dbg/EeePDB.o
+                0x000000000003906c                BlockIdLookup
+ .data          0x00000000000390bc        0x0 build/armv71/dbg/StrFuncs.o
+ .data          0x00000000000390bc        0x0 build/armv71/dbg/TokenFunc.o
+ .data          0x00000000000390bc        0x0 build/armv71/dbg/RangeFunc.o
+ .data          0x00000000000390bc        0x0 build/armv71/dbg/DbgChk.o
+ .data          0x00000000000390bc        0x0 build/armv71/dbg/Str2Value.o
+ .data.rel.local
+                0x00000000000390bc      0x138 build/armv71/dbg/Str2Value.o
+                0x00000000000390bc                cMultDiv_desc
+                0x00000000000390c4                cAddSub_desc
+                0x00000000000390cc                cBitShift_desc
+                0x00000000000390d4                cCompare_desc
+                0x00000000000390dc                cBitwiseAnd_desc
+                0x00000000000390e4                cBitwiseXor_desc
+                0x00000000000390ec                cBitwiseOr_desc
+                0x00000000000390f4                cLogicalAnd_desc
+                0x00000000000390fc                cLogicalOr_desc
+                0x0000000000039104                cAS
+ .data          0x00000000000391f4        0x0 build/armv71/dbg/StrPrint.o
+ .data          0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .data          0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .data          0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .data          0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+ .data          0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+ .data          0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+
+.tm_clone_table
+                0x00000000000391f4        0x0
+ .tm_clone_table
+                0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .tm_clone_table
+                0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+
+.data1
+ *(.data1)
+                0x00000000000391f4                _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x00000000000391f4                . = .
+                0x00000000000391f4                __bss_start = .
+                0x00000000000391f4                __bss_start__ = .
+
+.bss            0x00000000000391f4      0x370
+ *(.dynbss)
+ .dynbss        0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .bss           0x00000000000391f4        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+ .bss           0x00000000000391f4       0x1c /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .bss           0x0000000000039210       0xc4 build/armv71/dbg/EeePProg.o
+                0x0000000000039210                CurOptions
+ .bss           0x00000000000392d4        0x0 build/armv71/dbg/EApiAHI2C.o
+ .bss           0x00000000000392d4        0x0 build/armv71/dbg/EApiAHStorage.o
+ .bss           0x00000000000392d4        0x0 build/armv71/dbg/EApiAHStr.o
+ .bss           0x00000000000392d4        0x0 build/armv71/dbg/ArgParse.o
+ .bss           0x00000000000392d4        0x0 build/armv71/dbg/BinFuncs.o
+ .bss           0x00000000000392d4        0x0 build/armv71/dbg/CfgParser.o
+ .bss           0x00000000000392d4        0xc build/armv71/dbg/CfgPHelper.o
+                0x00000000000392d4                DeleteTrailingSpaces
+ .bss           0x00000000000392e0      0x284 build/armv71/dbg/EeePCfg.o
+                0x00000000000392e0                EeeP_LFP0_Cfg
+                0x00000000000392f4                EeeP_LFP1_Cfg
+                0x0000000000039308                EeeP_LFP2_Cfg
+                0x000000000003931c                EeeP_LFP3_Cfg
+                0x0000000000039330                EeeP_VendorBlock0_Cfg
+                0x0000000000039344                EeeP_VendorBlock1_Cfg
+                0x0000000000039358                EeeP_VendorBlock2_Cfg
+                0x000000000003936c                EeeP_VendorBlock3_Cfg
+                0x0000000000039380                EeeP_VendorBlock4_Cfg
+                0x0000000000039394                EeeP_VendorBlock5_Cfg
+                0x00000000000393a8                EeeP_VendorBlock6_Cfg
+                0x00000000000393bc                EeeP_CustomBlock0_Cfg
+                0x00000000000393d0                EeeP_CustomBlock1_Cfg
+                0x00000000000393e4                EeeP_CustomBlock2_Cfg
+                0x00000000000393f8                EeeP_CustomBlock3_Cfg
+                0x000000000003940c                EeeP_CustomBlock4_Cfg
+                0x0000000000039420                EeeP_CustomBlock5_Cfg
+                0x0000000000039434                EeeP_CustomBlock6_Cfg
+                0x0000000000039448                EeePExtI2CDevice0
+                0x0000000000039458                EeePExtI2CDevice1
+                0x0000000000039468                EeePI2CDevice
+                0x0000000000039478                COM0R20_CB_cgf
+                0x000000000003950c                COM0R20_M_cgf
+                0x0000000000039518                COM0R20_ECard0_cgf
+                0x0000000000039544                COM0R20_SER_cgf
+                0x0000000000039558                EeePExpHdr_cgf
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/EeePDB.o
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/StrFuncs.o
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/TokenFunc.o
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/RangeFunc.o
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/DbgChk.o
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/Str2Value.o
+ .bss           0x0000000000039564        0x0 build/armv71/dbg/StrPrint.o
+ .bss           0x0000000000039564        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .bss           0x0000000000039564        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .bss           0x0000000000039564        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .bss           0x0000000000039564        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+ .bss           0x0000000000039564        0x0 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+ .bss           0x0000000000039564        0x0 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+ *(COMMON)
+                0x0000000000039564                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000000039564                _bss_end__ = .
+                0x0000000000039564                __bss_end__ = .
+                0x0000000000039564                . = ALIGN (0x4)
+                0x0000000000039564                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000000039564                . = ALIGN (0x4)
+                0x0000000000039564                __end__ = .
+                0x0000000000039564                _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x0000000000039564                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x20
+ *(.comment)
+ .comment       0x0000000000000000       0x20 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+                                         0x21 (size before relaxing)
+ .comment       0x0000000000000020       0x21 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/EeePProg.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/EApiAHI2C.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/EApiAHStorage.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/EApiAHStr.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/ArgParse.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/BinFuncs.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/CfgParser.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/CfgPHelper.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/EeePCfg.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/EeePDB.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/StrFuncs.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/TokenFunc.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/RangeFunc.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/DbgChk.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/Str2Value.o
+ .comment       0x0000000000000020       0x21 build/armv71/dbg/StrPrint.o
+ .comment       0x0000000000000020       0x21 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+ .comment       0x0000000000000020       0x21 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+
+.ARM.attributes
+                0x0000000000000000       0x37
+ .ARM.attributes
+                0x0000000000000000       0x39 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/Scrt1.o
+ .ARM.attributes
+                0x0000000000000039       0x23 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crti.o
+ .ARM.attributes
+                0x000000000000005c       0x37 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtbeginS.o
+ .ARM.attributes
+                0x0000000000000093       0x37 build/armv71/dbg/EeePProg.o
+ .ARM.attributes
+                0x00000000000000ca       0x37 build/armv71/dbg/EApiAHI2C.o
+ .ARM.attributes
+                0x0000000000000101       0x37 build/armv71/dbg/EApiAHStorage.o
+ .ARM.attributes
+                0x0000000000000138       0x37 build/armv71/dbg/EApiAHStr.o
+ .ARM.attributes
+                0x000000000000016f       0x37 build/armv71/dbg/ArgParse.o
+ .ARM.attributes
+                0x00000000000001a6       0x37 build/armv71/dbg/BinFuncs.o
+ .ARM.attributes
+                0x00000000000001dd       0x37 build/armv71/dbg/CfgParser.o
+ .ARM.attributes
+                0x0000000000000214       0x37 build/armv71/dbg/CfgPHelper.o
+ .ARM.attributes
+                0x000000000000024b       0x37 build/armv71/dbg/EeePCfg.o
+ .ARM.attributes
+                0x0000000000000282       0x37 build/armv71/dbg/EeePDB.o
+ .ARM.attributes
+                0x00000000000002b9       0x37 build/armv71/dbg/StrFuncs.o
+ .ARM.attributes
+                0x00000000000002f0       0x37 build/armv71/dbg/TokenFunc.o
+ .ARM.attributes
+                0x0000000000000327       0x37 build/armv71/dbg/RangeFunc.o
+ .ARM.attributes
+                0x000000000000035e       0x37 build/armv71/dbg/DbgChk.o
+ .ARM.attributes
+                0x0000000000000395       0x37 build/armv71/dbg/Str2Value.o
+ .ARM.attributes
+                0x00000000000003cc       0x37 build/armv71/dbg/StrPrint.o
+ .ARM.attributes
+                0x0000000000000403       0x25 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000000000428       0x25 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .ARM.attributes
+                0x000000000000044d       0x25 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .ARM.attributes
+                0x0000000000000472       0x37 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x00000000000004a9       0x3d /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/crtendS.o
+ .ARM.attributes
+                0x00000000000004e6       0x23 /home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/lib/crtn.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes .gnu.build.attributes.*)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x280
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x20 build/armv71/dbg/EeePProg.o
+ .debug_aranges
+                0x0000000000000020       0x20 build/armv71/dbg/EApiAHI2C.o
+ .debug_aranges
+                0x0000000000000040       0x20 build/armv71/dbg/EApiAHStorage.o
+ .debug_aranges
+                0x0000000000000060       0x20 build/armv71/dbg/EApiAHStr.o
+ .debug_aranges
+                0x0000000000000080       0x20 build/armv71/dbg/ArgParse.o
+ .debug_aranges
+                0x00000000000000a0       0x20 build/armv71/dbg/BinFuncs.o
+ .debug_aranges
+                0x00000000000000c0       0x20 build/armv71/dbg/CfgParser.o
+ .debug_aranges
+                0x00000000000000e0       0x20 build/armv71/dbg/CfgPHelper.o
+ .debug_aranges
+                0x0000000000000100       0x20 build/armv71/dbg/EeePCfg.o
+ .debug_aranges
+                0x0000000000000120       0x20 build/armv71/dbg/EeePDB.o
+ .debug_aranges
+                0x0000000000000140       0x20 build/armv71/dbg/StrFuncs.o
+ .debug_aranges
+                0x0000000000000160       0x20 build/armv71/dbg/TokenFunc.o
+ .debug_aranges
+                0x0000000000000180       0x20 build/armv71/dbg/RangeFunc.o
+ .debug_aranges
+                0x00000000000001a0       0x20 build/armv71/dbg/DbgChk.o
+ .debug_aranges
+                0x00000000000001c0       0x20 build/armv71/dbg/Str2Value.o
+ .debug_aranges
+                0x00000000000001e0       0x20 build/armv71/dbg/StrPrint.o
+ .debug_aranges
+                0x0000000000000200       0x20 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x0000000000000220       0x20 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .debug_aranges
+                0x0000000000000240       0x20 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .debug_aranges
+                0x0000000000000260       0x20 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0xc498
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000     0x1262 build/armv71/dbg/EeePProg.o
+ .debug_info    0x0000000000001262      0x4c2 build/armv71/dbg/EApiAHI2C.o
+ .debug_info    0x0000000000001724      0x29a build/armv71/dbg/EApiAHStorage.o
+ .debug_info    0x00000000000019be      0x9c4 build/armv71/dbg/EApiAHStr.o
+ .debug_info    0x0000000000002382      0x928 build/armv71/dbg/ArgParse.o
+ .debug_info    0x0000000000002caa      0xd13 build/armv71/dbg/BinFuncs.o
+ .debug_info    0x00000000000039bd      0xaf5 build/armv71/dbg/CfgParser.o
+ .debug_info    0x00000000000044b2     0x144e build/armv71/dbg/CfgPHelper.o
+ .debug_info    0x0000000000005900     0x326d build/armv71/dbg/EeePCfg.o
+ .debug_info    0x0000000000008b6d     0x11ed build/armv71/dbg/EeePDB.o
+ .debug_info    0x0000000000009d5a      0x684 build/armv71/dbg/StrFuncs.o
+ .debug_info    0x000000000000a3de      0x356 build/armv71/dbg/TokenFunc.o
+ .debug_info    0x000000000000a734      0x1b3 build/armv71/dbg/RangeFunc.o
+ .debug_info    0x000000000000a8e7      0x33e build/armv71/dbg/DbgChk.o
+ .debug_info    0x000000000000ac25     0x1154 build/armv71/dbg/Str2Value.o
+ .debug_info    0x000000000000bd79      0x2ce build/armv71/dbg/StrPrint.o
+ .debug_info    0x000000000000c047       0x25 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .debug_info    0x000000000000c06c       0x25 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .debug_info    0x000000000000c091       0x24 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .debug_info    0x000000000000c0b5      0x3e3 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.debug_abbrev   0x0000000000000000     0x1eeb
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x210 build/armv71/dbg/EeePProg.o
+ .debug_abbrev  0x0000000000000210      0x1b2 build/armv71/dbg/EApiAHI2C.o
+ .debug_abbrev  0x00000000000003c2      0x10b build/armv71/dbg/EApiAHStorage.o
+ .debug_abbrev  0x00000000000004cd      0x22c build/armv71/dbg/EApiAHStr.o
+ .debug_abbrev  0x00000000000006f9      0x207 build/armv71/dbg/ArgParse.o
+ .debug_abbrev  0x0000000000000900      0x287 build/armv71/dbg/BinFuncs.o
+ .debug_abbrev  0x0000000000000b87      0x290 build/armv71/dbg/CfgParser.o
+ .debug_abbrev  0x0000000000000e17      0x295 build/armv71/dbg/CfgPHelper.o
+ .debug_abbrev  0x00000000000010ac      0x303 build/armv71/dbg/EeePCfg.o
+ .debug_abbrev  0x00000000000013af      0x24c build/armv71/dbg/EeePDB.o
+ .debug_abbrev  0x00000000000015fb      0x181 build/armv71/dbg/StrFuncs.o
+ .debug_abbrev  0x000000000000177c       0xeb build/armv71/dbg/TokenFunc.o
+ .debug_abbrev  0x0000000000001867       0xc5 build/armv71/dbg/RangeFunc.o
+ .debug_abbrev  0x000000000000192c      0x15f build/armv71/dbg/DbgChk.o
+ .debug_abbrev  0x0000000000001a8b      0x219 build/armv71/dbg/Str2Value.o
+ .debug_abbrev  0x0000000000001ca4       0xf2 build/armv71/dbg/StrPrint.o
+ .debug_abbrev  0x0000000000001d96       0x14 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x0000000000001daa       0x14 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .debug_abbrev  0x0000000000001dbe       0x14 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .debug_abbrev  0x0000000000001dd2      0x119 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.debug_line     0x0000000000000000     0x616e
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x5cb build/armv71/dbg/EeePProg.o
+ .debug_line    0x00000000000005cb      0x41c build/armv71/dbg/EApiAHI2C.o
+ .debug_line    0x00000000000009e7      0x24f build/armv71/dbg/EApiAHStorage.o
+ .debug_line    0x0000000000000c36      0x6d1 build/armv71/dbg/EApiAHStr.o
+ .debug_line    0x0000000000001307      0x60e build/armv71/dbg/ArgParse.o
+ .debug_line    0x0000000000001915      0x7b6 build/armv71/dbg/BinFuncs.o
+ .debug_line    0x00000000000020cb      0x6cb build/armv71/dbg/CfgParser.o
+ .debug_line    0x0000000000002796      0x82f build/armv71/dbg/CfgPHelper.o
+ .debug_line    0x0000000000002fc5      0xc20 build/armv71/dbg/EeePCfg.o
+ .debug_line    0x0000000000003be5      0xa6d build/armv71/dbg/EeePDB.o
+ .debug_line    0x0000000000004652      0x547 build/armv71/dbg/StrFuncs.o
+ .debug_line    0x0000000000004b99      0x27f build/armv71/dbg/TokenFunc.o
+ .debug_line    0x0000000000004e18      0x1f2 build/armv71/dbg/RangeFunc.o
+ .debug_line    0x000000000000500a      0x21b build/armv71/dbg/DbgChk.o
+ .debug_line    0x0000000000005225      0xa25 build/armv71/dbg/Str2Value.o
+ .debug_line    0x0000000000005c4a      0x29b build/armv71/dbg/StrPrint.o
+ .debug_line    0x0000000000005ee5       0x66 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .debug_line    0x0000000000005f4b       0x6c /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .debug_line    0x0000000000005fb7       0x4f /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .debug_line    0x0000000000006006      0x168 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.debug_frame    0x0000000000000000     0x1d58
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000      0x2d4 build/armv71/dbg/EeePProg.o
+ .debug_frame   0x00000000000002d4       0x9c build/armv71/dbg/EApiAHI2C.o
+ .debug_frame   0x0000000000000370       0x34 build/armv71/dbg/EApiAHStorage.o
+ .debug_frame   0x00000000000003a4      0x2a4 build/armv71/dbg/EApiAHStr.o
+ .debug_frame   0x0000000000000648      0x13c build/armv71/dbg/ArgParse.o
+ .debug_frame   0x0000000000000784      0x404 build/armv71/dbg/BinFuncs.o
+ .debug_frame   0x0000000000000b88      0x100 build/armv71/dbg/CfgParser.o
+ .debug_frame   0x0000000000000c88      0x330 build/armv71/dbg/CfgPHelper.o
+ .debug_frame   0x0000000000000fb8      0x33c build/armv71/dbg/EeePCfg.o
+ .debug_frame   0x00000000000012f4      0x360 build/armv71/dbg/EeePDB.o
+ .debug_frame   0x0000000000001654      0x158 build/armv71/dbg/StrFuncs.o
+ .debug_frame   0x00000000000017ac       0x90 build/armv71/dbg/TokenFunc.o
+ .debug_frame   0x000000000000183c       0x50 build/armv71/dbg/RangeFunc.o
+ .debug_frame   0x000000000000188c       0x98 build/armv71/dbg/DbgChk.o
+ .debug_frame   0x0000000000001924      0x2fc build/armv71/dbg/Str2Value.o
+ .debug_frame   0x0000000000001c20       0x78 build/armv71/dbg/StrPrint.o
+ .debug_frame   0x0000000000001c98       0x20 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000001cb8       0x44 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+ .debug_frame   0x0000000000001cfc       0x28 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .debug_frame   0x0000000000001d24       0x34 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.debug_str      0x0000000000000000     0x523f
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0xb4e build/armv71/dbg/EeePProg.o
+                                        0xca7 (size before relaxing)
+ .debug_str     0x0000000000000b4e      0x1b7 build/armv71/dbg/EApiAHI2C.o
+                                        0x416 (size before relaxing)
+ .debug_str     0x0000000000000d05       0xf3 build/armv71/dbg/EApiAHStorage.o
+                                        0x302 (size before relaxing)
+ .debug_str     0x0000000000000df8      0x2e2 build/armv71/dbg/EApiAHStr.o
+                                        0x543 (size before relaxing)
+ .debug_str     0x00000000000010da      0x290 build/armv71/dbg/ArgParse.o
+                                        0x561 (size before relaxing)
+ .debug_str     0x000000000000136a      0x448 build/armv71/dbg/BinFuncs.o
+                                        0x6dd (size before relaxing)
+ .debug_str     0x00000000000017b2      0x40a build/armv71/dbg/CfgParser.o
+                                        0x69a (size before relaxing)
+ .debug_str     0x0000000000001bbc      0x60c build/armv71/dbg/CfgPHelper.o
+                                        0xa7d (size before relaxing)
+ .debug_str     0x00000000000021c8     0x1d4f build/armv71/dbg/EeePCfg.o
+                                       0x27e2 (size before relaxing)
+ .debug_str     0x0000000000003f17      0x320 build/armv71/dbg/EeePDB.o
+                                        0x9c1 (size before relaxing)
+ .debug_str     0x0000000000004237      0x1ec build/armv71/dbg/StrFuncs.o
+                                        0x4a7 (size before relaxing)
+ .debug_str     0x0000000000004423       0xed build/armv71/dbg/TokenFunc.o
+                                        0x350 (size before relaxing)
+ .debug_str     0x0000000000004510       0x60 build/armv71/dbg/RangeFunc.o
+                                        0x2a1 (size before relaxing)
+ .debug_str     0x0000000000004570      0x109 build/armv71/dbg/DbgChk.o
+                                        0x339 (size before relaxing)
+ .debug_str     0x0000000000004679      0x51c build/armv71/dbg/Str2Value.o
+                                        0x98c (size before relaxing)
+ .debug_str     0x0000000000004b95       0xd5 build/armv71/dbg/StrPrint.o
+                                        0x2df (size before relaxing)
+ .debug_str     0x0000000000004c6a       0x83 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+ .debug_str     0x0000000000004ced        0x8 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+                                         0x7f (size before relaxing)
+ .debug_str     0x0000000000004cf5       0x83 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+ .debug_str     0x0000000000004cf5      0x54a /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+                                        0x64b (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_addr
+ *(.debug_addr)
+
+.debug_line_str
+                0x0000000000000000       0x2f
+ *(.debug_line_str)
+ .debug_line_str
+                0x0000000000000000       0x27 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivsi3.o)
+                                         0x4e (size before relaxing)
+ .debug_line_str
+                0x0000000000000027        0x8 /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_aeabi_ldivmod.o)
+                                         0x46 (size before relaxing)
+ .debug_line_str
+                0x000000000000002f       0x4e /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_dvmd_lnx.o)
+
+.debug_loclists
+                0x0000000000000000      0x15b
+ *(.debug_loclists)
+ .debug_loclists
+                0x0000000000000000      0x15b /home/hkh/buildroot-2022.02/output/host/lib/gcc/arm-buildroot-linux-musleabihf/11.2.0/libgcc.a(_udivmoddi4.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_names
+ *(.debug_names)
+
+.debug_rnglists
+ *(.debug_rnglists)
+
+.debug_str_offsets
+ *(.debug_str_offsets)
+
+.debug_sup
+ *(.debug_sup)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(../../bin/Linux/armv71/dbg/EeePProg elf32-littlearm)
+LOAD linker stubs

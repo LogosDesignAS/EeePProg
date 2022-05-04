@@ -1,0 +1,745 @@
+ARM GAS  /tmp/ccMNdcda.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiEmulStorage.c"
+  13              		.text
+  14              		.section	.rodata.str1.4,"aMS",%progbits,1
+  15              		.align	2
+  16              	.LC0:
+  17 0000 45417069 		.ascii	"EApiStorageCapEmul\000"
+  17      53746F72 
+  17      61676543 
+  17      6170456D 
+  17      756C00
+  18 0013 00       		.align	2
+  19              	.LC1:
+  20 0014 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+  20      652F686B 
+  20      682F6769 
+  20      742F6561 
+  20      7069646B 
+  21 0047 7069456D 		.ascii	"piEmulStorage.c\000"
+  21      756C5374 
+  21      6F726167 
+  21      652E6300 
+  22 0057 00       		.align	2
+  23              	.LC2:
+  24 0058 556E7265 		.ascii	"Unrecognised Storage ID\000"
+  24      636F676E 
+  24      69736564 
+  24      2053746F 
+  24      72616765 
+  25              		.align	2
+  26              	.LC3:
+  27 0070 25730A00 		.ascii	"%s\012\000"
+  28              		.align	2
+  29              	.LC4:
+  30 0074 45417069 		.ascii	"EApiStorageCap\000"
+  30      53746F72 
+  30      61676543 
+  30      617000
+  31 0083 00       		.align	2
+  32              	.LC5:
+  33 0084 00       		.ascii	"\000"
+  34              		.text
+  35              		.align	2
+  36              		.global	EApiStorageCapEmul
+  37              		.hidden	EApiStorageCapEmul
+  38              		.arch armv7-a
+  39              		.arch_extension mp
+ARM GAS  /tmp/ccMNdcda.s 			page 2
+
+
+  40              		.arch_extension sec
+  41              		.syntax unified
+  42              		.arm
+  43              		.fpu vfpv3
+  45              	EApiStorageCapEmul:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48 0000 C0309FE5 		ldr	r3, .L8
+  49 0004 10402DE9 		push	{r4, lr}
+  50 0008 02E0A0E1 		mov	lr, r2
+  51 000c 10D04DE2 		sub	sp, sp, #16
+  52              	.LPIC2:
+  53 0010 03308FE0 		add	r3, pc, r3
+  54 0014 00C093E5 		ldr	ip, [r3]
+  55 0018 0C0050E1 		cmp	r0, ip
+  56 001c 1400000A 		beq	.L2
+  57 0020 182093E5 		ldr	r2, [r3, #24]
+  58 0024 020050E1 		cmp	r0, r2
+  59 0028 1000000A 		beq	.L5
+  60 002c 98C09FE5 		ldr	ip, .L8+4
+  61 0030 034CE0E3 		mvn	r4, #768
+  62 0034 94009FE5 		ldr	r0, .L8+8
+  63 0038 6930A0E3 		mov	r3, #105
+  64 003c 90209FE5 		ldr	r2, .L8+12
+  65 0040 90109FE5 		ldr	r1, .L8+16
+  66              	.LPIC6:
+  67 0044 0CC08FE0 		add	ip, pc, ip
+  68              	.LPIC7:
+  69 0048 00008FE0 		add	r0, pc, r0
+  70 004c 00408DE5 		str	r4, [sp]
+  71 0050 01108DE9 		stmib	sp, {r0, ip}
+  72              	.LPIC4:
+  73 0054 02208FE0 		add	r2, pc, r2
+  74              	.LPIC5:
+  75 0058 01108FE0 		add	r1, pc, r1
+  76 005c 4500A0E3 		mov	r0, #69
+  77 0060 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+  78 0064 0400A0E1 		mov	r0, r4
+  79              	.L1:
+  80 0068 10D08DE2 		add	sp, sp, #16
+  81              		@ sp needed
+  82 006c 1080BDE8 		pop	{r4, pc}
+  83              	.L5:
+  84 0070 183083E2 		add	r3, r3, #24
+  85              	.L2:
+  86              	.L3:
+  87 0074 042093E5 		ldr	r2, [r3, #4]
+  88 0078 0040A0E3 		mov	r4, #0
+  89 007c 58009FE5 		ldr	r0, .L8+20
+  90 0080 002081E5 		str	r2, [r1]
+  91 0084 54209FE5 		ldr	r2, .L8+24
+  92              	.LPIC10:
+  93 0088 00008FE0 		add	r0, pc, r0
+  94 008c 08C093E5 		ldr	ip, [r3, #8]
+  95 0090 6630A0E3 		mov	r3, #102
+  96 0094 48109FE5 		ldr	r1, .L8+28
+  97              	.LPIC11:
+ARM GAS  /tmp/ccMNdcda.s 			page 3
+
+
+  98 0098 02208FE0 		add	r2, pc, r2
+  99 009c 08008DE5 		str	r0, [sp, #8]
+ 100 00a0 04208DE5 		str	r2, [sp, #4]
+ 101 00a4 4C00A0E3 		mov	r0, #76
+ 102 00a8 38209FE5 		ldr	r2, .L8+32
+ 103              	.LPIC9:
+ 104 00ac 01108FE0 		add	r1, pc, r1
+ 105 00b0 00408DE5 		str	r4, [sp]
+ 106 00b4 00C08EE5 		str	ip, [lr]
+ 107              	.LPIC8:
+ 108 00b8 02208FE0 		add	r2, pc, r2
+ 109 00bc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 110 00c0 0400A0E1 		mov	r0, r4
+ 111 00c4 E7FFFFEA 		b	.L1
+ 112              	.L9:
+ 113              		.align	2
+ 114              	.L8:
+ 115 00c8 B0000000 		.word	.LANCHOR0-(.LPIC2+8)
+ 116 00cc 80000000 		.word	.LC2-(.LPIC6+8)
+ 117 00d0 80000000 		.word	.LC3-(.LPIC7+8)
+ 118 00d4 78000000 		.word	.LC0-(.LPIC4+8)
+ 119 00d8 78000000 		.word	.LC1-(.LPIC5+8)
+ 120 00dc 4C000000 		.word	.LC5-(.LPIC10+8)
+ 121 00e0 40000000 		.word	.LC3-(.LPIC11+8)
+ 122 00e4 30000000 		.word	.LC1-(.LPIC9+8)
+ 123 00e8 28000000 		.word	.LC4-(.LPIC8+8)
+ 125              		.section	.rodata.str1.4
+ 126 0085 000000   		.align	2
+ 127              	.LC6:
+ 128 0088 45417069 		.ascii	"EApiStorageAreaReadEmul\000"
+ 128      53746F72 
+ 128      61676541 
+ 128      72656152 
+ 128      65616445 
+ 129              		.align	2
+ 130              	.LC7:
+ 131 00a0 52656164 		.ascii	"Read Len extends beyond End of Storage Area\000"
+ 131      204C656E 
+ 131      20657874 
+ 131      656E6473 
+ 131      20626579 
+ 132              		.align	2
+ 133              	.LC8:
+ 134 00cc 45417069 		.ascii	"EApiStorageAreaRead\000"
+ 134      53746F72 
+ 134      61676541 
+ 134      72656152 
+ 134      65616400 
+ 135              		.text
+ 136              		.align	2
+ 137              		.global	EApiStorageAreaReadEmul
+ 138              		.hidden	EApiStorageAreaReadEmul
+ 139              		.syntax unified
+ 140              		.arm
+ 141              		.fpu vfpv3
+ 143              	EApiStorageAreaReadEmul:
+ 144              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccMNdcda.s 			page 4
+
+
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 00ec 1CC19FE5 		ldr	ip, .L19
+ 147 00f0 70402DE9 		push	{r4, r5, r6, lr}
+ 148 00f4 0260A0E1 		mov	r6, r2
+ 149 00f8 10D04DE2 		sub	sp, sp, #16
+ 150 00fc 0350A0E1 		mov	r5, r3
+ 151              	.LPIC14:
+ 152 0100 0CC08FE0 		add	ip, pc, ip
+ 153 0104 00E09CE5 		ldr	lr, [ip]
+ 154 0108 0E0050E1 		cmp	r0, lr
+ 155 010c 1300000A 		beq	.L14
+ 156 0110 18309CE5 		ldr	r3, [ip, #24]
+ 157 0114 030050E1 		cmp	r0, r3
+ 158 0118 2E00000A 		beq	.L15
+ 159 011c F0C09FE5 		ldr	ip, .L19+4
+ 160 0120 034CE0E3 		mvn	r4, #768
+ 161 0124 EC009FE5 		ldr	r0, .L19+8
+ 162 0128 9830A0E3 		mov	r3, #152
+ 163 012c E8209FE5 		ldr	r2, .L19+12
+ 164 0130 E8109FE5 		ldr	r1, .L19+16
+ 165              	.LPIC18:
+ 166 0134 0CC08FE0 		add	ip, pc, ip
+ 167              	.LPIC19:
+ 168 0138 00008FE0 		add	r0, pc, r0
+ 169              	.LPIC16:
+ 170 013c 02208FE0 		add	r2, pc, r2
+ 171              	.LPIC17:
+ 172 0140 01108FE0 		add	r1, pc, r1
+ 173              	.L17:
+ 174 0144 01108DE9 		stmib	sp, {r0, ip}
+ 175 0148 4500A0E3 		mov	r0, #69
+ 176 014c 00408DE5 		str	r4, [sp]
+ 177 0150 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 178 0154 0400A0E1 		mov	r0, r4
+ 179              	.L10:
+ 180 0158 10D08DE2 		add	sp, sp, #16
+ 181              		@ sp needed
+ 182 015c 7080BDE8 		pop	{r4, r5, r6, pc}
+ 183              	.L14:
+ 184 0160 0C40A0E1 		mov	r4, ip
+ 185              	.L11:
+ 186 0164 042094E5 		ldr	r2, [r4, #4]
+ 187 0168 053081E0 		add	r3, r1, r5
+ 188 016c 020053E1 		cmp	r3, r2
+ 189 0170 1A00008A 		bhi	.L18
+ 190              	.L12:
+ 191 0174 140094E5 		ldr	r0, [r4, #20]
+ 192 0178 0020A0E3 		mov	r2, #0
+ 193 017c FEFFFFEB 		bl	fseek(PLT)
+ 194 0180 143094E5 		ldr	r3, [r4, #20]
+ 195 0184 0520A0E1 		mov	r2, r5
+ 196 0188 0110A0E3 		mov	r1, #1
+ 197 018c 0600A0E1 		mov	r0, r6
+ 198 0190 FEFFFFEB 		bl	fread(PLT)
+ 199 0194 88C09FE5 		ldr	ip, .L19+20
+ 200 0198 0040A0E3 		mov	r4, #0
+ 201 019c 84009FE5 		ldr	r0, .L19+24
+ARM GAS  /tmp/ccMNdcda.s 			page 5
+
+
+ 202 01a0 9530A0E3 		mov	r3, #149
+ 203 01a4 80209FE5 		ldr	r2, .L19+28
+ 204 01a8 80109FE5 		ldr	r1, .L19+32
+ 205              	.LPIC26:
+ 206 01ac 0CC08FE0 		add	ip, pc, ip
+ 207              	.LPIC27:
+ 208 01b0 00008FE0 		add	r0, pc, r0
+ 209 01b4 08C08DE5 		str	ip, [sp, #8]
+ 210 01b8 04008DE5 		str	r0, [sp, #4]
+ 211              	.LPIC24:
+ 212 01bc 02208FE0 		add	r2, pc, r2
+ 213              	.LPIC25:
+ 214 01c0 01108FE0 		add	r1, pc, r1
+ 215 01c4 4C00A0E3 		mov	r0, #76
+ 216 01c8 00408DE5 		str	r4, [sp]
+ 217 01cc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 218 01d0 0400A0E1 		mov	r0, r4
+ 219 01d4 DFFFFFEA 		b	.L10
+ 220              	.L15:
+ 221 01d8 18408CE2 		add	r4, ip, #24
+ 222 01dc E0FFFFEA 		b	.L11
+ 223              	.L18:
+ 224 01e0 4CC09FE5 		ldr	ip, .L19+36
+ 225 01e4 FD4E0FE3 		movw	r4, #65277
+ 226 01e8 48009FE5 		ldr	r0, .L19+40
+ 227 01ec FF4F4FE3 		movt	r4, 65535
+ 228 01f0 44209FE5 		ldr	r2, .L19+44
+ 229 01f4 8630A0E3 		mov	r3, #134
+ 230 01f8 40109FE5 		ldr	r1, .L19+48
+ 231              	.LPIC22:
+ 232 01fc 0CC08FE0 		add	ip, pc, ip
+ 233              	.LPIC23:
+ 234 0200 00008FE0 		add	r0, pc, r0
+ 235              	.LPIC20:
+ 236 0204 02208FE0 		add	r2, pc, r2
+ 237              	.LPIC21:
+ 238 0208 01108FE0 		add	r1, pc, r1
+ 239 020c CCFFFFEA 		b	.L17
+ 240              	.L20:
+ 241              		.align	2
+ 242              	.L19:
+ 243 0210 08010000 		.word	.LANCHOR0-(.LPIC14+8)
+ 244 0214 D8000000 		.word	.LC2-(.LPIC18+8)
+ 245 0218 D8000000 		.word	.LC3-(.LPIC19+8)
+ 246 021c D8000000 		.word	.LC6-(.LPIC16+8)
+ 247 0220 D8000000 		.word	.LC1-(.LPIC17+8)
+ 248 0224 70000000 		.word	.LC5-(.LPIC26+8)
+ 249 0228 70000000 		.word	.LC3-(.LPIC27+8)
+ 250 022c 68000000 		.word	.LC8-(.LPIC24+8)
+ 251 0230 68000000 		.word	.LC1-(.LPIC25+8)
+ 252 0234 30000000 		.word	.LC7-(.LPIC22+8)
+ 253 0238 30000000 		.word	.LC3-(.LPIC23+8)
+ 254 023c 30000000 		.word	.LC6-(.LPIC20+8)
+ 255 0240 30000000 		.word	.LC1-(.LPIC21+8)
+ 257              		.section	.rodata.str1.4
+ 258              		.align	2
+ 259              	.LC9:
+ARM GAS  /tmp/ccMNdcda.s 			page 6
+
+
+ 260 00e0 45417069 		.ascii	"EApiStorageAreaWrite\000"
+ 260      53746F72 
+ 260      61676541 
+ 260      72656157 
+ 260      72697465 
+ 261              		.global	__aeabi_uidivmod
+ 262 00f5 000000   		.align	2
+ 263              	.LC10:
+ 264 00f8 45417069 		.ascii	"EApiStorageAreaWriteEmul\000"
+ 264      53746F72 
+ 264      61676541 
+ 264      72656157 
+ 264      72697465 
+ 265 0111 000000   		.align	2
+ 266              	.LC11:
+ 267 0114 57726974 		.ascii	"Write length Not Aligned\000"
+ 267      65206C65 
+ 267      6E677468 
+ 267      204E6F74 
+ 267      20416C69 
+ 268 012d 000000   		.align	2
+ 269              	.LC12:
+ 270 0130 57726974 		.ascii	"Write Base Address Not Aligned\000"
+ 270      65204261 
+ 270      73652041 
+ 270      64647265 
+ 270      7373204E 
+ 271 014f 00       		.align	2
+ 272              	.LC13:
+ 273 0150 57726974 		.ascii	"Write Len extends beyond End of Storage Area\000"
+ 273      65204C65 
+ 273      6E206578 
+ 273      74656E64 
+ 273      73206265 
+ 274              		.text
+ 275              		.align	2
+ 276              		.global	EApiStorageAreaWriteEmul
+ 277              		.hidden	EApiStorageAreaWriteEmul
+ 278              		.syntax unified
+ 279              		.arm
+ 280              		.fpu vfpv3
+ 282              	EApiStorageAreaWriteEmul:
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285 0244 B8C19FE5 		ldr	ip, .L34
+ 286 0248 F0412DE9 		push	{r4, r5, r6, r7, r8, lr}
+ 287 024c 0160A0E1 		mov	r6, r1
+ 288 0250 10D04DE2 		sub	sp, sp, #16
+ 289 0254 0270A0E1 		mov	r7, r2
+ 290              	.LPIC30:
+ 291 0258 0CC08FE0 		add	ip, pc, ip
+ 292 025c 0350A0E1 		mov	r5, r3
+ 293 0260 00E09CE5 		ldr	lr, [ip]
+ 294 0264 0E0050E1 		cmp	r0, lr
+ 295 0268 1300000A 		beq	.L27
+ 296 026c 18309CE5 		ldr	r3, [ip, #24]
+ 297 0270 030050E1 		cmp	r0, r3
+ARM GAS  /tmp/ccMNdcda.s 			page 7
+
+
+ 298 0274 3800000A 		beq	.L28
+ 299 0278 88E19FE5 		ldr	lr, .L34+4
+ 300 027c 034CE0E3 		mvn	r4, #768
+ 301 0280 84C19FE5 		ldr	ip, .L34+8
+ 302 0284 D130A0E3 		mov	r3, #209
+ 303 0288 80219FE5 		ldr	r2, .L34+12
+ 304 028c 4500A0E3 		mov	r0, #69
+ 305 0290 7C119FE5 		ldr	r1, .L34+16
+ 306              	.LPIC34:
+ 307 0294 0EE08FE0 		add	lr, pc, lr
+ 308              	.LPIC35:
+ 309 0298 0CC08FE0 		add	ip, pc, ip
+ 310 029c 00408DE5 		str	r4, [sp]
+ 311              	.LPIC32:
+ 312 02a0 02208FE0 		add	r2, pc, r2
+ 313 02a4 00508DE9 		stmib	sp, {ip, lr}
+ 314              	.LPIC33:
+ 315 02a8 01108FE0 		add	r1, pc, r1
+ 316 02ac FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 317              	.L21:
+ 318 02b0 0400A0E1 		mov	r0, r4
+ 319 02b4 10D08DE2 		add	sp, sp, #16
+ 320              		@ sp needed
+ 321 02b8 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 322              	.L27:
+ 323 02bc 0C80A0E1 		mov	r8, ip
+ 324              	.L22:
+ 325 02c0 084098E5 		ldr	r4, [r8, #8]
+ 326 02c4 0500A0E1 		mov	r0, r5
+ 327 02c8 0410A0E1 		mov	r1, r4
+ 328 02cc FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 329 02d0 000051E3 		cmp	r1, #0
+ 330 02d4 3200001A 		bne	.L31
+ 331 02d8 0410A0E1 		mov	r1, r4
+ 332 02dc 0600A0E1 		mov	r0, r6
+ 333 02e0 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 334 02e4 004051E2 		subs	r4, r1, #0
+ 335 02e8 3900001A 		bne	.L32
+ 336 02ec 043098E5 		ldr	r3, [r8, #4]
+ 337 02f0 062085E0 		add	r2, r5, r6
+ 338 02f4 030052E1 		cmp	r2, r3
+ 339 02f8 1900008A 		bhi	.L33
+ 340              	.L23:
+ 341 02fc 0610A0E1 		mov	r1, r6
+ 342 0300 0420A0E1 		mov	r2, r4
+ 343 0304 140098E5 		ldr	r0, [r8, #20]
+ 344 0308 FEFFFFEB 		bl	fseek(PLT)
+ 345 030c 143098E5 		ldr	r3, [r8, #20]
+ 346 0310 0520A0E1 		mov	r2, r5
+ 347 0314 0110A0E3 		mov	r1, #1
+ 348 0318 0700A0E1 		mov	r0, r7
+ 349 031c FEFFFFEB 		bl	fwrite(PLT)
+ 350 0320 F0C09FE5 		ldr	ip, .L34+20
+ 351 0324 CE30A0E3 		mov	r3, #206
+ 352 0328 EC009FE5 		ldr	r0, .L34+24
+ 353 032c EC209FE5 		ldr	r2, .L34+28
+ 354 0330 EC109FE5 		ldr	r1, .L34+32
+ARM GAS  /tmp/ccMNdcda.s 			page 8
+
+
+ 355              	.LPIC50:
+ 356 0334 0CC08FE0 		add	ip, pc, ip
+ 357              	.LPIC51:
+ 358 0338 00008FE0 		add	r0, pc, r0
+ 359 033c 08C08DE5 		str	ip, [sp, #8]
+ 360 0340 04008DE5 		str	r0, [sp, #4]
+ 361              	.LPIC48:
+ 362 0344 02208FE0 		add	r2, pc, r2
+ 363              	.LPIC49:
+ 364 0348 01108FE0 		add	r1, pc, r1
+ 365 034c 00408DE5 		str	r4, [sp]
+ 366 0350 4C00A0E3 		mov	r0, #76
+ 367 0354 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 368 0358 D4FFFFEA 		b	.L21
+ 369              	.L28:
+ 370 035c 18808CE2 		add	r8, ip, #24
+ 371 0360 D6FFFFEA 		b	.L22
+ 372              	.L33:
+ 373 0364 BCC09FE5 		ldr	ip, .L34+36
+ 374 0368 FD4E0FE3 		movw	r4, #65277
+ 375 036c B8009FE5 		ldr	r0, .L34+40
+ 376 0370 FF4F4FE3 		movt	r4, 65535
+ 377 0374 B4209FE5 		ldr	r2, .L34+44
+ 378 0378 C130A0E3 		mov	r3, #193
+ 379 037c B0109FE5 		ldr	r1, .L34+48
+ 380              	.LPIC46:
+ 381 0380 0CC08FE0 		add	ip, pc, ip
+ 382              	.LPIC47:
+ 383 0384 00008FE0 		add	r0, pc, r0
+ 384              	.LPIC44:
+ 385 0388 02208FE0 		add	r2, pc, r2
+ 386              	.LPIC45:
+ 387 038c 01108FE0 		add	r1, pc, r1
+ 388              	.L30:
+ 389 0390 01108DE9 		stmib	sp, {r0, ip}
+ 390 0394 4500A0E3 		mov	r0, #69
+ 391 0398 00408DE5 		str	r4, [sp]
+ 392 039c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 393 03a0 C2FFFFEA 		b	.L21
+ 394              	.L31:
+ 395 03a4 8CC09FE5 		ldr	ip, .L34+52
+ 396 03a8 FE4E0FE3 		movw	r4, #65278
+ 397 03ac 88009FE5 		ldr	r0, .L34+56
+ 398 03b0 FF4F4FE3 		movt	r4, 65535
+ 399 03b4 84209FE5 		ldr	r2, .L34+60
+ 400 03b8 B530A0E3 		mov	r3, #181
+ 401 03bc 80109FE5 		ldr	r1, .L34+64
+ 402              	.LPIC38:
+ 403 03c0 0CC08FE0 		add	ip, pc, ip
+ 404              	.LPIC39:
+ 405 03c4 00008FE0 		add	r0, pc, r0
+ 406              	.LPIC36:
+ 407 03c8 02208FE0 		add	r2, pc, r2
+ 408              	.LPIC37:
+ 409 03cc 01108FE0 		add	r1, pc, r1
+ 410 03d0 EEFFFFEA 		b	.L30
+ 411              	.L32:
+ARM GAS  /tmp/ccMNdcda.s 			page 9
+
+
+ 412 03d4 6CC09FE5 		ldr	ip, .L34+68
+ 413 03d8 FE4E0FE3 		movw	r4, #65278
+ 414 03dc 68009FE5 		ldr	r0, .L34+72
+ 415 03e0 FF4F4FE3 		movt	r4, 65535
+ 416 03e4 64209FE5 		ldr	r2, .L34+76
+ 417 03e8 BB30A0E3 		mov	r3, #187
+ 418 03ec 60109FE5 		ldr	r1, .L34+80
+ 419              	.LPIC42:
+ 420 03f0 0CC08FE0 		add	ip, pc, ip
+ 421              	.LPIC43:
+ 422 03f4 00008FE0 		add	r0, pc, r0
+ 423              	.LPIC40:
+ 424 03f8 02208FE0 		add	r2, pc, r2
+ 425              	.LPIC41:
+ 426 03fc 01108FE0 		add	r1, pc, r1
+ 427 0400 E2FFFFEA 		b	.L30
+ 428              	.L35:
+ 429              		.align	2
+ 430              	.L34:
+ 431 0404 A4010000 		.word	.LANCHOR0-(.LPIC30+8)
+ 432 0408 6C010000 		.word	.LC2-(.LPIC34+8)
+ 433 040c 6C010000 		.word	.LC3-(.LPIC35+8)
+ 434 0410 68010000 		.word	.LC9-(.LPIC32+8)
+ 435 0414 64010000 		.word	.LC1-(.LPIC33+8)
+ 436 0418 DC000000 		.word	.LC5-(.LPIC50+8)
+ 437 041c DC000000 		.word	.LC3-(.LPIC51+8)
+ 438 0420 D4000000 		.word	.LC10-(.LPIC48+8)
+ 439 0424 D4000000 		.word	.LC1-(.LPIC49+8)
+ 440 0428 A0000000 		.word	.LC13-(.LPIC46+8)
+ 441 042c A0000000 		.word	.LC3-(.LPIC47+8)
+ 442 0430 A0000000 		.word	.LC10-(.LPIC44+8)
+ 443 0434 A0000000 		.word	.LC1-(.LPIC45+8)
+ 444 0438 70000000 		.word	.LC11-(.LPIC38+8)
+ 445 043c 70000000 		.word	.LC3-(.LPIC39+8)
+ 446 0440 70000000 		.word	.LC10-(.LPIC36+8)
+ 447 0444 70000000 		.word	.LC1-(.LPIC37+8)
+ 448 0448 50000000 		.word	.LC12-(.LPIC42+8)
+ 449 044c 50000000 		.word	.LC3-(.LPIC43+8)
+ 450 0450 50000000 		.word	.LC10-(.LPIC40+8)
+ 451 0454 50000000 		.word	.LC1-(.LPIC41+8)
+ 453              		.section	.rodata.str1.4
+ 454 017d 000000   		.align	2
+ 455              	.LC14:
+ 456 0180 72622B00 		.ascii	"rb+\000"
+ 457              		.align	2
+ 458              	.LC15:
+ 459 0184 77622B00 		.ascii	"wb+\000"
+ 460              		.text
+ 461              		.align	2
+ 462              		.global	OpenEepromFiles
+ 463              		.hidden	OpenEepromFiles
+ 464              		.syntax unified
+ 465              		.arm
+ 466              		.fpu vfpv3
+ 468              	OpenEepromFiles:
+ 469              		@ args = 0, pretend = 0, frame = 0
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccMNdcda.s 			page 10
+
+
+ 471 0458 F0412DE9 		push	{r4, r5, r6, r7, r8, lr}
+ 472 045c 0250A0E3 		mov	r5, #2
+ 473 0460 9C409FE5 		ldr	r4, .L45
+ 474 0464 9C609FE5 		ldr	r6, .L45+4
+ 475 0468 9C709FE5 		ldr	r7, .L45+8
+ 476              	.LPIC52:
+ 477 046c 04408FE0 		add	r4, pc, r4
+ 478              	.LPIC53:
+ 479 0470 06608FE0 		add	r6, pc, r6
+ 480              	.LPIC54:
+ 481 0474 07708FE0 		add	r7, pc, r7
+ 482              	.L40:
+ 483 0478 100094E5 		ldr	r0, [r4, #16]
+ 484 047c 0610A0E1 		mov	r1, r6
+ 485 0480 FEFFFFEB 		bl	fopen(PLT)
+ 486 0484 000050E3 		cmp	r0, #0
+ 487 0488 140084E5 		str	r0, [r4, #20]
+ 488 048c 0D00000A 		beq	.L43
+ 489              	.L37:
+ 490 0490 0220A0E3 		mov	r2, #2
+ 491 0494 0010A0E3 		mov	r1, #0
+ 492 0498 FEFFFFEB 		bl	fseek(PLT)
+ 493 049c 140094E5 		ldr	r0, [r4, #20]
+ 494 04a0 FEFFFFEB 		bl	ftell(PLT)
+ 495 04a4 043094E5 		ldr	r3, [r4, #4]
+ 496 04a8 030050E1 		cmp	r0, r3
+ 497 04ac 0C0000BA 		blt	.L44
+ 498              	.L38:
+ 499 04b0 010055E3 		cmp	r5, #1
+ 500 04b4 184084E2 		add	r4, r4, #24
+ 501 04b8 0150A0E3 		mov	r5, #1
+ 502 04bc EDFFFF1A 		bne	.L40
+ 503 04c0 0000A0E3 		mov	r0, #0
+ 504 04c4 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 505              	.L43:
+ 506 04c8 100094E5 		ldr	r0, [r4, #16]
+ 507 04cc 0710A0E1 		mov	r1, r7
+ 508 04d0 FEFFFFEB 		bl	fopen(PLT)
+ 509 04d4 000050E3 		cmp	r0, #0
+ 510 04d8 140084E5 		str	r0, [r4, #20]
+ 511 04dc F3FFFF0A 		beq	.L38
+ 512 04e0 EAFFFFEA 		b	.L37
+ 513              	.L44:
+ 514 04e4 140094E5 		ldr	r0, [r4, #20]
+ 515 04e8 FEFFFFEB 		bl	rewind(PLT)
+ 516 04ec 143094E5 		ldr	r3, [r4, #20]
+ 517 04f0 0110A0E3 		mov	r1, #1
+ 518 04f4 042094E5 		ldr	r2, [r4, #4]
+ 519 04f8 0C0094E5 		ldr	r0, [r4, #12]
+ 520 04fc FEFFFFEB 		bl	fwrite(PLT)
+ 521 0500 EAFFFFEA 		b	.L38
+ 522              	.L46:
+ 523              		.align	2
+ 524              	.L45:
+ 525 0504 90000000 		.word	.LANCHOR0-(.LPIC52+8)
+ 526 0508 90000000 		.word	.LC14-(.LPIC53+8)
+ 527 050c 90000000 		.word	.LC15-(.LPIC54+8)
+ARM GAS  /tmp/ccMNdcda.s 			page 11
+
+
+ 529              		.align	2
+ 530              		.global	CloseEepromFiles
+ 531              		.hidden	CloseEepromFiles
+ 532              		.syntax unified
+ 533              		.arm
+ 534              		.fpu vfpv3
+ 536              	CloseEepromFiles:
+ 537              		@ args = 0, pretend = 0, frame = 0
+ 538              		@ frame_needed = 0, uses_anonymous_args = 0
+ 539 0510 10402DE9 		push	{r4, lr}
+ 540 0514 40409FE5 		ldr	r4, .L57
+ 541              	.LPIC55:
+ 542 0518 04408FE0 		add	r4, pc, r4
+ 543 051c 140094E5 		ldr	r0, [r4, #20]
+ 544 0520 000050E3 		cmp	r0, #0
+ 545 0524 0200000A 		beq	.L48
+ 546 0528 FEFFFFEB 		bl	fclose(PLT)
+ 547 052c 0030A0E3 		mov	r3, #0
+ 548 0530 143084E5 		str	r3, [r4, #20]
+ 549              	.L48:
+ 550 0534 24409FE5 		ldr	r4, .L57+4
+ 551              	.LPIC57:
+ 552 0538 04408FE0 		add	r4, pc, r4
+ 553 053c 2C0094E5 		ldr	r0, [r4, #44]
+ 554 0540 000050E3 		cmp	r0, #0
+ 555 0544 0200000A 		beq	.L49
+ 556 0548 FEFFFFEB 		bl	fclose(PLT)
+ 557 054c 0030A0E3 		mov	r3, #0
+ 558 0550 2C3084E5 		str	r3, [r4, #44]
+ 559              	.L49:
+ 560 0554 0000A0E3 		mov	r0, #0
+ 561 0558 1080BDE8 		pop	{r4, pc}
+ 562              	.L58:
+ 563              		.align	2
+ 564              	.L57:
+ 565 055c 3C000000 		.word	.LANCHOR0-(.LPIC55+8)
+ 566 0560 20000000 		.word	.LANCHOR0-(.LPIC57+8)
+ 568              		.hidden	StorageAreaTbl
+ 569              		.global	StorageAreaTbl
+ 570              		.section	.rodata.str1.4
+ 571              		.align	2
+ 572              	.LC16:
+ 573 0188 45417069 		.ascii	"EApiStorage0.EMUL\000"
+ 573      53746F72 
+ 573      61676530 
+ 573      2E454D55 
+ 573      4C00
+ 574 019a 0000     		.align	2
+ 575              	.LC17:
+ 576 019c 45417069 		.ascii	"EApiStorage1.EMUL\000"
+ 576      53746F72 
+ 576      61676531 
+ 576      2E454D55 
+ 576      4C00
+ 577              		.bss
+ 578              		.align	2
+ 581              	StorageID1:
+ARM GAS  /tmp/ccMNdcda.s 			page 12
+
+
+ 582 0000 00000000 		.space	4096
+ 582      00000000 
+ 582      00000000 
+ 582      00000000 
+ 582      00000000 
+ 585              	StorageID0:
+ 586 1000 00000000 		.space	32
+ 586      00000000 
+ 586      00000000 
+ 586      00000000 
+ 586      00000000 
+ 587              		.section	.data.rel.local,"aw"
+ 588              		.align	2
+ 589              		.set	.LANCHOR0,. + 0
+ 592              	StorageAreaTbl:
+ 593 0000 00000000 		.word	0
+ 594 0004 20000000 		.word	32
+ 595 0008 01000000 		.word	1
+ 596 000c 00100000 		.word	StorageID0
+ 597 0010 88010000 		.word	.LC16
+ 598 0014 00000000 		.word	0
+ 599 0018 001074FA 		.word	-93057024
+ 600 001c 00100000 		.word	4096
+ 601 0020 00040000 		.word	1024
+ 602 0024 00000000 		.word	StorageID1
+ 603 0028 9C010000 		.word	.LC17
+ 604 002c 00000000 		.word	0
+ 605              		.ident	"GCC: (Buildroot 2022.02) 11.2.0"
+ 606              		.section	.note.GNU-stack,"",%progbits
+ARM GAS  /tmp/ccMNdcda.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulStorage.c
+     /tmp/ccMNdcda.s:15     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccMNdcda.s:16     .rodata.str1.4:0000000000000000 .LC0
+     /tmp/ccMNdcda.s:19     .rodata.str1.4:0000000000000014 .LC1
+     /tmp/ccMNdcda.s:23     .rodata.str1.4:0000000000000058 .LC2
+     /tmp/ccMNdcda.s:26     .rodata.str1.4:0000000000000070 .LC3
+     /tmp/ccMNdcda.s:29     .rodata.str1.4:0000000000000074 .LC4
+     /tmp/ccMNdcda.s:32     .rodata.str1.4:0000000000000084 .LC5
+     /tmp/ccMNdcda.s:35     .text:0000000000000000 $a
+     /tmp/ccMNdcda.s:45     .text:0000000000000000 EApiStorageCapEmul
+     /tmp/ccMNdcda.s:115    .text:00000000000000c8 $d
+     /tmp/ccMNdcda.s:127    .rodata.str1.4:0000000000000088 .LC6
+     /tmp/ccMNdcda.s:130    .rodata.str1.4:00000000000000a0 .LC7
+     /tmp/ccMNdcda.s:133    .rodata.str1.4:00000000000000cc .LC8
+     /tmp/ccMNdcda.s:136    .text:00000000000000ec $a
+     /tmp/ccMNdcda.s:143    .text:00000000000000ec EApiStorageAreaReadEmul
+     /tmp/ccMNdcda.s:243    .text:0000000000000210 $d
+     /tmp/ccMNdcda.s:259    .rodata.str1.4:00000000000000e0 .LC9
+     /tmp/ccMNdcda.s:263    .rodata.str1.4:00000000000000f8 .LC10
+     /tmp/ccMNdcda.s:266    .rodata.str1.4:0000000000000114 .LC11
+     /tmp/ccMNdcda.s:269    .rodata.str1.4:0000000000000130 .LC12
+     /tmp/ccMNdcda.s:272    .rodata.str1.4:0000000000000150 .LC13
+     /tmp/ccMNdcda.s:275    .text:0000000000000244 $a
+     /tmp/ccMNdcda.s:282    .text:0000000000000244 EApiStorageAreaWriteEmul
+     /tmp/ccMNdcda.s:431    .text:0000000000000404 $d
+     /tmp/ccMNdcda.s:455    .rodata.str1.4:0000000000000180 .LC14
+     /tmp/ccMNdcda.s:458    .rodata.str1.4:0000000000000184 .LC15
+     /tmp/ccMNdcda.s:461    .text:0000000000000458 $a
+     /tmp/ccMNdcda.s:468    .text:0000000000000458 OpenEepromFiles
+     /tmp/ccMNdcda.s:525    .text:0000000000000504 $d
+     /tmp/ccMNdcda.s:529    .text:0000000000000510 $a
+     /tmp/ccMNdcda.s:536    .text:0000000000000510 CloseEepromFiles
+     /tmp/ccMNdcda.s:565    .text:000000000000055c $d
+     /tmp/ccMNdcda.s:592    .data.rel.local:0000000000000000 StorageAreaTbl
+     /tmp/ccMNdcda.s:578    .bss:0000000000000000 $d
+     /tmp/ccMNdcda.s:581    .bss:0000000000000000 StorageID1
+     /tmp/ccMNdcda.s:585    .bss:0000000000001000 StorageID0
+     /tmp/ccMNdcda.s:588    .data.rel.local:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+siFormattedMessage_SC
+fseek
+fread
+__aeabi_uidivmod
+fwrite
+fopen
+ftell
+rewind
+fclose

@@ -1,0 +1,139 @@
+GAS LISTING /tmp/ccNdmOvQ.s 			page 1
+
+
+   1              		.file	"EApiOsNIX.c"
+   2              		.text
+   3              		.section	.rodata.str1.1,"aMS",@progbits,1
+   4              	.LC0:
+   5 0000 696E6974 		.string	"initializing"
+   5      69616C69 
+   5      7A696E67 
+   5      00
+   6              		.section	.text.startup,"ax",@progbits
+   7              		.p2align 4
+   9              	init:
+  10              	.LFB89:
+  11              		.cfi_startproc
+  12 0000 F30F1EFA 		endbr64
+  13 0004 488D3D00 		leaq	.LC0(%rip), %rdi
+  13      000000
+  14 000b E9000000 		jmp	puts@PLT
+  14      00
+  15              		.cfi_endproc
+  16              	.LFE89:
+  18              		.section	.init_array,"aw"
+  19              		.align 8
+  20 0000 00000000 		.quad	init
+  20      00000000 
+  21              		.section	.rodata.str1.1
+  22              	.LC1:
+  23 000d 66696E69 		.string	"finishing"
+  23      7368696E 
+  23      6700
+  24              		.section	.text.exit,"ax",@progbits
+  25              		.p2align 4
+  27              	fini:
+  28              	.LFB90:
+  29              		.cfi_startproc
+  30 0000 F30F1EFA 		endbr64
+  31 0004 488D3D00 		leaq	.LC1(%rip), %rdi
+  31      000000
+  32 000b E9000000 		jmp	puts@PLT
+  32      00
+  33              		.cfi_endproc
+  34              	.LFE90:
+  36              		.section	.fini_array,"aw"
+  37              		.align 8
+  38 0000 00000000 		.quad	fini
+  38      00000000 
+  39              		.text
+  40              		.p2align 4
+  41              		.globl	EApiSleepns
+  42              		.hidden	EApiSleepns
+  44              	EApiSleepns:
+  45              	.LFB91:
+  46              		.cfi_startproc
+  47 0000 F30F1EFA 		endbr64
+  48 0004 4889FA   		movq	%rdi, %rdx
+  49 0007 4883EC38 		subq	$56, %rsp
+  50              		.cfi_def_cfa_offset 64
+  51 000b 48B9535A 		movabsq	$19342813113834067, %rcx
+GAS LISTING /tmp/ccNdmOvQ.s 			page 2
+
+
+  51      9BA02FB8 
+  51      4400
+  52 0015 64488B04 		movq	%fs:40, %rax
+  52      25280000 
+  52      00
+  53 001e 48894424 		movq	%rax, 40(%rsp)
+  53      28
+  54 0023 31C0     		xorl	%eax, %eax
+  55 0025 48C1EA09 		shrq	$9, %rdx
+  56 0029 488D7424 		leaq	16(%rsp), %rsi
+  56      10
+  57 002e 4889D0   		movq	%rdx, %rax
+  58 0031 48F7E1   		mulq	%rcx
+  59 0034 48C1EA0B 		shrq	$11, %rdx
+  60 0038 48891424 		movq	%rdx, (%rsp)
+  61 003c 4869D200 		imulq	$1000000000, %rdx, %rdx
+  61      CA9A3B
+  62 0043 4829D7   		subq	%rdx, %rdi
+  63 0046 48897C24 		movq	%rdi, 8(%rsp)
+  63      08
+  64 004b 4889E7   		movq	%rsp, %rdi
+  65 004e E8000000 		call	nanosleep@PLT
+  65      00
+  66 0053 488B4424 		movq	40(%rsp), %rax
+  66      28
+  67 0058 64483304 		xorq	%fs:40, %rax
+  67      25280000 
+  67      00
+  68 0061 7505     		jne	.L7
+  69 0063 4883C438 		addq	$56, %rsp
+  70              		.cfi_remember_state
+  71              		.cfi_def_cfa_offset 8
+  72 0067 C3       		ret
+  73              	.L7:
+  74              		.cfi_restore_state
+  75 0068 E8000000 		call	__stack_chk_fail@PLT
+  75      00
+  76              		.cfi_endproc
+  77              	.LFE91:
+  79              		.ident	"GCC: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
+  80              		.section	.note.GNU-stack,"",@progbits
+  81              		.section	.note.gnu.property,"a"
+  82              		.align 8
+  83 0000 04000000 		.long	 1f - 0f
+  84 0004 10000000 		.long	 4f - 1f
+  85 0008 05000000 		.long	 5
+  86              	0:
+  87 000c 474E5500 		.string	 "GNU"
+  88              	1:
+  89              		.align 8
+  90 0010 020000C0 		.long	 0xc0000002
+  91 0014 04000000 		.long	 3f - 2f
+  92              	2:
+  93 0018 03000000 		.long	 0x3
+  94              	3:
+  95 001c 00000000 		.align 8
+  96              	4:
+GAS LISTING /tmp/ccNdmOvQ.s 			page 3
+
+
+GAS LISTING /tmp/ccNdmOvQ.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiOsNIX.c
+     /tmp/ccNdmOvQ.s:9      .text.startup:0000000000000000 init
+     /tmp/ccNdmOvQ.s:27     .text.exit:0000000000000000 fini
+     /tmp/ccNdmOvQ.s:44     .text:0000000000000000 EApiSleepns
+     /tmp/ccNdmOvQ.s:4      .rodata.str1.1:0000000000000000 .LC0
+     /tmp/ccNdmOvQ.s:22     .rodata.str1.1:000000000000000d .LC1
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+puts
+nanosleep
+__stack_chk_fail

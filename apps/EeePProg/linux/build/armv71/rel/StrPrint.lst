@@ -1,0 +1,1004 @@
+ARM GAS  /tmp/ccTXMcGB.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"StrPrint.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.align	2
+  17              		.global	StringBlock
+  18              		.arch armv7-a
+  19              		.arch_extension mp
+  20              		.arch_extension sec
+  21              		.syntax unified
+  22              		.arm
+  23              		.fpu vfpv3
+  25              	StringBlock:
+  26              	.LVL0:
+  27              	.LFB1:
+  28              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  Project Name: Kontron Secure Bios
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/EeePProg/StrPrint.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I   Copyright: Copyright (c) 2002-2010, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I     License: This program contains proprietary and confidential 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I              information. All rights reserved except as may be 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I              permitted by prior written consent.
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I Description: Generic Command Line Argument Parsing Routines
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *+-------------------------------------------------------------------------
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  File Name            : ArgParse.c
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  File Location        : Aristo\common
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  Last committed       : $Revision: 75 $
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  Last changed by      : $Author: dethrophes $
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  Last changed date    : $Date: 2010-06-28 23:50:38 +0000 (Mon, 28 Jun 2010) $
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I  ID                   : $Id: StrPrint.c 75 2010-06-28 23:50:38Z dethrophes $
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *+=========================================================================
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  *</KHeader>
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****  */
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   #include <EeePApp.h>
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+ARM GAS  /tmp/ccTXMcGB.s 			page 2
+
+
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** EApiStatus_t
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** StringBlock(
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszStr        ,
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     size_t      stOffset      ,
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     size_t      stMaxBlockLen ,
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     size_t     *pstLastPos    ,
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     signed int *psiLenAdj
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     )
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** {
+  29              		.loc 1 40 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 4, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   const char *cszLastPos=cszStr;
+  33              		.loc 1 41 3 view .LVU1
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   const char *cszLastPos=cszStr;
+  34              		.loc 1 40 1 is_stmt 0 view .LVU2
+  35 0000 F0412DE9 		push	{r4, r5, r6, r7, r8, lr}
+  36              		.cfi_def_cfa_offset 24
+  37              		.cfi_offset 4, -24
+  38              		.cfi_offset 5, -20
+  39              		.cfi_offset 6, -16
+  40              		.cfi_offset 7, -12
+  41              		.cfi_offset 8, -8
+  42              		.cfi_offset 14, -4
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stTabLen=8;
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurOffset;
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stTabStop;
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   *pstLastPos=0;
+  43              		.loc 1 45 14 view .LVU3
+  44 0004 00C0A0E3 		mov	ip, #0
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   const char *cszLastPos=cszStr;
+  45              		.loc 1 40 1 view .LVU4
+  46 0008 18509DE5 		ldr	r5, [sp, #24]
+  47              	.LVL1:
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stTabLen=8;
+  48              		.loc 1 42 3 is_stmt 1 view .LVU5
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stTabStop;
+  49              		.loc 1 43 3 view .LVU6
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   *pstLastPos=0;
+  50              		.loc 1 44 3 view .LVU7
+  51              		.loc 1 45 3 view .LVU8
+  52              		.loc 1 45 14 is_stmt 0 view .LVU9
+  53 000c 00C083E5 		str	ip, [r3]
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   *psiLenAdj=0;
+  54              		.loc 1 46 3 is_stmt 1 view .LVU10
+  55              		.loc 1 46 13 is_stmt 0 view .LVU11
+  56 0010 00C085E5 		str	ip, [r5]
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("D%04u %s\n", __LINE__, cszLastPos); */
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   if(*cszLastPos=='\n')
+  57              		.loc 1 49 3 is_stmt 1 view .LVU12
+  58              		.loc 1 49 6 is_stmt 0 view .LVU13
+  59 0014 00E0D0E5 		ldrb	lr, [r0]	@ zero_extendqisi2
+  60              		.loc 1 49 5 view .LVU14
+  61 0018 0A005EE3 		cmp	lr, #10
+ARM GAS  /tmp/ccTXMcGB.s 			page 3
+
+
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     cszLastPos++;
+  62              		.loc 1 50 5 is_stmt 1 view .LVU15
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   while(stMaxBlockLen --){
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("%c", *cszLastPos); */
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     switch(*cszLastPos++){
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\t':
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stCurOffset=cszLastPos - cszStr + stOffset;
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop=((stCurOffset + stTabLen  -1)/stTabLen*stTabLen) ;
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop-= stCurOffset;
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         if(stMaxBlockLen>=stTabStop){
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           *psiLenAdj +=(signed)stTabStop;
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           stMaxBlockLen -=stTabStop;
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         }else
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           stMaxBlockLen=0;
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '/':
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case ' ':
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         *pstLastPos=cszLastPos - cszStr -1;
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\0':
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         *pstLastPos=cszLastPos - cszStr -1;
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_SUCCESS;
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\n':
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\r':
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         *pstLastPos=cszLastPos - cszStr -1;
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_MORE_DATA;
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       default:
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     }
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   }
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("D%04u %s\n", __LINE__, cszLastPos); */
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   if(!*cszLastPos){
+  63              		.loc 1 79 7 is_stmt 0 view .LVU16
+  64 001c 01E0D005 		ldrbeq	lr, [r0, #1]	@ zero_extendqisi2
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     cszLastPos++;
+  65              		.loc 1 50 15 view .LVU17
+  66 0020 01408002 		addeq	r4, r0, #1
+  67              	.LVL2:
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     cszLastPos++;
+  68              		.loc 1 50 15 view .LVU18
+  69 0024 0040A011 		movne	r4, r0
+  70              	.LVL3:
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   while(stMaxBlockLen --){
+  71              		.loc 1 51 9 is_stmt 1 view .LVU19
+  72 0028 000052E3 		cmp	r2, #0
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   while(stMaxBlockLen --){
+  73              		.loc 1 51 23 is_stmt 0 view .LVU20
+  74 002c 012042E2 		sub	r2, r2, #1
+  75              	.LVL4:
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   while(stMaxBlockLen --){
+  76              		.loc 1 51 9 view .LVU21
+  77 0030 6500000A 		beq	.L21
+  78              	.L13:
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\t':
+  79              		.loc 1 53 5 is_stmt 1 view .LVU22
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\t':
+  80              		.loc 1 53 23 is_stmt 0 view .LVU23
+  81 0034 04C0A0E1 		mov	ip, r4
+ARM GAS  /tmp/ccTXMcGB.s 			page 4
+
+
+  82              	.LVL5:
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\t':
+  83              		.loc 1 53 5 view .LVU24
+  84 0038 01E0DCE4 		ldrb	lr, [ip], #1	@ zero_extendqisi2
+  85              	.LVL6:
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\t':
+  86              		.loc 1 53 5 view .LVU25
+  87 003c 2F005EE3 		cmp	lr, #47
+  88 0040 0EF18F90 		addls	pc, pc, lr, asl #2
+  89 0044 320000EA 		b	.L4
+  90              	.L6:
+  91 0048 500000EA 		b	.L9
+  92 004c 300000EA 		b	.L4
+  93 0050 2F0000EA 		b	.L4
+  94 0054 2E0000EA 		b	.L4
+  95 0058 2D0000EA 		b	.L4
+  96 005c 2C0000EA 		b	.L4
+  97 0060 2B0000EA 		b	.L4
+  98 0064 2A0000EA 		b	.L4
+  99 0068 290000EA 		b	.L4
+ 100 006c 320000EA 		b	.L8
+ 101 0070 2C0000EA 		b	.L7
+ 102 0074 260000EA 		b	.L4
+ 103 0078 250000EA 		b	.L4
+ 104 007c 290000EA 		b	.L7
+ 105 0080 230000EA 		b	.L4
+ 106 0084 220000EA 		b	.L4
+ 107 0088 210000EA 		b	.L4
+ 108 008c 200000EA 		b	.L4
+ 109 0090 1F0000EA 		b	.L4
+ 110 0094 1E0000EA 		b	.L4
+ 111 0098 1D0000EA 		b	.L4
+ 112 009c 1C0000EA 		b	.L4
+ 113 00a0 1B0000EA 		b	.L4
+ 114 00a4 1A0000EA 		b	.L4
+ 115 00a8 190000EA 		b	.L4
+ 116 00ac 180000EA 		b	.L4
+ 117 00b0 170000EA 		b	.L4
+ 118 00b4 160000EA 		b	.L4
+ 119 00b8 150000EA 		b	.L4
+ 120 00bc 140000EA 		b	.L4
+ 121 00c0 130000EA 		b	.L4
+ 122 00c4 120000EA 		b	.L4
+ 123 00c8 0E0000EA 		b	.L5
+ 124 00cc 100000EA 		b	.L4
+ 125 00d0 0F0000EA 		b	.L4
+ 126 00d4 0E0000EA 		b	.L4
+ 127 00d8 0D0000EA 		b	.L4
+ 128 00dc 0C0000EA 		b	.L4
+ 129 00e0 0B0000EA 		b	.L4
+ 130 00e4 0A0000EA 		b	.L4
+ 131 00e8 090000EA 		b	.L4
+ 132 00ec 080000EA 		b	.L4
+ 133 00f0 070000EA 		b	.L4
+ 134 00f4 060000EA 		b	.L4
+ 135 00f8 050000EA 		b	.L4
+ 136 00fc 040000EA 		b	.L4
+ARM GAS  /tmp/ccTXMcGB.s 			page 5
+
+
+ 137 0100 030000EA 		b	.L4
+ 138 0104 FFFFFFEA 		b	.L5
+ 139              		.p2align 1
+ 140              	.L5:
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop=((stCurOffset + stTabLen  -1)/stTabLen*stTabLen) ;
+ 141              		.loc 1 55 32 view .LVU26
+ 142 0108 00E04CE0 		sub	lr, ip, r0
+ 143              	.L10:
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+ 144              		.loc 1 65 9 is_stmt 1 view .LVU27
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+ 145              		.loc 1 65 41 is_stmt 0 view .LVU28
+ 146 010c 01E04EE2 		sub	lr, lr, #1
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+ 147              		.loc 1 65 20 view .LVU29
+ 148 0110 00E083E5 		str	lr, [r3]
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\0':
+ 149              		.loc 1 66 9 is_stmt 1 view .LVU30
+ 150              	.L4:
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("%c", *cszLastPos); */
+ 151              		.loc 1 51 9 view .LVU31
+ 152 0114 000052E3 		cmp	r2, #0
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("%c", *cszLastPos); */
+ 153              		.loc 1 51 23 is_stmt 0 view .LVU32
+ 154 0118 012042E2 		sub	r2, r2, #1
+ 155              	.LVL7:
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("%c", *cszLastPos); */
+ 156              		.loc 1 51 9 view .LVU33
+ 157 011c 2800000A 		beq	.L22
+ 158 0120 0C40A0E1 		mov	r4, ip
+ 159 0124 C2FFFFEA 		b	.L13
+ 160              	.L7:
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_MORE_DATA;
+ 161              		.loc 1 72 9 is_stmt 1 view .LVU34
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_MORE_DATA;
+ 162              		.loc 1 72 32 is_stmt 0 view .LVU35
+ 163 0128 00C04CE0 		sub	ip, ip, r0
+ 164              	.LVL8:
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       default:
+ 165              		.loc 1 73 16 view .LVU36
+ 166 012c 060CE0E3 		mvn	r0, #1536
+ 167              	.LVL9:
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_MORE_DATA;
+ 168              		.loc 1 72 41 view .LVU37
+ 169 0130 01C04CE2 		sub	ip, ip, #1
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_MORE_DATA;
+ 170              		.loc 1 72 20 view .LVU38
+ 171 0134 00C083E5 		str	ip, [r3]
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       default:
+ 172              		.loc 1 73 9 is_stmt 1 view .LVU39
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       default:
+ 173              		.loc 1 73 16 is_stmt 0 view .LVU40
+ 174 0138 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 175              	.LVL10:
+ 176              	.L8:
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop=((stCurOffset + stTabLen  -1)/stTabLen*stTabLen) ;
+ 177              		.loc 1 55 9 is_stmt 1 view .LVU41
+ARM GAS  /tmp/ccTXMcGB.s 			page 6
+
+
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           stMaxBlockLen -=stTabStop;
+ 178              		.loc 1 59 11 view .LVU42
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop=((stCurOffset + stTabLen  -1)/stTabLen*stTabLen) ;
+ 179              		.loc 1 55 32 is_stmt 0 view .LVU43
+ 180 013c 00E04CE0 		sub	lr, ip, r0
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop=((stCurOffset + stTabLen  -1)/stTabLen*stTabLen) ;
+ 181              		.loc 1 55 20 view .LVU44
+ 182 0140 01608EE0 		add	r6, lr, r1
+ 183              	.LVL11:
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop-= stCurOffset;
+ 184              		.loc 1 56 9 is_stmt 1 view .LVU45
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop-= stCurOffset;
+ 185              		.loc 1 56 45 is_stmt 0 view .LVU46
+ 186 0144 077086E2 		add	r7, r6, #7
+ 187 0148 028086E0 		add	r8, r6, r2
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         stTabStop-= stCurOffset;
+ 188              		.loc 1 56 18 view .LVU47
+ 189 014c 0770C7E3 		bic	r7, r7, #7
+ 190              	.LVL12:
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         if(stMaxBlockLen>=stTabStop){
+ 191              		.loc 1 57 9 is_stmt 1 view .LVU48
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         if(stMaxBlockLen>=stTabStop){
+ 192              		.loc 1 57 18 is_stmt 0 view .LVU49
+ 193 0150 066047E0 		sub	r6, r7, r6
+ 194              	.LVL13:
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           *psiLenAdj +=(signed)stTabStop;
+ 195              		.loc 1 58 9 is_stmt 1 view .LVU50
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           *psiLenAdj +=(signed)stTabStop;
+ 196              		.loc 1 58 11 is_stmt 0 view .LVU51
+ 197 0154 020056E1 		cmp	r6, r2
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         }else
+ 198              		.loc 1 60 25 view .LVU52
+ 199 0158 072048E0 		sub	r2, r8, r7
+ 200              	.LVL14:
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           *psiLenAdj +=(signed)stTabStop;
+ 201              		.loc 1 58 11 view .LVU53
+ 202 015c 1000009A 		bls	.L11
+ 203              	.LVL15:
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+ 204              		.loc 1 65 9 is_stmt 1 view .LVU54
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+ 205              		.loc 1 65 41 is_stmt 0 view .LVU55
+ 206 0160 01E04EE2 		sub	lr, lr, #1
+ 207              	.LVL16:
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         break;
+ 208              		.loc 1 65 20 view .LVU56
+ 209 0164 00E083E5 		str	lr, [r3]
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\0':
+ 210              		.loc 1 66 9 is_stmt 1 view .LVU57
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("%c", *cszLastPos); */
+ 211              		.loc 1 51 9 view .LVU58
+ 212              	.LVL17:
+ 213              		.loc 1 79 7 is_stmt 0 view .LVU59
+ 214 0168 01E0D4E5 		ldrb	lr, [r4, #1]	@ zero_extendqisi2
+ 215              	.LVL18:
+ 216              	.L3:
+ 217              		.loc 1 79 3 is_stmt 1 view .LVU60
+ARM GAS  /tmp/ccTXMcGB.s 			page 7
+
+
+ 218              		.loc 1 79 5 is_stmt 0 view .LVU61
+ 219 016c 00005EE3 		cmp	lr, #0
+ 220 0170 0F00000A 		beq	.L23
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     *pstLastPos=cszLastPos - cszStr;
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     return EAPI_STATUS_SUCCESS;
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   } else if(!*pstLastPos) {
+ 221              		.loc 1 82 10 is_stmt 1 view .LVU62
+ 222              		.loc 1 82 12 is_stmt 0 view .LVU63
+ 223 0174 002093E5 		ldr	r2, [r3]
+ 224 0178 000052E3 		cmp	r2, #0
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     *pstLastPos=cszLastPos - cszStr;
+ 225              		.loc 1 83 5 is_stmt 1 view .LVU64
+ 226              		.loc 1 83 28 is_stmt 0 view .LVU65
+ 227 017c 00C04C00 		subeq	ip, ip, r0
+ 228              	.LVL19:
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   }
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   return EAPI_STATUS_MORE_DATA;
+ 229              		.loc 1 85 10 view .LVU66
+ 230 0180 060CE003 		mvneq	r0, #1536
+ 231              	.LVL20:
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     *pstLastPos=cszLastPos - cszStr;
+ 232              		.loc 1 83 16 view .LVU67
+ 233 0184 00C08305 		streq	ip, [r3]
+ 234              		.loc 1 85 10 view .LVU68
+ 235 0188 060CE013 		mvnne	r0, #1536
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** }
+ 236              		.loc 1 86 1 view .LVU69
+ 237 018c F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 238              	.LVL21:
+ 239              	.L9:
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_SUCCESS;
+ 240              		.loc 1 68 9 is_stmt 1 view .LVU70
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_SUCCESS;
+ 241              		.loc 1 68 32 is_stmt 0 view .LVU71
+ 242 0190 00C04CE0 		sub	ip, ip, r0
+ 243              	.LVL22:
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\n':
+ 244              		.loc 1 69 16 view .LVU72
+ 245 0194 0000A0E3 		mov	r0, #0
+ 246              	.LVL23:
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_SUCCESS;
+ 247              		.loc 1 68 41 view .LVU73
+ 248 0198 01C04CE2 		sub	ip, ip, #1
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         return EAPI_STATUS_SUCCESS;
+ 249              		.loc 1 68 20 view .LVU74
+ 250 019c 00C083E5 		str	ip, [r3]
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\n':
+ 251              		.loc 1 69 9 is_stmt 1 view .LVU75
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       case '\n':
+ 252              		.loc 1 69 16 is_stmt 0 view .LVU76
+ 253 01a0 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 254              	.LVL24:
+ 255              	.L11:
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           stMaxBlockLen -=stTabStop;
+ 256              		.loc 1 59 22 view .LVU77
+ 257 01a4 007095E5 		ldr	r7, [r5]
+ 258 01a8 066087E0 		add	r6, r7, r6
+ARM GAS  /tmp/ccTXMcGB.s 			page 8
+
+
+ 259              	.LVL25:
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           stMaxBlockLen -=stTabStop;
+ 260              		.loc 1 59 22 view .LVU78
+ 261 01ac 006085E5 		str	r6, [r5]
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         }else
+ 262              		.loc 1 60 11 is_stmt 1 view .LVU79
+ 263              	.LVL26:
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         }else
+ 264              		.loc 1 60 11 is_stmt 0 view .LVU80
+ 265 01b0 D5FFFFEA 		b	.L10
+ 266              	.LVL27:
+ 267              	.L23:
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     return EAPI_STATUS_SUCCESS;
+ 268              		.loc 1 80 5 is_stmt 1 view .LVU81
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     return EAPI_STATUS_SUCCESS;
+ 269              		.loc 1 80 28 is_stmt 0 view .LVU82
+ 270 01b4 00C04CE0 		sub	ip, ip, r0
+ 271              	.LVL28:
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   } else if(!*pstLastPos) {
+ 272              		.loc 1 81 12 view .LVU83
+ 273 01b8 0E00A0E1 		mov	r0, lr
+ 274              	.LVL29:
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     return EAPI_STATUS_SUCCESS;
+ 275              		.loc 1 80 16 view .LVU84
+ 276 01bc 00C083E5 		str	ip, [r3]
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   } else if(!*pstLastPos) {
+ 277              		.loc 1 81 5 is_stmt 1 view .LVU85
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   } else if(!*pstLastPos) {
+ 278              		.loc 1 81 12 is_stmt 0 view .LVU86
+ 279 01c0 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 280              	.LVL30:
+ 281              	.L22:
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     *pstLastPos=cszLastPos - cszStr;
+ 282              		.loc 1 79 7 view .LVU87
+ 283 01c4 01E0D4E5 		ldrb	lr, [r4, #1]	@ zero_extendqisi2
+ 284 01c8 E7FFFFEA 		b	.L3
+ 285              	.LVL31:
+ 286              	.L21:
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** /*   printf("%c", *cszLastPos); */
+ 287              		.loc 1 51 9 view .LVU88
+ 288 01cc 04C0A0E1 		mov	ip, r4
+ 289 01d0 E5FFFFEA 		b	.L3
+ 290              		.cfi_endproc
+ 291              	.LFE1:
+ 293              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 294              		.align	2
+ 295              	.LC0:
+ 296 0000 252D2A2E 		.ascii	"%-*.*s%s\000"
+ 296      2A732573 
+ 296      00
+ 297 0009 000000   		.align	2
+ 298              	.LC1:
+ 299 000c 252A7325 		.ascii	"%*s%-*s%s\000"
+ 299      2D2A7325 
+ 299      7300
+ 300 0016 0000     		.align	2
+ 301              	.LC2:
+ARM GAS  /tmp/ccTXMcGB.s 			page 9
+
+
+ 302 0018 00       		.ascii	"\000"
+ 303 0019 000000   		.align	2
+ 304              	.LC3:
+ 305 001c 252A7325 		.ascii	"%*s%-*.*s%s\000"
+ 305      2D2A2E2A 
+ 305      73257300 
+ 306              		.text
+ 307              		.align	2
+ 308              		.global	PrintStringBlock
+ 309              		.syntax unified
+ 310              		.arm
+ 311              		.fpu vfpv3
+ 313              	PrintStringBlock:
+ 314              	.LVL32:
+ 315              	.LFB2:
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** EApiStatus_t
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** PrintStringBlock(
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     FILE       *OutStream     ,
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszStr        ,
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     size_t      stMaxBlockLen ,
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszPreamble   ,
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     signed int  siLen         ,
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszPostamble
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     )
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** {
+ 316              		.loc 1 97 1 is_stmt 1 view -0
+ 317              		.cfi_startproc
+ 318              		@ args = 8, pretend = 0, frame = 40
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320              		.loc 1 97 1 is_stmt 0 view .LVU90
+ 321 01d4 F04F2DE9 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 322              		.cfi_def_cfa_offset 36
+ 323              		.cfi_offset 4, -36
+ 324              		.cfi_offset 5, -32
+ 325              		.cfi_offset 6, -28
+ 326              		.cfi_offset 7, -24
+ 327              		.cfi_offset 8, -20
+ 328              		.cfi_offset 9, -16
+ 329              		.cfi_offset 10, -12
+ 330              		.cfi_offset 11, -8
+ 331              		.cfi_offset 14, -4
+ 332 01d8 0270A0E1 		mov	r7, r2
+ 333 01dc 2C229FE5 		ldr	r2, .L47
+ 334              	.LVL33:
+ 335              		.loc 1 97 1 view .LVU91
+ 336 01e0 0390A0E1 		mov	r9, r3
+ 337 01e4 3CD04DE2 		sub	sp, sp, #60
+ 338              		.cfi_def_cfa_offset 96
+ 339              		.loc 1 97 1 view .LVU92
+ 340 01e8 0080A0E1 		mov	r8, r0
+ 341 01ec 20329FE5 		ldr	r3, .L47+4
+ 342              	.LVL34:
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stOffset=strlen(cszPreamble);
+ 343              		.loc 1 99 19 view .LVU93
+ 344 01f0 0900A0E1 		mov	r0, r9
+ARM GAS  /tmp/ccTXMcGB.s 			page 10
+
+
+ 345              	.LVL35:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+ 346              		.loc 1 97 1 view .LVU94
+ 347              	.LPIC5:
+ 348 01f4 02208FE0 		add	r2, pc, r2
+ 349 01f8 60A09DE5 		ldr	r10, [sp, #96]
+ 350 01fc 0150A0E1 		mov	r5, r1
+ 351 0200 033092E7 		ldr	r3, [r2, r3]
+ 352 0204 003093E5 		ldr	r3, [r3]
+ 353 0208 34308DE5 		str	r3, [sp, #52]
+ 354 020c 0030A0E3 		mov	r3, #0
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+ 355              		.loc 1 98 3 is_stmt 1 view .LVU95
+ 356              		.loc 1 99 3 view .LVU96
+ 357              		.loc 1 99 19 is_stmt 0 view .LVU97
+ 358 0210 FEFFFFEB 		bl	strlen(PLT)
+ 359              	.LVL36:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+ 360              		.loc 1 97 1 view .LVU98
+ 361 0214 64309DE5 		ldr	r3, [sp, #100]
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   signed int siLenAdj;
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   if(siLen>=0){
+ 362              		.loc 1 101 5 view .LVU99
+ 363 0218 00005AE3 		cmp	r10, #0
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   signed int siLenAdj;
+ 364              		.loc 1 99 19 view .LVU100
+ 365 021c 1C008DE5 		str	r0, [sp, #28]
+ 366              	.LVL37:
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   signed int siLenAdj;
+ 367              		.loc 1 100 3 is_stmt 1 view .LVU101
+ 368              		.loc 1 101 3 view .LVU102
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+ 369              		.loc 1 97 1 is_stmt 0 view .LVU103
+ 370 0220 14308DE5 		str	r3, [sp, #20]
+ 371              		.loc 1 101 5 view .LVU104
+ 372 0224 720000BA 		blt	.L25
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     if(siLen>(signed )stOffset)
+ 373              		.loc 1 102 5 is_stmt 1 view .LVU105
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       stOffset=siLen;
+ 374              		.loc 1 103 15 is_stmt 0 view .LVU106
+ 375 0228 0A0050E1 		cmp	r0, r10
+ 376 022c 0030A0A1 		movge	r3, r0
+ 377 0230 0A30A0B1 		movlt	r3, r10
+ 378 0234 0310A0E1 		mov	r1, r3
+ 379 0238 1C308DE5 		str	r3, [sp, #28]
+ 380              	.L26:
+ 381              	.LVL38:
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   }else if(- siLen>(signed )stOffset){
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       stOffset= - siLen;
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   }
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   StringBlock(cszStr, stOffset, stMaxBlockLen, &stCurStrPos, &siLenAdj);
+ 382              		.loc 1 107 3 is_stmt 1 view .LVU107
+ 383 023c 30208DE2 		add	r2, sp, #48
+ 384 0240 2C308DE2 		add	r3, sp, #44
+ 385 0244 24208DE5 		str	r2, [sp, #36]
+ 386 0248 0500A0E1 		mov	r0, r5
+ 387 024c 00208DE5 		str	r2, [sp]
+ARM GAS  /tmp/ccTXMcGB.s 			page 11
+
+
+ 388 0250 0720A0E1 		mov	r2, r7
+ 389 0254 20308DE5 		str	r3, [sp, #32]
+ 390 0258 FEFFFFEB 		bl	StringBlock(PLT)
+ 391              	.LVL39:
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   fprintf(OutStream, "%-*.*s%s", (int)stMaxBlockLen - siLenAdj, (int)stCurStrPos, cszStr, cszPostam
+ 392              		.loc 1 108 3 view .LVU108
+ 393 025c 14309DE5 		ldr	r3, [sp, #20]
+ 394 0260 0800A0E1 		mov	r0, r8
+ 395 0264 2C409DE5 		ldr	r4, [sp, #44]
+ 396 0268 30209DE5 		ldr	r2, [sp, #48]
+ 397 026c A4119FE5 		ldr	r1, .L47+8
+ 398 0270 04308DE5 		str	r3, [sp, #4]
+ 399 0274 0430A0E1 		mov	r3, r4
+ 400 0278 022047E0 		sub	r2, r7, r2
+ 401 027c 00508DE5 		str	r5, [sp]
+ 402              	.LPIC0:
+ 403 0280 01108FE0 		add	r1, pc, r1
+ 404 0284 FEFFFFEB 		bl	fprintf(PLT)
+ 405              	.LVL40:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   while(stCurStrPos){
+ 406              		.loc 1 109 3 view .LVU109
+ 407              		.loc 1 109 9 view .LVU110
+ 408 0288 000054E3 		cmp	r4, #0
+ 409 028c 3000000A 		beq	.L27
+ 410              	.LBB2:
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     int FirstEntry=0;
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     int KeepLooping;
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     cszStr+=stCurStrPos;
+ 113:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     for(KeepLooping=0;!KeepLooping;){
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       switch(*cszStr){
+ 116:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\n':
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           if(FirstEntry++)
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****             fprintf( OutStream, "%*s%-*s%s", siLen, cszPreamble, (int)stMaxBlockLen, "", cszPostamb
+ 411              		.loc 1 118 13 is_stmt 0 view .LVU111
+ 412 0290 84B19FE5 		ldr	fp, .L47+12
+ 413 0294 84319FE5 		ldr	r3, .L47+16
+ 414              	.LPIC1:
+ 415 0298 0BB08FE0 		add	fp, pc, fp
+ 416              	.LPIC2:
+ 417 029c 03308FE0 		add	r3, pc, r3
+ 418 02a0 18308DE5 		str	r3, [sp, #24]
+ 419              	.L34:
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     int FirstEntry=0;
+ 420              		.loc 1 110 5 is_stmt 1 view .LVU112
+ 421              	.LVL41:
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     cszStr+=stCurStrPos;
+ 422              		.loc 1 111 5 view .LVU113
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+ 423              		.loc 1 112 5 view .LVU114
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       switch(*cszStr){
+ 424              		.loc 1 114 5 view .LVU115
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       switch(*cszStr){
+ 425              		.loc 1 114 23 view .LVU116
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** 
+ 426              		.loc 1 112 11 is_stmt 0 view .LVU117
+ 427 02a4 044085E0 		add	r4, r5, r4
+ARM GAS  /tmp/ccTXMcGB.s 			page 12
+
+
+ 428              	.LVL42:
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     int KeepLooping;
+ 429              		.loc 1 110 9 view .LVU118
+ 430 02a8 0060A0E3 		mov	r6, #0
+ 431              	.LVL43:
+ 432              	.L33:
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     int KeepLooping;
+ 433              		.loc 1 110 9 view .LVU119
+ 434 02ac 0450A0E1 		mov	r5, r4
+ 435              	.LVL44:
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\n':
+ 436              		.loc 1 115 7 is_stmt 1 view .LVU120
+ 437 02b0 014084E2 		add	r4, r4, #1
+ 438              	.LVL45:
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\n':
+ 439              		.loc 1 115 7 is_stmt 0 view .LVU121
+ 440 02b4 0000D5E5 		ldrb	r0, [r5]	@ zero_extendqisi2
+ 441 02b8 090040E2 		sub	r0, r0, #9
+ 442 02bc 170050E3 		cmp	r0, #23
+ 443 02c0 00F18F90 		addls	pc, pc, r0, asl #2
+ 444 02c4 180000EA 		b	.L28
+ 445              	.L30:
+ 446 02c8 160000EA 		b	.L29
+ 447 02cc 2C0000EA 		b	.L32
+ 448 02d0 150000EA 		b	.L28
+ 449 02d4 140000EA 		b	.L28
+ 450 02d8 F3FFFFEA 		b	.L33
+ 451 02dc 120000EA 		b	.L28
+ 452 02e0 110000EA 		b	.L28
+ 453 02e4 100000EA 		b	.L28
+ 454 02e8 0F0000EA 		b	.L28
+ 455 02ec 0E0000EA 		b	.L28
+ 456 02f0 0D0000EA 		b	.L28
+ 457 02f4 0C0000EA 		b	.L28
+ 458 02f8 0B0000EA 		b	.L28
+ 459 02fc 0A0000EA 		b	.L28
+ 460 0300 090000EA 		b	.L28
+ 461 0304 080000EA 		b	.L28
+ 462 0308 070000EA 		b	.L28
+ 463 030c 060000EA 		b	.L28
+ 464 0310 050000EA 		b	.L28
+ 465 0314 040000EA 		b	.L28
+ 466 0318 030000EA 		b	.L28
+ 467 031c 020000EA 		b	.L28
+ 468 0320 010000EA 		b	.L28
+ 469 0324 FFFFFFEA 		b	.L29
+ 470              		.p2align 1
+ 471              	.L29:
+ 119:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\r':
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           ++cszStr;
+ 121:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           break;
+ 122:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\t':
+ 123:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case ' ':
+ 124:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           ++cszStr;
+ 472              		.loc 1 124 11 is_stmt 1 view .LVU122
+ 473 0328 015085E2 		add	r5, r5, #1
+ 474              	.LVL46:
+ARM GAS  /tmp/ccTXMcGB.s 			page 13
+
+
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       switch(*cszStr){
+ 475              		.loc 1 114 23 view .LVU123
+ 476              	.L28:
+ 125:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         default:
+ 126:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           ++KeepLooping;
+ 127:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           break;
+ 128:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       }
+ 129:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     }
+ 130:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     StringBlock(cszStr, stOffset, stMaxBlockLen, &stCurStrPos, &siLenAdj);
+ 477              		.loc 1 130 5 view .LVU124
+ 478 032c 24109DE5 		ldr	r1, [sp, #36]
+ 479 0330 0720A0E1 		mov	r2, r7
+ 480 0334 20309DE5 		ldr	r3, [sp, #32]
+ 481 0338 0500A0E1 		mov	r0, r5
+ 482 033c 00108DE5 		str	r1, [sp]
+ 483 0340 1C109DE5 		ldr	r1, [sp, #28]
+ 484 0344 FEFFFFEB 		bl	StringBlock(PLT)
+ 485              	.LVL47:
+ 131:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     if(stCurStrPos)
+ 486              		.loc 1 131 5 view .LVU125
+ 487              		.loc 1 131 8 is_stmt 0 view .LVU126
+ 488 0348 2C409DE5 		ldr	r4, [sp, #44]
+ 489              		.loc 1 131 7 view .LVU127
+ 490 034c 000054E3 		cmp	r4, #0
+ 491 0350 1A00001A 		bne	.L45
+ 492              	.L27:
+ 493              		.loc 1 131 7 view .LVU128
+ 494              	.LBE2:
+ 132:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       fprintf( OutStream, "%*s%-*.*s%s", siLen, cszPreamble, (int)stMaxBlockLen - siLenAdj, (int)st
+ 133:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   };
+ 495              		.loc 1 133 4 is_stmt 1 view .LVU129
+ 134:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   return EAPI_STATUS_SUCCESS;
+ 496              		.loc 1 134 3 view .LVU130
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+ 497              		.loc 1 97 1 is_stmt 0 view .LVU131
+ 498 0354 C8209FE5 		ldr	r2, .L47+20
+ 135:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** }
+ 499              		.loc 1 135 1 view .LVU132
+ 500 0358 B4309FE5 		ldr	r3, .L47+4
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   size_t stCurStrPos;
+ 501              		.loc 1 97 1 view .LVU133
+ 502              	.LPIC4:
+ 503 035c 02208FE0 		add	r2, pc, r2
+ 504              		.loc 1 135 1 view .LVU134
+ 505 0360 033092E7 		ldr	r3, [r2, r3]
+ 506 0364 002093E5 		ldr	r2, [r3]
+ 507 0368 34309DE5 		ldr	r3, [sp, #52]
+ 508 036c 022033E0 		eors	r2, r3, r2
+ 509 0370 0030A0E3 		mov	r3, #0
+ 510 0374 2400001A 		bne	.L46
+ 511 0378 0000A0E3 		mov	r0, #0
+ 512 037c 3CD08DE2 		add	sp, sp, #60
+ 513              		.cfi_remember_state
+ 514              		.cfi_def_cfa_offset 36
+ 515              		@ sp needed
+ 516 0380 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 517              	.LVL48:
+ARM GAS  /tmp/ccTXMcGB.s 			page 14
+
+
+ 518              	.L32:
+ 519              		.cfi_restore_state
+ 520              	.LBB3:
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****             fprintf( OutStream, "%*s%-*s%s", siLen, cszPreamble, (int)stMaxBlockLen, "", cszPostamb
+ 521              		.loc 1 117 11 is_stmt 1 view .LVU135
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****             fprintf( OutStream, "%*s%-*s%s", siLen, cszPreamble, (int)stMaxBlockLen, "", cszPostamb
+ 522              		.loc 1 117 13 is_stmt 0 view .LVU136
+ 523 0384 000056E3 		cmp	r6, #0
+ 524 0388 0160A003 		moveq	r6, #1
+ 525 038c C6FFFF0A 		beq	.L33
+ 526              	.LVL49:
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\r':
+ 527              		.loc 1 118 13 view .LVU137
+ 528 0390 14209DE5 		ldr	r2, [sp, #20]
+ 529 0394 0930A0E1 		mov	r3, r9
+ 530 0398 0B10A0E1 		mov	r1, fp
+ 531 039c 0800A0E1 		mov	r0, r8
+ 532 03a0 00708DE5 		str	r7, [sp]
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****             fprintf( OutStream, "%*s%-*s%s", siLen, cszPreamble, (int)stMaxBlockLen, "", cszPostamb
+ 533              		.loc 1 117 24 view .LVU138
+ 534 03a4 016086E2 		add	r6, r6, #1
+ 535              	.LVL50:
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****         case '\r':
+ 536              		.loc 1 118 13 is_stmt 1 view .LVU139
+ 537 03a8 08208DE5 		str	r2, [sp, #8]
+ 538 03ac 18209DE5 		ldr	r2, [sp, #24]
+ 539 03b0 04208DE5 		str	r2, [sp, #4]
+ 540 03b4 0A20A0E1 		mov	r2, r10
+ 541 03b8 FEFFFFEB 		bl	fprintf(PLT)
+ 542              	.LVL51:
+ 543 03bc BAFFFFEA 		b	.L33
+ 544              	.LVL52:
+ 545              	.L45:
+ 132:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   };
+ 546              		.loc 1 132 7 view .LVU140
+ 547 03c0 14309DE5 		ldr	r3, [sp, #20]
+ 548 03c4 0A20A0E1 		mov	r2, r10
+ 549 03c8 58109FE5 		ldr	r1, .L47+24
+ 550 03cc 0800A0E1 		mov	r0, r8
+ 551 03d0 F440CDE1 		strd	r4, [sp, #4]
+ 552 03d4 0C308DE5 		str	r3, [sp, #12]
+ 553 03d8 30309DE5 		ldr	r3, [sp, #48]
+ 554              	.LPIC3:
+ 555 03dc 01108FE0 		add	r1, pc, r1
+ 556 03e0 033047E0 		sub	r3, r7, r3
+ 557 03e4 00308DE5 		str	r3, [sp]
+ 558 03e8 0930A0E1 		mov	r3, r9
+ 559 03ec FEFFFFEB 		bl	fprintf(PLT)
+ 560              	.LVL53:
+ 132:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   };
+ 561              		.loc 1 132 7 is_stmt 0 view .LVU141
+ 562              	.LBE3:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     int FirstEntry=0;
+ 563              		.loc 1 109 9 is_stmt 1 view .LVU142
+ 564 03f0 ABFFFFEA 		b	.L34
+ 565              	.LVL54:
+ 566              	.L25:
+ARM GAS  /tmp/ccTXMcGB.s 			page 15
+
+
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       stOffset= - siLen;
+ 567              		.loc 1 104 9 view .LVU143
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****       stOffset= - siLen;
+ 568              		.loc 1 104 12 is_stmt 0 view .LVU144
+ 569 03f4 00306AE2 		rsb	r3, r10, #0
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   }
+ 570              		.loc 1 105 15 view .LVU145
+ 571 03f8 030050E1 		cmp	r0, r3
+ 572 03fc 0030A0A1 		movge	r3, r0
+ 573 0400 0310A0E1 		mov	r1, r3
+ 574 0404 1C308DE5 		str	r3, [sp, #28]
+ 575 0408 8BFFFFEA 		b	.L26
+ 576              	.LVL55:
+ 577              	.L46:
+ 578              		.loc 1 135 1 view .LVU146
+ 579 040c FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 580              	.LVL56:
+ 581              	.L48:
+ 582              		.align	2
+ 583              	.L47:
+ 584 0410 14020000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC5+8)
+ 585 0414 00000000 		.word	__stack_chk_guard(GOT)
+ 586 0418 90010000 		.word	.LC0-(.LPIC0+8)
+ 587 041c 7C010000 		.word	.LC1-(.LPIC1+8)
+ 588 0420 7C010000 		.word	.LC2-(.LPIC2+8)
+ 589 0424 C0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC4+8)
+ 590 0428 44000000 		.word	.LC3-(.LPIC3+8)
+ 591              		.cfi_endproc
+ 592              	.LFE2:
+ 594              		.section	.rodata.str1.4
+ 595              		.align	2
+ 596              	.LC4:
+ 597 0028 252A7300 		.ascii	"%*s\000"
+ 598              		.text
+ 599              		.align	2
+ 600              		.global	PrintStringBlockA
+ 601              		.syntax unified
+ 602              		.arm
+ 603              		.fpu vfpv3
+ 605              	PrintStringBlockA:
+ 606              	.LVL57:
+ 607              	.LFB3:
+ 136:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** EApiStatus_t
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** PrintStringBlockA(
+ 138:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     FILE       *OutStream     ,
+ 139:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszStr        ,
+ 140:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     size_t      stMaxBlockLen ,
+ 141:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszPreamble   ,
+ 142:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     signed int  siLen         ,
+ 143:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     const char *cszPostamble
+ 144:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****     )
+ 145:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** {
+ 608              		.loc 1 145 1 is_stmt 1 view -0
+ 609              		.cfi_startproc
+ 610              		@ args = 8, pretend = 0, frame = 0
+ 611              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   fprintf(OutStream, "%*s", siLen, cszPreamble);
+ARM GAS  /tmp/ccTXMcGB.s 			page 16
+
+
+ 612              		.loc 1 146 3 view .LVU148
+ 145:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   fprintf(OutStream, "%*s", siLen, cszPreamble);
+ 613              		.loc 1 145 1 is_stmt 0 view .LVU149
+ 614 042c F0472DE9 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 615              		.cfi_def_cfa_offset 32
+ 616              		.cfi_offset 4, -32
+ 617              		.cfi_offset 5, -28
+ 618              		.cfi_offset 6, -24
+ 619              		.cfi_offset 7, -20
+ 620              		.cfi_offset 8, -16
+ 621              		.cfi_offset 9, -12
+ 622              		.cfi_offset 10, -8
+ 623              		.cfi_offset 14, -4
+ 145:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   fprintf(OutStream, "%*s", siLen, cszPreamble);
+ 624              		.loc 1 145 1 view .LVU150
+ 625 0430 0150A0E1 		mov	r5, r1
+ 626 0434 D082CDE1 		ldrd	r8, [sp, #32]
+ 627 0438 0040A0E1 		mov	r4, r0
+ 628 043c 0260A0E1 		mov	r6, r2
+ 629 0440 0370A0E1 		mov	r7, r3
+ 630              		.loc 1 146 3 view .LVU151
+ 631 0444 28109FE5 		ldr	r1, .L51
+ 632              	.LVL58:
+ 633              		.loc 1 146 3 view .LVU152
+ 634 0448 0820A0E1 		mov	r2, r8
+ 635              	.LVL59:
+ 636              		.loc 1 146 3 view .LVU153
+ 637              	.LPIC6:
+ 638 044c 01108FE0 		add	r1, pc, r1
+ 639 0450 FEFFFFEB 		bl	fprintf(PLT)
+ 640              	.LVL60:
+ 147:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   return PrintStringBlock(OutStream, 
+ 641              		.loc 1 147 3 is_stmt 1 view .LVU154
+ 642              		.loc 1 147 10 is_stmt 0 view .LVU155
+ 643 0454 0730A0E1 		mov	r3, r7
+ 644 0458 0620A0E1 		mov	r2, r6
+ 645 045c 0510A0E1 		mov	r1, r5
+ 646 0460 0400A0E1 		mov	r0, r4
+ 647 0464 24908DE5 		str	r9, [sp, #36]
+ 648 0468 20808DE5 		str	r8, [sp, #32]
+ 148:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****             cszStr, stMaxBlockLen, cszPreamble,
+ 149:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****             siLen, cszPostamble
+ 150:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****           );
+ 151:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c **** }
+ 649              		.loc 1 151 1 view .LVU156
+ 650 046c F047BDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 651              		.cfi_restore 14
+ 652              		.cfi_restore 10
+ 653              		.cfi_restore 9
+ 654              		.cfi_restore 8
+ 655              		.cfi_restore 7
+ 656              		.cfi_restore 6
+ 657              		.cfi_restore 5
+ 658              		.cfi_restore 4
+ 659              		.cfi_def_cfa_offset 0
+ 660              	.LVL61:
+ 147:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   return PrintStringBlock(OutStream, 
+ARM GAS  /tmp/ccTXMcGB.s 			page 17
+
+
+ 661              		.loc 1 147 10 view .LVU157
+ 662 0470 FEFFFFEA 		b	PrintStringBlock(PLT)
+ 663              	.LVL62:
+ 664              	.L52:
+ 147:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../StrPrint.c ****   return PrintStringBlock(OutStream, 
+ 665              		.loc 1 147 10 view .LVU158
+ 666              		.align	2
+ 667              	.L51:
+ 668 0474 20000000 		.word	.LC4-(.LPIC6+8)
+ 669              		.cfi_endproc
+ 670              	.LFE3:
+ 672              	.Letext0:
+ 673              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 674              		.file 3 "../../../include/EApi.h"
+ 675              		.file 4 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 676              		.file 5 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ARM GAS  /tmp/ccTXMcGB.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 StrPrint.c
+     /tmp/ccTXMcGB.s:16     .text:0000000000000000 $a
+     /tmp/ccTXMcGB.s:25     .text:0000000000000000 StringBlock
+     /tmp/ccTXMcGB.s:294    .rodata.str1.4:0000000000000000 $d
+     /tmp/ccTXMcGB.s:295    .rodata.str1.4:0000000000000000 .LC0
+     /tmp/ccTXMcGB.s:298    .rodata.str1.4:000000000000000c .LC1
+     /tmp/ccTXMcGB.s:301    .rodata.str1.4:0000000000000018 .LC2
+     /tmp/ccTXMcGB.s:304    .rodata.str1.4:000000000000001c .LC3
+     /tmp/ccTXMcGB.s:313    .text:00000000000001d4 PrintStringBlock
+     /tmp/ccTXMcGB.s:584    .text:0000000000000410 $d
+     /tmp/ccTXMcGB.s:596    .rodata.str1.4:0000000000000028 .LC4
+     /tmp/ccTXMcGB.s:599    .text:000000000000042c $a
+     /tmp/ccTXMcGB.s:605    .text:000000000000042c PrintStringBlockA
+     /tmp/ccTXMcGB.s:668    .text:0000000000000474 $d
+
+UNDEFINED SYMBOLS
+strlen
+fprintf
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard

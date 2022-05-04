@@ -1,0 +1,174 @@
+GAS LISTING /tmp/ccljXQTV.s 			page 1
+
+
+   1              		.file	"Message.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.hidden	Header
+   5              		.globl	Header
+   6              		.data
+   7              		.align 32
+  10              	Header:
+  11 0000 0A2B2D2D 		.ascii	"\n+---------------------------------------------------------"
+  11      2D2D2D2D 
+  11      2D2D2D2D 
+  11      2D2D2D2D 
+  11      2D2D2D2D 
+  12 003b 2D2D2D2D 		.ascii	"-------------------+\nI              Copyright (C) Kontron E"
+  12      2D2D2D2D 
+  12      2D2D2D2D 
+  12      2D2D2D2D 
+  12      2D2D2D2B 
+  13 0076 6D626564 		.ascii	"mbedded Modu"
+  13      64656420 
+  13      4D6F6475 
+  14 0082 6C657320 		.string	"les GmbH 2009              I\n+----------------------------------------------------------
+  14      476D6248 
+  14      20323030 
+  14      39202020 
+  14      20202020 
+  15              		.text
+  16              		.globl	EApiMain
+  17              		.hidden	EApiMain
+  19              	EApiMain:
+  20              	.LFB6:
+  21              		.file 1 "Message.c"
+   1:Message.c     **** /*
+   2:Message.c     ****  *<KHeader>
+   3:Message.c     ****  *+=========================================================================
+   4:Message.c     ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:Message.c     ****  *+=========================================================================
+   6:Message.c     ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/linux/Message.c $
+   7:Message.c     ****  *+=========================================================================
+   8:Message.c     ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:Message.c     ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:Message.c     ****  *I
+  11:Message.c     ****  *I     License: All rights reserved. This program and the accompanying 
+  12:Message.c     ****  *I              materials are licensed and made available under the 
+  13:Message.c     ****  *I              terms and conditions of the BSD License which 
+  14:Message.c     ****  *I              accompanies this distribution. The full text of the 
+  15:Message.c     ****  *I              license may be found at 
+  16:Message.c     ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:Message.c     ****  *I              
+  18:Message.c     ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:Message.c     ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:Message.c     ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:Message.c     ****  *I
+  22:Message.c     ****  *I Description: Auto Created for Message.c
+  23:Message.c     ****  *I
+  24:Message.c     ****  *+-------------------------------------------------------------------------
+  25:Message.c     ****  *I
+GAS LISTING /tmp/ccljXQTV.s 			page 2
+
+
+  26:Message.c     ****  *I  File Name            : Message.c
+  27:Message.c     ****  *I  File Location        : lib\linux
+  28:Message.c     ****  *I  Last committed       : $Revision: 38 $
+  29:Message.c     ****  *I  Last changed by      : $Author: dethrophes $
+  30:Message.c     ****  *I  Last changed date    : $Date: 2010-01-26 06:48:22 +0000 (Tue, 26 Jan 2010) $
+  31:Message.c     ****  *I  ID                   : $Id: Message.c 38 2010-01-26 06:48:22Z dethrophes $
+  32:Message.c     ****  *I
+  33:Message.c     ****  *+=========================================================================
+  34:Message.c     ****  *</KHeader>
+  35:Message.c     ****  */
+  36:Message.c     ****   #include <EApiLib.h>
+  37:Message.c     ****   #include <stdio.h>
+  38:Message.c     **** #define MPNPID "PMG"
+  39:Message.c     **** #define MANUF_NAME "PICMG"
+  40:Message.c     **** #define PROGRAM_DESC "Embedded Application Programming Interface"
+  41:Message.c     **** char Header[]="\n"
+  42:Message.c     **** "+----------------------------------------------------------------------------+\n"
+  43:Message.c     **** "I              Copyright (C) Kontron Embedded Modules GmbH 2009              I\n"
+  44:Message.c     **** "+----------------------------------------------------------------------------+\n"
+  45:Message.c     **** "SVersion=%u.%u\n"
+  46:Message.c     **** "LVersion=%u.%u.%u\n"
+  47:Message.c     **** "Manufacturer="MANUF_NAME"\n"
+  48:Message.c     **** "MPNPID="MPNPID"\n"
+  49:Message.c     **** "OFilename=libEApi"MPNPID".so.%u.%u\n"
+  50:Message.c     **** "Description="PROGRAM_DESC"\n";
+  51:Message.c     **** 
+  52:Message.c     **** void EApiMain (void)
+  53:Message.c     **** { 
+  22              		.loc 1 53 1
+  23              		.cfi_startproc
+  24 0000 F30F1EFA 		endbr64
+  25 0004 55       		pushq	%rbp
+  26              		.cfi_def_cfa_offset 16
+  27              		.cfi_offset 6, -16
+  28 0005 4889E5   		movq	%rsp, %rbp
+  29              		.cfi_def_cfa_register 6
+  54:Message.c     ****   printf(
+  30              		.loc 1 54 3
+  31 0008 6A00     		pushq	$0
+  32 000a 6A01     		pushq	$1
+  33 000c 41B9D103 		movl	$977, %r9d
+  33      0000
+  34 0012 41B80500 		movl	$5, %r8d
+  34      0000
+  35 0018 B9000000 		movl	$0, %ecx
+  35      00
+  36 001d BA000000 		movl	$0, %edx
+  36      00
+  37 0022 BE010000 		movl	$1, %esi
+  37      00
+  38 0027 488D3D00 		leaq	Header(%rip), %rdi
+  38      000000
+  39 002e B8000000 		movl	$0, %eax
+  39      00
+  40 0033 E8000000 		call	printf@PLT
+  40      00
+  41 0038 4883C410 		addq	$16, %rsp
+GAS LISTING /tmp/ccljXQTV.s 			page 3
+
+
+  55:Message.c     ****       Header, 
+  56:Message.c     ****       EAPI_VER, EAPI_REVISION,
+  57:Message.c     ****       LIB_VERSION, LIB_REVISION, LIB_BUILD,
+  58:Message.c     ****       EAPI_VER, EAPI_REVISION
+  59:Message.c     ****       );
+  60:Message.c     ****   exit(0);
+  42              		.loc 1 60 3
+  43 003c BF000000 		movl	$0, %edi
+  43      00
+  44 0041 E8000000 		call	exit@PLT
+  44      00
+  45              		.cfi_endproc
+  46              	.LFE6:
+  48              	.Letext0:
+  49              		.file 2 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h"
+  50              		.file 3 "/usr/include/x86_64-linux-gnu/bits/types.h"
+  51              		.file 4 "/usr/include/unistd.h"
+  52              		.file 5 "/usr/include/x86_64-linux-gnu/bits/getopt_core.h"
+  53              		.file 6 "/usr/include/time.h"
+  54              		.file 7 "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h"
+  55              		.file 8 "/usr/include/x86_64-linux-gnu/bits/types/FILE.h"
+  56              		.file 9 "/usr/include/stdio.h"
+  57              		.file 10 "/usr/include/x86_64-linux-gnu/bits/sys_errlist.h"
+ 952              		.section	.note.gnu.property,"a"
+ 953              		.align 8
+ 954 0000 04000000 		.long	 1f - 0f
+ 955 0004 10000000 		.long	 4f - 1f
+ 956 0008 05000000 		.long	 5
+ 957              	0:
+ 958 000c 474E5500 		.string	 "GNU"
+ 959              	1:
+ 960              		.align 8
+ 961 0010 020000C0 		.long	 0xc0000002
+ 962 0014 04000000 		.long	 3f - 2f
+ 963              	2:
+ 964 0018 03000000 		.long	 0x3
+ 965              	3:
+ 966 001c 00000000 		.align 8
+ 967              	4:
+GAS LISTING /tmp/ccljXQTV.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 Message.c
+     /tmp/ccljXQTV.s:10     .data:0000000000000000 Header
+     /tmp/ccljXQTV.s:19     .text:0000000000000000 EApiMain
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+printf
+exit

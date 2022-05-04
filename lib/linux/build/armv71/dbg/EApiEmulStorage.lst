@@ -1,0 +1,1337 @@
+ARM GAS  /tmp/ccBpnqJk.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiEmulStorage.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.local	StorageID0
+  17              		.comm	StorageID0,32,4
+  18              		.local	StorageID1
+  19              		.comm	StorageID1,4096,4
+  20              		.hidden	StorageAreaTbl
+  21              		.global	StorageAreaTbl
+  22              		.section	.rodata
+  23              		.align	2
+  24              	.LC0:
+  25 0000 45417069 		.ascii	"EApiStorage0.EMUL\000"
+  25      53746F72 
+  25      61676530 
+  25      2E454D55 
+  25      4C00
+  26 0012 0000     		.align	2
+  27              	.LC1:
+  28 0014 45417069 		.ascii	"EApiStorage1.EMUL\000"
+  28      53746F72 
+  28      61676531 
+  28      2E454D55 
+  28      4C00
+  29              		.section	.data.rel.local,"aw"
+  30              		.align	2
+  33              	StorageAreaTbl:
+  34 0000 00000000 		.word	0
+  35 0004 20000000 		.word	32
+  36 0008 01000000 		.word	1
+  37 000c 00000000 		.word	StorageID0
+  38 0010 00000000 		.word	.LC0
+  39 0014 00000000 		.word	0
+  40 0018 001074FA 		.word	-93057024
+  41 001c 00100000 		.word	4096
+  42 0020 00040000 		.word	1024
+  43 0024 20000000 		.word	StorageID1
+  44 0028 14000000 		.word	.LC1
+  45 002c 00000000 		.word	0
+  46              		.section	.rodata
+  47 0026 0000     		.align	2
+  48              	.LC2:
+  49 0028 45417069 		.ascii	"EApiStorageCap\000"
+  49      53746F72 
+  49      61676543 
+ARM GAS  /tmp/ccBpnqJk.s 			page 2
+
+
+  49      617000
+  50 0037 00       		.align	2
+  51              	.LC3:
+  52 0038 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+  52      652F686B 
+  52      682F6769 
+  52      742F6561 
+  52      7069646B 
+  53 006b 7069456D 		.ascii	"piEmulStorage.c\000"
+  53      756C5374 
+  53      6F726167 
+  53      652E6300 
+  54 007b 00       		.align	2
+  55              	.LC4:
+  56 007c 00       		.ascii	"\000"
+  57 007d 000000   		.align	2
+  58              	.LC5:
+  59 0080 25730A00 		.ascii	"%s\012\000"
+  60              		.align	2
+  61              	.LC6:
+  62 0084 45417069 		.ascii	"EApiStorageCapEmul\000"
+  62      53746F72 
+  62      61676543 
+  62      6170456D 
+  62      756C00
+  63 0097 00       		.align	2
+  64              	.LC7:
+  65 0098 556E7265 		.ascii	"Unrecognised Storage ID\000"
+  65      636F676E 
+  65      69736564 
+  65      2053746F 
+  65      72616765 
+  66              		.text
+  67              		.align	2
+  68              		.global	EApiStorageCapEmul
+  69              		.hidden	EApiStorageCapEmul
+  70              		.arch armv7-a
+  71              		.arch_extension mp
+  72              		.arch_extension sec
+  73              		.syntax unified
+  74              		.arm
+  75              		.fpu vfpv3
+  77              	EApiStorageCapEmul:
+  78              	.LFB1:
+  79              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/EApiEmulStorage.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              materials are licensed and made available under the 
+ARM GAS  /tmp/ccBpnqJk.s 			page 3
+
+
+  13:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I Description: Auto Created for EApiEmulStorage.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  File Name            : EApiEmulStorage.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  File Location        : lib
+  28:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I  ID                   : $Id: EApiEmulStorage.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  37:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #include <EApiLib.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #include <stdio.h>
+  39:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  40:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  42:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  43:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** /*
+  44:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *
+  45:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *  
+  46:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *
+  47:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *  S T O R A G E 
+  48:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *
+  49:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *
+  50:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  *
+  51:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****  */
+  52:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** typedef struct StorageAreaMapping_s{
+  53:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EApiId_t Id          ; /* EAPI Storage Area Id */
+  54:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   uint32_t StorageSize ; /* Storage Area Size */
+  55:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   uint32_t WBlockLength; /* Block Lenght/Alignment */
+  56:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   uint8_t *pu8Buffer   ; /* Pointer to Storage pu8Buffer */
+  57:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   const char *const cszFilename;
+  58:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   FILE     *FStream;
+  59:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** }StorageAreaMapping_t;
+  60:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** static uint8_t StorageID0[32]={0};
+  61:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** static uint8_t StorageID1[1024*4]={0};
+  62:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** StorageAreaMapping_t StorageAreaTbl[]={
+  63:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+  64:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     EAPI_ID_STORAGE_STD        , 
+  65:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     sizeof(StorageID0)         , 
+  66:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     ELEMENT_SIZE(StorageID0)   , 
+  67:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     StorageID0                 ,
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     "EApiStorage0.EMUL"        ,
+  69:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     NULL
+ARM GAS  /tmp/ccBpnqJk.s 			page 4
+
+
+  70:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   },
+  71:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+  72:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     EAPI_PMG_ID_STORAGE_SAMPLE , 
+  73:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     sizeof(StorageID1)         , 
+  74:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     ELEMENT_SIZE(StorageID1)*1024 , 
+  75:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     StorageID1                 ,
+  76:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     "EApiStorage1.EMUL"        ,
+  77:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     NULL
+  78:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   },
+  79:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** };
+  80:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  81:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStatus_t 
+  82:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStorageCapEmul (
+  83:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __IN      EApiId_t  Id          , 
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __OUTOPT  uint32_t *pStorageSize, 
+  85:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __OUTOPT  uint32_t *pBlockLength
+  86:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     )
+  87:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** {
+  80              		.loc 1 87 1
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 32
+  83              		@ frame_needed = 1, uses_anonymous_args = 0
+  84 0000 00482DE9 		push	{fp, lr}
+  85              		.cfi_def_cfa_offset 8
+  86              		.cfi_offset 11, -8
+  87              		.cfi_offset 14, -4
+  88 0004 04B08DE2 		add	fp, sp, #4
+  89              		.cfi_def_cfa 11, 4
+  90 0008 30D04DE2 		sub	sp, sp, #48
+  91 000c 18000BE5 		str	r0, [fp, #-24]
+  92 0010 1C100BE5 		str	r1, [fp, #-28]
+  93 0014 20200BE5 		str	r2, [fp, #-32]
+  88:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+  94              		.loc 1 88 16
+  95 0018 0030A0E3 		mov	r3, #0
+  96 001c 10300BE5 		str	r3, [fp, #-16]
+  89:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   StorageAreaMapping_t *pCurStorageDesc;
+  90:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   unsigned i;
+  91:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   for(
+  93:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+  97              		.loc 1 93 8
+  98 0020 0230A0E3 		mov	r3, #2
+  99 0024 08300BE5 		str	r3, [fp, #-8]
+  94:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc=StorageAreaTbl;
+ 100              		.loc 1 94 22
+ 101 0028 FC309FE5 		ldr	r3, .L7
+ 102              	.LPIC0:
+ 103 002c 03308FE0 		add	r3, pc, r3
+ 104 0030 0C300BE5 		str	r3, [fp, #-12]
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 105              		.loc 1 92 3
+ 106 0034 210000EA 		b	.L2
+ 107              	.L5:
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i--;
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+  97:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ARM GAS  /tmp/ccBpnqJk.s 			page 5
+
+
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       if(pCurStorageDesc->Id==Id)
+ 108              		.loc 1 98 25
+ 109 0038 0C301BE5 		ldr	r3, [fp, #-12]
+ 110 003c 003093E5 		ldr	r3, [r3]
+ 111              		.loc 1 98 9
+ 112 0040 18201BE5 		ldr	r2, [fp, #-24]
+ 113 0044 030052E1 		cmp	r2, r3
+ 114 0048 1900001A 		bne	.L3
+  99:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       {
+ 100:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         *pStorageSize=pCurStorageDesc->StorageSize;
+ 115              		.loc 1 100 38
+ 116 004c 0C301BE5 		ldr	r3, [fp, #-12]
+ 117 0050 042093E5 		ldr	r2, [r3, #4]
+ 118              		.loc 1 100 22
+ 119 0054 1C301BE5 		ldr	r3, [fp, #-28]
+ 120 0058 002083E5 		str	r2, [r3]
+ 101:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         *pBlockLength=pCurStorageDesc->WBlockLength;
+ 121              		.loc 1 101 38
+ 122 005c 0C301BE5 		ldr	r3, [fp, #-12]
+ 123 0060 082093E5 		ldr	r2, [r3, #8]
+ 124              		.loc 1 101 22
+ 125 0064 20301BE5 		ldr	r3, [fp, #-32]
+ 126 0068 002083E5 		str	r2, [r3]
+ 102:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_SUCCESS(EApiStorageCap, "");
+ 127              		.loc 1 102 9
+ 128 006c BC309FE5 		ldr	r3, .L7+4
+ 129              	.LPIC1:
+ 130 0070 03308FE0 		add	r3, pc, r3
+ 131 0074 08308DE5 		str	r3, [sp, #8]
+ 132 0078 B4309FE5 		ldr	r3, .L7+8
+ 133              	.LPIC2:
+ 134 007c 03308FE0 		add	r3, pc, r3
+ 135 0080 04308DE5 		str	r3, [sp, #4]
+ 136 0084 0030A0E3 		mov	r3, #0
+ 137 0088 00308DE5 		str	r3, [sp]
+ 138 008c 6630A0E3 		mov	r3, #102
+ 139 0090 A0209FE5 		ldr	r2, .L7+12
+ 140              	.LPIC3:
+ 141 0094 02208FE0 		add	r2, pc, r2
+ 142 0098 9C109FE5 		ldr	r1, .L7+16
+ 143              	.LPIC4:
+ 144 009c 01108FE0 		add	r1, pc, r1
+ 145 00a0 4C00A0E3 		mov	r0, #76
+ 146 00a4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 147 00a8 0030A0E3 		mov	r3, #0
+ 148 00ac 10300BE5 		str	r3, [fp, #-16]
+ 149 00b0 190000EA 		b	.L4
+ 150              	.L3:
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 151              		.loc 1 96 22
+ 152 00b4 0C301BE5 		ldr	r3, [fp, #-12]
+ 153 00b8 183083E2 		add	r3, r3, #24
+ 154 00bc 0C300BE5 		str	r3, [fp, #-12]
+ 155              	.L2:
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 156              		.loc 1 95 8
+ 157 00c0 08301BE5 		ldr	r3, [fp, #-8]
+ARM GAS  /tmp/ccBpnqJk.s 			page 6
+
+
+ 158 00c4 012043E2 		sub	r2, r3, #1
+ 159 00c8 08200BE5 		str	r2, [fp, #-8]
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 160              		.loc 1 95 7
+ 161 00cc 000053E3 		cmp	r3, #0
+ 162 00d0 D8FFFF1A 		bne	.L5
+ 103:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       }
+ 104:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   }
+ 105:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EAPI_LIB_RETURN_ERROR(
+ 163              		.loc 1 105 3
+ 164 00d4 64309FE5 		ldr	r3, .L7+20
+ 165              	.LPIC5:
+ 166 00d8 03308FE0 		add	r3, pc, r3
+ 167 00dc 08308DE5 		str	r3, [sp, #8]
+ 168 00e0 5C309FE5 		ldr	r3, .L7+24
+ 169              	.LPIC6:
+ 170 00e4 03308FE0 		add	r3, pc, r3
+ 171 00e8 04308DE5 		str	r3, [sp, #4]
+ 172 00ec 033CE0E3 		mvn	r3, #768
+ 173 00f0 00308DE5 		str	r3, [sp]
+ 174 00f4 6930A0E3 		mov	r3, #105
+ 175 00f8 48209FE5 		ldr	r2, .L7+28
+ 176              	.LPIC7:
+ 177 00fc 02208FE0 		add	r2, pc, r2
+ 178 0100 44109FE5 		ldr	r1, .L7+32
+ 179              	.LPIC8:
+ 180 0104 01108FE0 		add	r1, pc, r1
+ 181 0108 4500A0E3 		mov	r0, #69
+ 182 010c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 183 0110 033CE0E3 		mvn	r3, #768
+ 184 0114 10300BE5 		str	r3, [fp, #-16]
+ 185 0118 00F020E3 		nop
+ 186              	.L4:
+ 106:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     EApiStorageCapEmul        , 
+ 107:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     EAPI_STATUS_UNSUPPORTED   , 
+ 108:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     "Unrecognised Storage ID"
+ 109:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     );
+ 110:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EAPI_LIB_ASSERT_EXIT
+ 111:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 112:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   return StatusCode;
+ 187              		.loc 1 112 10
+ 188 011c 10301BE5 		ldr	r3, [fp, #-16]
+ 113:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** }
+ 189              		.loc 1 113 1
+ 190 0120 0300A0E1 		mov	r0, r3
+ 191 0124 04D04BE2 		sub	sp, fp, #4
+ 192              		.cfi_def_cfa 13, 8
+ 193              		@ sp needed
+ 194 0128 0088BDE8 		pop	{fp, pc}
+ 195              	.L8:
+ 196              		.align	2
+ 197              	.L7:
+ 198 012c F8000000 		.word	StorageAreaTbl-(.LPIC0+8)
+ 199 0130 34010000 		.word	.LC4-(.LPIC1+8)
+ 200 0134 30010000 		.word	.LC5-(.LPIC2+8)
+ 201 0138 C4000000 		.word	.LC2-(.LPIC3+8)
+ 202 013c D0000000 		.word	.LC3-(.LPIC4+8)
+ARM GAS  /tmp/ccBpnqJk.s 			page 7
+
+
+ 203 0140 F8000000 		.word	.LC7-(.LPIC5+8)
+ 204 0144 D8000000 		.word	.LC5-(.LPIC6+8)
+ 205 0148 C8000000 		.word	.LC6-(.LPIC7+8)
+ 206 014c 78000000 		.word	.LC3-(.LPIC8+8)
+ 207              		.cfi_endproc
+ 208              	.LFE1:
+ 210              		.section	.rodata
+ 211              		.align	2
+ 212              	.LC8:
+ 213 00b0 45417069 		.ascii	"EApiStorageAreaReadEmul\000"
+ 213      53746F72 
+ 213      61676541 
+ 213      72656152 
+ 213      65616445 
+ 214              		.align	2
+ 215              	.LC9:
+ 216 00c8 52656164 		.ascii	"Read Len extends beyond End of Storage Area\000"
+ 216      204C656E 
+ 216      20657874 
+ 216      656E6473 
+ 216      20626579 
+ 217              		.align	2
+ 218              	.LC10:
+ 219 00f4 45417069 		.ascii	"EApiStorageAreaRead\000"
+ 219      53746F72 
+ 219      61676541 
+ 219      72656152 
+ 219      65616400 
+ 220              		.text
+ 221              		.align	2
+ 222              		.global	EApiStorageAreaReadEmul
+ 223              		.hidden	EApiStorageAreaReadEmul
+ 224              		.syntax unified
+ 225              		.arm
+ 226              		.fpu vfpv3
+ 228              	EApiStorageAreaReadEmul:
+ 229              	.LFB2:
+ 114:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStatus_t 
+ 115:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStorageAreaReadEmul(
+ 116:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   __IN  EApiId_t Id     , 
+ 117:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   __IN  uint32_t Offset , 
+ 118:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   __OUT    void *pvBuffer, 
+ 119:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   __IN  uint32_t ByteCnt
+ 120:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   )
+ 121:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** {
+ 230              		.loc 1 121 1
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 32
+ 233              		@ frame_needed = 1, uses_anonymous_args = 0
+ 234 0150 00482DE9 		push	{fp, lr}
+ 235              		.cfi_def_cfa_offset 8
+ 236              		.cfi_offset 11, -8
+ 237              		.cfi_offset 14, -4
+ 238 0154 04B08DE2 		add	fp, sp, #4
+ 239              		.cfi_def_cfa 11, 4
+ 240 0158 30D04DE2 		sub	sp, sp, #48
+ 241 015c 18000BE5 		str	r0, [fp, #-24]
+ARM GAS  /tmp/ccBpnqJk.s 			page 8
+
+
+ 242 0160 1C100BE5 		str	r1, [fp, #-28]
+ 243 0164 20200BE5 		str	r2, [fp, #-32]
+ 244 0168 24300BE5 		str	r3, [fp, #-36]
+ 122:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 245              		.loc 1 122 16
+ 246 016c 0030A0E3 		mov	r3, #0
+ 247 0170 10300BE5 		str	r3, [fp, #-16]
+ 123:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   StorageAreaMapping_t *pCurStorageDesc;
+ 124:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   unsigned i;
+ 125:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 126:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   for(
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 248              		.loc 1 127 8
+ 249 0174 0230A0E3 		mov	r3, #2
+ 250 0178 08300BE5 		str	r3, [fp, #-8]
+ 128:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc=StorageAreaTbl;
+ 251              		.loc 1 128 22
+ 252 017c 78319FE5 		ldr	r3, .L16
+ 253              	.LPIC9:
+ 254 0180 03308FE0 		add	r3, pc, r3
+ 255 0184 0C300BE5 		str	r3, [fp, #-12]
+ 126:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 256              		.loc 1 126 3
+ 257 0188 400000EA 		b	.L10
+ 258              	.L14:
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i--;
+ 130:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 131:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 132:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       if(pCurStorageDesc->Id==Id)
+ 259              		.loc 1 132 25
+ 260 018c 0C301BE5 		ldr	r3, [fp, #-12]
+ 261 0190 003093E5 		ldr	r3, [r3]
+ 262              		.loc 1 132 9
+ 263 0194 18201BE5 		ldr	r2, [fp, #-24]
+ 264 0198 030052E1 		cmp	r2, r3
+ 265 019c 3800001A 		bne	.L11
+ 133:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       {
+ 134:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 266              		.loc 1 134 9
+ 267 01a0 1C201BE5 		ldr	r2, [fp, #-28]
+ 268 01a4 24301BE5 		ldr	r3, [fp, #-36]
+ 269 01a8 032082E0 		add	r2, r2, r3
+ 270 01ac 0C301BE5 		ldr	r3, [fp, #-12]
+ 271 01b0 043093E5 		ldr	r3, [r3, #4]
+ 272 01b4 030052E1 		cmp	r2, r3
+ 273 01b8 1300009A 		bls	.L12
+ 274              		.loc 1 134 9 is_stmt 0 discriminator 1
+ 275 01bc 3C319FE5 		ldr	r3, .L16+4
+ 276              	.LPIC10:
+ 277 01c0 03308FE0 		add	r3, pc, r3
+ 278 01c4 08308DE5 		str	r3, [sp, #8]
+ 279 01c8 34319FE5 		ldr	r3, .L16+8
+ 280              	.LPIC11:
+ 281 01cc 03308FE0 		add	r3, pc, r3
+ 282 01d0 04308DE5 		str	r3, [sp, #4]
+ 283 01d4 FD3E0FE3 		movw	r3, #65277
+ 284 01d8 FF3F4FE3 		movt	r3, 65535
+ARM GAS  /tmp/ccBpnqJk.s 			page 9
+
+
+ 285 01dc 00308DE5 		str	r3, [sp]
+ 286 01e0 8630A0E3 		mov	r3, #134
+ 287 01e4 1C219FE5 		ldr	r2, .L16+12
+ 288              	.LPIC12:
+ 289 01e8 02208FE0 		add	r2, pc, r2
+ 290 01ec 18119FE5 		ldr	r1, .L16+16
+ 291              	.LPIC13:
+ 292 01f0 01108FE0 		add	r1, pc, r1
+ 293 01f4 4500A0E3 		mov	r0, #69
+ 294 01f8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 295 01fc FD3E0FE3 		movw	r3, #65277
+ 296 0200 FF3F4FE3 		movt	r3, 65535
+ 297 0204 10300BE5 		str	r3, [fp, #-16]
+ 298 0208 370000EA 		b	.L13
+ 299              	.L12:
+ 135:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           EApiStorageAreaReadEmul                         , 
+ 136:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           (Offset+ByteCnt)>pCurStorageDesc->StorageSize  , 
+ 137:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           EAPI_STATUS_INVALID_BLOCK_LENGTH                , 
+ 138:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           "Read Len extends beyond End of Storage Area"
+ 139:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           );
+ 140:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         
+ 141:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #if 0
+ 142:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         memcpy(pvBuffer, pCurStorageDesc->pu8Buffer+Offset, ByteCnt);
+ 143:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #else
+ 144:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         fseek(pCurStorageDesc->FStream, Offset, SEEK_SET);
+ 300              		.loc 1 144 9 is_stmt 1
+ 301 020c 0C301BE5 		ldr	r3, [fp, #-12]
+ 302 0210 143093E5 		ldr	r3, [r3, #20]
+ 303 0214 1C101BE5 		ldr	r1, [fp, #-28]
+ 304 0218 0020A0E3 		mov	r2, #0
+ 305 021c 0300A0E1 		mov	r0, r3
+ 306 0220 FEFFFFEB 		bl	fseek(PLT)
+ 145:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         if(ByteCnt!=fread(pvBuffer, sizeof(uint8_t), ByteCnt, pCurStorageDesc->FStream)){
+ 307              		.loc 1 145 21
+ 308 0224 0C301BE5 		ldr	r3, [fp, #-12]
+ 309 0228 143093E5 		ldr	r3, [r3, #20]
+ 310 022c 24201BE5 		ldr	r2, [fp, #-36]
+ 311 0230 0110A0E3 		mov	r1, #1
+ 312 0234 20001BE5 		ldr	r0, [fp, #-32]
+ 313 0238 FEFFFFEB 		bl	fread(PLT)
+ 146:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 	}
+ 147:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #endif
+ 148:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 149:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_SUCCESS(EApiStorageAreaRead, "");
+ 314              		.loc 1 149 9
+ 315 023c CC309FE5 		ldr	r3, .L16+20
+ 316              	.LPIC14:
+ 317 0240 03308FE0 		add	r3, pc, r3
+ 318 0244 08308DE5 		str	r3, [sp, #8]
+ 319 0248 C4309FE5 		ldr	r3, .L16+24
+ 320              	.LPIC15:
+ 321 024c 03308FE0 		add	r3, pc, r3
+ 322 0250 04308DE5 		str	r3, [sp, #4]
+ 323 0254 0030A0E3 		mov	r3, #0
+ 324 0258 00308DE5 		str	r3, [sp]
+ 325 025c 9530A0E3 		mov	r3, #149
+ 326 0260 B0209FE5 		ldr	r2, .L16+28
+ARM GAS  /tmp/ccBpnqJk.s 			page 10
+
+
+ 327              	.LPIC16:
+ 328 0264 02208FE0 		add	r2, pc, r2
+ 329 0268 AC109FE5 		ldr	r1, .L16+32
+ 330              	.LPIC17:
+ 331 026c 01108FE0 		add	r1, pc, r1
+ 332 0270 4C00A0E3 		mov	r0, #76
+ 333 0274 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 334 0278 0030A0E3 		mov	r3, #0
+ 335 027c 10300BE5 		str	r3, [fp, #-16]
+ 336 0280 190000EA 		b	.L13
+ 337              	.L11:
+ 130:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 338              		.loc 1 130 22
+ 339 0284 0C301BE5 		ldr	r3, [fp, #-12]
+ 340 0288 183083E2 		add	r3, r3, #24
+ 341 028c 0C300BE5 		str	r3, [fp, #-12]
+ 342              	.L10:
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 343              		.loc 1 129 8
+ 344 0290 08301BE5 		ldr	r3, [fp, #-8]
+ 345 0294 012043E2 		sub	r2, r3, #1
+ 346 0298 08200BE5 		str	r2, [fp, #-8]
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 347              		.loc 1 129 7
+ 348 029c 000053E3 		cmp	r3, #0
+ 349 02a0 B9FFFF1A 		bne	.L14
+ 150:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       }
+ 151:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   }
+ 152:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EAPI_LIB_RETURN_ERROR(
+ 350              		.loc 1 152 3
+ 351 02a4 74309FE5 		ldr	r3, .L16+36
+ 352              	.LPIC18:
+ 353 02a8 03308FE0 		add	r3, pc, r3
+ 354 02ac 08308DE5 		str	r3, [sp, #8]
+ 355 02b0 6C309FE5 		ldr	r3, .L16+40
+ 356              	.LPIC19:
+ 357 02b4 03308FE0 		add	r3, pc, r3
+ 358 02b8 04308DE5 		str	r3, [sp, #4]
+ 359 02bc 033CE0E3 		mvn	r3, #768
+ 360 02c0 00308DE5 		str	r3, [sp]
+ 361 02c4 9830A0E3 		mov	r3, #152
+ 362 02c8 58209FE5 		ldr	r2, .L16+44
+ 363              	.LPIC20:
+ 364 02cc 02208FE0 		add	r2, pc, r2
+ 365 02d0 54109FE5 		ldr	r1, .L16+48
+ 366              	.LPIC21:
+ 367 02d4 01108FE0 		add	r1, pc, r1
+ 368 02d8 4500A0E3 		mov	r0, #69
+ 369 02dc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 370 02e0 033CE0E3 		mvn	r3, #768
+ 371 02e4 10300BE5 		str	r3, [fp, #-16]
+ 372 02e8 00F020E3 		nop
+ 373              	.L13:
+ 153:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       EApiStorageAreaReadEmul  , 
+ 154:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       EAPI_STATUS_UNSUPPORTED  , 
+ 155:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       "Unrecognised Storage ID"
+ 156:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       );
+ARM GAS  /tmp/ccBpnqJk.s 			page 11
+
+
+ 157:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EAPI_LIB_ASSERT_EXIT
+ 158:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 159:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   return StatusCode;
+ 374              		.loc 1 159 10
+ 375 02ec 10301BE5 		ldr	r3, [fp, #-16]
+ 160:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** }
+ 376              		.loc 1 160 1
+ 377 02f0 0300A0E1 		mov	r0, r3
+ 378 02f4 04D04BE2 		sub	sp, fp, #4
+ 379              		.cfi_def_cfa 13, 8
+ 380              		@ sp needed
+ 381 02f8 0088BDE8 		pop	{fp, pc}
+ 382              	.L17:
+ 383              		.align	2
+ 384              	.L16:
+ 385 02fc 74010000 		.word	StorageAreaTbl-(.LPIC9+8)
+ 386 0300 00020000 		.word	.LC9-(.LPIC10+8)
+ 387 0304 B0010000 		.word	.LC5-(.LPIC11+8)
+ 388 0308 C8010000 		.word	.LC8-(.LPIC12+8)
+ 389 030c 4C010000 		.word	.LC3-(.LPIC13+8)
+ 390 0310 44010000 		.word	.LC4-(.LPIC14+8)
+ 391 0314 40010000 		.word	.LC5-(.LPIC15+8)
+ 392 0318 A0010000 		.word	.LC10-(.LPIC16+8)
+ 393 031c E0000000 		.word	.LC3-(.LPIC17+8)
+ 394 0320 08010000 		.word	.LC7-(.LPIC18+8)
+ 395 0324 E8000000 		.word	.LC5-(.LPIC19+8)
+ 396 0328 04010000 		.word	.LC8-(.LPIC20+8)
+ 397 032c 88000000 		.word	.LC3-(.LPIC21+8)
+ 398              		.cfi_endproc
+ 399              	.LFE2:
+ 401              		.global	__aeabi_uidivmod
+ 402              		.section	.rodata
+ 403              		.align	2
+ 404              	.LC11:
+ 405 0108 45417069 		.ascii	"EApiStorageAreaWriteEmul\000"
+ 405      53746F72 
+ 405      61676541 
+ 405      72656157 
+ 405      72697465 
+ 406 0121 000000   		.align	2
+ 407              	.LC12:
+ 408 0124 57726974 		.ascii	"Write length Not Aligned\000"
+ 408      65206C65 
+ 408      6E677468 
+ 408      204E6F74 
+ 408      20416C69 
+ 409 013d 000000   		.align	2
+ 410              	.LC13:
+ 411 0140 57726974 		.ascii	"Write Base Address Not Aligned\000"
+ 411      65204261 
+ 411      73652041 
+ 411      64647265 
+ 411      7373204E 
+ 412 015f 00       		.align	2
+ 413              	.LC14:
+ 414 0160 57726974 		.ascii	"Write Len extends beyond End of Storage Area\000"
+ 414      65204C65 
+ARM GAS  /tmp/ccBpnqJk.s 			page 12
+
+
+ 414      6E206578 
+ 414      74656E64 
+ 414      73206265 
+ 415 018d 000000   		.align	2
+ 416              	.LC15:
+ 417 0190 45417069 		.ascii	"EApiStorageAreaWrite\000"
+ 417      53746F72 
+ 417      61676541 
+ 417      72656157 
+ 417      72697465 
+ 418              		.text
+ 419              		.align	2
+ 420              		.global	EApiStorageAreaWriteEmul
+ 421              		.hidden	EApiStorageAreaWriteEmul
+ 422              		.syntax unified
+ 423              		.arm
+ 424              		.fpu vfpv3
+ 426              	EApiStorageAreaWriteEmul:
+ 427              	.LFB3:
+ 161:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 162:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStatus_t 
+ 163:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStorageAreaWriteEmul(
+ 164:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __IN EApiId_t Id, 
+ 165:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __IN uint32_t Offset, 
+ 166:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __IN void *pvBuffer, 
+ 167:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     __IN uint32_t ByteCnt
+ 168:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     )
+ 169:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** {
+ 428              		.loc 1 169 1
+ 429              		.cfi_startproc
+ 430              		@ args = 0, pretend = 0, frame = 32
+ 431              		@ frame_needed = 1, uses_anonymous_args = 0
+ 432 0330 00482DE9 		push	{fp, lr}
+ 433              		.cfi_def_cfa_offset 8
+ 434              		.cfi_offset 11, -8
+ 435              		.cfi_offset 14, -4
+ 436 0334 04B08DE2 		add	fp, sp, #4
+ 437              		.cfi_def_cfa 11, 4
+ 438 0338 30D04DE2 		sub	sp, sp, #48
+ 439 033c 18000BE5 		str	r0, [fp, #-24]
+ 440 0340 1C100BE5 		str	r1, [fp, #-28]
+ 441 0344 20200BE5 		str	r2, [fp, #-32]
+ 442 0348 24300BE5 		str	r3, [fp, #-36]
+ 170:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 443              		.loc 1 170 16
+ 444 034c 0030A0E3 		mov	r3, #0
+ 445 0350 10300BE5 		str	r3, [fp, #-16]
+ 171:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   StorageAreaMapping_t *pCurStorageDesc;
+ 172:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   unsigned i;
+ 173:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   for(
+ 174:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 446              		.loc 1 174 8
+ 447 0354 0230A0E3 		mov	r3, #2
+ 448 0358 08300BE5 		str	r3, [fp, #-8]
+ 175:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc=StorageAreaTbl;
+ 449              		.loc 1 175 22
+ 450 035c 60329FE5 		ldr	r3, .L27
+ARM GAS  /tmp/ccBpnqJk.s 			page 13
+
+
+ 451              	.LPIC22:
+ 452 0360 03308FE0 		add	r3, pc, r3
+ 453 0364 0C300BE5 		str	r3, [fp, #-12]
+ 173:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 454              		.loc 1 173 3
+ 455 0368 7A0000EA 		b	.L19
+ 456              	.L25:
+ 176:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i--;
+ 177:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 178:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 179:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       if(pCurStorageDesc->Id==Id)
+ 457              		.loc 1 179 25
+ 458 036c 0C301BE5 		ldr	r3, [fp, #-12]
+ 459 0370 003093E5 		ldr	r3, [r3]
+ 460              		.loc 1 179 9
+ 461 0374 18201BE5 		ldr	r2, [fp, #-24]
+ 462 0378 030052E1 		cmp	r2, r3
+ 463 037c 7200001A 		bne	.L20
+ 180:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       {
+ 181:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 464              		.loc 1 181 9
+ 465 0380 0C301BE5 		ldr	r3, [fp, #-12]
+ 466 0384 082093E5 		ldr	r2, [r3, #8]
+ 467 0388 24301BE5 		ldr	r3, [fp, #-36]
+ 468 038c 0210A0E1 		mov	r1, r2
+ 469 0390 0300A0E1 		mov	r0, r3
+ 470 0394 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 471 0398 0130A0E1 		mov	r3, r1
+ 472 039c 000053E3 		cmp	r3, #0
+ 473 03a0 1300000A 		beq	.L21
+ 474              		.loc 1 181 9 is_stmt 0 discriminator 1
+ 475 03a4 1C329FE5 		ldr	r3, .L27+4
+ 476              	.LPIC23:
+ 477 03a8 03308FE0 		add	r3, pc, r3
+ 478 03ac 08308DE5 		str	r3, [sp, #8]
+ 479 03b0 14329FE5 		ldr	r3, .L27+8
+ 480              	.LPIC24:
+ 481 03b4 03308FE0 		add	r3, pc, r3
+ 482 03b8 04308DE5 		str	r3, [sp, #4]
+ 483 03bc FE3E0FE3 		movw	r3, #65278
+ 484 03c0 FF3F4FE3 		movt	r3, 65535
+ 485 03c4 00308DE5 		str	r3, [sp]
+ 486 03c8 B530A0E3 		mov	r3, #181
+ 487 03cc FC219FE5 		ldr	r2, .L27+12
+ 488              	.LPIC25:
+ 489 03d0 02208FE0 		add	r2, pc, r2
+ 490 03d4 F8119FE5 		ldr	r1, .L27+16
+ 491              	.LPIC26:
+ 492 03d8 01108FE0 		add	r1, pc, r1
+ 493 03dc 4500A0E3 		mov	r0, #69
+ 494 03e0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 495 03e4 FE3E0FE3 		movw	r3, #65278
+ 496 03e8 FF3F4FE3 		movt	r3, 65535
+ 497 03ec 10300BE5 		str	r3, [fp, #-16]
+ 498 03f0 6F0000EA 		b	.L22
+ 499              	.L21:
+ 182:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           EApiStorageAreaWriteEmul, 
+ARM GAS  /tmp/ccBpnqJk.s 			page 14
+
+
+ 183:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           (ByteCnt%pCurStorageDesc->WBlockLength)       , 
+ 184:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           EAPI_STATUS_INVALID_BLOCK_ALIGNMENT, 
+ 185:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           "Write length Not Aligned"        
+ 186:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           );
+ 187:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 500              		.loc 1 187 9 is_stmt 1
+ 501 03f4 0C301BE5 		ldr	r3, [fp, #-12]
+ 502 03f8 082093E5 		ldr	r2, [r3, #8]
+ 503 03fc 1C301BE5 		ldr	r3, [fp, #-28]
+ 504 0400 0210A0E1 		mov	r1, r2
+ 505 0404 0300A0E1 		mov	r0, r3
+ 506 0408 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 507 040c 0130A0E1 		mov	r3, r1
+ 508 0410 000053E3 		cmp	r3, #0
+ 509 0414 1300000A 		beq	.L23
+ 510              		.loc 1 187 9 is_stmt 0 discriminator 1
+ 511 0418 B8319FE5 		ldr	r3, .L27+20
+ 512              	.LPIC27:
+ 513 041c 03308FE0 		add	r3, pc, r3
+ 514 0420 08308DE5 		str	r3, [sp, #8]
+ 515 0424 B0319FE5 		ldr	r3, .L27+24
+ 516              	.LPIC28:
+ 517 0428 03308FE0 		add	r3, pc, r3
+ 518 042c 04308DE5 		str	r3, [sp, #4]
+ 519 0430 FE3E0FE3 		movw	r3, #65278
+ 520 0434 FF3F4FE3 		movt	r3, 65535
+ 521 0438 00308DE5 		str	r3, [sp]
+ 522 043c BB30A0E3 		mov	r3, #187
+ 523 0440 98219FE5 		ldr	r2, .L27+28
+ 524              	.LPIC29:
+ 525 0444 02208FE0 		add	r2, pc, r2
+ 526 0448 94119FE5 		ldr	r1, .L27+32
+ 527              	.LPIC30:
+ 528 044c 01108FE0 		add	r1, pc, r1
+ 529 0450 4500A0E3 		mov	r0, #69
+ 530 0454 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 531 0458 FE3E0FE3 		movw	r3, #65278
+ 532 045c FF3F4FE3 		movt	r3, 65535
+ 533 0460 10300BE5 		str	r3, [fp, #-16]
+ 534 0464 520000EA 		b	.L22
+ 535              	.L23:
+ 188:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           EApiStorageAreaWriteEmul, 
+ 189:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           (Offset%pCurStorageDesc->WBlockLength)        , 
+ 190:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           EAPI_STATUS_INVALID_BLOCK_ALIGNMENT, 
+ 191:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           "Write Base Address Not Aligned"        
+ 192:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           );
+ 193:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 536              		.loc 1 193 9 is_stmt 1
+ 537 0468 1C201BE5 		ldr	r2, [fp, #-28]
+ 538 046c 24301BE5 		ldr	r3, [fp, #-36]
+ 539 0470 032082E0 		add	r2, r2, r3
+ 540 0474 0C301BE5 		ldr	r3, [fp, #-12]
+ 541 0478 043093E5 		ldr	r3, [r3, #4]
+ 542 047c 030052E1 		cmp	r2, r3
+ 543 0480 1300009A 		bls	.L24
+ 544              		.loc 1 193 9 is_stmt 0 discriminator 1
+ 545 0484 5C319FE5 		ldr	r3, .L27+36
+ARM GAS  /tmp/ccBpnqJk.s 			page 15
+
+
+ 546              	.LPIC31:
+ 547 0488 03308FE0 		add	r3, pc, r3
+ 548 048c 08308DE5 		str	r3, [sp, #8]
+ 549 0490 54319FE5 		ldr	r3, .L27+40
+ 550              	.LPIC32:
+ 551 0494 03308FE0 		add	r3, pc, r3
+ 552 0498 04308DE5 		str	r3, [sp, #4]
+ 553 049c FD3E0FE3 		movw	r3, #65277
+ 554 04a0 FF3F4FE3 		movt	r3, 65535
+ 555 04a4 00308DE5 		str	r3, [sp]
+ 556 04a8 C130A0E3 		mov	r3, #193
+ 557 04ac 3C219FE5 		ldr	r2, .L27+44
+ 558              	.LPIC33:
+ 559 04b0 02208FE0 		add	r2, pc, r2
+ 560 04b4 38119FE5 		ldr	r1, .L27+48
+ 561              	.LPIC34:
+ 562 04b8 01108FE0 		add	r1, pc, r1
+ 563 04bc 4500A0E3 		mov	r0, #69
+ 564 04c0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 565 04c4 FD3E0FE3 		movw	r3, #65277
+ 566 04c8 FF3F4FE3 		movt	r3, 65535
+ 567 04cc 10300BE5 		str	r3, [fp, #-16]
+ 568 04d0 370000EA 		b	.L22
+ 569              	.L24:
+ 194:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****             EApiStorageAreaWriteEmul, 
+ 195:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****             (Offset+ByteCnt)>pCurStorageDesc->StorageSize , 
+ 196:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****             EAPI_STATUS_INVALID_BLOCK_LENGTH, 
+ 197:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****             "Write Len extends beyond End of Storage Area"
+ 198:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****             );
+ 199:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 200:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #if 0
+ 201:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         memcpy(pCurStorageDesc->pu8Buffer, pvBuffer+Offset, ByteCnt);
+ 202:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #else
+ 203:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         fseek(pCurStorageDesc->FStream, Offset, SEEK_SET);
+ 570              		.loc 1 203 9 is_stmt 1
+ 571 04d4 0C301BE5 		ldr	r3, [fp, #-12]
+ 572 04d8 143093E5 		ldr	r3, [r3, #20]
+ 573 04dc 1C101BE5 		ldr	r1, [fp, #-28]
+ 574 04e0 0020A0E3 		mov	r2, #0
+ 575 04e4 0300A0E1 		mov	r0, r3
+ 576 04e8 FEFFFFEB 		bl	fseek(PLT)
+ 204:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         fwrite(pvBuffer, sizeof(uint8_t), ByteCnt, pCurStorageDesc->FStream);
+ 577              		.loc 1 204 9
+ 578 04ec 0C301BE5 		ldr	r3, [fp, #-12]
+ 579 04f0 143093E5 		ldr	r3, [r3, #20]
+ 580 04f4 24201BE5 		ldr	r2, [fp, #-36]
+ 581 04f8 0110A0E3 		mov	r1, #1
+ 582 04fc 20001BE5 		ldr	r0, [fp, #-32]
+ 583 0500 FEFFFFEB 		bl	fwrite(PLT)
+ 205:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** #endif
+ 206:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         EAPI_LIB_RETURN_SUCCESS(EApiStorageAreaWriteEmul, "");
+ 584              		.loc 1 206 9
+ 585 0504 EC309FE5 		ldr	r3, .L27+52
+ 586              	.LPIC35:
+ 587 0508 03308FE0 		add	r3, pc, r3
+ 588 050c 08308DE5 		str	r3, [sp, #8]
+ 589 0510 E4309FE5 		ldr	r3, .L27+56
+ARM GAS  /tmp/ccBpnqJk.s 			page 16
+
+
+ 590              	.LPIC36:
+ 591 0514 03308FE0 		add	r3, pc, r3
+ 592 0518 04308DE5 		str	r3, [sp, #4]
+ 593 051c 0030A0E3 		mov	r3, #0
+ 594 0520 00308DE5 		str	r3, [sp]
+ 595 0524 CE30A0E3 		mov	r3, #206
+ 596 0528 D0209FE5 		ldr	r2, .L27+60
+ 597              	.LPIC37:
+ 598 052c 02208FE0 		add	r2, pc, r2
+ 599 0530 CC109FE5 		ldr	r1, .L27+64
+ 600              	.LPIC38:
+ 601 0534 01108FE0 		add	r1, pc, r1
+ 602 0538 4C00A0E3 		mov	r0, #76
+ 603 053c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 604 0540 0030A0E3 		mov	r3, #0
+ 605 0544 10300BE5 		str	r3, [fp, #-16]
+ 606 0548 190000EA 		b	.L22
+ 607              	.L20:
+ 177:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 608              		.loc 1 177 22
+ 609 054c 0C301BE5 		ldr	r3, [fp, #-12]
+ 610 0550 183083E2 		add	r3, r3, #24
+ 611 0554 0C300BE5 		str	r3, [fp, #-12]
+ 612              	.L19:
+ 176:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 613              		.loc 1 176 8
+ 614 0558 08301BE5 		ldr	r3, [fp, #-8]
+ 615 055c 012043E2 		sub	r2, r3, #1
+ 616 0560 08200BE5 		str	r2, [fp, #-8]
+ 176:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 617              		.loc 1 176 7
+ 618 0564 000053E3 		cmp	r3, #0
+ 619 0568 7FFFFF1A 		bne	.L25
+ 207:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       }
+ 208:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   }
+ 209:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   EAPI_LIB_RETURN_ERROR(
+ 620              		.loc 1 209 3
+ 621 056c 94309FE5 		ldr	r3, .L27+68
+ 622              	.LPIC39:
+ 623 0570 03308FE0 		add	r3, pc, r3
+ 624 0574 08308DE5 		str	r3, [sp, #8]
+ 625 0578 8C309FE5 		ldr	r3, .L27+72
+ 626              	.LPIC40:
+ 627 057c 03308FE0 		add	r3, pc, r3
+ 628 0580 04308DE5 		str	r3, [sp, #4]
+ 629 0584 033CE0E3 		mvn	r3, #768
+ 630 0588 00308DE5 		str	r3, [sp]
+ 631 058c D130A0E3 		mov	r3, #209
+ 632 0590 78209FE5 		ldr	r2, .L27+76
+ 633              	.LPIC41:
+ 634 0594 02208FE0 		add	r2, pc, r2
+ 635 0598 74109FE5 		ldr	r1, .L27+80
+ 636              	.LPIC42:
+ 637 059c 01108FE0 		add	r1, pc, r1
+ 638 05a0 4500A0E3 		mov	r0, #69
+ 639 05a4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 640 05a8 033CE0E3 		mvn	r3, #768
+ARM GAS  /tmp/ccBpnqJk.s 			page 17
+
+
+ 641 05ac 10300BE5 		str	r3, [fp, #-16]
+ 642 05b0 00F020E3 		nop
+ 643              	.L22:
+ 210:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       EApiStorageAreaWrite, 
+ 211:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       EAPI_STATUS_UNSUPPORTED  , 
+ 212:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       "Unrecognised Storage ID"
+ 213:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       );
+ 214:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EAPI_LIB_ASSERT_EXIT
+ 215:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 216:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   return StatusCode;
+ 644              		.loc 1 216 10
+ 645 05b4 10301BE5 		ldr	r3, [fp, #-16]
+ 217:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** }
+ 646              		.loc 1 217 1
+ 647 05b8 0300A0E1 		mov	r0, r3
+ 648 05bc 04D04BE2 		sub	sp, fp, #4
+ 649              		.cfi_def_cfa 13, 8
+ 650              		@ sp needed
+ 651 05c0 0088BDE8 		pop	{fp, pc}
+ 652              	.L28:
+ 653              		.align	2
+ 654              	.L27:
+ 655 05c4 5C020000 		.word	StorageAreaTbl-(.LPIC22+8)
+ 656 05c8 3C030000 		.word	.LC12-(.LPIC23+8)
+ 657 05cc 90020000 		.word	.LC5-(.LPIC24+8)
+ 658 05d0 00030000 		.word	.LC11-(.LPIC25+8)
+ 659 05d4 2C020000 		.word	.LC3-(.LPIC26+8)
+ 660 05d8 F4020000 		.word	.LC13-(.LPIC27+8)
+ 661 05dc 2C020000 		.word	.LC5-(.LPIC28+8)
+ 662 05e0 9C020000 		.word	.LC11-(.LPIC29+8)
+ 663 05e4 C8010000 		.word	.LC3-(.LPIC30+8)
+ 664 05e8 B8020000 		.word	.LC14-(.LPIC31+8)
+ 665 05ec D0010000 		.word	.LC5-(.LPIC32+8)
+ 666 05f0 40020000 		.word	.LC11-(.LPIC33+8)
+ 667 05f4 6C010000 		.word	.LC3-(.LPIC34+8)
+ 668 05f8 64010000 		.word	.LC4-(.LPIC35+8)
+ 669 05fc 60010000 		.word	.LC5-(.LPIC36+8)
+ 670 0600 D4010000 		.word	.LC11-(.LPIC37+8)
+ 671 0604 00010000 		.word	.LC3-(.LPIC38+8)
+ 672 0608 28010000 		.word	.LC7-(.LPIC39+8)
+ 673 060c 08010000 		.word	.LC5-(.LPIC40+8)
+ 674 0610 04020000 		.word	.LC15-(.LPIC41+8)
+ 675 0614 A8000000 		.word	.LC3-(.LPIC42+8)
+ 676              		.cfi_endproc
+ 677              	.LFE3:
+ 679              		.section	.rodata
+ 680 01a5 000000   		.align	2
+ 681              	.LC16:
+ 682 01a8 72622B00 		.ascii	"rb+\000"
+ 683              		.align	2
+ 684              	.LC17:
+ 685 01ac 77622B00 		.ascii	"wb+\000"
+ 686              		.text
+ 687              		.align	2
+ 688              		.global	OpenEepromFiles
+ 689              		.hidden	OpenEepromFiles
+ 690              		.syntax unified
+ARM GAS  /tmp/ccBpnqJk.s 			page 18
+
+
+ 691              		.arm
+ 692              		.fpu vfpv3
+ 694              	OpenEepromFiles:
+ 695              	.LFB4:
+ 218:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 219:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 220:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 221:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 222:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 223:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 224:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** 
+ 225:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStatus_t 
+ 226:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** OpenEepromFiles(void)
+ 227:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** {
+ 696              		.loc 1 227 1
+ 697              		.cfi_startproc
+ 698              		@ args = 0, pretend = 0, frame = 8
+ 699              		@ frame_needed = 1, uses_anonymous_args = 0
+ 700 0618 00482DE9 		push	{fp, lr}
+ 701              		.cfi_def_cfa_offset 8
+ 702              		.cfi_offset 11, -8
+ 703              		.cfi_offset 14, -4
+ 704 061c 04B08DE2 		add	fp, sp, #4
+ 705              		.cfi_def_cfa 11, 4
+ 706 0620 08D04DE2 		sub	sp, sp, #8
+ 228:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   StorageAreaMapping_t *pCurStorageDesc;
+ 229:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   unsigned i;
+ 230:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   for(
+ 231:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 707              		.loc 1 231 8
+ 708 0624 0230A0E3 		mov	r3, #2
+ 709 0628 08300BE5 		str	r3, [fp, #-8]
+ 232:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc=StorageAreaTbl;
+ 710              		.loc 1 232 22
+ 711 062c 14319FE5 		ldr	r3, .L35
+ 712              	.LPIC43:
+ 713 0630 03308FE0 		add	r3, pc, r3
+ 714 0634 0C300BE5 		str	r3, [fp, #-12]
+ 230:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 715              		.loc 1 230 3
+ 716 0638 390000EA 		b	.L30
+ 717              	.L33:
+ 233:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i--;
+ 234:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 235:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 236:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     pCurStorageDesc->FStream=fopen(pCurStorageDesc->cszFilename, "rb+");
+ 718              		.loc 1 236 51
+ 719 063c 0C301BE5 		ldr	r3, [fp, #-12]
+ 720 0640 103093E5 		ldr	r3, [r3, #16]
+ 721              		.loc 1 236 30
+ 722 0644 00219FE5 		ldr	r2, .L35+4
+ 723              	.LPIC44:
+ 724 0648 02208FE0 		add	r2, pc, r2
+ 725 064c 0210A0E1 		mov	r1, r2
+ 726 0650 0300A0E1 		mov	r0, r3
+ 727 0654 FEFFFFEB 		bl	fopen(PLT)
+ 728 0658 0020A0E1 		mov	r2, r0
+ARM GAS  /tmp/ccBpnqJk.s 			page 19
+
+
+ 729              		.loc 1 236 29
+ 730 065c 0C301BE5 		ldr	r3, [fp, #-12]
+ 731 0660 142083E5 		str	r2, [r3, #20]
+ 237:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     if(pCurStorageDesc->FStream==NULL){
+ 732              		.loc 1 237 23
+ 733 0664 0C301BE5 		ldr	r3, [fp, #-12]
+ 734 0668 143093E5 		ldr	r3, [r3, #20]
+ 735              		.loc 1 237 7
+ 736 066c 000053E3 		cmp	r3, #0
+ 737 0670 0900001A 		bne	.L31
+ 238:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc->FStream=fopen(pCurStorageDesc->cszFilename, "wb+");
+ 738              		.loc 1 238 53
+ 739 0674 0C301BE5 		ldr	r3, [fp, #-12]
+ 740 0678 103093E5 		ldr	r3, [r3, #16]
+ 741              		.loc 1 238 32
+ 742 067c CC209FE5 		ldr	r2, .L35+8
+ 743              	.LPIC45:
+ 744 0680 02208FE0 		add	r2, pc, r2
+ 745 0684 0210A0E1 		mov	r1, r2
+ 746 0688 0300A0E1 		mov	r0, r3
+ 747 068c FEFFFFEB 		bl	fopen(PLT)
+ 748 0690 0020A0E1 		mov	r2, r0
+ 749              		.loc 1 238 31
+ 750 0694 0C301BE5 		ldr	r3, [fp, #-12]
+ 751 0698 142083E5 		str	r2, [r3, #20]
+ 752              	.L31:
+ 239:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     }
+ 240:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     if(pCurStorageDesc->FStream!=NULL){
+ 753              		.loc 1 240 23
+ 754 069c 0C301BE5 		ldr	r3, [fp, #-12]
+ 755 06a0 143093E5 		ldr	r3, [r3, #20]
+ 756              		.loc 1 240 7
+ 757 06a4 000053E3 		cmp	r3, #0
+ 758 06a8 1A00000A 		beq	.L32
+ 241:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         fseek(pCurStorageDesc->FStream, 0, SEEK_END);
+ 759              		.loc 1 241 9
+ 760 06ac 0C301BE5 		ldr	r3, [fp, #-12]
+ 761 06b0 143093E5 		ldr	r3, [r3, #20]
+ 762 06b4 0220A0E3 		mov	r2, #2
+ 763 06b8 0010A0E3 		mov	r1, #0
+ 764 06bc 0300A0E1 		mov	r0, r3
+ 765 06c0 FEFFFFEB 		bl	fseek(PLT)
+ 242:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****         if(ftell(pCurStorageDesc->FStream)<(signed)pCurStorageDesc->StorageSize){
+ 766              		.loc 1 242 12
+ 767 06c4 0C301BE5 		ldr	r3, [fp, #-12]
+ 768 06c8 143093E5 		ldr	r3, [r3, #20]
+ 769 06cc 0300A0E1 		mov	r0, r3
+ 770 06d0 FEFFFFEB 		bl	ftell(PLT)
+ 771 06d4 0020A0E1 		mov	r2, r0
+ 772              		.loc 1 242 67
+ 773 06d8 0C301BE5 		ldr	r3, [fp, #-12]
+ 774 06dc 043093E5 		ldr	r3, [r3, #4]
+ 775              		.loc 1 242 11
+ 776 06e0 030052E1 		cmp	r2, r3
+ 777 06e4 0B0000AA 		bge	.L32
+ 243:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           rewind(pCurStorageDesc->FStream);
+ 778              		.loc 1 243 11
+ARM GAS  /tmp/ccBpnqJk.s 			page 20
+
+
+ 779 06e8 0C301BE5 		ldr	r3, [fp, #-12]
+ 780 06ec 143093E5 		ldr	r3, [r3, #20]
+ 781 06f0 0300A0E1 		mov	r0, r3
+ 782 06f4 FEFFFFEB 		bl	rewind(PLT)
+ 244:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****           fwrite(pCurStorageDesc->pu8Buffer, sizeof(uint8_t), pCurStorageDesc->StorageSize, pCurSto
+ 783              		.loc 1 244 33
+ 784 06f8 0C301BE5 		ldr	r3, [fp, #-12]
+ 785 06fc 0C0093E5 		ldr	r0, [r3, #12]
+ 786              		.loc 1 244 11
+ 787 0700 0C301BE5 		ldr	r3, [fp, #-12]
+ 788 0704 042093E5 		ldr	r2, [r3, #4]
+ 789 0708 0C301BE5 		ldr	r3, [fp, #-12]
+ 790 070c 143093E5 		ldr	r3, [r3, #20]
+ 791 0710 0110A0E3 		mov	r1, #1
+ 792 0714 FEFFFFEB 		bl	fwrite(PLT)
+ 793              	.L32:
+ 234:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 794              		.loc 1 234 22
+ 795 0718 0C301BE5 		ldr	r3, [fp, #-12]
+ 796 071c 183083E2 		add	r3, r3, #24
+ 797 0720 0C300BE5 		str	r3, [fp, #-12]
+ 798              	.L30:
+ 233:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 799              		.loc 1 233 8
+ 800 0724 08301BE5 		ldr	r3, [fp, #-8]
+ 801 0728 012043E2 		sub	r2, r3, #1
+ 802 072c 08200BE5 		str	r2, [fp, #-8]
+ 233:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 803              		.loc 1 233 7
+ 804 0730 000053E3 		cmp	r3, #0
+ 805 0734 C0FFFF1A 		bne	.L33
+ 245:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       }
+ 246:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     }
+ 247:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   }
+ 248:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   return EAPI_STATUS_SUCCESS;
+ 806              		.loc 1 248 10
+ 807 0738 0030A0E3 		mov	r3, #0
+ 249:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** }
+ 808              		.loc 1 249 1
+ 809 073c 0300A0E1 		mov	r0, r3
+ 810 0740 04D04BE2 		sub	sp, fp, #4
+ 811              		.cfi_def_cfa 13, 8
+ 812              		@ sp needed
+ 813 0744 0088BDE8 		pop	{fp, pc}
+ 814              	.L36:
+ 815              		.align	2
+ 816              	.L35:
+ 817 0748 10010000 		.word	StorageAreaTbl-(.LPIC43+8)
+ 818 074c A4020000 		.word	.LC16-(.LPIC44+8)
+ 819 0750 74020000 		.word	.LC17-(.LPIC45+8)
+ 820              		.cfi_endproc
+ 821              	.LFE4:
+ 823              		.align	2
+ 824              		.global	CloseEepromFiles
+ 825              		.hidden	CloseEepromFiles
+ 826              		.syntax unified
+ 827              		.arm
+ARM GAS  /tmp/ccBpnqJk.s 			page 21
+
+
+ 828              		.fpu vfpv3
+ 830              	CloseEepromFiles:
+ 831              	.LFB5:
+ 250:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** EApiStatus_t 
+ 251:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** CloseEepromFiles(void)
+ 252:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** {
+ 832              		.loc 1 252 1
+ 833              		.cfi_startproc
+ 834              		@ args = 0, pretend = 0, frame = 8
+ 835              		@ frame_needed = 1, uses_anonymous_args = 0
+ 836 0754 00482DE9 		push	{fp, lr}
+ 837              		.cfi_def_cfa_offset 8
+ 838              		.cfi_offset 11, -8
+ 839              		.cfi_offset 14, -4
+ 840 0758 04B08DE2 		add	fp, sp, #4
+ 841              		.cfi_def_cfa 11, 4
+ 842 075c 08D04DE2 		sub	sp, sp, #8
+ 253:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   StorageAreaMapping_t *pCurStorageDesc;
+ 254:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   unsigned i;
+ 255:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   for(
+ 256:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 843              		.loc 1 256 8
+ 844 0760 0230A0E3 		mov	r3, #2
+ 845 0764 08300BE5 		str	r3, [fp, #-8]
+ 257:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc=StorageAreaTbl;
+ 846              		.loc 1 257 22
+ 847 0768 64309FE5 		ldr	r3, .L42
+ 848              	.LPIC46:
+ 849 076c 03308FE0 		add	r3, pc, r3
+ 850 0770 0C300BE5 		str	r3, [fp, #-12]
+ 255:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i=ARRAY_SIZE(StorageAreaTbl),
+ 851              		.loc 1 255 3
+ 852 0774 0D0000EA 		b	.L38
+ 853              	.L40:
+ 258:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       i--;
+ 259:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 260:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ 261:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     if(pCurStorageDesc->FStream!=NULL){
+ 854              		.loc 1 261 23
+ 855 0778 0C301BE5 		ldr	r3, [fp, #-12]
+ 856 077c 143093E5 		ldr	r3, [r3, #20]
+ 857              		.loc 1 261 7
+ 858 0780 000053E3 		cmp	r3, #0
+ 859 0784 0600000A 		beq	.L39
+ 262:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       fclose(pCurStorageDesc->FStream);
+ 860              		.loc 1 262 7
+ 861 0788 0C301BE5 		ldr	r3, [fp, #-12]
+ 862 078c 143093E5 		ldr	r3, [r3, #20]
+ 863 0790 0300A0E1 		mov	r0, r3
+ 864 0794 FEFFFFEB 		bl	fclose(PLT)
+ 263:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc->FStream=NULL;
+ 865              		.loc 1 263 31
+ 866 0798 0C301BE5 		ldr	r3, [fp, #-12]
+ 867 079c 0020A0E3 		mov	r2, #0
+ 868 07a0 142083E5 		str	r2, [r3, #20]
+ 869              	.L39:
+ 259:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   {
+ARM GAS  /tmp/ccBpnqJk.s 			page 22
+
+
+ 870              		.loc 1 259 22
+ 871 07a4 0C301BE5 		ldr	r3, [fp, #-12]
+ 872 07a8 183083E2 		add	r3, r3, #24
+ 873 07ac 0C300BE5 		str	r3, [fp, #-12]
+ 874              	.L38:
+ 258:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 875              		.loc 1 258 8
+ 876 07b0 08301BE5 		ldr	r3, [fp, #-8]
+ 877 07b4 012043E2 		sub	r2, r3, #1
+ 878 07b8 08200BE5 		str	r2, [fp, #-8]
+ 258:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****       pCurStorageDesc++)
+ 879              		.loc 1 258 7
+ 880 07bc 000053E3 		cmp	r3, #0
+ 881 07c0 ECFFFF1A 		bne	.L40
+ 264:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****     }
+ 265:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   }
+ 266:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c ****   return EAPI_STATUS_SUCCESS;
+ 882              		.loc 1 266 10
+ 883 07c4 0030A0E3 		mov	r3, #0
+ 267:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulStorage.c **** }
+ 884              		.loc 1 267 1
+ 885 07c8 0300A0E1 		mov	r0, r3
+ 886 07cc 04D04BE2 		sub	sp, fp, #4
+ 887              		.cfi_def_cfa 13, 8
+ 888              		@ sp needed
+ 889 07d0 0088BDE8 		pop	{fp, pc}
+ 890              	.L43:
+ 891              		.align	2
+ 892              	.L42:
+ 893 07d4 60000000 		.word	StorageAreaTbl-(.LPIC46+8)
+ 894              		.cfi_endproc
+ 895              	.LFE5:
+ 897              	.Letext0:
+ 898              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 899              		.file 3 "../../include/EApi.h"
+ 900              		.file 4 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 901              		.file 5 "../include/DbgChk.h"
+ARM GAS  /tmp/ccBpnqJk.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulStorage.c
+     /tmp/ccBpnqJk.s:17     .bss:0000000000000000 StorageID0
+                             .bss:0000000000000000 $d
+     /tmp/ccBpnqJk.s:19     .bss:0000000000000020 StorageID1
+     /tmp/ccBpnqJk.s:33     .data.rel.local:0000000000000000 StorageAreaTbl
+     /tmp/ccBpnqJk.s:23     .rodata:0000000000000000 $d
+     /tmp/ccBpnqJk.s:30     .data.rel.local:0000000000000000 $d
+     /tmp/ccBpnqJk.s:67     .text:0000000000000000 $a
+     /tmp/ccBpnqJk.s:77     .text:0000000000000000 EApiStorageCapEmul
+     /tmp/ccBpnqJk.s:198    .text:000000000000012c $d
+     /tmp/ccBpnqJk.s:221    .text:0000000000000150 $a
+     /tmp/ccBpnqJk.s:228    .text:0000000000000150 EApiStorageAreaReadEmul
+     /tmp/ccBpnqJk.s:385    .text:00000000000002fc $d
+     /tmp/ccBpnqJk.s:419    .text:0000000000000330 $a
+     /tmp/ccBpnqJk.s:426    .text:0000000000000330 EApiStorageAreaWriteEmul
+     /tmp/ccBpnqJk.s:655    .text:00000000000005c4 $d
+     /tmp/ccBpnqJk.s:687    .text:0000000000000618 $a
+     /tmp/ccBpnqJk.s:694    .text:0000000000000618 OpenEepromFiles
+     /tmp/ccBpnqJk.s:817    .text:0000000000000748 $d
+     /tmp/ccBpnqJk.s:823    .text:0000000000000754 $a
+     /tmp/ccBpnqJk.s:830    .text:0000000000000754 CloseEepromFiles
+     /tmp/ccBpnqJk.s:893    .text:00000000000007d4 $d
+
+UNDEFINED SYMBOLS
+siFormattedMessage_SC
+fseek
+fread
+__aeabi_uidivmod
+fwrite
+fopen
+ftell
+rewind
+fclose

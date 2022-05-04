@@ -1,0 +1,267 @@
+GAS LISTING /tmp/ccllqlC3.s 			page 1
+
+
+   1              		.file	"EApiOsNIX.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.rodata
+   5              	.LC0:
+   6 0000 696E6974 		.string	"initializing"
+   6      69616C69 
+   6      7A696E67 
+   6      00
+   7              		.text
+   9              	init:
+  10              	.LFB6:
+  11              		.file 1 "EApiOsNIX.c"
+   1:EApiOsNIX.c   **** /*
+   2:EApiOsNIX.c   ****  *<KHeader>
+   3:EApiOsNIX.c   ****  *+=========================================================================
+   4:EApiOsNIX.c   ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:EApiOsNIX.c   ****  *+=========================================================================
+   6:EApiOsNIX.c   ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/linux/EApiOsNIX.c $
+   7:EApiOsNIX.c   ****  *+=========================================================================
+   8:EApiOsNIX.c   ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:EApiOsNIX.c   ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:EApiOsNIX.c   ****  *I
+  11:EApiOsNIX.c   ****  *I     License: All rights reserved. This program and the accompanying 
+  12:EApiOsNIX.c   ****  *I              materials are licensed and made available under the 
+  13:EApiOsNIX.c   ****  *I              terms and conditions of the BSD License which 
+  14:EApiOsNIX.c   ****  *I              accompanies this distribution. The full text of the 
+  15:EApiOsNIX.c   ****  *I              license may be found at 
+  16:EApiOsNIX.c   ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:EApiOsNIX.c   ****  *I              
+  18:EApiOsNIX.c   ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:EApiOsNIX.c   ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:EApiOsNIX.c   ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:EApiOsNIX.c   ****  *I
+  22:EApiOsNIX.c   ****  *I Description: Auto Created for EApiOsNIX.c
+  23:EApiOsNIX.c   ****  *I
+  24:EApiOsNIX.c   ****  *+-------------------------------------------------------------------------
+  25:EApiOsNIX.c   ****  *I
+  26:EApiOsNIX.c   ****  *I  File Name            : EApiOsNIX.c
+  27:EApiOsNIX.c   ****  *I  File Location        : lib\linux
+  28:EApiOsNIX.c   ****  *I  Last committed       : $Revision: 38 $
+  29:EApiOsNIX.c   ****  *I  Last changed by      : $Author: dethrophes $
+  30:EApiOsNIX.c   ****  *I  Last changed date    : $Date: 2010-01-26 06:48:22 +0000 (Tue, 26 Jan 2010) $
+  31:EApiOsNIX.c   ****  *I  ID                   : $Id: EApiOsNIX.c 38 2010-01-26 06:48:22Z dethrophes $
+  32:EApiOsNIX.c   ****  *I
+  33:EApiOsNIX.c   ****  *+=========================================================================
+  34:EApiOsNIX.c   ****  *</KHeader>
+  35:EApiOsNIX.c   ****  */
+  36:EApiOsNIX.c   ****   #include <EApiLib.h>
+  37:EApiOsNIX.c   ****   #include <stdio.h>
+  38:EApiOsNIX.c   ****   #include <time.h>
+  39:EApiOsNIX.c   ****   
+  40:EApiOsNIX.c   **** 
+  41:EApiOsNIX.c   **** 
+  42:EApiOsNIX.c   **** static void init (void) __attribute__ ((constructor));
+  43:EApiOsNIX.c   **** static void fini (void) __attribute__ ((destructor));
+  44:EApiOsNIX.c   **** void init (void)
+GAS LISTING /tmp/ccllqlC3.s 			page 2
+
+
+  45:EApiOsNIX.c   **** { 
+  12              		.loc 1 45 1
+  13              		.cfi_startproc
+  14 0000 F30F1EFA 		endbr64
+  15 0004 55       		pushq	%rbp
+  16              		.cfi_def_cfa_offset 16
+  17              		.cfi_offset 6, -16
+  18 0005 4889E5   		movq	%rsp, %rbp
+  19              		.cfi_def_cfa_register 6
+  46:EApiOsNIX.c   ****   printf("initializing\n");
+  20              		.loc 1 46 3
+  21 0008 488D3D00 		leaq	.LC0(%rip), %rdi
+  21      000000
+  22 000f E8000000 		call	puts@PLT
+  22      00
+  47:EApiOsNIX.c   **** 	return ;
+  23              		.loc 1 47 2
+  24 0014 90       		nop
+  48:EApiOsNIX.c   **** }
+  25              		.loc 1 48 1
+  26 0015 5D       		popq	%rbp
+  27              		.cfi_def_cfa 7, 8
+  28 0016 C3       		ret
+  29              		.cfi_endproc
+  30              	.LFE6:
+  32              		.section	.init_array,"aw"
+  33              		.align 8
+  34 0000 00000000 		.quad	init
+  34      00000000 
+  35              		.section	.rodata
+  36              	.LC1:
+  37 000d 66696E69 		.string	"finishing"
+  37      7368696E 
+  37      6700
+  38              		.text
+  40              	fini:
+  41              	.LFB7:
+  49:EApiOsNIX.c   **** 
+  50:EApiOsNIX.c   **** void fini (void)
+  51:EApiOsNIX.c   **** { 
+  42              		.loc 1 51 1
+  43              		.cfi_startproc
+  44 0017 F30F1EFA 		endbr64
+  45 001b 55       		pushq	%rbp
+  46              		.cfi_def_cfa_offset 16
+  47              		.cfi_offset 6, -16
+  48 001c 4889E5   		movq	%rsp, %rbp
+  49              		.cfi_def_cfa_register 6
+  52:EApiOsNIX.c   ****   printf("finishing\n");
+  50              		.loc 1 52 3
+  51 001f 488D3D00 		leaq	.LC1(%rip), %rdi
+  51      000000
+  52 0026 E8000000 		call	puts@PLT
+  52      00
+  53:EApiOsNIX.c   **** 	return ;
+  53              		.loc 1 53 2
+  54 002b 90       		nop
+GAS LISTING /tmp/ccllqlC3.s 			page 3
+
+
+  54:EApiOsNIX.c   **** }
+  55              		.loc 1 54 1
+  56 002c 5D       		popq	%rbp
+  57              		.cfi_def_cfa 7, 8
+  58 002d C3       		ret
+  59              		.cfi_endproc
+  60              	.LFE7:
+  62              		.section	.fini_array,"aw"
+  63              		.align 8
+  64 0000 00000000 		.quad	fini
+  64      00000000 
+  65              		.text
+  66              		.globl	EApiSleepns
+  67              		.hidden	EApiSleepns
+  69              	EApiSleepns:
+  70              	.LFB8:
+  55:EApiOsNIX.c   **** 
+  56:EApiOsNIX.c   **** 
+  57:EApiOsNIX.c   **** void EApiSleepns(unsigned long ns)  
+  58:EApiOsNIX.c   **** { 
+  71              		.loc 1 58 1
+  72              		.cfi_startproc
+  73 002e F30F1EFA 		endbr64
+  74 0032 55       		pushq	%rbp
+  75              		.cfi_def_cfa_offset 16
+  76              		.cfi_offset 6, -16
+  77 0033 4889E5   		movq	%rsp, %rbp
+  78              		.cfi_def_cfa_register 6
+  79 0036 4883EC40 		subq	$64, %rsp
+  80 003a 48897DC8 		movq	%rdi, -56(%rbp)
+  81              		.loc 1 58 1
+  82 003e 64488B04 		movq	%fs:40, %rax
+  82      25280000 
+  82      00
+  83 0047 488945F8 		movq	%rax, -8(%rbp)
+  84 004b 31C0     		xorl	%eax, %eax
+  59:EApiOsNIX.c   **** #if _POSIX_C_SOURCE >= 199309L
+  60:EApiOsNIX.c   ****   struct timespec Request;
+  61:EApiOsNIX.c   ****   struct timespec Remain;
+  62:EApiOsNIX.c   ****   Request.tv_sec=ns/1000000000;
+  85              		.loc 1 62 20
+  86 004d 488B45C8 		movq	-56(%rbp), %rax
+  87 0051 48C1E809 		shrq	$9, %rax
+  88 0055 48BA535A 		movabsq	$19342813113834067, %rdx
+  88      9BA02FB8 
+  88      4400
+  89 005f 48F7E2   		mulq	%rdx
+  90 0062 4889D0   		movq	%rdx, %rax
+  91 0065 48C1E80B 		shrq	$11, %rax
+  92              		.loc 1 62 17
+  93 0069 488945D0 		movq	%rax, -48(%rbp)
+  63:EApiOsNIX.c   ****   Request.tv_nsec=ns%1000000000;
+  94              		.loc 1 63 21
+  95 006d 488B4DC8 		movq	-56(%rbp), %rcx
+  96 0071 4889C8   		movq	%rcx, %rax
+  97 0074 48C1E809 		shrq	$9, %rax
+  98 0078 48BA535A 		movabsq	$19342813113834067, %rdx
+GAS LISTING /tmp/ccllqlC3.s 			page 4
+
+
+  98      9BA02FB8 
+  98      4400
+  99 0082 48F7E2   		mulq	%rdx
+ 100 0085 4889D0   		movq	%rdx, %rax
+ 101 0088 48C1E80B 		shrq	$11, %rax
+ 102 008c 4869C000 		imulq	$1000000000, %rax, %rax
+ 102      CA9A3B
+ 103 0093 4829C1   		subq	%rax, %rcx
+ 104 0096 4889C8   		movq	%rcx, %rax
+ 105              		.loc 1 63 18
+ 106 0099 488945D8 		movq	%rax, -40(%rbp)
+  64:EApiOsNIX.c   ****   nanosleep(&Request, &Remain);
+ 107              		.loc 1 64 3
+ 108 009d 488D55E0 		leaq	-32(%rbp), %rdx
+ 109 00a1 488D45D0 		leaq	-48(%rbp), %rax
+ 110 00a5 4889D6   		movq	%rdx, %rsi
+ 111 00a8 4889C7   		movq	%rax, %rdi
+ 112 00ab E8000000 		call	nanosleep@PLT
+ 112      00
+  65:EApiOsNIX.c   **** #else
+  66:EApiOsNIX.c   ****   usleep(ns/1000000);
+  67:EApiOsNIX.c   **** #endif
+  68:EApiOsNIX.c   ****   return ;
+ 113              		.loc 1 68 3
+ 114 00b0 90       		nop
+  69:EApiOsNIX.c   **** }
+ 115              		.loc 1 69 1
+ 116 00b1 488B45F8 		movq	-8(%rbp), %rax
+ 117 00b5 64483304 		xorq	%fs:40, %rax
+ 117      25280000 
+ 117      00
+ 118 00be 7405     		je	.L7
+ 119 00c0 E8000000 		call	__stack_chk_fail@PLT
+ 119      00
+ 120              	.L7:
+ 121 00c5 C9       		leave
+ 122              		.cfi_def_cfa 7, 8
+ 123 00c6 C3       		ret
+ 124              		.cfi_endproc
+ 125              	.LFE8:
+ 127              	.Letext0:
+ 128              		.file 2 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h"
+ 129              		.file 3 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 130              		.file 4 "/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h"
+ 131              		.file 5 "/usr/include/unistd.h"
+ 132              		.file 6 "/usr/include/x86_64-linux-gnu/bits/getopt_core.h"
+ 133              		.file 7 "/usr/include/time.h"
+ 134              		.file 8 "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h"
+ 135              		.file 9 "/usr/include/x86_64-linux-gnu/bits/types/FILE.h"
+ 136              		.file 10 "/usr/include/stdio.h"
+ 137              		.file 11 "/usr/include/x86_64-linux-gnu/bits/sys_errlist.h"
+ 1144              		.section	.note.gnu.property,"a"
+ 1145              		.align 8
+ 1146 0000 04000000 		.long	 1f - 0f
+ 1147 0004 10000000 		.long	 4f - 1f
+ 1148 0008 05000000 		.long	 5
+ 1149              	0:
+GAS LISTING /tmp/ccllqlC3.s 			page 5
+
+
+ 1150 000c 474E5500 		.string	 "GNU"
+ 1151              	1:
+ 1152              		.align 8
+ 1153 0010 020000C0 		.long	 0xc0000002
+ 1154 0014 04000000 		.long	 3f - 2f
+ 1155              	2:
+ 1156 0018 03000000 		.long	 0x3
+ 1157              	3:
+ 1158 001c 00000000 		.align 8
+ 1159              	4:
+GAS LISTING /tmp/ccllqlC3.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiOsNIX.c
+     /tmp/ccllqlC3.s:9      .text:0000000000000000 init
+     /tmp/ccllqlC3.s:40     .text:0000000000000017 fini
+     /tmp/ccllqlC3.s:69     .text:000000000000002e EApiSleepns
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+puts
+nanosleep
+__stack_chk_fail

@@ -1,0 +1,3748 @@
+ARM GAS  /tmp/ccpNxoej.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiEmulGPIO.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.data
+  17              		.align	2
+  20              	EmulatedIoBlock:
+  21 0000 00A08200 		.word	8560640
+  22 0004 00008200 		.word	8519680
+  23 0008 00A08200 		.word	8560640
+  24 000c 00008200 		.word	8519680
+  25              		.text
+  26              		.align	2
+  27              		.global	EApiReadIO32
+  28              		.hidden	EApiReadIO32
+  29              		.arch armv7-a
+  30              		.arch_extension mp
+  31              		.arch_extension sec
+  32              		.syntax unified
+  33              		.arm
+  34              		.fpu vfpv3
+  36              	EApiReadIO32:
+  37              	.LFB1:
+  38              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/EApiEmulGPIO.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I Description: Auto Created for EApiEmulGPIO.c
+ARM GAS  /tmp/ccpNxoej.s 			page 2
+
+
+  23:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  File Name            : EApiEmulGPIO.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  File Location        : lib
+  28:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I  ID                   : $Id: EApiEmulGPIO.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  37:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #include <EApiLib.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  39:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  40:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define USE_DIRECTION_EMUL 1
+  42:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define END_OF_LIST_MARK ((uint32_t)-1)
+  43:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** /*
+  44:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+  45:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *  
+  46:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+  47:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *      PSEUDO Hardware Emulation
+  48:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+  49:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+  50:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+  51:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  */
+  52:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** /* GPIO Port Bits
+  53:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  * To emulate a loop back connector set the GPIO's to the same bits
+  54:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  * I.E.
+  55:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  * GPI0_PORT_BIT 23
+  56:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  * GPI1_PORT_BIT 23
+  57:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  * GPO0_PORT_BIT 23
+  58:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  * means GPO0 drives both GPI0 and GPI1
+  59:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  */
+  60:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPI0_PORT_BIT 23
+  61:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPI1_PORT_BIT 15
+  62:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPI2_PORT_BIT 13
+  63:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPI3_PORT_BIT 17
+  64:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPO0_PORT_BIT 4
+  65:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPO1_PORT_BIT 6
+  66:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPO2_PORT_BIT 31
+  67:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPO3_PORT_BIT 0
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** typedef uint32_t ReadPortFunction (uint32_t);
+  69:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** typedef void     WritePortFunction (uint32_t, uint32_t);
+  70:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  71:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** /* Psuedo IO Ports & Defaults */
+  72:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPIO_LEVEL_DFLT ((EAPI_GPIO_HIGH<<GPI0_PORT_BIT)| (EAPI_GPIO_LOW <<GPI1_PORT_BIT)|\
+  73:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                          (EAPI_GPIO_LOW <<GPI2_PORT_BIT)| (EAPI_GPIO_HIGH<<GPI3_PORT_BIT)|\
+  74:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                          (EAPI_GPIO_LOW <<GPO0_PORT_BIT)| (EAPI_GPIO_LOW <<GPO1_PORT_BIT)|\
+  75:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                          (EAPI_GPIO_LOW <<GPO2_PORT_BIT)| (EAPI_GPIO_LOW <<GPO3_PORT_BIT) \
+  76:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     )
+  77:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GPIO_DIR_DFLT   ((EAPI_GPIO_INPUT <<GPI0_PORT_BIT)| (EAPI_GPIO_INPUT <<GPI1_PORT_BIT)|\
+  78:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                          (EAPI_GPIO_INPUT <<GPI2_PORT_BIT)| (EAPI_GPIO_INPUT <<GPI3_PORT_BIT)|\
+  79:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                          (EAPI_GPIO_OUTPUT<<GPO0_PORT_BIT)| (EAPI_GPIO_OUTPUT<<GPO1_PORT_BIT)|\
+ARM GAS  /tmp/ccpNxoej.s 			page 3
+
+
+  80:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                          (EAPI_GPIO_OUTPUT<<GPO2_PORT_BIT)| (EAPI_GPIO_OUTPUT<<GPO3_PORT_BIT) \
+  81:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     )
+  82:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GET_U8(BitOffset,Value)  ((uint8_t )(((Value)>>(BitOffset))&0xFF))
+  83:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GET_U16(BitOffset,Value) ((uint16_t)(((Value)>>(BitOffset))&0xFFFF))
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define GET_U32(BitOffset,Value) ((uint32_t )(((Value)>>(BitOffset))&0xFFFFFFFF))
+  85:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define BIT(x) ((uint32_t)(1<<(x)))
+  86:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  87:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** static uint32_t EmulatedIoBlock[]={
+  88:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define EAPI_EMUL_GPIO_DIRECTION_REG 0
+  89:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   GPIO_DIR_DFLT,
+  90:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define EAPI_EMUL_GPIO_LEVEL_REG     4
+  91:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   GPIO_LEVEL_DFLT,
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define EAPI_EMUL_GPIO_DIRECTION_REG2 8
+  93:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   GPIO_DIR_DFLT ,
+  94:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #define EAPI_EMUL_GPIO_LEVEL_REG2     12
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   GPIO_LEVEL_DFLT,
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+  97:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** WritePortFunction EApiWriteIO32Delay;
+  99:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** ReadPortFunction  EApiReadIO32Delay;
+ 100:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 101:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** uint32_t EApiReadIO32(uint32_t ByteOffset)
+ 102:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+  39              		.loc 1 102 1
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 8
+  42              		@ frame_needed = 1, uses_anonymous_args = 0
+  43              		@ link register save eliminated.
+  44 0000 04B02DE5 		str	fp, [sp, #-4]!
+  45              		.cfi_def_cfa_offset 4
+  46              		.cfi_offset 11, -4
+  47 0004 00B08DE2 		add	fp, sp, #0
+  48              		.cfi_def_cfa_register 11
+  49 0008 0CD04DE2 		sub	sp, sp, #12
+  50 000c 08000BE5 		str	r0, [fp, #-8]
+ 103:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   if(sizeof(EmulatedIoBlock)<ByteOffset+4)
+  51              		.loc 1 103 40
+  52 0010 08301BE5 		ldr	r3, [fp, #-8]
+  53 0014 043083E2 		add	r3, r3, #4
+  54              		.loc 1 103 5
+  55 0018 100053E3 		cmp	r3, #16
+  56 001c 0100009A 		bls	.L2
+ 104:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 105:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       return 0;
+  57              		.loc 1 105 14
+  58 0020 0030A0E3 		mov	r3, #0
+  59 0024 040000EA 		b	.L3
+  60              	.L2:
+ 106:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 107:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return *(uint32_t *)&((uint8_t*)EmulatedIoBlock)[ByteOffset];
+  61              		.loc 1 107 11
+  62 0028 08301BE5 		ldr	r3, [fp, #-8]
+  63 002c 18209FE5 		ldr	r2, .L4
+  64              	.LPIC0:
+  65 0030 02208FE0 		add	r2, pc, r2
+  66 0034 023083E0 		add	r3, r3, r2
+  67              		.loc 1 107 10
+ARM GAS  /tmp/ccpNxoej.s 			page 4
+
+
+  68 0038 003093E5 		ldr	r3, [r3]
+  69              	.L3:
+ 108:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+  70              		.loc 1 108 1
+  71 003c 0300A0E1 		mov	r0, r3
+  72 0040 00D08BE2 		add	sp, fp, #0
+  73              		.cfi_def_cfa_register 13
+  74              		@ sp needed
+  75 0044 04B09DE4 		ldr	fp, [sp], #4
+  76              		.cfi_restore 11
+  77              		.cfi_def_cfa_offset 0
+  78 0048 1EFF2FE1 		bx	lr
+  79              	.L5:
+  80              		.align	2
+  81              	.L4:
+  82 004c 14000000 		.word	EmulatedIoBlock-(.LPIC0+8)
+  83              		.cfi_endproc
+  84              	.LFE1:
+  86              		.align	2
+  87              		.global	EApiWriteIO32
+  88              		.hidden	EApiWriteIO32
+  89              		.syntax unified
+  90              		.arm
+  91              		.fpu vfpv3
+  93              	EApiWriteIO32:
+  94              	.LFB2:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 110:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** void EApiWriteIO32(uint32_t ByteOffset, uint32_t Data)
+ 111:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+  95              		.loc 1 111 1
+  96              		.cfi_startproc
+  97              		@ args = 0, pretend = 0, frame = 8
+  98              		@ frame_needed = 1, uses_anonymous_args = 0
+  99              		@ link register save eliminated.
+ 100 0050 04B02DE5 		str	fp, [sp, #-4]!
+ 101              		.cfi_def_cfa_offset 4
+ 102              		.cfi_offset 11, -4
+ 103 0054 00B08DE2 		add	fp, sp, #0
+ 104              		.cfi_def_cfa_register 11
+ 105 0058 0CD04DE2 		sub	sp, sp, #12
+ 106 005c 08000BE5 		str	r0, [fp, #-8]
+ 107 0060 0C100BE5 		str	r1, [fp, #-12]
+ 112:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   if(sizeof(EmulatedIoBlock)<ByteOffset+4)
+ 108              		.loc 1 112 40
+ 109 0064 08301BE5 		ldr	r3, [fp, #-8]
+ 110 0068 043083E2 		add	r3, r3, #4
+ 111              		.loc 1 112 5
+ 112 006c 100053E3 		cmp	r3, #16
+ 113 0070 0600008A 		bhi	.L9
+ 113:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 114:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       return ;
+ 115:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 116:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   *(uint32_t *)&((uint8_t*)&EmulatedIoBlock)[ByteOffset]=Data;
+ 114              		.loc 1 116 4
+ 115 0074 08301BE5 		ldr	r3, [fp, #-8]
+ 116 0078 20209FE5 		ldr	r2, .L10
+ 117              	.LPIC1:
+ARM GAS  /tmp/ccpNxoej.s 			page 5
+
+
+ 118 007c 02208FE0 		add	r2, pc, r2
+ 119 0080 023083E0 		add	r3, r3, r2
+ 120              		.loc 1 116 57
+ 121 0084 0C201BE5 		ldr	r2, [fp, #-12]
+ 122 0088 002083E5 		str	r2, [r3]
+ 117:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return ;
+ 123              		.loc 1 117 3
+ 124 008c 000000EA 		b	.L6
+ 125              	.L9:
+ 114:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 126              		.loc 1 114 7
+ 127 0090 00F020E3 		nop
+ 128              	.L6:
+ 118:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 129              		.loc 1 118 1
+ 130 0094 00D08BE2 		add	sp, fp, #0
+ 131              		.cfi_def_cfa_register 13
+ 132              		@ sp needed
+ 133 0098 04B09DE4 		ldr	fp, [sp], #4
+ 134              		.cfi_restore 11
+ 135              		.cfi_def_cfa_offset 0
+ 136 009c 1EFF2FE1 		bx	lr
+ 137              	.L11:
+ 138              		.align	2
+ 139              	.L10:
+ 140 00a0 1C000000 		.word	EmulatedIoBlock-(.LPIC1+8)
+ 141              		.cfi_endproc
+ 142              	.LFE2:
+ 144              		.align	2
+ 145              		.global	EApiWriteIO32Delay
+ 146              		.hidden	EApiWriteIO32Delay
+ 147              		.syntax unified
+ 148              		.arm
+ 149              		.fpu vfpv3
+ 151              	EApiWriteIO32Delay:
+ 152              	.LFB3:
+ 119:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** void EApiWriteIO32Delay(uint32_t ByteOffset, uint32_t Data)
+ 120:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 153              		.loc 1 120 1
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 8
+ 156              		@ frame_needed = 1, uses_anonymous_args = 0
+ 157 00a4 00482DE9 		push	{fp, lr}
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 11, -8
+ 160              		.cfi_offset 14, -4
+ 161 00a8 04B08DE2 		add	fp, sp, #4
+ 162              		.cfi_def_cfa 11, 4
+ 163 00ac 08D04DE2 		sub	sp, sp, #8
+ 164 00b0 08000BE5 		str	r0, [fp, #-8]
+ 165 00b4 0C100BE5 		str	r1, [fp, #-12]
+ 121:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_EMUL_DELAY_NS(1400);
+ 166              		.loc 1 121 3
+ 167 00b8 780500E3 		movw	r0, #1400
+ 168 00bc FEFFFFEB 		bl	EApiSleepns(PLT)
+ 122:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EApiWriteIO32(ByteOffset, Data);
+ 169              		.loc 1 122 3
+ARM GAS  /tmp/ccpNxoej.s 			page 6
+
+
+ 170 00c0 0C101BE5 		ldr	r1, [fp, #-12]
+ 171 00c4 08001BE5 		ldr	r0, [fp, #-8]
+ 172 00c8 FEFFFFEB 		bl	EApiWriteIO32(PLT)
+ 123:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return ;
+ 173              		.loc 1 123 3
+ 174 00cc 00F020E3 		nop
+ 124:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 175              		.loc 1 124 1
+ 176 00d0 04D04BE2 		sub	sp, fp, #4
+ 177              		.cfi_def_cfa 13, 8
+ 178              		@ sp needed
+ 179 00d4 0088BDE8 		pop	{fp, pc}
+ 180              		.cfi_endproc
+ 181              	.LFE3:
+ 183              		.align	2
+ 184              		.global	EApiReadIO32Delay
+ 185              		.hidden	EApiReadIO32Delay
+ 186              		.syntax unified
+ 187              		.arm
+ 188              		.fpu vfpv3
+ 190              	EApiReadIO32Delay:
+ 191              	.LFB4:
+ 125:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** uint32_t EApiReadIO32Delay(uint32_t ByteOffset)
+ 126:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 192              		.loc 1 126 1
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 8
+ 195              		@ frame_needed = 1, uses_anonymous_args = 0
+ 196 00d8 00482DE9 		push	{fp, lr}
+ 197              		.cfi_def_cfa_offset 8
+ 198              		.cfi_offset 11, -8
+ 199              		.cfi_offset 14, -4
+ 200 00dc 04B08DE2 		add	fp, sp, #4
+ 201              		.cfi_def_cfa 11, 4
+ 202 00e0 08D04DE2 		sub	sp, sp, #8
+ 203 00e4 08000BE5 		str	r0, [fp, #-8]
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_EMUL_DELAY_NS(1400);
+ 204              		.loc 1 127 3
+ 205 00e8 780500E3 		movw	r0, #1400
+ 206 00ec FEFFFFEB 		bl	EApiSleepns(PLT)
+ 128:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return EApiReadIO32(ByteOffset);
+ 207              		.loc 1 128 10
+ 208 00f0 08001BE5 		ldr	r0, [fp, #-8]
+ 209 00f4 FEFFFFEB 		bl	EApiReadIO32(PLT)
+ 210 00f8 0030A0E1 		mov	r3, r0
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 211              		.loc 1 129 1
+ 212 00fc 0300A0E1 		mov	r0, r3
+ 213 0100 04D04BE2 		sub	sp, fp, #4
+ 214              		.cfi_def_cfa 13, 8
+ 215              		@ sp needed
+ 216 0104 0088BDE8 		pop	{fp, pc}
+ 217              		.cfi_endproc
+ 218              	.LFE4:
+ 220              		.hidden	Port1Desc
+ 221              		.global	Port1Desc
+ 222              		.section	.data.rel.local,"aw"
+ARM GAS  /tmp/ccpNxoej.s 			page 7
+
+
+ 223              		.align	2
+ 226              	Port1Desc:
+ 227 0000 00000000 		.word	0
+ 228 0004 00000000 		.word	0
+ 229 0008 00000000 		.word	0
+ 230 000c 04000000 		.word	4
+ 231 0010 00000000 		.word	0
+ 232 0014 00000000 		.word	EApiWriteIO32Delay
+ 233 0018 00000000 		.word	EApiReadIO32Delay
+ 234              		.hidden	Port2Desc
+ 235              		.global	Port2Desc
+ 236              		.align	2
+ 239              	Port2Desc:
+ 240 001c 00000000 		.word	0
+ 241 0020 00000000 		.word	0
+ 242 0024 00000000 		.word	0
+ 243 0028 0C000000 		.word	12
+ 244 002c 08000000 		.word	8
+ 245 0030 00000000 		.word	EApiWriteIO32Delay
+ 246 0034 00000000 		.word	EApiReadIO32Delay
+ 247              		.hidden	GpioMappingID0
+ 248              		.global	GpioMappingID0
+ 249              		.section	.data.rel.ro.local,"aw"
+ 250              		.align	2
+ 253              	GpioMappingID0:
+ 254 0000 00008000 		.word	8388608
+ 255 0004 00000000 		.word	Port1Desc
+ 256 0008 00800000 		.word	32768
+ 257 000c 00000000 		.word	Port1Desc
+ 258 0010 00200000 		.word	8192
+ 259 0014 00000000 		.word	Port1Desc
+ 260 0018 00000200 		.word	131072
+ 261 001c 00000000 		.word	Port1Desc
+ 262 0020 10000000 		.word	16
+ 263 0024 00000000 		.word	Port1Desc
+ 264 0028 40000000 		.word	64
+ 265 002c 00000000 		.word	Port1Desc
+ 266 0030 00000080 		.word	-2147483648
+ 267 0034 00000000 		.word	Port1Desc
+ 268 0038 01000000 		.word	1
+ 269 003c 00000000 		.word	Port1Desc
+ 270 0040 FFFFFFFF 		.word	-1
+ 271 0044 00000000 		.word	0
+ 272              		.hidden	GpioMappingID1
+ 273              		.global	GpioMappingID1
+ 274              		.align	2
+ 277              	GpioMappingID1:
+ 278 0048 00008000 		.word	8388608
+ 279 004c 00000000 		.word	Port1Desc
+ 280 0050 FFFFFFFF 		.word	-1
+ 281 0054 00000000 		.word	0
+ 282              		.hidden	GpioMappingID2
+ 283              		.global	GpioMappingID2
+ 284              		.align	2
+ 287              	GpioMappingID2:
+ 288 0058 00800000 		.word	32768
+ 289 005c 00000000 		.word	Port1Desc
+ARM GAS  /tmp/ccpNxoej.s 			page 8
+
+
+ 290 0060 FFFFFFFF 		.word	-1
+ 291 0064 00000000 		.word	0
+ 292              		.hidden	GpioMappingID3
+ 293              		.global	GpioMappingID3
+ 294              		.align	2
+ 297              	GpioMappingID3:
+ 298 0068 00200000 		.word	8192
+ 299 006c 00000000 		.word	Port1Desc
+ 300 0070 FFFFFFFF 		.word	-1
+ 301 0074 00000000 		.word	0
+ 302              		.hidden	GpioMappingID4
+ 303              		.global	GpioMappingID4
+ 304              		.align	2
+ 307              	GpioMappingID4:
+ 308 0078 00000200 		.word	131072
+ 309 007c 00000000 		.word	Port1Desc
+ 310 0080 FFFFFFFF 		.word	-1
+ 311 0084 00000000 		.word	0
+ 312              		.hidden	GpioMappingID5
+ 313              		.global	GpioMappingID5
+ 314              		.align	2
+ 317              	GpioMappingID5:
+ 318 0088 10000000 		.word	16
+ 319 008c 00000000 		.word	Port1Desc
+ 320 0090 FFFFFFFF 		.word	-1
+ 321 0094 00000000 		.word	0
+ 322              		.hidden	GpioMappingID6
+ 323              		.global	GpioMappingID6
+ 324              		.align	2
+ 327              	GpioMappingID6:
+ 328 0098 40000000 		.word	64
+ 329 009c 00000000 		.word	Port1Desc
+ 330 00a0 FFFFFFFF 		.word	-1
+ 331 00a4 00000000 		.word	0
+ 332              		.hidden	GpioMappingID7
+ 333              		.global	GpioMappingID7
+ 334              		.align	2
+ 337              	GpioMappingID7:
+ 338 00a8 00000080 		.word	-2147483648
+ 339 00ac 00000000 		.word	Port1Desc
+ 340 00b0 FFFFFFFF 		.word	-1
+ 341 00b4 00000000 		.word	0
+ 342              		.hidden	GpioMappingID8
+ 343              		.global	GpioMappingID8
+ 344              		.align	2
+ 347              	GpioMappingID8:
+ 348 00b8 01000000 		.word	1
+ 349 00bc 00000000 		.word	Port1Desc
+ 350 00c0 FFFFFFFF 		.word	-1
+ 351 00c4 00000000 		.word	0
+ 352              		.hidden	GPIOIDMapping
+ 353              		.global	GPIOIDMapping
+ 354              		.align	2
+ 357              	GPIOIDMapping:
+ 358 00c8 00000100 		.word	65536
+ 359 00cc 00000000 		.word	GpioMappingID0
+ 360 00d0 F0000000 		.word	240
+ARM GAS  /tmp/ccpNxoej.s 			page 9
+
+
+ 361 00d4 0F000000 		.word	15
+ 362 00d8 04000000 		.word	4
+ 363 00dc 00000000 		.word	GpioMappingID1
+ 364 00e0 00000000 		.word	0
+ 365 00e4 01000000 		.word	1
+ 366 00e8 05000000 		.word	5
+ 367 00ec 00000000 		.word	GpioMappingID2
+ 368 00f0 00000000 		.word	0
+ 369 00f4 01000000 		.word	1
+ 370 00f8 06000000 		.word	6
+ 371 00fc 00000000 		.word	GpioMappingID3
+ 372 0100 00000000 		.word	0
+ 373 0104 01000000 		.word	1
+ 374 0108 07000000 		.word	7
+ 375 010c 00000000 		.word	GpioMappingID4
+ 376 0110 00000000 		.word	0
+ 377 0114 01000000 		.word	1
+ 378 0118 00000000 		.word	0
+ 379 011c 00000000 		.word	GpioMappingID5
+ 380 0120 01000000 		.word	1
+ 381 0124 00000000 		.word	0
+ 382 0128 01000000 		.word	1
+ 383 012c 00000000 		.word	GpioMappingID6
+ 384 0130 01000000 		.word	1
+ 385 0134 00000000 		.word	0
+ 386 0138 02000000 		.word	2
+ 387 013c 00000000 		.word	GpioMappingID7
+ 388 0140 01000000 		.word	1
+ 389 0144 00000000 		.word	0
+ 390 0148 03000000 		.word	3
+ 391 014c 00000000 		.word	GpioMappingID8
+ 392 0150 01000000 		.word	1
+ 393 0154 00000000 		.word	0
+ 394              		.section	.rodata
+ 395              		.align	2
+ 396              	.LC0:
+ 397 0000 45417069 		.ascii	"EApiGPIOGetLevelEmul\000"
+ 397      4750494F 
+ 397      4765744C 
+ 397      6576656C 
+ 397      456D756C 
+ 398 0015 000000   		.align	2
+ 399              	.LC1:
+ 400 0018 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+ 400      652F686B 
+ 400      682F6769 
+ 400      742F6561 
+ 400      7069646B 
+ 401 004b 7069456D 		.ascii	"piEmulGPIO.c\000"
+ 401      756C4750 
+ 401      494F2E63 
+ 401      00
+ 402              		.align	2
+ 403              	.LC2:
+ 404 0058 4269742D 		.ascii	"Bit-mask Selects Invalid Bits\000"
+ 404      6D61736B 
+ 404      2053656C 
+ARM GAS  /tmp/ccpNxoej.s 			page 10
+
+
+ 404      65637473 
+ 404      20496E76 
+ 405 0076 0000     		.align	2
+ 406              	.LC3:
+ 407 0078 25730A00 		.ascii	"%s\012\000"
+ 408              		.align	2
+ 409              	.LC4:
+ 410 007c 45417069 		.ascii	"EApiGPIOGetLevel\000"
+ 410      4750494F 
+ 410      4765744C 
+ 410      6576656C 
+ 410      00
+ 411 008d 000000   		.align	2
+ 412              	.LC5:
+ 413 0090 00       		.ascii	"\000"
+ 414 0091 000000   		.align	2
+ 415              	.LC6:
+ 416 0094 556E7265 		.ascii	"Unrecognised GPIO ID\000"
+ 416      636F676E 
+ 416      69736564 
+ 416      20475049 
+ 416      4F204944 
+ 417              		.text
+ 418              		.align	2
+ 419              		.global	EApiGPIOGetLevelEmul
+ 420              		.hidden	EApiGPIOGetLevelEmul
+ 421              		.syntax unified
+ 422              		.arm
+ 423              		.fpu vfpv3
+ 425              	EApiGPIOGetLevelEmul:
+ 426              	.LFB5:
+ 130:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** /*
+ 131:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+ 132:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *  
+ 133:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+ 134:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *  G P I O
+ 135:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+ 136:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+ 137:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  *
+ 138:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****  */
+ 139:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** typedef struct PortDescriptor_s{
+ 140:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     uint32_t Dirty;
+ 141:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     uint32_t Value;
+ 142:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if USE_DIRECTION_EMUL
+ 143:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     uint32_t Value2;
+ 144:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 145:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     uint32_t LevelArg1;
+ 146:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     uint32_t DirectionArg1;
+ 147:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     WritePortFunction *Write;
+ 148:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     ReadPortFunction *Read;
+ 149:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }PortDescriptor_t;
+ 150:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** typedef struct GPIOMappingsTbl_s{
+ 151:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   uint32_t PortMask; /* Bitmask For Port (Arbitrary Values Used Here) */
+ 152:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   PortDescriptor_t *Port;
+ 153:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }GPIOMappingsTbl_t;
+ 154:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** PortDescriptor_t Port1Desc={
+ 155:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   0x00, 0,
+ARM GAS  /tmp/ccpNxoej.s 			page 11
+
+
+ 156:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if USE_DIRECTION_EMUL
+ 157:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****    0,
+ 158:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 159:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_EMUL_GPIO_LEVEL_REG    ,
+ 160:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_EMUL_GPIO_DIRECTION_REG,
+ 161:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   &EApiWriteIO32Delay,
+ 162:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   &EApiReadIO32Delay,
+ 163:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 164:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** PortDescriptor_t Port2Desc={
+ 165:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   0x00, 0,
+ 166:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if USE_DIRECTION_EMUL
+ 167:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****    0,
+ 168:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 169:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_EMUL_GPIO_LEVEL_REG2    ,
+ 170:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_EMUL_GPIO_DIRECTION_REG2,
+ 171:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   &EApiWriteIO32Delay,
+ 172:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   &EApiReadIO32Delay,
+ 173:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 174:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID0[]={
+ 175:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI0_PORT_BIT>31)
+ 176:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI0_PORT_BIT - 32) , &Port2Desc},
+ 177:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 178:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI0_PORT_BIT) , &Port1Desc},
+ 179:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 180:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI1_PORT_BIT>31)
+ 181:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI1_PORT_BIT - 32) , &Port2Desc},
+ 182:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 183:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI1_PORT_BIT) , &Port1Desc},
+ 184:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 185:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI2_PORT_BIT>31)
+ 186:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI2_PORT_BIT - 32) , &Port2Desc},
+ 187:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 188:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI2_PORT_BIT) , &Port1Desc},
+ 189:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 190:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI3_PORT_BIT>31)
+ 191:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI3_PORT_BIT - 32) , &Port2Desc},
+ 192:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 193:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI3_PORT_BIT) , &Port1Desc},
+ 194:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 195:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO0_PORT_BIT>31)
+ 196:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO0_PORT_BIT - 32) , &Port2Desc},
+ 197:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 198:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO0_PORT_BIT) , &Port1Desc},
+ 199:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 200:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO1_PORT_BIT>31)
+ 201:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO1_PORT_BIT - 32) , &Port2Desc},
+ 202:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 203:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO1_PORT_BIT) , &Port1Desc},
+ 204:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 205:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO2_PORT_BIT>31)
+ 206:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO2_PORT_BIT - 32) , &Port2Desc},
+ 207:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 208:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO2_PORT_BIT) , &Port1Desc},
+ 209:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 210:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO3_PORT_BIT>31)
+ 211:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO3_PORT_BIT - 32) , &Port2Desc},
+ 212:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ARM GAS  /tmp/ccpNxoej.s 			page 12
+
+
+ 213:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO3_PORT_BIT) , &Port1Desc},
+ 214:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 215:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 216:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 217:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID1[]={
+ 218:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI0_PORT_BIT>31)
+ 219:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI0_PORT_BIT - 32) , &Port2Desc},
+ 220:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 221:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI0_PORT_BIT) , &Port1Desc},
+ 222:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 223:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 224:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 225:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID2[]={
+ 226:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI1_PORT_BIT>31)
+ 227:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI1_PORT_BIT - 32) , &Port2Desc},
+ 228:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 229:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI1_PORT_BIT) , &Port1Desc},
+ 230:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 231:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 232:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 233:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID3[]={
+ 234:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI2_PORT_BIT>31)
+ 235:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI2_PORT_BIT - 32) , &Port2Desc},
+ 236:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 237:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI2_PORT_BIT) , &Port1Desc},
+ 238:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 239:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 240:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 241:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID4[]={
+ 242:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPI3_PORT_BIT>31)
+ 243:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI3_PORT_BIT - 32) , &Port2Desc},
+ 244:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 245:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPI3_PORT_BIT) , &Port1Desc},
+ 246:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 247:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 248:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 249:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID5[]={
+ 250:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO0_PORT_BIT>31)
+ 251:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO0_PORT_BIT - 32) , &Port2Desc},
+ 252:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 253:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO0_PORT_BIT) , &Port1Desc},
+ 254:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 255:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 256:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 257:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID6[]={
+ 258:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO1_PORT_BIT>31)
+ 259:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO1_PORT_BIT - 32) , &Port2Desc},
+ 260:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 261:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO1_PORT_BIT) , &Port1Desc},
+ 262:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 263:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 264:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 265:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID7[]={
+ 266:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO2_PORT_BIT>31)
+ 267:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO2_PORT_BIT - 32) , &Port2Desc},
+ 268:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 269:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO2_PORT_BIT) , &Port1Desc},
+ARM GAS  /tmp/ccpNxoej.s 			page 13
+
+
+ 270:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 271:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 272:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 273:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOMappingsTbl_t GpioMappingID8[]={
+ 274:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (GPO3_PORT_BIT>31)
+ 275:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO3_PORT_BIT - 32) , &Port2Desc},
+ 276:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 277:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {BIT(GPO3_PORT_BIT) , &Port1Desc},
+ 278:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 279:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {END_OF_LIST_MARK, NULL}
+ 280:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 281:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** typedef struct GPIOIDMappingsTbl_s{
+ 282:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   const EApiId_t Id          ; /* EAPI Temperature Id */
+ 283:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   const GPIOMappingsTbl_t *const MapTbl   ; /* Gpio Mapping Table API Interface Bitmask -> Port Bit
+ 284:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   const uint32_t OutputMask  ; /* Bitmask Supported Bits For Output  */
+ 285:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   const uint32_t InputMask   ; /* Bitmask Supported Bits for Input */
+ 286:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }GPIOIDMappingsTbl_t;
+ 287:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** const GPIOIDMappingsTbl_t GPIOIDMapping[]={
+ 288:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if (EAPI_PLATFORM==EAPI_PLATFORM_COM0)
+ 289:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_BANK   , GpioMappingID0, 0x000000F0, 0x0000000F},
+ 290:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPO0   , GpioMappingID1, 0x00000000, 0x00000001},
+ 291:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPO1   , GpioMappingID2, 0x00000000, 0x00000001},
+ 292:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPO2   , GpioMappingID3, 0x00000000, 0x00000001},
+ 293:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPO3   , GpioMappingID4, 0x00000000, 0x00000001},
+ 294:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPI0   , GpioMappingID5, 0x00000001, 0x00000000},
+ 295:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPI1   , GpioMappingID6, 0x00000001, 0x00000000},
+ 296:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPI2   , GpioMappingID7, 0x00000001, 0x00000000},
+ 297:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {EAPI_COM0_ID_GPIO_GPI3   , GpioMappingID8, 0x00000001, 0x00000000},
+ 298:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #elif (EAPI_PLATFORM==EAPI_PLATFORM_ETX) || (EAPI_PLATFORM==EAPI_PLATFORM_Q7)
+ 299:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {0xFFFFFFFF              , NULL          ,          0,          0},
+ 300:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #else
+ 301:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {0xFFFFFFFF              , NULL          ,          0,          0},
+ 302:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 303:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** };
+ 304:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 305:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiStatus_t 
+ 306:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiGPIOGetLevelEmul( 
+ 307:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     __IN  EApiId_t  Id      , 
+ 308:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     __IN  uint32_t  BitMask , 
+ 309:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     __OUT uint32_t *pLevel
+ 310:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     )
+ 311:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 427              		.loc 1 311 1
+ 428              		.cfi_startproc
+ 429              		@ args = 0, pretend = 0, frame = 32
+ 430              		@ frame_needed = 1, uses_anonymous_args = 0
+ 431 0108 10482DE9 		push	{r4, fp, lr}
+ 432              		.cfi_def_cfa_offset 12
+ 433              		.cfi_offset 4, -12
+ 434              		.cfi_offset 11, -8
+ 435              		.cfi_offset 14, -4
+ 436 010c 08B08DE2 		add	fp, sp, #8
+ 437              		.cfi_def_cfa 11, 4
+ 438 0110 34D04DE2 		sub	sp, sp, #52
+ 439 0114 20000BE5 		str	r0, [fp, #-32]
+ 440 0118 24100BE5 		str	r1, [fp, #-36]
+ 441 011c 28200BE5 		str	r2, [fp, #-40]
+ARM GAS  /tmp/ccpNxoej.s 			page 14
+
+
+ 312:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 442              		.loc 1 312 16
+ 443 0120 0030A0E3 		mov	r3, #0
+ 444 0124 1C300BE5 		str	r3, [fp, #-28]
+ 313:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   unsigned i,i2;
+ 314:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   uint32_t APIBitMask=1;
+ 445              		.loc 1 314 12
+ 446 0128 0130A0E3 		mov	r3, #1
+ 447 012c 10300BE5 		str	r3, [fp, #-16]
+ 315:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 316:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   for(i=0;i<ARRAY_SIZE(GPIOIDMapping);i++)
+ 448              		.loc 1 316 8
+ 449 0130 0030A0E3 		mov	r3, #0
+ 450 0134 18300BE5 		str	r3, [fp, #-24]
+ 451              		.loc 1 316 3
+ 452 0138 D40000EA 		b	.L17
+ 453              	.L27:
+ 317:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 318:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       if(GPIOIDMapping[i].Id==Id)
+ 454              		.loc 1 318 26
+ 455 013c B0339FE5 		ldr	r3, .L29
+ 456              	.LPIC2:
+ 457 0140 03308FE0 		add	r3, pc, r3
+ 458 0144 18201BE5 		ldr	r2, [fp, #-24]
+ 459 0148 023293E7 		ldr	r3, [r3, r2, lsl #4]
+ 460              		.loc 1 318 9
+ 461 014c 20201BE5 		ldr	r2, [fp, #-32]
+ 462 0150 030052E1 		cmp	r2, r3
+ 463 0154 CA00001A 		bne	.L18
+ 319:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       {
+ 320:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 464              		.loc 1 320 9
+ 465 0158 98239FE5 		ldr	r2, .L29+4
+ 466              	.LPIC3:
+ 467 015c 02208FE0 		add	r2, pc, r2
+ 468 0160 18301BE5 		ldr	r3, [fp, #-24]
+ 469 0164 0332A0E1 		lsl	r3, r3, #4
+ 470 0168 033082E0 		add	r3, r2, r3
+ 471 016c 082093E5 		ldr	r2, [r3, #8]
+ 472 0170 84139FE5 		ldr	r1, .L29+8
+ 473              	.LPIC4:
+ 474 0174 01108FE0 		add	r1, pc, r1
+ 475 0178 18301BE5 		ldr	r3, [fp, #-24]
+ 476 017c 0332A0E1 		lsl	r3, r3, #4
+ 477 0180 033081E0 		add	r3, r1, r3
+ 478 0184 0C3093E5 		ldr	r3, [r3, #12]
+ 479 0188 033082E1 		orr	r3, r2, r3
+ 480 018c 0320E0E1 		mvn	r2, r3
+ 481 0190 24301BE5 		ldr	r3, [fp, #-36]
+ 482 0194 023003E0 		and	r3, r3, r2
+ 483 0198 000053E3 		cmp	r3, #0
+ 484 019c 1100000A 		beq	.L19
+ 485              		.loc 1 320 9 is_stmt 0 discriminator 1
+ 486 01a0 58339FE5 		ldr	r3, .L29+12
+ 487              	.LPIC5:
+ 488 01a4 03308FE0 		add	r3, pc, r3
+ 489 01a8 08308DE5 		str	r3, [sp, #8]
+ARM GAS  /tmp/ccpNxoej.s 			page 15
+
+
+ 490 01ac 50339FE5 		ldr	r3, .L29+16
+ 491              	.LPIC6:
+ 492 01b0 03308FE0 		add	r3, pc, r3
+ 493 01b4 04308DE5 		str	r3, [sp, #4]
+ 494 01b8 413FE0E3 		mvn	r3, #260
+ 495 01bc 00308DE5 		str	r3, [sp]
+ 496 01c0 053DA0E3 		mov	r3, #320
+ 497 01c4 3C239FE5 		ldr	r2, .L29+20
+ 498              	.LPIC7:
+ 499 01c8 02208FE0 		add	r2, pc, r2
+ 500 01cc 38139FE5 		ldr	r1, .L29+24
+ 501              	.LPIC8:
+ 502 01d0 01108FE0 		add	r1, pc, r1
+ 503 01d4 4500A0E3 		mov	r0, #69
+ 504 01d8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 505 01dc 413FE0E3 		mvn	r3, #260
+ 506 01e0 1C300BE5 		str	r3, [fp, #-28]
+ 507 01e4 BE0000EA 		b	.L20
+ 508              	.L19:
+ 321:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EApiGPIOGetLevelEmul, 
+ 322:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           (BitMask&~(GPIOIDMapping[i].OutputMask|GPIOIDMapping[i].InputMask)) , 
+ 323:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EAPI_STATUS_INVALID_BITMASK, 
+ 324:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           "Bit-mask Selects Invalid Bits"
+ 325:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           );
+ 326:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 509              		.loc 1 326 15 is_stmt 1
+ 510 01e8 0030A0E3 		mov	r3, #0
+ 511 01ec 14300BE5 		str	r3, [fp, #-20]
+ 512              		.loc 1 326 9
+ 513 01f0 0E0000EA 		b	.L21
+ 514              	.L22:
+ 327:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 515              		.loc 1 327 27 discriminator 3
+ 516 01f4 14239FE5 		ldr	r2, .L29+28
+ 517              	.LPIC9:
+ 518 01f8 02208FE0 		add	r2, pc, r2
+ 519 01fc 18301BE5 		ldr	r3, [fp, #-24]
+ 520 0200 0332A0E1 		lsl	r3, r3, #4
+ 521 0204 033082E0 		add	r3, r2, r3
+ 522 0208 042093E5 		ldr	r2, [r3, #4]
+ 523              		.loc 1 327 34 discriminator 3
+ 524 020c 14301BE5 		ldr	r3, [fp, #-20]
+ 525 0210 8331A0E1 		lsl	r3, r3, #3
+ 526 0214 033082E0 		add	r3, r2, r3
+ 527              		.loc 1 327 38 discriminator 3
+ 528 0218 043093E5 		ldr	r3, [r3, #4]
+ 529              		.loc 1 327 50 discriminator 3
+ 530 021c 0020A0E3 		mov	r2, #0
+ 531 0220 002083E5 		str	r2, [r3]
+ 326:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 532              		.loc 1 326 75 discriminator 3
+ 533 0224 14301BE5 		ldr	r3, [fp, #-20]
+ 534 0228 013083E2 		add	r3, r3, #1
+ 535 022c 14300BE5 		str	r3, [fp, #-20]
+ 536              	.L21:
+ 326:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 537              		.loc 1 326 34 discriminator 1
+ARM GAS  /tmp/ccpNxoej.s 			page 16
+
+
+ 538 0230 DC229FE5 		ldr	r2, .L29+32
+ 539              	.LPIC10:
+ 540 0234 02208FE0 		add	r2, pc, r2
+ 541 0238 18301BE5 		ldr	r3, [fp, #-24]
+ 542 023c 0332A0E1 		lsl	r3, r3, #4
+ 543 0240 033082E0 		add	r3, r2, r3
+ 544 0244 042093E5 		ldr	r2, [r3, #4]
+ 326:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 545              		.loc 1 326 41 discriminator 1
+ 546 0248 14301BE5 		ldr	r3, [fp, #-20]
+ 547 024c 8331A0E1 		lsl	r3, r3, #3
+ 548 0250 033082E0 		add	r3, r2, r3
+ 326:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 549              		.loc 1 326 45 discriminator 1
+ 550 0254 003093E5 		ldr	r3, [r3]
+ 326:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 551              		.loc 1 326 54 discriminator 1
+ 552 0258 010073E3 		cmn	r3, #1
+ 553 025c E4FFFF1A 		bne	.L22
+ 328:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 329:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         *pLevel=0;
+ 554              		.loc 1 329 16
+ 555 0260 28301BE5 		ldr	r3, [fp, #-40]
+ 556 0264 0020A0E3 		mov	r2, #0
+ 557 0268 002083E5 		str	r2, [r3]
+ 330:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 558              		.loc 1 330 15
+ 559 026c 0030A0E3 		mov	r3, #0
+ 560 0270 14300BE5 		str	r3, [fp, #-20]
+ 561              		.loc 1 330 9
+ 562 0274 640000EA 		b	.L23
+ 563              	.L26:
+ 331:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 564              		.loc 1 331 22
+ 565 0278 24201BE5 		ldr	r2, [fp, #-36]
+ 566 027c 10301BE5 		ldr	r3, [fp, #-16]
+ 567 0280 023003E0 		and	r3, r3, r2
+ 568              		.loc 1 331 13
+ 569 0284 000053E3 		cmp	r3, #0
+ 570 0288 5900000A 		beq	.L24
+ 332:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           {
+ 333:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==0){
+ 571              		.loc 1 333 32
+ 572 028c 84229FE5 		ldr	r2, .L29+36
+ 573              	.LPIC11:
+ 574 0290 02208FE0 		add	r2, pc, r2
+ 575 0294 18301BE5 		ldr	r3, [fp, #-24]
+ 576 0298 0332A0E1 		lsl	r3, r3, #4
+ 577 029c 033082E0 		add	r3, r2, r3
+ 578 02a0 042093E5 		ldr	r2, [r3, #4]
+ 579              		.loc 1 333 39
+ 580 02a4 14301BE5 		ldr	r3, [fp, #-20]
+ 581 02a8 8331A0E1 		lsl	r3, r3, #3
+ 582 02ac 033082E0 		add	r3, r2, r3
+ 583              		.loc 1 333 43
+ 584 02b0 043093E5 		ldr	r3, [r3, #4]
+ 585              		.loc 1 333 48
+ARM GAS  /tmp/ccpNxoej.s 			page 17
+
+
+ 586 02b4 003093E5 		ldr	r3, [r3]
+ 587              		.loc 1 333 15
+ 588 02b8 000053E3 		cmp	r3, #0
+ 589 02bc 2E00001A 		bne	.L25
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 590              		.loc 1 334 71
+ 591 02c0 54229FE5 		ldr	r2, .L29+40
+ 592              	.LPIC12:
+ 593 02c4 02208FE0 		add	r2, pc, r2
+ 594 02c8 18301BE5 		ldr	r3, [fp, #-24]
+ 595 02cc 0332A0E1 		lsl	r3, r3, #4
+ 596 02d0 033082E0 		add	r3, r2, r3
+ 597 02d4 042093E5 		ldr	r2, [r3, #4]
+ 598              		.loc 1 334 78
+ 599 02d8 14301BE5 		ldr	r3, [fp, #-20]
+ 600 02dc 8331A0E1 		lsl	r3, r3, #3
+ 601 02e0 033082E0 		add	r3, r2, r3
+ 602              		.loc 1 334 82
+ 603 02e4 043093E5 		ldr	r3, [r3, #4]
+ 604              		.loc 1 334 87
+ 605 02e8 182093E5 		ldr	r2, [r3, #24]
+ 335:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->LevelArg1
+ 606              		.loc 1 335 33
+ 607 02ec 2C129FE5 		ldr	r1, .L29+44
+ 608              	.LPIC13:
+ 609 02f0 01108FE0 		add	r1, pc, r1
+ 610 02f4 18301BE5 		ldr	r3, [fp, #-24]
+ 611 02f8 0332A0E1 		lsl	r3, r3, #4
+ 612 02fc 033081E0 		add	r3, r1, r3
+ 613 0300 041093E5 		ldr	r1, [r3, #4]
+ 614              		.loc 1 335 40
+ 615 0304 14301BE5 		ldr	r3, [fp, #-20]
+ 616 0308 8331A0E1 		lsl	r3, r3, #3
+ 617 030c 033081E0 		add	r3, r1, r3
+ 618              		.loc 1 335 44
+ 619 0310 043093E5 		ldr	r3, [r3, #4]
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 620              		.loc 1 334 55
+ 621 0314 0C0093E5 		ldr	r0, [r3, #12]
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 622              		.loc 1 334 31
+ 623 0318 04129FE5 		ldr	r1, .L29+48
+ 624              	.LPIC14:
+ 625 031c 01108FE0 		add	r1, pc, r1
+ 626 0320 18301BE5 		ldr	r3, [fp, #-24]
+ 627 0324 0332A0E1 		lsl	r3, r3, #4
+ 628 0328 033081E0 		add	r3, r1, r3
+ 629 032c 041093E5 		ldr	r1, [r3, #4]
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 630              		.loc 1 334 38
+ 631 0330 14301BE5 		ldr	r3, [fp, #-20]
+ 632 0334 8331A0E1 		lsl	r3, r3, #3
+ 633 0338 033081E0 		add	r3, r1, r3
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 634              		.loc 1 334 42
+ 635 033c 044093E5 		ldr	r4, [r3, #4]
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ARM GAS  /tmp/ccpNxoej.s 			page 18
+
+
+ 636              		.loc 1 334 55
+ 637 0340 32FF2FE1 		blx	r2
+ 638              	.LVL0:
+ 639 0344 0030A0E1 		mov	r3, r0
+ 334:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 640              		.loc 1 334 54
+ 641 0348 043084E5 		str	r3, [r4, #4]
+ 336:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 );
+ 337:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Dirty=1;
+ 642              		.loc 1 337 31
+ 643 034c D4219FE5 		ldr	r2, .L29+52
+ 644              	.LPIC15:
+ 645 0350 02208FE0 		add	r2, pc, r2
+ 646 0354 18301BE5 		ldr	r3, [fp, #-24]
+ 647 0358 0332A0E1 		lsl	r3, r3, #4
+ 648 035c 033082E0 		add	r3, r2, r3
+ 649 0360 042093E5 		ldr	r2, [r3, #4]
+ 650              		.loc 1 337 38
+ 651 0364 14301BE5 		ldr	r3, [fp, #-20]
+ 652 0368 8331A0E1 		lsl	r3, r3, #3
+ 653 036c 033082E0 		add	r3, r2, r3
+ 654              		.loc 1 337 42
+ 655 0370 043093E5 		ldr	r3, [r3, #4]
+ 656              		.loc 1 337 54
+ 657 0374 0120A0E3 		mov	r2, #1
+ 658 0378 002083E5 		str	r2, [r3]
+ 659              	.L25:
+ 338:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 339:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(GPIOIDMapping[i].MapTbl[i2].Port->Value&GPIOIDMapping[i].MapTbl[i2].PortMask){
+ 660              		.loc 1 339 32
+ 661 037c A8219FE5 		ldr	r2, .L29+56
+ 662              	.LPIC16:
+ 663 0380 02208FE0 		add	r2, pc, r2
+ 664 0384 18301BE5 		ldr	r3, [fp, #-24]
+ 665 0388 0332A0E1 		lsl	r3, r3, #4
+ 666 038c 033082E0 		add	r3, r2, r3
+ 667 0390 042093E5 		ldr	r2, [r3, #4]
+ 668              		.loc 1 339 39
+ 669 0394 14301BE5 		ldr	r3, [fp, #-20]
+ 670 0398 8331A0E1 		lsl	r3, r3, #3
+ 671 039c 033082E0 		add	r3, r2, r3
+ 672              		.loc 1 339 43
+ 673 03a0 043093E5 		ldr	r3, [r3, #4]
+ 674              		.loc 1 339 48
+ 675 03a4 042093E5 		ldr	r2, [r3, #4]
+ 676              		.loc 1 339 72
+ 677 03a8 80119FE5 		ldr	r1, .L29+60
+ 678              	.LPIC17:
+ 679 03ac 01108FE0 		add	r1, pc, r1
+ 680 03b0 18301BE5 		ldr	r3, [fp, #-24]
+ 681 03b4 0332A0E1 		lsl	r3, r3, #4
+ 682 03b8 033081E0 		add	r3, r1, r3
+ 683 03bc 041093E5 		ldr	r1, [r3, #4]
+ 684              		.loc 1 339 79
+ 685 03c0 14301BE5 		ldr	r3, [fp, #-20]
+ 686 03c4 8331A0E1 		lsl	r3, r3, #3
+ 687 03c8 033081E0 		add	r3, r1, r3
+ARM GAS  /tmp/ccpNxoej.s 			page 19
+
+
+ 688              		.loc 1 339 83
+ 689 03cc 003093E5 		ldr	r3, [r3]
+ 690              		.loc 1 339 55
+ 691 03d0 023003E0 		and	r3, r3, r2
+ 692              		.loc 1 339 15
+ 693 03d4 000053E3 		cmp	r3, #0
+ 694 03d8 0500000A 		beq	.L24
+ 340:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               *pLevel|=APIBitMask;
+ 695              		.loc 1 340 22
+ 696 03dc 28301BE5 		ldr	r3, [fp, #-40]
+ 697 03e0 002093E5 		ldr	r2, [r3]
+ 698 03e4 10301BE5 		ldr	r3, [fp, #-16]
+ 699 03e8 032082E1 		orr	r2, r2, r3
+ 700 03ec 28301BE5 		ldr	r3, [fp, #-40]
+ 701 03f0 002083E5 		str	r2, [r3]
+ 702              	.L24:
+ 341:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 342:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           }
+ 343:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           APIBitMask<<=1;
+ 703              		.loc 1 343 21 discriminator 2
+ 704 03f4 10301BE5 		ldr	r3, [fp, #-16]
+ 705 03f8 8330A0E1 		lsl	r3, r3, #1
+ 706 03fc 10300BE5 		str	r3, [fp, #-16]
+ 330:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 707              		.loc 1 330 75 discriminator 2
+ 708 0400 14301BE5 		ldr	r3, [fp, #-20]
+ 709 0404 013083E2 		add	r3, r3, #1
+ 710 0408 14300BE5 		str	r3, [fp, #-20]
+ 711              	.L23:
+ 330:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 712              		.loc 1 330 34 discriminator 1
+ 713 040c 20219FE5 		ldr	r2, .L29+64
+ 714              	.LPIC18:
+ 715 0410 02208FE0 		add	r2, pc, r2
+ 716 0414 18301BE5 		ldr	r3, [fp, #-24]
+ 717 0418 0332A0E1 		lsl	r3, r3, #4
+ 718 041c 033082E0 		add	r3, r2, r3
+ 719 0420 042093E5 		ldr	r2, [r3, #4]
+ 330:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 720              		.loc 1 330 41 discriminator 1
+ 721 0424 14301BE5 		ldr	r3, [fp, #-20]
+ 722 0428 8331A0E1 		lsl	r3, r3, #3
+ 723 042c 033082E0 		add	r3, r2, r3
+ 330:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 724              		.loc 1 330 45 discriminator 1
+ 725 0430 003093E5 		ldr	r3, [r3]
+ 330:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 726              		.loc 1 330 54 discriminator 1
+ 727 0434 010073E3 		cmn	r3, #1
+ 728 0438 8EFFFF1A 		bne	.L26
+ 344:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 345:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_SUCCESS(EApiGPIOGetLevel, "");
+ 729              		.loc 1 345 9
+ 730 043c F4309FE5 		ldr	r3, .L29+68
+ 731              	.LPIC19:
+ 732 0440 03308FE0 		add	r3, pc, r3
+ 733 0444 08308DE5 		str	r3, [sp, #8]
+ARM GAS  /tmp/ccpNxoej.s 			page 20
+
+
+ 734 0448 EC309FE5 		ldr	r3, .L29+72
+ 735              	.LPIC20:
+ 736 044c 03308FE0 		add	r3, pc, r3
+ 737 0450 04308DE5 		str	r3, [sp, #4]
+ 738 0454 0030A0E3 		mov	r3, #0
+ 739 0458 00308DE5 		str	r3, [sp]
+ 740 045c 593100E3 		movw	r3, #345
+ 741 0460 D8209FE5 		ldr	r2, .L29+76
+ 742              	.LPIC21:
+ 743 0464 02208FE0 		add	r2, pc, r2
+ 744 0468 D4109FE5 		ldr	r1, .L29+80
+ 745              	.LPIC22:
+ 746 046c 01108FE0 		add	r1, pc, r1
+ 747 0470 4C00A0E3 		mov	r0, #76
+ 748 0474 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 749 0478 0030A0E3 		mov	r3, #0
+ 750 047c 1C300BE5 		str	r3, [fp, #-28]
+ 751 0480 170000EA 		b	.L20
+ 752              	.L18:
+ 316:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 753              		.loc 1 316 40 discriminator 2
+ 754 0484 18301BE5 		ldr	r3, [fp, #-24]
+ 755 0488 013083E2 		add	r3, r3, #1
+ 756 048c 18300BE5 		str	r3, [fp, #-24]
+ 757              	.L17:
+ 316:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 758              		.loc 1 316 12 discriminator 1
+ 759 0490 18301BE5 		ldr	r3, [fp, #-24]
+ 760 0494 080053E3 		cmp	r3, #8
+ 761 0498 27FFFF9A 		bls	.L27
+ 346:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       }
+ 347:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 348:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_LIB_RETURN_ERROR(
+ 762              		.loc 1 348 3
+ 763 049c A4309FE5 		ldr	r3, .L29+84
+ 764              	.LPIC23:
+ 765 04a0 03308FE0 		add	r3, pc, r3
+ 766 04a4 08308DE5 		str	r3, [sp, #8]
+ 767 04a8 9C309FE5 		ldr	r3, .L29+88
+ 768              	.LPIC24:
+ 769 04ac 03308FE0 		add	r3, pc, r3
+ 770 04b0 04308DE5 		str	r3, [sp, #4]
+ 771 04b4 033CE0E3 		mvn	r3, #768
+ 772 04b8 00308DE5 		str	r3, [sp]
+ 773 04bc 573FA0E3 		mov	r3, #348
+ 774 04c0 88209FE5 		ldr	r2, .L29+92
+ 775              	.LPIC25:
+ 776 04c4 02208FE0 		add	r2, pc, r2
+ 777 04c8 84109FE5 		ldr	r1, .L29+96
+ 778              	.LPIC26:
+ 779 04cc 01108FE0 		add	r1, pc, r1
+ 780 04d0 4500A0E3 		mov	r0, #69
+ 781 04d4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 782 04d8 033CE0E3 		mvn	r3, #768
+ 783 04dc 1C300BE5 		str	r3, [fp, #-28]
+ 784 04e0 00F020E3 		nop
+ 785              	.L20:
+ARM GAS  /tmp/ccpNxoej.s 			page 21
+
+
+ 349:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EApiGPIOGetLevel, 
+ 350:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EAPI_STATUS_UNSUPPORTED  , 
+ 351:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     "Unrecognised GPIO ID"
+ 352:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     );
+ 353:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EAPI_LIB_ASSERT_EXIT
+ 354:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 355:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return StatusCode;
+ 786              		.loc 1 355 10
+ 787 04e4 1C301BE5 		ldr	r3, [fp, #-28]
+ 356:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 788              		.loc 1 356 1
+ 789 04e8 0300A0E1 		mov	r0, r3
+ 790 04ec 08D04BE2 		sub	sp, fp, #8
+ 791              		.cfi_def_cfa 13, 12
+ 792              		@ sp needed
+ 793 04f0 1088BDE8 		pop	{r4, fp, pc}
+ 794              	.L30:
+ 795              		.align	2
+ 796              	.L29:
+ 797 04f4 AC030000 		.word	GPIOIDMapping-(.LPIC2+8)
+ 798 04f8 94030000 		.word	GPIOIDMapping-(.LPIC3+8)
+ 799 04fc 80030000 		.word	GPIOIDMapping-(.LPIC4+8)
+ 800 0500 AC030000 		.word	.LC2-(.LPIC5+8)
+ 801 0504 C4030000 		.word	.LC3-(.LPIC6+8)
+ 802 0508 38030000 		.word	.LC0-(.LPIC7+8)
+ 803 050c 4C030000 		.word	.LC1-(.LPIC8+8)
+ 804 0510 10030000 		.word	GPIOIDMapping-(.LPIC9+8)
+ 805 0514 D8020000 		.word	GPIOIDMapping-(.LPIC10+8)
+ 806 0518 80020000 		.word	GPIOIDMapping-(.LPIC11+8)
+ 807 051c 50020000 		.word	GPIOIDMapping-(.LPIC12+8)
+ 808 0520 28020000 		.word	GPIOIDMapping-(.LPIC13+8)
+ 809 0524 00020000 		.word	GPIOIDMapping-(.LPIC14+8)
+ 810 0528 D0010000 		.word	GPIOIDMapping-(.LPIC15+8)
+ 811 052c A4010000 		.word	GPIOIDMapping-(.LPIC16+8)
+ 812 0530 7C010000 		.word	GPIOIDMapping-(.LPIC17+8)
+ 813 0534 1C010000 		.word	GPIOIDMapping-(.LPIC18+8)
+ 814 0538 80010000 		.word	.LC5-(.LPIC19+8)
+ 815 053c 60010000 		.word	.LC3-(.LPIC20+8)
+ 816 0540 50010000 		.word	.LC4-(.LPIC21+8)
+ 817 0544 E8000000 		.word	.LC1-(.LPIC22+8)
+ 818 0548 34010000 		.word	.LC6-(.LPIC23+8)
+ 819 054c 10010000 		.word	.LC3-(.LPIC24+8)
+ 820 0550 00010000 		.word	.LC4-(.LPIC25+8)
+ 821 0554 98000000 		.word	.LC1-(.LPIC26+8)
+ 822              		.cfi_endproc
+ 823              	.LFE5:
+ 825              		.section	.rodata
+ 826 00a9 000000   		.align	2
+ 827              	.LC7:
+ 828 00ac 45417069 		.ascii	"EApiGPIOSetLevelEmul\000"
+ 828      4750494F 
+ 828      5365744C 
+ 828      6576656C 
+ 828      456D756C 
+ 829 00c1 000000   		.align	2
+ 830              	.LC8:
+ 831 00c4 45417069 		.ascii	"EApiGPIOSetLevel\000"
+ARM GAS  /tmp/ccpNxoej.s 			page 22
+
+
+ 831      4750494F 
+ 831      5365744C 
+ 831      6576656C 
+ 831      00
+ 832 00d5 000000   		.align	2
+ 833              	.LC9:
+ 834 00d8 43616E74 		.ascii	"Cant Set Level on Pin that is set to input\000"
+ 834      20536574 
+ 834      204C6576 
+ 834      656C206F 
+ 834      6E205069 
+ 835              		.text
+ 836              		.align	2
+ 837              		.global	EApiGPIOSetLevelEmul
+ 838              		.hidden	EApiGPIOSetLevelEmul
+ 839              		.syntax unified
+ 840              		.arm
+ 841              		.fpu vfpv3
+ 843              	EApiGPIOSetLevelEmul:
+ 844              	.LFB6:
+ 357:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 358:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiStatus_t 
+ 359:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiGPIOSetLevelEmul( 
+ 360:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __IN EApiId_t Id      , 
+ 361:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __IN uint32_t BitMask , 
+ 362:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __IN uint32_t Level
+ 363:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   )
+ 364:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 845              		.loc 1 364 1
+ 846              		.cfi_startproc
+ 847              		@ args = 0, pretend = 0, frame = 32
+ 848              		@ frame_needed = 1, uses_anonymous_args = 0
+ 849 0558 10482DE9 		push	{r4, fp, lr}
+ 850              		.cfi_def_cfa_offset 12
+ 851              		.cfi_offset 4, -12
+ 852              		.cfi_offset 11, -8
+ 853              		.cfi_offset 14, -4
+ 854 055c 08B08DE2 		add	fp, sp, #8
+ 855              		.cfi_def_cfa 11, 4
+ 856 0560 34D04DE2 		sub	sp, sp, #52
+ 857 0564 20000BE5 		str	r0, [fp, #-32]
+ 858 0568 24100BE5 		str	r1, [fp, #-36]
+ 859 056c 28200BE5 		str	r2, [fp, #-40]
+ 365:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 860              		.loc 1 365 16
+ 861 0570 0030A0E3 		mov	r3, #0
+ 862 0574 1C300BE5 		str	r3, [fp, #-28]
+ 366:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   unsigned i,i2;
+ 367:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   uint32_t APIBitMask=1;
+ 863              		.loc 1 367 12
+ 864 0578 0130A0E3 		mov	r3, #1
+ 865 057c 10300BE5 		str	r3, [fp, #-16]
+ 368:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   for(i=0;i<ARRAY_SIZE(GPIOIDMapping);i++)
+ 866              		.loc 1 368 8
+ 867 0580 0030A0E3 		mov	r3, #0
+ 868 0584 18300BE5 		str	r3, [fp, #-24]
+ 869              		.loc 1 368 3
+ARM GAS  /tmp/ccpNxoej.s 			page 23
+
+
+ 870 0588 970100EA 		b	.L32
+ 871              	.L47:
+ 369:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 370:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       if(GPIOIDMapping[i].Id==Id)
+ 872              		.loc 1 370 26
+ 873 058c BC369FE5 		ldr	r3, .L49
+ 874              	.LPIC27:
+ 875 0590 03308FE0 		add	r3, pc, r3
+ 876 0594 18201BE5 		ldr	r2, [fp, #-24]
+ 877 0598 023293E7 		ldr	r3, [r3, r2, lsl #4]
+ 878              		.loc 1 370 9
+ 879 059c 20201BE5 		ldr	r2, [fp, #-32]
+ 880 05a0 030052E1 		cmp	r2, r3
+ 881 05a4 8D01001A 		bne	.L33
+ 371:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       {
+ 372:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 882              		.loc 1 372 9
+ 883 05a8 A4269FE5 		ldr	r2, .L49+4
+ 884              	.LPIC28:
+ 885 05ac 02208FE0 		add	r2, pc, r2
+ 886 05b0 18301BE5 		ldr	r3, [fp, #-24]
+ 887 05b4 0332A0E1 		lsl	r3, r3, #4
+ 888 05b8 033082E0 		add	r3, r2, r3
+ 889 05bc 082093E5 		ldr	r2, [r3, #8]
+ 890 05c0 90169FE5 		ldr	r1, .L49+8
+ 891              	.LPIC29:
+ 892 05c4 01108FE0 		add	r1, pc, r1
+ 893 05c8 18301BE5 		ldr	r3, [fp, #-24]
+ 894 05cc 0332A0E1 		lsl	r3, r3, #4
+ 895 05d0 033081E0 		add	r3, r1, r3
+ 896 05d4 0C3093E5 		ldr	r3, [r3, #12]
+ 897 05d8 033082E1 		orr	r3, r2, r3
+ 898 05dc 0320E0E1 		mvn	r2, r3
+ 899 05e0 24301BE5 		ldr	r3, [fp, #-36]
+ 900 05e4 023003E0 		and	r3, r3, r2
+ 901 05e8 000053E3 		cmp	r3, #0
+ 902 05ec 1100000A 		beq	.L34
+ 903              		.loc 1 372 9 is_stmt 0 discriminator 1
+ 904 05f0 64369FE5 		ldr	r3, .L49+12
+ 905              	.LPIC30:
+ 906 05f4 03308FE0 		add	r3, pc, r3
+ 907 05f8 08308DE5 		str	r3, [sp, #8]
+ 908 05fc 5C369FE5 		ldr	r3, .L49+16
+ 909              	.LPIC31:
+ 910 0600 03308FE0 		add	r3, pc, r3
+ 911 0604 04308DE5 		str	r3, [sp, #4]
+ 912 0608 413FE0E3 		mvn	r3, #260
+ 913 060c 00308DE5 		str	r3, [sp]
+ 914 0610 5D3FA0E3 		mov	r3, #372
+ 915 0614 48269FE5 		ldr	r2, .L49+20
+ 916              	.LPIC32:
+ 917 0618 02208FE0 		add	r2, pc, r2
+ 918 061c 44169FE5 		ldr	r1, .L49+24
+ 919              	.LPIC33:
+ 920 0620 01108FE0 		add	r1, pc, r1
+ 921 0624 4500A0E3 		mov	r0, #69
+ 922 0628 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ARM GAS  /tmp/ccpNxoej.s 			page 24
+
+
+ 923 062c 413FE0E3 		mvn	r3, #260
+ 924 0630 1C300BE5 		str	r3, [fp, #-28]
+ 925 0634 810100EA 		b	.L35
+ 926              	.L34:
+ 373:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EApiGPIOSetLevelEmul, 
+ 374:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           (BitMask&~(GPIOIDMapping[i].OutputMask|GPIOIDMapping[i].InputMask)) , 
+ 375:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EAPI_STATUS_INVALID_BITMASK, 
+ 376:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           "Bit-mask Selects Invalid Bits"
+ 377:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           );
+ 378:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 927              		.loc 1 378 15 is_stmt 1
+ 928 0638 0030A0E3 		mov	r3, #0
+ 929 063c 14300BE5 		str	r3, [fp, #-20]
+ 930              		.loc 1 378 9
+ 931 0640 0E0000EA 		b	.L36
+ 932              	.L37:
+ 379:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 933              		.loc 1 379 27 discriminator 3
+ 934 0644 20269FE5 		ldr	r2, .L49+28
+ 935              	.LPIC34:
+ 936 0648 02208FE0 		add	r2, pc, r2
+ 937 064c 18301BE5 		ldr	r3, [fp, #-24]
+ 938 0650 0332A0E1 		lsl	r3, r3, #4
+ 939 0654 033082E0 		add	r3, r2, r3
+ 940 0658 042093E5 		ldr	r2, [r3, #4]
+ 941              		.loc 1 379 34 discriminator 3
+ 942 065c 14301BE5 		ldr	r3, [fp, #-20]
+ 943 0660 8331A0E1 		lsl	r3, r3, #3
+ 944 0664 033082E0 		add	r3, r2, r3
+ 945              		.loc 1 379 38 discriminator 3
+ 946 0668 043093E5 		ldr	r3, [r3, #4]
+ 947              		.loc 1 379 50 discriminator 3
+ 948 066c 0020A0E3 		mov	r2, #0
+ 949 0670 002083E5 		str	r2, [r3]
+ 378:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 950              		.loc 1 378 75 discriminator 3
+ 951 0674 14301BE5 		ldr	r3, [fp, #-20]
+ 952 0678 013083E2 		add	r3, r3, #1
+ 953 067c 14300BE5 		str	r3, [fp, #-20]
+ 954              	.L36:
+ 378:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 955              		.loc 1 378 34 discriminator 1
+ 956 0680 E8259FE5 		ldr	r2, .L49+32
+ 957              	.LPIC35:
+ 958 0684 02208FE0 		add	r2, pc, r2
+ 959 0688 18301BE5 		ldr	r3, [fp, #-24]
+ 960 068c 0332A0E1 		lsl	r3, r3, #4
+ 961 0690 033082E0 		add	r3, r2, r3
+ 962 0694 042093E5 		ldr	r2, [r3, #4]
+ 378:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 963              		.loc 1 378 41 discriminator 1
+ 964 0698 14301BE5 		ldr	r3, [fp, #-20]
+ 965 069c 8331A0E1 		lsl	r3, r3, #3
+ 966 06a0 033082E0 		add	r3, r2, r3
+ 378:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 967              		.loc 1 378 45 discriminator 1
+ 968 06a4 003093E5 		ldr	r3, [r3]
+ARM GAS  /tmp/ccpNxoej.s 			page 25
+
+
+ 378:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 969              		.loc 1 378 54 discriminator 1
+ 970 06a8 010073E3 		cmn	r3, #1
+ 971 06ac E4FFFF1A 		bne	.L37
+ 380:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 381:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++)
+ 972              		.loc 1 381 15
+ 973 06b0 0030A0E3 		mov	r3, #0
+ 974 06b4 14300BE5 		str	r3, [fp, #-20]
+ 975              		.loc 1 381 9
+ 976 06b8 DC0000EA 		b	.L38
+ 977              	.L43:
+ 382:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 383:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 978              		.loc 1 383 22
+ 979 06bc 24201BE5 		ldr	r2, [fp, #-36]
+ 980 06c0 10301BE5 		ldr	r3, [fp, #-16]
+ 981 06c4 023003E0 		and	r3, r3, r2
+ 982              		.loc 1 383 13
+ 983 06c8 000053E3 		cmp	r3, #0
+ 984 06cc D100000A 		beq	.L39
+ 384:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           {
+ 385:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==0){
+ 985              		.loc 1 385 32
+ 986 06d0 9C259FE5 		ldr	r2, .L49+36
+ 987              	.LPIC36:
+ 988 06d4 02208FE0 		add	r2, pc, r2
+ 989 06d8 18301BE5 		ldr	r3, [fp, #-24]
+ 990 06dc 0332A0E1 		lsl	r3, r3, #4
+ 991 06e0 033082E0 		add	r3, r2, r3
+ 992 06e4 042093E5 		ldr	r2, [r3, #4]
+ 993              		.loc 1 385 39
+ 994 06e8 14301BE5 		ldr	r3, [fp, #-20]
+ 995 06ec 8331A0E1 		lsl	r3, r3, #3
+ 996 06f0 033082E0 		add	r3, r2, r3
+ 997              		.loc 1 385 43
+ 998 06f4 043093E5 		ldr	r3, [r3, #4]
+ 999              		.loc 1 385 48
+ 1000 06f8 003093E5 		ldr	r3, [r3]
+ 1001              		.loc 1 385 15
+ 1002 06fc 000053E3 		cmp	r3, #0
+ 1003 0700 5100001A 		bne	.L40
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1004              		.loc 1 386 71
+ 1005 0704 6C259FE5 		ldr	r2, .L49+40
+ 1006              	.LPIC37:
+ 1007 0708 02208FE0 		add	r2, pc, r2
+ 1008 070c 18301BE5 		ldr	r3, [fp, #-24]
+ 1009 0710 0332A0E1 		lsl	r3, r3, #4
+ 1010 0714 033082E0 		add	r3, r2, r3
+ 1011 0718 042093E5 		ldr	r2, [r3, #4]
+ 1012              		.loc 1 386 78
+ 1013 071c 14301BE5 		ldr	r3, [fp, #-20]
+ 1014 0720 8331A0E1 		lsl	r3, r3, #3
+ 1015 0724 033082E0 		add	r3, r2, r3
+ 1016              		.loc 1 386 82
+ 1017 0728 043093E5 		ldr	r3, [r3, #4]
+ARM GAS  /tmp/ccpNxoej.s 			page 26
+
+
+ 1018              		.loc 1 386 87
+ 1019 072c 182093E5 		ldr	r2, [r3, #24]
+ 387:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->LevelArg1
+ 1020              		.loc 1 387 33
+ 1021 0730 44159FE5 		ldr	r1, .L49+44
+ 1022              	.LPIC38:
+ 1023 0734 01108FE0 		add	r1, pc, r1
+ 1024 0738 18301BE5 		ldr	r3, [fp, #-24]
+ 1025 073c 0332A0E1 		lsl	r3, r3, #4
+ 1026 0740 033081E0 		add	r3, r1, r3
+ 1027 0744 041093E5 		ldr	r1, [r3, #4]
+ 1028              		.loc 1 387 40
+ 1029 0748 14301BE5 		ldr	r3, [fp, #-20]
+ 1030 074c 8331A0E1 		lsl	r3, r3, #3
+ 1031 0750 033081E0 		add	r3, r1, r3
+ 1032              		.loc 1 387 44
+ 1033 0754 043093E5 		ldr	r3, [r3, #4]
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1034              		.loc 1 386 55
+ 1035 0758 0C0093E5 		ldr	r0, [r3, #12]
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1036              		.loc 1 386 31
+ 1037 075c 1C159FE5 		ldr	r1, .L49+48
+ 1038              	.LPIC39:
+ 1039 0760 01108FE0 		add	r1, pc, r1
+ 1040 0764 18301BE5 		ldr	r3, [fp, #-24]
+ 1041 0768 0332A0E1 		lsl	r3, r3, #4
+ 1042 076c 033081E0 		add	r3, r1, r3
+ 1043 0770 041093E5 		ldr	r1, [r3, #4]
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1044              		.loc 1 386 38
+ 1045 0774 14301BE5 		ldr	r3, [fp, #-20]
+ 1046 0778 8331A0E1 		lsl	r3, r3, #3
+ 1047 077c 033081E0 		add	r3, r1, r3
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1048              		.loc 1 386 42
+ 1049 0780 044093E5 		ldr	r4, [r3, #4]
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1050              		.loc 1 386 55
+ 1051 0784 32FF2FE1 		blx	r2
+ 1052              	.LVL1:
+ 1053 0788 0030A0E1 		mov	r3, r0
+ 386:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1054              		.loc 1 386 54
+ 1055 078c 043084E5 		str	r3, [r4, #4]
+ 388:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 );
+ 389:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if USE_DIRECTION_EMUL
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value2=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1056              		.loc 1 390 72
+ 1057 0790 EC249FE5 		ldr	r2, .L49+52
+ 1058              	.LPIC40:
+ 1059 0794 02208FE0 		add	r2, pc, r2
+ 1060 0798 18301BE5 		ldr	r3, [fp, #-24]
+ 1061 079c 0332A0E1 		lsl	r3, r3, #4
+ 1062 07a0 033082E0 		add	r3, r2, r3
+ 1063 07a4 042093E5 		ldr	r2, [r3, #4]
+ 1064              		.loc 1 390 79
+ARM GAS  /tmp/ccpNxoej.s 			page 27
+
+
+ 1065 07a8 14301BE5 		ldr	r3, [fp, #-20]
+ 1066 07ac 8331A0E1 		lsl	r3, r3, #3
+ 1067 07b0 033082E0 		add	r3, r2, r3
+ 1068              		.loc 1 390 83
+ 1069 07b4 043093E5 		ldr	r3, [r3, #4]
+ 1070              		.loc 1 390 88
+ 1071 07b8 182093E5 		ldr	r2, [r3, #24]
+ 391:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1072              		.loc 1 391 33
+ 1073 07bc C4149FE5 		ldr	r1, .L49+56
+ 1074              	.LPIC41:
+ 1075 07c0 01108FE0 		add	r1, pc, r1
+ 1076 07c4 18301BE5 		ldr	r3, [fp, #-24]
+ 1077 07c8 0332A0E1 		lsl	r3, r3, #4
+ 1078 07cc 033081E0 		add	r3, r1, r3
+ 1079 07d0 041093E5 		ldr	r1, [r3, #4]
+ 1080              		.loc 1 391 40
+ 1081 07d4 14301BE5 		ldr	r3, [fp, #-20]
+ 1082 07d8 8331A0E1 		lsl	r3, r3, #3
+ 1083 07dc 033081E0 		add	r3, r1, r3
+ 1084              		.loc 1 391 44
+ 1085 07e0 043093E5 		ldr	r3, [r3, #4]
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1086              		.loc 1 390 56
+ 1087 07e4 100093E5 		ldr	r0, [r3, #16]
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1088              		.loc 1 390 31
+ 1089 07e8 9C149FE5 		ldr	r1, .L49+60
+ 1090              	.LPIC42:
+ 1091 07ec 01108FE0 		add	r1, pc, r1
+ 1092 07f0 18301BE5 		ldr	r3, [fp, #-24]
+ 1093 07f4 0332A0E1 		lsl	r3, r3, #4
+ 1094 07f8 033081E0 		add	r3, r1, r3
+ 1095 07fc 041093E5 		ldr	r1, [r3, #4]
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1096              		.loc 1 390 38
+ 1097 0800 14301BE5 		ldr	r3, [fp, #-20]
+ 1098 0804 8331A0E1 		lsl	r3, r3, #3
+ 1099 0808 033081E0 		add	r3, r1, r3
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1100              		.loc 1 390 42
+ 1101 080c 044093E5 		ldr	r4, [r3, #4]
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1102              		.loc 1 390 56
+ 1103 0810 32FF2FE1 		blx	r2
+ 1104              	.LVL2:
+ 1105 0814 0030A0E1 		mov	r3, r0
+ 390:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1106              		.loc 1 390 55
+ 1107 0818 083084E5 		str	r3, [r4, #8]
+ 392:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 );
+ 393:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 394:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Dirty=1;
+ 1108              		.loc 1 394 31
+ 1109 081c 6C249FE5 		ldr	r2, .L49+64
+ 1110              	.LPIC43:
+ 1111 0820 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/ccpNxoej.s 			page 28
+
+
+ 1112 0824 18301BE5 		ldr	r3, [fp, #-24]
+ 1113 0828 0332A0E1 		lsl	r3, r3, #4
+ 1114 082c 033082E0 		add	r3, r2, r3
+ 1115 0830 042093E5 		ldr	r2, [r3, #4]
+ 1116              		.loc 1 394 38
+ 1117 0834 14301BE5 		ldr	r3, [fp, #-20]
+ 1118 0838 8331A0E1 		lsl	r3, r3, #3
+ 1119 083c 033082E0 		add	r3, r2, r3
+ 1120              		.loc 1 394 42
+ 1121 0840 043093E5 		ldr	r3, [r3, #4]
+ 1122              		.loc 1 394 54
+ 1123 0844 0120A0E3 		mov	r2, #1
+ 1124 0848 002083E5 		str	r2, [r3]
+ 1125              	.L40:
+ 395:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 396:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #if USE_DIRECTION_EMUL
+ 397:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             EAPI_LIB_RETURN_ERROR_IF(
+ 1126              		.loc 1 397 13
+ 1127 084c 40249FE5 		ldr	r2, .L49+68
+ 1128              	.LPIC44:
+ 1129 0850 02208FE0 		add	r2, pc, r2
+ 1130 0854 18301BE5 		ldr	r3, [fp, #-24]
+ 1131 0858 0332A0E1 		lsl	r3, r3, #4
+ 1132 085c 033082E0 		add	r3, r2, r3
+ 1133 0860 042093E5 		ldr	r2, [r3, #4]
+ 1134 0864 14301BE5 		ldr	r3, [fp, #-20]
+ 1135 0868 8331A0E1 		lsl	r3, r3, #3
+ 1136 086c 033082E0 		add	r3, r2, r3
+ 1137 0870 043093E5 		ldr	r3, [r3, #4]
+ 1138 0874 082093E5 		ldr	r2, [r3, #8]
+ 1139 0878 18149FE5 		ldr	r1, .L49+72
+ 1140              	.LPIC45:
+ 1141 087c 01108FE0 		add	r1, pc, r1
+ 1142 0880 18301BE5 		ldr	r3, [fp, #-24]
+ 1143 0884 0332A0E1 		lsl	r3, r3, #4
+ 1144 0888 033081E0 		add	r3, r1, r3
+ 1145 088c 041093E5 		ldr	r1, [r3, #4]
+ 1146 0890 14301BE5 		ldr	r3, [fp, #-20]
+ 1147 0894 8331A0E1 		lsl	r3, r3, #3
+ 1148 0898 033081E0 		add	r3, r1, r3
+ 1149 089c 003093E5 		ldr	r3, [r3]
+ 1150 08a0 023003E0 		and	r3, r3, r2
+ 1151 08a4 000053E3 		cmp	r3, #0
+ 1152 08a8 1100000A 		beq	.L41
+ 1153              		.loc 1 397 13 is_stmt 0 discriminator 1
+ 1154 08ac E8339FE5 		ldr	r3, .L49+76
+ 1155              	.LPIC46:
+ 1156 08b0 03308FE0 		add	r3, pc, r3
+ 1157 08b4 08308DE5 		str	r3, [sp, #8]
+ 1158 08b8 E0339FE5 		ldr	r3, .L49+80
+ 1159              	.LPIC47:
+ 1160 08bc 03308FE0 		add	r3, pc, r3
+ 1161 08c0 04308DE5 		str	r3, [sp, #4]
+ 1162 08c4 013CE0E3 		mvn	r3, #256
+ 1163 08c8 00308DE5 		str	r3, [sp]
+ 1164 08cc 8D3100E3 		movw	r3, #397
+ 1165 08d0 CC239FE5 		ldr	r2, .L49+84
+ARM GAS  /tmp/ccpNxoej.s 			page 29
+
+
+ 1166              	.LPIC48:
+ 1167 08d4 02208FE0 		add	r2, pc, r2
+ 1168 08d8 C8139FE5 		ldr	r1, .L49+88
+ 1169              	.LPIC49:
+ 1170 08dc 01108FE0 		add	r1, pc, r1
+ 1171 08e0 4500A0E3 		mov	r0, #69
+ 1172 08e4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1173 08e8 013CE0E3 		mvn	r3, #256
+ 1174 08ec 1C300BE5 		str	r3, [fp, #-28]
+ 1175 08f0 D20000EA 		b	.L35
+ 1176              	.L41:
+ 398:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               EApiGPIOSetLevel, 
+ 399:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               (GPIOIDMapping[i].MapTbl[i2].Port->Value2&GPIOIDMapping[i].MapTbl[i2].PortMask) , 
+ 400:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               EAPI_STATUS_INVALID_PARAMETER, 
+ 401:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               "Cant Set Level on Pin that is set to input"
+ 402:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               );
+ 403:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** #endif
+ 404:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(Level&APIBitMask)
+ 1177              		.loc 1 404 21 is_stmt 1
+ 1178 08f4 28201BE5 		ldr	r2, [fp, #-40]
+ 1179 08f8 10301BE5 		ldr	r3, [fp, #-16]
+ 1180 08fc 023003E0 		and	r3, r3, r2
+ 1181              		.loc 1 404 15
+ 1182 0900 000053E3 		cmp	r3, #0
+ 1183 0904 2100000A 		beq	.L42
+ 405:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value|=GPIOIDMapping[i].MapTbl[i2].PortMask;
+ 1184              		.loc 1 405 31
+ 1185 0908 9C239FE5 		ldr	r2, .L49+92
+ 1186              	.LPIC50:
+ 1187 090c 02208FE0 		add	r2, pc, r2
+ 1188 0910 18301BE5 		ldr	r3, [fp, #-24]
+ 1189 0914 0332A0E1 		lsl	r3, r3, #4
+ 1190 0918 033082E0 		add	r3, r2, r3
+ 1191 091c 042093E5 		ldr	r2, [r3, #4]
+ 1192              		.loc 1 405 38
+ 1193 0920 14301BE5 		ldr	r3, [fp, #-20]
+ 1194 0924 8331A0E1 		lsl	r3, r3, #3
+ 1195 0928 033082E0 		add	r3, r2, r3
+ 1196              		.loc 1 405 42
+ 1197 092c 043093E5 		ldr	r3, [r3, #4]
+ 1198              		.loc 1 405 54
+ 1199 0930 041093E5 		ldr	r1, [r3, #4]
+ 1200              		.loc 1 405 72
+ 1201 0934 74239FE5 		ldr	r2, .L49+96
+ 1202              	.LPIC51:
+ 1203 0938 02208FE0 		add	r2, pc, r2
+ 1204 093c 18301BE5 		ldr	r3, [fp, #-24]
+ 1205 0940 0332A0E1 		lsl	r3, r3, #4
+ 1206 0944 033082E0 		add	r3, r2, r3
+ 1207 0948 042093E5 		ldr	r2, [r3, #4]
+ 1208              		.loc 1 405 79
+ 1209 094c 14301BE5 		ldr	r3, [fp, #-20]
+ 1210 0950 8331A0E1 		lsl	r3, r3, #3
+ 1211 0954 033082E0 		add	r3, r2, r3
+ 1212              		.loc 1 405 83
+ 1213 0958 002093E5 		ldr	r2, [r3]
+ 1214              		.loc 1 405 31
+ARM GAS  /tmp/ccpNxoej.s 			page 30
+
+
+ 1215 095c 50039FE5 		ldr	r0, .L49+100
+ 1216              	.LPIC52:
+ 1217 0960 00008FE0 		add	r0, pc, r0
+ 1218 0964 18301BE5 		ldr	r3, [fp, #-24]
+ 1219 0968 0332A0E1 		lsl	r3, r3, #4
+ 1220 096c 033080E0 		add	r3, r0, r3
+ 1221 0970 040093E5 		ldr	r0, [r3, #4]
+ 1222              		.loc 1 405 38
+ 1223 0974 14301BE5 		ldr	r3, [fp, #-20]
+ 1224 0978 8331A0E1 		lsl	r3, r3, #3
+ 1225 097c 033080E0 		add	r3, r0, r3
+ 1226              		.loc 1 405 42
+ 1227 0980 043093E5 		ldr	r3, [r3, #4]
+ 1228              		.loc 1 405 54
+ 1229 0984 022081E1 		orr	r2, r1, r2
+ 1230 0988 042083E5 		str	r2, [r3, #4]
+ 1231 098c 210000EA 		b	.L39
+ 1232              	.L42:
+ 406:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             else
+ 407:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value&=~GPIOIDMapping[i].MapTbl[i2].PortMask;
+ 1233              		.loc 1 407 31
+ 1234 0990 20239FE5 		ldr	r2, .L49+104
+ 1235              	.LPIC53:
+ 1236 0994 02208FE0 		add	r2, pc, r2
+ 1237 0998 18301BE5 		ldr	r3, [fp, #-24]
+ 1238 099c 0332A0E1 		lsl	r3, r3, #4
+ 1239 09a0 033082E0 		add	r3, r2, r3
+ 1240 09a4 042093E5 		ldr	r2, [r3, #4]
+ 1241              		.loc 1 407 38
+ 1242 09a8 14301BE5 		ldr	r3, [fp, #-20]
+ 1243 09ac 8331A0E1 		lsl	r3, r3, #3
+ 1244 09b0 033082E0 		add	r3, r2, r3
+ 1245              		.loc 1 407 42
+ 1246 09b4 043093E5 		ldr	r3, [r3, #4]
+ 1247              		.loc 1 407 54
+ 1248 09b8 041093E5 		ldr	r1, [r3, #4]
+ 1249              		.loc 1 407 73
+ 1250 09bc F8229FE5 		ldr	r2, .L49+108
+ 1251              	.LPIC54:
+ 1252 09c0 02208FE0 		add	r2, pc, r2
+ 1253 09c4 18301BE5 		ldr	r3, [fp, #-24]
+ 1254 09c8 0332A0E1 		lsl	r3, r3, #4
+ 1255 09cc 033082E0 		add	r3, r2, r3
+ 1256 09d0 042093E5 		ldr	r2, [r3, #4]
+ 1257              		.loc 1 407 80
+ 1258 09d4 14301BE5 		ldr	r3, [fp, #-20]
+ 1259 09d8 8331A0E1 		lsl	r3, r3, #3
+ 1260 09dc 033082E0 		add	r3, r2, r3
+ 1261              		.loc 1 407 84
+ 1262 09e0 003093E5 		ldr	r3, [r3]
+ 1263              		.loc 1 407 56
+ 1264 09e4 0320E0E1 		mvn	r2, r3
+ 1265              		.loc 1 407 31
+ 1266 09e8 D0029FE5 		ldr	r0, .L49+112
+ 1267              	.LPIC55:
+ 1268 09ec 00008FE0 		add	r0, pc, r0
+ 1269 09f0 18301BE5 		ldr	r3, [fp, #-24]
+ARM GAS  /tmp/ccpNxoej.s 			page 31
+
+
+ 1270 09f4 0332A0E1 		lsl	r3, r3, #4
+ 1271 09f8 033080E0 		add	r3, r0, r3
+ 1272 09fc 040093E5 		ldr	r0, [r3, #4]
+ 1273              		.loc 1 407 38
+ 1274 0a00 14301BE5 		ldr	r3, [fp, #-20]
+ 1275 0a04 8331A0E1 		lsl	r3, r3, #3
+ 1276 0a08 033080E0 		add	r3, r0, r3
+ 1277              		.loc 1 407 42
+ 1278 0a0c 043093E5 		ldr	r3, [r3, #4]
+ 1279              		.loc 1 407 54
+ 1280 0a10 012002E0 		and	r2, r2, r1
+ 1281 0a14 042083E5 		str	r2, [r3, #4]
+ 1282              	.L39:
+ 408:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           }
+ 409:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           APIBitMask<<=1;
+ 1283              		.loc 1 409 21 discriminator 2
+ 1284 0a18 10301BE5 		ldr	r3, [fp, #-16]
+ 1285 0a1c 8330A0E1 		lsl	r3, r3, #1
+ 1286 0a20 10300BE5 		str	r3, [fp, #-16]
+ 381:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 1287              		.loc 1 381 75 discriminator 2
+ 1288 0a24 14301BE5 		ldr	r3, [fp, #-20]
+ 1289 0a28 013083E2 		add	r3, r3, #1
+ 1290 0a2c 14300BE5 		str	r3, [fp, #-20]
+ 1291              	.L38:
+ 381:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 1292              		.loc 1 381 34 discriminator 1
+ 1293 0a30 8C229FE5 		ldr	r2, .L49+116
+ 1294              	.LPIC56:
+ 1295 0a34 02208FE0 		add	r2, pc, r2
+ 1296 0a38 18301BE5 		ldr	r3, [fp, #-24]
+ 1297 0a3c 0332A0E1 		lsl	r3, r3, #4
+ 1298 0a40 033082E0 		add	r3, r2, r3
+ 1299 0a44 042093E5 		ldr	r2, [r3, #4]
+ 381:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 1300              		.loc 1 381 41 discriminator 1
+ 1301 0a48 14301BE5 		ldr	r3, [fp, #-20]
+ 1302 0a4c 8331A0E1 		lsl	r3, r3, #3
+ 1303 0a50 033082E0 		add	r3, r2, r3
+ 381:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 1304              		.loc 1 381 45 discriminator 1
+ 1305 0a54 003093E5 		ldr	r3, [r3]
+ 381:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 1306              		.loc 1 381 54 discriminator 1
+ 1307 0a58 010073E3 		cmn	r3, #1
+ 1308 0a5c 16FFFF1A 		bne	.L43
+ 410:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 411:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 1309              		.loc 1 411 15
+ 1310 0a60 0030A0E3 		mov	r3, #0
+ 1311 0a64 14300BE5 		str	r3, [fp, #-20]
+ 1312              		.loc 1 411 9
+ 1313 0a68 3E0000EA 		b	.L44
+ 1314              	.L46:
+ 412:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 1315              		.loc 1 412 30
+ 1316 0a6c 54229FE5 		ldr	r2, .L49+120
+ARM GAS  /tmp/ccpNxoej.s 			page 32
+
+
+ 1317              	.LPIC57:
+ 1318 0a70 02208FE0 		add	r2, pc, r2
+ 1319 0a74 18301BE5 		ldr	r3, [fp, #-24]
+ 1320 0a78 0332A0E1 		lsl	r3, r3, #4
+ 1321 0a7c 033082E0 		add	r3, r2, r3
+ 1322 0a80 042093E5 		ldr	r2, [r3, #4]
+ 1323              		.loc 1 412 37
+ 1324 0a84 14301BE5 		ldr	r3, [fp, #-20]
+ 1325 0a88 8331A0E1 		lsl	r3, r3, #3
+ 1326 0a8c 033082E0 		add	r3, r2, r3
+ 1327              		.loc 1 412 41
+ 1328 0a90 043093E5 		ldr	r3, [r3, #4]
+ 1329              		.loc 1 412 46
+ 1330 0a94 003093E5 		ldr	r3, [r3]
+ 1331              		.loc 1 412 13
+ 1332 0a98 010053E3 		cmp	r3, #1
+ 1333 0a9c 2E00001A 		bne	.L45
+ 413:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Write(
+ 1334              		.loc 1 413 29
+ 1335 0aa0 24229FE5 		ldr	r2, .L49+124
+ 1336              	.LPIC58:
+ 1337 0aa4 02208FE0 		add	r2, pc, r2
+ 1338 0aa8 18301BE5 		ldr	r3, [fp, #-24]
+ 1339 0aac 0332A0E1 		lsl	r3, r3, #4
+ 1340 0ab0 033082E0 		add	r3, r2, r3
+ 1341 0ab4 042093E5 		ldr	r2, [r3, #4]
+ 1342              		.loc 1 413 36
+ 1343 0ab8 14301BE5 		ldr	r3, [fp, #-20]
+ 1344 0abc 8331A0E1 		lsl	r3, r3, #3
+ 1345 0ac0 033082E0 		add	r3, r2, r3
+ 1346              		.loc 1 413 40
+ 1347 0ac4 043093E5 		ldr	r3, [r3, #4]
+ 1348              		.loc 1 413 45
+ 1349 0ac8 142093E5 		ldr	r2, [r3, #20]
+ 414:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->LevelArg1, 
+ 1350              		.loc 1 414 31
+ 1351 0acc FC119FE5 		ldr	r1, .L49+128
+ 1352              	.LPIC59:
+ 1353 0ad0 01108FE0 		add	r1, pc, r1
+ 1354 0ad4 18301BE5 		ldr	r3, [fp, #-24]
+ 1355 0ad8 0332A0E1 		lsl	r3, r3, #4
+ 1356 0adc 033081E0 		add	r3, r1, r3
+ 1357 0ae0 041093E5 		ldr	r1, [r3, #4]
+ 1358              		.loc 1 414 38
+ 1359 0ae4 14301BE5 		ldr	r3, [fp, #-20]
+ 1360 0ae8 8331A0E1 		lsl	r3, r3, #3
+ 1361 0aec 033081E0 		add	r3, r1, r3
+ 1362              		.loc 1 414 42
+ 1363 0af0 043093E5 		ldr	r3, [r3, #4]
+ 413:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Write(
+ 1364              		.loc 1 413 13
+ 1365 0af4 0C0093E5 		ldr	r0, [r3, #12]
+ 415:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value
+ 1366              		.loc 1 415 31
+ 1367 0af8 D4119FE5 		ldr	r1, .L49+132
+ 1368              	.LPIC60:
+ 1369 0afc 01108FE0 		add	r1, pc, r1
+ARM GAS  /tmp/ccpNxoej.s 			page 33
+
+
+ 1370 0b00 18301BE5 		ldr	r3, [fp, #-24]
+ 1371 0b04 0332A0E1 		lsl	r3, r3, #4
+ 1372 0b08 033081E0 		add	r3, r1, r3
+ 1373 0b0c 041093E5 		ldr	r1, [r3, #4]
+ 1374              		.loc 1 415 38
+ 1375 0b10 14301BE5 		ldr	r3, [fp, #-20]
+ 1376 0b14 8331A0E1 		lsl	r3, r3, #3
+ 1377 0b18 033081E0 		add	r3, r1, r3
+ 1378              		.loc 1 415 42
+ 1379 0b1c 043093E5 		ldr	r3, [r3, #4]
+ 413:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Write(
+ 1380              		.loc 1 413 13
+ 1381 0b20 043093E5 		ldr	r3, [r3, #4]
+ 1382 0b24 0310A0E1 		mov	r1, r3
+ 1383 0b28 32FF2FE1 		blx	r2
+ 1384              	.LVL3:
+ 416:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               );
+ 417:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1385              		.loc 1 417 29
+ 1386 0b2c A4219FE5 		ldr	r2, .L49+136
+ 1387              	.LPIC61:
+ 1388 0b30 02208FE0 		add	r2, pc, r2
+ 1389 0b34 18301BE5 		ldr	r3, [fp, #-24]
+ 1390 0b38 0332A0E1 		lsl	r3, r3, #4
+ 1391 0b3c 033082E0 		add	r3, r2, r3
+ 1392 0b40 042093E5 		ldr	r2, [r3, #4]
+ 1393              		.loc 1 417 36
+ 1394 0b44 14301BE5 		ldr	r3, [fp, #-20]
+ 1395 0b48 8331A0E1 		lsl	r3, r3, #3
+ 1396 0b4c 033082E0 		add	r3, r2, r3
+ 1397              		.loc 1 417 40
+ 1398 0b50 043093E5 		ldr	r3, [r3, #4]
+ 1399              		.loc 1 417 52
+ 1400 0b54 0020A0E3 		mov	r2, #0
+ 1401 0b58 002083E5 		str	r2, [r3]
+ 1402              	.L45:
+ 411:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 1403              		.loc 1 411 75 discriminator 2
+ 1404 0b5c 14301BE5 		ldr	r3, [fp, #-20]
+ 1405 0b60 013083E2 		add	r3, r3, #1
+ 1406 0b64 14300BE5 		str	r3, [fp, #-20]
+ 1407              	.L44:
+ 411:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 1408              		.loc 1 411 34 discriminator 1
+ 1409 0b68 6C219FE5 		ldr	r2, .L49+140
+ 1410              	.LPIC62:
+ 1411 0b6c 02208FE0 		add	r2, pc, r2
+ 1412 0b70 18301BE5 		ldr	r3, [fp, #-24]
+ 1413 0b74 0332A0E1 		lsl	r3, r3, #4
+ 1414 0b78 033082E0 		add	r3, r2, r3
+ 1415 0b7c 042093E5 		ldr	r2, [r3, #4]
+ 411:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 1416              		.loc 1 411 41 discriminator 1
+ 1417 0b80 14301BE5 		ldr	r3, [fp, #-20]
+ 1418 0b84 8331A0E1 		lsl	r3, r3, #3
+ 1419 0b88 033082E0 		add	r3, r2, r3
+ 411:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ARM GAS  /tmp/ccpNxoej.s 			page 34
+
+
+ 1420              		.loc 1 411 45 discriminator 1
+ 1421 0b8c 003093E5 		ldr	r3, [r3]
+ 411:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 1422              		.loc 1 411 54 discriminator 1
+ 1423 0b90 010073E3 		cmn	r3, #1
+ 1424 0b94 B4FFFF1A 		bne	.L46
+ 418:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           }
+ 419:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 420:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_SUCCESS(EApiGPIOSetLevel, "");
+ 1425              		.loc 1 420 9
+ 1426 0b98 40319FE5 		ldr	r3, .L49+144
+ 1427              	.LPIC63:
+ 1428 0b9c 03308FE0 		add	r3, pc, r3
+ 1429 0ba0 08308DE5 		str	r3, [sp, #8]
+ 1430 0ba4 38319FE5 		ldr	r3, .L49+148
+ 1431              	.LPIC64:
+ 1432 0ba8 03308FE0 		add	r3, pc, r3
+ 1433 0bac 04308DE5 		str	r3, [sp, #4]
+ 1434 0bb0 0030A0E3 		mov	r3, #0
+ 1435 0bb4 00308DE5 		str	r3, [sp]
+ 1436 0bb8 693FA0E3 		mov	r3, #420
+ 1437 0bbc 24219FE5 		ldr	r2, .L49+152
+ 1438              	.LPIC65:
+ 1439 0bc0 02208FE0 		add	r2, pc, r2
+ 1440 0bc4 20119FE5 		ldr	r1, .L49+156
+ 1441              	.LPIC66:
+ 1442 0bc8 01108FE0 		add	r1, pc, r1
+ 1443 0bcc 4C00A0E3 		mov	r0, #76
+ 1444 0bd0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1445 0bd4 0030A0E3 		mov	r3, #0
+ 1446 0bd8 1C300BE5 		str	r3, [fp, #-28]
+ 1447 0bdc 170000EA 		b	.L35
+ 1448              	.L33:
+ 368:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 1449              		.loc 1 368 40 discriminator 2
+ 1450 0be0 18301BE5 		ldr	r3, [fp, #-24]
+ 1451 0be4 013083E2 		add	r3, r3, #1
+ 1452 0be8 18300BE5 		str	r3, [fp, #-24]
+ 1453              	.L32:
+ 368:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 1454              		.loc 1 368 12 discriminator 1
+ 1455 0bec 18301BE5 		ldr	r3, [fp, #-24]
+ 1456 0bf0 080053E3 		cmp	r3, #8
+ 1457 0bf4 64FEFF9A 		bls	.L47
+ 421:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       }
+ 422:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 423:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_LIB_RETURN_ERROR(
+ 1458              		.loc 1 423 3
+ 1459 0bf8 F0309FE5 		ldr	r3, .L49+160
+ 1460              	.LPIC67:
+ 1461 0bfc 03308FE0 		add	r3, pc, r3
+ 1462 0c00 08308DE5 		str	r3, [sp, #8]
+ 1463 0c04 E8309FE5 		ldr	r3, .L49+164
+ 1464              	.LPIC68:
+ 1465 0c08 03308FE0 		add	r3, pc, r3
+ 1466 0c0c 04308DE5 		str	r3, [sp, #4]
+ 1467 0c10 033CE0E3 		mvn	r3, #768
+ARM GAS  /tmp/ccpNxoej.s 			page 35
+
+
+ 1468 0c14 00308DE5 		str	r3, [sp]
+ 1469 0c18 A73100E3 		movw	r3, #423
+ 1470 0c1c D4209FE5 		ldr	r2, .L49+168
+ 1471              	.LPIC69:
+ 1472 0c20 02208FE0 		add	r2, pc, r2
+ 1473 0c24 D0109FE5 		ldr	r1, .L49+172
+ 1474              	.LPIC70:
+ 1475 0c28 01108FE0 		add	r1, pc, r1
+ 1476 0c2c 4500A0E3 		mov	r0, #69
+ 1477 0c30 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1478 0c34 033CE0E3 		mvn	r3, #768
+ 1479 0c38 1C300BE5 		str	r3, [fp, #-28]
+ 1480 0c3c 00F020E3 		nop
+ 1481              	.L35:
+ 424:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EApiGPIOSetLevel, 
+ 425:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EAPI_STATUS_UNSUPPORTED, 
+ 426:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     "Unrecognised GPIO ID"
+ 427:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     );
+ 428:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EAPI_LIB_ASSERT_EXIT
+ 429:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 430:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return StatusCode;
+ 1482              		.loc 1 430 10
+ 1483 0c40 1C301BE5 		ldr	r3, [fp, #-28]
+ 431:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 1484              		.loc 1 431 1
+ 1485 0c44 0300A0E1 		mov	r0, r3
+ 1486 0c48 08D04BE2 		sub	sp, fp, #8
+ 1487              		.cfi_def_cfa 13, 12
+ 1488              		@ sp needed
+ 1489 0c4c 1088BDE8 		pop	{r4, fp, pc}
+ 1490              	.L50:
+ 1491              		.align	2
+ 1492              	.L49:
+ 1493 0c50 B8060000 		.word	GPIOIDMapping-(.LPIC27+8)
+ 1494 0c54 A0060000 		.word	GPIOIDMapping-(.LPIC28+8)
+ 1495 0c58 8C060000 		.word	GPIOIDMapping-(.LPIC29+8)
+ 1496 0c5c B8060000 		.word	.LC2-(.LPIC30+8)
+ 1497 0c60 D0060000 		.word	.LC3-(.LPIC31+8)
+ 1498 0c64 F0060000 		.word	.LC7-(.LPIC32+8)
+ 1499 0c68 58060000 		.word	.LC1-(.LPIC33+8)
+ 1500 0c6c 1C060000 		.word	GPIOIDMapping-(.LPIC34+8)
+ 1501 0c70 E4050000 		.word	GPIOIDMapping-(.LPIC35+8)
+ 1502 0c74 98050000 		.word	GPIOIDMapping-(.LPIC36+8)
+ 1503 0c78 68050000 		.word	GPIOIDMapping-(.LPIC37+8)
+ 1504 0c7c 40050000 		.word	GPIOIDMapping-(.LPIC38+8)
+ 1505 0c80 18050000 		.word	GPIOIDMapping-(.LPIC39+8)
+ 1506 0c84 E8040000 		.word	GPIOIDMapping-(.LPIC40+8)
+ 1507 0c88 C0040000 		.word	GPIOIDMapping-(.LPIC41+8)
+ 1508 0c8c 98040000 		.word	GPIOIDMapping-(.LPIC42+8)
+ 1509 0c90 68040000 		.word	GPIOIDMapping-(.LPIC43+8)
+ 1510 0c94 3C040000 		.word	GPIOIDMapping-(.LPIC44+8)
+ 1511 0c98 14040000 		.word	GPIOIDMapping-(.LPIC45+8)
+ 1512 0c9c BC040000 		.word	.LC9-(.LPIC46+8)
+ 1513 0ca0 54040000 		.word	.LC3-(.LPIC47+8)
+ 1514 0ca4 8C040000 		.word	.LC8-(.LPIC48+8)
+ 1515 0ca8 DC030000 		.word	.LC1-(.LPIC49+8)
+ 1516 0cac 98030000 		.word	GPIOIDMapping-(.LPIC50+8)
+ARM GAS  /tmp/ccpNxoej.s 			page 36
+
+
+ 1517 0cb0 70030000 		.word	GPIOIDMapping-(.LPIC51+8)
+ 1518 0cb4 4C030000 		.word	GPIOIDMapping-(.LPIC52+8)
+ 1519 0cb8 1C030000 		.word	GPIOIDMapping-(.LPIC53+8)
+ 1520 0cbc F4020000 		.word	GPIOIDMapping-(.LPIC54+8)
+ 1521 0cc0 CC020000 		.word	GPIOIDMapping-(.LPIC55+8)
+ 1522 0cc4 88020000 		.word	GPIOIDMapping-(.LPIC56+8)
+ 1523 0cc8 50020000 		.word	GPIOIDMapping-(.LPIC57+8)
+ 1524 0ccc 20020000 		.word	GPIOIDMapping-(.LPIC58+8)
+ 1525 0cd0 F8010000 		.word	GPIOIDMapping-(.LPIC59+8)
+ 1526 0cd4 D0010000 		.word	GPIOIDMapping-(.LPIC60+8)
+ 1527 0cd8 A0010000 		.word	GPIOIDMapping-(.LPIC61+8)
+ 1528 0cdc 68010000 		.word	GPIOIDMapping-(.LPIC62+8)
+ 1529 0ce0 CC010000 		.word	.LC5-(.LPIC63+8)
+ 1530 0ce4 AC010000 		.word	.LC3-(.LPIC64+8)
+ 1531 0ce8 E4010000 		.word	.LC8-(.LPIC65+8)
+ 1532 0cec 34010000 		.word	.LC1-(.LPIC66+8)
+ 1533 0cf0 80010000 		.word	.LC6-(.LPIC67+8)
+ 1534 0cf4 5C010000 		.word	.LC3-(.LPIC68+8)
+ 1535 0cf8 94010000 		.word	.LC8-(.LPIC69+8)
+ 1536 0cfc E4000000 		.word	.LC1-(.LPIC70+8)
+ 1537              		.cfi_endproc
+ 1538              	.LFE6:
+ 1540              		.section	.rodata
+ 1541 0103 00       		.align	2
+ 1542              	.LC10:
+ 1543 0104 45417069 		.ascii	"EApiGPIOGetDirectionEmul\000"
+ 1543      4750494F 
+ 1543      47657444 
+ 1543      69726563 
+ 1543      74696F6E 
+ 1544 011d 000000   		.align	2
+ 1545              	.LC11:
+ 1546 0120 45417069 		.ascii	"EApiGPIOGetDirection\000"
+ 1546      4750494F 
+ 1546      47657444 
+ 1546      69726563 
+ 1546      74696F6E 
+ 1547              		.text
+ 1548              		.align	2
+ 1549              		.global	EApiGPIOGetDirectionEmul
+ 1550              		.hidden	EApiGPIOGetDirectionEmul
+ 1551              		.syntax unified
+ 1552              		.arm
+ 1553              		.fpu vfpv3
+ 1555              	EApiGPIOGetDirectionEmul:
+ 1556              	.LFB7:
+ 432:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 433:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiStatus_t 
+ 434:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiGPIOGetDirectionEmul( 
+ 435:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __IN  EApiId_t  Id        ,
+ 436:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __IN  uint32_t  BitMask   ,
+ 437:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __OUT uint32_t *pDirection
+ 438:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   )
+ 439:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 1557              		.loc 1 439 1
+ 1558              		.cfi_startproc
+ 1559              		@ args = 0, pretend = 0, frame = 32
+ARM GAS  /tmp/ccpNxoej.s 			page 37
+
+
+ 1560              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1561 0d00 10482DE9 		push	{r4, fp, lr}
+ 1562              		.cfi_def_cfa_offset 12
+ 1563              		.cfi_offset 4, -12
+ 1564              		.cfi_offset 11, -8
+ 1565              		.cfi_offset 14, -4
+ 1566 0d04 08B08DE2 		add	fp, sp, #8
+ 1567              		.cfi_def_cfa 11, 4
+ 1568 0d08 34D04DE2 		sub	sp, sp, #52
+ 1569 0d0c 20000BE5 		str	r0, [fp, #-32]
+ 1570 0d10 24100BE5 		str	r1, [fp, #-36]
+ 1571 0d14 28200BE5 		str	r2, [fp, #-40]
+ 440:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 1572              		.loc 1 440 16
+ 1573 0d18 0030A0E3 		mov	r3, #0
+ 1574 0d1c 1C300BE5 		str	r3, [fp, #-28]
+ 441:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   unsigned i,i2;
+ 442:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   uint32_t APIBitMask=1;
+ 1575              		.loc 1 442 12
+ 1576 0d20 0130A0E3 		mov	r3, #1
+ 1577 0d24 10300BE5 		str	r3, [fp, #-16]
+ 443:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 444:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   for(i=0;i<ARRAY_SIZE(GPIOIDMapping);i++)
+ 1578              		.loc 1 444 8
+ 1579 0d28 0030A0E3 		mov	r3, #0
+ 1580 0d2c 18300BE5 		str	r3, [fp, #-24]
+ 1581              		.loc 1 444 3
+ 1582 0d30 D40000EA 		b	.L52
+ 1583              	.L62:
+ 445:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 446:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       if(GPIOIDMapping[i].Id==Id)
+ 1584              		.loc 1 446 26
+ 1585 0d34 B0339FE5 		ldr	r3, .L64
+ 1586              	.LPIC71:
+ 1587 0d38 03308FE0 		add	r3, pc, r3
+ 1588 0d3c 18201BE5 		ldr	r2, [fp, #-24]
+ 1589 0d40 023293E7 		ldr	r3, [r3, r2, lsl #4]
+ 1590              		.loc 1 446 9
+ 1591 0d44 20201BE5 		ldr	r2, [fp, #-32]
+ 1592 0d48 030052E1 		cmp	r2, r3
+ 1593 0d4c CA00001A 		bne	.L53
+ 447:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       {
+ 448:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 1594              		.loc 1 448 9
+ 1595 0d50 98239FE5 		ldr	r2, .L64+4
+ 1596              	.LPIC72:
+ 1597 0d54 02208FE0 		add	r2, pc, r2
+ 1598 0d58 18301BE5 		ldr	r3, [fp, #-24]
+ 1599 0d5c 0332A0E1 		lsl	r3, r3, #4
+ 1600 0d60 033082E0 		add	r3, r2, r3
+ 1601 0d64 082093E5 		ldr	r2, [r3, #8]
+ 1602 0d68 84139FE5 		ldr	r1, .L64+8
+ 1603              	.LPIC73:
+ 1604 0d6c 01108FE0 		add	r1, pc, r1
+ 1605 0d70 18301BE5 		ldr	r3, [fp, #-24]
+ 1606 0d74 0332A0E1 		lsl	r3, r3, #4
+ 1607 0d78 033081E0 		add	r3, r1, r3
+ARM GAS  /tmp/ccpNxoej.s 			page 38
+
+
+ 1608 0d7c 0C3093E5 		ldr	r3, [r3, #12]
+ 1609 0d80 033082E1 		orr	r3, r2, r3
+ 1610 0d84 0320E0E1 		mvn	r2, r3
+ 1611 0d88 24301BE5 		ldr	r3, [fp, #-36]
+ 1612 0d8c 023003E0 		and	r3, r3, r2
+ 1613 0d90 000053E3 		cmp	r3, #0
+ 1614 0d94 1100000A 		beq	.L54
+ 1615              		.loc 1 448 9 is_stmt 0 discriminator 1
+ 1616 0d98 58339FE5 		ldr	r3, .L64+12
+ 1617              	.LPIC74:
+ 1618 0d9c 03308FE0 		add	r3, pc, r3
+ 1619 0da0 08308DE5 		str	r3, [sp, #8]
+ 1620 0da4 50339FE5 		ldr	r3, .L64+16
+ 1621              	.LPIC75:
+ 1622 0da8 03308FE0 		add	r3, pc, r3
+ 1623 0dac 04308DE5 		str	r3, [sp, #4]
+ 1624 0db0 413FE0E3 		mvn	r3, #260
+ 1625 0db4 00308DE5 		str	r3, [sp]
+ 1626 0db8 073DA0E3 		mov	r3, #448
+ 1627 0dbc 3C239FE5 		ldr	r2, .L64+20
+ 1628              	.LPIC76:
+ 1629 0dc0 02208FE0 		add	r2, pc, r2
+ 1630 0dc4 38139FE5 		ldr	r1, .L64+24
+ 1631              	.LPIC77:
+ 1632 0dc8 01108FE0 		add	r1, pc, r1
+ 1633 0dcc 4500A0E3 		mov	r0, #69
+ 1634 0dd0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1635 0dd4 413FE0E3 		mvn	r3, #260
+ 1636 0dd8 1C300BE5 		str	r3, [fp, #-28]
+ 1637 0ddc BE0000EA 		b	.L55
+ 1638              	.L54:
+ 449:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EApiGPIOGetDirectionEmul, 
+ 450:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           (BitMask&~(GPIOIDMapping[i].OutputMask|GPIOIDMapping[i].InputMask)) , 
+ 451:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EAPI_STATUS_INVALID_BITMASK, 
+ 452:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           "Bit-mask Selects Invalid Bits"
+ 453:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           );
+ 454:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 1639              		.loc 1 454 15 is_stmt 1
+ 1640 0de0 0030A0E3 		mov	r3, #0
+ 1641 0de4 14300BE5 		str	r3, [fp, #-20]
+ 1642              		.loc 1 454 9
+ 1643 0de8 0E0000EA 		b	.L56
+ 1644              	.L57:
+ 455:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1645              		.loc 1 455 27 discriminator 3
+ 1646 0dec 14239FE5 		ldr	r2, .L64+28
+ 1647              	.LPIC78:
+ 1648 0df0 02208FE0 		add	r2, pc, r2
+ 1649 0df4 18301BE5 		ldr	r3, [fp, #-24]
+ 1650 0df8 0332A0E1 		lsl	r3, r3, #4
+ 1651 0dfc 033082E0 		add	r3, r2, r3
+ 1652 0e00 042093E5 		ldr	r2, [r3, #4]
+ 1653              		.loc 1 455 34 discriminator 3
+ 1654 0e04 14301BE5 		ldr	r3, [fp, #-20]
+ 1655 0e08 8331A0E1 		lsl	r3, r3, #3
+ 1656 0e0c 033082E0 		add	r3, r2, r3
+ 1657              		.loc 1 455 38 discriminator 3
+ARM GAS  /tmp/ccpNxoej.s 			page 39
+
+
+ 1658 0e10 043093E5 		ldr	r3, [r3, #4]
+ 1659              		.loc 1 455 50 discriminator 3
+ 1660 0e14 0020A0E3 		mov	r2, #0
+ 1661 0e18 002083E5 		str	r2, [r3]
+ 454:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1662              		.loc 1 454 75 discriminator 3
+ 1663 0e1c 14301BE5 		ldr	r3, [fp, #-20]
+ 1664 0e20 013083E2 		add	r3, r3, #1
+ 1665 0e24 14300BE5 		str	r3, [fp, #-20]
+ 1666              	.L56:
+ 454:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1667              		.loc 1 454 34 discriminator 1
+ 1668 0e28 DC229FE5 		ldr	r2, .L64+32
+ 1669              	.LPIC79:
+ 1670 0e2c 02208FE0 		add	r2, pc, r2
+ 1671 0e30 18301BE5 		ldr	r3, [fp, #-24]
+ 1672 0e34 0332A0E1 		lsl	r3, r3, #4
+ 1673 0e38 033082E0 		add	r3, r2, r3
+ 1674 0e3c 042093E5 		ldr	r2, [r3, #4]
+ 454:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1675              		.loc 1 454 41 discriminator 1
+ 1676 0e40 14301BE5 		ldr	r3, [fp, #-20]
+ 1677 0e44 8331A0E1 		lsl	r3, r3, #3
+ 1678 0e48 033082E0 		add	r3, r2, r3
+ 454:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1679              		.loc 1 454 45 discriminator 1
+ 1680 0e4c 003093E5 		ldr	r3, [r3]
+ 454:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 1681              		.loc 1 454 54 discriminator 1
+ 1682 0e50 010073E3 		cmn	r3, #1
+ 1683 0e54 E4FFFF1A 		bne	.L57
+ 456:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 457:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         *pDirection=0;
+ 1684              		.loc 1 457 20
+ 1685 0e58 28301BE5 		ldr	r3, [fp, #-40]
+ 1686 0e5c 0020A0E3 		mov	r2, #0
+ 1687 0e60 002083E5 		str	r2, [r3]
+ 458:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 1688              		.loc 1 458 15
+ 1689 0e64 0030A0E3 		mov	r3, #0
+ 1690 0e68 14300BE5 		str	r3, [fp, #-20]
+ 1691              		.loc 1 458 9
+ 1692 0e6c 640000EA 		b	.L58
+ 1693              	.L61:
+ 459:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 1694              		.loc 1 459 22
+ 1695 0e70 24201BE5 		ldr	r2, [fp, #-36]
+ 1696 0e74 10301BE5 		ldr	r3, [fp, #-16]
+ 1697 0e78 023003E0 		and	r3, r3, r2
+ 1698              		.loc 1 459 13
+ 1699 0e7c 000053E3 		cmp	r3, #0
+ 1700 0e80 5900000A 		beq	.L59
+ 460:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           {
+ 461:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==0){
+ 1701              		.loc 1 461 32
+ 1702 0e84 84229FE5 		ldr	r2, .L64+36
+ 1703              	.LPIC80:
+ARM GAS  /tmp/ccpNxoej.s 			page 40
+
+
+ 1704 0e88 02208FE0 		add	r2, pc, r2
+ 1705 0e8c 18301BE5 		ldr	r3, [fp, #-24]
+ 1706 0e90 0332A0E1 		lsl	r3, r3, #4
+ 1707 0e94 033082E0 		add	r3, r2, r3
+ 1708 0e98 042093E5 		ldr	r2, [r3, #4]
+ 1709              		.loc 1 461 39
+ 1710 0e9c 14301BE5 		ldr	r3, [fp, #-20]
+ 1711 0ea0 8331A0E1 		lsl	r3, r3, #3
+ 1712 0ea4 033082E0 		add	r3, r2, r3
+ 1713              		.loc 1 461 43
+ 1714 0ea8 043093E5 		ldr	r3, [r3, #4]
+ 1715              		.loc 1 461 48
+ 1716 0eac 003093E5 		ldr	r3, [r3]
+ 1717              		.loc 1 461 15
+ 1718 0eb0 000053E3 		cmp	r3, #0
+ 1719 0eb4 2E00001A 		bne	.L60
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1720              		.loc 1 462 71
+ 1721 0eb8 54229FE5 		ldr	r2, .L64+40
+ 1722              	.LPIC81:
+ 1723 0ebc 02208FE0 		add	r2, pc, r2
+ 1724 0ec0 18301BE5 		ldr	r3, [fp, #-24]
+ 1725 0ec4 0332A0E1 		lsl	r3, r3, #4
+ 1726 0ec8 033082E0 		add	r3, r2, r3
+ 1727 0ecc 042093E5 		ldr	r2, [r3, #4]
+ 1728              		.loc 1 462 78
+ 1729 0ed0 14301BE5 		ldr	r3, [fp, #-20]
+ 1730 0ed4 8331A0E1 		lsl	r3, r3, #3
+ 1731 0ed8 033082E0 		add	r3, r2, r3
+ 1732              		.loc 1 462 82
+ 1733 0edc 043093E5 		ldr	r3, [r3, #4]
+ 1734              		.loc 1 462 87
+ 1735 0ee0 182093E5 		ldr	r2, [r3, #24]
+ 463:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 1736              		.loc 1 463 33
+ 1737 0ee4 2C129FE5 		ldr	r1, .L64+44
+ 1738              	.LPIC82:
+ 1739 0ee8 01108FE0 		add	r1, pc, r1
+ 1740 0eec 18301BE5 		ldr	r3, [fp, #-24]
+ 1741 0ef0 0332A0E1 		lsl	r3, r3, #4
+ 1742 0ef4 033081E0 		add	r3, r1, r3
+ 1743 0ef8 041093E5 		ldr	r1, [r3, #4]
+ 1744              		.loc 1 463 40
+ 1745 0efc 14301BE5 		ldr	r3, [fp, #-20]
+ 1746 0f00 8331A0E1 		lsl	r3, r3, #3
+ 1747 0f04 033081E0 		add	r3, r1, r3
+ 1748              		.loc 1 463 44
+ 1749 0f08 043093E5 		ldr	r3, [r3, #4]
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1750              		.loc 1 462 55
+ 1751 0f0c 100093E5 		ldr	r0, [r3, #16]
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1752              		.loc 1 462 31
+ 1753 0f10 04129FE5 		ldr	r1, .L64+48
+ 1754              	.LPIC83:
+ 1755 0f14 01108FE0 		add	r1, pc, r1
+ 1756 0f18 18301BE5 		ldr	r3, [fp, #-24]
+ARM GAS  /tmp/ccpNxoej.s 			page 41
+
+
+ 1757 0f1c 0332A0E1 		lsl	r3, r3, #4
+ 1758 0f20 033081E0 		add	r3, r1, r3
+ 1759 0f24 041093E5 		ldr	r1, [r3, #4]
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1760              		.loc 1 462 38
+ 1761 0f28 14301BE5 		ldr	r3, [fp, #-20]
+ 1762 0f2c 8331A0E1 		lsl	r3, r3, #3
+ 1763 0f30 033081E0 		add	r3, r1, r3
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1764              		.loc 1 462 42
+ 1765 0f34 044093E5 		ldr	r4, [r3, #4]
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1766              		.loc 1 462 55
+ 1767 0f38 32FF2FE1 		blx	r2
+ 1768              	.LVL4:
+ 1769 0f3c 0030A0E1 		mov	r3, r0
+ 462:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 1770              		.loc 1 462 54
+ 1771 0f40 043084E5 		str	r3, [r4, #4]
+ 464:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 );
+ 465:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Dirty=1;
+ 1772              		.loc 1 465 31
+ 1773 0f44 D4219FE5 		ldr	r2, .L64+52
+ 1774              	.LPIC84:
+ 1775 0f48 02208FE0 		add	r2, pc, r2
+ 1776 0f4c 18301BE5 		ldr	r3, [fp, #-24]
+ 1777 0f50 0332A0E1 		lsl	r3, r3, #4
+ 1778 0f54 033082E0 		add	r3, r2, r3
+ 1779 0f58 042093E5 		ldr	r2, [r3, #4]
+ 1780              		.loc 1 465 38
+ 1781 0f5c 14301BE5 		ldr	r3, [fp, #-20]
+ 1782 0f60 8331A0E1 		lsl	r3, r3, #3
+ 1783 0f64 033082E0 		add	r3, r2, r3
+ 1784              		.loc 1 465 42
+ 1785 0f68 043093E5 		ldr	r3, [r3, #4]
+ 1786              		.loc 1 465 54
+ 1787 0f6c 0120A0E3 		mov	r2, #1
+ 1788 0f70 002083E5 		str	r2, [r3]
+ 1789              	.L60:
+ 466:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 467:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(GPIOIDMapping[i].MapTbl[i2].Port->Value&GPIOIDMapping[i].MapTbl[i2].PortMask)
+ 1790              		.loc 1 467 32
+ 1791 0f74 A8219FE5 		ldr	r2, .L64+56
+ 1792              	.LPIC85:
+ 1793 0f78 02208FE0 		add	r2, pc, r2
+ 1794 0f7c 18301BE5 		ldr	r3, [fp, #-24]
+ 1795 0f80 0332A0E1 		lsl	r3, r3, #4
+ 1796 0f84 033082E0 		add	r3, r2, r3
+ 1797 0f88 042093E5 		ldr	r2, [r3, #4]
+ 1798              		.loc 1 467 39
+ 1799 0f8c 14301BE5 		ldr	r3, [fp, #-20]
+ 1800 0f90 8331A0E1 		lsl	r3, r3, #3
+ 1801 0f94 033082E0 		add	r3, r2, r3
+ 1802              		.loc 1 467 43
+ 1803 0f98 043093E5 		ldr	r3, [r3, #4]
+ 1804              		.loc 1 467 48
+ 1805 0f9c 042093E5 		ldr	r2, [r3, #4]
+ARM GAS  /tmp/ccpNxoej.s 			page 42
+
+
+ 1806              		.loc 1 467 72
+ 1807 0fa0 80119FE5 		ldr	r1, .L64+60
+ 1808              	.LPIC86:
+ 1809 0fa4 01108FE0 		add	r1, pc, r1
+ 1810 0fa8 18301BE5 		ldr	r3, [fp, #-24]
+ 1811 0fac 0332A0E1 		lsl	r3, r3, #4
+ 1812 0fb0 033081E0 		add	r3, r1, r3
+ 1813 0fb4 041093E5 		ldr	r1, [r3, #4]
+ 1814              		.loc 1 467 79
+ 1815 0fb8 14301BE5 		ldr	r3, [fp, #-20]
+ 1816 0fbc 8331A0E1 		lsl	r3, r3, #3
+ 1817 0fc0 033081E0 		add	r3, r1, r3
+ 1818              		.loc 1 467 83
+ 1819 0fc4 003093E5 		ldr	r3, [r3]
+ 1820              		.loc 1 467 55
+ 1821 0fc8 023003E0 		and	r3, r3, r2
+ 1822              		.loc 1 467 15
+ 1823 0fcc 000053E3 		cmp	r3, #0
+ 1824 0fd0 0500000A 		beq	.L59
+ 468:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               *pDirection|=APIBitMask;
+ 1825              		.loc 1 468 26
+ 1826 0fd4 28301BE5 		ldr	r3, [fp, #-40]
+ 1827 0fd8 002093E5 		ldr	r2, [r3]
+ 1828 0fdc 10301BE5 		ldr	r3, [fp, #-16]
+ 1829 0fe0 032082E1 		orr	r2, r2, r3
+ 1830 0fe4 28301BE5 		ldr	r3, [fp, #-40]
+ 1831 0fe8 002083E5 		str	r2, [r3]
+ 1832              	.L59:
+ 469:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           }
+ 470:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           APIBitMask<<=1;
+ 1833              		.loc 1 470 21 discriminator 2
+ 1834 0fec 10301BE5 		ldr	r3, [fp, #-16]
+ 1835 0ff0 8330A0E1 		lsl	r3, r3, #1
+ 1836 0ff4 10300BE5 		str	r3, [fp, #-16]
+ 458:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 1837              		.loc 1 458 75 discriminator 2
+ 1838 0ff8 14301BE5 		ldr	r3, [fp, #-20]
+ 1839 0ffc 013083E2 		add	r3, r3, #1
+ 1840 1000 14300BE5 		str	r3, [fp, #-20]
+ 1841              	.L58:
+ 458:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 1842              		.loc 1 458 34 discriminator 1
+ 1843 1004 20219FE5 		ldr	r2, .L64+64
+ 1844              	.LPIC87:
+ 1845 1008 02208FE0 		add	r2, pc, r2
+ 1846 100c 18301BE5 		ldr	r3, [fp, #-24]
+ 1847 1010 0332A0E1 		lsl	r3, r3, #4
+ 1848 1014 033082E0 		add	r3, r2, r3
+ 1849 1018 042093E5 		ldr	r2, [r3, #4]
+ 458:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 1850              		.loc 1 458 41 discriminator 1
+ 1851 101c 14301BE5 		ldr	r3, [fp, #-20]
+ 1852 1020 8331A0E1 		lsl	r3, r3, #3
+ 1853 1024 033082E0 		add	r3, r2, r3
+ 458:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 1854              		.loc 1 458 45 discriminator 1
+ 1855 1028 003093E5 		ldr	r3, [r3]
+ARM GAS  /tmp/ccpNxoej.s 			page 43
+
+
+ 458:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 1856              		.loc 1 458 54 discriminator 1
+ 1857 102c 010073E3 		cmn	r3, #1
+ 1858 1030 8EFFFF1A 		bne	.L61
+ 471:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 472:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_SUCCESS(EApiGPIOGetDirection, "");
+ 1859              		.loc 1 472 9
+ 1860 1034 F4309FE5 		ldr	r3, .L64+68
+ 1861              	.LPIC88:
+ 1862 1038 03308FE0 		add	r3, pc, r3
+ 1863 103c 08308DE5 		str	r3, [sp, #8]
+ 1864 1040 EC309FE5 		ldr	r3, .L64+72
+ 1865              	.LPIC89:
+ 1866 1044 03308FE0 		add	r3, pc, r3
+ 1867 1048 04308DE5 		str	r3, [sp, #4]
+ 1868 104c 0030A0E3 		mov	r3, #0
+ 1869 1050 00308DE5 		str	r3, [sp]
+ 1870 1054 763FA0E3 		mov	r3, #472
+ 1871 1058 D8209FE5 		ldr	r2, .L64+76
+ 1872              	.LPIC90:
+ 1873 105c 02208FE0 		add	r2, pc, r2
+ 1874 1060 D4109FE5 		ldr	r1, .L64+80
+ 1875              	.LPIC91:
+ 1876 1064 01108FE0 		add	r1, pc, r1
+ 1877 1068 4C00A0E3 		mov	r0, #76
+ 1878 106c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1879 1070 0030A0E3 		mov	r3, #0
+ 1880 1074 1C300BE5 		str	r3, [fp, #-28]
+ 1881 1078 170000EA 		b	.L55
+ 1882              	.L53:
+ 444:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 1883              		.loc 1 444 40 discriminator 2
+ 1884 107c 18301BE5 		ldr	r3, [fp, #-24]
+ 1885 1080 013083E2 		add	r3, r3, #1
+ 1886 1084 18300BE5 		str	r3, [fp, #-24]
+ 1887              	.L52:
+ 444:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 1888              		.loc 1 444 12 discriminator 1
+ 1889 1088 18301BE5 		ldr	r3, [fp, #-24]
+ 1890 108c 080053E3 		cmp	r3, #8
+ 1891 1090 27FFFF9A 		bls	.L62
+ 473:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       }
+ 474:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 475:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_LIB_RETURN_ERROR(
+ 1892              		.loc 1 475 3
+ 1893 1094 A4309FE5 		ldr	r3, .L64+84
+ 1894              	.LPIC92:
+ 1895 1098 03308FE0 		add	r3, pc, r3
+ 1896 109c 08308DE5 		str	r3, [sp, #8]
+ 1897 10a0 9C309FE5 		ldr	r3, .L64+88
+ 1898              	.LPIC93:
+ 1899 10a4 03308FE0 		add	r3, pc, r3
+ 1900 10a8 04308DE5 		str	r3, [sp, #4]
+ 1901 10ac 033CE0E3 		mvn	r3, #768
+ 1902 10b0 00308DE5 		str	r3, [sp]
+ 1903 10b4 DB3100E3 		movw	r3, #475
+ 1904 10b8 88209FE5 		ldr	r2, .L64+92
+ARM GAS  /tmp/ccpNxoej.s 			page 44
+
+
+ 1905              	.LPIC94:
+ 1906 10bc 02208FE0 		add	r2, pc, r2
+ 1907 10c0 84109FE5 		ldr	r1, .L64+96
+ 1908              	.LPIC95:
+ 1909 10c4 01108FE0 		add	r1, pc, r1
+ 1910 10c8 4500A0E3 		mov	r0, #69
+ 1911 10cc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1912 10d0 033CE0E3 		mvn	r3, #768
+ 1913 10d4 1C300BE5 		str	r3, [fp, #-28]
+ 1914 10d8 00F020E3 		nop
+ 1915              	.L55:
+ 476:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EApiGPIOGetDirection, 
+ 477:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EAPI_STATUS_UNSUPPORTED  , 
+ 478:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     "Unrecognised GPIO ID"
+ 479:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     );
+ 480:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EAPI_LIB_ASSERT_EXIT
+ 481:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 482:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return StatusCode;
+ 1916              		.loc 1 482 10
+ 1917 10dc 1C301BE5 		ldr	r3, [fp, #-28]
+ 483:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 1918              		.loc 1 483 1
+ 1919 10e0 0300A0E1 		mov	r0, r3
+ 1920 10e4 08D04BE2 		sub	sp, fp, #8
+ 1921              		.cfi_def_cfa 13, 12
+ 1922              		@ sp needed
+ 1923 10e8 1088BDE8 		pop	{r4, fp, pc}
+ 1924              	.L65:
+ 1925              		.align	2
+ 1926              	.L64:
+ 1927 10ec AC030000 		.word	GPIOIDMapping-(.LPIC71+8)
+ 1928 10f0 94030000 		.word	GPIOIDMapping-(.LPIC72+8)
+ 1929 10f4 80030000 		.word	GPIOIDMapping-(.LPIC73+8)
+ 1930 10f8 AC030000 		.word	.LC2-(.LPIC74+8)
+ 1931 10fc C4030000 		.word	.LC3-(.LPIC75+8)
+ 1932 1100 3C040000 		.word	.LC10-(.LPIC76+8)
+ 1933 1104 4C030000 		.word	.LC1-(.LPIC77+8)
+ 1934 1108 10030000 		.word	GPIOIDMapping-(.LPIC78+8)
+ 1935 110c D8020000 		.word	GPIOIDMapping-(.LPIC79+8)
+ 1936 1110 80020000 		.word	GPIOIDMapping-(.LPIC80+8)
+ 1937 1114 50020000 		.word	GPIOIDMapping-(.LPIC81+8)
+ 1938 1118 28020000 		.word	GPIOIDMapping-(.LPIC82+8)
+ 1939 111c 00020000 		.word	GPIOIDMapping-(.LPIC83+8)
+ 1940 1120 D0010000 		.word	GPIOIDMapping-(.LPIC84+8)
+ 1941 1124 A4010000 		.word	GPIOIDMapping-(.LPIC85+8)
+ 1942 1128 7C010000 		.word	GPIOIDMapping-(.LPIC86+8)
+ 1943 112c 1C010000 		.word	GPIOIDMapping-(.LPIC87+8)
+ 1944 1130 80010000 		.word	.LC5-(.LPIC88+8)
+ 1945 1134 60010000 		.word	.LC3-(.LPIC89+8)
+ 1946 1138 F4010000 		.word	.LC11-(.LPIC90+8)
+ 1947 113c E8000000 		.word	.LC1-(.LPIC91+8)
+ 1948 1140 34010000 		.word	.LC6-(.LPIC92+8)
+ 1949 1144 10010000 		.word	.LC3-(.LPIC93+8)
+ 1950 1148 A4010000 		.word	.LC11-(.LPIC94+8)
+ 1951 114c 98000000 		.word	.LC1-(.LPIC95+8)
+ 1952              		.cfi_endproc
+ 1953              	.LFE7:
+ARM GAS  /tmp/ccpNxoej.s 			page 45
+
+
+ 1955              		.section	.rodata
+ 1956 0135 000000   		.align	2
+ 1957              	.LC12:
+ 1958 0138 45417069 		.ascii	"EApiGPIOSetDirectionEmul\000"
+ 1958      4750494F 
+ 1958      53657444 
+ 1958      69726563 
+ 1958      74696F6E 
+ 1959 0151 000000   		.align	2
+ 1960              	.LC13:
+ 1961 0154 556E7375 		.ascii	"Unsupported Input Bits\000"
+ 1961      70706F72 
+ 1961      74656420 
+ 1961      496E7075 
+ 1961      74204269 
+ 1962 016b 00       		.align	2
+ 1963              	.LC14:
+ 1964 016c 556E7375 		.ascii	"Unsupported Output Bits\000"
+ 1964      70706F72 
+ 1964      74656420 
+ 1964      4F757470 
+ 1964      75742042 
+ 1965              		.align	2
+ 1966              	.LC15:
+ 1967 0184 45417069 		.ascii	"EApiGPIOSetDirection\000"
+ 1967      4750494F 
+ 1967      53657444 
+ 1967      69726563 
+ 1967      74696F6E 
+ 1968              		.text
+ 1969              		.align	2
+ 1970              		.global	EApiGPIOSetDirectionEmul
+ 1971              		.hidden	EApiGPIOSetDirectionEmul
+ 1972              		.syntax unified
+ 1973              		.arm
+ 1974              		.fpu vfpv3
+ 1976              	EApiGPIOSetDirectionEmul:
+ 1977              	.LFB8:
+ 484:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 485:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiStatus_t 
+ 486:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiGPIOSetDirectionEmul( 
+ 487:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     __IN EApiId_t Id        , 
+ 488:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     __IN uint32_t BitMask   , 
+ 489:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     __IN uint32_t Direction
+ 490:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     )
+ 491:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 1978              		.loc 1 491 1
+ 1979              		.cfi_startproc
+ 1980              		@ args = 0, pretend = 0, frame = 32
+ 1981              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1982 1150 10482DE9 		push	{r4, fp, lr}
+ 1983              		.cfi_def_cfa_offset 12
+ 1984              		.cfi_offset 4, -12
+ 1985              		.cfi_offset 11, -8
+ 1986              		.cfi_offset 14, -4
+ 1987 1154 08B08DE2 		add	fp, sp, #8
+ 1988              		.cfi_def_cfa 11, 4
+ARM GAS  /tmp/ccpNxoej.s 			page 46
+
+
+ 1989 1158 34D04DE2 		sub	sp, sp, #52
+ 1990 115c 20000BE5 		str	r0, [fp, #-32]
+ 1991 1160 24100BE5 		str	r1, [fp, #-36]
+ 1992 1164 28200BE5 		str	r2, [fp, #-40]
+ 492:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 1993              		.loc 1 492 16
+ 1994 1168 0030A0E3 		mov	r3, #0
+ 1995 116c 1C300BE5 		str	r3, [fp, #-28]
+ 493:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   unsigned i,i2;
+ 494:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   uint32_t APIBitMask=1;
+ 1996              		.loc 1 494 12
+ 1997 1170 0130A0E3 		mov	r3, #1
+ 1998 1174 10300BE5 		str	r3, [fp, #-16]
+ 495:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   for(i=0;i<ARRAY_SIZE(GPIOIDMapping);i++)
+ 1999              		.loc 1 495 8
+ 2000 1178 0030A0E3 		mov	r3, #0
+ 2001 117c 18300BE5 		str	r3, [fp, #-24]
+ 2002              		.loc 1 495 3
+ 2003 1180 8D0100EA 		b	.L67
+ 2004              	.L83:
+ 496:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 497:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       if(GPIOIDMapping[i].Id==Id)
+ 2005              		.loc 1 497 26
+ 2006 1184 94369FE5 		ldr	r3, .L85
+ 2007              	.LPIC96:
+ 2008 1188 03308FE0 		add	r3, pc, r3
+ 2009 118c 18201BE5 		ldr	r2, [fp, #-24]
+ 2010 1190 023293E7 		ldr	r3, [r3, r2, lsl #4]
+ 2011              		.loc 1 497 9
+ 2012 1194 20201BE5 		ldr	r2, [fp, #-32]
+ 2013 1198 030052E1 		cmp	r2, r3
+ 2014 119c 8301001A 		bne	.L68
+ 498:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       {
+ 499:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 2015              		.loc 1 499 9
+ 2016 11a0 7C269FE5 		ldr	r2, .L85+4
+ 2017              	.LPIC97:
+ 2018 11a4 02208FE0 		add	r2, pc, r2
+ 2019 11a8 18301BE5 		ldr	r3, [fp, #-24]
+ 2020 11ac 0332A0E1 		lsl	r3, r3, #4
+ 2021 11b0 033082E0 		add	r3, r2, r3
+ 2022 11b4 082093E5 		ldr	r2, [r3, #8]
+ 2023 11b8 68169FE5 		ldr	r1, .L85+8
+ 2024              	.LPIC98:
+ 2025 11bc 01108FE0 		add	r1, pc, r1
+ 2026 11c0 18301BE5 		ldr	r3, [fp, #-24]
+ 2027 11c4 0332A0E1 		lsl	r3, r3, #4
+ 2028 11c8 033081E0 		add	r3, r1, r3
+ 2029 11cc 0C3093E5 		ldr	r3, [r3, #12]
+ 2030 11d0 033082E1 		orr	r3, r2, r3
+ 2031 11d4 0320E0E1 		mvn	r2, r3
+ 2032 11d8 24301BE5 		ldr	r3, [fp, #-36]
+ 2033 11dc 023003E0 		and	r3, r3, r2
+ 2034 11e0 000053E3 		cmp	r3, #0
+ 2035 11e4 1100000A 		beq	.L69
+ 2036              		.loc 1 499 9 is_stmt 0 discriminator 1
+ 2037 11e8 3C369FE5 		ldr	r3, .L85+12
+ARM GAS  /tmp/ccpNxoej.s 			page 47
+
+
+ 2038              	.LPIC99:
+ 2039 11ec 03308FE0 		add	r3, pc, r3
+ 2040 11f0 08308DE5 		str	r3, [sp, #8]
+ 2041 11f4 34369FE5 		ldr	r3, .L85+16
+ 2042              	.LPIC100:
+ 2043 11f8 03308FE0 		add	r3, pc, r3
+ 2044 11fc 04308DE5 		str	r3, [sp, #4]
+ 2045 1200 413FE0E3 		mvn	r3, #260
+ 2046 1204 00308DE5 		str	r3, [sp]
+ 2047 1208 F33100E3 		movw	r3, #499
+ 2048 120c 20269FE5 		ldr	r2, .L85+20
+ 2049              	.LPIC101:
+ 2050 1210 02208FE0 		add	r2, pc, r2
+ 2051 1214 1C169FE5 		ldr	r1, .L85+24
+ 2052              	.LPIC102:
+ 2053 1218 01108FE0 		add	r1, pc, r1
+ 2054 121c 4500A0E3 		mov	r0, #69
+ 2055 1220 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2056 1224 413FE0E3 		mvn	r3, #260
+ 2057 1228 1C300BE5 		str	r3, [fp, #-28]
+ 2058 122c 770100EA 		b	.L70
+ 2059              	.L69:
+ 500:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EApiGPIOSetDirectionEmul, 
+ 501:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           (BitMask&~(GPIOIDMapping[i].OutputMask|GPIOIDMapping[i].InputMask)) , 
+ 502:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EAPI_STATUS_INVALID_BITMASK, 
+ 503:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           "Bit-mask Selects Invalid Bits"
+ 504:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           );
+ 505:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 2060              		.loc 1 505 9 is_stmt 1
+ 2061 1230 24201BE5 		ldr	r2, [fp, #-36]
+ 2062 1234 28301BE5 		ldr	r3, [fp, #-40]
+ 2063 1238 032002E0 		and	r2, r2, r3
+ 2064 123c F8159FE5 		ldr	r1, .L85+28
+ 2065              	.LPIC103:
+ 2066 1240 01108FE0 		add	r1, pc, r1
+ 2067 1244 18301BE5 		ldr	r3, [fp, #-24]
+ 2068 1248 0332A0E1 		lsl	r3, r3, #4
+ 2069 124c 033081E0 		add	r3, r1, r3
+ 2070 1250 0C3093E5 		ldr	r3, [r3, #12]
+ 2071 1254 0330E0E1 		mvn	r3, r3
+ 2072 1258 023003E0 		and	r3, r3, r2
+ 2073 125c 000053E3 		cmp	r3, #0
+ 2074 1260 1300000A 		beq	.L71
+ 2075              		.loc 1 505 9 is_stmt 0 discriminator 1
+ 2076 1264 D4359FE5 		ldr	r3, .L85+32
+ 2077              	.LPIC104:
+ 2078 1268 03308FE0 		add	r3, pc, r3
+ 2079 126c 08308DE5 		str	r3, [sp, #8]
+ 2080 1270 CC359FE5 		ldr	r3, .L85+36
+ 2081              	.LPIC105:
+ 2082 1274 03308FE0 		add	r3, pc, r3
+ 2083 1278 04308DE5 		str	r3, [sp, #4]
+ 2084 127c FC3E0FE3 		movw	r3, #65276
+ 2085 1280 FF3F4FE3 		movt	r3, 65535
+ 2086 1284 00308DE5 		str	r3, [sp]
+ 2087 1288 F93100E3 		movw	r3, #505
+ 2088 128c B4259FE5 		ldr	r2, .L85+40
+ARM GAS  /tmp/ccpNxoej.s 			page 48
+
+
+ 2089              	.LPIC106:
+ 2090 1290 02208FE0 		add	r2, pc, r2
+ 2091 1294 B0159FE5 		ldr	r1, .L85+44
+ 2092              	.LPIC107:
+ 2093 1298 01108FE0 		add	r1, pc, r1
+ 2094 129c 4500A0E3 		mov	r0, #69
+ 2095 12a0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2096 12a4 FC3E0FE3 		movw	r3, #65276
+ 2097 12a8 FF3F4FE3 		movt	r3, 65535
+ 2098 12ac 1C300BE5 		str	r3, [fp, #-28]
+ 2099 12b0 560100EA 		b	.L70
+ 2100              	.L71:
+ 506:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EApiGPIOSetDirectionEmul, 
+ 507:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           (BitMask&Direction&~GPIOIDMapping[i].InputMask) , 
+ 508:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EAPI_STATUS_INVALID_DIRECTION, 
+ 509:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           "Unsupported Input Bits"
+ 510:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           );
+ 511:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_ERROR_IF(
+ 2101              		.loc 1 511 9 is_stmt 1
+ 2102 12b4 28301BE5 		ldr	r3, [fp, #-40]
+ 2103 12b8 0320E0E1 		mvn	r2, r3
+ 2104 12bc 24301BE5 		ldr	r3, [fp, #-36]
+ 2105 12c0 032002E0 		and	r2, r2, r3
+ 2106 12c4 84159FE5 		ldr	r1, .L85+48
+ 2107              	.LPIC108:
+ 2108 12c8 01108FE0 		add	r1, pc, r1
+ 2109 12cc 18301BE5 		ldr	r3, [fp, #-24]
+ 2110 12d0 0332A0E1 		lsl	r3, r3, #4
+ 2111 12d4 033081E0 		add	r3, r1, r3
+ 2112 12d8 083093E5 		ldr	r3, [r3, #8]
+ 2113 12dc 0330E0E1 		mvn	r3, r3
+ 2114 12e0 023003E0 		and	r3, r3, r2
+ 2115 12e4 000053E3 		cmp	r3, #0
+ 2116 12e8 1300000A 		beq	.L72
+ 2117              		.loc 1 511 9 is_stmt 0 discriminator 1
+ 2118 12ec 60359FE5 		ldr	r3, .L85+52
+ 2119              	.LPIC109:
+ 2120 12f0 03308FE0 		add	r3, pc, r3
+ 2121 12f4 08308DE5 		str	r3, [sp, #8]
+ 2122 12f8 58359FE5 		ldr	r3, .L85+56
+ 2123              	.LPIC110:
+ 2124 12fc 03308FE0 		add	r3, pc, r3
+ 2125 1300 04308DE5 		str	r3, [sp, #4]
+ 2126 1304 FC3E0FE3 		movw	r3, #65276
+ 2127 1308 FF3F4FE3 		movt	r3, 65535
+ 2128 130c 00308DE5 		str	r3, [sp]
+ 2129 1310 FF3100E3 		movw	r3, #511
+ 2130 1314 40259FE5 		ldr	r2, .L85+60
+ 2131              	.LPIC111:
+ 2132 1318 02208FE0 		add	r2, pc, r2
+ 2133 131c 3C159FE5 		ldr	r1, .L85+64
+ 2134              	.LPIC112:
+ 2135 1320 01108FE0 		add	r1, pc, r1
+ 2136 1324 4500A0E3 		mov	r0, #69
+ 2137 1328 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2138 132c FC3E0FE3 		movw	r3, #65276
+ 2139 1330 FF3F4FE3 		movt	r3, 65535
+ARM GAS  /tmp/ccpNxoej.s 			page 49
+
+
+ 2140 1334 1C300BE5 		str	r3, [fp, #-28]
+ 2141 1338 340100EA 		b	.L70
+ 2142              	.L72:
+ 512:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EApiGPIOSetDirectionEmul, 
+ 513:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           ((BitMask&~Direction)&~GPIOIDMapping[i].OutputMask) , 
+ 514:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           EAPI_STATUS_INVALID_DIRECTION, 
+ 515:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           "Unsupported Output Bits"
+ 516:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           );
+ 517:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 2143              		.loc 1 517 15 is_stmt 1
+ 2144 133c 0030A0E3 		mov	r3, #0
+ 2145 1340 14300BE5 		str	r3, [fp, #-20]
+ 2146              		.loc 1 517 9
+ 2147 1344 0E0000EA 		b	.L73
+ 2148              	.L74:
+ 518:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 2149              		.loc 1 518 27 discriminator 3
+ 2150 1348 14259FE5 		ldr	r2, .L85+68
+ 2151              	.LPIC113:
+ 2152 134c 02208FE0 		add	r2, pc, r2
+ 2153 1350 18301BE5 		ldr	r3, [fp, #-24]
+ 2154 1354 0332A0E1 		lsl	r3, r3, #4
+ 2155 1358 033082E0 		add	r3, r2, r3
+ 2156 135c 042093E5 		ldr	r2, [r3, #4]
+ 2157              		.loc 1 518 34 discriminator 3
+ 2158 1360 14301BE5 		ldr	r3, [fp, #-20]
+ 2159 1364 8331A0E1 		lsl	r3, r3, #3
+ 2160 1368 033082E0 		add	r3, r2, r3
+ 2161              		.loc 1 518 38 discriminator 3
+ 2162 136c 043093E5 		ldr	r3, [r3, #4]
+ 2163              		.loc 1 518 50 discriminator 3
+ 2164 1370 0020A0E3 		mov	r2, #0
+ 2165 1374 002083E5 		str	r2, [r3]
+ 517:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 2166              		.loc 1 517 75 discriminator 3
+ 2167 1378 14301BE5 		ldr	r3, [fp, #-20]
+ 2168 137c 013083E2 		add	r3, r3, #1
+ 2169 1380 14300BE5 		str	r3, [fp, #-20]
+ 2170              	.L73:
+ 517:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 2171              		.loc 1 517 34 discriminator 1
+ 2172 1384 DC249FE5 		ldr	r2, .L85+72
+ 2173              	.LPIC114:
+ 2174 1388 02208FE0 		add	r2, pc, r2
+ 2175 138c 18301BE5 		ldr	r3, [fp, #-24]
+ 2176 1390 0332A0E1 		lsl	r3, r3, #4
+ 2177 1394 033082E0 		add	r3, r2, r3
+ 2178 1398 042093E5 		ldr	r2, [r3, #4]
+ 517:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 2179              		.loc 1 517 41 discriminator 1
+ 2180 139c 14301BE5 		ldr	r3, [fp, #-20]
+ 2181 13a0 8331A0E1 		lsl	r3, r3, #3
+ 2182 13a4 033082E0 		add	r3, r2, r3
+ 517:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 2183              		.loc 1 517 45 discriminator 1
+ 2184 13a8 003093E5 		ldr	r3, [r3]
+ 517:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ARM GAS  /tmp/ccpNxoej.s 			page 50
+
+
+ 2185              		.loc 1 517 54 discriminator 1
+ 2186 13ac 010073E3 		cmn	r3, #1
+ 2187 13b0 E4FFFF1A 		bne	.L74
+ 519:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 520:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++)
+ 2188              		.loc 1 520 15
+ 2189 13b4 0030A0E3 		mov	r3, #0
+ 2190 13b8 14300BE5 		str	r3, [fp, #-20]
+ 2191              		.loc 1 520 9
+ 2192 13bc 8F0000EA 		b	.L75
+ 2193              	.L79:
+ 521:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 522:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if((BitMask&APIBitMask))
+ 2194              		.loc 1 522 22
+ 2195 13c0 24201BE5 		ldr	r2, [fp, #-36]
+ 2196 13c4 10301BE5 		ldr	r3, [fp, #-16]
+ 2197 13c8 023003E0 		and	r3, r3, r2
+ 2198              		.loc 1 522 13
+ 2199 13cc 000053E3 		cmp	r3, #0
+ 2200 13d0 8400000A 		beq	.L76
+ 523:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           {
+ 524:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==0){
+ 2201              		.loc 1 524 32
+ 2202 13d4 90249FE5 		ldr	r2, .L85+76
+ 2203              	.LPIC115:
+ 2204 13d8 02208FE0 		add	r2, pc, r2
+ 2205 13dc 18301BE5 		ldr	r3, [fp, #-24]
+ 2206 13e0 0332A0E1 		lsl	r3, r3, #4
+ 2207 13e4 033082E0 		add	r3, r2, r3
+ 2208 13e8 042093E5 		ldr	r2, [r3, #4]
+ 2209              		.loc 1 524 39
+ 2210 13ec 14301BE5 		ldr	r3, [fp, #-20]
+ 2211 13f0 8331A0E1 		lsl	r3, r3, #3
+ 2212 13f4 033082E0 		add	r3, r2, r3
+ 2213              		.loc 1 524 43
+ 2214 13f8 043093E5 		ldr	r3, [r3, #4]
+ 2215              		.loc 1 524 48
+ 2216 13fc 003093E5 		ldr	r3, [r3]
+ 2217              		.loc 1 524 15
+ 2218 1400 000053E3 		cmp	r3, #0
+ 2219 1404 2E00001A 		bne	.L77
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2220              		.loc 1 525 71
+ 2221 1408 60249FE5 		ldr	r2, .L85+80
+ 2222              	.LPIC116:
+ 2223 140c 02208FE0 		add	r2, pc, r2
+ 2224 1410 18301BE5 		ldr	r3, [fp, #-24]
+ 2225 1414 0332A0E1 		lsl	r3, r3, #4
+ 2226 1418 033082E0 		add	r3, r2, r3
+ 2227 141c 042093E5 		ldr	r2, [r3, #4]
+ 2228              		.loc 1 525 78
+ 2229 1420 14301BE5 		ldr	r3, [fp, #-20]
+ 2230 1424 8331A0E1 		lsl	r3, r3, #3
+ 2231 1428 033082E0 		add	r3, r2, r3
+ 2232              		.loc 1 525 82
+ 2233 142c 043093E5 		ldr	r3, [r3, #4]
+ 2234              		.loc 1 525 87
+ARM GAS  /tmp/ccpNxoej.s 			page 51
+
+
+ 2235 1430 182093E5 		ldr	r2, [r3, #24]
+ 526:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1
+ 2236              		.loc 1 526 33
+ 2237 1434 38149FE5 		ldr	r1, .L85+84
+ 2238              	.LPIC117:
+ 2239 1438 01108FE0 		add	r1, pc, r1
+ 2240 143c 18301BE5 		ldr	r3, [fp, #-24]
+ 2241 1440 0332A0E1 		lsl	r3, r3, #4
+ 2242 1444 033081E0 		add	r3, r1, r3
+ 2243 1448 041093E5 		ldr	r1, [r3, #4]
+ 2244              		.loc 1 526 40
+ 2245 144c 14301BE5 		ldr	r3, [fp, #-20]
+ 2246 1450 8331A0E1 		lsl	r3, r3, #3
+ 2247 1454 033081E0 		add	r3, r1, r3
+ 2248              		.loc 1 526 44
+ 2249 1458 043093E5 		ldr	r3, [r3, #4]
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2250              		.loc 1 525 55
+ 2251 145c 100093E5 		ldr	r0, [r3, #16]
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2252              		.loc 1 525 31
+ 2253 1460 10149FE5 		ldr	r1, .L85+88
+ 2254              	.LPIC118:
+ 2255 1464 01108FE0 		add	r1, pc, r1
+ 2256 1468 18301BE5 		ldr	r3, [fp, #-24]
+ 2257 146c 0332A0E1 		lsl	r3, r3, #4
+ 2258 1470 033081E0 		add	r3, r1, r3
+ 2259 1474 041093E5 		ldr	r1, [r3, #4]
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2260              		.loc 1 525 38
+ 2261 1478 14301BE5 		ldr	r3, [fp, #-20]
+ 2262 147c 8331A0E1 		lsl	r3, r3, #3
+ 2263 1480 033081E0 		add	r3, r1, r3
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2264              		.loc 1 525 42
+ 2265 1484 044093E5 		ldr	r4, [r3, #4]
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2266              		.loc 1 525 55
+ 2267 1488 32FF2FE1 		blx	r2
+ 2268              	.LVL5:
+ 2269 148c 0030A0E1 		mov	r3, r0
+ 525:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value=GPIOIDMapping[i].MapTbl[i2].Port->Read(
+ 2270              		.loc 1 525 54
+ 2271 1490 043084E5 		str	r3, [r4, #4]
+ 527:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****                 );
+ 528:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Dirty=1;
+ 2272              		.loc 1 528 31
+ 2273 1494 E0239FE5 		ldr	r2, .L85+92
+ 2274              	.LPIC119:
+ 2275 1498 02208FE0 		add	r2, pc, r2
+ 2276 149c 18301BE5 		ldr	r3, [fp, #-24]
+ 2277 14a0 0332A0E1 		lsl	r3, r3, #4
+ 2278 14a4 033082E0 		add	r3, r2, r3
+ 2279 14a8 042093E5 		ldr	r2, [r3, #4]
+ 2280              		.loc 1 528 38
+ 2281 14ac 14301BE5 		ldr	r3, [fp, #-20]
+ 2282 14b0 8331A0E1 		lsl	r3, r3, #3
+ARM GAS  /tmp/ccpNxoej.s 			page 52
+
+
+ 2283 14b4 033082E0 		add	r3, r2, r3
+ 2284              		.loc 1 528 42
+ 2285 14b8 043093E5 		ldr	r3, [r3, #4]
+ 2286              		.loc 1 528 54
+ 2287 14bc 0120A0E3 		mov	r2, #1
+ 2288 14c0 002083E5 		str	r2, [r3]
+ 2289              	.L77:
+ 529:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 530:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             if(Direction&APIBitMask)
+ 2290              		.loc 1 530 25
+ 2291 14c4 28201BE5 		ldr	r2, [fp, #-40]
+ 2292 14c8 10301BE5 		ldr	r3, [fp, #-16]
+ 2293 14cc 023003E0 		and	r3, r3, r2
+ 2294              		.loc 1 530 15
+ 2295 14d0 000053E3 		cmp	r3, #0
+ 2296 14d4 2100000A 		beq	.L78
+ 531:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             {
+ 532:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value|=GPIOIDMapping[i].MapTbl[i2].PortMask;
+ 2297              		.loc 1 532 31
+ 2298 14d8 A0239FE5 		ldr	r2, .L85+96
+ 2299              	.LPIC120:
+ 2300 14dc 02208FE0 		add	r2, pc, r2
+ 2301 14e0 18301BE5 		ldr	r3, [fp, #-24]
+ 2302 14e4 0332A0E1 		lsl	r3, r3, #4
+ 2303 14e8 033082E0 		add	r3, r2, r3
+ 2304 14ec 042093E5 		ldr	r2, [r3, #4]
+ 2305              		.loc 1 532 38
+ 2306 14f0 14301BE5 		ldr	r3, [fp, #-20]
+ 2307 14f4 8331A0E1 		lsl	r3, r3, #3
+ 2308 14f8 033082E0 		add	r3, r2, r3
+ 2309              		.loc 1 532 42
+ 2310 14fc 043093E5 		ldr	r3, [r3, #4]
+ 2311              		.loc 1 532 54
+ 2312 1500 041093E5 		ldr	r1, [r3, #4]
+ 2313              		.loc 1 532 72
+ 2314 1504 78239FE5 		ldr	r2, .L85+100
+ 2315              	.LPIC121:
+ 2316 1508 02208FE0 		add	r2, pc, r2
+ 2317 150c 18301BE5 		ldr	r3, [fp, #-24]
+ 2318 1510 0332A0E1 		lsl	r3, r3, #4
+ 2319 1514 033082E0 		add	r3, r2, r3
+ 2320 1518 042093E5 		ldr	r2, [r3, #4]
+ 2321              		.loc 1 532 79
+ 2322 151c 14301BE5 		ldr	r3, [fp, #-20]
+ 2323 1520 8331A0E1 		lsl	r3, r3, #3
+ 2324 1524 033082E0 		add	r3, r2, r3
+ 2325              		.loc 1 532 83
+ 2326 1528 002093E5 		ldr	r2, [r3]
+ 2327              		.loc 1 532 31
+ 2328 152c 54039FE5 		ldr	r0, .L85+104
+ 2329              	.LPIC122:
+ 2330 1530 00008FE0 		add	r0, pc, r0
+ 2331 1534 18301BE5 		ldr	r3, [fp, #-24]
+ 2332 1538 0332A0E1 		lsl	r3, r3, #4
+ 2333 153c 033080E0 		add	r3, r0, r3
+ 2334 1540 040093E5 		ldr	r0, [r3, #4]
+ 2335              		.loc 1 532 38
+ARM GAS  /tmp/ccpNxoej.s 			page 53
+
+
+ 2336 1544 14301BE5 		ldr	r3, [fp, #-20]
+ 2337 1548 8331A0E1 		lsl	r3, r3, #3
+ 2338 154c 033080E0 		add	r3, r0, r3
+ 2339              		.loc 1 532 42
+ 2340 1550 043093E5 		ldr	r3, [r3, #4]
+ 2341              		.loc 1 532 54
+ 2342 1554 022081E1 		orr	r2, r1, r2
+ 2343 1558 042083E5 		str	r2, [r3, #4]
+ 2344 155c 210000EA 		b	.L76
+ 2345              	.L78:
+ 533:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 534:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             else
+ 535:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             {
+ 536:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value&=~GPIOIDMapping[i].MapTbl[i2].PortMask;
+ 2346              		.loc 1 536 31
+ 2347 1560 24239FE5 		ldr	r2, .L85+108
+ 2348              	.LPIC123:
+ 2349 1564 02208FE0 		add	r2, pc, r2
+ 2350 1568 18301BE5 		ldr	r3, [fp, #-24]
+ 2351 156c 0332A0E1 		lsl	r3, r3, #4
+ 2352 1570 033082E0 		add	r3, r2, r3
+ 2353 1574 042093E5 		ldr	r2, [r3, #4]
+ 2354              		.loc 1 536 38
+ 2355 1578 14301BE5 		ldr	r3, [fp, #-20]
+ 2356 157c 8331A0E1 		lsl	r3, r3, #3
+ 2357 1580 033082E0 		add	r3, r2, r3
+ 2358              		.loc 1 536 42
+ 2359 1584 043093E5 		ldr	r3, [r3, #4]
+ 2360              		.loc 1 536 54
+ 2361 1588 041093E5 		ldr	r1, [r3, #4]
+ 2362              		.loc 1 536 73
+ 2363 158c FC229FE5 		ldr	r2, .L85+112
+ 2364              	.LPIC124:
+ 2365 1590 02208FE0 		add	r2, pc, r2
+ 2366 1594 18301BE5 		ldr	r3, [fp, #-24]
+ 2367 1598 0332A0E1 		lsl	r3, r3, #4
+ 2368 159c 033082E0 		add	r3, r2, r3
+ 2369 15a0 042093E5 		ldr	r2, [r3, #4]
+ 2370              		.loc 1 536 80
+ 2371 15a4 14301BE5 		ldr	r3, [fp, #-20]
+ 2372 15a8 8331A0E1 		lsl	r3, r3, #3
+ 2373 15ac 033082E0 		add	r3, r2, r3
+ 2374              		.loc 1 536 84
+ 2375 15b0 003093E5 		ldr	r3, [r3]
+ 2376              		.loc 1 536 56
+ 2377 15b4 0320E0E1 		mvn	r2, r3
+ 2378              		.loc 1 536 31
+ 2379 15b8 D4029FE5 		ldr	r0, .L85+116
+ 2380              	.LPIC125:
+ 2381 15bc 00008FE0 		add	r0, pc, r0
+ 2382 15c0 18301BE5 		ldr	r3, [fp, #-24]
+ 2383 15c4 0332A0E1 		lsl	r3, r3, #4
+ 2384 15c8 033080E0 		add	r3, r0, r3
+ 2385 15cc 040093E5 		ldr	r0, [r3, #4]
+ 2386              		.loc 1 536 38
+ 2387 15d0 14301BE5 		ldr	r3, [fp, #-20]
+ 2388 15d4 8331A0E1 		lsl	r3, r3, #3
+ARM GAS  /tmp/ccpNxoej.s 			page 54
+
+
+ 2389 15d8 033080E0 		add	r3, r0, r3
+ 2390              		.loc 1 536 42
+ 2391 15dc 043093E5 		ldr	r3, [r3, #4]
+ 2392              		.loc 1 536 54
+ 2393 15e0 012002E0 		and	r2, r2, r1
+ 2394 15e4 042083E5 		str	r2, [r3, #4]
+ 2395              	.L76:
+ 537:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             }
+ 538:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           }
+ 539:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           APIBitMask<<=1;
+ 2396              		.loc 1 539 21 discriminator 2
+ 2397 15e8 10301BE5 		ldr	r3, [fp, #-16]
+ 2398 15ec 8330A0E1 		lsl	r3, r3, #1
+ 2399 15f0 10300BE5 		str	r3, [fp, #-16]
+ 520:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 2400              		.loc 1 520 75 discriminator 2
+ 2401 15f4 14301BE5 		ldr	r3, [fp, #-20]
+ 2402 15f8 013083E2 		add	r3, r3, #1
+ 2403 15fc 14300BE5 		str	r3, [fp, #-20]
+ 2404              	.L75:
+ 520:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 2405              		.loc 1 520 34 discriminator 1
+ 2406 1600 90229FE5 		ldr	r2, .L85+120
+ 2407              	.LPIC126:
+ 2408 1604 02208FE0 		add	r2, pc, r2
+ 2409 1608 18301BE5 		ldr	r3, [fp, #-24]
+ 2410 160c 0332A0E1 		lsl	r3, r3, #4
+ 2411 1610 033082E0 		add	r3, r2, r3
+ 2412 1614 042093E5 		ldr	r2, [r3, #4]
+ 520:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 2413              		.loc 1 520 41 discriminator 1
+ 2414 1618 14301BE5 		ldr	r3, [fp, #-20]
+ 2415 161c 8331A0E1 		lsl	r3, r3, #3
+ 2416 1620 033082E0 		add	r3, r2, r3
+ 520:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 2417              		.loc 1 520 45 discriminator 1
+ 2418 1624 003093E5 		ldr	r3, [r3]
+ 520:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         {
+ 2419              		.loc 1 520 54 discriminator 1
+ 2420 1628 010073E3 		cmn	r3, #1
+ 2421 162c 63FFFF1A 		bne	.L79
+ 540:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 541:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         for(i2=0;GPIOIDMapping[i].MapTbl[i2].PortMask!=END_OF_LIST_MARK;i2++){
+ 2422              		.loc 1 541 15
+ 2423 1630 0030A0E3 		mov	r3, #0
+ 2424 1634 14300BE5 		str	r3, [fp, #-20]
+ 2425              		.loc 1 541 9
+ 2426 1638 3E0000EA 		b	.L80
+ 2427              	.L82:
+ 542:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 2428              		.loc 1 542 30
+ 2429 163c 58229FE5 		ldr	r2, .L85+124
+ 2430              	.LPIC127:
+ 2431 1640 02208FE0 		add	r2, pc, r2
+ 2432 1644 18301BE5 		ldr	r3, [fp, #-24]
+ 2433 1648 0332A0E1 		lsl	r3, r3, #4
+ 2434 164c 033082E0 		add	r3, r2, r3
+ARM GAS  /tmp/ccpNxoej.s 			page 55
+
+
+ 2435 1650 042093E5 		ldr	r2, [r3, #4]
+ 2436              		.loc 1 542 37
+ 2437 1654 14301BE5 		ldr	r3, [fp, #-20]
+ 2438 1658 8331A0E1 		lsl	r3, r3, #3
+ 2439 165c 033082E0 		add	r3, r2, r3
+ 2440              		.loc 1 542 41
+ 2441 1660 043093E5 		ldr	r3, [r3, #4]
+ 2442              		.loc 1 542 46
+ 2443 1664 003093E5 		ldr	r3, [r3]
+ 2444              		.loc 1 542 13
+ 2445 1668 010053E3 		cmp	r3, #1
+ 2446 166c 2E00001A 		bne	.L81
+ 543:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Write(
+ 2447              		.loc 1 543 29
+ 2448 1670 28229FE5 		ldr	r2, .L85+128
+ 2449              	.LPIC128:
+ 2450 1674 02208FE0 		add	r2, pc, r2
+ 2451 1678 18301BE5 		ldr	r3, [fp, #-24]
+ 2452 167c 0332A0E1 		lsl	r3, r3, #4
+ 2453 1680 033082E0 		add	r3, r2, r3
+ 2454 1684 042093E5 		ldr	r2, [r3, #4]
+ 2455              		.loc 1 543 36
+ 2456 1688 14301BE5 		ldr	r3, [fp, #-20]
+ 2457 168c 8331A0E1 		lsl	r3, r3, #3
+ 2458 1690 033082E0 		add	r3, r2, r3
+ 2459              		.loc 1 543 40
+ 2460 1694 043093E5 		ldr	r3, [r3, #4]
+ 2461              		.loc 1 543 45
+ 2462 1698 142093E5 		ldr	r2, [r3, #20]
+ 544:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->DirectionArg1, 
+ 2463              		.loc 1 544 31
+ 2464 169c 00129FE5 		ldr	r1, .L85+132
+ 2465              	.LPIC129:
+ 2466 16a0 01108FE0 		add	r1, pc, r1
+ 2467 16a4 18301BE5 		ldr	r3, [fp, #-24]
+ 2468 16a8 0332A0E1 		lsl	r3, r3, #4
+ 2469 16ac 033081E0 		add	r3, r1, r3
+ 2470 16b0 041093E5 		ldr	r1, [r3, #4]
+ 2471              		.loc 1 544 38
+ 2472 16b4 14301BE5 		ldr	r3, [fp, #-20]
+ 2473 16b8 8331A0E1 		lsl	r3, r3, #3
+ 2474 16bc 033081E0 		add	r3, r1, r3
+ 2475              		.loc 1 544 42
+ 2476 16c0 043093E5 		ldr	r3, [r3, #4]
+ 543:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Write(
+ 2477              		.loc 1 543 13
+ 2478 16c4 100093E5 		ldr	r0, [r3, #16]
+ 545:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               GPIOIDMapping[i].MapTbl[i2].Port->Value
+ 2479              		.loc 1 545 31
+ 2480 16c8 D8119FE5 		ldr	r1, .L85+136
+ 2481              	.LPIC130:
+ 2482 16cc 01108FE0 		add	r1, pc, r1
+ 2483 16d0 18301BE5 		ldr	r3, [fp, #-24]
+ 2484 16d4 0332A0E1 		lsl	r3, r3, #4
+ 2485 16d8 033081E0 		add	r3, r1, r3
+ 2486 16dc 041093E5 		ldr	r1, [r3, #4]
+ 2487              		.loc 1 545 38
+ARM GAS  /tmp/ccpNxoej.s 			page 56
+
+
+ 2488 16e0 14301BE5 		ldr	r3, [fp, #-20]
+ 2489 16e4 8331A0E1 		lsl	r3, r3, #3
+ 2490 16e8 033081E0 		add	r3, r1, r3
+ 2491              		.loc 1 545 42
+ 2492 16ec 043093E5 		ldr	r3, [r3, #4]
+ 543:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Write(
+ 2493              		.loc 1 543 13
+ 2494 16f0 043093E5 		ldr	r3, [r3, #4]
+ 2495 16f4 0310A0E1 		mov	r1, r3
+ 2496 16f8 32FF2FE1 		blx	r2
+ 2497              	.LVL6:
+ 546:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****               );
+ 547:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****             GPIOIDMapping[i].MapTbl[i2].Port->Dirty=0;
+ 2498              		.loc 1 547 29
+ 2499 16fc A8219FE5 		ldr	r2, .L85+140
+ 2500              	.LPIC131:
+ 2501 1700 02208FE0 		add	r2, pc, r2
+ 2502 1704 18301BE5 		ldr	r3, [fp, #-24]
+ 2503 1708 0332A0E1 		lsl	r3, r3, #4
+ 2504 170c 033082E0 		add	r3, r2, r3
+ 2505 1710 042093E5 		ldr	r2, [r3, #4]
+ 2506              		.loc 1 547 36
+ 2507 1714 14301BE5 		ldr	r3, [fp, #-20]
+ 2508 1718 8331A0E1 		lsl	r3, r3, #3
+ 2509 171c 033082E0 		add	r3, r2, r3
+ 2510              		.loc 1 547 40
+ 2511 1720 043093E5 		ldr	r3, [r3, #4]
+ 2512              		.loc 1 547 52
+ 2513 1724 0020A0E3 		mov	r2, #0
+ 2514 1728 002083E5 		str	r2, [r3]
+ 2515              	.L81:
+ 541:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 2516              		.loc 1 541 75 discriminator 2
+ 2517 172c 14301BE5 		ldr	r3, [fp, #-20]
+ 2518 1730 013083E2 		add	r3, r3, #1
+ 2519 1734 14300BE5 		str	r3, [fp, #-20]
+ 2520              	.L80:
+ 541:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 2521              		.loc 1 541 34 discriminator 1
+ 2522 1738 70219FE5 		ldr	r2, .L85+144
+ 2523              	.LPIC132:
+ 2524 173c 02208FE0 		add	r2, pc, r2
+ 2525 1740 18301BE5 		ldr	r3, [fp, #-24]
+ 2526 1744 0332A0E1 		lsl	r3, r3, #4
+ 2527 1748 033082E0 		add	r3, r2, r3
+ 2528 174c 042093E5 		ldr	r2, [r3, #4]
+ 541:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 2529              		.loc 1 541 41 discriminator 1
+ 2530 1750 14301BE5 		ldr	r3, [fp, #-20]
+ 2531 1754 8331A0E1 		lsl	r3, r3, #3
+ 2532 1758 033082E0 		add	r3, r2, r3
+ 541:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 2533              		.loc 1 541 45 discriminator 1
+ 2534 175c 003093E5 		ldr	r3, [r3]
+ 541:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           if(GPIOIDMapping[i].MapTbl[i2].Port->Dirty==1){
+ 2535              		.loc 1 541 54 discriminator 1
+ 2536 1760 010073E3 		cmn	r3, #1
+ARM GAS  /tmp/ccpNxoej.s 			page 57
+
+
+ 2537 1764 B4FFFF1A 		bne	.L82
+ 548:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****           }
+ 549:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         }
+ 550:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_SUCCESS(EApiGPIOSetDirection, "");
+ 2538              		.loc 1 550 9
+ 2539 1768 44319FE5 		ldr	r3, .L85+148
+ 2540              	.LPIC133:
+ 2541 176c 03308FE0 		add	r3, pc, r3
+ 2542 1770 08308DE5 		str	r3, [sp, #8]
+ 2543 1774 3C319FE5 		ldr	r3, .L85+152
+ 2544              	.LPIC134:
+ 2545 1778 03308FE0 		add	r3, pc, r3
+ 2546 177c 04308DE5 		str	r3, [sp, #4]
+ 2547 1780 0030A0E3 		mov	r3, #0
+ 2548 1784 00308DE5 		str	r3, [sp]
+ 2549 1788 263200E3 		movw	r3, #550
+ 2550 178c 28219FE5 		ldr	r2, .L85+156
+ 2551              	.LPIC135:
+ 2552 1790 02208FE0 		add	r2, pc, r2
+ 2553 1794 24119FE5 		ldr	r1, .L85+160
+ 2554              	.LPIC136:
+ 2555 1798 01108FE0 		add	r1, pc, r1
+ 2556 179c 4C00A0E3 		mov	r0, #76
+ 2557 17a0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2558 17a4 0030A0E3 		mov	r3, #0
+ 2559 17a8 1C300BE5 		str	r3, [fp, #-28]
+ 2560 17ac 170000EA 		b	.L70
+ 2561              	.L68:
+ 495:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 2562              		.loc 1 495 40 discriminator 2
+ 2563 17b0 18301BE5 		ldr	r3, [fp, #-24]
+ 2564 17b4 013083E2 		add	r3, r3, #1
+ 2565 17b8 18300BE5 		str	r3, [fp, #-24]
+ 2566              	.L67:
+ 495:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 2567              		.loc 1 495 12 discriminator 1
+ 2568 17bc 18301BE5 		ldr	r3, [fp, #-24]
+ 2569 17c0 080053E3 		cmp	r3, #8
+ 2570 17c4 6EFEFF9A 		bls	.L83
+ 551:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       }
+ 552:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 553:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_LIB_RETURN_ERROR(
+ 2571              		.loc 1 553 3
+ 2572 17c8 F4309FE5 		ldr	r3, .L85+164
+ 2573              	.LPIC137:
+ 2574 17cc 03308FE0 		add	r3, pc, r3
+ 2575 17d0 08308DE5 		str	r3, [sp, #8]
+ 2576 17d4 EC309FE5 		ldr	r3, .L85+168
+ 2577              	.LPIC138:
+ 2578 17d8 03308FE0 		add	r3, pc, r3
+ 2579 17dc 04308DE5 		str	r3, [sp, #4]
+ 2580 17e0 033CE0E3 		mvn	r3, #768
+ 2581 17e4 00308DE5 		str	r3, [sp]
+ 2582 17e8 293200E3 		movw	r3, #553
+ 2583 17ec D8209FE5 		ldr	r2, .L85+172
+ 2584              	.LPIC139:
+ 2585 17f0 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/ccpNxoej.s 			page 58
+
+
+ 2586 17f4 D4109FE5 		ldr	r1, .L85+176
+ 2587              	.LPIC140:
+ 2588 17f8 01108FE0 		add	r1, pc, r1
+ 2589 17fc 4500A0E3 		mov	r0, #69
+ 2590 1800 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2591 1804 033CE0E3 		mvn	r3, #768
+ 2592 1808 1C300BE5 		str	r3, [fp, #-28]
+ 2593 180c 00F020E3 		nop
+ 2594              	.L70:
+ 554:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EApiGPIOSetDirection, 
+ 555:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EAPI_STATUS_UNSUPPORTED, 
+ 556:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     "Unrecognised GPIO ID"
+ 557:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     );
+ 558:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EAPI_LIB_ASSERT_EXIT
+ 559:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 560:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return StatusCode;
+ 2595              		.loc 1 560 10
+ 2596 1810 1C301BE5 		ldr	r3, [fp, #-28]
+ 561:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 2597              		.loc 1 561 1
+ 2598 1814 0300A0E1 		mov	r0, r3
+ 2599 1818 08D04BE2 		sub	sp, fp, #8
+ 2600              		.cfi_def_cfa 13, 12
+ 2601              		@ sp needed
+ 2602 181c 1088BDE8 		pop	{r4, fp, pc}
+ 2603              	.L86:
+ 2604              		.align	2
+ 2605              	.L85:
+ 2606 1820 90060000 		.word	GPIOIDMapping-(.LPIC96+8)
+ 2607 1824 78060000 		.word	GPIOIDMapping-(.LPIC97+8)
+ 2608 1828 64060000 		.word	GPIOIDMapping-(.LPIC98+8)
+ 2609 182c 90060000 		.word	.LC2-(.LPIC99+8)
+ 2610 1830 A8060000 		.word	.LC3-(.LPIC100+8)
+ 2611 1834 54070000 		.word	.LC12-(.LPIC101+8)
+ 2612 1838 30060000 		.word	.LC1-(.LPIC102+8)
+ 2613 183c F4050000 		.word	GPIOIDMapping-(.LPIC103+8)
+ 2614 1840 24070000 		.word	.LC13-(.LPIC104+8)
+ 2615 1844 40060000 		.word	.LC3-(.LPIC105+8)
+ 2616 1848 E8060000 		.word	.LC12-(.LPIC106+8)
+ 2617 184c C4050000 		.word	.LC1-(.LPIC107+8)
+ 2618 1850 80050000 		.word	GPIOIDMapping-(.LPIC108+8)
+ 2619 1854 C8060000 		.word	.LC14-(.LPIC109+8)
+ 2620 1858 CC050000 		.word	.LC3-(.LPIC110+8)
+ 2621 185c 74060000 		.word	.LC12-(.LPIC111+8)
+ 2622 1860 50050000 		.word	.LC1-(.LPIC112+8)
+ 2623 1864 10050000 		.word	GPIOIDMapping-(.LPIC113+8)
+ 2624 1868 D8040000 		.word	GPIOIDMapping-(.LPIC114+8)
+ 2625 186c 8C040000 		.word	GPIOIDMapping-(.LPIC115+8)
+ 2626 1870 5C040000 		.word	GPIOIDMapping-(.LPIC116+8)
+ 2627 1874 34040000 		.word	GPIOIDMapping-(.LPIC117+8)
+ 2628 1878 0C040000 		.word	GPIOIDMapping-(.LPIC118+8)
+ 2629 187c DC030000 		.word	GPIOIDMapping-(.LPIC119+8)
+ 2630 1880 9C030000 		.word	GPIOIDMapping-(.LPIC120+8)
+ 2631 1884 74030000 		.word	GPIOIDMapping-(.LPIC121+8)
+ 2632 1888 50030000 		.word	GPIOIDMapping-(.LPIC122+8)
+ 2633 188c 20030000 		.word	GPIOIDMapping-(.LPIC123+8)
+ 2634 1890 F8020000 		.word	GPIOIDMapping-(.LPIC124+8)
+ARM GAS  /tmp/ccpNxoej.s 			page 59
+
+
+ 2635 1894 D0020000 		.word	GPIOIDMapping-(.LPIC125+8)
+ 2636 1898 8C020000 		.word	GPIOIDMapping-(.LPIC126+8)
+ 2637 189c 54020000 		.word	GPIOIDMapping-(.LPIC127+8)
+ 2638 18a0 24020000 		.word	GPIOIDMapping-(.LPIC128+8)
+ 2639 18a4 FC010000 		.word	GPIOIDMapping-(.LPIC129+8)
+ 2640 18a8 D4010000 		.word	GPIOIDMapping-(.LPIC130+8)
+ 2641 18ac A4010000 		.word	GPIOIDMapping-(.LPIC131+8)
+ 2642 18b0 6C010000 		.word	GPIOIDMapping-(.LPIC132+8)
+ 2643 18b4 D0010000 		.word	.LC5-(.LPIC133+8)
+ 2644 18b8 B0010000 		.word	.LC3-(.LPIC134+8)
+ 2645 18bc A8020000 		.word	.LC15-(.LPIC135+8)
+ 2646 18c0 38010000 		.word	.LC1-(.LPIC136+8)
+ 2647 18c4 84010000 		.word	.LC6-(.LPIC137+8)
+ 2648 18c8 60010000 		.word	.LC3-(.LPIC138+8)
+ 2649 18cc 58020000 		.word	.LC15-(.LPIC139+8)
+ 2650 18d0 E8000000 		.word	.LC1-(.LPIC140+8)
+ 2651              		.cfi_endproc
+ 2652              	.LFE8:
+ 2654              		.section	.rodata
+ 2655 0199 000000   		.align	2
+ 2656              	.LC16:
+ 2657 019c 45417069 		.ascii	"EApiGPIOGetDirectionCaps\000"
+ 2657      4750494F 
+ 2657      47657444 
+ 2657      69726563 
+ 2657      74696F6E 
+ 2658              		.text
+ 2659              		.align	2
+ 2660              		.global	EApiGPIOGetDirectionCapsEmul
+ 2661              		.hidden	EApiGPIOGetDirectionCapsEmul
+ 2662              		.syntax unified
+ 2663              		.arm
+ 2664              		.fpu vfpv3
+ 2666              	EApiGPIOGetDirectionCapsEmul:
+ 2667              	.LFB9:
+ 562:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 563:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiStatus_t 
+ 564:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EApiGPIOGetDirectionCapsEmul( 
+ 565:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __IN      EApiId_t  Id      , 
+ 566:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __OUTOPT  uint32_t *pInputs , 
+ 567:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   __OUTOPT  uint32_t *pOutputs
+ 568:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   )
+ 569:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** {
+ 2668              		.loc 1 569 1
+ 2669              		.cfi_startproc
+ 2670              		@ args = 0, pretend = 0, frame = 24
+ 2671              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2672 18d4 00482DE9 		push	{fp, lr}
+ 2673              		.cfi_def_cfa_offset 8
+ 2674              		.cfi_offset 11, -8
+ 2675              		.cfi_offset 14, -4
+ 2676 18d8 04B08DE2 		add	fp, sp, #4
+ 2677              		.cfi_def_cfa 11, 4
+ 2678 18dc 28D04DE2 		sub	sp, sp, #40
+ 2679 18e0 10000BE5 		str	r0, [fp, #-16]
+ 2680 18e4 14100BE5 		str	r1, [fp, #-20]
+ 2681 18e8 18200BE5 		str	r2, [fp, #-24]
+ARM GAS  /tmp/ccpNxoej.s 			page 60
+
+
+ 570:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 2682              		.loc 1 570 16
+ 2683 18ec 0030A0E3 		mov	r3, #0
+ 2684 18f0 0C300BE5 		str	r3, [fp, #-12]
+ 571:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   unsigned i;
+ 572:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 573:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   for(i=0;i<ARRAY_SIZE(GPIOIDMapping);i++)
+ 2685              		.loc 1 573 8
+ 2686 18f4 0030A0E3 		mov	r3, #0
+ 2687 18f8 08300BE5 		str	r3, [fp, #-8]
+ 2688              		.loc 1 573 3
+ 2689 18fc 2B0000EA 		b	.L88
+ 2690              	.L91:
+ 574:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 575:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       if(GPIOIDMapping[i].Id==Id)
+ 2691              		.loc 1 575 26
+ 2692 1900 0C319FE5 		ldr	r3, .L93
+ 2693              	.LPIC141:
+ 2694 1904 03308FE0 		add	r3, pc, r3
+ 2695 1908 08201BE5 		ldr	r2, [fp, #-8]
+ 2696 190c 023293E7 		ldr	r3, [r3, r2, lsl #4]
+ 2697              		.loc 1 575 9
+ 2698 1910 10201BE5 		ldr	r2, [fp, #-16]
+ 2699 1914 030052E1 		cmp	r2, r3
+ 2700 1918 2100001A 		bne	.L89
+ 576:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       {
+ 577:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         *pInputs=GPIOIDMapping[i].InputMask; 
+ 2701              		.loc 1 577 34
+ 2702 191c F4209FE5 		ldr	r2, .L93+4
+ 2703              	.LPIC142:
+ 2704 1920 02208FE0 		add	r2, pc, r2
+ 2705 1924 08301BE5 		ldr	r3, [fp, #-8]
+ 2706 1928 0332A0E1 		lsl	r3, r3, #4
+ 2707 192c 033082E0 		add	r3, r2, r3
+ 2708 1930 0C2093E5 		ldr	r2, [r3, #12]
+ 2709              		.loc 1 577 17
+ 2710 1934 14301BE5 		ldr	r3, [fp, #-20]
+ 2711 1938 002083E5 		str	r2, [r3]
+ 578:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         *pOutputs=GPIOIDMapping[i].OutputMask; 
+ 2712              		.loc 1 578 35
+ 2713 193c D8209FE5 		ldr	r2, .L93+8
+ 2714              	.LPIC143:
+ 2715 1940 02208FE0 		add	r2, pc, r2
+ 2716 1944 08301BE5 		ldr	r3, [fp, #-8]
+ 2717 1948 0332A0E1 		lsl	r3, r3, #4
+ 2718 194c 033082E0 		add	r3, r2, r3
+ 2719 1950 082093E5 		ldr	r2, [r3, #8]
+ 2720              		.loc 1 578 18
+ 2721 1954 18301BE5 		ldr	r3, [fp, #-24]
+ 2722 1958 002083E5 		str	r2, [r3]
+ 579:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****         EAPI_LIB_RETURN_SUCCESS(EApiGPIOGetDirectionCaps, "");
+ 2723              		.loc 1 579 9
+ 2724 195c BC309FE5 		ldr	r3, .L93+12
+ 2725              	.LPIC144:
+ 2726 1960 03308FE0 		add	r3, pc, r3
+ 2727 1964 08308DE5 		str	r3, [sp, #8]
+ 2728 1968 B4309FE5 		ldr	r3, .L93+16
+ARM GAS  /tmp/ccpNxoej.s 			page 61
+
+
+ 2729              	.LPIC145:
+ 2730 196c 03308FE0 		add	r3, pc, r3
+ 2731 1970 04308DE5 		str	r3, [sp, #4]
+ 2732 1974 0030A0E3 		mov	r3, #0
+ 2733 1978 00308DE5 		str	r3, [sp]
+ 2734 197c 433200E3 		movw	r3, #579
+ 2735 1980 A0209FE5 		ldr	r2, .L93+20
+ 2736              	.LPIC146:
+ 2737 1984 02208FE0 		add	r2, pc, r2
+ 2738 1988 9C109FE5 		ldr	r1, .L93+24
+ 2739              	.LPIC147:
+ 2740 198c 01108FE0 		add	r1, pc, r1
+ 2741 1990 4C00A0E3 		mov	r0, #76
+ 2742 1994 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2743 1998 0030A0E3 		mov	r3, #0
+ 2744 199c 0C300BE5 		str	r3, [fp, #-12]
+ 2745 19a0 170000EA 		b	.L90
+ 2746              	.L89:
+ 573:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 2747              		.loc 1 573 40 discriminator 2
+ 2748 19a4 08301BE5 		ldr	r3, [fp, #-8]
+ 2749 19a8 013083E2 		add	r3, r3, #1
+ 2750 19ac 08300BE5 		str	r3, [fp, #-8]
+ 2751              	.L88:
+ 573:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   {
+ 2752              		.loc 1 573 12 discriminator 1
+ 2753 19b0 08301BE5 		ldr	r3, [fp, #-8]
+ 2754 19b4 080053E3 		cmp	r3, #8
+ 2755 19b8 D0FFFF9A 		bls	.L91
+ 580:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****       }
+ 581:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   }
+ 582:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   EAPI_LIB_RETURN_ERROR(
+ 2756              		.loc 1 582 3
+ 2757 19bc 6C309FE5 		ldr	r3, .L93+28
+ 2758              	.LPIC148:
+ 2759 19c0 03308FE0 		add	r3, pc, r3
+ 2760 19c4 08308DE5 		str	r3, [sp, #8]
+ 2761 19c8 64309FE5 		ldr	r3, .L93+32
+ 2762              	.LPIC149:
+ 2763 19cc 03308FE0 		add	r3, pc, r3
+ 2764 19d0 04308DE5 		str	r3, [sp, #4]
+ 2765 19d4 033CE0E3 		mvn	r3, #768
+ 2766 19d8 00308DE5 		str	r3, [sp]
+ 2767 19dc 463200E3 		movw	r3, #582
+ 2768 19e0 50209FE5 		ldr	r2, .L93+36
+ 2769              	.LPIC150:
+ 2770 19e4 02208FE0 		add	r2, pc, r2
+ 2771 19e8 4C109FE5 		ldr	r1, .L93+40
+ 2772              	.LPIC151:
+ 2773 19ec 01108FE0 		add	r1, pc, r1
+ 2774 19f0 4500A0E3 		mov	r0, #69
+ 2775 19f4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2776 19f8 033CE0E3 		mvn	r3, #768
+ 2777 19fc 0C300BE5 		str	r3, [fp, #-12]
+ 2778 1a00 00F020E3 		nop
+ 2779              	.L90:
+ 583:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EApiGPIOGetDirectionCaps, 
+ARM GAS  /tmp/ccpNxoej.s 			page 62
+
+
+ 584:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     EAPI_STATUS_UNSUPPORTED  , 
+ 585:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     "Unrecognised GPIO ID"
+ 586:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****     );
+ 587:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** EAPI_LIB_ASSERT_EXIT
+ 588:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** 
+ 589:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c ****   return StatusCode;
+ 2780              		.loc 1 589 10
+ 2781 1a04 0C301BE5 		ldr	r3, [fp, #-12]
+ 590:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulGPIO.c **** }
+ 2782              		.loc 1 590 1
+ 2783 1a08 0300A0E1 		mov	r0, r3
+ 2784 1a0c 04D04BE2 		sub	sp, fp, #4
+ 2785              		.cfi_def_cfa 13, 8
+ 2786              		@ sp needed
+ 2787 1a10 0088BDE8 		pop	{fp, pc}
+ 2788              	.L94:
+ 2789              		.align	2
+ 2790              	.L93:
+ 2791 1a14 08010000 		.word	GPIOIDMapping-(.LPIC141+8)
+ 2792 1a18 F0000000 		.word	GPIOIDMapping-(.LPIC142+8)
+ 2793 1a1c D4000000 		.word	GPIOIDMapping-(.LPIC143+8)
+ 2794 1a20 48010000 		.word	.LC5-(.LPIC144+8)
+ 2795 1a24 28010000 		.word	.LC3-(.LPIC145+8)
+ 2796 1a28 38020000 		.word	.LC16-(.LPIC146+8)
+ 2797 1a2c B0000000 		.word	.LC1-(.LPIC147+8)
+ 2798 1a30 FC000000 		.word	.LC6-(.LPIC148+8)
+ 2799 1a34 D8000000 		.word	.LC3-(.LPIC149+8)
+ 2800 1a38 E8010000 		.word	.LC16-(.LPIC150+8)
+ 2801 1a3c 60000000 		.word	.LC1-(.LPIC151+8)
+ 2802              		.cfi_endproc
+ 2803              	.LFE9:
+ 2805              	.Letext0:
+ 2806              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 2807              		.file 3 "../../include/EApi.h"
+ 2808              		.file 4 "../include/DbgChk.h"
+ 2809              		.file 5 "../../include/linux/EApiOs.h"
+ARM GAS  /tmp/ccpNxoej.s 			page 63
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulGPIO.c
+     /tmp/ccpNxoej.s:17     .data:0000000000000000 $d
+     /tmp/ccpNxoej.s:20     .data:0000000000000000 EmulatedIoBlock
+     /tmp/ccpNxoej.s:26     .text:0000000000000000 $a
+     /tmp/ccpNxoej.s:36     .text:0000000000000000 EApiReadIO32
+     /tmp/ccpNxoej.s:82     .text:000000000000004c $d
+     /tmp/ccpNxoej.s:86     .text:0000000000000050 $a
+     /tmp/ccpNxoej.s:93     .text:0000000000000050 EApiWriteIO32
+     /tmp/ccpNxoej.s:140    .text:00000000000000a0 $d
+     /tmp/ccpNxoej.s:144    .text:00000000000000a4 $a
+     /tmp/ccpNxoej.s:151    .text:00000000000000a4 EApiWriteIO32Delay
+     /tmp/ccpNxoej.s:190    .text:00000000000000d8 EApiReadIO32Delay
+     /tmp/ccpNxoej.s:226    .data.rel.local:0000000000000000 Port1Desc
+     /tmp/ccpNxoej.s:223    .data.rel.local:0000000000000000 $d
+     /tmp/ccpNxoej.s:239    .data.rel.local:000000000000001c Port2Desc
+     /tmp/ccpNxoej.s:253    .data.rel.ro.local:0000000000000000 GpioMappingID0
+     /tmp/ccpNxoej.s:250    .data.rel.ro.local:0000000000000000 $d
+     /tmp/ccpNxoej.s:277    .data.rel.ro.local:0000000000000048 GpioMappingID1
+     /tmp/ccpNxoej.s:287    .data.rel.ro.local:0000000000000058 GpioMappingID2
+     /tmp/ccpNxoej.s:297    .data.rel.ro.local:0000000000000068 GpioMappingID3
+     /tmp/ccpNxoej.s:307    .data.rel.ro.local:0000000000000078 GpioMappingID4
+     /tmp/ccpNxoej.s:317    .data.rel.ro.local:0000000000000088 GpioMappingID5
+     /tmp/ccpNxoej.s:327    .data.rel.ro.local:0000000000000098 GpioMappingID6
+     /tmp/ccpNxoej.s:337    .data.rel.ro.local:00000000000000a8 GpioMappingID7
+     /tmp/ccpNxoej.s:347    .data.rel.ro.local:00000000000000b8 GpioMappingID8
+     /tmp/ccpNxoej.s:357    .data.rel.ro.local:00000000000000c8 GPIOIDMapping
+     /tmp/ccpNxoej.s:395    .rodata:0000000000000000 $d
+     /tmp/ccpNxoej.s:425    .text:0000000000000108 EApiGPIOGetLevelEmul
+     /tmp/ccpNxoej.s:797    .text:00000000000004f4 $d
+     /tmp/ccpNxoej.s:836    .text:0000000000000558 $a
+     /tmp/ccpNxoej.s:843    .text:0000000000000558 EApiGPIOSetLevelEmul
+     /tmp/ccpNxoej.s:1493   .text:0000000000000c50 $d
+     /tmp/ccpNxoej.s:1548   .text:0000000000000d00 $a
+     /tmp/ccpNxoej.s:1555   .text:0000000000000d00 EApiGPIOGetDirectionEmul
+     /tmp/ccpNxoej.s:1927   .text:00000000000010ec $d
+     /tmp/ccpNxoej.s:1969   .text:0000000000001150 $a
+     /tmp/ccpNxoej.s:1976   .text:0000000000001150 EApiGPIOSetDirectionEmul
+     /tmp/ccpNxoej.s:2606   .text:0000000000001820 $d
+     /tmp/ccpNxoej.s:2659   .text:00000000000018d4 $a
+     /tmp/ccpNxoej.s:2666   .text:00000000000018d4 EApiGPIOGetDirectionCapsEmul
+     /tmp/ccpNxoej.s:2791   .text:0000000000001a14 $d
+
+UNDEFINED SYMBOLS
+EApiSleepns
+siFormattedMessage_SC

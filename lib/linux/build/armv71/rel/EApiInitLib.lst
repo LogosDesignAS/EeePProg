@@ -1,0 +1,281 @@
+ARM GAS  /tmp/ccCwuBW2.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiInitLib.c"
+  13              		.text
+  14              		.align	2
+  15              		.global	DebugMsg
+  16              		.hidden	DebugMsg
+  17              		.arch armv7-a
+  18              		.arch_extension mp
+  19              		.arch_extension sec
+  20              		.syntax unified
+  21              		.arm
+  22              		.fpu vfpv3
+  24              	DebugMsg:
+  25              		@ args = 4, pretend = 16, frame = 8
+  26              		@ frame_needed = 0, uses_anonymous_args = 1
+  27 0000 0F002DE9 		push	{r0, r1, r2, r3}
+  28 0004 04E02DE5 		str	lr, [sp, #-4]!
+  29 0008 0CD04DE2 		sub	sp, sp, #12
+  30 000c 14208DE2 		add	r2, sp, #20
+  31 0010 90E09FE5 		ldr	lr, .L9
+  32 0014 90009FE5 		ldr	r0, .L9+4
+  33 0018 90309FE5 		ldr	r3, .L9+8
+  34              	.LPIC4:
+  35 001c 0EE08FE0 		add	lr, pc, lr
+  36 0020 8CC09FE5 		ldr	ip, .L9+12
+  37 0024 00009EE7 		ldr	r0, [lr, r0]
+  38              	.LPIC0:
+  39 0028 03308FE0 		add	r3, pc, r3
+  40 002c 10109DE5 		ldr	r1, [sp, #16]
+  41              	.LPIC1:
+  42 0030 0CC08FE0 		add	ip, pc, ip
+  43 0034 000090E5 		ldr	r0, [r0]
+  44 0038 04008DE5 		str	r0, [sp, #4]
+  45 003c 0000A0E3 		mov	r0, #0
+  46 0040 000093E5 		ldr	r0, [r3]
+  47 0044 00208DE5 		str	r2, [sp]
+  48 0048 000050E3 		cmp	r0, #0
+  49 004c 1000000A 		beq	.L2
+  50              	.L6:
+  51 0050 FEFFFFEB 		bl	vfprintf(PLT)
+  52 0054 5C309FE5 		ldr	r3, .L9+16
+  53              	.LPIC2:
+  54 0058 03009FE7 		ldr	r0, [pc, r3]		@ tls_load_dot_plus_eight
+  55 005c FEFFFFEB 		bl	fflush(PLT)
+  56 0060 54209FE5 		ldr	r2, .L9+20
+  57 0064 40309FE5 		ldr	r3, .L9+4
+  58              	.LPIC3:
+ARM GAS  /tmp/ccCwuBW2.s 			page 2
+
+
+  59 0068 02208FE0 		add	r2, pc, r2
+  60 006c 033092E7 		ldr	r3, [r2, r3]
+  61 0070 002093E5 		ldr	r2, [r3]
+  62 0074 04309DE5 		ldr	r3, [sp, #4]
+  63 0078 022033E0 		eors	r2, r3, r2
+  64 007c 0030A0E3 		mov	r3, #0
+  65 0080 0700001A 		bne	.L8
+  66 0084 0CD08DE2 		add	sp, sp, #12
+  67              		@ sp needed
+  68 0088 04E09DE4 		ldr	lr, [sp], #4
+  69 008c 10D08DE2 		add	sp, sp, #16
+  70 0090 1EFF2FE1 		bx	lr
+  71              	.L2:
+  72 0094 24309FE5 		ldr	r3, .L9+24
+  73 0098 03309CE7 		ldr	r3, [ip, r3]
+  74 009c 000093E5 		ldr	r0, [r3]
+  75 00a0 EAFFFFEA 		b	.L6
+  76              	.L8:
+  77 00a4 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+  78              	.L10:
+  79              		.align	2
+  80              	.L9:
+  81 00a8 84000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC4+8)
+  82 00ac 00000000 		.word	__stack_chk_guard(GOT)
+  83 00b0 80000000 		.word	.LANCHOR0-(.LPIC0+8)
+  84 00b4 7C000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC1+8)
+  85 00b8 58000000 		.word	.LANCHOR0-(.LPIC2+8)
+  86 00bc 4C000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC3+8)
+  87 00c0 00000000 		.word	stdout(GOT)
+  89              		.section	.rodata.str1.4,"aMS",%progbits,1
+  90              		.align	2
+  91              	.LC0:
+  92 0000 7700     		.ascii	"w\000"
+  93 0002 0000     		.align	2
+  94              	.LC1:
+  95 0004 45417069 		.ascii	"EApi.log\000"
+  95      2E6C6F67 
+  95      00
+  96 000d 000000   		.align	2
+  97              	.LC2:
+  98 0010 230A2320 		.ascii	"#\012# Embedded API EApi\012# Version %u.%u\012# Li"
+  98      456D6265 
+  98      64646564 
+  98      20415049 
+  98      20454170 
+  99 003a 62205665 		.ascii	"b Version %u.%u.%u\012#\012\000"
+  99      7273696F 
+  99      6E202575 
+  99      2E25752E 
+  99      25750A23 
+ 100              		.text
+ 101              		.align	2
+ 102              		.global	EApiInitLib
+ 103              		.hidden	EApiInitLib
+ 104              		.syntax unified
+ 105              		.arm
+ 106              		.fpu vfpv3
+ARM GAS  /tmp/ccCwuBW2.s 			page 3
+
+
+ 108              	EApiInitLib:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 00c4 10402DE9 		push	{r4, lr}
+ 112 00c8 08D04DE2 		sub	sp, sp, #8
+ 113 00cc 64409FE5 		ldr	r4, .L15
+ 114              	.LPIC5:
+ 115 00d0 04408FE0 		add	r4, pc, r4
+ 116 00d4 003094E5 		ldr	r3, [r4]
+ 117 00d8 000053E3 		cmp	r3, #0
+ 118 00dc 0E00000A 		beq	.L14
+ 119              	.L12:
+ 120 00e0 FEFFFFEB 		bl	OpenEepromFiles(PLT)
+ 121 00e4 FEFFFFEB 		bl	OpenI2CEepromFiles(PLT)
+ 122 00e8 4C009FE5 		ldr	r0, .L15+4
+ 123 00ec 0030A0E3 		mov	r3, #0
+ 124 00f0 05C0A0E3 		mov	ip, #5
+ 125 00f4 DF1300E3 		movw	r1, #991
+ 126 00f8 04108DE5 		str	r1, [sp, #4]
+ 127 00fc 0320A0E1 		mov	r2, r3
+ 128              	.LPIC9:
+ 129 0100 00008FE0 		add	r0, pc, r0
+ 130 0104 0110A0E3 		mov	r1, #1
+ 131 0108 00C08DE5 		str	ip, [sp]
+ 132 010c FEFFFFEB 		bl	DebugMsg(PLT)
+ 133 0110 0000A0E3 		mov	r0, #0
+ 134 0114 08D08DE2 		add	sp, sp, #8
+ 135              		@ sp needed
+ 136 0118 1080BDE8 		pop	{r4, pc}
+ 137              	.L14:
+ 138 011c 1C109FE5 		ldr	r1, .L15+8
+ 139 0120 1C009FE5 		ldr	r0, .L15+12
+ 140              	.LPIC6:
+ 141 0124 01108FE0 		add	r1, pc, r1
+ 142              	.LPIC7:
+ 143 0128 00008FE0 		add	r0, pc, r0
+ 144 012c FEFFFFEB 		bl	fopen(PLT)
+ 145 0130 000084E5 		str	r0, [r4]
+ 146 0134 E9FFFFEA 		b	.L12
+ 147              	.L16:
+ 148              		.align	2
+ 149              	.L15:
+ 150 0138 60000000 		.word	.LANCHOR0-(.LPIC5+8)
+ 151 013c 34000000 		.word	.LC2-(.LPIC9+8)
+ 152 0140 14000000 		.word	.LC0-(.LPIC6+8)
+ 153 0144 14000000 		.word	.LC1-(.LPIC7+8)
+ 155              		.section	.rodata.str1.4
+ 156              		.align	2
+ 157              	.LC3:
+ 158 0050 230A2320 		.ascii	"#\012# Embedded API EApi\012# Exit \012#\012\000"
+ 158      456D6265 
+ 158      64646564 
+ 158      20415049 
+ 158      20454170 
+ 159              		.text
+ 160              		.align	2
+ 161              		.global	EApiUninitLib
+ARM GAS  /tmp/ccCwuBW2.s 			page 4
+
+
+ 162              		.hidden	EApiUninitLib
+ 163              		.syntax unified
+ 164              		.arm
+ 165              		.fpu vfpv3
+ 167              	EApiUninitLib:
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170 0148 6C009FE5 		ldr	r0, .L23
+ 171 014c 70402DE9 		push	{r4, r5, r6, lr}
+ 172 0150 68409FE5 		ldr	r4, .L23+4
+ 173              	.LPIC10:
+ 174 0154 00008FE0 		add	r0, pc, r0
+ 175 0158 FEFFFFEB 		bl	DebugMsg(PLT)
+ 176 015c FEFFFFEB 		bl	CloseEepromFiles(PLT)
+ 177 0160 FEFFFFEB 		bl	CloseI2CEepromFiles(PLT)
+ 178 0164 58209FE5 		ldr	r2, .L23+8
+ 179              	.LPIC12:
+ 180 0168 04408FE0 		add	r4, pc, r4
+ 181 016c 54309FE5 		ldr	r3, .L23+12
+ 182              	.LPIC11:
+ 183 0170 02208FE0 		add	r2, pc, r2
+ 184 0174 000092E5 		ldr	r0, [r2]
+ 185 0178 033094E7 		ldr	r3, [r4, r3]
+ 186 017c 000050E3 		cmp	r0, #0
+ 187 0180 005093E5 		ldr	r5, [r3]
+ 188 0184 0700000A 		beq	.L18
+ 189 0188 050050E1 		cmp	r0, r5
+ 190 018c 0500000A 		beq	.L18
+ 191 0190 34309FE5 		ldr	r3, .L23+16
+ 192 0194 033094E7 		ldr	r3, [r4, r3]
+ 193 0198 003093E5 		ldr	r3, [r3]
+ 194 019c 030050E1 		cmp	r0, r3
+ 195 01a0 0000000A 		beq	.L18
+ 196 01a4 FEFFFFEB 		bl	fclose(PLT)
+ 197              	.L18:
+ 198 01a8 20309FE5 		ldr	r3, .L23+20
+ 199 01ac 0000A0E3 		mov	r0, #0
+ 200              	.LPIC13:
+ 201 01b0 03308FE0 		add	r3, pc, r3
+ 202 01b4 005083E5 		str	r5, [r3]
+ 203 01b8 7080BDE8 		pop	{r4, r5, r6, pc}
+ 204              	.L24:
+ 205              		.align	2
+ 206              	.L23:
+ 207 01bc 60000000 		.word	.LC3-(.LPIC10+8)
+ 208 01c0 50000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC12+8)
+ 209 01c4 4C000000 		.word	.LANCHOR0-(.LPIC11+8)
+ 210 01c8 00000000 		.word	stdout(GOT)
+ 211 01cc 00000000 		.word	stderr(GOT)
+ 212 01d0 18000000 		.word	.LANCHOR0-(.LPIC13+8)
+ 214              		.hidden	OutputStream
+ 215              		.global	OutputStream
+ 216              		.bss
+ 217              		.align	2
+ 218              		.set	.LANCHOR0,. + 0
+ 221              	OutputStream:
+ 222 0000 00000000 		.space	4
+ARM GAS  /tmp/ccCwuBW2.s 			page 5
+
+
+ 223              		.ident	"GCC: (Buildroot 2022.02) 11.2.0"
+ 224              		.section	.note.GNU-stack,"",%progbits
+ARM GAS  /tmp/ccCwuBW2.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiInitLib.c
+     /tmp/ccCwuBW2.s:14     .text:0000000000000000 $a
+     /tmp/ccCwuBW2.s:24     .text:0000000000000000 DebugMsg
+     /tmp/ccCwuBW2.s:81     .text:00000000000000a8 $d
+     /tmp/ccCwuBW2.s:90     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccCwuBW2.s:91     .rodata.str1.4:0000000000000000 .LC0
+     /tmp/ccCwuBW2.s:94     .rodata.str1.4:0000000000000004 .LC1
+     /tmp/ccCwuBW2.s:97     .rodata.str1.4:0000000000000010 .LC2
+     /tmp/ccCwuBW2.s:101    .text:00000000000000c4 $a
+     /tmp/ccCwuBW2.s:108    .text:00000000000000c4 EApiInitLib
+     /tmp/ccCwuBW2.s:150    .text:0000000000000138 $d
+     /tmp/ccCwuBW2.s:157    .rodata.str1.4:0000000000000050 .LC3
+     /tmp/ccCwuBW2.s:160    .text:0000000000000148 $a
+     /tmp/ccCwuBW2.s:167    .text:0000000000000148 EApiUninitLib
+     /tmp/ccCwuBW2.s:207    .text:00000000000001bc $d
+     /tmp/ccCwuBW2.s:221    .bss:0000000000000000 OutputStream
+     /tmp/ccCwuBW2.s:217    .bss:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+vfprintf
+fflush
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard
+stdout
+OpenEepromFiles
+OpenI2CEepromFiles
+fopen
+CloseEepromFiles
+CloseI2CEepromFiles
+fclose
+stderr

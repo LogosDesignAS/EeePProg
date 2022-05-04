@@ -1,0 +1,803 @@
+GAS LISTING /tmp/ccpspNWf.s 			page 1
+
+
+   1              		.file	"EApiEmulBacklight.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.data
+   5              		.align 16
+   8              	BacklightLookup:
+   9 0000 00000000 		.long	0
+  10 0004 00000000 		.long	0
+  11 0008 00000000 		.long	0
+  12 000c 01000000 		.long	1
+  13 0010 FFFFFFFF 		.long	-1
+  14 0014 FF000000 		.long	255
+  15              		.section	.rodata
+  16              	.LC0:
+  17 0000 25730A00 		.string	"%s\n"
+  18              	.LC1:
+  19 0004 45417069 		.string	"EApiVgaGetBacklightEnableEmul"
+  19      56676147 
+  19      65744261 
+  19      636B6C69 
+  19      67687445 
+  20 0022 00000000 		.align 8
+  20      0000
+  21              	.LC2:
+  22 0028 2F686F6D 		.string	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c"
+  22      652F686B 
+  22      682F6769 
+  22      742F6561 
+  22      7069646B 
+  23              	.LC3:
+  24 006d 00       		.string	""
+  25              	.LC4:
+  26 006e 556E7265 		.string	"Unrecognised Backlight ID"
+  26      636F676E 
+  26      69736564 
+  26      20426163 
+  26      6B6C6967 
+  27              		.text
+  28              		.globl	EApiVgaGetBacklightEnableEmul
+  29              		.hidden	EApiVgaGetBacklightEnableEmul
+  31              	EApiVgaGetBacklightEnableEmul:
+  32              	.LFB6:
+  33              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/EApiEmulBacklight.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              accompanies this distribution. The full text of the 
+GAS LISTING /tmp/ccpspNWf.s 			page 2
+
+
+  15:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I Description: Auto Created for EApiEmulBacklight.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  File Name            : EApiEmulBacklight.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  File Location        : lib
+  28:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I  ID                   : $Id: EApiEmulBacklight.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  37:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** #include <EApiLib.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  39:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  40:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** /*
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *
+  42:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *  
+  43:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *
+  44:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *  B A C K L I G H T
+  45:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *
+  46:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *
+  47:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  *
+  48:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****  */
+  49:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** typedef struct BackLightDevice_s{
+  50:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EApiId_t Id                ; /* EAPI Temperature Id */
+  51:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   uint32_t Enabled           ; /* Current Enabled State */
+  52:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   uint32_t Brightness        ; /* Current Brightness */
+  53:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** }BackLightDevice_t;
+  54:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** static BackLightDevice_t BacklightLookup[]={
+  55:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {EAPI_ID_BACKLIGHT_1  , EAPI_BACKLIGHT_SET_ON  , EAPI_BACKLIGHT_SET_DIMEST    },
+  56:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {EAPI_ID_BACKLIGHT_2  , EAPI_BACKLIGHT_SET_OFF , EAPI_BACKLIGHT_SET_BRIGHTEST },
+  57:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** };
+  58:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  59:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiStatus_t 
+  60:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiVgaGetBacklightEnableEmul( 
+  61:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __IN  EApiId_t Id       , 
+  62:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __OUT uint32_t *pEnable
+  63:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     )
+  64:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** {
+  34              		.loc 1 64 1
+  35              		.cfi_startproc
+  36 0000 F30F1EFA 		endbr64
+  37 0004 55       		pushq	%rbp
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 6, -16
+  40 0005 4889E5   		movq	%rsp, %rbp
+GAS LISTING /tmp/ccpspNWf.s 			page 3
+
+
+  41              		.cfi_def_cfa_register 6
+  42 0008 4883EC20 		subq	$32, %rsp
+  43 000c 897DEC   		movl	%edi, -20(%rbp)
+  44 000f 488975E0 		movq	%rsi, -32(%rbp)
+  65:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+  45              		.loc 1 65 16
+  46 0013 C745F800 		movl	$0, -8(%rbp)
+  46      000000
+  66:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   unsigned i;
+  67:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   for(i=0;i<ARRAY_SIZE(BacklightLookup);i++)
+  47              		.loc 1 68 8
+  48 001a C745FC00 		movl	$0, -4(%rbp)
+  48      000000
+  49              		.loc 1 68 3
+  50 0021 E9910000 		jmp	.L2
+  50      00
+  51              	.L5:
+  69:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+  70:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       if(BacklightLookup[i].Id==Id)
+  52              		.loc 1 70 28
+  53 0026 8B55FC   		movl	-4(%rbp), %edx
+  54 0029 4889D0   		movq	%rdx, %rax
+  55 002c 4801C0   		addq	%rax, %rax
+  56 002f 4801D0   		addq	%rdx, %rax
+  57 0032 48C1E002 		salq	$2, %rax
+  58 0036 4889C2   		movq	%rax, %rdx
+  59 0039 488D0500 		leaq	BacklightLookup(%rip), %rax
+  59      000000
+  60 0040 8B0402   		movl	(%rdx,%rax), %eax
+  61              		.loc 1 70 9
+  62 0043 3945EC   		cmpl	%eax, -20(%rbp)
+  63 0046 756B     		jne	.L3
+  71:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       {
+  72:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         *pEnable=BacklightLookup[i].Enabled;
+  64              		.loc 1 72 36
+  65 0048 8B55FC   		movl	-4(%rbp), %edx
+  66 004b 4889D0   		movq	%rdx, %rax
+  67 004e 4801C0   		addq	%rax, %rax
+  68 0051 4801D0   		addq	%rdx, %rax
+  69 0054 48C1E002 		salq	$2, %rax
+  70 0058 4889C2   		movq	%rax, %rdx
+  71 005b 488D0500 		leaq	4+BacklightLookup(%rip), %rax
+  71      000000
+  72 0062 8B1402   		movl	(%rdx,%rax), %edx
+  73              		.loc 1 72 17
+  74 0065 488B45E0 		movq	-32(%rbp), %rax
+  75 0069 8910     		movl	%edx, (%rax)
+  73:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         EAPI_LIB_RETURN_SUCCESS(
+  76              		.loc 1 73 9
+  77 006b 4883EC08 		subq	$8, %rsp
+  78 006f 488D0500 		leaq	.LC3(%rip), %rax
+  78      000000
+  79 0076 50       		pushq	%rax
+  80 0077 4C8D0D00 		leaq	.LC0(%rip), %r9
+  80      000000
+  81 007e 41B80000 		movl	$0, %r8d
+GAS LISTING /tmp/ccpspNWf.s 			page 4
+
+
+  81      0000
+  82 0084 B9490000 		movl	$73, %ecx
+  82      00
+  83 0089 488D1500 		leaq	.LC1(%rip), %rdx
+  83      000000
+  84 0090 488D3500 		leaq	.LC2(%rip), %rsi
+  84      000000
+  85 0097 BF4C0000 		movl	$76, %edi
+  85      00
+  86 009c B8000000 		movl	$0, %eax
+  86      00
+  87 00a1 E8000000 		call	siFormattedMessage_SC@PLT
+  87      00
+  88 00a6 4883C410 		addq	$16, %rsp
+  89 00aa C745F800 		movl	$0, -8(%rbp)
+  89      000000
+  90 00b1 EB55     		jmp	.L4
+  91              	.L3:
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+  92              		.loc 1 68 42 discriminator 2
+  93 00b3 8345FC01 		addl	$1, -4(%rbp)
+  94              	.L2:
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+  95              		.loc 1 68 3 discriminator 1
+  96 00b7 837DFC01 		cmpl	$1, -4(%rbp)
+  97 00bb 0F8665FF 		jbe	.L5
+  97      FFFF
+  74:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           EApiVgaGetBacklightEnableEmul, 
+  75:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           ""
+  76:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           );
+  77:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       }
+  78:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   }
+  79:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EAPI_LIB_RETURN_ERROR(
+  98              		.loc 1 79 3
+  99 00c1 4883EC08 		subq	$8, %rsp
+ 100 00c5 488D0500 		leaq	.LC4(%rip), %rax
+ 100      000000
+ 101 00cc 50       		pushq	%rax
+ 102 00cd 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 102      000000
+ 103 00d4 41B8FFFC 		movl	$-769, %r8d
+ 103      FFFF
+ 104 00da B94F0000 		movl	$79, %ecx
+ 104      00
+ 105 00df 488D1500 		leaq	.LC1(%rip), %rdx
+ 105      000000
+ 106 00e6 488D3500 		leaq	.LC2(%rip), %rsi
+ 106      000000
+ 107 00ed BF450000 		movl	$69, %edi
+ 107      00
+ 108 00f2 B8000000 		movl	$0, %eax
+ 108      00
+ 109 00f7 E8000000 		call	siFormattedMessage_SC@PLT
+ 109      00
+ 110 00fc 4883C410 		addq	$16, %rsp
+ 111 0100 C745F8FF 		movl	$-769, -8(%rbp)
+ 111      FCFFFF
+GAS LISTING /tmp/ccpspNWf.s 			page 5
+
+
+ 112 0107 90       		nop
+ 113              	.L4:
+  80:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EApiVgaGetBacklightEnableEmul, 
+  81:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EAPI_STATUS_UNSUPPORTED  , 
+  82:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     "Unrecognised Backlight ID"
+  83:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     );
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EAPI_LIB_ASSERT_EXIT
+  85:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  86:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   return StatusCode;
+ 114              		.loc 1 86 10
+ 115 0108 8B45F8   		movl	-8(%rbp), %eax
+  87:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** }
+ 116              		.loc 1 87 1
+ 117 010b C9       		leave
+ 118              		.cfi_def_cfa 7, 8
+ 119 010c C3       		ret
+ 120              		.cfi_endproc
+ 121              	.LFE6:
+ 123              		.section	.rodata
+ 124              	.LC5:
+ 125 0088 45417069 		.string	"EApiVgaSetBacklightEnableEmul"
+ 125      56676153 
+ 125      65744261 
+ 125      636B6C69 
+ 125      67687445 
+ 126              		.text
+ 127              		.globl	EApiVgaSetBacklightEnableEmul
+ 128              		.hidden	EApiVgaSetBacklightEnableEmul
+ 130              	EApiVgaSetBacklightEnableEmul:
+ 131              	.LFB7:
+  88:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  89:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiStatus_t 
+  90:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiVgaSetBacklightEnableEmul( 
+  91:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __IN  EApiId_t Id       , 
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __OUT uint32_t Enable
+  93:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     )
+  94:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** {
+ 132              		.loc 1 94 1
+ 133              		.cfi_startproc
+ 134 010d F30F1EFA 		endbr64
+ 135 0111 55       		pushq	%rbp
+ 136              		.cfi_def_cfa_offset 16
+ 137              		.cfi_offset 6, -16
+ 138 0112 4889E5   		movq	%rsp, %rbp
+ 139              		.cfi_def_cfa_register 6
+ 140 0115 4883EC20 		subq	$32, %rsp
+ 141 0119 897DEC   		movl	%edi, -20(%rbp)
+ 142 011c 8975E8   		movl	%esi, -24(%rbp)
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 143              		.loc 1 95 16
+ 144 011f C745F800 		movl	$0, -8(%rbp)
+ 144      000000
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   unsigned i;
+  97:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   for(i=0;i<ARRAY_SIZE(BacklightLookup);i++)
+ 145              		.loc 1 98 8
+ 146 0126 C745FC00 		movl	$0, -4(%rbp)
+GAS LISTING /tmp/ccpspNWf.s 			page 6
+
+
+ 146      000000
+ 147              		.loc 1 98 3
+ 148 012d E98E0000 		jmp	.L8
+ 148      00
+ 149              	.L11:
+  99:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 100:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       if(BacklightLookup[i].Id==Id)
+ 150              		.loc 1 100 28
+ 151 0132 8B55FC   		movl	-4(%rbp), %edx
+ 152 0135 4889D0   		movq	%rdx, %rax
+ 153 0138 4801C0   		addq	%rax, %rax
+ 154 013b 4801D0   		addq	%rdx, %rax
+ 155 013e 48C1E002 		salq	$2, %rax
+ 156 0142 4889C2   		movq	%rax, %rdx
+ 157 0145 488D0500 		leaq	BacklightLookup(%rip), %rax
+ 157      000000
+ 158 014c 8B0402   		movl	(%rdx,%rax), %eax
+ 159              		.loc 1 100 9
+ 160 014f 3945EC   		cmpl	%eax, -20(%rbp)
+ 161 0152 7568     		jne	.L9
+ 101:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       {
+ 102:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         BacklightLookup[i].Enabled=Enable;
+ 162              		.loc 1 102 35
+ 163 0154 8B55FC   		movl	-4(%rbp), %edx
+ 164 0157 4889D0   		movq	%rdx, %rax
+ 165 015a 4801C0   		addq	%rax, %rax
+ 166 015d 4801D0   		addq	%rdx, %rax
+ 167 0160 48C1E002 		salq	$2, %rax
+ 168 0164 4889C1   		movq	%rax, %rcx
+ 169 0167 488D1500 		leaq	4+BacklightLookup(%rip), %rdx
+ 169      000000
+ 170 016e 8B45E8   		movl	-24(%rbp), %eax
+ 171 0171 890411   		movl	%eax, (%rcx,%rdx)
+ 103:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         EAPI_LIB_RETURN_SUCCESS(
+ 172              		.loc 1 103 9
+ 173 0174 4883EC08 		subq	$8, %rsp
+ 174 0178 488D0500 		leaq	.LC3(%rip), %rax
+ 174      000000
+ 175 017f 50       		pushq	%rax
+ 176 0180 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 176      000000
+ 177 0187 41B80000 		movl	$0, %r8d
+ 177      0000
+ 178 018d B9670000 		movl	$103, %ecx
+ 178      00
+ 179 0192 488D1500 		leaq	.LC5(%rip), %rdx
+ 179      000000
+ 180 0199 488D3500 		leaq	.LC2(%rip), %rsi
+ 180      000000
+ 181 01a0 BF4C0000 		movl	$76, %edi
+ 181      00
+ 182 01a5 B8000000 		movl	$0, %eax
+ 182      00
+ 183 01aa E8000000 		call	siFormattedMessage_SC@PLT
+ 183      00
+ 184 01af 4883C410 		addq	$16, %rsp
+ 185 01b3 C745F800 		movl	$0, -8(%rbp)
+GAS LISTING /tmp/ccpspNWf.s 			page 7
+
+
+ 185      000000
+ 186 01ba EB55     		jmp	.L10
+ 187              	.L9:
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 188              		.loc 1 98 42 discriminator 2
+ 189 01bc 8345FC01 		addl	$1, -4(%rbp)
+ 190              	.L8:
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 191              		.loc 1 98 3 discriminator 1
+ 192 01c0 837DFC01 		cmpl	$1, -4(%rbp)
+ 193 01c4 0F8668FF 		jbe	.L11
+ 193      FFFF
+ 104:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           EApiVgaSetBacklightEnableEmul, 
+ 105:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           ""
+ 106:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           );
+ 107:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       }
+ 108:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   }
+ 109:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EAPI_LIB_RETURN_ERROR(
+ 194              		.loc 1 109 3
+ 195 01ca 4883EC08 		subq	$8, %rsp
+ 196 01ce 488D0500 		leaq	.LC4(%rip), %rax
+ 196      000000
+ 197 01d5 50       		pushq	%rax
+ 198 01d6 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 198      000000
+ 199 01dd 41B8FFFC 		movl	$-769, %r8d
+ 199      FFFF
+ 200 01e3 B96D0000 		movl	$109, %ecx
+ 200      00
+ 201 01e8 488D1500 		leaq	.LC5(%rip), %rdx
+ 201      000000
+ 202 01ef 488D3500 		leaq	.LC2(%rip), %rsi
+ 202      000000
+ 203 01f6 BF450000 		movl	$69, %edi
+ 203      00
+ 204 01fb B8000000 		movl	$0, %eax
+ 204      00
+ 205 0200 E8000000 		call	siFormattedMessage_SC@PLT
+ 205      00
+ 206 0205 4883C410 		addq	$16, %rsp
+ 207 0209 C745F8FF 		movl	$-769, -8(%rbp)
+ 207      FCFFFF
+ 208 0210 90       		nop
+ 209              	.L10:
+ 110:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EApiVgaSetBacklightEnableEmul, 
+ 111:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EAPI_STATUS_UNSUPPORTED  , 
+ 112:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     "Unrecognised Backlight ID"
+ 113:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     );
+ 114:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EAPI_LIB_ASSERT_EXIT
+ 115:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+ 116:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   return StatusCode;
+ 210              		.loc 1 116 10
+ 211 0211 8B45F8   		movl	-8(%rbp), %eax
+ 117:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** }
+ 212              		.loc 1 117 1
+ 213 0214 C9       		leave
+ 214              		.cfi_def_cfa 7, 8
+GAS LISTING /tmp/ccpspNWf.s 			page 8
+
+
+ 215 0215 C3       		ret
+ 216              		.cfi_endproc
+ 217              	.LFE7:
+ 219              		.section	.rodata
+ 220 00a6 0000     		.align 8
+ 221              	.LC6:
+ 222 00a8 45417069 		.string	"EApiVgaGetBacklightBrightnessEmul"
+ 222      56676147 
+ 222      65744261 
+ 222      636B6C69 
+ 222      67687442 
+ 223              		.text
+ 224              		.globl	EApiVgaGetBacklightBrightnessEmul
+ 225              		.hidden	EApiVgaGetBacklightBrightnessEmul
+ 227              	EApiVgaGetBacklightBrightnessEmul:
+ 228              	.LFB8:
+ 118:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiStatus_t 
+ 119:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiVgaGetBacklightBrightnessEmul( 
+ 120:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __IN  EApiId_t Id           , 
+ 121:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __OUT uint32_t *pBrightness
+ 122:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     )
+ 123:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** {
+ 229              		.loc 1 123 1
+ 230              		.cfi_startproc
+ 231 0216 F30F1EFA 		endbr64
+ 232 021a 55       		pushq	%rbp
+ 233              		.cfi_def_cfa_offset 16
+ 234              		.cfi_offset 6, -16
+ 235 021b 4889E5   		movq	%rsp, %rbp
+ 236              		.cfi_def_cfa_register 6
+ 237 021e 4883EC20 		subq	$32, %rsp
+ 238 0222 897DEC   		movl	%edi, -20(%rbp)
+ 239 0225 488975E0 		movq	%rsi, -32(%rbp)
+ 124:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 240              		.loc 1 124 16
+ 241 0229 C745F800 		movl	$0, -8(%rbp)
+ 241      000000
+ 125:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   unsigned i;
+ 126:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   for(i=0;i<ARRAY_SIZE(BacklightLookup);i++)
+ 242              		.loc 1 127 8
+ 243 0230 C745FC00 		movl	$0, -4(%rbp)
+ 243      000000
+ 244              		.loc 1 127 3
+ 245 0237 E9910000 		jmp	.L14
+ 245      00
+ 246              	.L17:
+ 128:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       if(BacklightLookup[i].Id==Id)
+ 247              		.loc 1 129 28
+ 248 023c 8B55FC   		movl	-4(%rbp), %edx
+ 249 023f 4889D0   		movq	%rdx, %rax
+ 250 0242 4801C0   		addq	%rax, %rax
+ 251 0245 4801D0   		addq	%rdx, %rax
+ 252 0248 48C1E002 		salq	$2, %rax
+ 253 024c 4889C2   		movq	%rax, %rdx
+ 254 024f 488D0500 		leaq	BacklightLookup(%rip), %rax
+GAS LISTING /tmp/ccpspNWf.s 			page 9
+
+
+ 254      000000
+ 255 0256 8B0402   		movl	(%rdx,%rax), %eax
+ 256              		.loc 1 129 9
+ 257 0259 3945EC   		cmpl	%eax, -20(%rbp)
+ 258 025c 756B     		jne	.L15
+ 130:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       {
+ 131:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         *pBrightness=BacklightLookup[i].Brightness;
+ 259              		.loc 1 131 40
+ 260 025e 8B55FC   		movl	-4(%rbp), %edx
+ 261 0261 4889D0   		movq	%rdx, %rax
+ 262 0264 4801C0   		addq	%rax, %rax
+ 263 0267 4801D0   		addq	%rdx, %rax
+ 264 026a 48C1E002 		salq	$2, %rax
+ 265 026e 4889C2   		movq	%rax, %rdx
+ 266 0271 488D0500 		leaq	8+BacklightLookup(%rip), %rax
+ 266      000000
+ 267 0278 8B1402   		movl	(%rdx,%rax), %edx
+ 268              		.loc 1 131 21
+ 269 027b 488B45E0 		movq	-32(%rbp), %rax
+ 270 027f 8910     		movl	%edx, (%rax)
+ 132:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         EAPI_LIB_RETURN_SUCCESS(
+ 271              		.loc 1 132 9
+ 272 0281 4883EC08 		subq	$8, %rsp
+ 273 0285 488D0500 		leaq	.LC3(%rip), %rax
+ 273      000000
+ 274 028c 50       		pushq	%rax
+ 275 028d 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 275      000000
+ 276 0294 41B80000 		movl	$0, %r8d
+ 276      0000
+ 277 029a B9840000 		movl	$132, %ecx
+ 277      00
+ 278 029f 488D1500 		leaq	.LC6(%rip), %rdx
+ 278      000000
+ 279 02a6 488D3500 		leaq	.LC2(%rip), %rsi
+ 279      000000
+ 280 02ad BF4C0000 		movl	$76, %edi
+ 280      00
+ 281 02b2 B8000000 		movl	$0, %eax
+ 281      00
+ 282 02b7 E8000000 		call	siFormattedMessage_SC@PLT
+ 282      00
+ 283 02bc 4883C410 		addq	$16, %rsp
+ 284 02c0 C745F800 		movl	$0, -8(%rbp)
+ 284      000000
+ 285 02c7 EB55     		jmp	.L16
+ 286              	.L15:
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 287              		.loc 1 127 42 discriminator 2
+ 288 02c9 8345FC01 		addl	$1, -4(%rbp)
+ 289              	.L14:
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 290              		.loc 1 127 3 discriminator 1
+ 291 02cd 837DFC01 		cmpl	$1, -4(%rbp)
+ 292 02d1 0F8665FF 		jbe	.L17
+ 292      FFFF
+ 133:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           EApiVgaGetBacklightBrightnessEmul, 
+GAS LISTING /tmp/ccpspNWf.s 			page 10
+
+
+ 134:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           ""
+ 135:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           );
+ 136:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       }
+ 137:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   }
+ 138:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EAPI_LIB_RETURN_ERROR(
+ 293              		.loc 1 138 3
+ 294 02d7 4883EC08 		subq	$8, %rsp
+ 295 02db 488D0500 		leaq	.LC4(%rip), %rax
+ 295      000000
+ 296 02e2 50       		pushq	%rax
+ 297 02e3 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 297      000000
+ 298 02ea 41B8FFFC 		movl	$-769, %r8d
+ 298      FFFF
+ 299 02f0 B98A0000 		movl	$138, %ecx
+ 299      00
+ 300 02f5 488D1500 		leaq	.LC6(%rip), %rdx
+ 300      000000
+ 301 02fc 488D3500 		leaq	.LC2(%rip), %rsi
+ 301      000000
+ 302 0303 BF450000 		movl	$69, %edi
+ 302      00
+ 303 0308 B8000000 		movl	$0, %eax
+ 303      00
+ 304 030d E8000000 		call	siFormattedMessage_SC@PLT
+ 304      00
+ 305 0312 4883C410 		addq	$16, %rsp
+ 306 0316 C745F8FF 		movl	$-769, -8(%rbp)
+ 306      FCFFFF
+ 307 031d 90       		nop
+ 308              	.L16:
+ 139:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EApiVgaGetBacklightBrightnessEmul, 
+ 140:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EAPI_STATUS_UNSUPPORTED  , 
+ 141:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     "Unrecognised Backlight ID"
+ 142:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     );
+ 143:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EAPI_LIB_ASSERT_EXIT
+ 144:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+ 145:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   return StatusCode;
+ 309              		.loc 1 145 10
+ 310 031e 8B45F8   		movl	-8(%rbp), %eax
+ 146:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** }
+ 311              		.loc 1 146 1
+ 312 0321 C9       		leave
+ 313              		.cfi_def_cfa 7, 8
+ 314 0322 C3       		ret
+ 315              		.cfi_endproc
+ 316              	.LFE8:
+ 318              		.section	.rodata
+ 319              	.LC7:
+ 320 00ca 45417069 		.string	"EApiVgaSetBacklightBrightness"
+ 320      56676153 
+ 320      65744261 
+ 320      636B6C69 
+ 320      67687442 
+ 321              		.align 8
+ 322              	.LC8:
+ 323 00e8 45417069 		.string	"EApiVgaSetBacklightBrightnessEmul"
+GAS LISTING /tmp/ccpspNWf.s 			page 11
+
+
+ 323      56676153 
+ 323      65744261 
+ 323      636B6C69 
+ 323      67687442 
+ 324              		.text
+ 325              		.globl	EApiVgaSetBacklightBrightnessEmul
+ 326              		.hidden	EApiVgaSetBacklightBrightnessEmul
+ 328              	EApiVgaSetBacklightBrightnessEmul:
+ 329              	.LFB9:
+ 147:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+ 148:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiStatus_t 
+ 149:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EApiVgaSetBacklightBrightnessEmul( 
+ 150:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __IN  EApiId_t Id           , 
+ 151:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     __OUT uint32_t Brightness
+ 152:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     )
+ 153:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** {
+ 330              		.loc 1 153 1
+ 331              		.cfi_startproc
+ 332 0323 F30F1EFA 		endbr64
+ 333 0327 55       		pushq	%rbp
+ 334              		.cfi_def_cfa_offset 16
+ 335              		.cfi_offset 6, -16
+ 336 0328 4889E5   		movq	%rsp, %rbp
+ 337              		.cfi_def_cfa_register 6
+ 338 032b 4883EC20 		subq	$32, %rsp
+ 339 032f 897DEC   		movl	%edi, -20(%rbp)
+ 340 0332 8975E8   		movl	%esi, -24(%rbp)
+ 154:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 341              		.loc 1 154 16
+ 342 0335 C745F800 		movl	$0, -8(%rbp)
+ 342      000000
+ 155:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   unsigned i;
+ 156:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+ 157:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   for(i=0;i<ARRAY_SIZE(BacklightLookup);i++)
+ 343              		.loc 1 157 8
+ 344 033c C745FC00 		movl	$0, -4(%rbp)
+ 344      000000
+ 345              		.loc 1 157 3
+ 346 0343 E98E0000 		jmp	.L20
+ 346      00
+ 347              	.L23:
+ 158:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 159:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       if(BacklightLookup[i].Id==Id)
+ 348              		.loc 1 159 28
+ 349 0348 8B55FC   		movl	-4(%rbp), %edx
+ 350 034b 4889D0   		movq	%rdx, %rax
+ 351 034e 4801C0   		addq	%rax, %rax
+ 352 0351 4801D0   		addq	%rdx, %rax
+ 353 0354 48C1E002 		salq	$2, %rax
+ 354 0358 4889C2   		movq	%rax, %rdx
+ 355 035b 488D0500 		leaq	BacklightLookup(%rip), %rax
+ 355      000000
+ 356 0362 8B0402   		movl	(%rdx,%rax), %eax
+ 357              		.loc 1 159 9
+ 358 0365 3945EC   		cmpl	%eax, -20(%rbp)
+ 359 0368 7568     		jne	.L21
+ 160:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       {
+GAS LISTING /tmp/ccpspNWf.s 			page 12
+
+
+ 161:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         BacklightLookup[i].Brightness=Brightness;
+ 360              		.loc 1 161 38
+ 361 036a 8B55FC   		movl	-4(%rbp), %edx
+ 362 036d 4889D0   		movq	%rdx, %rax
+ 363 0370 4801C0   		addq	%rax, %rax
+ 364 0373 4801D0   		addq	%rdx, %rax
+ 365 0376 48C1E002 		salq	$2, %rax
+ 366 037a 4889C1   		movq	%rax, %rcx
+ 367 037d 488D1500 		leaq	8+BacklightLookup(%rip), %rdx
+ 367      000000
+ 368 0384 8B45E8   		movl	-24(%rbp), %eax
+ 369 0387 890411   		movl	%eax, (%rcx,%rdx)
+ 162:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****         EAPI_LIB_RETURN_SUCCESS(
+ 370              		.loc 1 162 9
+ 371 038a 4883EC08 		subq	$8, %rsp
+ 372 038e 488D0500 		leaq	.LC3(%rip), %rax
+ 372      000000
+ 373 0395 50       		pushq	%rax
+ 374 0396 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 374      000000
+ 375 039d 41B80000 		movl	$0, %r8d
+ 375      0000
+ 376 03a3 B9A20000 		movl	$162, %ecx
+ 376      00
+ 377 03a8 488D1500 		leaq	.LC7(%rip), %rdx
+ 377      000000
+ 378 03af 488D3500 		leaq	.LC2(%rip), %rsi
+ 378      000000
+ 379 03b6 BF4C0000 		movl	$76, %edi
+ 379      00
+ 380 03bb B8000000 		movl	$0, %eax
+ 380      00
+ 381 03c0 E8000000 		call	siFormattedMessage_SC@PLT
+ 381      00
+ 382 03c5 4883C410 		addq	$16, %rsp
+ 383 03c9 C745F800 		movl	$0, -8(%rbp)
+ 383      000000
+ 384 03d0 EB55     		jmp	.L22
+ 385              	.L21:
+ 157:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 386              		.loc 1 157 42 discriminator 2
+ 387 03d2 8345FC01 		addl	$1, -4(%rbp)
+ 388              	.L20:
+ 157:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   {
+ 389              		.loc 1 157 3 discriminator 1
+ 390 03d6 837DFC01 		cmpl	$1, -4(%rbp)
+ 391 03da 0F8668FF 		jbe	.L23
+ 391      FFFF
+ 163:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           EApiVgaSetBacklightBrightness, 
+ 164:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           ""
+ 165:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****           );
+ 166:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****       }
+ 167:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   }
+ 168:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   EAPI_LIB_RETURN_ERROR(
+ 392              		.loc 1 168 3
+ 393 03e0 4883EC08 		subq	$8, %rsp
+ 394 03e4 488D0500 		leaq	.LC4(%rip), %rax
+GAS LISTING /tmp/ccpspNWf.s 			page 13
+
+
+ 394      000000
+ 395 03eb 50       		pushq	%rax
+ 396 03ec 4C8D0D00 		leaq	.LC0(%rip), %r9
+ 396      000000
+ 397 03f3 41B8FFFC 		movl	$-769, %r8d
+ 397      FFFF
+ 398 03f9 B9A80000 		movl	$168, %ecx
+ 398      00
+ 399 03fe 488D1500 		leaq	.LC8(%rip), %rdx
+ 399      000000
+ 400 0405 488D3500 		leaq	.LC2(%rip), %rsi
+ 400      000000
+ 401 040c BF450000 		movl	$69, %edi
+ 401      00
+ 402 0411 B8000000 		movl	$0, %eax
+ 402      00
+ 403 0416 E8000000 		call	siFormattedMessage_SC@PLT
+ 403      00
+ 404 041b 4883C410 		addq	$16, %rsp
+ 405 041f C745F8FF 		movl	$-769, -8(%rbp)
+ 405      FCFFFF
+ 406 0426 90       		nop
+ 407              	.L22:
+ 169:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EApiVgaSetBacklightBrightnessEmul, 
+ 170:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     EAPI_STATUS_UNSUPPORTED  , 
+ 171:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     "Unrecognised Backlight ID"
+ 172:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****     );
+ 173:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** EAPI_LIB_ASSERT_EXIT
+ 174:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** 
+ 175:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c ****   return StatusCode;
+ 408              		.loc 1 175 10
+ 409 0427 8B45F8   		movl	-8(%rbp), %eax
+ 176:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulBacklight.c **** }
+ 410              		.loc 1 176 1
+ 411 042a C9       		leave
+ 412              		.cfi_def_cfa 7, 8
+ 413 042b C3       		ret
+ 414              		.cfi_endproc
+ 415              	.LFE9:
+ 417              	.Letext0:
+ 418              		.file 2 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 419              		.file 3 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h"
+ 420              		.file 4 "/usr/include/stdint.h"
+ 421              		.file 5 "/usr/include/unistd.h"
+ 422              		.file 6 "/usr/include/x86_64-linux-gnu/bits/getopt_core.h"
+ 423              		.file 7 "/usr/include/time.h"
+ 424              		.file 8 "../../include/EApi.h"
+ 1279              		.section	.note.gnu.property,"a"
+ 1280              		.align 8
+ 1281 0000 04000000 		.long	 1f - 0f
+ 1282 0004 10000000 		.long	 4f - 1f
+ 1283 0008 05000000 		.long	 5
+ 1284              	0:
+ 1285 000c 474E5500 		.string	 "GNU"
+ 1286              	1:
+ 1287              		.align 8
+ 1288 0010 020000C0 		.long	 0xc0000002
+GAS LISTING /tmp/ccpspNWf.s 			page 14
+
+
+ 1289 0014 04000000 		.long	 3f - 2f
+ 1290              	2:
+ 1291 0018 03000000 		.long	 0x3
+ 1292              	3:
+ 1293 001c 00000000 		.align 8
+ 1294              	4:
+GAS LISTING /tmp/ccpspNWf.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulBacklight.c
+     /tmp/ccpspNWf.s:8      .data:0000000000000000 BacklightLookup
+     /tmp/ccpspNWf.s:31     .text:0000000000000000 EApiVgaGetBacklightEnableEmul
+     /tmp/ccpspNWf.s:130    .text:000000000000010d EApiVgaSetBacklightEnableEmul
+     /tmp/ccpspNWf.s:227    .text:0000000000000216 EApiVgaGetBacklightBrightnessEmul
+     /tmp/ccpspNWf.s:328    .text:0000000000000323 EApiVgaSetBacklightBrightnessEmul
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+siFormattedMessage_SC

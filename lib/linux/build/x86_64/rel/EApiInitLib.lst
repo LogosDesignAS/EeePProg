@@ -1,0 +1,307 @@
+GAS LISTING /tmp/ccbqVUBy.s 			page 1
+
+
+   1              		.file	"EApiInitLib.c"
+   2              		.text
+   3              		.p2align 4
+   4              		.globl	DebugMsg
+   5              		.hidden	DebugMsg
+   7              	DebugMsg:
+   8              	.LFB89:
+   9              		.cfi_startproc
+  10 0000 F30F1EFA 		endbr64
+  11 0004 4881ECD8 		subq	$216, %rsp
+  11      000000
+  12              		.cfi_def_cfa_offset 224
+  13 000b 4989FA   		movq	%rdi, %r10
+  14 000e 48897424 		movq	%rsi, 40(%rsp)
+  14      28
+  15 0013 48895424 		movq	%rdx, 48(%rsp)
+  15      30
+  16 0018 48894C24 		movq	%rcx, 56(%rsp)
+  16      38
+  17 001d 4C894424 		movq	%r8, 64(%rsp)
+  17      40
+  18 0022 4C894C24 		movq	%r9, 72(%rsp)
+  18      48
+  19 0027 84C0     		testb	%al, %al
+  20 0029 7437     		je	.L2
+  21 002b 0F294424 		movaps	%xmm0, 80(%rsp)
+  21      50
+  22 0030 0F294C24 		movaps	%xmm1, 96(%rsp)
+  22      60
+  23 0035 0F295424 		movaps	%xmm2, 112(%rsp)
+  23      70
+  24 003a 0F299C24 		movaps	%xmm3, 128(%rsp)
+  24      80000000 
+  25 0042 0F29A424 		movaps	%xmm4, 144(%rsp)
+  25      90000000 
+  26 004a 0F29AC24 		movaps	%xmm5, 160(%rsp)
+  26      A0000000 
+  27 0052 0F29B424 		movaps	%xmm6, 176(%rsp)
+  27      B0000000 
+  28 005a 0F29BC24 		movaps	%xmm7, 192(%rsp)
+  28      C0000000 
+  29              	.L2:
+  30 0062 64488B04 		movq	%fs:40, %rax
+  30      25280000 
+  30      00
+  31 006b 48894424 		movq	%rax, 24(%rsp)
+  31      18
+  32 0070 31C0     		xorl	%eax, %eax
+  33 0072 488B3D00 		movq	OutputStream(%rip), %rdi
+  33      000000
+  34 0079 4889E1   		movq	%rsp, %rcx
+  35 007c 4C89D2   		movq	%r10, %rdx
+  36 007f 488D8424 		leaq	224(%rsp), %rax
+  36      E0000000 
+  37 0087 C7042408 		movl	$8, (%rsp)
+  37      000000
+  38 008e BE010000 		movl	$1, %esi
+GAS LISTING /tmp/ccbqVUBy.s 			page 2
+
+
+  38      00
+  39 0093 48894424 		movq	%rax, 8(%rsp)
+  39      08
+  40 0098 488D4424 		leaq	32(%rsp), %rax
+  40      20
+  41 009d C7442404 		movl	$48, 4(%rsp)
+  41      30000000 
+  42 00a5 48894424 		movq	%rax, 16(%rsp)
+  42      10
+  43 00aa 4885FF   		testq	%rdi, %rdi
+  44 00ad 7431     		je	.L3
+  45              	.L7:
+  46 00af E8000000 		call	__vfprintf_chk@PLT
+  46      00
+  47 00b4 488B3D00 		movq	OutputStream(%rip), %rdi
+  47      000000
+  48 00bb E8000000 		call	fflush@PLT
+  48      00
+  49 00c0 488B4424 		movq	24(%rsp), %rax
+  49      18
+  50 00c5 64483304 		xorq	%fs:40, %rax
+  50      25280000 
+  50      00
+  51 00ce 751C     		jne	.L9
+  52 00d0 4881C4D8 		addq	$216, %rsp
+  52      000000
+  53              		.cfi_remember_state
+  54              		.cfi_def_cfa_offset 8
+  55 00d7 C3       		ret
+  56 00d8 0F1F8400 		.p2align 4,,10
+  56      00000000 
+  57              		.p2align 3
+  58              	.L3:
+  59              		.cfi_restore_state
+  60 00e0 488B0500 		movq	stdout@GOTPCREL(%rip), %rax
+  60      000000
+  61 00e7 488B38   		movq	(%rax), %rdi
+  62 00ea EBC3     		jmp	.L7
+  63              	.L9:
+  64 00ec E8000000 		call	__stack_chk_fail@PLT
+  64      00
+  65              		.cfi_endproc
+  66              	.LFE89:
+  68              		.section	.rodata.str1.1,"aMS",@progbits,1
+  69              	.LC0:
+  70 0000 7700     		.string	"w"
+  71              	.LC1:
+  72 0002 45417069 		.string	"EApi.log"
+  72      2E6C6F67 
+  72      00
+  73              		.section	.rodata.str1.8,"aMS",@progbits,1
+  74              		.align 8
+  75              	.LC2:
+  76 0000 230A2320 		.string	"#\n# Embedded API EApi\n# Version %u.%u\n# Lib Version %u.%u.%u\n#\n"
+  76      456D6265 
+  76      64646564 
+  76      20415049 
+GAS LISTING /tmp/ccbqVUBy.s 			page 3
+
+
+  76      20454170 
+  77              		.text
+  78 00f1 66662E0F 		.p2align 4
+  78      1F840000 
+  78      0000000F 
+  78      1F4000
+  79              		.globl	EApiInitLib
+  80              		.hidden	EApiInitLib
+  82              	EApiInitLib:
+  83              	.LFB90:
+  84              		.cfi_startproc
+  85 0100 F30F1EFA 		endbr64
+  86 0104 4883EC08 		subq	$8, %rsp
+  87              		.cfi_def_cfa_offset 16
+  88 0108 48833D00 		cmpq	$0, OutputStream(%rip)
+  88      00000000 
+  89 0110 743E     		je	.L13
+  90              	.L11:
+  91 0112 E8000000 		call	OpenEepromFiles@PLT
+  91      00
+  92 0117 E8000000 		call	OpenI2CEepromFiles@PLT
+  92      00
+  93 011c 31C0     		xorl	%eax, %eax
+  94 011e 41B9D103 		movl	$977, %r9d
+  94      0000
+  95 0124 31C9     		xorl	%ecx, %ecx
+  96 0126 41B80500 		movl	$5, %r8d
+  96      0000
+  97 012c 31D2     		xorl	%edx, %edx
+  98 012e BE010000 		movl	$1, %esi
+  98      00
+  99 0133 488D3D00 		leaq	.LC2(%rip), %rdi
+  99      000000
+ 100 013a E8000000 		call	DebugMsg
+ 100      00
+ 101 013f 31C0     		xorl	%eax, %eax
+ 102 0141 4883C408 		addq	$8, %rsp
+ 103              		.cfi_remember_state
+ 104              		.cfi_def_cfa_offset 8
+ 105 0145 C3       		ret
+ 106 0146 662E0F1F 		.p2align 4,,10
+ 106      84000000 
+ 106      0000
+ 107              		.p2align 3
+ 108              	.L13:
+ 109              		.cfi_restore_state
+ 110 0150 488D3500 		leaq	.LC0(%rip), %rsi
+ 110      000000
+ 111 0157 488D3D00 		leaq	.LC1(%rip), %rdi
+ 111      000000
+ 112 015e E8000000 		call	fopen@PLT
+ 112      00
+ 113 0163 48890500 		movq	%rax, OutputStream(%rip)
+ 113      000000
+ 114 016a EBA6     		jmp	.L11
+ 115              		.cfi_endproc
+ 116              	.LFE90:
+GAS LISTING /tmp/ccbqVUBy.s 			page 4
+
+
+ 118              		.section	.rodata.str1.8
+ 119              		.align 8
+ 120              	.LC3:
+ 121 0040 230A2320 		.string	"#\n# Embedded API EApi\n# Exit \n#\n"
+ 121      456D6265 
+ 121      64646564 
+ 121      20415049 
+ 121      20454170 
+ 122              		.text
+ 123 016c 0F1F4000 		.p2align 4
+ 124              		.globl	EApiUninitLib
+ 125              		.hidden	EApiUninitLib
+ 127              	EApiUninitLib:
+ 128              	.LFB91:
+ 129              		.cfi_startproc
+ 130 0170 F30F1EFA 		endbr64
+ 131 0174 53       		pushq	%rbx
+ 132              		.cfi_def_cfa_offset 16
+ 133              		.cfi_offset 3, -16
+ 134 0175 488D3D00 		leaq	.LC3(%rip), %rdi
+ 134      000000
+ 135 017c 31C0     		xorl	%eax, %eax
+ 136 017e E8000000 		call	DebugMsg
+ 136      00
+ 137 0183 E8000000 		call	CloseEepromFiles@PLT
+ 137      00
+ 138 0188 E8000000 		call	CloseI2CEepromFiles@PLT
+ 138      00
+ 139 018d 488B3D00 		movq	OutputStream(%rip), %rdi
+ 139      000000
+ 140 0194 4885FF   		testq	%rdi, %rdi
+ 141 0197 7437     		je	.L18
+ 142 0199 488B1D00 		movq	stdout@GOTPCREL(%rip), %rbx
+ 142      000000
+ 143 01a0 488B03   		movq	(%rbx), %rax
+ 144 01a3 4839C7   		cmpq	%rax, %rdi
+ 145 01a6 7414     		je	.L16
+ 146 01a8 488B1500 		movq	stderr@GOTPCREL(%rip), %rdx
+ 146      000000
+ 147 01af 483B3A   		cmpq	(%rdx), %rdi
+ 148 01b2 7408     		je	.L16
+ 149 01b4 E8000000 		call	fclose@PLT
+ 149      00
+ 150 01b9 488B03   		movq	(%rbx), %rax
+ 151              	.L16:
+ 152 01bc 48890500 		movq	%rax, OutputStream(%rip)
+ 152      000000
+ 153 01c3 5B       		popq	%rbx
+ 154              		.cfi_remember_state
+ 155              		.cfi_def_cfa_offset 8
+ 156 01c4 31C0     		xorl	%eax, %eax
+ 157 01c6 C3       		ret
+ 158 01c7 660F1F84 		.p2align 4,,10
+ 158      00000000 
+ 158      00
+ 159              		.p2align 3
+ 160              	.L18:
+GAS LISTING /tmp/ccbqVUBy.s 			page 5
+
+
+ 161              		.cfi_restore_state
+ 162 01d0 488B0500 		movq	stdout@GOTPCREL(%rip), %rax
+ 162      000000
+ 163 01d7 5B       		popq	%rbx
+ 164              		.cfi_def_cfa_offset 8
+ 165 01d8 488B00   		movq	(%rax), %rax
+ 166 01db 48890500 		movq	%rax, OutputStream(%rip)
+ 166      000000
+ 167 01e2 31C0     		xorl	%eax, %eax
+ 168 01e4 C3       		ret
+ 169              		.cfi_endproc
+ 170              	.LFE91:
+ 172              		.hidden	OutputStream
+ 173              		.globl	OutputStream
+ 174              		.bss
+ 175              		.align 8
+ 178              	OutputStream:
+ 179 0000 00000000 		.zero	8
+ 179      00000000 
+ 180              		.ident	"GCC: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
+ 181              		.section	.note.GNU-stack,"",@progbits
+ 182              		.section	.note.gnu.property,"a"
+ 183              		.align 8
+ 184 0000 04000000 		.long	 1f - 0f
+ 185 0004 10000000 		.long	 4f - 1f
+ 186 0008 05000000 		.long	 5
+ 187              	0:
+ 188 000c 474E5500 		.string	 "GNU"
+ 189              	1:
+ 190              		.align 8
+ 191 0010 020000C0 		.long	 0xc0000002
+ 192 0014 04000000 		.long	 3f - 2f
+ 193              	2:
+ 194 0018 03000000 		.long	 0x3
+ 195              	3:
+ 196 001c 00000000 		.align 8
+ 197              	4:
+GAS LISTING /tmp/ccbqVUBy.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiInitLib.c
+     /tmp/ccbqVUBy.s:7      .text:0000000000000000 DebugMsg
+     /tmp/ccbqVUBy.s:178    .bss:0000000000000000 OutputStream
+     /tmp/ccbqVUBy.s:82     .text:0000000000000100 EApiInitLib
+     /tmp/ccbqVUBy.s:127    .text:0000000000000170 EApiUninitLib
+     /tmp/ccbqVUBy.s:75     .rodata.str1.8:0000000000000000 .LC2
+     /tmp/ccbqVUBy.s:69     .rodata.str1.1:0000000000000000 .LC0
+     /tmp/ccbqVUBy.s:71     .rodata.str1.1:0000000000000002 .LC1
+     /tmp/ccbqVUBy.s:120    .rodata.str1.8:0000000000000040 .LC3
+
+UNDEFINED SYMBOLS
+_GLOBAL_OFFSET_TABLE_
+__vfprintf_chk
+fflush
+stdout
+__stack_chk_fail
+OpenEepromFiles
+OpenI2CEepromFiles
+fopen
+CloseEepromFiles
+CloseI2CEepromFiles
+stderr
+fclose

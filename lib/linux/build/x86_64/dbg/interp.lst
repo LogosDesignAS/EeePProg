@@ -1,0 +1,43 @@
+GAS LISTING /tmp/ccLnfSnt.s 			page 1
+
+
+   1              		.file	"interp.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.hidden	__invoke_dynamic_linker__
+   5              		.globl	__invoke_dynamic_linker__
+   6              		.section	.interp,"a"
+   7              		.align 16
+  10              	__invoke_dynamic_linker__:
+  11 0000 2F6C6962 		.string	"/lib64/ld-linux-x86-64.so.2"
+  11      36342F6C 
+  11      642D6C69 
+  11      6E75782D 
+  11      7838362D 
+  12              		.text
+  13              	.Letext0:
+  14              		.file 1 "interp.c"
+ 156              		.section	.note.gnu.property,"a"
+ 157              		.align 8
+ 158 0000 04000000 		.long	 1f - 0f
+ 159 0004 10000000 		.long	 4f - 1f
+ 160 0008 05000000 		.long	 5
+ 161              	0:
+ 162 000c 474E5500 		.string	 "GNU"
+ 163              	1:
+ 164              		.align 8
+ 165 0010 020000C0 		.long	 0xc0000002
+ 166 0014 04000000 		.long	 3f - 2f
+ 167              	2:
+ 168 0018 03000000 		.long	 0x3
+ 169              	3:
+ 170 001c 00000000 		.align 8
+ 171              	4:
+GAS LISTING /tmp/ccLnfSnt.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 interp.c
+     /tmp/ccLnfSnt.s:10     .interp:0000000000000000 __invoke_dynamic_linker__
+
+NO UNDEFINED SYMBOLS

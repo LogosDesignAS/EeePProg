@@ -1,0 +1,516 @@
+ARM GAS  /tmp/cckX0CNd.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiInitLib.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.hidden	OutputStream
+  17              		.global	OutputStream
+  18              		.bss
+  19              		.align	2
+  22              	OutputStream:
+  23 0000 00000000 		.space	4
+  24              		.text
+  25              		.align	2
+  26              		.global	DebugMsg
+  27              		.hidden	DebugMsg
+  28              		.arch armv7-a
+  29              		.arch_extension mp
+  30              		.arch_extension sec
+  31              		.syntax unified
+  32              		.arm
+  33              		.fpu vfpv3
+  35              	DebugMsg:
+  36              	.LFB1:
+  37              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/EApiInitLib.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I Description: Auto Created for EApiInitLib.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I
+ARM GAS  /tmp/cckX0CNd.s 			page 2
+
+
+  24:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  File Name            : EApiInitLib.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  File Location        : lib
+  28:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I  ID                   : $Id: EApiInitLib.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   #include <EApiLib.h>
+  37:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   #include <stdio.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** FILE *OutputStream=NULL;
+  39:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  40:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** void __cdecl DebugMsg(__IN const char *const fmt, ...)
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** {
+  38              		.loc 1 41 1
+  39              		.cfi_startproc
+  40              		@ args = 4, pretend = 16, frame = 16
+  41              		@ frame_needed = 1, uses_anonymous_args = 1
+  42 0000 0F002DE9 		push	{r0, r1, r2, r3}
+  43              		.cfi_def_cfa_offset 16
+  44              		.cfi_offset 0, -16
+  45              		.cfi_offset 1, -12
+  46              		.cfi_offset 2, -8
+  47              		.cfi_offset 3, -4
+  48 0004 00482DE9 		push	{fp, lr}
+  49              		.cfi_def_cfa_offset 24
+  50              		.cfi_offset 11, -24
+  51              		.cfi_offset 14, -20
+  52 0008 04B08DE2 		add	fp, sp, #4
+  53              		.cfi_def_cfa 11, 20
+  54 000c 10D04DE2 		sub	sp, sp, #16
+  55 0010 04309BE5 		ldr	r3, [fp, #4]
+  56 0014 10300BE5 		str	r3, [fp, #-16]
+  57 0018 C4209FE5 		ldr	r2, .L5
+  58              	.LPIC2:
+  59 001c 02208FE0 		add	r2, pc, r2
+  60              		.loc 1 41 1
+  61 0020 C0109FE5 		ldr	r1, .L5+4
+  62              	.LPIC4:
+  63 0024 01108FE0 		add	r1, pc, r1
+  64 0028 BC309FE5 		ldr	r3, .L5+8
+  65 002c 033091E7 		ldr	r3, [r1, r3]
+  66 0030 003093E5 		ldr	r3, [r3]
+  67 0034 08300BE5 		str	r3, [fp, #-8]
+  68 0038 0030A0E3 		mov	r3, #0
+  42:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   va_list arg;
+  43:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   va_start(arg, fmt);
+  69              		.loc 1 43 3
+  70 003c 08308BE2 		add	r3, fp, #8
+  71 0040 0C300BE5 		str	r3, [fp, #-12]
+  44:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   if(OutputStream!=NULL)
+  72              		.loc 1 44 18
+  73 0044 A4309FE5 		ldr	r3, .L5+12
+ARM GAS  /tmp/cckX0CNd.s 			page 3
+
+
+  74              	.LPIC0:
+  75 0048 03308FE0 		add	r3, pc, r3
+  76 004c 003093E5 		ldr	r3, [r3]
+  77              		.loc 1 44 5
+  78 0050 000053E3 		cmp	r3, #0
+  79 0054 0700000A 		beq	.L2
+  45:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     vfprintf(OutputStream, fmt, arg);
+  80              		.loc 1 45 5
+  81 0058 94309FE5 		ldr	r3, .L5+16
+  82              	.LPIC1:
+  83 005c 03308FE0 		add	r3, pc, r3
+  84 0060 003093E5 		ldr	r3, [r3]
+  85 0064 0C201BE5 		ldr	r2, [fp, #-12]
+  86 0068 10101BE5 		ldr	r1, [fp, #-16]
+  87 006c 0300A0E1 		mov	r0, r3
+  88 0070 FEFFFFEB 		bl	vfprintf(PLT)
+  89 0074 060000EA 		b	.L3
+  90              	.L2:
+  46:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   else
+  47:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     vfprintf(stdout, fmt, arg);
+  91              		.loc 1 47 5
+  92 0078 78309FE5 		ldr	r3, .L5+20
+  93 007c 033092E7 		ldr	r3, [r2, r3]
+  94 0080 003093E5 		ldr	r3, [r3]
+  95 0084 0C201BE5 		ldr	r2, [fp, #-12]
+  96 0088 10101BE5 		ldr	r1, [fp, #-16]
+  97 008c 0300A0E1 		mov	r0, r3
+  98 0090 FEFFFFEB 		bl	vfprintf(PLT)
+  99              	.L3:
+  48:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  49:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   fflush(OutputStream);
+ 100              		.loc 1 49 3
+ 101 0094 60309FE5 		ldr	r3, .L5+24
+ 102              	.LPIC3:
+ 103 0098 03308FE0 		add	r3, pc, r3
+ 104 009c 003093E5 		ldr	r3, [r3]
+ 105 00a0 0300A0E1 		mov	r0, r3
+ 106 00a4 FEFFFFEB 		bl	fflush(PLT)
+  50:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   va_end(arg);
+  51:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** }
+ 107              		.loc 1 51 1
+ 108 00a8 00F020E3 		nop
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   va_list arg;
+ 109              		.loc 1 41 1
+ 110 00ac 4C209FE5 		ldr	r2, .L5+28
+ 111              	.LPIC5:
+ 112 00b0 02208FE0 		add	r2, pc, r2
+ 113              		.loc 1 51 1
+ 114 00b4 30309FE5 		ldr	r3, .L5+8
+ 115 00b8 033092E7 		ldr	r3, [r2, r3]
+ 116 00bc 002093E5 		ldr	r2, [r3]
+ 117 00c0 08301BE5 		ldr	r3, [fp, #-8]
+ 118 00c4 022033E0 		eors	r2, r3, r2
+ 119 00c8 0030A0E3 		mov	r3, #0
+ 120 00cc 0000000A 		beq	.L4
+ 121 00d0 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 122              	.L4:
+ARM GAS  /tmp/cckX0CNd.s 			page 4
+
+
+ 123 00d4 04D04BE2 		sub	sp, fp, #4
+ 124              		.cfi_def_cfa 13, 24
+ 125              		@ sp needed
+ 126 00d8 0048BDE8 		pop	{fp, lr}
+ 127              		.cfi_restore 14
+ 128              		.cfi_restore 11
+ 129              		.cfi_def_cfa_offset 16
+ 130 00dc 10D08DE2 		add	sp, sp, #16
+ 131              		.cfi_restore 3
+ 132              		.cfi_restore 2
+ 133              		.cfi_restore 1
+ 134              		.cfi_restore 0
+ 135              		.cfi_def_cfa_offset 0
+ 136 00e0 1EFF2FE1 		bx	lr
+ 137              	.L6:
+ 138              		.align	2
+ 139              	.L5:
+ 140 00e4 C0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC2+8)
+ 141 00e8 BC000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC4+8)
+ 142 00ec 00000000 		.word	__stack_chk_guard(GOT)
+ 143 00f0 A0000000 		.word	OutputStream-(.LPIC0+8)
+ 144 00f4 90000000 		.word	OutputStream-(.LPIC1+8)
+ 145 00f8 00000000 		.word	stdout(GOT)
+ 146 00fc 5C000000 		.word	OutputStream-(.LPIC3+8)
+ 147 0100 48000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC5+8)
+ 148              		.cfi_endproc
+ 149              	.LFE1:
+ 151              		.section	.rodata
+ 152              		.align	2
+ 153              	.LC0:
+ 154 0000 7700     		.ascii	"w\000"
+ 155 0002 0000     		.align	2
+ 156              	.LC1:
+ 157 0004 45417069 		.ascii	"EApi.log\000"
+ 157      2E6C6F67 
+ 157      00
+ 158 000d 000000   		.align	2
+ 159              	.LC2:
+ 160 0010 230A2320 		.ascii	"#\012# Embedded API EApi\012# Version %u.%u\012# Li"
+ 160      456D6265 
+ 160      64646564 
+ 160      20415049 
+ 160      20454170 
+ 161 003a 62205665 		.ascii	"b Version %u.%u.%u\012#\012\000"
+ 161      7273696F 
+ 161      6E202575 
+ 161      2E25752E 
+ 161      25750A23 
+ 162              		.text
+ 163              		.align	2
+ 164              		.global	EApiInitLib
+ 165              		.hidden	EApiInitLib
+ 166              		.syntax unified
+ 167              		.arm
+ 168              		.fpu vfpv3
+ 170              	EApiInitLib:
+ 171              	.LFB2:
+ARM GAS  /tmp/cckX0CNd.s 			page 5
+
+
+  52:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  53:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  54:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiStatus_t OpenEepromFiles(void);
+  55:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiStatus_t CloseEepromFiles(void);
+  56:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiStatus_t OpenI2CEepromFiles(void);
+  57:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiStatus_t CloseI2CEepromFiles(void);
+  58:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  59:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  60:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiStatus_t 
+  61:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiInitLib(){
+ 172              		.loc 1 61 14
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 1, uses_anonymous_args = 0
+ 176 0104 00482DE9 		push	{fp, lr}
+ 177              		.cfi_def_cfa_offset 8
+ 178              		.cfi_offset 11, -8
+ 179              		.cfi_offset 14, -4
+ 180 0108 04B08DE2 		add	fp, sp, #4
+ 181              		.cfi_def_cfa 11, 4
+ 182 010c 08D04DE2 		sub	sp, sp, #8
+  62:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   if(OutputStream==NULL){
+ 183              		.loc 1 62 18
+ 184 0110 78309FE5 		ldr	r3, .L10
+ 185              	.LPIC6:
+ 186 0114 03308FE0 		add	r3, pc, r3
+ 187 0118 003093E5 		ldr	r3, [r3]
+ 188              		.loc 1 62 5
+ 189 011c 000053E3 		cmp	r3, #0
+ 190 0120 0A00001A 		bne	.L8
+  63:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** #if EAPI_DBG_USE_OUTPUT_FILE
+  64:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     OutputStream=fopen(TEXT("EApi.log"), TEXT("w"));
+ 191              		.loc 1 64 18
+ 192 0124 68309FE5 		ldr	r3, .L10+4
+ 193              	.LPIC7:
+ 194 0128 03308FE0 		add	r3, pc, r3
+ 195 012c 0310A0E1 		mov	r1, r3
+ 196 0130 60309FE5 		ldr	r3, .L10+8
+ 197              	.LPIC8:
+ 198 0134 03308FE0 		add	r3, pc, r3
+ 199 0138 0300A0E1 		mov	r0, r3
+ 200 013c FEFFFFEB 		bl	fopen(PLT)
+ 201 0140 0020A0E1 		mov	r2, r0
+ 202              		.loc 1 64 17
+ 203 0144 50309FE5 		ldr	r3, .L10+12
+ 204              	.LPIC9:
+ 205 0148 03308FE0 		add	r3, pc, r3
+ 206 014c 002083E5 		str	r2, [r3]
+ 207              	.L8:
+  65:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** #else
+  66:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     OutputStream=stdout;
+  67:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** #endif
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   }
+  69:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   OpenEepromFiles();
+ 208              		.loc 1 69 3
+ 209 0150 FEFFFFEB 		bl	OpenEepromFiles(PLT)
+  70:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   OpenI2CEepromFiles();
+ARM GAS  /tmp/cckX0CNd.s 			page 6
+
+
+ 210              		.loc 1 70 3
+ 211 0154 FEFFFFEB 		bl	OpenI2CEepromFiles(PLT)
+  71:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     DebugMsg("#\n"
+ 212              		.loc 1 71 5
+ 213 0158 DF3300E3 		movw	r3, #991
+ 214 015c 04308DE5 		str	r3, [sp, #4]
+ 215 0160 0530A0E3 		mov	r3, #5
+ 216 0164 00308DE5 		str	r3, [sp]
+ 217 0168 0030A0E3 		mov	r3, #0
+ 218 016c 0020A0E3 		mov	r2, #0
+ 219 0170 0110A0E3 		mov	r1, #1
+ 220 0174 24009FE5 		ldr	r0, .L10+16
+ 221              	.LPIC10:
+ 222 0178 00008FE0 		add	r0, pc, r0
+ 223 017c FEFFFFEB 		bl	DebugMsg(PLT)
+  72:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "# Embedded API EApi\n"
+  73:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "# Version %u.%u\n"
+  74:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "# Lib Version %u.%u.%u\n"
+  75:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "#\n",
+  76:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               EAPI_VER_GET_VER(EAPI_VERSION), EAPI_VER_GET_REV(EAPI_VERSION), 
+  77:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               LIB_VERSION, LIB_REVISION, LIB_BUILD
+  78:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****             );
+  79:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   return EAPI_STATUS_SUCCESS;
+ 224              		.loc 1 79 10
+ 225 0180 0030A0E3 		mov	r3, #0
+  80:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** }
+ 226              		.loc 1 80 1
+ 227 0184 0300A0E1 		mov	r0, r3
+ 228 0188 04D04BE2 		sub	sp, fp, #4
+ 229              		.cfi_def_cfa 13, 8
+ 230              		@ sp needed
+ 231 018c 0088BDE8 		pop	{fp, pc}
+ 232              	.L11:
+ 233              		.align	2
+ 234              	.L10:
+ 235 0190 74000000 		.word	OutputStream-(.LPIC6+8)
+ 236 0194 64000000 		.word	.LC0-(.LPIC7+8)
+ 237 0198 60000000 		.word	.LC1-(.LPIC8+8)
+ 238 019c 4C000000 		.word	OutputStream-(.LPIC9+8)
+ 239 01a0 30000000 		.word	.LC2-(.LPIC10+8)
+ 240              		.cfi_endproc
+ 241              	.LFE2:
+ 243              		.section	.rodata
+ 244              		.align	2
+ 245              	.LC3:
+ 246 0050 230A2320 		.ascii	"#\012# Embedded API EApi\012# Exit \012#\012\000"
+ 246      456D6265 
+ 246      64646564 
+ 246      20415049 
+ 246      20454170 
+ 247              		.text
+ 248              		.align	2
+ 249              		.global	EApiUninitLib
+ 250              		.hidden	EApiUninitLib
+ 251              		.syntax unified
+ 252              		.arm
+ 253              		.fpu vfpv3
+ARM GAS  /tmp/cckX0CNd.s 			page 7
+
+
+ 255              	EApiUninitLib:
+ 256              	.LFB3:
+  81:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  82:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  83:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** 
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiStatus_t 
+  85:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** EApiUninitLib(){
+ 257              		.loc 1 85 16
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 1, uses_anonymous_args = 0
+ 261 01a4 30482DE9 		push	{r4, r5, fp, lr}
+ 262              		.cfi_def_cfa_offset 16
+ 263              		.cfi_offset 4, -16
+ 264              		.cfi_offset 5, -12
+ 265              		.cfi_offset 11, -8
+ 266              		.cfi_offset 14, -4
+ 267 01a8 0CB08DE2 		add	fp, sp, #12
+ 268              		.cfi_def_cfa 11, 4
+ 269 01ac A4409FE5 		ldr	r4, .L15
+ 270              	.LPIC14:
+ 271 01b0 04408FE0 		add	r4, pc, r4
+  86:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     DebugMsg("#\n"
+ 272              		.loc 1 86 5
+ 273 01b4 A0309FE5 		ldr	r3, .L15+4
+ 274              	.LPIC11:
+ 275 01b8 03308FE0 		add	r3, pc, r3
+ 276 01bc 0300A0E1 		mov	r0, r3
+ 277 01c0 FEFFFFEB 		bl	DebugMsg(PLT)
+  87:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "# Embedded API EApi\n"
+  88:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "# Exit \n"
+  89:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****               "#\n"
+  90:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****             );
+  91:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   CloseEepromFiles();
+ 278              		.loc 1 91 3
+ 279 01c4 FEFFFFEB 		bl	CloseEepromFiles(PLT)
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   CloseI2CEepromFiles();
+ 280              		.loc 1 92 3
+ 281 01c8 FEFFFFEB 		bl	CloseI2CEepromFiles(PLT)
+  93:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   if(OutputStream!=NULL&&OutputStream!=stdout&&OutputStream!=stderr){
+ 282              		.loc 1 93 18
+ 283 01cc 8C309FE5 		ldr	r3, .L15+8
+ 284              	.LPIC12:
+ 285 01d0 03308FE0 		add	r3, pc, r3
+ 286 01d4 003093E5 		ldr	r3, [r3]
+ 287              		.loc 1 93 5
+ 288 01d8 000053E3 		cmp	r3, #0
+ 289 01dc 1400000A 		beq	.L13
+ 290              		.loc 1 93 38 discriminator 1
+ 291 01e0 7C309FE5 		ldr	r3, .L15+12
+ 292              	.LPIC13:
+ 293 01e4 03308FE0 		add	r3, pc, r3
+ 294 01e8 002093E5 		ldr	r2, [r3]
+ 295 01ec 74309FE5 		ldr	r3, .L15+16
+ 296 01f0 033094E7 		ldr	r3, [r4, r3]
+ 297 01f4 003093E5 		ldr	r3, [r3]
+ 298              		.loc 1 93 24 discriminator 1
+ARM GAS  /tmp/cckX0CNd.s 			page 8
+
+
+ 299 01f8 030052E1 		cmp	r2, r3
+ 300 01fc 0C00000A 		beq	.L13
+ 301              		.loc 1 93 60 discriminator 2
+ 302 0200 64309FE5 		ldr	r3, .L15+20
+ 303              	.LPIC15:
+ 304 0204 03308FE0 		add	r3, pc, r3
+ 305 0208 002093E5 		ldr	r2, [r3]
+ 306 020c 5C309FE5 		ldr	r3, .L15+24
+ 307 0210 033094E7 		ldr	r3, [r4, r3]
+ 308 0214 003093E5 		ldr	r3, [r3]
+ 309              		.loc 1 93 46 discriminator 2
+ 310 0218 030052E1 		cmp	r2, r3
+ 311 021c 0400000A 		beq	.L13
+  94:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****     fclose(OutputStream);
+ 312              		.loc 1 94 5
+ 313 0220 4C309FE5 		ldr	r3, .L15+28
+ 314              	.LPIC16:
+ 315 0224 03308FE0 		add	r3, pc, r3
+ 316 0228 003093E5 		ldr	r3, [r3]
+ 317 022c 0300A0E1 		mov	r0, r3
+ 318 0230 FEFFFFEB 		bl	fclose(PLT)
+ 319              	.L13:
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   }
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   OutputStream=stdout;
+ 320              		.loc 1 96 15
+ 321 0234 2C309FE5 		ldr	r3, .L15+16
+ 322 0238 033094E7 		ldr	r3, [r4, r3]
+ 323 023c 002093E5 		ldr	r2, [r3]
+ 324 0240 30309FE5 		ldr	r3, .L15+32
+ 325              	.LPIC17:
+ 326 0244 03308FE0 		add	r3, pc, r3
+ 327 0248 002083E5 		str	r2, [r3]
+  97:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c ****   return EAPI_STATUS_SUCCESS; 
+ 328              		.loc 1 97 10
+ 329 024c 0030A0E3 		mov	r3, #0
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiInitLib.c **** }
+ 330              		.loc 1 98 1
+ 331 0250 0300A0E1 		mov	r0, r3
+ 332 0254 3088BDE8 		pop	{r4, r5, fp, pc}
+ 333              	.L16:
+ 334              		.align	2
+ 335              	.L15:
+ 336 0258 A0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC14+8)
+ 337 025c EC000000 		.word	.LC3-(.LPIC11+8)
+ 338 0260 88000000 		.word	OutputStream-(.LPIC12+8)
+ 339 0264 78000000 		.word	OutputStream-(.LPIC13+8)
+ 340 0268 00000000 		.word	stdout(GOT)
+ 341 026c 60000000 		.word	OutputStream-(.LPIC15+8)
+ 342 0270 00000000 		.word	stderr(GOT)
+ 343 0274 48000000 		.word	OutputStream-(.LPIC16+8)
+ 344 0278 2C000000 		.word	OutputStream-(.LPIC17+8)
+ 345              		.cfi_endproc
+ 346              	.LFE3:
+ 348              	.Letext0:
+ 349              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 350              		.file 3 "../../include/EApi.h"
+ 351              		.file 4 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ARM GAS  /tmp/cckX0CNd.s 			page 9
+
+
+ 352              		.file 5 "<built-in>"
+ARM GAS  /tmp/cckX0CNd.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiInitLib.c
+     /tmp/cckX0CNd.s:22     .bss:0000000000000000 OutputStream
+     /tmp/cckX0CNd.s:19     .bss:0000000000000000 $d
+     /tmp/cckX0CNd.s:25     .text:0000000000000000 $a
+     /tmp/cckX0CNd.s:35     .text:0000000000000000 DebugMsg
+     /tmp/cckX0CNd.s:140    .text:00000000000000e4 $d
+     /tmp/cckX0CNd.s:152    .rodata:0000000000000000 $d
+     /tmp/cckX0CNd.s:163    .text:0000000000000104 $a
+     /tmp/cckX0CNd.s:170    .text:0000000000000104 EApiInitLib
+     /tmp/cckX0CNd.s:235    .text:0000000000000190 $d
+     /tmp/cckX0CNd.s:248    .text:00000000000001a4 $a
+     /tmp/cckX0CNd.s:255    .text:00000000000001a4 EApiUninitLib
+     /tmp/cckX0CNd.s:336    .text:0000000000000258 $d
+
+UNDEFINED SYMBOLS
+vfprintf
+fflush
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard
+stdout
+fopen
+OpenEepromFiles
+OpenI2CEepromFiles
+CloseEepromFiles
+CloseI2CEepromFiles
+fclose
+stderr

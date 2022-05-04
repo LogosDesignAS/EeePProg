@@ -1,0 +1,485 @@
+ARM GAS  /tmp/cchWKlLm.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"RangeFunc.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.align	2
+  17              		.global	RangeCheckAll
+  18              		.arch armv7-a
+  19              		.arch_extension mp
+  20              		.arch_extension sec
+  21              		.syntax unified
+  22              		.arm
+  23              		.fpu vfpv3
+  25              	RangeCheckAll:
+  26              	.LFB1:
+  27              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/EeePProg/RangeFunc.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I   Copyright: Copyright (c) 2002-2010, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I     License: This program contains proprietary and confidential 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I              information. All rights reserved except as may be 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I              permitted by prior written consent.
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I Description: Auto Created for sEAPI_printf.c
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *+-------------------------------------------------------------------------
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  File Name            : RangeFunc.c
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  File Location        : apps\EeePProg
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  Last committed       : $Revision: 74 $
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  Last changed by      : $Author: dethrophes $
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I  ID                   : $Id: RangeFunc.c 74 2010-06-23 19:26:50Z dethrophes $
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *+=========================================================================
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  *</KHeader>
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****  */
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** 
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** #include <EeePApp.h>
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** 
+ARM GAS  /tmp/cchWKlLm.s 			page 2
+
+
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** EApiStatus_t
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** RangeCheckAll(
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     NumberRangeDesc_t *pRangeDesc,
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     unsigned long ulValue
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   )
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** { 
+  28              		.loc 1 37 1
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 04B02DE5 		str	fp, [sp, #-4]!
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 11, -4
+  36 0004 00B08DE2 		add	fp, sp, #0
+  37              		.cfi_def_cfa_register 11
+  38 0008 14D04DE2 		sub	sp, sp, #20
+  39 000c 10000BE5 		str	r0, [fp, #-16]
+  40 0010 14100BE5 		str	r1, [fp, #-20]
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   NumberRange_t *pNumRange =pRangeDesc->pNumberRange;
+  41              		.loc 1 38 18
+  42 0014 10301BE5 		ldr	r3, [fp, #-16]
+  43 0018 043093E5 		ldr	r3, [r3, #4]
+  44 001c 0C300BE5 		str	r3, [fp, #-12]
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   size_t         stRangeCnt=pRangeDesc->stRangeCount;
+  45              		.loc 1 39 18
+  46 0020 10301BE5 		ldr	r3, [fp, #-16]
+  47 0024 003093E5 		ldr	r3, [r3]
+  48 0028 08300BE5 		str	r3, [fp, #-8]
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   while(stRangeCnt--){
+  49              		.loc 1 40 8
+  50 002c 3C0000EA 		b	.L2
+  51              	.L16:
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*     printf("%04lX - %04lX - %04lX\n", pNumRange->uiLowerLimit, ulValue, pNumRange->uiUpperLimit)
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     switch(pNumRange->uiType){
+  52              		.loc 1 42 21
+  53 0030 0C301BE5 		ldr	r3, [fp, #-12]
+  54 0034 083093E5 		ldr	r3, [r3, #8]
+  55              		.loc 1 42 5
+  56 0038 030053E3 		cmp	r3, #3
+  57 003c 03F18F90 		addls	pc, pc, r3, asl #2
+  58 0040 2B0000EA 		b	.L17
+  59              	.L5:
+  60 0044 0E0000EA 		b	.L8
+  61 0048 010000EA 		b	.L7
+  62 004c 180000EA 		b	.L6
+  63 0050 1F0000EA 		b	.L4
+  64              		.p2align 1
+  65              	.L7:
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_INCLUSIVE:
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if(!((ulValue>=pNumRange->uiLowerLimit)&&(ulValue<=pNumRange->uiUpperLimit))){
+  66              		.loc 1 44 33
+  67 0054 0C301BE5 		ldr	r3, [fp, #-12]
+  68 0058 003093E5 		ldr	r3, [r3]
+  69              		.loc 1 44 11
+  70 005c 14201BE5 		ldr	r2, [fp, #-20]
+  71 0060 030052E1 		cmp	r2, r3
+ARM GAS  /tmp/cchWKlLm.s 			page 3
+
+
+  72 0064 0400003A 		bcc	.L9
+  73              		.loc 1 44 69 discriminator 1
+  74 0068 0C301BE5 		ldr	r3, [fp, #-12]
+  75 006c 043093E5 		ldr	r3, [r3, #4]
+  76              		.loc 1 44 12 discriminator 1
+  77 0070 14201BE5 		ldr	r2, [fp, #-20]
+  78 0074 030052E1 		cmp	r2, r3
+  79 0078 1F00009A 		bls	.L18
+  80              	.L9:
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_ERROR;
+  81              		.loc 1 45 18
+  82 007c 0F3CE0E3 		mvn	r3, #3840
+  83 0080 2D0000EA 		b	.L11
+  84              	.L8:
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_EXCLUSIVE:
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if(!((ulValue<pNumRange->uiLowerLimit)||(ulValue>pNumRange->uiUpperLimit))){
+  85              		.loc 1 49 32
+  86 0084 0C301BE5 		ldr	r3, [fp, #-12]
+  87 0088 003093E5 		ldr	r3, [r3]
+  88              		.loc 1 49 11
+  89 008c 14201BE5 		ldr	r2, [fp, #-20]
+  90 0090 030052E1 		cmp	r2, r3
+  91 0094 1A00003A 		bcc	.L19
+  92              		.loc 1 49 67 discriminator 1
+  93 0098 0C301BE5 		ldr	r3, [fp, #-12]
+  94 009c 043093E5 		ldr	r3, [r3, #4]
+  95              		.loc 1 49 12 discriminator 1
+  96 00a0 14201BE5 		ldr	r2, [fp, #-20]
+  97 00a4 030052E1 		cmp	r2, r3
+  98 00a8 1500008A 		bhi	.L19
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_ERROR;
+  99              		.loc 1 50 18
+ 100 00ac 0F3CE0E3 		mvn	r3, #3840
+ 101 00b0 210000EA 		b	.L11
+ 102              	.L6:
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_SET:
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if(!(ulValue&pNumRange->uiLowerLimit)){
+ 103              		.loc 1 54 31
+ 104 00b4 0C301BE5 		ldr	r3, [fp, #-12]
+ 105 00b8 002093E5 		ldr	r2, [r3]
+ 106              		.loc 1 54 21
+ 107 00bc 14301BE5 		ldr	r3, [fp, #-20]
+ 108 00c0 023003E0 		and	r3, r3, r2
+ 109              		.loc 1 54 11
+ 110 00c4 000053E3 		cmp	r3, #0
+ 111 00c8 0F00001A 		bne	.L20
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_ERROR;
+ 112              		.loc 1 55 18
+ 113 00cc 0F3CE0E3 		mvn	r3, #3840
+ 114 00d0 190000EA 		b	.L11
+ 115              	.L4:
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+ARM GAS  /tmp/cchWKlLm.s 			page 4
+
+
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_UNSET:
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if((ulValue&pNumRange->uiLowerLimit)){
+ 116              		.loc 1 59 30
+ 117 00d4 0C301BE5 		ldr	r3, [fp, #-12]
+ 118 00d8 002093E5 		ldr	r2, [r3]
+ 119              		.loc 1 59 20
+ 120 00dc 14301BE5 		ldr	r3, [fp, #-20]
+ 121 00e0 023003E0 		and	r3, r3, r2
+ 122              		.loc 1 59 11
+ 123 00e4 000053E3 		cmp	r3, #0
+ 124 00e8 0900000A 		beq	.L21
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_ERROR;
+ 125              		.loc 1 60 18
+ 126 00ec 0F3CE0E3 		mvn	r3, #3840
+ 127 00f0 110000EA 		b	.L11
+ 128              	.L17:
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       default:
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+ 129              		.loc 1 64 9
+ 130 00f4 00F020E3 		nop
+ 131 00f8 060000EA 		b	.L12
+ 132              	.L18:
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_EXCLUSIVE:
+ 133              		.loc 1 47 9
+ 134 00fc 00F020E3 		nop
+ 135 0100 040000EA 		b	.L12
+ 136              	.L19:
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_SET:
+ 137              		.loc 1 52 9
+ 138 0104 00F020E3 		nop
+ 139 0108 020000EA 		b	.L12
+ 140              	.L20:
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_UNSET:
+ 141              		.loc 1 57 9
+ 142 010c 00F020E3 		nop
+ 143 0110 000000EA 		b	.L12
+ 144              	.L21:
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       default:
+ 145              		.loc 1 62 9
+ 146 0114 00F020E3 		nop
+ 147              	.L12:
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     }
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     pNumRange++;
+ 148              		.loc 1 66 14
+ 149 0118 0C301BE5 		ldr	r3, [fp, #-12]
+ 150 011c 0C3083E2 		add	r3, r3, #12
+ 151 0120 0C300BE5 		str	r3, [fp, #-12]
+ 152              	.L2:
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*     printf("%04lX - %04lX - %04lX\n", pNumRange->uiLowerLimit, ulValue, pNumRange->uiUpperLimit)
+ 153              		.loc 1 40 19
+ 154 0124 08301BE5 		ldr	r3, [fp, #-8]
+ 155 0128 012043E2 		sub	r2, r3, #1
+ 156 012c 08200BE5 		str	r2, [fp, #-8]
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*     printf("%04lX - %04lX - %04lX\n", pNumRange->uiLowerLimit, ulValue, pNumRange->uiUpperLimit)
+ 157              		.loc 1 40 9
+ARM GAS  /tmp/cchWKlLm.s 			page 5
+
+
+ 158 0130 000053E3 		cmp	r3, #0
+ 159 0134 BDFFFF1A 		bne	.L16
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   }
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   return EAPI_STATUS_SUCCESS;
+ 160              		.loc 1 68 10
+ 161 0138 0030A0E3 		mov	r3, #0
+ 162              	.L11:
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** 
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** }
+ 163              		.loc 1 70 1
+ 164 013c 0300A0E1 		mov	r0, r3
+ 165 0140 00D08BE2 		add	sp, fp, #0
+ 166              		.cfi_def_cfa_register 13
+ 167              		@ sp needed
+ 168 0144 04B09DE4 		ldr	fp, [sp], #4
+ 169              		.cfi_restore 11
+ 170              		.cfi_def_cfa_offset 0
+ 171 0148 1EFF2FE1 		bx	lr
+ 172              		.cfi_endproc
+ 173              	.LFE1:
+ 175              		.align	2
+ 176              		.global	RangeCheckAny
+ 177              		.syntax unified
+ 178              		.arm
+ 179              		.fpu vfpv3
+ 181              	RangeCheckAny:
+ 182              	.LFB2:
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** 
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** EApiStatus_t
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** RangeCheckAny(
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     __IN  NumberRangeDesc_t *pRangeDesc,
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     __IN unsigned long ulValue
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   )
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** { 
+ 183              		.loc 1 77 1
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 16
+ 186              		@ frame_needed = 1, uses_anonymous_args = 0
+ 187              		@ link register save eliminated.
+ 188 014c 04B02DE5 		str	fp, [sp, #-4]!
+ 189              		.cfi_def_cfa_offset 4
+ 190              		.cfi_offset 11, -4
+ 191 0150 00B08DE2 		add	fp, sp, #0
+ 192              		.cfi_def_cfa_register 11
+ 193 0154 14D04DE2 		sub	sp, sp, #20
+ 194 0158 10000BE5 		str	r0, [fp, #-16]
+ 195 015c 14100BE5 		str	r1, [fp, #-20]
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   NumberRange_t *pNumRange =pRangeDesc->pNumberRange;
+ 196              		.loc 1 78 18
+ 197 0160 10301BE5 		ldr	r3, [fp, #-16]
+ 198 0164 043093E5 		ldr	r3, [r3, #4]
+ 199 0168 0C300BE5 		str	r3, [fp, #-12]
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   size_t         stRangeCnt=pRangeDesc->stRangeCount;
+ 200              		.loc 1 79 18
+ 201 016c 10301BE5 		ldr	r3, [fp, #-16]
+ 202 0170 003093E5 		ldr	r3, [r3]
+ 203 0174 08300BE5 		str	r3, [fp, #-8]
+ARM GAS  /tmp/cchWKlLm.s 			page 6
+
+
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   while(stRangeCnt--){
+ 204              		.loc 1 80 8
+ 205 0178 3C0000EA 		b	.L23
+ 206              	.L37:
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*     printf("%04lX - %04lX - %04lX\n", pNumRange->uiLowerLimit, ulValue, pNumRange->uiUpperLimit)
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     switch(pNumRange->uiType){
+ 207              		.loc 1 82 21
+ 208 017c 0C301BE5 		ldr	r3, [fp, #-12]
+ 209 0180 083093E5 		ldr	r3, [r3, #8]
+ 210              		.loc 1 82 5
+ 211 0184 030053E3 		cmp	r3, #3
+ 212 0188 03F18F90 		addls	pc, pc, r3, asl #2
+ 213 018c 2B0000EA 		b	.L38
+ 214              	.L26:
+ 215 0190 0E0000EA 		b	.L29
+ 216 0194 010000EA 		b	.L28
+ 217 0198 180000EA 		b	.L27
+ 218 019c 1F0000EA 		b	.L25
+ 219              		.p2align 1
+ 220              	.L28:
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_INCLUSIVE:
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if(((ulValue>=pNumRange->uiLowerLimit)&&(ulValue<=pNumRange->uiUpperLimit))){
+ 221              		.loc 1 84 32
+ 222 01a0 0C301BE5 		ldr	r3, [fp, #-12]
+ 223 01a4 003093E5 		ldr	r3, [r3]
+ 224              		.loc 1 84 11
+ 225 01a8 14201BE5 		ldr	r2, [fp, #-20]
+ 226 01ac 030052E1 		cmp	r2, r3
+ 227 01b0 2400003A 		bcc	.L39
+ 228              		.loc 1 84 68 discriminator 1
+ 229 01b4 0C301BE5 		ldr	r3, [fp, #-12]
+ 230 01b8 043093E5 		ldr	r3, [r3, #4]
+ 231              		.loc 1 84 47 discriminator 1
+ 232 01bc 14201BE5 		ldr	r2, [fp, #-20]
+ 233 01c0 030052E1 		cmp	r2, r3
+ 234 01c4 1F00008A 		bhi	.L39
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_SUCCESS;
+ 235              		.loc 1 85 18
+ 236 01c8 0030A0E3 		mov	r3, #0
+ 237 01cc 2D0000EA 		b	.L31
+ 238              	.L29:
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_EXCLUSIVE:
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if(((ulValue<pNumRange->uiLowerLimit)||(ulValue>pNumRange->uiUpperLimit))){
+ 239              		.loc 1 89 31
+ 240 01d0 0C301BE5 		ldr	r3, [fp, #-12]
+ 241 01d4 003093E5 		ldr	r3, [r3]
+ 242              		.loc 1 89 11
+ 243 01d8 14201BE5 		ldr	r2, [fp, #-20]
+ 244 01dc 030052E1 		cmp	r2, r3
+ 245 01e0 0400003A 		bcc	.L33
+ 246              		.loc 1 89 66 discriminator 1
+ 247 01e4 0C301BE5 		ldr	r3, [fp, #-12]
+ 248 01e8 043093E5 		ldr	r3, [r3, #4]
+ 249              		.loc 1 89 46 discriminator 1
+ 250 01ec 14201BE5 		ldr	r2, [fp, #-20]
+ARM GAS  /tmp/cchWKlLm.s 			page 7
+
+
+ 251 01f0 030052E1 		cmp	r2, r3
+ 252 01f4 1500009A 		bls	.L40
+ 253              	.L33:
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_SUCCESS;
+ 254              		.loc 1 90 18
+ 255 01f8 0030A0E3 		mov	r3, #0
+ 256 01fc 210000EA 		b	.L31
+ 257              	.L27:
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_SET:
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if((ulValue&pNumRange->uiLowerLimit)){
+ 258              		.loc 1 94 30
+ 259 0200 0C301BE5 		ldr	r3, [fp, #-12]
+ 260 0204 002093E5 		ldr	r2, [r3]
+ 261              		.loc 1 94 20
+ 262 0208 14301BE5 		ldr	r3, [fp, #-20]
+ 263 020c 023003E0 		and	r3, r3, r2
+ 264              		.loc 1 94 11
+ 265 0210 000053E3 		cmp	r3, #0
+ 266 0214 0F00000A 		beq	.L41
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_SUCCESS;
+ 267              		.loc 1 95 18
+ 268 0218 0030A0E3 		mov	r3, #0
+ 269 021c 190000EA 		b	.L31
+ 270              	.L25:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_UNSET:
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         if(!(ulValue&pNumRange->uiLowerLimit)){
+ 271              		.loc 1 99 31
+ 272 0220 0C301BE5 		ldr	r3, [fp, #-12]
+ 273 0224 002093E5 		ldr	r2, [r3]
+ 274              		.loc 1 99 21
+ 275 0228 14301BE5 		ldr	r3, [fp, #-20]
+ 276 022c 023003E0 		and	r3, r3, r2
+ 277              		.loc 1 99 11
+ 278 0230 000053E3 		cmp	r3, #0
+ 279 0234 0900001A 		bne	.L42
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****           return EAPI_STATUS_SUCCESS;
+ 280              		.loc 1 100 18
+ 281 0238 0030A0E3 		mov	r3, #0
+ 282 023c 110000EA 		b	.L31
+ 283              	.L38:
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         }
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       default:
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****         break;
+ 284              		.loc 1 104 9
+ 285 0240 00F020E3 		nop
+ 286 0244 060000EA 		b	.L32
+ 287              	.L39:
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_EXCLUSIVE:
+ 288              		.loc 1 87 9
+ 289 0248 00F020E3 		nop
+ 290 024c 040000EA 		b	.L32
+ 291              	.L40:
+ARM GAS  /tmp/cchWKlLm.s 			page 8
+
+
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_SET:
+ 292              		.loc 1 92 9
+ 293 0250 00F020E3 		nop
+ 294 0254 020000EA 		b	.L32
+ 295              	.L41:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       case RANGE_MASK_UNSET:
+ 296              		.loc 1 97 9
+ 297 0258 00F020E3 		nop
+ 298 025c 000000EA 		b	.L32
+ 299              	.L42:
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****       default:
+ 300              		.loc 1 102 9
+ 301 0260 00F020E3 		nop
+ 302              	.L32:
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     }
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****     pNumRange++;
+ 303              		.loc 1 106 14
+ 304 0264 0C301BE5 		ldr	r3, [fp, #-12]
+ 305 0268 0C3083E2 		add	r3, r3, #12
+ 306 026c 0C300BE5 		str	r3, [fp, #-12]
+ 307              	.L23:
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*     printf("%04lX - %04lX - %04lX\n", pNumRange->uiLowerLimit, ulValue, pNumRange->uiUpperLimit)
+ 308              		.loc 1 80 19
+ 309 0270 08301BE5 		ldr	r3, [fp, #-8]
+ 310 0274 012043E2 		sub	r2, r3, #1
+ 311 0278 08200BE5 		str	r2, [fp, #-8]
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** /*     printf("%04lX - %04lX - %04lX\n", pNumRange->uiLowerLimit, ulValue, pNumRange->uiUpperLimit)
+ 312              		.loc 1 80 9
+ 313 027c 000053E3 		cmp	r3, #0
+ 314 0280 BDFFFF1A 		bne	.L37
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   }
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c ****   return EAPI_STATUS_ERROR;
+ 315              		.loc 1 108 10
+ 316 0284 0F3CE0E3 		mvn	r3, #3840
+ 317              	.L31:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** 
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../RangeFunc.c **** }
+ 318              		.loc 1 110 1
+ 319 0288 0300A0E1 		mov	r0, r3
+ 320 028c 00D08BE2 		add	sp, fp, #0
+ 321              		.cfi_def_cfa_register 13
+ 322              		@ sp needed
+ 323 0290 04B09DE4 		ldr	fp, [sp], #4
+ 324              		.cfi_restore 11
+ 325              		.cfi_def_cfa_offset 0
+ 326 0294 1EFF2FE1 		bx	lr
+ 327              		.cfi_endproc
+ 328              	.LFE2:
+ 330              	.Letext0:
+ 331              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 332              		.file 3 "../../../include/EApi.h"
+ 333              		.file 4 "../RangeFunc.h"
+ARM GAS  /tmp/cchWKlLm.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 RangeFunc.c
+     /tmp/cchWKlLm.s:16     .text:0000000000000000 $a
+     /tmp/cchWKlLm.s:25     .text:0000000000000000 RangeCheckAll
+     /tmp/cchWKlLm.s:181    .text:000000000000014c RangeCheckAny
+
+NO UNDEFINED SYMBOLS

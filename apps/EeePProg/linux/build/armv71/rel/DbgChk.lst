@@ -1,0 +1,1106 @@
+ARM GAS  /tmp/cczjaREe.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"DbgChk.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.align	2
+  17              		.global	EApiGetErrorStringA
+  18              		.arch armv7-a
+  19              		.arch_extension mp
+  20              		.arch_extension sec
+  21              		.syntax unified
+  22              		.arm
+  23              		.fpu vfpv3
+  25              	EApiGetErrorStringA:
+  26              	.LVL0:
+  27              	.LFB1:
+  28              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/common/DbgChk.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I Description: Auto Created for DbgPrt.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  File Name            : DbgChk.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  File Location        : apps\common
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+ARM GAS  /tmp/cczjaREe.s 			page 2
+
+
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I  ID                   : $Id: DbgChk.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** #include <EApiApp.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** typedef struct ErrorLookupTbl_S{
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   const EApiStatus_t StatusCode;
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   const char  *const  ErrorString;
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }ErrorLookupTbl_t;
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** #define EAPI_INVALID_STRLEN ((size_t )-1)
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** const ErrorLookupTbl_t ErrorLookupA[]={
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_NOT_INITIALIZED        , "NOT_INITIALIZED"          },
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_INITIALIZED            , "INITIALIZED"              },
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_ALLOC_ERROR            , "ALLOC_ERROR"              },
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_DRIVER_TIMEOUT         , "DRIVER_TIMEOUT"           },
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_INVALID_PARAMETER      , "INVALID_PARAMETER"        },
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_INVALID_BLOCK_ALIGNMENT, "INVALID_BLOCK_ALIGNMENT"  },
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_INVALID_BLOCK_LENGTH   , "INVALID_BLOCK_LENGTH"     },
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_INVALID_DIRECTION      , "INVALID_DIRECTION"        },
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_INVALID_BITMASK        , "INVALID_BITMASK"          },
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_RUNNING                , "RUNNING"                  },
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_UNSUPPORTED            , "UNSUPPORTED"              },
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_NOT_FOUND              , "NOT_FOUND"                },
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_TIMEOUT                , "TIMEOUT"                  },
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_BUSY_COLLISION         , "BUSY_COLLISION"           },
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_READ_ERROR             , "READ_ERROR"               },
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_WRITE_ERROR            , "WRITE_ERROR"              },
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_MORE_DATA              , "MORE_DATA"                },
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_ERROR                  , "ERROR"                    },
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {EAPI_STATUS_SUCCESS                , "SUCCESS"                  },
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** };
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** EApiStatus_t
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** EApiGetErrorStringA(
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     __OUT const char  **const pszString     , 
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     __IN EApiStatus_t StatusCode
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** {
+  29              		.loc 1 70 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   unsigned i;
+  33              		.loc 1 71 3 view .LVU1
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   const ErrorLookupTbl_t *pErrorLookup;
+  34              		.loc 1 72 3 view .LVU2
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** /*   EAPI_LIB_ASSERT_PARAMATER_NULL(EApiGetErrorStringA, pszString); */
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   *pszString=NULL;
+  35              		.loc 1 76 3 view .LVU3
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   for(i=ARRAY_SIZE(ErrorLookupA),
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       pErrorLookup=ErrorLookupA; 
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       i--;pErrorLookup++
+  36              		.loc 1 79 7 is_stmt 0 view .LVU4
+ARM GAS  /tmp/cczjaREe.s 			page 3
+
+
+  37 0000 50C09FE5 		ldr	ip, .L9
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   for(i=ARRAY_SIZE(ErrorLookupA),
+  38              		.loc 1 76 13 view .LVU5
+  39 0004 0020A0E3 		mov	r2, #0
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       i--;pErrorLookup++
+  40              		.loc 1 78 19 view .LVU6
+  41 0008 4C309FE5 		ldr	r3, .L9+4
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   unsigned i;
+  42              		.loc 1 70 1 view .LVU7
+  43 000c 04E02DE5 		str	lr, [sp, #-4]!
+  44              		.cfi_def_cfa_offset 4
+  45              		.cfi_offset 14, -4
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   unsigned i;
+  46              		.loc 1 70 1 view .LVU8
+  47 0010 00E0A0E1 		mov	lr, r0
+  48              		.loc 1 79 7 view .LVU9
+  49              	.LPIC1:
+  50 0014 0CC08FE0 		add	ip, pc, ip
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   for(i=ARRAY_SIZE(ErrorLookupA),
+  51              		.loc 1 76 13 view .LVU10
+  52 0018 002080E5 		str	r2, [r0]
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       pErrorLookup=ErrorLookupA; 
+  53              		.loc 1 77 3 is_stmt 1 view .LVU11
+  54              	.LVL1:
+  55              		.loc 1 79 7 view .LVU12
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       i--;pErrorLookup++
+  56              		.loc 1 78 19 is_stmt 0 view .LVU13
+  57              	.LPIC0:
+  58 001c 03308FE0 		add	r3, pc, r3
+  59              		.loc 1 79 7 view .LVU14
+  60 0020 98C08CE2 		add	ip, ip, #152
+  61 0024 020000EA 		b	.L4
+  62              	.LVL2:
+  63              	.L2:
+  64              		.loc 1 79 23 view .LVU15
+  65 0028 083083E2 		add	r3, r3, #8
+  66              	.LVL3:
+  67              		.loc 1 79 7 is_stmt 1 view .LVU16
+  68 002c 0C0053E1 		cmp	r3, ip
+  69 0030 0600000A 		beq	.L8
+  70              	.LVL4:
+  71              	.L4:
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   {
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     if(pErrorLookup->StatusCode==StatusCode){
+  72              		.loc 1 83 5 view .LVU17
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+  73              		.loc 1 79 23 view .LVU18
+  74              		.loc 1 83 7 is_stmt 0 view .LVU19
+  75 0034 002093E5 		ldr	r2, [r3]
+  76 0038 010052E1 		cmp	r2, r1
+  77 003c F9FFFF1A 		bne	.L2
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       *pszString=pErrorLookup->ErrorString;
+  78              		.loc 1 84 7 is_stmt 1 view .LVU20
+  79              		.loc 1 84 30 is_stmt 0 view .LVU21
+  80 0040 043093E5 		ldr	r3, [r3, #4]
+ARM GAS  /tmp/cczjaREe.s 			page 4
+
+
+  81              	.LVL5:
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       return EAPI_STATUS_SUCCESS;
+  82              		.loc 1 85 14 view .LVU22
+  83 0044 0000A0E3 		mov	r0, #0
+  84              	.LVL6:
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       *pszString=pErrorLookup->ErrorString;
+  85              		.loc 1 84 17 view .LVU23
+  86 0048 00308EE5 		str	r3, [lr]
+  87              		.loc 1 85 7 is_stmt 1 view .LVU24
+  88              		.loc 1 85 14 is_stmt 0 view .LVU25
+  89 004c 04F09DE4 		ldr	pc, [sp], #4
+  90              	.LVL7:
+  91              	.L8:
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     }
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   }
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   return EAPI_STATUS_ERROR;
+  92              		.loc 1 88 10 view .LVU26
+  93 0050 0F0CE0E3 		mvn	r0, #3840
+  94              	.LVL8:
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+  95              		.loc 1 89 1 view .LVU27
+  96 0054 04F09DE4 		ldr	pc, [sp], #4
+  97              	.L10:
+  98              		.align	2
+  99              	.L9:
+ 100 0058 3C000000 		.word	.LANCHOR0-(.LPIC1+8)
+ 101 005c 38000000 		.word	.LANCHOR0-(.LPIC0+8)
+ 102              		.cfi_endproc
+ 103              	.LFE1:
+ 105              		.align	2
+ 106              		.global	GetLastOccurance
+ 107              		.syntax unified
+ 108              		.arm
+ 109              		.fpu vfpv3
+ 111              	GetLastOccurance:
+ 112              	.LVL9:
+ 113              	.LFB2:
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** const char *GetLastOccurance(
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *czFilename
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** {
+ 114              		.loc 1 94 1 is_stmt 1 view -0
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118              		@ link register save eliminated.
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   const char*cszLPos=czFilename;
+ 119              		.loc 1 95 3 view .LVU29
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   while(*czFilename){
+ 120              		.loc 1 96 3 view .LVU30
+ 121              		.loc 1 96 9 view .LVU31
+ 122 0060 0030D0E5 		ldrb	r3, [r0]	@ zero_extendqisi2
+ 123 0064 000053E3 		cmp	r3, #0
+ 124 0068 1EFF2F01 		bxeq	lr
+ 125 006c 012080E2 		add	r2, r0, #1
+ 126              	.LVL10:
+ARM GAS  /tmp/cczjaREe.s 			page 5
+
+
+ 127              	.L14:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 128              		.loc 1 97 5 view .LVU32
+ 129              		.loc 1 97 5 is_stmt 0 view .LVU33
+ 130 0070 2F0053E3 		cmp	r3, #47
+ 131 0074 0200A001 		moveq	r0, r2
+ 132              	.LVL11:
+ 133              		.loc 1 97 5 view .LVU34
+ 134 0078 0100000A 		beq	.L13
+ 135 007c 5C0053E3 		cmp	r3, #92
+ 136 0080 0200A001 		moveq	r0, r2
+ 137              	.L13:
+ 138              	.LVL12:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   while(*czFilename){
+ 139              		.loc 1 96 9 is_stmt 1 view .LVU35
+ 140 0084 0130D2E4 		ldrb	r3, [r2], #1	@ zero_extendqisi2
+ 141              	.LVL13:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   while(*czFilename){
+ 142              		.loc 1 96 9 is_stmt 0 view .LVU36
+ 143 0088 000053E3 		cmp	r3, #0
+ 144 008c F7FFFF1A 		bne	.L14
+ 145 0090 1EFF2FE1 		bx	lr
+ 146              		.cfi_endproc
+ 147              	.LFE2:
+ 149              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 150              		.align	2
+ 151              	.LC0:
+ 152 0000 252D3235 		.ascii	"%-25s | \000"
+ 152      73207C20 
+ 152      00
+ 153              		.text
+ 154              		.align	2
+ 155              		.global	siFormattedMessage_M2
+ 156              		.syntax unified
+ 157              		.arm
+ 158              		.fpu vfpv3
+ 160              	siFormattedMessage_M2:
+ 161              	.LVL14:
+ 162              	.LFB3:
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '/':
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****         cszLPos=czFilename;
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       default:
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****         break;
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     }
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   }
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   return cszLPos;
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** const char cszLogFormat[]={"%c%04i %-15.15s %-30s | "};
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** signed int
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** __cdecl
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** siFormattedMessage_M2(
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     char          cType       ,
+ 113:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  cszFileName ,   
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  cszFuncName ,   
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     unsigned int  uiLineNum   ,
+ARM GAS  /tmp/cczjaREe.s 			page 6
+
+
+ 116:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  csz2ndValue ,   
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  cszFormat   ,   
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     ...
+ 119:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** {
+ 163              		.loc 1 120 1 is_stmt 1 view -0
+ 164              		.cfi_startproc
+ 165              		@ args = 8, pretend = 0, frame = 8
+ 166              		@ frame_needed = 0, uses_anonymous_args = 1
+ 167              		.loc 1 120 1 is_stmt 0 view .LVU38
+ 168 0094 D4C09FE5 		ldr	ip, .L30
+ 169 0098 70402DE9 		push	{r4, r5, r6, lr}
+ 170              		.cfi_def_cfa_offset 16
+ 171              		.cfi_offset 4, -16
+ 172              		.cfi_offset 5, -12
+ 173              		.cfi_offset 6, -8
+ 174              		.cfi_offset 14, -4
+ 175 009c 0140A0E1 		mov	r4, r1
+ 176 00a0 0010A0E1 		mov	r1, r0
+ 177              	.LVL15:
+ 178              		.loc 1 120 1 view .LVU39
+ 179 00a4 0200A0E1 		mov	r0, r2
+ 180              	.LVL16:
+ 181              		.loc 1 120 1 view .LVU40
+ 182 00a8 0320A0E1 		mov	r2, r3
+ 183              	.LVL17:
+ 184              		.loc 1 120 1 view .LVU41
+ 185              	.LPIC5:
+ 186 00ac 0CC08FE0 		add	ip, pc, ip
+ 187 00b0 BC309FE5 		ldr	r3, .L30+4
+ 188              	.LVL18:
+ 189              		.loc 1 120 1 view .LVU42
+ 190 00b4 10D04DE2 		sub	sp, sp, #16
+ 191              		.cfi_def_cfa_offset 32
+ 192              		.loc 1 120 1 view .LVU43
+ 193 00b8 20609DE5 		ldr	r6, [sp, #32]
+ 194 00bc 24509DE5 		ldr	r5, [sp, #36]
+ 195 00c0 03309CE7 		ldr	r3, [ip, r3]
+ 196              	.LBB8:
+ 197              	.LBB9:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 198              		.loc 1 96 9 view .LVU44
+ 199 00c4 00C0D4E5 		ldrb	ip, [r4]	@ zero_extendqisi2
+ 200              	.LBE9:
+ 201              	.LBE8:
+ 202              		.loc 1 120 1 view .LVU45
+ 203 00c8 003093E5 		ldr	r3, [r3]
+ 204 00cc 0C308DE5 		str	r3, [sp, #12]
+ 205 00d0 0030A0E3 		mov	r3, #0
+ 121:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   signed int Ret;
+ 206              		.loc 1 121 3 is_stmt 1 view .LVU46
+ 122:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   va_list _ArgList;
+ 207              		.loc 1 122 3 view .LVU47
+ 123:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+ 124:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   va_start(_ArgList, cszFormat);
+ 208              		.loc 1 124 3 view .LVU48
+ 209 00d4 28308DE2 		add	r3, sp, #40
+ARM GAS  /tmp/cczjaREe.s 			page 7
+
+
+ 210              	.LBB12:
+ 211              	.LBB10:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 212              		.loc 1 96 9 is_stmt 0 view .LVU49
+ 213 00d8 00005CE3 		cmp	ip, #0
+ 214              	.LBE10:
+ 215              	.LBE12:
+ 216              		.loc 1 124 3 view .LVU50
+ 217 00dc 08308DE5 		str	r3, [sp, #8]
+ 125:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+ 126:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	Ret = printf(
+ 218              		.loc 1 126 2 is_stmt 1 view .LVU51
+ 219              	.LVL19:
+ 220              	.LBB13:
+ 221              	.LBI8:
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *czFilename
+ 222              		.loc 1 91 13 view .LVU52
+ 223              	.LBB11:
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   while(*czFilename){
+ 224              		.loc 1 95 3 view .LVU53
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 225              		.loc 1 96 3 view .LVU54
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 226              		.loc 1 96 9 view .LVU55
+ 227 00e0 0800000A 		beq	.L19
+ 228 00e4 01E084E2 		add	lr, r4, #1
+ 229              	.LVL20:
+ 230              	.L21:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+ 231              		.loc 1 97 5 view .LVU56
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+ 232              		.loc 1 97 5 is_stmt 0 view .LVU57
+ 233 00e8 2F005CE3 		cmp	ip, #47
+ 234 00ec 0E40A001 		moveq	r4, lr
+ 235              	.LVL21:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+ 236              		.loc 1 97 5 view .LVU58
+ 237 00f0 0100000A 		beq	.L20
+ 238 00f4 5C005CE3 		cmp	ip, #92
+ 239 00f8 0E40A001 		moveq	r4, lr
+ 240              	.L20:
+ 241              	.LVL22:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 242              		.loc 1 96 9 is_stmt 1 view .LVU59
+ 243 00fc 01C0DEE4 		ldrb	ip, [lr], #1	@ zero_extendqisi2
+ 244              	.LVL23:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 245              		.loc 1 96 9 is_stmt 0 view .LVU60
+ 246 0100 00005CE3 		cmp	ip, #0
+ 247 0104 F7FFFF1A 		bne	.L21
+ 248              	.LVL24:
+ 249              	.L19:
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 250              		.loc 1 105 3 is_stmt 1 view .LVU61
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 251              		.loc 1 105 3 is_stmt 0 view .LVU62
+ 252              	.LBE11:
+ARM GAS  /tmp/cczjaREe.s 			page 8
+
+
+ 253              	.LBE13:
+ 254              		.loc 1 126 8 view .LVU63
+ 255 0108 00008DE5 		str	r0, [sp]
+ 256 010c 0430A0E1 		mov	r3, r4
+ 257 0110 60009FE5 		ldr	r0, .L30+8
+ 258              	.LVL25:
+ 259              		.loc 1 126 8 view .LVU64
+ 260              	.LPIC2:
+ 261 0114 00008FE0 		add	r0, pc, r0
+ 262 0118 FEFFFFEB 		bl	printf(PLT)
+ 263              	.LVL26:
+ 264              		.loc 1 126 8 view .LVU65
+ 265 011c 0040A0E1 		mov	r4, r0
+ 127:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 128:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cType       ,
+ 129:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       uiLineNum   ,
+ 130:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       GetLastOccurance(cszFileName),
+ 131:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszFuncName
+ 132:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     );
+ 133:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     printf("%-25s | ", csz2ndValue);
+ 266              		.loc 1 133 5 view .LVU66
+ 267 0120 54009FE5 		ldr	r0, .L30+12
+ 268 0124 0610A0E1 		mov	r1, r6
+ 269              	.LPIC3:
+ 270 0128 00008FE0 		add	r0, pc, r0
+ 271              	.LVL27:
+ 272              		.loc 1 133 5 is_stmt 1 view .LVU67
+ 273 012c FEFFFFEB 		bl	printf(PLT)
+ 274              	.LVL28:
+ 134:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	Ret += vprintf(cszFormat, _ArgList);
+ 275              		.loc 1 134 2 view .LVU68
+ 276              		.loc 1 134 9 is_stmt 0 view .LVU69
+ 277 0130 08109DE5 		ldr	r1, [sp, #8]
+ 278 0134 0500A0E1 		mov	r0, r5
+ 279 0138 FEFFFFEB 		bl	vprintf(PLT)
+ 280              	.LVL29:
+ 135:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	va_end(_ArgList);
+ 281              		.loc 1 135 2 is_stmt 1 view .LVU70
+ 136:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	return Ret;
+ 282              		.loc 1 136 2 view .LVU71
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   signed int Ret;
+ 283              		.loc 1 120 1 is_stmt 0 view .LVU72
+ 284 013c 3C209FE5 		ldr	r2, .L30+16
+ 134:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	va_end(_ArgList);
+ 285              		.loc 1 134 6 view .LVU73
+ 286 0140 000084E0 		add	r0, r4, r0
+ 287              	.LVL30:
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 288              		.loc 1 137 1 view .LVU74
+ 289 0144 28309FE5 		ldr	r3, .L30+4
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   signed int Ret;
+ 290              		.loc 1 120 1 view .LVU75
+ 291              	.LPIC4:
+ 292 0148 02208FE0 		add	r2, pc, r2
+ 293              		.loc 1 137 1 view .LVU76
+ 294 014c 033092E7 		ldr	r3, [r2, r3]
+ 295 0150 002093E5 		ldr	r2, [r3]
+ARM GAS  /tmp/cczjaREe.s 			page 9
+
+
+ 296 0154 0C309DE5 		ldr	r3, [sp, #12]
+ 297 0158 022033E0 		eors	r2, r3, r2
+ 298 015c 0030A0E3 		mov	r3, #0
+ 299 0160 0100001A 		bne	.L29
+ 300 0164 10D08DE2 		add	sp, sp, #16
+ 301              		.cfi_remember_state
+ 302              		.cfi_def_cfa_offset 16
+ 303              		@ sp needed
+ 304 0168 7080BDE8 		pop	{r4, r5, r6, pc}
+ 305              	.L29:
+ 306              		.cfi_restore_state
+ 307 016c FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 308              	.LVL31:
+ 309              	.L31:
+ 310              		.loc 1 137 1 view .LVU77
+ 311              		.align	2
+ 312              	.L30:
+ 313 0170 BC000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC5+8)
+ 314 0174 00000000 		.word	__stack_chk_guard(GOT)
+ 315 0178 5C000000 		.word	.LANCHOR1-(.LPIC2+8)
+ 316 017c 4C000000 		.word	.LC0-(.LPIC3+8)
+ 317 0180 30000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC4+8)
+ 318              		.cfi_endproc
+ 319              	.LFE3:
+ 321              		.section	.rodata.str1.4
+ 322 0009 000000   		.align	2
+ 323              	.LC1:
+ 324 000c 20202020 		.ascii	"               0x%08X | \000"
+ 324      20202020 
+ 324      20202020 
+ 324      20202030 
+ 324      78253038 
+ 325              		.text
+ 326              		.align	2
+ 327              		.global	siFormattedMessage_SC
+ 328              		.syntax unified
+ 329              		.arm
+ 330              		.fpu vfpv3
+ 332              	siFormattedMessage_SC:
+ 333              	.LVL32:
+ 334              	.LFB4:
+ 138:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+ 139:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** signed int
+ 140:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** __cdecl
+ 141:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** siFormattedMessage_SC(
+ 142:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     char          cType       ,
+ 143:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  cszFileName ,   
+ 144:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  cszFuncName ,   
+ 145:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     unsigned int  uiLineNum   ,
+ 146:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     EApiStatus_t  StatusCode  ,   
+ 147:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *  cszFormat   ,   
+ 148:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     ...
+ 149:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 150:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** {
+ 335              		.loc 1 150 1 is_stmt 1 view -0
+ 336              		.cfi_startproc
+ 337              		@ args = 8, pretend = 0, frame = 8
+ARM GAS  /tmp/cczjaREe.s 			page 10
+
+
+ 338              		@ frame_needed = 0, uses_anonymous_args = 1
+ 339              		.loc 1 150 1 is_stmt 0 view .LVU79
+ 340 0184 50C19FE5 		ldr	ip, .L55
+ 341 0188 F0402DE9 		push	{r4, r5, r6, r7, lr}
+ 342              		.cfi_def_cfa_offset 20
+ 343              		.cfi_offset 4, -20
+ 344              		.cfi_offset 5, -16
+ 345              		.cfi_offset 6, -12
+ 346              		.cfi_offset 7, -8
+ 347              		.cfi_offset 14, -4
+ 348 018c 0140A0E1 		mov	r4, r1
+ 349 0190 0210A0E1 		mov	r1, r2
+ 350              	.LVL33:
+ 351              		.loc 1 150 1 view .LVU80
+ 352 0194 0320A0E1 		mov	r2, r3
+ 353              	.LVL34:
+ 354              		.loc 1 150 1 view .LVU81
+ 355              	.LPIC13:
+ 356 0198 0CC08FE0 		add	ip, pc, ip
+ 357 019c 14D04DE2 		sub	sp, sp, #20
+ 358              		.cfi_def_cfa_offset 40
+ 359              		.loc 1 150 1 view .LVU82
+ 360 01a0 38319FE5 		ldr	r3, .L55+4
+ 361              	.LVL35:
+ 362              	.LBB14:
+ 363              	.LBB15:
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 364              		.loc 1 79 7 view .LVU83
+ 365 01a4 38519FE5 		ldr	r5, .L55+8
+ 366              	.LBE15:
+ 367              	.LBE14:
+ 368              		.loc 1 150 1 view .LVU84
+ 369 01a8 28609DE5 		ldr	r6, [sp, #40]
+ 370 01ac 03309CE7 		ldr	r3, [ip, r3]
+ 371              	.LBB21:
+ 372              	.LBB16:
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       i--;pErrorLookup++
+ 373              		.loc 1 78 19 view .LVU85
+ 374 01b0 30C19FE5 		ldr	ip, .L55+12
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 375              		.loc 1 79 7 view .LVU86
+ 376              	.LPIC7:
+ 377 01b4 05508FE0 		add	r5, pc, r5
+ 378              	.LBE16:
+ 379              	.LBE21:
+ 380              		.loc 1 150 1 view .LVU87
+ 381 01b8 2C709DE5 		ldr	r7, [sp, #44]
+ 382              	.LBB22:
+ 383              	.LBB17:
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 384              		.loc 1 79 7 view .LVU88
+ 385 01bc 985085E2 		add	r5, r5, #152
+ 386              	.LBE17:
+ 387              	.LBE22:
+ 388              		.loc 1 150 1 view .LVU89
+ 389 01c0 003093E5 		ldr	r3, [r3]
+ 390 01c4 0C308DE5 		str	r3, [sp, #12]
+ARM GAS  /tmp/cczjaREe.s 			page 11
+
+
+ 391 01c8 0030A0E3 		mov	r3, #0
+ 151:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   signed int Ret;
+ 392              		.loc 1 151 3 is_stmt 1 view .LVU90
+ 152:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   va_list _ArgList;
+ 393              		.loc 1 152 3 view .LVU91
+ 153:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   const char *szStatusDesc;
+ 394              		.loc 1 153 3 view .LVU92
+ 154:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   va_start(_ArgList, cszFormat);
+ 395              		.loc 1 154 3 view .LVU93
+ 396 01cc 30308DE2 		add	r3, sp, #48
+ 397              	.LBB23:
+ 398              	.LBB18:
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       i--;pErrorLookup++
+ 399              		.loc 1 78 19 is_stmt 0 view .LVU94
+ 400              	.LPIC6:
+ 401 01d0 0CC08FE0 		add	ip, pc, ip
+ 402              	.LBE18:
+ 403              	.LBE23:
+ 404              		.loc 1 154 3 view .LVU95
+ 405 01d4 08308DE5 		str	r3, [sp, #8]
+ 155:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   EApiGetErrorStringA(&szStatusDesc, StatusCode);
+ 406              		.loc 1 155 3 is_stmt 1 view .LVU96
+ 407              	.LVL36:
+ 408              	.LBB24:
+ 409              	.LBI14:
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     __OUT const char  **const pszString     , 
+ 410              		.loc 1 66 1 view .LVU97
+ 411              	.LBB19:
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   const ErrorLookupTbl_t *pErrorLookup;
+ 412              		.loc 1 71 3 view .LVU98
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 
+ 413              		.loc 1 72 3 view .LVU99
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   for(i=ARRAY_SIZE(ErrorLookupA),
+ 414              		.loc 1 76 3 view .LVU100
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       pErrorLookup=ErrorLookupA; 
+ 415              		.loc 1 77 3 view .LVU101
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 416              		.loc 1 79 7 view .LVU102
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 417              		.loc 1 79 7 is_stmt 0 view .LVU103
+ 418 01d8 020000EA 		b	.L36
+ 419              	.LVL37:
+ 420              	.L33:
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 421              		.loc 1 79 23 is_stmt 1 view .LVU104
+ 422 01dc 08C08CE2 		add	ip, ip, #8
+ 423              	.LVL38:
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     )
+ 424              		.loc 1 79 7 view .LVU105
+ 425 01e0 05005CE1 		cmp	ip, r5
+ 426 01e4 2B00000A 		beq	.L53
+ 427              	.LVL39:
+ 428              	.L36:
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       *pszString=pErrorLookup->ErrorString;
+ 429              		.loc 1 83 5 view .LVU106
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       *pszString=pErrorLookup->ErrorString;
+ 430              		.loc 1 83 7 is_stmt 0 view .LVU107
+ARM GAS  /tmp/cczjaREe.s 			page 12
+
+
+ 431 01e8 00E09CE5 		ldr	lr, [ip]
+ 432 01ec 0E0056E1 		cmp	r6, lr
+ 433 01f0 F9FFFF1A 		bne	.L33
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       return EAPI_STATUS_SUCCESS;
+ 434              		.loc 1 84 7 is_stmt 1 view .LVU108
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       return EAPI_STATUS_SUCCESS;
+ 435              		.loc 1 84 30 is_stmt 0 view .LVU109
+ 436 01f4 04509CE5 		ldr	r5, [ip, #4]
+ 437              	.LVL40:
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     }
+ 438              		.loc 1 85 7 is_stmt 1 view .LVU110
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     }
+ 439              		.loc 1 85 7 is_stmt 0 view .LVU111
+ 440              	.LBE19:
+ 441              	.LBE24:
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	Ret = printf(
+ 442              		.loc 1 156 2 is_stmt 1 view .LVU112
+ 443              	.LBB25:
+ 444              	.LBI25:
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *czFilename
+ 445              		.loc 1 91 13 view .LVU113
+ 446              	.LBB26:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 447              		.loc 1 96 9 view .LVU114
+ 448 01f8 00C0D4E5 		ldrb	ip, [r4]	@ zero_extendqisi2
+ 449 01fc 00005CE3 		cmp	ip, #0
+ 450 0200 0800000A 		beq	.L35
+ 451              	.LVL41:
+ 452              	.L34:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 453              		.loc 1 96 9 is_stmt 0 view .LVU115
+ 454 0204 01E084E2 		add	lr, r4, #1
+ 455              	.LVL42:
+ 456              	.L39:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+ 457              		.loc 1 97 5 is_stmt 1 view .LVU116
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+ 458              		.loc 1 97 5 is_stmt 0 view .LVU117
+ 459 0208 2F005CE3 		cmp	ip, #47
+ 460 020c 0E40A001 		moveq	r4, lr
+ 461              	.LVL43:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       case '\\':
+ 462              		.loc 1 97 5 view .LVU118
+ 463 0210 0100000A 		beq	.L38
+ 464 0214 5C005CE3 		cmp	ip, #92
+ 465 0218 0E40A001 		moveq	r4, lr
+ 466              	.L38:
+ 467              	.LVL44:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 468              		.loc 1 96 9 is_stmt 1 view .LVU119
+ 469 021c 01C0DEE4 		ldrb	ip, [lr], #1	@ zero_extendqisi2
+ 470              	.LVL45:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 471              		.loc 1 96 9 is_stmt 0 view .LVU120
+ 472 0220 00005CE3 		cmp	ip, #0
+ 473 0224 F7FFFF1A 		bne	.L39
+ 474              	.LVL46:
+ARM GAS  /tmp/cczjaREe.s 			page 13
+
+
+ 475              	.L35:
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 476              		.loc 1 105 3 is_stmt 1 view .LVU121
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 477              		.loc 1 105 3 is_stmt 0 view .LVU122
+ 478              	.LBE26:
+ 479              	.LBE25:
+ 480              		.loc 1 156 8 view .LVU123
+ 481 0228 00108DE5 		str	r1, [sp]
+ 482 022c 0010A0E1 		mov	r1, r0
+ 483              	.LVL47:
+ 484              		.loc 1 156 8 view .LVU124
+ 485 0230 B4009FE5 		ldr	r0, .L55+16
+ 486              	.LVL48:
+ 487              		.loc 1 156 8 view .LVU125
+ 488 0234 0430A0E1 		mov	r3, r4
+ 489              	.LPIC8:
+ 490 0238 00008FE0 		add	r0, pc, r0
+ 491 023c FEFFFFEB 		bl	printf(PLT)
+ 492              	.LVL49:
+ 157:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 158:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cType       ,
+ 159:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       uiLineNum   ,
+ 160:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       GetLastOccurance(cszFileName),
+ 161:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszFuncName
+ 162:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     );
+ 163:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   if(szStatusDesc==NULL){
+ 493              		.loc 1 163 5 view .LVU126
+ 494 0240 000055E3 		cmp	r5, #0
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 495              		.loc 1 156 8 view .LVU127
+ 496 0244 0040A0E1 		mov	r4, r0
+ 497              	.LVL50:
+ 498              		.loc 1 163 3 is_stmt 1 view .LVU128
+ 499              		.loc 1 163 5 is_stmt 0 view .LVU129
+ 500 0248 1D00000A 		beq	.L42
+ 164:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     printf("               0x%08"PRIX32" | ", StatusCode);
+ 165:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   }else{
+ 166:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     printf("%-25s | ", szStatusDesc);
+ 501              		.loc 1 166 5 is_stmt 1 view .LVU130
+ 502 024c 9C009FE5 		ldr	r0, .L55+20
+ 503              	.LVL51:
+ 504              		.loc 1 166 5 is_stmt 0 view .LVU131
+ 505 0250 0510A0E1 		mov	r1, r5
+ 506              	.LPIC10:
+ 507 0254 00008FE0 		add	r0, pc, r0
+ 508 0258 FEFFFFEB 		bl	printf(PLT)
+ 509              	.LVL52:
+ 510              	.L41:
+ 167:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   }
+ 168:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	Ret += vprintf(cszFormat, _ArgList);
+ 511              		.loc 1 168 2 is_stmt 1 view .LVU132
+ 512              		.loc 1 168 9 is_stmt 0 view .LVU133
+ 513 025c 08109DE5 		ldr	r1, [sp, #8]
+ 514 0260 0700A0E1 		mov	r0, r7
+ 515 0264 FEFFFFEB 		bl	vprintf(PLT)
+ 516              	.LVL53:
+ARM GAS  /tmp/cczjaREe.s 			page 14
+
+
+ 169:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	va_end(_ArgList);
+ 517              		.loc 1 169 2 is_stmt 1 view .LVU134
+ 170:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	return Ret;
+ 518              		.loc 1 170 2 view .LVU135
+ 150:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   signed int Ret;
+ 519              		.loc 1 150 1 is_stmt 0 view .LVU136
+ 520 0268 84209FE5 		ldr	r2, .L55+24
+ 168:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** 	va_end(_ArgList);
+ 521              		.loc 1 168 6 view .LVU137
+ 522 026c 040080E0 		add	r0, r0, r4
+ 523              	.LVL54:
+ 171:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 524              		.loc 1 171 1 view .LVU138
+ 525 0270 68309FE5 		ldr	r3, .L55+4
+ 150:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   signed int Ret;
+ 526              		.loc 1 150 1 view .LVU139
+ 527              	.LPIC12:
+ 528 0274 02208FE0 		add	r2, pc, r2
+ 529              		.loc 1 171 1 view .LVU140
+ 530 0278 033092E7 		ldr	r3, [r2, r3]
+ 531 027c 002093E5 		ldr	r2, [r3]
+ 532 0280 0C309DE5 		ldr	r3, [sp, #12]
+ 533 0284 022033E0 		eors	r2, r3, r2
+ 534 0288 0030A0E3 		mov	r3, #0
+ 535 028c 1100001A 		bne	.L54
+ 536 0290 14D08DE2 		add	sp, sp, #20
+ 537              		.cfi_remember_state
+ 538              		.cfi_def_cfa_offset 20
+ 539              		@ sp needed
+ 540 0294 F080BDE8 		pop	{r4, r5, r6, r7, pc}
+ 541              	.LVL55:
+ 542              	.L53:
+ 543              		.cfi_restore_state
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 544              		.loc 1 156 2 is_stmt 1 view .LVU141
+ 545              	.LBB29:
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     const char *czFilename
+ 546              		.loc 1 91 13 view .LVU142
+ 547              	.LBB27:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 548              		.loc 1 96 9 view .LVU143
+ 549 0298 00C0D4E5 		ldrb	ip, [r4]	@ zero_extendqisi2
+ 550 029c 00005CE3 		cmp	ip, #0
+ 551              	.LBE27:
+ 552              	.LBE29:
+ 553              	.LBB30:
+ 554              	.LBB20:
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   for(i=ARRAY_SIZE(ErrorLookupA),
+ 555              		.loc 1 76 13 is_stmt 0 view .LVU144
+ 556 02a0 0050A013 		movne	r5, #0
+ 557              	.LBE20:
+ 558              	.LBE30:
+ 559              	.LBB31:
+ 560              	.LBB28:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     switch(*czFilename++){
+ 561              		.loc 1 96 9 view .LVU145
+ 562 02a4 D6FFFF1A 		bne	.L34
+ARM GAS  /tmp/cczjaREe.s 			page 15
+
+
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 563              		.loc 1 105 3 is_stmt 1 view .LVU146
+ 564              	.LVL56:
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c **** }
+ 565              		.loc 1 105 3 is_stmt 0 view .LVU147
+ 566              	.LBE28:
+ 567              	.LBE31:
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 568              		.loc 1 156 8 view .LVU148
+ 569 02a8 00108DE5 		str	r1, [sp]
+ 570 02ac 0010A0E1 		mov	r1, r0
+ 571              	.LVL57:
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 572              		.loc 1 156 8 view .LVU149
+ 573 02b0 40009FE5 		ldr	r0, .L55+28
+ 574              	.LVL58:
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 575              		.loc 1 156 8 view .LVU150
+ 576 02b4 0430A0E1 		mov	r3, r4
+ 577              	.LPIC11:
+ 578 02b8 00008FE0 		add	r0, pc, r0
+ 579 02bc FEFFFFEB 		bl	printf(PLT)
+ 580              	.LVL59:
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****       cszLogFormat, 
+ 581              		.loc 1 156 8 view .LVU151
+ 582 02c0 0040A0E1 		mov	r4, r0
+ 583              	.LVL60:
+ 163:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****     printf("               0x%08"PRIX32" | ", StatusCode);
+ 584              		.loc 1 163 3 is_stmt 1 view .LVU152
+ 585              	.L42:
+ 164:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   }else{
+ 586              		.loc 1 164 5 view .LVU153
+ 587 02c4 30009FE5 		ldr	r0, .L55+32
+ 588              	.LVL61:
+ 164:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/DbgChk.c ****   }else{
+ 589              		.loc 1 164 5 is_stmt 0 view .LVU154
+ 590 02c8 0610A0E1 		mov	r1, r6
+ 591              	.LPIC9:
+ 592 02cc 00008FE0 		add	r0, pc, r0
+ 593 02d0 FEFFFFEB 		bl	printf(PLT)
+ 594              	.LVL62:
+ 595 02d4 E0FFFFEA 		b	.L41
+ 596              	.LVL63:
+ 597              	.L54:
+ 598              		.loc 1 171 1 view .LVU155
+ 599 02d8 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 600              	.LVL64:
+ 601              	.L56:
+ 602              		.loc 1 171 1 view .LVU156
+ 603              		.align	2
+ 604              	.L55:
+ 605 02dc 3C010000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC13+8)
+ 606 02e0 00000000 		.word	__stack_chk_guard(GOT)
+ 607 02e4 28010000 		.word	.LANCHOR0-(.LPIC7+8)
+ 608 02e8 10010000 		.word	.LANCHOR0-(.LPIC6+8)
+ 609 02ec AC000000 		.word	.LANCHOR1-(.LPIC8+8)
+ 610 02f0 94000000 		.word	.LC0-(.LPIC10+8)
+ARM GAS  /tmp/cczjaREe.s 			page 16
+
+
+ 611 02f4 78000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC12+8)
+ 612 02f8 38000000 		.word	.LANCHOR1-(.LPIC11+8)
+ 613 02fc 28000000 		.word	.LC1-(.LPIC9+8)
+ 614              		.cfi_endproc
+ 615              	.LFE4:
+ 617              		.global	cszLogFormat
+ 618              		.global	ErrorLookupA
+ 619              		.section	.rodata.str1.4
+ 620 0025 000000   		.align	2
+ 621              	.LC2:
+ 622 0028 4E4F545F 		.ascii	"NOT_INITIALIZED\000"
+ 622      494E4954 
+ 622      49414C49 
+ 622      5A454400 
+ 623              		.align	2
+ 624              	.LC3:
+ 625 0038 494E4954 		.ascii	"INITIALIZED\000"
+ 625      49414C49 
+ 625      5A454400 
+ 626              		.align	2
+ 627              	.LC4:
+ 628 0044 414C4C4F 		.ascii	"ALLOC_ERROR\000"
+ 628      435F4552 
+ 628      524F5200 
+ 629              		.align	2
+ 630              	.LC5:
+ 631 0050 44524956 		.ascii	"DRIVER_TIMEOUT\000"
+ 631      45525F54 
+ 631      494D454F 
+ 631      555400
+ 632 005f 00       		.align	2
+ 633              	.LC6:
+ 634 0060 494E5641 		.ascii	"INVALID_PARAMETER\000"
+ 634      4C49445F 
+ 634      50415241 
+ 634      4D455445 
+ 634      5200
+ 635 0072 0000     		.align	2
+ 636              	.LC7:
+ 637 0074 494E5641 		.ascii	"INVALID_BLOCK_ALIGNMENT\000"
+ 637      4C49445F 
+ 637      424C4F43 
+ 637      4B5F414C 
+ 637      49474E4D 
+ 638              		.align	2
+ 639              	.LC8:
+ 640 008c 494E5641 		.ascii	"INVALID_BLOCK_LENGTH\000"
+ 640      4C49445F 
+ 640      424C4F43 
+ 640      4B5F4C45 
+ 640      4E475448 
+ 641 00a1 000000   		.align	2
+ 642              	.LC9:
+ 643 00a4 494E5641 		.ascii	"INVALID_DIRECTION\000"
+ 643      4C49445F 
+ 643      44495245 
+ 643      4354494F 
+ARM GAS  /tmp/cczjaREe.s 			page 17
+
+
+ 643      4E00
+ 644 00b6 0000     		.align	2
+ 645              	.LC10:
+ 646 00b8 494E5641 		.ascii	"INVALID_BITMASK\000"
+ 646      4C49445F 
+ 646      4249544D 
+ 646      41534B00 
+ 647              		.align	2
+ 648              	.LC11:
+ 649 00c8 52554E4E 		.ascii	"RUNNING\000"
+ 649      494E4700 
+ 650              		.align	2
+ 651              	.LC12:
+ 652 00d0 554E5355 		.ascii	"UNSUPPORTED\000"
+ 652      50504F52 
+ 652      54454400 
+ 653              		.align	2
+ 654              	.LC13:
+ 655 00dc 4E4F545F 		.ascii	"NOT_FOUND\000"
+ 655      464F554E 
+ 655      4400
+ 656 00e6 0000     		.align	2
+ 657              	.LC14:
+ 658 00e8 54494D45 		.ascii	"TIMEOUT\000"
+ 658      4F555400 
+ 659              		.align	2
+ 660              	.LC15:
+ 661 00f0 42555359 		.ascii	"BUSY_COLLISION\000"
+ 661      5F434F4C 
+ 661      4C495349 
+ 661      4F4E00
+ 662 00ff 00       		.align	2
+ 663              	.LC16:
+ 664 0100 52454144 		.ascii	"READ_ERROR\000"
+ 664      5F455252 
+ 664      4F5200
+ 665 010b 00       		.align	2
+ 666              	.LC17:
+ 667 010c 57524954 		.ascii	"WRITE_ERROR\000"
+ 667      455F4552 
+ 667      524F5200 
+ 668              		.align	2
+ 669              	.LC18:
+ 670 0118 4D4F5245 		.ascii	"MORE_DATA\000"
+ 670      5F444154 
+ 670      4100
+ 671 0122 0000     		.align	2
+ 672              	.LC19:
+ 673 0124 4552524F 		.ascii	"ERROR\000"
+ 673      5200
+ 674 012a 0000     		.align	2
+ 675              	.LC20:
+ 676 012c 53554343 		.ascii	"SUCCESS\000"
+ 676      45535300 
+ 677              		.section	.rodata
+ 678              		.align	2
+ 679              		.set	.LANCHOR1,. + 0
+ARM GAS  /tmp/cczjaREe.s 			page 18
+
+
+ 682              	cszLogFormat:
+ 683 0000 25632530 		.ascii	"%c%04i %-15.15s %-30s | \000"
+ 683      34692025 
+ 683      2D31352E 
+ 683      31357320 
+ 683      252D3330 
+ 684              		.section	.data.rel.ro.local,"aw"
+ 685              		.align	2
+ 686              		.set	.LANCHOR0,. + 0
+ 689              	ErrorLookupA:
+ 690 0000 FFFFFFFF 		.word	-1
+ 691 0004 28000000 		.word	.LC2
+ 692 0008 FEFFFFFF 		.word	-2
+ 693 000c 38000000 		.word	.LC3
+ 694 0010 FDFFFFFF 		.word	-3
+ 695 0014 44000000 		.word	.LC4
+ 696 0018 FCFFFFFF 		.word	-4
+ 697 001c 50000000 		.word	.LC5
+ 698 0020 FFFEFFFF 		.word	-257
+ 699 0024 60000000 		.word	.LC6
+ 700 0028 FEFEFFFF 		.word	-258
+ 701 002c 74000000 		.word	.LC7
+ 702 0030 FDFEFFFF 		.word	-259
+ 703 0034 8C000000 		.word	.LC8
+ 704 0038 FCFEFFFF 		.word	-260
+ 705 003c A4000000 		.word	.LC9
+ 706 0040 FBFEFFFF 		.word	-261
+ 707 0044 B8000000 		.word	.LC10
+ 708 0048 FAFEFFFF 		.word	-262
+ 709 004c C8000000 		.word	.LC11
+ 710 0050 FFFCFFFF 		.word	-769
+ 711 0054 D0000000 		.word	.LC12
+ 712 0058 FFFBFFFF 		.word	-1025
+ 713 005c DC000000 		.word	.LC13
+ 714 0060 FEFBFFFF 		.word	-1026
+ 715 0064 E8000000 		.word	.LC14
+ 716 0068 FDFBFFFF 		.word	-1027
+ 717 006c F0000000 		.word	.LC15
+ 718 0070 FFFAFFFF 		.word	-1281
+ 719 0074 00010000 		.word	.LC16
+ 720 0078 FEFAFFFF 		.word	-1282
+ 721 007c 0C010000 		.word	.LC17
+ 722 0080 FFF9FFFF 		.word	-1537
+ 723 0084 18010000 		.word	.LC18
+ 724 0088 FFF0FFFF 		.word	-3841
+ 725 008c 24010000 		.word	.LC19
+ 726 0090 00000000 		.word	0
+ 727 0094 2C010000 		.word	.LC20
+ 728              		.text
+ 729              	.Letext0:
+ 730              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 731              		.file 3 "../../../include/EApi.h"
+ 732              		.file 4 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 733              		.file 5 "<built-in>"
+ARM GAS  /tmp/cczjaREe.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 DbgChk.c
+     /tmp/cczjaREe.s:16     .text:0000000000000000 $a
+     /tmp/cczjaREe.s:25     .text:0000000000000000 EApiGetErrorStringA
+     /tmp/cczjaREe.s:100    .text:0000000000000058 $d
+     /tmp/cczjaREe.s:105    .text:0000000000000060 $a
+     /tmp/cczjaREe.s:111    .text:0000000000000060 GetLastOccurance
+     /tmp/cczjaREe.s:150    .rodata.str1.4:0000000000000000 $d
+     /tmp/cczjaREe.s:151    .rodata.str1.4:0000000000000000 .LC0
+     /tmp/cczjaREe.s:160    .text:0000000000000094 siFormattedMessage_M2
+     /tmp/cczjaREe.s:313    .text:0000000000000170 $d
+     /tmp/cczjaREe.s:323    .rodata.str1.4:000000000000000c .LC1
+     /tmp/cczjaREe.s:326    .text:0000000000000184 $a
+     /tmp/cczjaREe.s:332    .text:0000000000000184 siFormattedMessage_SC
+     /tmp/cczjaREe.s:605    .text:00000000000002dc $d
+     /tmp/cczjaREe.s:682    .rodata:0000000000000000 cszLogFormat
+     /tmp/cczjaREe.s:689    .data.rel.ro.local:0000000000000000 ErrorLookupA
+     /tmp/cczjaREe.s:678    .rodata:0000000000000000 $d
+     /tmp/cczjaREe.s:685    .data.rel.ro.local:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+printf
+vprintf
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard

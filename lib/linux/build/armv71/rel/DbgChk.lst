@@ -1,0 +1,540 @@
+ARM GAS  /tmp/cccypHow.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"DbgChk.c"
+  13              		.text
+  14              		.align	2
+  15              		.global	EApiGetErrorStringA
+  16              		.hidden	EApiGetErrorStringA
+  17              		.arch armv7-a
+  18              		.arch_extension mp
+  19              		.arch_extension sec
+  20              		.syntax unified
+  21              		.arm
+  22              		.fpu vfpv3
+  24              	EApiGetErrorStringA:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27 0000 50C09FE5 		ldr	ip, .L9
+  28 0004 0020A0E3 		mov	r2, #0
+  29 0008 4C309FE5 		ldr	r3, .L9+4
+  30 000c 04E02DE5 		str	lr, [sp, #-4]!
+  31 0010 00E0A0E1 		mov	lr, r0
+  32              	.LPIC1:
+  33 0014 0CC08FE0 		add	ip, pc, ip
+  34 0018 002080E5 		str	r2, [r0]
+  35              	.LPIC0:
+  36 001c 03308FE0 		add	r3, pc, r3
+  37 0020 98C08CE2 		add	ip, ip, #152
+  38 0024 020000EA 		b	.L4
+  39              	.L2:
+  40 0028 083083E2 		add	r3, r3, #8
+  41 002c 0C0053E1 		cmp	r3, ip
+  42 0030 0600000A 		beq	.L8
+  43              	.L4:
+  44 0034 002093E5 		ldr	r2, [r3]
+  45 0038 010052E1 		cmp	r2, r1
+  46 003c F9FFFF1A 		bne	.L2
+  47 0040 043093E5 		ldr	r3, [r3, #4]
+  48 0044 0000A0E3 		mov	r0, #0
+  49 0048 00308EE5 		str	r3, [lr]
+  50 004c 04F09DE4 		ldr	pc, [sp], #4
+  51              	.L8:
+  52 0050 0F0CE0E3 		mvn	r0, #3840
+  53 0054 04F09DE4 		ldr	pc, [sp], #4
+  54              	.L10:
+  55              		.align	2
+  56              	.L9:
+  57 0058 3C000000 		.word	.LANCHOR0-(.LPIC1+8)
+  58 005c 38000000 		.word	.LANCHOR0-(.LPIC0+8)
+ARM GAS  /tmp/cccypHow.s 			page 2
+
+
+  60              		.align	2
+  61              		.global	GetLastOccurance
+  62              		.hidden	GetLastOccurance
+  63              		.syntax unified
+  64              		.arm
+  65              		.fpu vfpv3
+  67              	GetLastOccurance:
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		@ link register save eliminated.
+  71 0060 0030D0E5 		ldrb	r3, [r0]	@ zero_extendqisi2
+  72 0064 000053E3 		cmp	r3, #0
+  73 0068 1EFF2F01 		bxeq	lr
+  74 006c 012080E2 		add	r2, r0, #1
+  75              	.L14:
+  76 0070 2F0053E3 		cmp	r3, #47
+  77 0074 0200A001 		moveq	r0, r2
+  78 0078 0100000A 		beq	.L13
+  79 007c 5C0053E3 		cmp	r3, #92
+  80 0080 0200A001 		moveq	r0, r2
+  81              	.L13:
+  82 0084 0130D2E4 		ldrb	r3, [r2], #1	@ zero_extendqisi2
+  83 0088 000053E3 		cmp	r3, #0
+  84 008c F7FFFF1A 		bne	.L14
+  85 0090 1EFF2FE1 		bx	lr
+  87              		.section	.rodata.str1.4,"aMS",%progbits,1
+  88              		.align	2
+  89              	.LC0:
+  90 0000 252D3235 		.ascii	"%-25s | \000"
+  90      73207C20 
+  90      00
+  91              		.text
+  92              		.align	2
+  93              		.global	siFormattedMessage_M2
+  94              		.hidden	siFormattedMessage_M2
+  95              		.syntax unified
+  96              		.arm
+  97              		.fpu vfpv3
+  99              	siFormattedMessage_M2:
+ 100              		@ args = 8, pretend = 0, frame = 8
+ 101              		@ frame_needed = 0, uses_anonymous_args = 1
+ 102 0094 F0402DE9 		push	{r4, r5, r6, r7, lr}
+ 103 0098 0040A0E1 		mov	r4, r0
+ 104 009c DCE09FE5 		ldr	lr, .L30
+ 105 00a0 14D04DE2 		sub	sp, sp, #20
+ 106 00a4 30508DE2 		add	r5, sp, #48
+ 107 00a8 D4C09FE5 		ldr	ip, .L30+4
+ 108              	.LPIC6:
+ 109 00ac 0EE08FE0 		add	lr, pc, lr
+ 110 00b0 D0009FE5 		ldr	r0, .L30+8
+ 111 00b4 28709DE5 		ldr	r7, [sp, #40]
+ 112 00b8 0CC09EE7 		ldr	ip, [lr, ip]
+ 113 00bc C8E09FE5 		ldr	lr, .L30+12
+ 114 00c0 2C609DE5 		ldr	r6, [sp, #44]
+ 115 00c4 00C09CE5 		ldr	ip, [ip]
+ 116 00c8 0CC08DE5 		str	ip, [sp, #12]
+ 117 00cc 00C0A0E3 		mov	ip, #0
+ARM GAS  /tmp/cccypHow.s 			page 3
+
+
+ 118 00d0 00C0D1E5 		ldrb	ip, [r1]	@ zero_extendqisi2
+ 119              	.LPIC2:
+ 120 00d4 0EE08FE0 		add	lr, pc, lr
+ 121 00d8 08508DE5 		str	r5, [sp, #8]
+ 122 00dc 00509EE7 		ldr	r5, [lr, r0]
+ 123 00e0 00005CE3 		cmp	ip, #0
+ 124 00e4 000095E5 		ldr	r0, [r5]
+ 125 00e8 0800000A 		beq	.L19
+ 126 00ec 01E081E2 		add	lr, r1, #1
+ 127              	.L21:
+ 128 00f0 2F005CE3 		cmp	ip, #47
+ 129 00f4 0E10A001 		moveq	r1, lr
+ 130 00f8 0100000A 		beq	.L20
+ 131 00fc 5C005CE3 		cmp	ip, #92
+ 132 0100 0E10A001 		moveq	r1, lr
+ 133              	.L20:
+ 134 0104 01C0DEE4 		ldrb	ip, [lr], #1	@ zero_extendqisi2
+ 135 0108 00005CE3 		cmp	ip, #0
+ 136 010c F7FFFF1A 		bne	.L21
+ 137              	.L19:
+ 138 0110 06008DE8 		stm	sp, {r1, r2}
+ 139 0114 0420A0E1 		mov	r2, r4
+ 140 0118 70109FE5 		ldr	r1, .L30+16
+ 141              	.LPIC3:
+ 142 011c 01108FE0 		add	r1, pc, r1
+ 143 0120 FEFFFFEB 		bl	fprintf(PLT)
+ 144 0124 68109FE5 		ldr	r1, .L30+20
+ 145 0128 0720A0E1 		mov	r2, r7
+ 146 012c 0040A0E1 		mov	r4, r0
+ 147 0130 000095E5 		ldr	r0, [r5]
+ 148              	.LPIC4:
+ 149 0134 01108FE0 		add	r1, pc, r1
+ 150 0138 FEFFFFEB 		bl	fprintf(PLT)
+ 151 013c 08209DE5 		ldr	r2, [sp, #8]
+ 152 0140 0610A0E1 		mov	r1, r6
+ 153 0144 000095E5 		ldr	r0, [r5]
+ 154 0148 FEFFFFEB 		bl	vfprintf(PLT)
+ 155 014c 44209FE5 		ldr	r2, .L30+24
+ 156 0150 000084E0 		add	r0, r4, r0
+ 157 0154 28309FE5 		ldr	r3, .L30+4
+ 158              	.LPIC5:
+ 159 0158 02208FE0 		add	r2, pc, r2
+ 160 015c 033092E7 		ldr	r3, [r2, r3]
+ 161 0160 002093E5 		ldr	r2, [r3]
+ 162 0164 0C309DE5 		ldr	r3, [sp, #12]
+ 163 0168 022033E0 		eors	r2, r3, r2
+ 164 016c 0030A0E3 		mov	r3, #0
+ 165 0170 0100001A 		bne	.L29
+ 166 0174 14D08DE2 		add	sp, sp, #20
+ 167              		@ sp needed
+ 168 0178 F080BDE8 		pop	{r4, r5, r6, r7, pc}
+ 169              	.L29:
+ 170 017c FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 171              	.L31:
+ 172              		.align	2
+ 173              	.L30:
+ 174 0180 CC000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC6+8)
+ARM GAS  /tmp/cccypHow.s 			page 4
+
+
+ 175 0184 00000000 		.word	__stack_chk_guard(GOT)
+ 176 0188 00000000 		.word	OutputStream(GOT)
+ 177 018c B0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC2+8)
+ 178 0190 6C000000 		.word	.LANCHOR1-(.LPIC3+8)
+ 179 0194 58000000 		.word	.LC0-(.LPIC4+8)
+ 180 0198 38000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC5+8)
+ 182              		.section	.rodata.str1.4
+ 183 0009 000000   		.align	2
+ 184              	.LC1:
+ 185 000c 20202020 		.ascii	"               0x%08X | \000"
+ 185      20202020 
+ 185      20202020 
+ 185      20202030 
+ 185      78253038 
+ 186              		.text
+ 187              		.align	2
+ 188              		.global	siFormattedMessage_SC
+ 189              		.hidden	siFormattedMessage_SC
+ 190              		.syntax unified
+ 191              		.arm
+ 192              		.fpu vfpv3
+ 194              	siFormattedMessage_SC:
+ 195              		@ args = 8, pretend = 0, frame = 8
+ 196              		@ frame_needed = 0, uses_anonymous_args = 1
+ 197 019c 6CC19FE5 		ldr	ip, .L55
+ 198 01a0 F0412DE9 		push	{r4, r5, r6, r7, r8, lr}
+ 199 01a4 0070A0E1 		mov	r7, r0
+ 200 01a8 64019FE5 		ldr	r0, .L55+4
+ 201 01ac 10D04DE2 		sub	sp, sp, #16
+ 202              	.LPIC15:
+ 203 01b0 0CC08FE0 		add	ip, pc, ip
+ 204 01b4 5C419FE5 		ldr	r4, .L55+8
+ 205 01b8 00009CE7 		ldr	r0, [ip, r0]
+ 206 01bc 58C19FE5 		ldr	ip, .L55+12
+ 207              	.LPIC9:
+ 208 01c0 04408FE0 		add	r4, pc, r4
+ 209 01c4 28509DE5 		ldr	r5, [sp, #40]
+ 210 01c8 000090E5 		ldr	r0, [r0]
+ 211 01cc 0C008DE5 		str	r0, [sp, #12]
+ 212 01d0 0000A0E3 		mov	r0, #0
+ 213 01d4 30008DE2 		add	r0, sp, #48
+ 214 01d8 08008DE5 		str	r0, [sp, #8]
+ 215 01dc 984084E2 		add	r4, r4, #152
+ 216 01e0 38019FE5 		ldr	r0, .L55+16
+ 217              	.LPIC7:
+ 218 01e4 0CC08FE0 		add	ip, pc, ip
+ 219 01e8 2C609DE5 		ldr	r6, [sp, #44]
+ 220              	.LPIC8:
+ 221 01ec 00008FE0 		add	r0, pc, r0
+ 222 01f0 020000EA 		b	.L36
+ 223              	.L33:
+ 224 01f4 08C08CE2 		add	ip, ip, #8
+ 225 01f8 04005CE1 		cmp	ip, r4
+ 226 01fc 2F00000A 		beq	.L53
+ 227              	.L36:
+ 228 0200 00E09CE5 		ldr	lr, [ip]
+ 229 0204 0E0055E1 		cmp	r5, lr
+ARM GAS  /tmp/cccypHow.s 			page 5
+
+
+ 230 0208 F9FFFF1A 		bne	.L33
+ 231 020c 04809CE5 		ldr	r8, [ip, #4]
+ 232 0210 0CC19FE5 		ldr	ip, .L55+20
+ 233 0214 0C4090E7 		ldr	r4, [r0, ip]
+ 234 0218 00C0D1E5 		ldrb	ip, [r1]	@ zero_extendqisi2
+ 235 021c 000094E5 		ldr	r0, [r4]
+ 236 0220 00005CE3 		cmp	ip, #0
+ 237 0224 0800000A 		beq	.L35
+ 238              	.L34:
+ 239 0228 01E081E2 		add	lr, r1, #1
+ 240              	.L39:
+ 241 022c 2F005CE3 		cmp	ip, #47
+ 242 0230 0E10A001 		moveq	r1, lr
+ 243 0234 0100000A 		beq	.L38
+ 244 0238 5C005CE3 		cmp	ip, #92
+ 245 023c 0E10A001 		moveq	r1, lr
+ 246              	.L38:
+ 247 0240 01C0DEE4 		ldrb	ip, [lr], #1	@ zero_extendqisi2
+ 248 0244 00005CE3 		cmp	ip, #0
+ 249 0248 F7FFFF1A 		bne	.L39
+ 250              	.L35:
+ 251 024c 06008DE8 		stm	sp, {r1, r2}
+ 252 0250 0720A0E1 		mov	r2, r7
+ 253 0254 CC109FE5 		ldr	r1, .L55+24
+ 254              	.LPIC10:
+ 255 0258 01108FE0 		add	r1, pc, r1
+ 256 025c FEFFFFEB 		bl	fprintf(PLT)
+ 257 0260 000058E3 		cmp	r8, #0
+ 258 0264 0070A0E1 		mov	r7, r0
+ 259 0268 2100000A 		beq	.L42
+ 260 026c B8109FE5 		ldr	r1, .L55+28
+ 261 0270 0820A0E1 		mov	r2, r8
+ 262 0274 000094E5 		ldr	r0, [r4]
+ 263              	.LPIC12:
+ 264 0278 01108FE0 		add	r1, pc, r1
+ 265 027c FEFFFFEB 		bl	fprintf(PLT)
+ 266              	.L41:
+ 267 0280 08209DE5 		ldr	r2, [sp, #8]
+ 268 0284 0610A0E1 		mov	r1, r6
+ 269 0288 000094E5 		ldr	r0, [r4]
+ 270 028c FEFFFFEB 		bl	vfprintf(PLT)
+ 271 0290 98209FE5 		ldr	r2, .L55+32
+ 272 0294 070080E0 		add	r0, r0, r7
+ 273 0298 74309FE5 		ldr	r3, .L55+4
+ 274              	.LPIC14:
+ 275 029c 02208FE0 		add	r2, pc, r2
+ 276 02a0 033092E7 		ldr	r3, [r2, r3]
+ 277 02a4 002093E5 		ldr	r2, [r3]
+ 278 02a8 0C309DE5 		ldr	r3, [sp, #12]
+ 279 02ac 022033E0 		eors	r2, r3, r2
+ 280 02b0 0030A0E3 		mov	r3, #0
+ 281 02b4 1400001A 		bne	.L54
+ 282 02b8 10D08DE2 		add	sp, sp, #16
+ 283              		@ sp needed
+ 284 02bc F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 285              	.L53:
+ 286 02c0 5CC09FE5 		ldr	ip, .L55+20
+ARM GAS  /tmp/cccypHow.s 			page 6
+
+
+ 287 02c4 0C4090E7 		ldr	r4, [r0, ip]
+ 288 02c8 00C0D1E5 		ldrb	ip, [r1]	@ zero_extendqisi2
+ 289 02cc 000094E5 		ldr	r0, [r4]
+ 290 02d0 00005CE3 		cmp	ip, #0
+ 291 02d4 0080A013 		movne	r8, #0
+ 292 02d8 D2FFFF1A 		bne	.L34
+ 293 02dc 06008DE8 		stm	sp, {r1, r2}
+ 294 02e0 0720A0E1 		mov	r2, r7
+ 295 02e4 48109FE5 		ldr	r1, .L55+36
+ 296              	.LPIC13:
+ 297 02e8 01108FE0 		add	r1, pc, r1
+ 298 02ec FEFFFFEB 		bl	fprintf(PLT)
+ 299 02f0 0070A0E1 		mov	r7, r0
+ 300              	.L42:
+ 301 02f4 3C109FE5 		ldr	r1, .L55+40
+ 302 02f8 0520A0E1 		mov	r2, r5
+ 303 02fc 000094E5 		ldr	r0, [r4]
+ 304              	.LPIC11:
+ 305 0300 01108FE0 		add	r1, pc, r1
+ 306 0304 FEFFFFEB 		bl	fprintf(PLT)
+ 307 0308 DCFFFFEA 		b	.L41
+ 308              	.L54:
+ 309 030c FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 310              	.L56:
+ 311              		.align	2
+ 312              	.L55:
+ 313 0310 58010000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC15+8)
+ 314 0314 00000000 		.word	__stack_chk_guard(GOT)
+ 315 0318 50010000 		.word	.LANCHOR0-(.LPIC9+8)
+ 316 031c 30010000 		.word	.LANCHOR0-(.LPIC7+8)
+ 317 0320 2C010000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC8+8)
+ 318 0324 00000000 		.word	OutputStream(GOT)
+ 319 0328 C8000000 		.word	.LANCHOR1-(.LPIC10+8)
+ 320 032c AC000000 		.word	.LC0-(.LPIC12+8)
+ 321 0330 8C000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC14+8)
+ 322 0334 44000000 		.word	.LANCHOR1-(.LPIC13+8)
+ 323 0338 30000000 		.word	.LC1-(.LPIC11+8)
+ 325              		.hidden	cszLogFormat
+ 326              		.global	cszLogFormat
+ 327              		.hidden	ErrorLookupA
+ 328              		.global	ErrorLookupA
+ 329              		.section	.rodata.str1.4
+ 330 0025 000000   		.align	2
+ 331              	.LC2:
+ 332 0028 4E4F545F 		.ascii	"NOT_INITIALIZED\000"
+ 332      494E4954 
+ 332      49414C49 
+ 332      5A454400 
+ 333              		.align	2
+ 334              	.LC3:
+ 335 0038 494E4954 		.ascii	"INITIALIZED\000"
+ 335      49414C49 
+ 335      5A454400 
+ 336              		.align	2
+ 337              	.LC4:
+ 338 0044 414C4C4F 		.ascii	"ALLOC_ERROR\000"
+ 338      435F4552 
+ARM GAS  /tmp/cccypHow.s 			page 7
+
+
+ 338      524F5200 
+ 339              		.align	2
+ 340              	.LC5:
+ 341 0050 44524956 		.ascii	"DRIVER_TIMEOUT\000"
+ 341      45525F54 
+ 341      494D454F 
+ 341      555400
+ 342 005f 00       		.align	2
+ 343              	.LC6:
+ 344 0060 494E5641 		.ascii	"INVALID_PARAMETER\000"
+ 344      4C49445F 
+ 344      50415241 
+ 344      4D455445 
+ 344      5200
+ 345 0072 0000     		.align	2
+ 346              	.LC7:
+ 347 0074 494E5641 		.ascii	"INVALID_BLOCK_ALIGNMENT\000"
+ 347      4C49445F 
+ 347      424C4F43 
+ 347      4B5F414C 
+ 347      49474E4D 
+ 348              		.align	2
+ 349              	.LC8:
+ 350 008c 494E5641 		.ascii	"INVALID_BLOCK_LENGTH\000"
+ 350      4C49445F 
+ 350      424C4F43 
+ 350      4B5F4C45 
+ 350      4E475448 
+ 351 00a1 000000   		.align	2
+ 352              	.LC9:
+ 353 00a4 494E5641 		.ascii	"INVALID_DIRECTION\000"
+ 353      4C49445F 
+ 353      44495245 
+ 353      4354494F 
+ 353      4E00
+ 354 00b6 0000     		.align	2
+ 355              	.LC10:
+ 356 00b8 494E5641 		.ascii	"INVALID_BITMASK\000"
+ 356      4C49445F 
+ 356      4249544D 
+ 356      41534B00 
+ 357              		.align	2
+ 358              	.LC11:
+ 359 00c8 52554E4E 		.ascii	"RUNNING\000"
+ 359      494E4700 
+ 360              		.align	2
+ 361              	.LC12:
+ 362 00d0 554E5355 		.ascii	"UNSUPPORTED\000"
+ 362      50504F52 
+ 362      54454400 
+ 363              		.align	2
+ 364              	.LC13:
+ 365 00dc 4E4F545F 		.ascii	"NOT_FOUND\000"
+ 365      464F554E 
+ 365      4400
+ 366 00e6 0000     		.align	2
+ 367              	.LC14:
+ARM GAS  /tmp/cccypHow.s 			page 8
+
+
+ 368 00e8 54494D45 		.ascii	"TIMEOUT\000"
+ 368      4F555400 
+ 369              		.align	2
+ 370              	.LC15:
+ 371 00f0 42555359 		.ascii	"BUSY_COLLISION\000"
+ 371      5F434F4C 
+ 371      4C495349 
+ 371      4F4E00
+ 372 00ff 00       		.align	2
+ 373              	.LC16:
+ 374 0100 52454144 		.ascii	"READ_ERROR\000"
+ 374      5F455252 
+ 374      4F5200
+ 375 010b 00       		.align	2
+ 376              	.LC17:
+ 377 010c 57524954 		.ascii	"WRITE_ERROR\000"
+ 377      455F4552 
+ 377      524F5200 
+ 378              		.align	2
+ 379              	.LC18:
+ 380 0118 4D4F5245 		.ascii	"MORE_DATA\000"
+ 380      5F444154 
+ 380      4100
+ 381 0122 0000     		.align	2
+ 382              	.LC19:
+ 383 0124 4552524F 		.ascii	"ERROR\000"
+ 383      5200
+ 384 012a 0000     		.align	2
+ 385              	.LC20:
+ 386 012c 53554343 		.ascii	"SUCCESS\000"
+ 386      45535300 
+ 387              		.section	.rodata
+ 388              		.align	2
+ 389              		.set	.LANCHOR1,. + 0
+ 392              	cszLogFormat:
+ 393 0000 25632530 		.ascii	"%c%04i %-15.15s %-30s | \000"
+ 393      34692025 
+ 393      2D31352E 
+ 393      31357320 
+ 393      252D3330 
+ 394              		.section	.data.rel.ro.local,"aw"
+ 395              		.align	2
+ 396              		.set	.LANCHOR0,. + 0
+ 399              	ErrorLookupA:
+ 400 0000 FFFFFFFF 		.word	-1
+ 401 0004 28000000 		.word	.LC2
+ 402 0008 FEFFFFFF 		.word	-2
+ 403 000c 38000000 		.word	.LC3
+ 404 0010 FDFFFFFF 		.word	-3
+ 405 0014 44000000 		.word	.LC4
+ 406 0018 FCFFFFFF 		.word	-4
+ 407 001c 50000000 		.word	.LC5
+ 408 0020 FFFEFFFF 		.word	-257
+ 409 0024 60000000 		.word	.LC6
+ 410 0028 FEFEFFFF 		.word	-258
+ 411 002c 74000000 		.word	.LC7
+ 412 0030 FDFEFFFF 		.word	-259
+ARM GAS  /tmp/cccypHow.s 			page 9
+
+
+ 413 0034 8C000000 		.word	.LC8
+ 414 0038 FCFEFFFF 		.word	-260
+ 415 003c A4000000 		.word	.LC9
+ 416 0040 FBFEFFFF 		.word	-261
+ 417 0044 B8000000 		.word	.LC10
+ 418 0048 FAFEFFFF 		.word	-262
+ 419 004c C8000000 		.word	.LC11
+ 420 0050 FFFCFFFF 		.word	-769
+ 421 0054 D0000000 		.word	.LC12
+ 422 0058 FFFBFFFF 		.word	-1025
+ 423 005c DC000000 		.word	.LC13
+ 424 0060 FEFBFFFF 		.word	-1026
+ 425 0064 E8000000 		.word	.LC14
+ 426 0068 FDFBFFFF 		.word	-1027
+ 427 006c F0000000 		.word	.LC15
+ 428 0070 FFFAFFFF 		.word	-1281
+ 429 0074 00010000 		.word	.LC16
+ 430 0078 FEFAFFFF 		.word	-1282
+ 431 007c 0C010000 		.word	.LC17
+ 432 0080 FFF9FFFF 		.word	-1537
+ 433 0084 18010000 		.word	.LC18
+ 434 0088 FFF0FFFF 		.word	-3841
+ 435 008c 24010000 		.word	.LC19
+ 436 0090 00000000 		.word	0
+ 437 0094 2C010000 		.word	.LC20
+ 438              		.ident	"GCC: (Buildroot 2022.02) 11.2.0"
+ 439              		.section	.note.GNU-stack,"",%progbits
+ARM GAS  /tmp/cccypHow.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 DbgChk.c
+     /tmp/cccypHow.s:14     .text:0000000000000000 $a
+     /tmp/cccypHow.s:24     .text:0000000000000000 EApiGetErrorStringA
+     /tmp/cccypHow.s:57     .text:0000000000000058 $d
+     /tmp/cccypHow.s:60     .text:0000000000000060 $a
+     /tmp/cccypHow.s:67     .text:0000000000000060 GetLastOccurance
+     /tmp/cccypHow.s:88     .rodata.str1.4:0000000000000000 $d
+     /tmp/cccypHow.s:89     .rodata.str1.4:0000000000000000 .LC0
+     /tmp/cccypHow.s:99     .text:0000000000000094 siFormattedMessage_M2
+     /tmp/cccypHow.s:174    .text:0000000000000180 $d
+     /tmp/cccypHow.s:184    .rodata.str1.4:000000000000000c .LC1
+     /tmp/cccypHow.s:187    .text:000000000000019c $a
+     /tmp/cccypHow.s:194    .text:000000000000019c siFormattedMessage_SC
+     /tmp/cccypHow.s:313    .text:0000000000000310 $d
+     /tmp/cccypHow.s:392    .rodata:0000000000000000 cszLogFormat
+     /tmp/cccypHow.s:399    .data.rel.ro.local:0000000000000000 ErrorLookupA
+     /tmp/cccypHow.s:388    .rodata:0000000000000000 $d
+     /tmp/cccypHow.s:395    .data.rel.ro.local:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+fprintf
+vfprintf
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard
+OutputStream

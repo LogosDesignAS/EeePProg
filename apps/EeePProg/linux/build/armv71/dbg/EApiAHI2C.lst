@@ -1,0 +1,1925 @@
+ARM GAS  /tmp/ccgt2cG4.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiAHI2C.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.rodata
+  17              		.align	2
+  18              	.LC0:
+  19 0000 45417069 		.ascii	"EApiAHI2CCCreateAddrOffset\000"
+  19      41484932 
+  19      43434372 
+  19      65617465 
+  19      41646472 
+  20 001b 00       		.align	2
+  21              	.LC1:
+  22 001c 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/l"
+  22      652F686B 
+  22      682F6769 
+  22      742F6561 
+  22      7069646B 
+  23 004f 696E7578 		.ascii	"inux/../../common/EApiAHI2C.c\000"
+  23      2F2E2E2F 
+  23      2E2E2F63 
+  23      6F6D6D6F 
+  23      6E2F4541 
+  24 006d 000000   		.align	2
+  25              	.LC2:
+  26 0070 28704444 		.ascii	"(pDDesc==NULL)\000"
+  26      6573633D 
+  26      3D4E554C 
+  26      4C2900
+  27 007f 00       		.align	2
+  28              	.LC3:
+  29 0080 25730A00 		.ascii	"%s\012\000"
+  30              		.align	2
+  31              	.LC4:
+  32 0084 2870456E 		.ascii	"(pEncAddr==NULL)\000"
+  32      63416464 
+  32      723D3D4E 
+  32      554C4C29 
+  32      00
+  33 0095 000000   		.align	2
+  34              	.LC5:
+  35 0098 2870456E 		.ascii	"(pEncOffset==NULL)\000"
+  35      634F6666 
+  35      7365743D 
+  35      3D4E554C 
+ARM GAS  /tmp/ccgt2cG4.s 			page 2
+
+
+  35      4C2900
+  36              		.text
+  37              		.align	2
+  38              		.global	EApiAHI2CCCreateAddrOffset
+  39              		.arch armv7-a
+  40              		.arch_extension mp
+  41              		.arch_extension sec
+  42              		.syntax unified
+  43              		.arm
+  44              		.fpu vfpv3
+  46              	EApiAHI2CCCreateAddrOffset:
+  47              	.LFB1:
+  48              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/common/EApiAHI2C.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I Description: Auto Created for EApiAHI2C.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  File Name            : EApiAHI2C.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  File Location        : apps\common
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I  ID                   : $Id: EApiAHI2C.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****   #include <EApiApp.h>
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiStatus_t 
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiAHI2CCCreateAddrOffset(
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN  const I2CDeviceDesc_t *const pDDesc     , 
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN  size_t                       Offset     , 
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __OUT size_t                      *pEncAddr   , 
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __OUT size_t                      *pEncOffset
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     )
+ARM GAS  /tmp/ccgt2cG4.s 			page 3
+
+
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** {
+  49              		.loc 1 45 1
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 24
+  52              		@ frame_needed = 1, uses_anonymous_args = 0
+  53 0000 00482DE9 		push	{fp, lr}
+  54              		.cfi_def_cfa_offset 8
+  55              		.cfi_offset 11, -8
+  56              		.cfi_offset 14, -4
+  57 0004 04B08DE2 		add	fp, sp, #4
+  58              		.cfi_def_cfa 11, 4
+  59 0008 28D04DE2 		sub	sp, sp, #40
+  60 000c 10000BE5 		str	r0, [fp, #-16]
+  61 0010 14100BE5 		str	r1, [fp, #-20]
+  62 0014 18200BE5 		str	r2, [fp, #-24]
+  63 0018 1C300BE5 		str	r3, [fp, #-28]
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+  64              		.loc 1 46 18
+  65 001c 0030A0E3 		mov	r3, #0
+  66 0020 08300BE5 		str	r3, [fp, #-8]
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+  67              		.loc 1 47 5
+  68 0024 10301BE5 		ldr	r3, [fp, #-16]
+  69 0028 000053E3 		cmp	r3, #0
+  70 002c 1100001A 		bne	.L2
+  71              		.loc 1 47 5 is_stmt 0 discriminator 1
+  72 0030 F8329FE5 		ldr	r3, .L10
+  73              	.LPIC0:
+  74 0034 03308FE0 		add	r3, pc, r3
+  75 0038 08308DE5 		str	r3, [sp, #8]
+  76 003c F0329FE5 		ldr	r3, .L10+4
+  77              	.LPIC1:
+  78 0040 03308FE0 		add	r3, pc, r3
+  79 0044 04308DE5 		str	r3, [sp, #4]
+  80 0048 013CE0E3 		mvn	r3, #256
+  81 004c 00308DE5 		str	r3, [sp]
+  82 0050 2F30A0E3 		mov	r3, #47
+  83 0054 DC229FE5 		ldr	r2, .L10+8
+  84              	.LPIC2:
+  85 0058 02208FE0 		add	r2, pc, r2
+  86 005c D8129FE5 		ldr	r1, .L10+12
+  87              	.LPIC3:
+  88 0060 01108FE0 		add	r1, pc, r1
+  89 0064 4500A0E3 		mov	r0, #69
+  90 0068 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+  91 006c 013CE0E3 		mvn	r3, #256
+  92 0070 08300BE5 		str	r3, [fp, #-8]
+  93 0074 A90000EA 		b	.L3
+  94              	.L2:
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CCCreateAddrOffset, 
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+  95              		.loc 1 52 5 is_stmt 1
+  96 0078 18301BE5 		ldr	r3, [fp, #-24]
+  97 007c 000053E3 		cmp	r3, #0
+ARM GAS  /tmp/ccgt2cG4.s 			page 4
+
+
+  98 0080 1100001A 		bne	.L4
+  99              		.loc 1 52 5 is_stmt 0 discriminator 1
+ 100 0084 B4329FE5 		ldr	r3, .L10+16
+ 101              	.LPIC4:
+ 102 0088 03308FE0 		add	r3, pc, r3
+ 103 008c 08308DE5 		str	r3, [sp, #8]
+ 104 0090 AC329FE5 		ldr	r3, .L10+20
+ 105              	.LPIC5:
+ 106 0094 03308FE0 		add	r3, pc, r3
+ 107 0098 04308DE5 		str	r3, [sp, #4]
+ 108 009c 013CE0E3 		mvn	r3, #256
+ 109 00a0 00308DE5 		str	r3, [sp]
+ 110 00a4 3430A0E3 		mov	r3, #52
+ 111 00a8 98229FE5 		ldr	r2, .L10+24
+ 112              	.LPIC6:
+ 113 00ac 02208FE0 		add	r2, pc, r2
+ 114 00b0 94129FE5 		ldr	r1, .L10+28
+ 115              	.LPIC7:
+ 116 00b4 01108FE0 		add	r1, pc, r1
+ 117 00b8 4500A0E3 		mov	r0, #69
+ 118 00bc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 119 00c0 013CE0E3 		mvn	r3, #256
+ 120 00c4 08300BE5 		str	r3, [fp, #-8]
+ 121 00c8 940000EA 		b	.L3
+ 122              	.L4:
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CCCreateAddrOffset, 
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pEncAddr
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+ 123              		.loc 1 57 5 is_stmt 1
+ 124 00cc 1C301BE5 		ldr	r3, [fp, #-28]
+ 125 00d0 000053E3 		cmp	r3, #0
+ 126 00d4 1100001A 		bne	.L5
+ 127              		.loc 1 57 5 is_stmt 0 discriminator 1
+ 128 00d8 70329FE5 		ldr	r3, .L10+32
+ 129              	.LPIC8:
+ 130 00dc 03308FE0 		add	r3, pc, r3
+ 131 00e0 08308DE5 		str	r3, [sp, #8]
+ 132 00e4 68329FE5 		ldr	r3, .L10+36
+ 133              	.LPIC9:
+ 134 00e8 03308FE0 		add	r3, pc, r3
+ 135 00ec 04308DE5 		str	r3, [sp, #4]
+ 136 00f0 013CE0E3 		mvn	r3, #256
+ 137 00f4 00308DE5 		str	r3, [sp]
+ 138 00f8 3930A0E3 		mov	r3, #57
+ 139 00fc 54229FE5 		ldr	r2, .L10+40
+ 140              	.LPIC10:
+ 141 0100 02208FE0 		add	r2, pc, r2
+ 142 0104 50129FE5 		ldr	r1, .L10+44
+ 143              	.LPIC11:
+ 144 0108 01108FE0 		add	r1, pc, r1
+ 145 010c 4500A0E3 		mov	r0, #69
+ 146 0110 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 147 0114 013CE0E3 		mvn	r3, #256
+ 148 0118 08300BE5 		str	r3, [fp, #-8]
+ 149 011c 7F0000EA 		b	.L3
+ARM GAS  /tmp/ccgt2cG4.s 			page 5
+
+
+ 150              	.L5:
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CCCreateAddrOffset, 
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pEncOffset
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(pDDesc->ExtIndx==EApiAPI2CExtIndex)
+ 151              		.loc 1 62 14 is_stmt 1
+ 152 0120 10301BE5 		ldr	r3, [fp, #-16]
+ 153 0124 B430D3E1 		ldrh	r3, [r3, #4]
+ 154              		.loc 1 62 7
+ 155 0128 020053E3 		cmp	r3, #2
+ 156 012c 3E00001A 		bne	.L6
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       *pEncOffset=EAPI_I2C_ENC_EXT_CMD(Offset);
+ 157              		.loc 1 64 19
+ 158 0130 14301BE5 		ldr	r3, [fp, #-20]
+ 159 0134 7330FFE6 		uxth	r3, r3
+ 160 0138 022183E3 		orr	r2, r3, #-2147483648
+ 161              		.loc 1 64 18
+ 162 013c 1C301BE5 		ldr	r3, [fp, #-28]
+ 163 0140 002083E5 		str	r2, [r3]
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       Offset>>=16;
+ 164              		.loc 1 65 13
+ 165 0144 14301BE5 		ldr	r3, [fp, #-20]
+ 166 0148 2338A0E1 		lsr	r3, r3, #16
+ 167 014c 14300BE5 		str	r3, [fp, #-20]
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       Offset&=3;
+ 168              		.loc 1 66 13
+ 169 0150 14301BE5 		ldr	r3, [fp, #-20]
+ 170 0154 033003E2 		and	r3, r3, #3
+ 171 0158 14300BE5 		str	r3, [fp, #-20]
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(EAPI_I2C_IS_10BIT_ADDR(pDDesc->DeviceAddr))
+ 172              		.loc 1 67 10
+ 173 015c 10301BE5 		ldr	r3, [fp, #-16]
+ 174 0160 B030D3E1 		ldrh	r3, [r3]
+ 175 0164 3E3B03E2 		and	r3, r3, #63488
+ 176              		.loc 1 67 9
+ 177 0168 0F0A53E3 		cmp	r3, #61440
+ 178 016c 1F00001A 		bne	.L7
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         *pEncAddr=EAPI_I2C_ENC_10BIT_ADDR(
+ 179              		.loc 1 68 19
+ 180 0170 10301BE5 		ldr	r3, [fp, #-16]
+ 181 0174 B030D3E1 		ldrh	r3, [r3]
+ 182 0178 7320EFE6 		uxtb	r2, r3
+ 183 017c 10301BE5 		ldr	r3, [fp, #-16]
+ 184 0180 B030D3E1 		ldrh	r3, [r3]
+ 185 0184 A330A0E1 		lsr	r3, r3, #1
+ 186 0188 7330FFE6 		uxth	r3, r3
+ 187 018c 033C03E2 		and	r3, r3, #768
+ 188 0190 033082E1 		orr	r3, r2, r3
+ 189 0194 0320A0E1 		mov	r2, r3
+ 190 0198 14301BE5 		ldr	r3, [fp, #-20]
+ 191 019c 033082E0 		add	r3, r2, r3
+ 192 01a0 7320EFE6 		uxtb	r2, r3
+ 193 01a4 10301BE5 		ldr	r3, [fp, #-16]
+ 194 01a8 B030D3E1 		ldrh	r3, [r3]
+ 195 01ac 7310EFE6 		uxtb	r1, r3
+ARM GAS  /tmp/ccgt2cG4.s 			page 6
+
+
+ 196 01b0 10301BE5 		ldr	r3, [fp, #-16]
+ 197 01b4 B030D3E1 		ldrh	r3, [r3]
+ 198 01b8 A330A0E1 		lsr	r3, r3, #1
+ 199 01bc 7330FFE6 		uxth	r3, r3
+ 200 01c0 033C03E2 		and	r3, r3, #768
+ 201 01c4 033081E1 		orr	r3, r1, r3
+ 202 01c8 0310A0E1 		mov	r1, r3
+ 203 01cc 14301BE5 		ldr	r3, [fp, #-20]
+ 204 01d0 033081E0 		add	r3, r1, r3
+ 205 01d4 8330A0E1 		lsl	r3, r3, #1
+ 206 01d8 063C03E2 		and	r3, r3, #1536
+ 207 01dc 033082E1 		orr	r3, r2, r3
+ 208 01e0 0F2A83E3 		orr	r2, r3, #61440
+ 209              		.loc 1 68 18
+ 210 01e4 18301BE5 		ldr	r3, [fp, #-24]
+ 211 01e8 002083E5 		str	r2, [r3]
+ 212 01ec 4B0000EA 		b	.L3
+ 213              	.L7:
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****             EAPI_I2C_DEC_10BIT_ADDR(pDDesc->DeviceAddr)+Offset);
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       else
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         *pEncAddr=EAPI_I2C_ENC_7BIT_ADDR(
+ 214              		.loc 1 71 19
+ 215 01f0 10301BE5 		ldr	r3, [fp, #-16]
+ 216 01f4 B030D3E1 		ldrh	r3, [r3]
+ 217 01f8 A330A0E1 		lsr	r3, r3, #1
+ 218 01fc 7330FFE6 		uxth	r3, r3
+ 219 0200 7320EFE6 		uxtb	r2, r3
+ 220 0204 14301BE5 		ldr	r3, [fp, #-20]
+ 221 0208 7330EFE6 		uxtb	r3, r3
+ 222 020c 033082E0 		add	r3, r2, r3
+ 223 0210 7330EFE6 		uxtb	r3, r3
+ 224 0214 8330A0E1 		lsl	r3, r3, #1
+ 225 0218 7330EFE6 		uxtb	r3, r3
+ 226 021c 0320A0E1 		mov	r2, r3
+ 227              		.loc 1 71 18
+ 228 0220 18301BE5 		ldr	r3, [fp, #-24]
+ 229 0224 002083E5 		str	r2, [r3]
+ 230 0228 3C0000EA 		b	.L3
+ 231              	.L6:
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****             EAPI_I2C_DEC_7BIT_ADDR(pDDesc->DeviceAddr)+Offset);
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     else
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       *pEncOffset=EAPI_I2C_ENC_STD_CMD(Offset);
+ 232              		.loc 1 76 19
+ 233 022c 14301BE5 		ldr	r3, [fp, #-20]
+ 234 0230 7320EFE6 		uxtb	r2, r3
+ 235              		.loc 1 76 18
+ 236 0234 1C301BE5 		ldr	r3, [fp, #-28]
+ 237 0238 002083E5 		str	r2, [r3]
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       Offset>>=8;
+ 238              		.loc 1 77 13
+ 239 023c 14301BE5 		ldr	r3, [fp, #-20]
+ 240 0240 2334A0E1 		lsr	r3, r3, #8
+ 241 0244 14300BE5 		str	r3, [fp, #-20]
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       Offset&=3;
+ 242              		.loc 1 78 13
+ARM GAS  /tmp/ccgt2cG4.s 			page 7
+
+
+ 243 0248 14301BE5 		ldr	r3, [fp, #-20]
+ 244 024c 033003E2 		and	r3, r3, #3
+ 245 0250 14300BE5 		str	r3, [fp, #-20]
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(EAPI_I2C_IS_10BIT_ADDR(pDDesc->DeviceAddr))
+ 246              		.loc 1 79 10
+ 247 0254 10301BE5 		ldr	r3, [fp, #-16]
+ 248 0258 B030D3E1 		ldrh	r3, [r3]
+ 249 025c 3E3B03E2 		and	r3, r3, #63488
+ 250              		.loc 1 79 9
+ 251 0260 0F0A53E3 		cmp	r3, #61440
+ 252 0264 1F00001A 		bne	.L8
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         *pEncAddr=EAPI_I2C_ENC_10BIT_ADDR(
+ 253              		.loc 1 80 19
+ 254 0268 10301BE5 		ldr	r3, [fp, #-16]
+ 255 026c B030D3E1 		ldrh	r3, [r3]
+ 256 0270 7320EFE6 		uxtb	r2, r3
+ 257 0274 10301BE5 		ldr	r3, [fp, #-16]
+ 258 0278 B030D3E1 		ldrh	r3, [r3]
+ 259 027c A330A0E1 		lsr	r3, r3, #1
+ 260 0280 7330FFE6 		uxth	r3, r3
+ 261 0284 033C03E2 		and	r3, r3, #768
+ 262 0288 033082E1 		orr	r3, r2, r3
+ 263 028c 0320A0E1 		mov	r2, r3
+ 264 0290 14301BE5 		ldr	r3, [fp, #-20]
+ 265 0294 033082E0 		add	r3, r2, r3
+ 266 0298 7320EFE6 		uxtb	r2, r3
+ 267 029c 10301BE5 		ldr	r3, [fp, #-16]
+ 268 02a0 B030D3E1 		ldrh	r3, [r3]
+ 269 02a4 7310EFE6 		uxtb	r1, r3
+ 270 02a8 10301BE5 		ldr	r3, [fp, #-16]
+ 271 02ac B030D3E1 		ldrh	r3, [r3]
+ 272 02b0 A330A0E1 		lsr	r3, r3, #1
+ 273 02b4 7330FFE6 		uxth	r3, r3
+ 274 02b8 033C03E2 		and	r3, r3, #768
+ 275 02bc 033081E1 		orr	r3, r1, r3
+ 276 02c0 0310A0E1 		mov	r1, r3
+ 277 02c4 14301BE5 		ldr	r3, [fp, #-20]
+ 278 02c8 033081E0 		add	r3, r1, r3
+ 279 02cc 8330A0E1 		lsl	r3, r3, #1
+ 280 02d0 063C03E2 		and	r3, r3, #1536
+ 281 02d4 033082E1 		orr	r3, r2, r3
+ 282 02d8 0F2A83E3 		orr	r2, r3, #61440
+ 283              		.loc 1 80 18
+ 284 02dc 18301BE5 		ldr	r3, [fp, #-24]
+ 285 02e0 002083E5 		str	r2, [r3]
+ 286 02e4 0D0000EA 		b	.L3
+ 287              	.L8:
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****             EAPI_I2C_DEC_10BIT_ADDR(pDDesc->DeviceAddr)+Offset);
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       else
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         *pEncAddr=EAPI_I2C_ENC_7BIT_ADDR(
+ 288              		.loc 1 83 19
+ 289 02e8 10301BE5 		ldr	r3, [fp, #-16]
+ 290 02ec B030D3E1 		ldrh	r3, [r3]
+ 291 02f0 A330A0E1 		lsr	r3, r3, #1
+ 292 02f4 7330FFE6 		uxth	r3, r3
+ 293 02f8 7320EFE6 		uxtb	r2, r3
+ 294 02fc 14301BE5 		ldr	r3, [fp, #-20]
+ARM GAS  /tmp/ccgt2cG4.s 			page 8
+
+
+ 295 0300 7330EFE6 		uxtb	r3, r3
+ 296 0304 033082E0 		add	r3, r2, r3
+ 297 0308 7330EFE6 		uxtb	r3, r3
+ 298 030c 8330A0E1 		lsl	r3, r3, #1
+ 299 0310 7330EFE6 		uxtb	r3, r3
+ 300 0314 0320A0E1 		mov	r2, r3
+ 301              		.loc 1 83 18
+ 302 0318 18301BE5 		ldr	r3, [fp, #-24]
+ 303 031c 002083E5 		str	r2, [r3]
+ 304              	.L3:
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****             EAPI_I2C_DEC_7BIT_ADDR(pDDesc->DeviceAddr)+Offset);
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EAPI_APP_ASSERT_EXIT
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****   return StatusCode;
+ 305              		.loc 1 88 10
+ 306 0320 08301BE5 		ldr	r3, [fp, #-8]
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** }
+ 307              		.loc 1 89 1
+ 308 0324 0300A0E1 		mov	r0, r3
+ 309 0328 04D04BE2 		sub	sp, fp, #4
+ 310              		.cfi_def_cfa 13, 8
+ 311              		@ sp needed
+ 312 032c 0088BDE8 		pop	{fp, pc}
+ 313              	.L11:
+ 314              		.align	2
+ 315              	.L10:
+ 316 0330 64030000 		.word	.LC2-(.LPIC0+8)
+ 317 0334 6C030000 		.word	.LC3-(.LPIC1+8)
+ 318 0338 D8020000 		.word	.LC0-(.LPIC2+8)
+ 319 033c F0020000 		.word	.LC1-(.LPIC3+8)
+ 320 0340 34030000 		.word	.LC4-(.LPIC4+8)
+ 321 0344 28030000 		.word	.LC3-(.LPIC5+8)
+ 322 0348 94020000 		.word	.LC0-(.LPIC6+8)
+ 323 034c AC020000 		.word	.LC1-(.LPIC7+8)
+ 324 0350 04030000 		.word	.LC5-(.LPIC8+8)
+ 325 0354 E4020000 		.word	.LC3-(.LPIC9+8)
+ 326 0358 50020000 		.word	.LC0-(.LPIC10+8)
+ 327 035c 68020000 		.word	.LC1-(.LPIC11+8)
+ 328              		.cfi_endproc
+ 329              	.LFE1:
+ 331              		.align	2
+ 332              		.global	ValidEEPDevDesc
+ 333              		.syntax unified
+ 334              		.arm
+ 335              		.fpu vfpv3
+ 337              	ValidEEPDevDesc:
+ 338              	.LFB2:
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiStatus_t
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** ValidEEPDevDesc(
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN const I2CDeviceDesc_t *const pDDesc
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     )
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** {
+ 339              		.loc 1 94 1
+ 340              		.cfi_startproc
+ 341              		@ args = 0, pretend = 0, frame = 16
+ 342              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/ccgt2cG4.s 			page 9
+
+
+ 343              		@ link register save eliminated.
+ 344 0360 04B02DE5 		str	fp, [sp, #-4]!
+ 345              		.cfi_def_cfa_offset 4
+ 346              		.cfi_offset 11, -4
+ 347 0364 00B08DE2 		add	fp, sp, #0
+ 348              		.cfi_def_cfa_register 11
+ 349 0368 14D04DE2 		sub	sp, sp, #20
+ 350 036c 10000BE5 		str	r0, [fp, #-16]
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 351              		.loc 1 95 18
+ 352 0370 0030A0E3 		mov	r3, #0
+ 353 0374 0C300BE5 		str	r3, [fp, #-12]
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     int AddrCnt;
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(pDDesc->ExtIndx==EApiAPI2CExtIndex)
+ 354              		.loc 1 97 14
+ 355 0378 10301BE5 		ldr	r3, [fp, #-16]
+ 356 037c B430D3E1 		ldrh	r3, [r3, #4]
+ 357              		.loc 1 97 7
+ 358 0380 020053E3 		cmp	r3, #2
+ 359 0384 0500001A 		bne	.L13
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       AddrCnt=pDDesc->DevSize>>16<<1;
+ 360              		.loc 1 99 21
+ 361 0388 10301BE5 		ldr	r3, [fp, #-16]
+ 362 038c 083093E5 		ldr	r3, [r3, #8]
+ 363              		.loc 1 99 30
+ 364 0390 2338A0E1 		lsr	r3, r3, #16
+ 365              		.loc 1 99 34
+ 366 0394 8330A0E1 		lsl	r3, r3, #1
+ 367              		.loc 1 99 14
+ 368 0398 08300BE5 		str	r3, [fp, #-8]
+ 369 039c 100000EA 		b	.L14
+ 370              	.L13:
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(AddrCnt)
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       {
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         /* Not Sure */
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       }
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     else
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       AddrCnt=pDDesc->DevSize>>8<<1;
+ 371              		.loc 1 107 21
+ 372 03a0 10301BE5 		ldr	r3, [fp, #-16]
+ 373 03a4 083093E5 		ldr	r3, [r3, #8]
+ 374              		.loc 1 107 30
+ 375 03a8 2334A0E1 		lsr	r3, r3, #8
+ 376              		.loc 1 107 33
+ 377 03ac 8330A0E1 		lsl	r3, r3, #1
+ 378              		.loc 1 107 14
+ 379 03b0 08300BE5 		str	r3, [fp, #-8]
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(AddrCnt)
+ 380              		.loc 1 108 9
+ 381 03b4 08301BE5 		ldr	r3, [fp, #-8]
+ 382 03b8 000053E3 		cmp	r3, #0
+ 383 03bc 0800000A 		beq	.L14
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       {
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         if((pDDesc->DeviceAddr+AddrCnt)>0xAF)
+ARM GAS  /tmp/ccgt2cG4.s 			page 10
+
+
+ 384              		.loc 1 110 19
+ 385 03c0 10301BE5 		ldr	r3, [fp, #-16]
+ 386 03c4 B030D3E1 		ldrh	r3, [r3]
+ 387 03c8 0320A0E1 		mov	r2, r3
+ 388              		.loc 1 110 31
+ 389 03cc 08301BE5 		ldr	r3, [fp, #-8]
+ 390 03d0 033082E0 		add	r3, r2, r3
+ 391              		.loc 1 110 11
+ 392 03d4 AF0053E3 		cmp	r3, #175
+ 393 03d8 010000DA 		ble	.L14
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         {
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           return EAPI_STATUS_INVALID_PARAMETER;
+ 394              		.loc 1 112 18
+ 395 03dc 013CE0E3 		mvn	r3, #256
+ 396 03e0 000000EA 		b	.L15
+ 397              	.L14:
+ 113:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         }
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       }
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+ 116:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     return StatusCode;
+ 398              		.loc 1 116 12
+ 399 03e4 0C301BE5 		ldr	r3, [fp, #-12]
+ 400              	.L15:
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** }
+ 401              		.loc 1 117 1
+ 402 03e8 0300A0E1 		mov	r0, r3
+ 403 03ec 00D08BE2 		add	sp, fp, #0
+ 404              		.cfi_def_cfa_register 13
+ 405              		@ sp needed
+ 406 03f0 04B09DE4 		ldr	fp, [sp], #4
+ 407              		.cfi_restore 11
+ 408              		.cfi_def_cfa_offset 0
+ 409 03f4 1EFF2FE1 		bx	lr
+ 410              		.cfi_endproc
+ 411              	.LFE2:
+ 413              		.section	.rodata
+ 414 00ab 00       		.align	2
+ 415              	.LC6:
+ 416 00ac 45417069 		.ascii	"EApiAHI2CWriteEeprom\000"
+ 416      41484932 
+ 416      43577269 
+ 416      74654565 
+ 416      70726F6D 
+ 417 00c1 000000   		.align	2
+ 418              	.LC7:
+ 419 00c4 28704275 		.ascii	"(pBuffer==NULL)\000"
+ 419      66666572 
+ 419      3D3D4E55 
+ 419      4C4C2900 
+ 420              		.align	2
+ 421              	.LC8:
+ 422 00d4 28427974 		.ascii	"(ByteCnt==0)\000"
+ 422      65436E74 
+ 422      3D3D3029 
+ 422      00
+ 423 00e1 000000   		.align	2
+ 424              	.LC9:
+ARM GAS  /tmp/ccgt2cG4.s 			page 11
+
+
+ 425 00e4 496E7661 		.ascii	"Invalid EEPROM Device Descriptor\000"
+ 425      6C696420 
+ 425      45455052 
+ 425      4F4D2044 
+ 425      65766963 
+ 426 0105 000000   		.align	2
+ 427              	.LC10:
+ 428 0108 50726576 		.ascii	"Prevented Write beyond Device Boundary\000"
+ 428      656E7465 
+ 428      64205772 
+ 428      69746520 
+ 428      6265796F 
+ 429              		.global	__aeabi_uidivmod
+ 430              		.text
+ 431              		.align	2
+ 432              		.global	EApiAHI2CWriteEeprom
+ 433              		.syntax unified
+ 434              		.arm
+ 435              		.fpu vfpv3
+ 437              	EApiAHI2CWriteEeprom:
+ 438              	.LFB3:
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiStatus_t
+ 119:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiAHI2CWriteEeprom(
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN EApiId_t               Id          , 
+ 121:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN const I2CDeviceDesc_t *const pDDesc, 
+ 122:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN const size_t           ByteOffset  , 
+ 123:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN void *                 pBuffer     , 
+ 124:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN size_t                 ByteCnt 
+ 125:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     )
+ 126:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** {
+ 439              		.loc 1 126 1
+ 440              		.cfi_startproc
+ 441              		@ args = 4, pretend = 0, frame = 56
+ 442              		@ frame_needed = 1, uses_anonymous_args = 0
+ 443 03f8 00482DE9 		push	{fp, lr}
+ 444              		.cfi_def_cfa_offset 8
+ 445              		.cfi_offset 11, -8
+ 446              		.cfi_offset 14, -4
+ 447 03fc 04B08DE2 		add	fp, sp, #4
+ 448              		.cfi_def_cfa 11, 4
+ 449 0400 48D04DE2 		sub	sp, sp, #72
+ 450 0404 30000BE5 		str	r0, [fp, #-48]
+ 451 0408 34100BE5 		str	r1, [fp, #-52]
+ 452 040c 38200BE5 		str	r2, [fp, #-56]
+ 453 0410 3C300BE5 		str	r3, [fp, #-60]
+ 454              		.loc 1 126 1
+ 455 0414 B0249FE5 		ldr	r2, .L41
+ 456              	.LPIC32:
+ 457 0418 02208FE0 		add	r2, pc, r2
+ 458 041c AC349FE5 		ldr	r3, .L41+4
+ 459 0420 033092E7 		ldr	r3, [r2, r3]
+ 460 0424 003093E5 		ldr	r3, [r3]
+ 461 0428 08300BE5 		str	r3, [fp, #-8]
+ 462 042c 0030A0E3 		mov	r3, #0
+ 127:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 463              		.loc 1 127 18
+ 464 0430 0030A0E3 		mov	r3, #0
+ARM GAS  /tmp/ccgt2cG4.s 			page 12
+
+
+ 465 0434 1C300BE5 		str	r3, [fp, #-28]
+ 128:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     uint32_t IntMaxBlckLen;
+ 129:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t BlockEndAddress;
+ 130:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t BlockLength;
+ 131:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t BlockLengthStd;
+ 132:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t CurOffset;
+ 133:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t EncAddr;
+ 134:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t EncOffset;
+ 135:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     
+ 136:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+ 466              		.loc 1 136 5
+ 467 0438 34301BE5 		ldr	r3, [fp, #-52]
+ 468 043c 000053E3 		cmp	r3, #0
+ 469 0440 1100001A 		bne	.L17
+ 470              		.loc 1 136 5 is_stmt 0 discriminator 1
+ 471 0444 88349FE5 		ldr	r3, .L41+8
+ 472              	.LPIC12:
+ 473 0448 03308FE0 		add	r3, pc, r3
+ 474 044c 08308DE5 		str	r3, [sp, #8]
+ 475 0450 80349FE5 		ldr	r3, .L41+12
+ 476              	.LPIC13:
+ 477 0454 03308FE0 		add	r3, pc, r3
+ 478 0458 04308DE5 		str	r3, [sp, #4]
+ 479 045c 013CE0E3 		mvn	r3, #256
+ 480 0460 00308DE5 		str	r3, [sp]
+ 481 0464 8830A0E3 		mov	r3, #136
+ 482 0468 6C249FE5 		ldr	r2, .L41+16
+ 483              	.LPIC14:
+ 484 046c 02208FE0 		add	r2, pc, r2
+ 485 0470 68149FE5 		ldr	r1, .L41+20
+ 486              	.LPIC15:
+ 487 0474 01108FE0 		add	r1, pc, r1
+ 488 0478 4500A0E3 		mov	r0, #69
+ 489 047c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 490 0480 013CE0E3 		mvn	r3, #256
+ 491 0484 1C300BE5 		str	r3, [fp, #-28]
+ 492 0488 010100EA 		b	.L18
+ 493              	.L17:
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CWriteEeprom, 
+ 138:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 139:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc
+ 140:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 141:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+ 494              		.loc 1 141 5 is_stmt 1
+ 495 048c 3C301BE5 		ldr	r3, [fp, #-60]
+ 496 0490 000053E3 		cmp	r3, #0
+ 497 0494 1100001A 		bne	.L19
+ 498              		.loc 1 141 5 is_stmt 0 discriminator 1
+ 499 0498 44349FE5 		ldr	r3, .L41+24
+ 500              	.LPIC16:
+ 501 049c 03308FE0 		add	r3, pc, r3
+ 502 04a0 08308DE5 		str	r3, [sp, #8]
+ 503 04a4 3C349FE5 		ldr	r3, .L41+28
+ 504              	.LPIC17:
+ 505 04a8 03308FE0 		add	r3, pc, r3
+ 506 04ac 04308DE5 		str	r3, [sp, #4]
+ 507 04b0 013CE0E3 		mvn	r3, #256
+ARM GAS  /tmp/ccgt2cG4.s 			page 13
+
+
+ 508 04b4 00308DE5 		str	r3, [sp]
+ 509 04b8 8D30A0E3 		mov	r3, #141
+ 510 04bc 28249FE5 		ldr	r2, .L41+32
+ 511              	.LPIC18:
+ 512 04c0 02208FE0 		add	r2, pc, r2
+ 513 04c4 24149FE5 		ldr	r1, .L41+36
+ 514              	.LPIC19:
+ 515 04c8 01108FE0 		add	r1, pc, r1
+ 516 04cc 4500A0E3 		mov	r0, #69
+ 517 04d0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 518 04d4 013CE0E3 		mvn	r3, #256
+ 519 04d8 1C300BE5 		str	r3, [fp, #-28]
+ 520 04dc EC0000EA 		b	.L18
+ 521              	.L19:
+ 142:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CWriteEeprom, 
+ 143:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 144:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pBuffer
+ 145:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 146:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_ZERO(
+ 522              		.loc 1 146 5 is_stmt 1
+ 523 04e0 04309BE5 		ldr	r3, [fp, #4]
+ 524 04e4 000053E3 		cmp	r3, #0
+ 525 04e8 1100001A 		bne	.L20
+ 526              		.loc 1 146 5 is_stmt 0 discriminator 1
+ 527 04ec 00349FE5 		ldr	r3, .L41+40
+ 528              	.LPIC20:
+ 529 04f0 03308FE0 		add	r3, pc, r3
+ 530 04f4 08308DE5 		str	r3, [sp, #8]
+ 531 04f8 F8339FE5 		ldr	r3, .L41+44
+ 532              	.LPIC21:
+ 533 04fc 03308FE0 		add	r3, pc, r3
+ 534 0500 04308DE5 		str	r3, [sp, #4]
+ 535 0504 013CE0E3 		mvn	r3, #256
+ 536 0508 00308DE5 		str	r3, [sp]
+ 537 050c 9230A0E3 		mov	r3, #146
+ 538 0510 E4239FE5 		ldr	r2, .L41+48
+ 539              	.LPIC22:
+ 540 0514 02208FE0 		add	r2, pc, r2
+ 541 0518 E0139FE5 		ldr	r1, .L41+52
+ 542              	.LPIC23:
+ 543 051c 01108FE0 		add	r1, pc, r1
+ 544 0520 4500A0E3 		mov	r0, #69
+ 545 0524 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 546 0528 013CE0E3 		mvn	r3, #256
+ 547 052c 1C300BE5 		str	r3, [fp, #-28]
+ 548 0530 D70000EA 		b	.L18
+ 549              	.L20:
+ 147:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CWriteEeprom, 
+ 148:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 149:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ByteCnt
+ 150:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 151:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_CHECK(
+ 550              		.loc 1 151 5 is_stmt 1
+ 551 0534 34001BE5 		ldr	r0, [fp, #-52]
+ 552 0538 FEFFFFEB 		bl	ValidEEPDevDesc(PLT)
+ 553 053c 0030A0E1 		mov	r3, r0
+ 554 0540 000053E3 		cmp	r3, #0
+ARM GAS  /tmp/ccgt2cG4.s 			page 14
+
+
+ 555 0544 1100000A 		beq	.L21
+ 556              		.loc 1 151 5 is_stmt 0 discriminator 1
+ 557 0548 B4339FE5 		ldr	r3, .L41+56
+ 558              	.LPIC24:
+ 559 054c 03308FE0 		add	r3, pc, r3
+ 560 0550 08308DE5 		str	r3, [sp, #8]
+ 561 0554 AC339FE5 		ldr	r3, .L41+60
+ 562              	.LPIC25:
+ 563 0558 03308FE0 		add	r3, pc, r3
+ 564 055c 04308DE5 		str	r3, [sp, #4]
+ 565 0560 013CE0E3 		mvn	r3, #256
+ 566 0564 00308DE5 		str	r3, [sp]
+ 567 0568 9730A0E3 		mov	r3, #151
+ 568 056c 98239FE5 		ldr	r2, .L41+64
+ 569              	.LPIC26:
+ 570 0570 02208FE0 		add	r2, pc, r2
+ 571 0574 94139FE5 		ldr	r1, .L41+68
+ 572              	.LPIC27:
+ 573 0578 01108FE0 		add	r1, pc, r1
+ 574 057c 4500A0E3 		mov	r0, #69
+ 575 0580 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 576 0584 013CE0E3 		mvn	r3, #256
+ 577 0588 1C300BE5 		str	r3, [fp, #-28]
+ 578 058c C00000EA 		b	.L18
+ 579              	.L21:
+ 152:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CWriteEeprom, 
+ 153:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 154:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ValidEEPDevDesc(pDDesc) , 
+ 155:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "Invalid EEPROM Device Descriptor"
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 157:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_CHECK(
+ 580              		.loc 1 157 5 is_stmt 1
+ 581 0590 38201BE5 		ldr	r2, [fp, #-56]
+ 582 0594 04309BE5 		ldr	r3, [fp, #4]
+ 583 0598 032082E0 		add	r2, r2, r3
+ 584 059c 34301BE5 		ldr	r3, [fp, #-52]
+ 585 05a0 083093E5 		ldr	r3, [r3, #8]
+ 586 05a4 030052E1 		cmp	r2, r3
+ 587 05a8 1100009A 		bls	.L22
+ 588              		.loc 1 157 5 is_stmt 0 discriminator 1
+ 589 05ac 60339FE5 		ldr	r3, .L41+72
+ 590              	.LPIC28:
+ 591 05b0 03308FE0 		add	r3, pc, r3
+ 592 05b4 08308DE5 		str	r3, [sp, #8]
+ 593 05b8 58339FE5 		ldr	r3, .L41+76
+ 594              	.LPIC29:
+ 595 05bc 03308FE0 		add	r3, pc, r3
+ 596 05c0 04308DE5 		str	r3, [sp, #4]
+ 597 05c4 013CE0E3 		mvn	r3, #256
+ 598 05c8 00308DE5 		str	r3, [sp]
+ 599 05cc 9D30A0E3 		mov	r3, #157
+ 600 05d0 44239FE5 		ldr	r2, .L41+80
+ 601              	.LPIC30:
+ 602 05d4 02208FE0 		add	r2, pc, r2
+ 603 05d8 40139FE5 		ldr	r1, .L41+84
+ 604              	.LPIC31:
+ 605 05dc 01108FE0 		add	r1, pc, r1
+ARM GAS  /tmp/ccgt2cG4.s 			page 15
+
+
+ 606 05e0 4500A0E3 		mov	r0, #69
+ 607 05e4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 608 05e8 013CE0E3 		mvn	r3, #256
+ 609 05ec 1C300BE5 		str	r3, [fp, #-28]
+ 610 05f0 A70000EA 		b	.L18
+ 611              	.L22:
+ 158:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CWriteEeprom, 
+ 159:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 160:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ByteOffset+ByteCnt>pDDesc->DevSize, 
+ 161:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "Prevented Write beyond Device Boundary"
+ 162:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 163:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** #if STRICT_VALIDATION
+ 164:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(ByteOffset+ByteCnt>pDDesc->DevSize)
+ 612              		.loc 1 164 18 is_stmt 1
+ 613 05f4 38201BE5 		ldr	r2, [fp, #-56]
+ 614 05f8 04309BE5 		ldr	r3, [fp, #4]
+ 615 05fc 032082E0 		add	r2, r2, r3
+ 616              		.loc 1 164 33
+ 617 0600 34301BE5 		ldr	r3, [fp, #-52]
+ 618 0604 083093E5 		ldr	r3, [r3, #8]
+ 619              		.loc 1 164 7
+ 620 0608 030052E1 		cmp	r2, r3
+ 621 060c 0400009A 		bls	.L23
+ 165:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 166:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       ByteCnt=pDDesc->DevSize-ByteOffset;
+ 622              		.loc 1 166 21
+ 623 0610 34301BE5 		ldr	r3, [fp, #-52]
+ 624 0614 082093E5 		ldr	r2, [r3, #8]
+ 625              		.loc 1 166 14
+ 626 0618 38301BE5 		ldr	r3, [fp, #-56]
+ 627 061c 033042E0 		sub	r3, r2, r3
+ 628 0620 04308BE5 		str	r3, [fp, #4]
+ 629              	.L23:
+ 167:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+ 168:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** #endif
+ 169:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** #if 0
+ 170:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     printf(
+ 171:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "DeviceAddr = %04"PRIX16"\n"
+ 172:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "PageSize   = %04"PRIX16"\n"
+ 173:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "ExtIndx    = %04"PRIX16"\n"
+ 174:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "WRecTimems = %04"PRIX16"\n"
+ 175:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "DevSize    = %04"PRIX16"\n"
+ 176:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "ByteCnt    = %04lX\n"
+ 177:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "ByteOffset = %04lX\n",
+ 178:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc->DeviceAddr,
+ 179:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc->PageSize,
+ 180:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc->ExtIndx,
+ 181:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc->WRecTimems,
+ 182:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc->DevSize ,
+ 183:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         (unsigned long)ByteCnt ,
+ 184:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         (unsigned long)ByteOffset
+ 185:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       );
+ 186:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** #endif
+ 187:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     
+ 188:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     /* Get Storage Capabilities */
+ 189:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     StatusCode=EApiI2CGetBusCap(Id, &IntMaxBlckLen);
+ 630              		.loc 1 189 16
+ARM GAS  /tmp/ccgt2cG4.s 			page 16
+
+
+ 631 0624 28304BE2 		sub	r3, fp, #40
+ 632 0628 0310A0E1 		mov	r1, r3
+ 633 062c 30001BE5 		ldr	r0, [fp, #-48]
+ 634 0630 FEFFFFEB 		bl	EApiI2CGetBusCap(PLT)
+ 635 0634 1C000BE5 		str	r0, [fp, #-28]
+ 190:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(!EAPI_TEST_SUCCESS(StatusCode))
+ 636              		.loc 1 190 7
+ 637 0638 1C301BE5 		ldr	r3, [fp, #-28]
+ 638 063c 000053E3 		cmp	r3, #0
+ 639 0640 8E00001A 		bne	.L38
+ 191:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       goto ErrorExit;
+ 192:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 193:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     BlockEndAddress=ByteOffset+ByteCnt;
+ 640              		.loc 1 193 20
+ 641 0644 38201BE5 		ldr	r2, [fp, #-56]
+ 642 0648 04309BE5 		ldr	r3, [fp, #4]
+ 643 064c 033082E0 		add	r3, r2, r3
+ 644 0650 10300BE5 		str	r3, [fp, #-16]
+ 194:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     /* Just use BlockLength as write overhead calculator briefly 
+ 195:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      * Write Overhead is CMD + 10Bit Address
+ 196:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      * I.E. First Byte of address is not included
+ 197:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      * so CMD/INDX can be 1  or 2 Bytes and the Address can add an extra byte
+ 198:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      * so we can have between 1 and 3 bytes overhead on an write.
+ 199:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      */
+ 200:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     BlockLength=(EAPI_I2C_DEC_10BIT_ADDR(pDDesc->DeviceAddr)?1:0)+pDDesc->ExtIndx;
+ 645              		.loc 1 200 18
+ 646 0654 34301BE5 		ldr	r3, [fp, #-52]
+ 647 0658 B030D3E1 		ldrh	r3, [r3]
+ 648 065c 7320EFE6 		uxtb	r2, r3
+ 649 0660 34301BE5 		ldr	r3, [fp, #-52]
+ 650 0664 B030D3E1 		ldrh	r3, [r3]
+ 651 0668 A330A0E1 		lsr	r3, r3, #1
+ 652 066c 7330FFE6 		uxth	r3, r3
+ 653 0670 033C03E2 		and	r3, r3, #768
+ 654 0674 033082E1 		orr	r3, r2, r3
+ 655              		.loc 1 200 63
+ 656 0678 000053E3 		cmp	r3, #0
+ 657 067c 0130A013 		movne	r3, #1
+ 658 0680 0030A003 		moveq	r3, #0
+ 659 0684 7330EFE6 		uxtb	r3, r3
+ 660 0688 0320A0E1 		mov	r2, r3
+ 661              		.loc 1 200 73
+ 662 068c 34301BE5 		ldr	r3, [fp, #-52]
+ 663 0690 B430D3E1 		ldrh	r3, [r3, #4]
+ 664              		.loc 1 200 66
+ 665 0694 033082E0 		add	r3, r2, r3
+ 666              		.loc 1 200 16
+ 667 0698 18300BE5 		str	r3, [fp, #-24]
+ 201:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     /* Ok so now we need to check if Page Size+ Write overhead is greater than the 
+ 202:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      * Max Transfer length on this interface
+ 203:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      * Basically use whichever is shorter for our Block Length
+ 204:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****      */
+ 205:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     BlockLength=(IntMaxBlckLen<(pDDesc->PageSize+BlockLength)?IntMaxBlckLen-BlockLength:pDDesc->Pag
+ 668              		.loc 1 205 39
+ 669 069c 34301BE5 		ldr	r3, [fp, #-52]
+ 670 06a0 B230D3E1 		ldrh	r3, [r3, #2]
+ 671 06a4 0320A0E1 		mov	r2, r3
+ARM GAS  /tmp/ccgt2cG4.s 			page 17
+
+
+ 672              		.loc 1 205 49
+ 673 06a8 18301BE5 		ldr	r3, [fp, #-24]
+ 674 06ac 032082E0 		add	r2, r2, r3
+ 675              		.loc 1 205 31
+ 676 06b0 28301BE5 		ldr	r3, [fp, #-40]
+ 677              		.loc 1 205 88
+ 678 06b4 030052E1 		cmp	r2, r3
+ 679 06b8 0300009A 		bls	.L26
+ 680              		.loc 1 205 76 discriminator 1
+ 681 06bc 28201BE5 		ldr	r2, [fp, #-40]
+ 682              		.loc 1 205 88 discriminator 1
+ 683 06c0 18301BE5 		ldr	r3, [fp, #-24]
+ 684 06c4 033042E0 		sub	r3, r2, r3
+ 685 06c8 010000EA 		b	.L27
+ 686              	.L26:
+ 687              		.loc 1 205 95 discriminator 2
+ 688 06cc 34301BE5 		ldr	r3, [fp, #-52]
+ 689 06d0 B230D3E1 		ldrh	r3, [r3, #2]
+ 690              	.L27:
+ 691              		.loc 1 205 16 discriminator 4
+ 692 06d4 18300BE5 		str	r3, [fp, #-24]
+ 206:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     /* This check is more important for reads than writes */
+ 207:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(pDDesc->ExtIndx==EApiAPI2CExtIndex)
+ 693              		.loc 1 207 14 discriminator 4
+ 694 06d8 34301BE5 		ldr	r3, [fp, #-52]
+ 695 06dc B430D3E1 		ldrh	r3, [r3, #4]
+ 696              		.loc 1 207 7 discriminator 4
+ 697 06e0 020053E3 		cmp	r3, #2
+ 698 06e4 0500001A 		bne	.L28
+ 208:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* After this length it is necessary to increment the Device Address */
+ 209:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       BlockLength=(BlockLength<0x10000?BlockLength:0x10000);
+ 699              		.loc 1 209 18
+ 700 06e8 18301BE5 		ldr	r3, [fp, #-24]
+ 701 06ec 010853E3 		cmp	r3, #65536
+ 702 06f0 0330A031 		movcc	r3, r3
+ 703 06f4 0138A023 		movcs	r3, #65536
+ 704 06f8 18300BE5 		str	r3, [fp, #-24]
+ 705 06fc 040000EA 		b	.L29
+ 706              	.L28:
+ 210:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     else
+ 211:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* After this length it is necessary to increment the Device Address */
+ 212:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       BlockLength=(BlockLength<0x100?BlockLength:0x100);
+ 707              		.loc 1 212 18
+ 708 0700 18301BE5 		ldr	r3, [fp, #-24]
+ 709 0704 010C53E3 		cmp	r3, #256
+ 710 0708 0330A031 		movcc	r3, r3
+ 711 070c 013CA023 		movcs	r3, #256
+ 712 0710 18300BE5 		str	r3, [fp, #-24]
+ 713              	.L29:
+ 213:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     CurOffset=ByteOffset;
+ 714              		.loc 1 213 14
+ 715 0714 38301BE5 		ldr	r3, [fp, #-56]
+ 716 0718 14300BE5 		str	r3, [fp, #-20]
+ 214:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     BlockLengthStd=BlockLength;
+ 717              		.loc 1 214 19
+ 718 071c 18301BE5 		ldr	r3, [fp, #-24]
+ 719 0720 0C300BE5 		str	r3, [fp, #-12]
+ARM GAS  /tmp/ccgt2cG4.s 			page 18
+
+
+ 215:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     while(CurOffset<BlockEndAddress)
+ 720              		.loc 1 215 10
+ 721 0724 500000EA 		b	.L30
+ 722              	.L35:
+ 216:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 217:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Adjust block length so we don't write more than we intended 
+ 218:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        */
+ 219:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(CurOffset+BlockLength>BlockEndAddress){
+ 723              		.loc 1 219 19
+ 724 0728 14201BE5 		ldr	r2, [fp, #-20]
+ 725 072c 18301BE5 		ldr	r3, [fp, #-24]
+ 726 0730 033082E0 		add	r3, r2, r3
+ 727              		.loc 1 219 9
+ 728 0734 10201BE5 		ldr	r2, [fp, #-16]
+ 729 0738 030052E1 		cmp	r2, r3
+ 730 073c 0300002A 		bcs	.L31
+ 220:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         BlockLength=BlockEndAddress - CurOffset;
+ 731              		.loc 1 220 20
+ 732 0740 10201BE5 		ldr	r2, [fp, #-16]
+ 733 0744 14301BE5 		ldr	r3, [fp, #-20]
+ 734 0748 033042E0 		sub	r3, r2, r3
+ 735 074c 18300BE5 		str	r3, [fp, #-24]
+ 736              	.L31:
+ 221:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       }
+ 222:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Adjust block length so we don't overrun the end of the Page 
+ 223:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * As we've already verified all the maximum block lengths above
+ 224:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * This should only be because of 2 reasons
+ 225:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * 1. Start offset isn't aligned. 
+ 226:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * 2. Bus interfaces maximum block length is not a divisor of the 
+ 227:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        *    EEPROM page length. 
+ 228:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * To adequately address both situations, or indeed a combination
+ 229:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * of them we check here if we're going to overwrite the page boundary
+ 230:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * and if so adjust the Block length. At the end of the transfer we 
+ 231:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * restore the Max calculate block length, from above and do it all over 
+ 232:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * again 
+ 233:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Example 1.
+ 234:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Max Bus length = 16 Bytes
+ 235:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Page Size      = 16 Bytes
+ 236:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Start Offset   =  1
+ 237:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Write Overhead =  2 Bytes     For the Ext Index
+ 238:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Total Transfer = 32 Bytes
+ 239:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        *
+ 240:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Results in a 
+ 241:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Max Block length of 14 Bytes
+ 242:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * This results in 5 transfers
+ 243:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * 14Bytes 1Byte 14Bytes 2Bytes 1Byte
+ 244:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        *
+ 245:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Example 2.
+ 246:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Max Bus length = 18 Bytes
+ 247:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Page Size      = 16 Bytes
+ 248:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Start Offset   =  3
+ 249:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Write Overhead =  3 Bytes     For the Ext Index & 10Bit Address
+ 250:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Total Transfer = 30 Bytes
+ 251:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        *
+ 252:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Results in a 
+ 253:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Max Block length of 15 Bytes
+ 254:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * This results in 4 transfers
+ARM GAS  /tmp/ccgt2cG4.s 			page 19
+
+
+ 255:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * 13Bytes 15Bytes 1Bytes 1Bytes 
+ 256:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        *
+ 257:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Example 3.
+ 258:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Max Bus length =  32 Bytes
+ 259:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Page Size      = 256 Bytes
+ 260:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Start Offset   = 230 
+ 261:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Write Overhead =   2 Bytes     For the Extended Index
+ 262:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Total Transfer =  60 Bytes
+ 263:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        *
+ 264:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Results in a 
+ 265:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * Max Block length of 30 Bytes
+ 266:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * This results in 3 transfers
+ 267:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        * 26Bytes 30Bytes 4Bytes
+ 268:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****        */
+ 269:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(((CurOffset%pDDesc->PageSize)+BlockLength)>pDDesc->PageSize){
+ 737              		.loc 1 269 28
+ 738 0750 34301BE5 		ldr	r3, [fp, #-52]
+ 739 0754 B230D3E1 		ldrh	r3, [r3, #2]
+ 740 0758 0320A0E1 		mov	r2, r3
+ 741              		.loc 1 269 21
+ 742 075c 14301BE5 		ldr	r3, [fp, #-20]
+ 743 0760 0210A0E1 		mov	r1, r2
+ 744 0764 0300A0E1 		mov	r0, r3
+ 745 0768 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 746 076c 0130A0E1 		mov	r3, r1
+ 747 0770 0320A0E1 		mov	r2, r3
+ 748              		.loc 1 269 39
+ 749 0774 18301BE5 		ldr	r3, [fp, #-24]
+ 750 0778 033082E0 		add	r3, r2, r3
+ 751              		.loc 1 269 59
+ 752 077c 34201BE5 		ldr	r2, [fp, #-52]
+ 753 0780 B220D2E1 		ldrh	r2, [r2, #2]
+ 754              		.loc 1 269 9
+ 755 0784 020053E1 		cmp	r3, r2
+ 756 0788 0C00009A 		bls	.L32
+ 270:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         BlockLength-=(CurOffset+BlockLength)%pDDesc->PageSize;
+ 757              		.loc 1 270 32
+ 758 078c 14201BE5 		ldr	r2, [fp, #-20]
+ 759 0790 18301BE5 		ldr	r3, [fp, #-24]
+ 760 0794 032082E0 		add	r2, r2, r3
+ 761              		.loc 1 270 52
+ 762 0798 34301BE5 		ldr	r3, [fp, #-52]
+ 763 079c B230D3E1 		ldrh	r3, [r3, #2]
+ 764              		.loc 1 270 45
+ 765 07a0 0310A0E1 		mov	r1, r3
+ 766 07a4 0200A0E1 		mov	r0, r2
+ 767 07a8 FEFFFFEB 		bl	__aeabi_uidivmod(PLT)
+ 768 07ac 0130A0E1 		mov	r3, r1
+ 769 07b0 0320A0E1 		mov	r2, r3
+ 770              		.loc 1 270 20
+ 771 07b4 18301BE5 		ldr	r3, [fp, #-24]
+ 772 07b8 023043E0 		sub	r3, r3, r2
+ 773 07bc 18300BE5 		str	r3, [fp, #-24]
+ 774              	.L32:
+ 271:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       }
+ 272:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Get Encoded Device and Offset */
+ 273:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       StatusCode=EApiAHI2CCCreateAddrOffset(pDDesc, CurOffset, &EncAddr, &EncOffset);
+ARM GAS  /tmp/ccgt2cG4.s 			page 20
+
+
+ 775              		.loc 1 273 18
+ 776 07c0 20304BE2 		sub	r3, fp, #32
+ 777 07c4 24204BE2 		sub	r2, fp, #36
+ 778 07c8 14101BE5 		ldr	r1, [fp, #-20]
+ 779 07cc 34001BE5 		ldr	r0, [fp, #-52]
+ 780 07d0 FEFFFFEB 		bl	EApiAHI2CCCreateAddrOffset(PLT)
+ 781 07d4 1C000BE5 		str	r0, [fp, #-28]
+ 274:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(!EAPI_TEST_SUCCESS(StatusCode))
+ 782              		.loc 1 274 9
+ 783 07d8 1C301BE5 		ldr	r3, [fp, #-28]
+ 784 07dc 000053E3 		cmp	r3, #0
+ 785 07e0 2800001A 		bne	.L39
+ 275:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         goto ErrorExit;
+ 276:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Do the actual transfer */
+ 277:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       StatusCode=EApiI2CWriteTransfer(
+ 786              		.loc 1 277 18
+ 787 07e4 24101BE5 		ldr	r1, [fp, #-36]
+ 788 07e8 20001BE5 		ldr	r0, [fp, #-32]
+ 278:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           Id, 
+ 279:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)EncAddr, 
+ 280:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)EncOffset, 
+ 281:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           ((int8_t *)pBuffer)+(CurOffset-ByteOffset), 
+ 789              		.loc 1 281 41
+ 790 07ec 14201BE5 		ldr	r2, [fp, #-20]
+ 791 07f0 38301BE5 		ldr	r3, [fp, #-56]
+ 792 07f4 033042E0 		sub	r3, r2, r3
+ 277:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           Id, 
+ 793              		.loc 1 277 18
+ 794 07f8 3C201BE5 		ldr	r2, [fp, #-60]
+ 795 07fc 032082E0 		add	r2, r2, r3
+ 796 0800 18301BE5 		ldr	r3, [fp, #-24]
+ 797 0804 00308DE5 		str	r3, [sp]
+ 798 0808 0230A0E1 		mov	r3, r2
+ 799 080c 0020A0E1 		mov	r2, r0
+ 800 0810 30001BE5 		ldr	r0, [fp, #-48]
+ 801 0814 FEFFFFEB 		bl	EApiI2CWriteTransfer(PLT)
+ 802 0818 1C000BE5 		str	r0, [fp, #-28]
+ 282:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)BlockLength
+ 283:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           );
+ 284:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(!EAPI_TEST_SUCCESS(StatusCode))
+ 803              		.loc 1 284 9
+ 804 081c 1C301BE5 		ldr	r3, [fp, #-28]
+ 805 0820 000053E3 		cmp	r3, #0
+ 806 0824 1900001A 		bne	.L40
+ 285:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         goto ErrorExit;
+ 286:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       CurOffset+=BlockLength;
+ 807              		.loc 1 286 16
+ 808 0828 14201BE5 		ldr	r2, [fp, #-20]
+ 809 082c 18301BE5 		ldr	r3, [fp, #-24]
+ 810 0830 033082E0 		add	r3, r2, r3
+ 811 0834 14300BE5 		str	r3, [fp, #-20]
+ 287:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       BlockLength=BlockLengthStd; /* Restore Standard Block Length */
+ 812              		.loc 1 287 18
+ 813 0838 0C301BE5 		ldr	r3, [fp, #-12]
+ 814 083c 18300BE5 		str	r3, [fp, #-24]
+ 288:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(pDDesc->WRecTimems)
+ 815              		.loc 1 288 16
+ARM GAS  /tmp/ccgt2cG4.s 			page 21
+
+
+ 816 0840 34301BE5 		ldr	r3, [fp, #-52]
+ 817 0844 B630D3E1 		ldrh	r3, [r3, #6]
+ 818              		.loc 1 288 9
+ 819 0848 000053E3 		cmp	r3, #0
+ 820 084c 0600000A 		beq	.L30
+ 289:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiSleep((uint32_t)pDDesc->WRecTimems); /* Allow Device Time to Recover */
+ 821              		.loc 1 289 9
+ 822 0850 34301BE5 		ldr	r3, [fp, #-52]
+ 823 0854 B630D3E1 		ldrh	r3, [r3, #6]
+ 824 0858 0320A0E1 		mov	r2, r3
+ 825 085c FA3FA0E3 		mov	r3, #1000
+ 826 0860 930203E0 		mul	r3, r3, r2
+ 827 0864 0300A0E1 		mov	r0, r3
+ 828 0868 FEFFFFEB 		bl	usleep(PLT)
+ 829              	.L30:
+ 215:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 830              		.loc 1 215 20
+ 831 086c 14201BE5 		ldr	r2, [fp, #-20]
+ 832 0870 10301BE5 		ldr	r3, [fp, #-16]
+ 833 0874 030052E1 		cmp	r2, r3
+ 834 0878 AAFFFF3A 		bcc	.L35
+ 290:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+ 291:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** ErrorExit:
+ 835              		.loc 1 291 1
+ 836 087c 040000EA 		b	.L18
+ 837              	.L25:
+ 838              	.L38:
+ 191:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 839              		.loc 1 191 7
+ 840 0880 00F020E3 		nop
+ 841 0884 020000EA 		b	.L18
+ 842              	.L39:
+ 275:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Do the actual transfer */
+ 843              		.loc 1 275 9
+ 844 0888 00F020E3 		nop
+ 845 088c 000000EA 		b	.L18
+ 846              	.L40:
+ 285:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       CurOffset+=BlockLength;
+ 847              		.loc 1 285 9
+ 848 0890 00F020E3 		nop
+ 849              	.L18:
+ 292:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EAPI_APP_ASSERT_EXIT
+ 293:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****   return StatusCode;
+ 850              		.loc 1 293 10
+ 851 0894 1C301BE5 		ldr	r3, [fp, #-28]
+ 126:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 852              		.loc 1 126 1
+ 853 0898 84109FE5 		ldr	r1, .L41+88
+ 854              	.LPIC33:
+ 855 089c 01108FE0 		add	r1, pc, r1
+ 294:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** }
+ 856              		.loc 1 294 1
+ 857 08a0 28209FE5 		ldr	r2, .L41+4
+ 858 08a4 022091E7 		ldr	r2, [r1, r2]
+ 859 08a8 001092E5 		ldr	r1, [r2]
+ 860 08ac 08201BE5 		ldr	r2, [fp, #-8]
+ 861 08b0 011032E0 		eors	r1, r2, r1
+ARM GAS  /tmp/ccgt2cG4.s 			page 22
+
+
+ 862 08b4 0020A0E3 		mov	r2, #0
+ 863 08b8 0000000A 		beq	.L37
+ 864 08bc FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 865              	.L37:
+ 866 08c0 0300A0E1 		mov	r0, r3
+ 867 08c4 04D04BE2 		sub	sp, fp, #4
+ 868              		.cfi_def_cfa 13, 8
+ 869              		@ sp needed
+ 870 08c8 0088BDE8 		pop	{fp, pc}
+ 871              	.L42:
+ 872              		.align	2
+ 873              	.L41:
+ 874 08cc AC040000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC32+8)
+ 875 08d0 00000000 		.word	__stack_chk_guard(GOT)
+ 876 08d4 F4040000 		.word	.LC2-(.LPIC12+8)
+ 877 08d8 FC040000 		.word	.LC3-(.LPIC13+8)
+ 878 08dc 14050000 		.word	.LC6-(.LPIC14+8)
+ 879 08e0 80040000 		.word	.LC1-(.LPIC15+8)
+ 880 08e4 04050000 		.word	.LC7-(.LPIC16+8)
+ 881 08e8 B8040000 		.word	.LC3-(.LPIC17+8)
+ 882 08ec D0040000 		.word	.LC6-(.LPIC18+8)
+ 883 08f0 3C040000 		.word	.LC1-(.LPIC19+8)
+ 884 08f4 D0040000 		.word	.LC8-(.LPIC20+8)
+ 885 08f8 74040000 		.word	.LC3-(.LPIC21+8)
+ 886 08fc 8C040000 		.word	.LC6-(.LPIC22+8)
+ 887 0900 F8030000 		.word	.LC1-(.LPIC23+8)
+ 888 0904 94040000 		.word	.LC9-(.LPIC24+8)
+ 889 0908 28040000 		.word	.LC3-(.LPIC25+8)
+ 890 090c 40040000 		.word	.LC6-(.LPIC26+8)
+ 891 0910 AC030000 		.word	.LC1-(.LPIC27+8)
+ 892 0914 64040000 		.word	.LC10-(.LPIC28+8)
+ 893 0918 D4030000 		.word	.LC3-(.LPIC29+8)
+ 894 091c EC030000 		.word	.LC6-(.LPIC30+8)
+ 895 0920 58030000 		.word	.LC1-(.LPIC31+8)
+ 896 0924 80000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC33+8)
+ 897              		.cfi_endproc
+ 898              	.LFE3:
+ 900              		.section	.rodata
+ 901 012f 00       		.align	2
+ 902              	.LC11:
+ 903 0130 45417069 		.ascii	"EApiAHI2CReadEeprom\000"
+ 903      41484932 
+ 903      43526561 
+ 903      64456570 
+ 903      726F6D00 
+ 904              		.align	2
+ 905              	.LC12:
+ 906 0144 28427566 		.ascii	"(BufLength==0)\000"
+ 906      4C656E67 
+ 906      74683D3D 
+ 906      302900
+ 907 0153 00       		.align	2
+ 908              	.LC13:
+ 909 0154 20704275 		.ascii	" pBuffer Overflow PreventedByteCnt>BufLength\000"
+ 909      66666572 
+ 909      204F7665 
+ 909      72666C6F 
+ARM GAS  /tmp/ccgt2cG4.s 			page 23
+
+
+ 909      77205072 
+ 910              		.text
+ 911              		.align	2
+ 912              		.global	EApiAHI2CReadEeprom
+ 913              		.syntax unified
+ 914              		.arm
+ 915              		.fpu vfpv3
+ 917              	EApiAHI2CReadEeprom:
+ 918              	.LFB4:
+ 295:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiStatus_t
+ 296:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EApiAHI2CReadEeprom(
+ 297:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN EApiId_t              Id           , 
+ 298:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN const I2CDeviceDesc_t *const pDDesc, 
+ 299:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN const size_t          ByteOffset   , 
+ 300:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN void *                pBuffer      , 
+ 301:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN const size_t          BufLength    , 
+ 302:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     __IN size_t                ByteCnt 
+ 303:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     )
+ 304:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** {
+ 919              		.loc 1 304 1
+ 920              		.cfi_startproc
+ 921              		@ args = 8, pretend = 0, frame = 48
+ 922              		@ frame_needed = 1, uses_anonymous_args = 0
+ 923 0928 00482DE9 		push	{fp, lr}
+ 924              		.cfi_def_cfa_offset 8
+ 925              		.cfi_offset 11, -8
+ 926              		.cfi_offset 14, -4
+ 927 092c 04B08DE2 		add	fp, sp, #4
+ 928              		.cfi_def_cfa 11, 4
+ 929 0930 40D04DE2 		sub	sp, sp, #64
+ 930 0934 28000BE5 		str	r0, [fp, #-40]
+ 931 0938 2C100BE5 		str	r1, [fp, #-44]
+ 932 093c 30200BE5 		str	r2, [fp, #-48]
+ 933 0940 34300BE5 		str	r3, [fp, #-52]
+ 934              		.loc 1 304 1
+ 935 0944 30249FE5 		ldr	r2, .L67
+ 936              	.LPIC62:
+ 937 0948 02208FE0 		add	r2, pc, r2
+ 938 094c 2C349FE5 		ldr	r3, .L67+4
+ 939 0950 033092E7 		ldr	r3, [r2, r3]
+ 940 0954 003093E5 		ldr	r3, [r3]
+ 941 0958 08300BE5 		str	r3, [fp, #-8]
+ 942 095c 0030A0E3 		mov	r3, #0
+ 305:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 943              		.loc 1 305 18
+ 944 0960 0030A0E3 		mov	r3, #0
+ 945 0964 18300BE5 		str	r3, [fp, #-24]
+ 306:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     uint32_t IntMaxBlckLen;
+ 307:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t   BlockEndAddress;
+ 308:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t   BlockLength;
+ 309:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t   CurOffset;
+ 310:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t   EncAddr;
+ 311:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     size_t   EncOffset;
+ 312:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     
+ 313:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+ 946              		.loc 1 313 5
+ 947 0968 2C301BE5 		ldr	r3, [fp, #-44]
+ARM GAS  /tmp/ccgt2cG4.s 			page 24
+
+
+ 948 096c 000053E3 		cmp	r3, #0
+ 949 0970 1100001A 		bne	.L44
+ 950              		.loc 1 313 5 is_stmt 0 discriminator 1
+ 951 0974 08349FE5 		ldr	r3, .L67+8
+ 952              	.LPIC34:
+ 953 0978 03308FE0 		add	r3, pc, r3
+ 954 097c 08308DE5 		str	r3, [sp, #8]
+ 955 0980 00349FE5 		ldr	r3, .L67+12
+ 956              	.LPIC35:
+ 957 0984 03308FE0 		add	r3, pc, r3
+ 958 0988 04308DE5 		str	r3, [sp, #4]
+ 959 098c 013CE0E3 		mvn	r3, #256
+ 960 0990 00308DE5 		str	r3, [sp]
+ 961 0994 393100E3 		movw	r3, #313
+ 962 0998 EC239FE5 		ldr	r2, .L67+16
+ 963              	.LPIC36:
+ 964 099c 02208FE0 		add	r2, pc, r2
+ 965 09a0 E8139FE5 		ldr	r1, .L67+20
+ 966              	.LPIC37:
+ 967 09a4 01108FE0 		add	r1, pc, r1
+ 968 09a8 4500A0E3 		mov	r0, #69
+ 969 09ac FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 970 09b0 013CE0E3 		mvn	r3, #256
+ 971 09b4 18300BE5 		str	r3, [fp, #-24]
+ 972 09b8 E10000EA 		b	.L45
+ 973              	.L44:
+ 314:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 315:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 316:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pDDesc
+ 317:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 318:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_NULL(
+ 974              		.loc 1 318 5 is_stmt 1
+ 975 09bc 34301BE5 		ldr	r3, [fp, #-52]
+ 976 09c0 000053E3 		cmp	r3, #0
+ 977 09c4 1100001A 		bne	.L46
+ 978              		.loc 1 318 5 is_stmt 0 discriminator 1
+ 979 09c8 C4339FE5 		ldr	r3, .L67+24
+ 980              	.LPIC38:
+ 981 09cc 03308FE0 		add	r3, pc, r3
+ 982 09d0 08308DE5 		str	r3, [sp, #8]
+ 983 09d4 BC339FE5 		ldr	r3, .L67+28
+ 984              	.LPIC39:
+ 985 09d8 03308FE0 		add	r3, pc, r3
+ 986 09dc 04308DE5 		str	r3, [sp, #4]
+ 987 09e0 013CE0E3 		mvn	r3, #256
+ 988 09e4 00308DE5 		str	r3, [sp]
+ 989 09e8 3E3100E3 		movw	r3, #318
+ 990 09ec A8239FE5 		ldr	r2, .L67+32
+ 991              	.LPIC40:
+ 992 09f0 02208FE0 		add	r2, pc, r2
+ 993 09f4 A4139FE5 		ldr	r1, .L67+36
+ 994              	.LPIC41:
+ 995 09f8 01108FE0 		add	r1, pc, r1
+ 996 09fc 4500A0E3 		mov	r0, #69
+ 997 0a00 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 998 0a04 013CE0E3 		mvn	r3, #256
+ 999 0a08 18300BE5 		str	r3, [fp, #-24]
+ARM GAS  /tmp/ccgt2cG4.s 			page 25
+
+
+ 1000 0a0c CC0000EA 		b	.L45
+ 1001              	.L46:
+ 319:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 320:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 321:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         pBuffer
+ 322:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 323:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_ZERO(
+ 1002              		.loc 1 323 5 is_stmt 1
+ 1003 0a10 04309BE5 		ldr	r3, [fp, #4]
+ 1004 0a14 000053E3 		cmp	r3, #0
+ 1005 0a18 1100001A 		bne	.L47
+ 1006              		.loc 1 323 5 is_stmt 0 discriminator 1
+ 1007 0a1c 80339FE5 		ldr	r3, .L67+40
+ 1008              	.LPIC42:
+ 1009 0a20 03308FE0 		add	r3, pc, r3
+ 1010 0a24 08308DE5 		str	r3, [sp, #8]
+ 1011 0a28 78339FE5 		ldr	r3, .L67+44
+ 1012              	.LPIC43:
+ 1013 0a2c 03308FE0 		add	r3, pc, r3
+ 1014 0a30 04308DE5 		str	r3, [sp, #4]
+ 1015 0a34 013CE0E3 		mvn	r3, #256
+ 1016 0a38 00308DE5 		str	r3, [sp]
+ 1017 0a3c 433100E3 		movw	r3, #323
+ 1018 0a40 64239FE5 		ldr	r2, .L67+48
+ 1019              	.LPIC44:
+ 1020 0a44 02208FE0 		add	r2, pc, r2
+ 1021 0a48 60139FE5 		ldr	r1, .L67+52
+ 1022              	.LPIC45:
+ 1023 0a4c 01108FE0 		add	r1, pc, r1
+ 1024 0a50 4500A0E3 		mov	r0, #69
+ 1025 0a54 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1026 0a58 013CE0E3 		mvn	r3, #256
+ 1027 0a5c 18300BE5 		str	r3, [fp, #-24]
+ 1028 0a60 B70000EA 		b	.L45
+ 1029              	.L47:
+ 324:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 325:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 326:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         BufLength
+ 327:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 328:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_ZERO(
+ 1030              		.loc 1 328 5 is_stmt 1
+ 1031 0a64 08309BE5 		ldr	r3, [fp, #8]
+ 1032 0a68 000053E3 		cmp	r3, #0
+ 1033 0a6c 1100001A 		bne	.L48
+ 1034              		.loc 1 328 5 is_stmt 0 discriminator 1
+ 1035 0a70 3C339FE5 		ldr	r3, .L67+56
+ 1036              	.LPIC46:
+ 1037 0a74 03308FE0 		add	r3, pc, r3
+ 1038 0a78 08308DE5 		str	r3, [sp, #8]
+ 1039 0a7c 34339FE5 		ldr	r3, .L67+60
+ 1040              	.LPIC47:
+ 1041 0a80 03308FE0 		add	r3, pc, r3
+ 1042 0a84 04308DE5 		str	r3, [sp, #4]
+ 1043 0a88 013CE0E3 		mvn	r3, #256
+ 1044 0a8c 00308DE5 		str	r3, [sp]
+ 1045 0a90 523FA0E3 		mov	r3, #328
+ 1046 0a94 20239FE5 		ldr	r2, .L67+64
+ARM GAS  /tmp/ccgt2cG4.s 			page 26
+
+
+ 1047              	.LPIC48:
+ 1048 0a98 02208FE0 		add	r2, pc, r2
+ 1049 0a9c 1C139FE5 		ldr	r1, .L67+68
+ 1050              	.LPIC49:
+ 1051 0aa0 01108FE0 		add	r1, pc, r1
+ 1052 0aa4 4500A0E3 		mov	r0, #69
+ 1053 0aa8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1054 0aac 013CE0E3 		mvn	r3, #256
+ 1055 0ab0 18300BE5 		str	r3, [fp, #-24]
+ 1056 0ab4 A20000EA 		b	.L45
+ 1057              	.L48:
+ 329:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 330:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 331:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ByteCnt
+ 332:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 333:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_PREVENT_BUF_OVERFLOW(
+ 1058              		.loc 1 333 5 is_stmt 1
+ 1059 0ab8 08209BE5 		ldr	r2, [fp, #8]
+ 1060 0abc 04309BE5 		ldr	r3, [fp, #4]
+ 1061 0ac0 030052E1 		cmp	r2, r3
+ 1062 0ac4 1000009A 		bls	.L49
+ 1063              		.loc 1 333 5 is_stmt 0 discriminator 1
+ 1064 0ac8 F4329FE5 		ldr	r3, .L67+72
+ 1065              	.LPIC50:
+ 1066 0acc 03308FE0 		add	r3, pc, r3
+ 1067 0ad0 08308DE5 		str	r3, [sp, #8]
+ 1068 0ad4 EC329FE5 		ldr	r3, .L67+76
+ 1069              	.LPIC51:
+ 1070 0ad8 03308FE0 		add	r3, pc, r3
+ 1071 0adc 04308DE5 		str	r3, [sp, #4]
+ 1072 0ae0 063CE0E3 		mvn	r3, #1536
+ 1073 0ae4 00308DE5 		str	r3, [sp]
+ 1074 0ae8 4D3100E3 		movw	r3, #333
+ 1075 0aec D8229FE5 		ldr	r2, .L67+80
+ 1076              	.LPIC52:
+ 1077 0af0 02208FE0 		add	r2, pc, r2
+ 1078 0af4 D4129FE5 		ldr	r1, .L67+84
+ 1079              	.LPIC53:
+ 1080 0af8 01108FE0 		add	r1, pc, r1
+ 1081 0afc 4500A0E3 		mov	r0, #69
+ 1082 0b00 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1083 0b04 04309BE5 		ldr	r3, [fp, #4]
+ 1084 0b08 08308BE5 		str	r3, [fp, #8]
+ 1085              	.L49:
+ 334:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 335:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ByteCnt, 
+ 336:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         BufLength
+ 337:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 338:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_CHECK(
+ 1086              		.loc 1 338 5 is_stmt 1
+ 1087 0b0c 2C001BE5 		ldr	r0, [fp, #-44]
+ 1088 0b10 FEFFFFEB 		bl	ValidEEPDevDesc(PLT)
+ 1089 0b14 0030A0E1 		mov	r3, r0
+ 1090 0b18 000053E3 		cmp	r3, #0
+ 1091 0b1c 1100000A 		beq	.L50
+ 1092              		.loc 1 338 5 is_stmt 0 discriminator 1
+ 1093 0b20 AC329FE5 		ldr	r3, .L67+88
+ARM GAS  /tmp/ccgt2cG4.s 			page 27
+
+
+ 1094              	.LPIC54:
+ 1095 0b24 03308FE0 		add	r3, pc, r3
+ 1096 0b28 08308DE5 		str	r3, [sp, #8]
+ 1097 0b2c A4329FE5 		ldr	r3, .L67+92
+ 1098              	.LPIC55:
+ 1099 0b30 03308FE0 		add	r3, pc, r3
+ 1100 0b34 04308DE5 		str	r3, [sp, #4]
+ 1101 0b38 013CE0E3 		mvn	r3, #256
+ 1102 0b3c 00308DE5 		str	r3, [sp]
+ 1103 0b40 523100E3 		movw	r3, #338
+ 1104 0b44 90229FE5 		ldr	r2, .L67+96
+ 1105              	.LPIC56:
+ 1106 0b48 02208FE0 		add	r2, pc, r2
+ 1107 0b4c 8C129FE5 		ldr	r1, .L67+100
+ 1108              	.LPIC57:
+ 1109 0b50 01108FE0 		add	r1, pc, r1
+ 1110 0b54 4500A0E3 		mov	r0, #69
+ 1111 0b58 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1112 0b5c 013CE0E3 		mvn	r3, #256
+ 1113 0b60 18300BE5 		str	r3, [fp, #-24]
+ 1114 0b64 760000EA 		b	.L45
+ 1115              	.L50:
+ 339:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 340:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 341:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ValidEEPDevDesc(pDDesc) , 
+ 342:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "Invalid EEPROM Device Descriptor"
+ 343:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 344:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EAPI_APP_ASSERT_PARAMATER_CHECK(
+ 1116              		.loc 1 344 5 is_stmt 1
+ 1117 0b68 30201BE5 		ldr	r2, [fp, #-48]
+ 1118 0b6c 08309BE5 		ldr	r3, [fp, #8]
+ 1119 0b70 032082E0 		add	r2, r2, r3
+ 1120 0b74 2C301BE5 		ldr	r3, [fp, #-44]
+ 1121 0b78 083093E5 		ldr	r3, [r3, #8]
+ 1122 0b7c 030052E1 		cmp	r2, r3
+ 1123 0b80 1100009A 		bls	.L51
+ 1124              		.loc 1 344 5 is_stmt 0 discriminator 1
+ 1125 0b84 58329FE5 		ldr	r3, .L67+104
+ 1126              	.LPIC58:
+ 1127 0b88 03308FE0 		add	r3, pc, r3
+ 1128 0b8c 08308DE5 		str	r3, [sp, #8]
+ 1129 0b90 50329FE5 		ldr	r3, .L67+108
+ 1130              	.LPIC59:
+ 1131 0b94 03308FE0 		add	r3, pc, r3
+ 1132 0b98 04308DE5 		str	r3, [sp, #4]
+ 1133 0b9c 013CE0E3 		mvn	r3, #256
+ 1134 0ba0 00308DE5 		str	r3, [sp]
+ 1135 0ba4 563FA0E3 		mov	r3, #344
+ 1136 0ba8 3C229FE5 		ldr	r2, .L67+112
+ 1137              	.LPIC60:
+ 1138 0bac 02208FE0 		add	r2, pc, r2
+ 1139 0bb0 38129FE5 		ldr	r1, .L67+116
+ 1140              	.LPIC61:
+ 1141 0bb4 01108FE0 		add	r1, pc, r1
+ 1142 0bb8 4500A0E3 		mov	r0, #69
+ 1143 0bbc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1144 0bc0 013CE0E3 		mvn	r3, #256
+ARM GAS  /tmp/ccgt2cG4.s 			page 28
+
+
+ 1145 0bc4 18300BE5 		str	r3, [fp, #-24]
+ 1146 0bc8 5D0000EA 		b	.L45
+ 1147              	.L51:
+ 345:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EApiAHI2CReadEeprom, 
+ 346:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         EAPI_STATUS_INVALID_PARAMETER, 
+ 347:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         ByteOffset+ByteCnt>pDDesc->DevSize, 
+ 348:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         "Prevented Write beyond Device Boundary"
+ 349:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         );
+ 350:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** #if STRICT_VALIDATION
+ 351:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(ByteOffset+ByteCnt>pDDesc->DevSize)
+ 1148              		.loc 1 351 18 is_stmt 1
+ 1149 0bcc 30201BE5 		ldr	r2, [fp, #-48]
+ 1150 0bd0 08309BE5 		ldr	r3, [fp, #8]
+ 1151 0bd4 032082E0 		add	r2, r2, r3
+ 1152              		.loc 1 351 33
+ 1153 0bd8 2C301BE5 		ldr	r3, [fp, #-44]
+ 1154 0bdc 083093E5 		ldr	r3, [r3, #8]
+ 1155              		.loc 1 351 7
+ 1156 0be0 030052E1 		cmp	r2, r3
+ 1157 0be4 0400009A 		bls	.L52
+ 352:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 353:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       ByteCnt=pDDesc->DevSize-ByteOffset;
+ 1158              		.loc 1 353 21
+ 1159 0be8 2C301BE5 		ldr	r3, [fp, #-44]
+ 1160 0bec 082093E5 		ldr	r2, [r3, #8]
+ 1161              		.loc 1 353 14
+ 1162 0bf0 30301BE5 		ldr	r3, [fp, #-48]
+ 1163 0bf4 033042E0 		sub	r3, r2, r3
+ 1164 0bf8 08308BE5 		str	r3, [fp, #8]
+ 1165              	.L52:
+ 354:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+ 355:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** #endif
+ 356:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     
+ 357:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     /* Get Storage Capabilities */
+ 358:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     StatusCode=EApiI2CGetBusCap(Id, &IntMaxBlckLen);
+ 1166              		.loc 1 358 16
+ 1167 0bfc 24304BE2 		sub	r3, fp, #36
+ 1168 0c00 0310A0E1 		mov	r1, r3
+ 1169 0c04 28001BE5 		ldr	r0, [fp, #-40]
+ 1170 0c08 FEFFFFEB 		bl	EApiI2CGetBusCap(PLT)
+ 1171 0c0c 18000BE5 		str	r0, [fp, #-24]
+ 359:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(!EAPI_TEST_SUCCESS(StatusCode))
+ 1172              		.loc 1 359 7
+ 1173 0c10 18301BE5 		ldr	r3, [fp, #-24]
+ 1174 0c14 000053E3 		cmp	r3, #0
+ 1175 0c18 4400001A 		bne	.L64
+ 360:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       goto ErrorExit;
+ 361:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 362:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     BlockEndAddress=ByteOffset+ByteCnt;
+ 1176              		.loc 1 362 20
+ 1177 0c1c 30201BE5 		ldr	r2, [fp, #-48]
+ 1178 0c20 08309BE5 		ldr	r3, [fp, #8]
+ 1179 0c24 033082E0 		add	r3, r2, r3
+ 1180 0c28 0C300BE5 		str	r3, [fp, #-12]
+ 363:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 364:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     if(pDDesc->ExtIndx==EApiAPI2CExtIndex)
+ 1181              		.loc 1 364 14
+ARM GAS  /tmp/ccgt2cG4.s 			page 29
+
+
+ 1182 0c2c 2C301BE5 		ldr	r3, [fp, #-44]
+ 1183 0c30 B430D3E1 		ldrh	r3, [r3, #4]
+ 1184              		.loc 1 364 7
+ 1185 0c34 020053E3 		cmp	r3, #2
+ 1186 0c38 0500001A 		bne	.L55
+ 365:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* After this length it is necessary to increment the Device Address */
+ 366:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       BlockLength=(IntMaxBlckLen<0x10000?IntMaxBlckLen:0x10000);
+ 1187              		.loc 1 366 55
+ 1188 0c3c 24301BE5 		ldr	r3, [fp, #-36]
+ 1189              		.loc 1 366 18
+ 1190 0c40 010853E3 		cmp	r3, #65536
+ 1191 0c44 0330A031 		movcc	r3, r3
+ 1192 0c48 0138A023 		movcs	r3, #65536
+ 1193 0c4c 14300BE5 		str	r3, [fp, #-20]
+ 1194 0c50 040000EA 		b	.L56
+ 1195              	.L55:
+ 367:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     else
+ 368:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* After this length it is necessary to increment the Device Address */
+ 369:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       BlockLength=(IntMaxBlckLen<0x100?IntMaxBlckLen:0x100);
+ 1196              		.loc 1 369 53
+ 1197 0c54 24301BE5 		ldr	r3, [fp, #-36]
+ 1198              		.loc 1 369 18
+ 1199 0c58 010C53E3 		cmp	r3, #256
+ 1200 0c5c 0330A031 		movcc	r3, r3
+ 1201 0c60 013CA023 		movcs	r3, #256
+ 1202 0c64 14300BE5 		str	r3, [fp, #-20]
+ 1203              	.L56:
+ 370:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     CurOffset=ByteOffset;
+ 1204              		.loc 1 370 14
+ 1205 0c68 30301BE5 		ldr	r3, [fp, #-48]
+ 1206 0c6c 10300BE5 		str	r3, [fp, #-16]
+ 371:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     while(CurOffset<BlockEndAddress)
+ 1207              		.loc 1 371 10
+ 1208 0c70 290000EA 		b	.L57
+ 1209              	.L61:
+ 372:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 373:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Adjust block length so we don't overrun the end of the device */
+ 374:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(CurOffset+BlockLength>BlockEndAddress){
+ 1210              		.loc 1 374 19
+ 1211 0c74 10201BE5 		ldr	r2, [fp, #-16]
+ 1212 0c78 14301BE5 		ldr	r3, [fp, #-20]
+ 1213 0c7c 033082E0 		add	r3, r2, r3
+ 1214              		.loc 1 374 9
+ 1215 0c80 0C201BE5 		ldr	r2, [fp, #-12]
+ 1216 0c84 030052E1 		cmp	r2, r3
+ 1217 0c88 0300002A 		bcs	.L58
+ 375:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         BlockLength=BlockEndAddress-CurOffset;
+ 1218              		.loc 1 375 20
+ 1219 0c8c 0C201BE5 		ldr	r2, [fp, #-12]
+ 1220 0c90 10301BE5 		ldr	r3, [fp, #-16]
+ 1221 0c94 033042E0 		sub	r3, r2, r3
+ 1222 0c98 14300BE5 		str	r3, [fp, #-20]
+ 1223              	.L58:
+ 376:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       }
+ 377:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Get Encoded Device and Offset */
+ 378:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       StatusCode=EApiAHI2CCCreateAddrOffset(pDDesc, CurOffset, &EncAddr, &EncOffset);
+ 1224              		.loc 1 378 18
+ARM GAS  /tmp/ccgt2cG4.s 			page 30
+
+
+ 1225 0c9c 1C304BE2 		sub	r3, fp, #28
+ 1226 0ca0 20204BE2 		sub	r2, fp, #32
+ 1227 0ca4 10101BE5 		ldr	r1, [fp, #-16]
+ 1228 0ca8 2C001BE5 		ldr	r0, [fp, #-44]
+ 1229 0cac FEFFFFEB 		bl	EApiAHI2CCCreateAddrOffset(PLT)
+ 1230 0cb0 18000BE5 		str	r0, [fp, #-24]
+ 379:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(!EAPI_TEST_SUCCESS(StatusCode))
+ 1231              		.loc 1 379 9
+ 1232 0cb4 18301BE5 		ldr	r3, [fp, #-24]
+ 1233 0cb8 000053E3 		cmp	r3, #0
+ 1234 0cbc 1D00001A 		bne	.L65
+ 380:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         goto ErrorExit;
+ 381:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Do the actual transfer */
+ 382:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       StatusCode=EApiI2CReadTransfer(
+ 1235              		.loc 1 382 18
+ 1236 0cc0 20101BE5 		ldr	r1, [fp, #-32]
+ 1237 0cc4 1C001BE5 		ldr	r0, [fp, #-28]
+ 383:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           Id, 
+ 384:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)EncAddr, 
+ 385:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)EncOffset, 
+ 386:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           ((int8_t *)pBuffer)+(CurOffset-ByteOffset), 
+ 1238              		.loc 1 386 41
+ 1239 0cc8 10201BE5 		ldr	r2, [fp, #-16]
+ 1240 0ccc 30301BE5 		ldr	r3, [fp, #-48]
+ 1241 0cd0 033042E0 		sub	r3, r2, r3
+ 382:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           Id, 
+ 1242              		.loc 1 382 18
+ 1243 0cd4 34201BE5 		ldr	r2, [fp, #-52]
+ 1244 0cd8 032082E0 		add	r2, r2, r3
+ 1245 0cdc 14301BE5 		ldr	r3, [fp, #-20]
+ 1246 0ce0 04308DE5 		str	r3, [sp, #4]
+ 1247 0ce4 14301BE5 		ldr	r3, [fp, #-20]
+ 1248 0ce8 00308DE5 		str	r3, [sp]
+ 1249 0cec 0230A0E1 		mov	r3, r2
+ 1250 0cf0 0020A0E1 		mov	r2, r0
+ 1251 0cf4 28001BE5 		ldr	r0, [fp, #-40]
+ 1252 0cf8 FEFFFFEB 		bl	EApiI2CReadTransfer(PLT)
+ 1253 0cfc 18000BE5 		str	r0, [fp, #-24]
+ 387:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)BlockLength, 
+ 388:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           (uint32_t)BlockLength
+ 389:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****           );
+ 390:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       if(!EAPI_TEST_SUCCESS(StatusCode))
+ 1254              		.loc 1 390 9
+ 1255 0d00 18301BE5 		ldr	r3, [fp, #-24]
+ 1256 0d04 000053E3 		cmp	r3, #0
+ 1257 0d08 0C00001A 		bne	.L66
+ 391:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****         goto ErrorExit;
+ 392:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       CurOffset+=BlockLength;
+ 1258              		.loc 1 392 16
+ 1259 0d0c 10201BE5 		ldr	r2, [fp, #-16]
+ 1260 0d10 14301BE5 		ldr	r3, [fp, #-20]
+ 1261 0d14 033082E0 		add	r3, r2, r3
+ 1262 0d18 10300BE5 		str	r3, [fp, #-16]
+ 1263              	.L57:
+ 371:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     {
+ 1264              		.loc 1 371 20
+ 1265 0d1c 10201BE5 		ldr	r2, [fp, #-16]
+ARM GAS  /tmp/ccgt2cG4.s 			page 31
+
+
+ 1266 0d20 0C301BE5 		ldr	r3, [fp, #-12]
+ 1267 0d24 030052E1 		cmp	r2, r3
+ 1268 0d28 D1FFFF3A 		bcc	.L61
+ 393:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     }
+ 394:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 395:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 396:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** ErrorExit:
+ 1269              		.loc 1 396 1
+ 1270 0d2c 040000EA 		b	.L45
+ 1271              	.L54:
+ 1272              	.L64:
+ 360:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** 
+ 1273              		.loc 1 360 7
+ 1274 0d30 00F020E3 		nop
+ 1275 0d34 020000EA 		b	.L45
+ 1276              	.L65:
+ 380:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       /* Do the actual transfer */
+ 1277              		.loc 1 380 9
+ 1278 0d38 00F020E3 		nop
+ 1279 0d3c 000000EA 		b	.L45
+ 1280              	.L66:
+ 391:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****       CurOffset+=BlockLength;
+ 1281              		.loc 1 391 9
+ 1282 0d40 00F020E3 		nop
+ 1283              	.L45:
+ 397:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** EAPI_APP_ASSERT_EXIT
+ 398:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****   return StatusCode;
+ 1284              		.loc 1 398 10
+ 1285 0d44 18301BE5 		ldr	r3, [fp, #-24]
+ 304:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c ****     EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 1286              		.loc 1 304 1
+ 1287 0d48 A4109FE5 		ldr	r1, .L67+120
+ 1288              	.LPIC63:
+ 1289 0d4c 01108FE0 		add	r1, pc, r1
+ 399:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../../common/EApiAHI2C.c **** }
+ 1290              		.loc 1 399 1
+ 1291 0d50 28209FE5 		ldr	r2, .L67+4
+ 1292 0d54 022091E7 		ldr	r2, [r1, r2]
+ 1293 0d58 001092E5 		ldr	r1, [r2]
+ 1294 0d5c 08201BE5 		ldr	r2, [fp, #-8]
+ 1295 0d60 011032E0 		eors	r1, r2, r1
+ 1296 0d64 0020A0E3 		mov	r2, #0
+ 1297 0d68 0000000A 		beq	.L63
+ 1298 0d6c FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 1299              	.L63:
+ 1300 0d70 0300A0E1 		mov	r0, r3
+ 1301 0d74 04D04BE2 		sub	sp, fp, #4
+ 1302              		.cfi_def_cfa 13, 8
+ 1303              		@ sp needed
+ 1304 0d78 0088BDE8 		pop	{fp, pc}
+ 1305              	.L68:
+ 1306              		.align	2
+ 1307              	.L67:
+ 1308 0d7c 2C040000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC62+8)
+ 1309 0d80 00000000 		.word	__stack_chk_guard(GOT)
+ 1310 0d84 74040000 		.word	.LC2-(.LPIC34+8)
+ 1311 0d88 7C040000 		.word	.LC3-(.LPIC35+8)
+ARM GAS  /tmp/ccgt2cG4.s 			page 32
+
+
+ 1312 0d8c 18050000 		.word	.LC11-(.LPIC36+8)
+ 1313 0d90 00040000 		.word	.LC1-(.LPIC37+8)
+ 1314 0d94 84040000 		.word	.LC7-(.LPIC38+8)
+ 1315 0d98 38040000 		.word	.LC3-(.LPIC39+8)
+ 1316 0d9c D4040000 		.word	.LC11-(.LPIC40+8)
+ 1317 0da0 BC030000 		.word	.LC1-(.LPIC41+8)
+ 1318 0da4 C0040000 		.word	.LC12-(.LPIC42+8)
+ 1319 0da8 F4030000 		.word	.LC3-(.LPIC43+8)
+ 1320 0dac 90040000 		.word	.LC11-(.LPIC44+8)
+ 1321 0db0 78030000 		.word	.LC1-(.LPIC45+8)
+ 1322 0db4 0C040000 		.word	.LC8-(.LPIC46+8)
+ 1323 0db8 B0030000 		.word	.LC3-(.LPIC47+8)
+ 1324 0dbc 4C040000 		.word	.LC11-(.LPIC48+8)
+ 1325 0dc0 34030000 		.word	.LC1-(.LPIC49+8)
+ 1326 0dc4 44040000 		.word	.LC13-(.LPIC50+8)
+ 1327 0dc8 68030000 		.word	.LC3-(.LPIC51+8)
+ 1328 0dcc 04040000 		.word	.LC11-(.LPIC52+8)
+ 1329 0dd0 EC020000 		.word	.LC1-(.LPIC53+8)
+ 1330 0dd4 8C030000 		.word	.LC9-(.LPIC54+8)
+ 1331 0dd8 20030000 		.word	.LC3-(.LPIC55+8)
+ 1332 0ddc BC030000 		.word	.LC11-(.LPIC56+8)
+ 1333 0de0 A4020000 		.word	.LC1-(.LPIC57+8)
+ 1334 0de4 5C030000 		.word	.LC10-(.LPIC58+8)
+ 1335 0de8 CC020000 		.word	.LC3-(.LPIC59+8)
+ 1336 0dec 68030000 		.word	.LC11-(.LPIC60+8)
+ 1337 0df0 50020000 		.word	.LC1-(.LPIC61+8)
+ 1338 0df4 A0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC63+8)
+ 1339              		.cfi_endproc
+ 1340              	.LFE4:
+ 1342              	.Letext0:
+ 1343              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 1344              		.file 3 "../../../include/EApi.h"
+ 1345              		.file 4 "../../include/EApiAHI2C.h"
+ 1346              		.file 5 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 1347              		.file 6 "../../include/DbgChk.h"
+ARM GAS  /tmp/ccgt2cG4.s 			page 33
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiAHI2C.c
+     /tmp/ccgt2cG4.s:17     .rodata:0000000000000000 $d
+     /tmp/ccgt2cG4.s:37     .text:0000000000000000 $a
+     /tmp/ccgt2cG4.s:46     .text:0000000000000000 EApiAHI2CCCreateAddrOffset
+     /tmp/ccgt2cG4.s:316    .text:0000000000000330 $d
+     /tmp/ccgt2cG4.s:331    .text:0000000000000360 $a
+     /tmp/ccgt2cG4.s:337    .text:0000000000000360 ValidEEPDevDesc
+     /tmp/ccgt2cG4.s:437    .text:00000000000003f8 EApiAHI2CWriteEeprom
+     /tmp/ccgt2cG4.s:874    .text:00000000000008cc $d
+     /tmp/ccgt2cG4.s:911    .text:0000000000000928 $a
+     /tmp/ccgt2cG4.s:917    .text:0000000000000928 EApiAHI2CReadEeprom
+     /tmp/ccgt2cG4.s:1308   .text:0000000000000d7c $d
+
+UNDEFINED SYMBOLS
+siFormattedMessage_SC
+__aeabi_uidivmod
+EApiI2CGetBusCap
+EApiI2CWriteTransfer
+usleep
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard
+EApiI2CReadTransfer

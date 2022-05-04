@@ -1,0 +1,2768 @@
+ARM GAS  /tmp/cctRi5Mi.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"ArgParse.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.align	2
+  17              		.global	StringArg
+  18              		.arch armv7-a
+  19              		.arch_extension mp
+  20              		.arch_extension sec
+  21              		.syntax unified
+  22              		.arm
+  23              		.fpu vfpv3
+  25              	StringArg:
+  26              	.LFB1:
+  27              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/EeePProg/ArgParse.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I   Copyright: Copyright (c) 2002-2010, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I Description: Generic Command Line Argument Parsing Routines
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  File Name            : ArgParse.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  File Location        : apps\EeePProg
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  Last committed       : $Revision: 75 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  Last changed date    : $Date: 2010-06-28 23:50:38 +0000 (Mon, 28 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I  ID                   : $Id: ArgParse.c 75 2010-06-28 23:50:38Z dethrophes $
+ARM GAS  /tmp/cctRi5Mi.s 			page 2
+
+
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   #include <EeePApp.h>
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t 
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** StringArg(
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     struct ArgDesc_s  *pArgs, 
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     void * cszCurArg          ,  
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char *cszArg 
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+  28              		.loc 1 44 1
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 00482DE9 		push	{fp, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 11, -8
+  35              		.cfi_offset 14, -4
+  36 0004 04B08DE2 		add	fp, sp, #4
+  37              		.cfi_def_cfa 11, 4
+  38 0008 10D04DE2 		sub	sp, sp, #16
+  39 000c 08000BE5 		str	r0, [fp, #-8]
+  40 0010 0C100BE5 		str	r1, [fp, #-12]
+  41 0014 10200BE5 		str	r2, [fp, #-16]
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   pArgs=pArgs;
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   *(void**)cszCurArg=EAPI_strdup(cszArg);
+  42              		.loc 1 46 22
+  43 0018 10001BE5 		ldr	r0, [fp, #-16]
+  44 001c FEFFFFEB 		bl	strdup(PLT)
+  45 0020 0030A0E1 		mov	r3, r0
+  46 0024 0320A0E1 		mov	r2, r3
+  47              		.loc 1 46 21
+  48 0028 0C301BE5 		ldr	r3, [fp, #-12]
+  49 002c 002083E5 		str	r2, [r3]
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*   printf("StringArg: %s\n", *(char**)cszCurArg); */
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return EAPI_STATUS_SUCCESS;
+  50              		.loc 1 48 10
+  51 0030 0030A0E3 		mov	r3, #0
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+  52              		.loc 1 49 1
+  53 0034 0300A0E1 		mov	r0, r3
+  54 0038 04D04BE2 		sub	sp, fp, #4
+  55              		.cfi_def_cfa 13, 8
+  56              		@ sp needed
+  57 003c 0088BDE8 		pop	{fp, pc}
+  58              		.cfi_endproc
+  59              	.LFE1:
+  61              		.section	.rodata
+  62              		.align	2
+  63              	.LC0:
+  64 0000 42595445 		.ascii	"BYTES\000"
+  64      5300
+  65 0006 0000     		.align	2
+  66              	.LC1:
+ARM GAS  /tmp/cctRi5Mi.s 			page 3
+
+
+  67 0008 00       		.ascii	"\000"
+  68 0009 000000   		.align	2
+  69              	.LC2:
+  70 000c 4B4200   		.ascii	"KB\000"
+  71 000f 00       		.align	2
+  72              	.LC3:
+  73 0010 2A283130 		.ascii	"*(1024 BYTES)\000"
+  73      32342042 
+  73      59544553 
+  73      2900
+  74 001e 0000     		.align	2
+  75              	.LC4:
+  76 0020 4D4200   		.ascii	"MB\000"
+  77 0023 00       		.align	2
+  78              	.LC5:
+  79 0024 2A283130 		.ascii	"*(1024 KB)\000"
+  79      3234204B 
+  79      422900
+  80 002f 00       		.align	2
+  81              	.LC6:
+  82 0030 474200   		.ascii	"GB\000"
+  83 0033 00       		.align	2
+  84              	.LC7:
+  85 0034 2A283130 		.ascii	"*(1024 MB)\000"
+  85      3234204D 
+  85      422900
+  86              		.section	.data.rel.local,"aw"
+  87              		.align	2
+  90              	SizeMacros:
+  91 0000 00000000 		.word	.LC0
+  92 0004 08000000 		.word	.LC1
+  93 0008 0C000000 		.word	.LC2
+  94 000c 10000000 		.word	.LC3
+  95 0010 20000000 		.word	.LC4
+  96 0014 24000000 		.word	.LC5
+  97 0018 30000000 		.word	.LC6
+  98 001c 34000000 		.word	.LC7
+  99              		.align	2
+ 102              	SizeMacroDesc:
+ 103 0020 00000000 		.word	SizeMacros
+ 104 0024 04000000 		.word	4
+ 105              		.section	.rodata
+ 106 003f 00       		.align	2
+ 107              	.LC8:
+ 108 0040 54422000 		.ascii	"TB \000"
+ 109              		.align	2
+ 110              	.LC9:
+ 111 0044 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/l"
+ 111      652F686B 
+ 111      682F6769 
+ 111      742F6561 
+ 111      7069646B 
+ 112 0077 696E7578 		.ascii	"inux/../ArgParse.c\000"
+ 112      2F2E2E2F 
+ 112      41726750 
+ 112      61727365 
+ 112      2E6300
+ARM GAS  /tmp/cctRi5Mi.s 			page 4
+
+
+ 113 008a 0000     		.align	2
+ 114              	.LC10:
+ 115 008c 50617273 		.ascii	"ParseAsciiEquEx_VA(cszArg, &SizeMacroDesc, pvalue, "
+ 115      65417363 
+ 115      69694571 
+ 115      7545785F 
+ 115      56412863 
+ 116 00bf 28736967 		.ascii	"(signed int)pArgs->stValueSize)\000"
+ 116      6E656420 
+ 116      696E7429 
+ 116      70417267 
+ 116      732D3E73 
+ 117 00df 00       		.align	2
+ 118              	.LC11:
+ 119 00e0 25730A00 		.ascii	"%s\012\000"
+ 120              		.text
+ 121              		.align	2
+ 122              		.global	SizeArg
+ 123              		.syntax unified
+ 124              		.arm
+ 125              		.fpu vfpv3
+ 127              	SizeArg:
+ 128              	.LFB2:
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** static MacroItem_t SizeMacros[]={
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   {"BYTES", ""          },
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   {"KB"   , "*(1024 BYTES)"},
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   {"MB"   , "*(1024 KB)"},
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   {"GB"   , "*(1024 MB)"},
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** };
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** static MacroList_t SizeMacroDesc={SizeMacros, ARRAY_SIZE(SizeMacros)};
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t 
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** SizeArg(
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     struct ArgDesc_s  *pArgs, 
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     void* pvalue   ,  
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char *cszArg 
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 129              		.loc 1 64 1
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 24
+ 132              		@ frame_needed = 1, uses_anonymous_args = 0
+ 133 0040 00482DE9 		push	{fp, lr}
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 11, -8
+ 136              		.cfi_offset 14, -4
+ 137 0044 04B08DE2 		add	fp, sp, #4
+ 138              		.cfi_def_cfa 11, 4
+ 139 0048 28D04DE2 		sub	sp, sp, #40
+ 140 004c 10000BE5 		str	r0, [fp, #-16]
+ 141 0050 14100BE5 		str	r1, [fp, #-20]
+ 142 0054 18200BE5 		str	r2, [fp, #-24]
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 143              		.loc 1 65 16
+ 144 0058 0030A0E3 		mov	r3, #0
+ 145 005c 08300BE5 		str	r3, [fp, #-8]
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ARM GAS  /tmp/cctRi5Mi.s 			page 5
+
+
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   DO(ParseAsciiEquEx_VA(cszArg, &SizeMacroDesc, pvalue, (signed int)pArgs->stValueSize));
+ 146              		.loc 1 67 3
+ 147 0060 10301BE5 		ldr	r3, [fp, #-16]
+ 148 0064 043093E5 		ldr	r3, [r3, #4]
+ 149 0068 14201BE5 		ldr	r2, [fp, #-20]
+ 150 006c 6C109FE5 		ldr	r1, .L7
+ 151              	.LPIC0:
+ 152 0070 01108FE0 		add	r1, pc, r1
+ 153 0074 18001BE5 		ldr	r0, [fp, #-24]
+ 154 0078 FEFFFFEB 		bl	ParseAsciiEquEx_VA(PLT)
+ 155 007c 08000BE5 		str	r0, [fp, #-8]
+ 156 0080 08301BE5 		ldr	r3, [fp, #-8]
+ 157 0084 000053E3 		cmp	r3, #0
+ 158 0088 0F00000A 		beq	.L6
+ 159              		.loc 1 67 3 is_stmt 0 discriminator 1
+ 160 008c 50309FE5 		ldr	r3, .L7+4
+ 161              	.LPIC1:
+ 162 0090 03308FE0 		add	r3, pc, r3
+ 163 0094 08308DE5 		str	r3, [sp, #8]
+ 164 0098 48309FE5 		ldr	r3, .L7+8
+ 165              	.LPIC2:
+ 166 009c 03308FE0 		add	r3, pc, r3
+ 167 00a0 04308DE5 		str	r3, [sp, #4]
+ 168 00a4 08301BE5 		ldr	r3, [fp, #-8]
+ 169 00a8 00308DE5 		str	r3, [sp]
+ 170 00ac 4330A0E3 		mov	r3, #67
+ 171 00b0 34209FE5 		ldr	r2, .L7+12
+ 172              	.LPIC3:
+ 173 00b4 02208FE0 		add	r2, pc, r2
+ 174 00b8 30109FE5 		ldr	r1, .L7+16
+ 175              	.LPIC4:
+ 176 00bc 01108FE0 		add	r1, pc, r1
+ 177 00c0 4500A0E3 		mov	r0, #69
+ 178 00c4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 179 00c8 000000EA 		b	.L4
+ 180              	.L6:
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EAPI_APP_ASSERT_EXIT
+ 181              		.loc 1 69 1 is_stmt 1
+ 182 00cc 00F020E3 		nop
+ 183              	.L4:
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return StatusCode;
+ 184              		.loc 1 70 10
+ 185 00d0 08301BE5 		ldr	r3, [fp, #-8]
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 186              		.loc 1 71 1
+ 187 00d4 0300A0E1 		mov	r0, r3
+ 188 00d8 04D04BE2 		sub	sp, fp, #4
+ 189              		.cfi_def_cfa 13, 8
+ 190              		@ sp needed
+ 191 00dc 0088BDE8 		pop	{fp, pc}
+ 192              	.L8:
+ 193              		.align	2
+ 194              	.L7:
+ 195 00e0 88000000 		.word	SizeMacroDesc-(.LPIC0+8)
+ 196 00e4 D8000000 		.word	.LC10-(.LPIC1+8)
+ 197 00e8 24010000 		.word	.LC11-(.LPIC2+8)
+ARM GAS  /tmp/cctRi5Mi.s 			page 6
+
+
+ 198 00ec 70000000 		.word	.LC8-(.LPIC3+8)
+ 199 00f0 70000000 		.word	.LC9-(.LPIC4+8)
+ 200              		.cfi_endproc
+ 201              	.LFE2:
+ 203              		.section	.rodata
+ 204              		.align	2
+ 205              	.LC12:
+ 206 00e4 50617273 		.ascii	"ParseAsciiEqu_VA(cszArg, pvalue, (signed int)pArgs-"
+ 206      65417363 
+ 206      69694571 
+ 206      755F5641 
+ 206      2863737A 
+ 207 0117 3E737456 		.ascii	">stValueSize)\000"
+ 207      616C7565 
+ 207      53697A65 
+ 207      2900
+ 208              		.text
+ 209              		.align	2
+ 210              		.global	NumberArg
+ 211              		.syntax unified
+ 212              		.arm
+ 213              		.fpu vfpv3
+ 215              	NumberArg:
+ 216              	.LFB3:
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t 
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** NumberArg(
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     struct ArgDesc_s  *pArgs, 
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     void* pvalue   ,  
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char *cszArg 
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 217              		.loc 1 79 1
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 24
+ 220              		@ frame_needed = 1, uses_anonymous_args = 0
+ 221 00f4 00482DE9 		push	{fp, lr}
+ 222              		.cfi_def_cfa_offset 8
+ 223              		.cfi_offset 11, -8
+ 224              		.cfi_offset 14, -4
+ 225 00f8 04B08DE2 		add	fp, sp, #4
+ 226              		.cfi_def_cfa 11, 4
+ 227 00fc 28D04DE2 		sub	sp, sp, #40
+ 228 0100 10000BE5 		str	r0, [fp, #-16]
+ 229 0104 14100BE5 		str	r1, [fp, #-20]
+ 230 0108 18200BE5 		str	r2, [fp, #-24]
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 231              		.loc 1 80 16
+ 232 010c 0030A0E3 		mov	r3, #0
+ 233 0110 08300BE5 		str	r3, [fp, #-8]
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   DO(ParseAsciiEqu_VA(cszArg, pvalue, (signed int)pArgs->stValueSize));
+ 234              		.loc 1 82 3
+ 235 0114 10301BE5 		ldr	r3, [fp, #-16]
+ 236 0118 043093E5 		ldr	r3, [r3, #4]
+ 237 011c 0320A0E1 		mov	r2, r3
+ 238 0120 14101BE5 		ldr	r1, [fp, #-20]
+ARM GAS  /tmp/cctRi5Mi.s 			page 7
+
+
+ 239 0124 18001BE5 		ldr	r0, [fp, #-24]
+ 240 0128 FEFFFFEB 		bl	ParseAsciiEqu_VA(PLT)
+ 241 012c 08000BE5 		str	r0, [fp, #-8]
+ 242 0130 08301BE5 		ldr	r3, [fp, #-8]
+ 243 0134 000053E3 		cmp	r3, #0
+ 244 0138 0F00000A 		beq	.L12
+ 245              		.loc 1 82 3 is_stmt 0 discriminator 1
+ 246 013c 4C309FE5 		ldr	r3, .L13
+ 247              	.LPIC5:
+ 248 0140 03308FE0 		add	r3, pc, r3
+ 249 0144 08308DE5 		str	r3, [sp, #8]
+ 250 0148 44309FE5 		ldr	r3, .L13+4
+ 251              	.LPIC6:
+ 252 014c 03308FE0 		add	r3, pc, r3
+ 253 0150 04308DE5 		str	r3, [sp, #4]
+ 254 0154 08301BE5 		ldr	r3, [fp, #-8]
+ 255 0158 00308DE5 		str	r3, [sp]
+ 256 015c 5230A0E3 		mov	r3, #82
+ 257 0160 30209FE5 		ldr	r2, .L13+8
+ 258              	.LPIC7:
+ 259 0164 02208FE0 		add	r2, pc, r2
+ 260 0168 2C109FE5 		ldr	r1, .L13+12
+ 261              	.LPIC8:
+ 262 016c 01108FE0 		add	r1, pc, r1
+ 263 0170 4500A0E3 		mov	r0, #69
+ 264 0174 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 265 0178 000000EA 		b	.L10
+ 266              	.L12:
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EAPI_APP_ASSERT_EXIT
+ 267              		.loc 1 84 1 is_stmt 1
+ 268 017c 00F020E3 		nop
+ 269              	.L10:
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return StatusCode;
+ 270              		.loc 1 85 10
+ 271 0180 08301BE5 		ldr	r3, [fp, #-8]
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 272              		.loc 1 86 1
+ 273 0184 0300A0E1 		mov	r0, r3
+ 274 0188 04D04BE2 		sub	sp, fp, #4
+ 275              		.cfi_def_cfa 13, 8
+ 276              		@ sp needed
+ 277 018c 0088BDE8 		pop	{fp, pc}
+ 278              	.L14:
+ 279              		.align	2
+ 280              	.L13:
+ 281 0190 2C010000 		.word	.LC12-(.LPIC5+8)
+ 282 0194 20010000 		.word	.LC11-(.LPIC6+8)
+ 283 0198 6C000000 		.word	.LC8-(.LPIC7+8)
+ 284 019c 6C000000 		.word	.LC9-(.LPIC8+8)
+ 285              		.cfi_endproc
+ 286              	.LFE3:
+ 288              		.global	cszHeader
+ 289              		.section	.rodata
+ 290 0125 000000   		.align	2
+ 293              	cszHeader:
+ 294 0128 2B3D3D3D 		.ascii	"+=================================================="
+ARM GAS  /tmp/cctRi5Mi.s 			page 8
+
+
+ 294      3D3D3D3D 
+ 294      3D3D3D3D 
+ 294      3D3D3D3D 
+ 294      3D3D3D3D 
+ 295 015b 3D3D3D3D 		.ascii	"===========================+\012| Usage            "
+ 295      3D3D3D3D 
+ 295      3D3D3D3D 
+ 295      3D3D3D3D 
+ 295      3D3D3D3D 
+ 296 018b 20202020 		.ascii	"                                                   "
+ 296      20202020 
+ 296      20202020 
+ 296      20202020 
+ 296      20202020 
+ 297 01be 20202020 		.ascii	"        |\012+-------------------------------------"
+ 297      20202020 
+ 297      7C0A2B2D 
+ 297      2D2D2D2D 
+ 297      2D2D2D2D 
+ 298 01ee 2D2D2D2D 		.ascii	"----------------------------------------+\012\000"
+ 298      2D2D2D2D 
+ 298      2D2D2D2D 
+ 298      2D2D2D2D 
+ 298      2D2D2D2D 
+ 299              		.global	cszFooter
+ 300 0219 000000   		.align	2
+ 303              	cszFooter:
+ 304 021c 2B3D3D3D 		.ascii	"+=================================================="
+ 304      3D3D3D3D 
+ 304      3D3D3D3D 
+ 304      3D3D3D3D 
+ 304      3D3D3D3D 
+ 305 024f 3D3D3D3D 		.ascii	"===========================+\012\000"
+ 305      3D3D3D3D 
+ 305      3D3D3D3D 
+ 305      3D3D3D3D 
+ 305      3D3D3D3D 
+ 306 026d 000000   		.align	2
+ 307              	.LC13:
+ 308 0270 7C202D25 		.ascii	"| -%c \000"
+ 308      632000
+ 309 0277 00       		.align	2
+ 310              	.LC14:
+ 311 0278 7C202025 		.ascii	"|  %c \000"
+ 311      632000
+ 312 027f 00       		.align	2
+ 313              	.LC15:
+ 314 0280 2D2D252D 		.ascii	"--%-*s \000"
+ 314      2A732000 
+ 315              		.align	2
+ 316              	.LC16:
+ 317 0288 2020252D 		.ascii	"  %-*s \000"
+ 317      2A732000 
+ 318              		.align	2
+ 319              	.LC17:
+ 320 0290 7C00     		.ascii	"|\000"
+ 321 0292 0000     		.align	2
+ARM GAS  /tmp/cctRi5Mi.s 			page 9
+
+
+ 322              	.LC18:
+ 323 0294 207C0A00 		.ascii	" |\012\000"
+ 324              		.align	2
+ 325              	.LC19:
+ 326 0298 7C252A73 		.ascii	"|%*s%s%lu \000"
+ 326      2573256C 
+ 326      752000
+ 327 02a3 00       		.align	2
+ 328              	.LC20:
+ 329 02a4 41726700 		.ascii	"Arg\000"
+ 330              		.align	2
+ 331              	.LC21:
+ 332 02a8 7C252A73 		.ascii	"|%*s|\012\000"
+ 332      7C0A00
+ 333              		.text
+ 334              		.align	2
+ 335              		.global	PrintUsage
+ 336              		.syntax unified
+ 337              		.arm
+ 338              		.fpu vfpv3
+ 340              	PrintUsage:
+ 341              	.LFB4:
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** const char cszHeader[]= 
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   "+=============================================================================+\n"
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   "| Usage                                                                       |\n"
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   "+-----------------------------------------------------------------------------+\n"
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** ;
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** const char cszFooter[]= 
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   "+=============================================================================+\n"
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   ;
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** PrintUsage(
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     FILE      *OutStream    , 
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     CmdDesc_t *pCmdDesc     ,
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     size_t    stArgDescCnt
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 342              		.loc 1 103 1
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 40
+ 345              		@ frame_needed = 1, uses_anonymous_args = 0
+ 346 01a0 00482DE9 		push	{fp, lr}
+ 347              		.cfi_def_cfa_offset 8
+ 348              		.cfi_offset 11, -8
+ 349              		.cfi_offset 14, -4
+ 350 01a4 04B08DE2 		add	fp, sp, #4
+ 351              		.cfi_def_cfa 11, 4
+ 352 01a8 30D04DE2 		sub	sp, sp, #48
+ 353 01ac 20000BE5 		str	r0, [fp, #-32]
+ 354 01b0 24100BE5 		str	r1, [fp, #-36]
+ 355 01b4 28200BE5 		str	r2, [fp, #-40]
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   ArgDesc_t *pArgDesc;
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   size_t     stArgCount;
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   int LineWidth=80;
+ 356              		.loc 1 106 7
+ARM GAS  /tmp/cctRi5Mi.s 			page 10
+
+
+ 357 01b8 5030A0E3 		mov	r3, #80
+ 358 01bc 14300BE5 		str	r3, [fp, #-20]
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   int LArgLen=25;
+ 359              		.loc 1 107 7
+ 360 01c0 1930A0E3 		mov	r3, #25
+ 361 01c4 10300BE5 		str	r3, [fp, #-16]
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   int ArgOHead=STRLEN("| -c --") + LArgLen + STRLEN(" ");
+ 362              		.loc 1 108 44
+ 363 01c8 10301BE5 		ldr	r3, [fp, #-16]
+ 364 01cc 083083E2 		add	r3, r3, #8
+ 365              		.loc 1 108 7
+ 366 01d0 0C300BE5 		str	r3, [fp, #-12]
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   int HelpLen=LineWidth - ArgOHead - STRLEN(" |\n");
+ 367              		.loc 1 109 25
+ 368 01d4 14201BE5 		ldr	r2, [fp, #-20]
+ 369 01d8 0C301BE5 		ldr	r3, [fp, #-12]
+ 370 01dc 033042E0 		sub	r3, r2, r3
+ 371              		.loc 1 109 36
+ 372 01e0 033043E2 		sub	r3, r3, #3
+ 373              		.loc 1 109 7
+ 374 01e4 08300BE5 		str	r3, [fp, #-8]
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   fprintf(OutStream, cszHeader);
+ 375              		.loc 1 110 3
+ 376 01e8 20301BE5 		ldr	r3, [fp, #-32]
+ 377 01ec F020A0E3 		mov	r2, #240
+ 378 01f0 0110A0E3 		mov	r1, #1
+ 379 01f4 0C029FE5 		ldr	r0, .L26
+ 380              	.LPIC9:
+ 381 01f8 00008FE0 		add	r0, pc, r0
+ 382 01fc FEFFFFEB 		bl	fwrite(PLT)
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   while(stArgDescCnt --){
+ 383              		.loc 1 111 8
+ 384 0200 710000EA 		b	.L16
+ 385              	.L24:
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     /*
+ 113:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****      *
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****      */
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(pCmdDesc->cShort)
+ 386              		.loc 1 115 16
+ 387 0204 24301BE5 		ldr	r3, [fp, #-36]
+ 388 0208 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 389              		.loc 1 115 7
+ 390 020c 000053E3 		cmp	r3, #0
+ 391 0210 0800000A 		beq	.L17
+ 116:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf(OutStream, "| -%c ", pCmdDesc->cShort );
+ 392              		.loc 1 116 44
+ 393 0214 24301BE5 		ldr	r3, [fp, #-36]
+ 394 0218 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 395              		.loc 1 116 7
+ 396 021c 0320A0E1 		mov	r2, r3
+ 397 0220 E4319FE5 		ldr	r3, .L26+4
+ 398              	.LPIC10:
+ 399 0224 03308FE0 		add	r3, pc, r3
+ 400 0228 0310A0E1 		mov	r1, r3
+ 401 022c 20001BE5 		ldr	r0, [fp, #-32]
+ 402 0230 FEFFFFEB 		bl	fprintf(PLT)
+ 403 0234 050000EA 		b	.L18
+ARM GAS  /tmp/cctRi5Mi.s 			page 11
+
+
+ 404              	.L17:
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     else
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf(OutStream, "|  %c ", ' ' );
+ 405              		.loc 1 118 7
+ 406 0238 2020A0E3 		mov	r2, #32
+ 407 023c CC319FE5 		ldr	r3, .L26+8
+ 408              	.LPIC11:
+ 409 0240 03308FE0 		add	r3, pc, r3
+ 410 0244 0310A0E1 		mov	r1, r3
+ 411 0248 20001BE5 		ldr	r0, [fp, #-32]
+ 412 024c FEFFFFEB 		bl	fprintf(PLT)
+ 413              	.L18:
+ 119:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     /*
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****      *
+ 121:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****      */
+ 122:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(pCmdDesc->cszLong!=NULL)
+ 414              		.loc 1 122 16
+ 415 0250 24301BE5 		ldr	r3, [fp, #-36]
+ 416 0254 043093E5 		ldr	r3, [r3, #4]
+ 417              		.loc 1 122 7
+ 418 0258 000053E3 		cmp	r3, #0
+ 419 025c 0700000A 		beq	.L19
+ 123:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf(OutStream, "--%-*s ", LArgLen, pCmdDesc->cszLong );
+ 420              		.loc 1 123 7
+ 421 0260 24301BE5 		ldr	r3, [fp, #-36]
+ 422 0264 043093E5 		ldr	r3, [r3, #4]
+ 423 0268 10201BE5 		ldr	r2, [fp, #-16]
+ 424 026c A0119FE5 		ldr	r1, .L26+12
+ 425              	.LPIC12:
+ 426 0270 01108FE0 		add	r1, pc, r1
+ 427 0274 20001BE5 		ldr	r0, [fp, #-32]
+ 428 0278 FEFFFFEB 		bl	fprintf(PLT)
+ 429 027c 060000EA 		b	.L20
+ 430              	.L19:
+ 124:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     else
+ 125:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf(OutStream, "  %-*s ", LArgLen, "");
+ 431              		.loc 1 125 7
+ 432 0280 90319FE5 		ldr	r3, .L26+16
+ 433              	.LPIC13:
+ 434 0284 03308FE0 		add	r3, pc, r3
+ 435 0288 10201BE5 		ldr	r2, [fp, #-16]
+ 436 028c 88119FE5 		ldr	r1, .L26+20
+ 437              	.LPIC14:
+ 438 0290 01108FE0 		add	r1, pc, r1
+ 439 0294 20001BE5 		ldr	r0, [fp, #-32]
+ 440 0298 FEFFFFEB 		bl	fprintf(PLT)
+ 441              	.L20:
+ 126:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     /*
+ 127:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****      *
+ 128:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****      */
+ 129:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     PrintStringBlock(
+ 442              		.loc 1 129 5
+ 443 029c 24301BE5 		ldr	r3, [fp, #-36]
+ 444 02a0 0C1093E5 		ldr	r1, [r3, #12]
+ 445 02a4 08201BE5 		ldr	r2, [fp, #-8]
+ 446 02a8 0C301BE5 		ldr	r3, [fp, #-12]
+ 447 02ac 003063E2 		rsb	r3, r3, #0
+ARM GAS  /tmp/cctRi5Mi.s 			page 12
+
+
+ 448 02b0 68019FE5 		ldr	r0, .L26+24
+ 449              	.LPIC15:
+ 450 02b4 00008FE0 		add	r0, pc, r0
+ 451 02b8 04008DE5 		str	r0, [sp, #4]
+ 452 02bc 00308DE5 		str	r3, [sp]
+ 453 02c0 5C319FE5 		ldr	r3, .L26+28
+ 454              	.LPIC16:
+ 455 02c4 03308FE0 		add	r3, pc, r3
+ 456 02c8 20001BE5 		ldr	r0, [fp, #-32]
+ 457 02cc FEFFFFEB 		bl	PrintStringBlock(PLT)
+ 130:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         OutStream         ,
+ 131:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         pCmdDesc->cszHelp , 
+ 132:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         HelpLen, "|", -ArgOHead, " |\n"
+ 133:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       );
+ 134:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 135:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     
+ 136:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     pArgDesc=pCmdDesc->pArgs;
+ 458              		.loc 1 136 13
+ 459 02d0 24301BE5 		ldr	r3, [fp, #-36]
+ 460 02d4 103093E5 		ldr	r3, [r3, #16]
+ 461 02d8 1C300BE5 		str	r3, [fp, #-28]
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     for(stArgCount=0; stArgCount< pCmdDesc->stArgs; stArgCount++){
+ 462              		.loc 1 137 19
+ 463 02dc 0030A0E3 		mov	r3, #0
+ 464 02e0 18300BE5 		str	r3, [fp, #-24]
+ 465              		.loc 1 137 5
+ 466 02e4 230000EA 		b	.L21
+ 467              	.L22:
+ 138:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf( OutStream, 
+ 468              		.loc 1 138 7 discriminator 3
+ 469 02e8 18301BE5 		ldr	r3, [fp, #-24]
+ 470 02ec 04308DE5 		str	r3, [sp, #4]
+ 471 02f0 30319FE5 		ldr	r3, .L26+32
+ 472              	.LPIC17:
+ 473 02f4 03308FE0 		add	r3, pc, r3
+ 474 02f8 00308DE5 		str	r3, [sp]
+ 475 02fc 28319FE5 		ldr	r3, .L26+36
+ 476              	.LPIC18:
+ 477 0300 03308FE0 		add	r3, pc, r3
+ 478 0304 0C201BE5 		ldr	r2, [fp, #-12]
+ 479 0308 20119FE5 		ldr	r1, .L26+40
+ 480              	.LPIC19:
+ 481 030c 01108FE0 		add	r1, pc, r1
+ 482 0310 20001BE5 		ldr	r0, [fp, #-32]
+ 483 0314 FEFFFFEB 		bl	fprintf(PLT)
+ 139:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 							 "|%*s%s%lu ", ArgOHead, "", "Arg", 
+ 140:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 							 (unsigned long)stArgCount
+ 141:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 						);
+ 142:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       PrintStringBlock(
+ 484              		.loc 1 142 7 discriminator 3
+ 485 0318 1C301BE5 		ldr	r3, [fp, #-28]
+ 486 031c 081093E5 		ldr	r1, [r3, #8]
+ 143:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           OutStream         ,
+ 144:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           pArgDesc->cszHelp ,
+ 145:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           HelpLen   - (signed)STRLEN(" Arg0 "), "|", -(signed)(ArgOHead+(signed)STRLEN(" Arg0 ")), 
+ 487              		.loc 1 145 21 discriminator 3
+ 488 0320 08301BE5 		ldr	r3, [fp, #-8]
+ARM GAS  /tmp/cctRi5Mi.s 			page 13
+
+
+ 489 0324 063043E2 		sub	r3, r3, #6
+ 142:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           OutStream         ,
+ 490              		.loc 1 142 7 discriminator 3
+ 491 0328 0300A0E1 		mov	r0, r3
+ 492 032c 0C201BE5 		ldr	r2, [fp, #-12]
+ 493 0330 FA3F0FE3 		movw	r3, #65530
+ 494 0334 FF3F4FE3 		movt	r3, 65535
+ 495 0338 023043E0 		sub	r3, r3, r2
+ 496 033c F0209FE5 		ldr	r2, .L26+44
+ 497              	.LPIC20:
+ 498 0340 02208FE0 		add	r2, pc, r2
+ 499 0344 04208DE5 		str	r2, [sp, #4]
+ 500 0348 00308DE5 		str	r3, [sp]
+ 501 034c E4309FE5 		ldr	r3, .L26+48
+ 502              	.LPIC21:
+ 503 0350 03308FE0 		add	r3, pc, r3
+ 504 0354 0020A0E1 		mov	r2, r0
+ 505 0358 20001BE5 		ldr	r0, [fp, #-32]
+ 506 035c FEFFFFEB 		bl	PrintStringBlock(PLT)
+ 146:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         );
+ 147:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       pArgDesc++;
+ 507              		.loc 1 147 15 discriminator 3
+ 508 0360 1C301BE5 		ldr	r3, [fp, #-28]
+ 509 0364 103083E2 		add	r3, r3, #16
+ 510 0368 1C300BE5 		str	r3, [fp, #-28]
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf( OutStream, 
+ 511              		.loc 1 137 63 discriminator 3
+ 512 036c 18301BE5 		ldr	r3, [fp, #-24]
+ 513 0370 013083E2 		add	r3, r3, #1
+ 514 0374 18300BE5 		str	r3, [fp, #-24]
+ 515              	.L21:
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf( OutStream, 
+ 516              		.loc 1 137 43 discriminator 1
+ 517 0378 24301BE5 		ldr	r3, [fp, #-36]
+ 518 037c 143093E5 		ldr	r3, [r3, #20]
+ 137:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf( OutStream, 
+ 519              		.loc 1 137 33 discriminator 1
+ 520 0380 18201BE5 		ldr	r2, [fp, #-24]
+ 521 0384 030052E1 		cmp	r2, r3
+ 522 0388 D6FFFF3A 		bcc	.L22
+ 148:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     };
+ 149:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(pCmdDesc->pArgs){
+ 523              		.loc 1 149 16
+ 524 038c 24301BE5 		ldr	r3, [fp, #-36]
+ 525 0390 103093E5 		ldr	r3, [r3, #16]
+ 526              		.loc 1 149 7
+ 527 0394 000053E3 		cmp	r3, #0
+ 528 0398 0800000A 		beq	.L23
+ 150:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       fprintf( OutStream, "|%*s|\n", (signed)(LineWidth - STRLEN("||\n")), "" );
+ 529              		.loc 1 150 57
+ 530 039c 14301BE5 		ldr	r3, [fp, #-20]
+ 531 03a0 033043E2 		sub	r3, r3, #3
+ 532              		.loc 1 150 7
+ 533 03a4 0320A0E1 		mov	r2, r3
+ 534 03a8 8C309FE5 		ldr	r3, .L26+52
+ 535              	.LPIC22:
+ 536 03ac 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/cctRi5Mi.s 			page 14
+
+
+ 537 03b0 88109FE5 		ldr	r1, .L26+56
+ 538              	.LPIC23:
+ 539 03b4 01108FE0 		add	r1, pc, r1
+ 540 03b8 20001BE5 		ldr	r0, [fp, #-32]
+ 541 03bc FEFFFFEB 		bl	fprintf(PLT)
+ 542              	.L23:
+ 151:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     };
+ 152:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 153:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     pCmdDesc++;
+ 543              		.loc 1 153 13
+ 544 03c0 24301BE5 		ldr	r3, [fp, #-36]
+ 545 03c4 203083E2 		add	r3, r3, #32
+ 546 03c8 24300BE5 		str	r3, [fp, #-36]
+ 547              	.L16:
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     /*
+ 548              		.loc 1 111 22
+ 549 03cc 28301BE5 		ldr	r3, [fp, #-40]
+ 550 03d0 012043E2 		sub	r2, r3, #1
+ 551 03d4 28200BE5 		str	r2, [fp, #-40]
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     /*
+ 552              		.loc 1 111 9
+ 553 03d8 000053E3 		cmp	r3, #0
+ 554 03dc 88FFFF1A 		bne	.L24
+ 154:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   };
+ 155:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   fprintf(OutStream, cszFooter);
+ 555              		.loc 1 155 3
+ 556 03e0 20301BE5 		ldr	r3, [fp, #-32]
+ 557 03e4 5020A0E3 		mov	r2, #80
+ 558 03e8 0110A0E3 		mov	r1, #1
+ 559 03ec 50009FE5 		ldr	r0, .L26+60
+ 560              	.LPIC24:
+ 561 03f0 00008FE0 		add	r0, pc, r0
+ 562 03f4 FEFFFFEB 		bl	fwrite(PLT)
+ 156:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return EAPI_STATUS_SUCCESS;
+ 563              		.loc 1 156 10
+ 564 03f8 0030A0E3 		mov	r3, #0
+ 157:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 565              		.loc 1 157 1
+ 566 03fc 0300A0E1 		mov	r0, r3
+ 567 0400 04D04BE2 		sub	sp, fp, #4
+ 568              		.cfi_def_cfa 13, 8
+ 569              		@ sp needed
+ 570 0404 0088BDE8 		pop	{fp, pc}
+ 571              	.L27:
+ 572              		.align	2
+ 573              	.L26:
+ 574 0408 08020000 		.word	cszHeader-(.LPIC9+8)
+ 575 040c 50040000 		.word	.LC13-(.LPIC10+8)
+ 576 0410 40040000 		.word	.LC14-(.LPIC11+8)
+ 577 0414 1C040000 		.word	.LC15-(.LPIC12+8)
+ 578 0418 94010000 		.word	.LC1-(.LPIC13+8)
+ 579 041c 0C040000 		.word	.LC16-(.LPIC14+8)
+ 580 0420 F8030000 		.word	.LC18-(.LPIC15+8)
+ 581 0424 E8030000 		.word	.LC17-(.LPIC16+8)
+ 582 0428 D0030000 		.word	.LC20-(.LPIC17+8)
+ 583 042c 2C010000 		.word	.LC1-(.LPIC18+8)
+ 584 0430 B4030000 		.word	.LC19-(.LPIC19+8)
+ARM GAS  /tmp/cctRi5Mi.s 			page 15
+
+
+ 585 0434 80030000 		.word	.LC18-(.LPIC20+8)
+ 586 0438 70030000 		.word	.LC17-(.LPIC21+8)
+ 587 043c 90000000 		.word	.LC1-(.LPIC22+8)
+ 588 0440 2C030000 		.word	.LC21-(.LPIC23+8)
+ 589 0444 4C000000 		.word	cszFooter-(.LPIC24+8)
+ 590              		.cfi_endproc
+ 591              	.LFE4:
+ 593              		.align	2
+ 594              		.global	ParseArgsBuffer
+ 595              		.syntax unified
+ 596              		.arm
+ 597              		.fpu vfpv3
+ 599              	ParseArgsBuffer:
+ 600              	.LFB5:
+ 158:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 159:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t
+ 160:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** ParseArgsBuffer(
+ 161:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char *szCmdLine, 
+ 162:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     char      **pszArgv, 
+ 163:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     char       *szArgs, 
+ 164:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     signed int *psiArgc, 
+ 165:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     signed int *psiCharc 
+ 166:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   )
+ 167:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 601              		.loc 1 167 1
+ 602              		.cfi_startproc
+ 603              		@ args = 4, pretend = 0, frame = 32
+ 604              		@ frame_needed = 1, uses_anonymous_args = 0
+ 605              		@ link register save eliminated.
+ 606 0448 04B02DE5 		str	fp, [sp, #-4]!
+ 607              		.cfi_def_cfa_offset 4
+ 608              		.cfi_offset 11, -4
+ 609 044c 00B08DE2 		add	fp, sp, #0
+ 610              		.cfi_def_cfa_register 11
+ 611 0450 24D04DE2 		sub	sp, sp, #36
+ 612 0454 18000BE5 		str	r0, [fp, #-24]
+ 613 0458 1C100BE5 		str	r1, [fp, #-28]
+ 614 045c 20200BE5 		str	r2, [fp, #-32]
+ 615 0460 24300BE5 		str	r3, [fp, #-36]
+ 168:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   signed int siInString;
+ 169:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   signed int siCopyChar;
+ 170:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   signed int siSlashesCnt;
+ 171:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   *psiArgc =0;
+ 616              		.loc 1 171 12
+ 617 0464 24301BE5 		ldr	r3, [fp, #-36]
+ 618 0468 0020A0E3 		mov	r2, #0
+ 619 046c 002083E5 		str	r2, [r3]
+ 172:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   *psiCharc=0;
+ 620              		.loc 1 172 12
+ 621 0470 04309BE5 		ldr	r3, [fp, #4]
+ 622 0474 0020A0E3 		mov	r2, #0
+ 623 0478 002083E5 		str	r2, [r3]
+ 173:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   siInString=0;
+ 624              		.loc 1 173 13
+ 625 047c 0030A0E3 		mov	r3, #0
+ 626 0480 10300BE5 		str	r3, [fp, #-16]
+ 174:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   for(;;){
+ARM GAS  /tmp/cctRi5Mi.s 			page 16
+
+
+ 175:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     while(*(szCmdLine)==' '||*(szCmdLine)=='\t'||*(szCmdLine)=='\n'){ ++(szCmdLine); }
+ 627              		.loc 1 175 10
+ 628 0484 020000EA 		b	.L29
+ 629              	.L30:
+ 630              		.loc 1 175 71 discriminator 6
+ 631 0488 18301BE5 		ldr	r3, [fp, #-24]
+ 632 048c 013083E2 		add	r3, r3, #1
+ 633 0490 18300BE5 		str	r3, [fp, #-24]
+ 634              	.L29:
+ 635              		.loc 1 175 11 discriminator 1
+ 636 0494 18301BE5 		ldr	r3, [fp, #-24]
+ 637 0498 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 638              		.loc 1 175 48 discriminator 1
+ 639 049c 200053E3 		cmp	r3, #32
+ 640 04a0 F8FFFF0A 		beq	.L30
+ 641              		.loc 1 175 30 discriminator 3
+ 642 04a4 18301BE5 		ldr	r3, [fp, #-24]
+ 643 04a8 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 644              		.loc 1 175 28 discriminator 3
+ 645 04ac 090053E3 		cmp	r3, #9
+ 646 04b0 F4FFFF0A 		beq	.L30
+ 647              		.loc 1 175 50 discriminator 5
+ 648 04b4 18301BE5 		ldr	r3, [fp, #-24]
+ 649 04b8 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 650              		.loc 1 175 48 discriminator 5
+ 651 04bc 0A0053E3 		cmp	r3, #10
+ 652 04c0 F0FFFF0A 		beq	.L30
+ 176:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(*szCmdLine=='\0')
+ 653              		.loc 1 176 8
+ 654 04c4 18301BE5 		ldr	r3, [fp, #-24]
+ 655 04c8 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 656              		.loc 1 176 7
+ 657 04cc 000053E3 		cmp	r3, #0
+ 658 04d0 8600000A 		beq	.L52
+ 177:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       break;
+ 178:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(pszArgv!=NULL)
+ 659              		.loc 1 178 7
+ 660 04d4 1C301BE5 		ldr	r3, [fp, #-28]
+ 661 04d8 000053E3 		cmp	r3, #0
+ 662 04dc 0400000A 		beq	.L33
+ 179:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       *pszArgv++=szArgs;
+ 663              		.loc 1 179 15
+ 664 04e0 1C301BE5 		ldr	r3, [fp, #-28]
+ 665 04e4 042083E2 		add	r2, r3, #4
+ 666 04e8 1C200BE5 		str	r2, [fp, #-28]
+ 667              		.loc 1 179 17
+ 668 04ec 20201BE5 		ldr	r2, [fp, #-32]
+ 669 04f0 002083E5 		str	r2, [r3]
+ 670              	.L33:
+ 180:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     ++*psiArgc;
+ 671              		.loc 1 180 7
+ 672 04f4 24301BE5 		ldr	r3, [fp, #-36]
+ 673 04f8 003093E5 		ldr	r3, [r3]
+ 674              		.loc 1 180 5
+ 675 04fc 012083E2 		add	r2, r3, #1
+ 676 0500 24301BE5 		ldr	r3, [fp, #-36]
+ 677 0504 002083E5 		str	r2, [r3]
+ARM GAS  /tmp/cctRi5Mi.s 			page 17
+
+
+ 678              	.L46:
+ 181:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     for(;;){
+ 182:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       siCopyChar=1;
+ 679              		.loc 1 182 17
+ 680 0508 0130A0E3 		mov	r3, #1
+ 681 050c 0C300BE5 		str	r3, [fp, #-12]
+ 183:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 184:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       siSlashesCnt=0;
+ 682              		.loc 1 184 19
+ 683 0510 0030A0E3 		mov	r3, #0
+ 684 0514 08300BE5 		str	r3, [fp, #-8]
+ 185:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       while(*szCmdLine=='\\'){
+ 685              		.loc 1 185 12
+ 686 0518 050000EA 		b	.L34
+ 687              	.L35:
+ 186:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         szCmdLine++;
+ 688              		.loc 1 186 18
+ 689 051c 18301BE5 		ldr	r3, [fp, #-24]
+ 690 0520 013083E2 		add	r3, r3, #1
+ 691 0524 18300BE5 		str	r3, [fp, #-24]
+ 187:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         siSlashesCnt++;
+ 692              		.loc 1 187 21
+ 693 0528 08301BE5 		ldr	r3, [fp, #-8]
+ 694 052c 013083E2 		add	r3, r3, #1
+ 695 0530 08300BE5 		str	r3, [fp, #-8]
+ 696              	.L34:
+ 185:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       while(*szCmdLine=='\\'){
+ 697              		.loc 1 185 13
+ 698 0534 18301BE5 		ldr	r3, [fp, #-24]
+ 699 0538 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 185:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       while(*szCmdLine=='\\'){
+ 700              		.loc 1 185 23
+ 701 053c 5C0053E3 		cmp	r3, #92
+ 702 0540 F5FFFF0A 		beq	.L35
+ 188:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       }
+ 189:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       if(*szCmdLine=='\"'){
+ 703              		.loc 1 189 10
+ 704 0544 18301BE5 		ldr	r3, [fp, #-24]
+ 705 0548 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 706              		.loc 1 189 9
+ 707 054c 220053E3 		cmp	r3, #34
+ 708 0550 1C00001A 		bne	.L36
+ 190:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         if(!(siSlashesCnt%2)){
+ 709              		.loc 1 190 12
+ 710 0554 08301BE5 		ldr	r3, [fp, #-8]
+ 711 0558 013003E2 		and	r3, r3, #1
+ 712              		.loc 1 190 11
+ 713 055c 000053E3 		cmp	r3, #0
+ 714 0560 1300001A 		bne	.L37
+ 191:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           if(siInString && szCmdLine[1]=='\"'){
+ 715              		.loc 1 191 13
+ 716 0564 10301BE5 		ldr	r3, [fp, #-16]
+ 717 0568 000053E3 		cmp	r3, #0
+ 718 056c 0800000A 		beq	.L38
+ 719              		.loc 1 191 37 discriminator 1
+ 720 0570 18301BE5 		ldr	r3, [fp, #-24]
+ 721 0574 013083E2 		add	r3, r3, #1
+ARM GAS  /tmp/cctRi5Mi.s 			page 18
+
+
+ 722 0578 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 723              		.loc 1 191 25 discriminator 1
+ 724 057c 220053E3 		cmp	r3, #34
+ 725 0580 0300001A 		bne	.L38
+ 192:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             szCmdLine++;
+ 726              		.loc 1 192 22
+ 727 0584 18301BE5 		ldr	r3, [fp, #-24]
+ 728 0588 013083E2 		add	r3, r3, #1
+ 729 058c 18300BE5 		str	r3, [fp, #-24]
+ 730 0590 070000EA 		b	.L37
+ 731              	.L38:
+ 193:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           }else{
+ 194:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             siCopyChar=0;
+ 732              		.loc 1 194 23
+ 733 0594 0030A0E3 		mov	r3, #0
+ 734 0598 0C300BE5 		str	r3, [fp, #-12]
+ 195:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             siInString=!siInString;
+ 735              		.loc 1 195 24
+ 736 059c 10301BE5 		ldr	r3, [fp, #-16]
+ 737 05a0 000053E3 		cmp	r3, #0
+ 738 05a4 0130A003 		moveq	r3, #1
+ 739 05a8 0030A013 		movne	r3, #0
+ 740 05ac 7330EFE6 		uxtb	r3, r3
+ 741              		.loc 1 195 23
+ 742 05b0 10300BE5 		str	r3, [fp, #-16]
+ 743              	.L37:
+ 196:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           }
+ 197:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         }
+ 198:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         siSlashesCnt/=2;
+ 744              		.loc 1 198 21
+ 745 05b4 08301BE5 		ldr	r3, [fp, #-8]
+ 746 05b8 A32FA0E1 		lsr	r2, r3, #31
+ 747 05bc 033082E0 		add	r3, r2, r3
+ 748 05c0 C330A0E1 		asr	r3, r3, #1
+ 749 05c4 08300BE5 		str	r3, [fp, #-8]
+ 750              	.L36:
+ 199:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       }
+ 200:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       *psiCharc+=siSlashesCnt;
+ 751              		.loc 1 200 16
+ 752 05c8 04309BE5 		ldr	r3, [fp, #4]
+ 753 05cc 002093E5 		ldr	r2, [r3]
+ 754 05d0 08301BE5 		ldr	r3, [fp, #-8]
+ 755 05d4 032082E0 		add	r2, r2, r3
+ 756 05d8 04309BE5 		ldr	r3, [fp, #4]
+ 757 05dc 002083E5 		str	r2, [r3]
+ 201:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       if(szArgs!=NULL){
+ 758              		.loc 1 201 9
+ 759 05e0 20301BE5 		ldr	r3, [fp, #-32]
+ 760 05e4 000053E3 		cmp	r3, #0
+ 761 05e8 0A00000A 		beq	.L39
+ 202:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         while(siSlashesCnt --){
+ 762              		.loc 1 202 14
+ 763 05ec 040000EA 		b	.L40
+ 764              	.L41:
+ 203:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           *szArgs++='\\'; 
+ 765              		.loc 1 203 18
+ 766 05f0 20301BE5 		ldr	r3, [fp, #-32]
+ARM GAS  /tmp/cctRi5Mi.s 			page 19
+
+
+ 767 05f4 012083E2 		add	r2, r3, #1
+ 768 05f8 20200BE5 		str	r2, [fp, #-32]
+ 769              		.loc 1 203 20
+ 770 05fc 5C20A0E3 		mov	r2, #92
+ 771 0600 0020C3E5 		strb	r2, [r3]
+ 772              	.L40:
+ 202:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         while(siSlashesCnt --){
+ 773              		.loc 1 202 28
+ 774 0604 08301BE5 		ldr	r3, [fp, #-8]
+ 775 0608 012043E2 		sub	r2, r3, #1
+ 776 060c 08200BE5 		str	r2, [fp, #-8]
+ 202:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         while(siSlashesCnt --){
+ 777              		.loc 1 202 15
+ 778 0610 000053E3 		cmp	r3, #0
+ 779 0614 F5FFFF1A 		bne	.L41
+ 780              	.L39:
+ 204:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         }
+ 205:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       }
+ 206:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       if(*szCmdLine=='\0'||*szCmdLine=='\n'||(!siInString&&(*szCmdLine==' '||*szCmdLine=='\t')))
+ 781              		.loc 1 206 10
+ 782 0618 18301BE5 		ldr	r3, [fp, #-24]
+ 783 061c 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 784              		.loc 1 206 9
+ 785 0620 000053E3 		cmp	r3, #0
+ 786 0624 2300000A 		beq	.L42
+ 787              		.loc 1 206 28 discriminator 1
+ 788 0628 18301BE5 		ldr	r3, [fp, #-24]
+ 789 062c 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 790              		.loc 1 206 26 discriminator 1
+ 791 0630 0A0053E3 		cmp	r3, #10
+ 792 0634 1F00000A 		beq	.L42
+ 793              		.loc 1 206 44 discriminator 2
+ 794 0638 10301BE5 		ldr	r3, [fp, #-16]
+ 795 063c 000053E3 		cmp	r3, #0
+ 796 0640 0700001A 		bne	.L43
+ 797              		.loc 1 206 61 discriminator 3
+ 798 0644 18301BE5 		ldr	r3, [fp, #-24]
+ 799 0648 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 800              		.loc 1 206 58 discriminator 3
+ 801 064c 200053E3 		cmp	r3, #32
+ 802 0650 1800000A 		beq	.L42
+ 803              		.loc 1 206 78 discriminator 4
+ 804 0654 18301BE5 		ldr	r3, [fp, #-24]
+ 805 0658 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 806              		.loc 1 206 76 discriminator 4
+ 807 065c 090053E3 		cmp	r3, #9
+ 808 0660 1400000A 		beq	.L42
+ 809              	.L43:
+ 207:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         break;
+ 208:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       if(siCopyChar){
+ 810              		.loc 1 208 9
+ 811 0664 0C301BE5 		ldr	r3, [fp, #-12]
+ 812 0668 000053E3 		cmp	r3, #0
+ 813 066c 0D00000A 		beq	.L44
+ 209:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         if(szArgs!=NULL)
+ 814              		.loc 1 209 11
+ 815 0670 20301BE5 		ldr	r3, [fp, #-32]
+ARM GAS  /tmp/cctRi5Mi.s 			page 20
+
+
+ 816 0674 000053E3 		cmp	r3, #0
+ 817 0678 0500000A 		beq	.L45
+ 210:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           *szArgs++=*szCmdLine; 
+ 818              		.loc 1 210 18
+ 819 067c 20301BE5 		ldr	r3, [fp, #-32]
+ 820 0680 012083E2 		add	r2, r3, #1
+ 821 0684 20200BE5 		str	r2, [fp, #-32]
+ 822              		.loc 1 210 21
+ 823 0688 18201BE5 		ldr	r2, [fp, #-24]
+ 824 068c 0020D2E5 		ldrb	r2, [r2]	@ zero_extendqisi2
+ 825              		.loc 1 210 20
+ 826 0690 0020C3E5 		strb	r2, [r3]
+ 827              	.L45:
+ 211:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         ++*psiCharc;
+ 828              		.loc 1 211 11
+ 829 0694 04309BE5 		ldr	r3, [fp, #4]
+ 830 0698 003093E5 		ldr	r3, [r3]
+ 831              		.loc 1 211 9
+ 832 069c 012083E2 		add	r2, r3, #1
+ 833 06a0 04309BE5 		ldr	r3, [fp, #4]
+ 834 06a4 002083E5 		str	r2, [r3]
+ 835              	.L44:
+ 212:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       }
+ 213:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       ++szCmdLine;
+ 836              		.loc 1 213 7
+ 837 06a8 18301BE5 		ldr	r3, [fp, #-24]
+ 838 06ac 013083E2 		add	r3, r3, #1
+ 839 06b0 18300BE5 		str	r3, [fp, #-24]
+ 182:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 840              		.loc 1 182 17
+ 841 06b4 93FFFFEA 		b	.L46
+ 842              	.L42:
+ 214:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     }
+ 215:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(szArgs!=NULL)
+ 843              		.loc 1 215 7
+ 844 06b8 20301BE5 		ldr	r3, [fp, #-32]
+ 845 06bc 000053E3 		cmp	r3, #0
+ 846 06c0 0400000A 		beq	.L47
+ 216:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       *szArgs++='\0'; 
+ 847              		.loc 1 216 14
+ 848 06c4 20301BE5 		ldr	r3, [fp, #-32]
+ 849 06c8 012083E2 		add	r2, r3, #1
+ 850 06cc 20200BE5 		str	r2, [fp, #-32]
+ 851              		.loc 1 216 16
+ 852 06d0 0020A0E3 		mov	r2, #0
+ 853 06d4 0020C3E5 		strb	r2, [r3]
+ 854              	.L47:
+ 217:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     ++*psiCharc;
+ 855              		.loc 1 217 7
+ 856 06d8 04309BE5 		ldr	r3, [fp, #4]
+ 857 06dc 003093E5 		ldr	r3, [r3]
+ 858              		.loc 1 217 5
+ 859 06e0 012083E2 		add	r2, r3, #1
+ 860 06e4 04309BE5 		ldr	r3, [fp, #4]
+ 861 06e8 002083E5 		str	r2, [r3]
+ 175:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(*szCmdLine=='\0')
+ 862              		.loc 1 175 10
+ARM GAS  /tmp/cctRi5Mi.s 			page 21
+
+
+ 863 06ec 68FFFFEA 		b	.L29
+ 864              	.L52:
+ 177:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(pszArgv!=NULL)
+ 865              		.loc 1 177 7
+ 866 06f0 00F020E3 		nop
+ 218:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   }
+ 219:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   if(pszArgv!=NULL)
+ 867              		.loc 1 219 5
+ 868 06f4 1C301BE5 		ldr	r3, [fp, #-28]
+ 869 06f8 000053E3 		cmp	r3, #0
+ 870 06fc 0400000A 		beq	.L49
+ 220:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     *pszArgv++=NULL;
+ 871              		.loc 1 220 13
+ 872 0700 1C301BE5 		ldr	r3, [fp, #-28]
+ 873 0704 042083E2 		add	r2, r3, #4
+ 874 0708 1C200BE5 		str	r2, [fp, #-28]
+ 875              		.loc 1 220 15
+ 876 070c 0020A0E3 		mov	r2, #0
+ 877 0710 002083E5 		str	r2, [r3]
+ 878              	.L49:
+ 221:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   ++*psiArgc;
+ 879              		.loc 1 221 5
+ 880 0714 24301BE5 		ldr	r3, [fp, #-36]
+ 881 0718 003093E5 		ldr	r3, [r3]
+ 882              		.loc 1 221 3
+ 883 071c 012083E2 		add	r2, r3, #1
+ 884 0720 24301BE5 		ldr	r3, [fp, #-36]
+ 885 0724 002083E5 		str	r2, [r3]
+ 222:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return EAPI_STATUS_SUCCESS;
+ 886              		.loc 1 222 10
+ 887 0728 0030A0E3 		mov	r3, #0
+ 223:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 888              		.loc 1 223 1
+ 889 072c 0300A0E1 		mov	r0, r3
+ 890 0730 00D08BE2 		add	sp, fp, #0
+ 891              		.cfi_def_cfa_register 13
+ 892              		@ sp needed
+ 893 0734 04B09DE4 		ldr	fp, [sp], #4
+ 894              		.cfi_restore 11
+ 895              		.cfi_def_cfa_offset 0
+ 896 0738 1EFF2FE1 		bx	lr
+ 897              		.cfi_endproc
+ 898              	.LFE5:
+ 900              		.section	.rodata
+ 901 02af 00       		.align	2
+ 902              	.LC22:
+ 903 02b0 50617273 		.ascii	"ParseArgsBuffer(szCmdLine, NULL, NULL, psiArgc, &si"
+ 903      65417267 
+ 903      73427566 
+ 903      66657228 
+ 903      737A436D 
+ 904 02e3 43686172 		.ascii	"CharCnt)\000"
+ 904      436E7429 
+ 904      00
+ 905              		.align	2
+ 906              	.LC23:
+ 907 02ec 43726561 		.ascii	"CreateArgvArgcBuffer\000"
+ARM GAS  /tmp/cctRi5Mi.s 			page 22
+
+
+ 907      74654172 
+ 907      67764172 
+ 907      67634275 
+ 907      66666572 
+ 908 0301 000000   		.align	2
+ 909              	.LC24:
+ 910 0304 282A7073 		.ascii	"(*pszArgv==NULL)\000"
+ 910      7A417267 
+ 910      763D3D4E 
+ 910      554C4C29 
+ 910      00
+ 911              		.text
+ 912              		.align	2
+ 913              		.global	CreateArgvArgcBuffer
+ 914              		.syntax unified
+ 915              		.arm
+ 916              		.fpu vfpv3
+ 918              	CreateArgvArgcBuffer:
+ 919              	.LFB6:
+ 224:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 225:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t
+ 226:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** CreateArgvArgcBuffer(
+ 227:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char *szCmdLine, 
+ 228:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     char      ***pszArgv, 
+ 229:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     signed int *psiArgc 
+ 230:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   )
+ 231:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 920              		.loc 1 231 1
+ 921              		.cfi_startproc
+ 922              		@ args = 0, pretend = 0, frame = 32
+ 923              		@ frame_needed = 1, uses_anonymous_args = 0
+ 924 073c 00482DE9 		push	{fp, lr}
+ 925              		.cfi_def_cfa_offset 8
+ 926              		.cfi_offset 11, -8
+ 927              		.cfi_offset 14, -4
+ 928 0740 04B08DE2 		add	fp, sp, #4
+ 929              		.cfi_def_cfa 11, 4
+ 930 0744 30D04DE2 		sub	sp, sp, #48
+ 931 0748 18000BE5 		str	r0, [fp, #-24]
+ 932 074c 1C100BE5 		str	r1, [fp, #-28]
+ 933 0750 20200BE5 		str	r2, [fp, #-32]
+ 934              		.loc 1 231 1
+ 935 0754 88219FE5 		ldr	r2, .L59
+ 936              	.LPIC33:
+ 937 0758 02208FE0 		add	r2, pc, r2
+ 938 075c 84319FE5 		ldr	r3, .L59+4
+ 939 0760 033092E7 		ldr	r3, [r2, r3]
+ 940 0764 003093E5 		ldr	r3, [r3]
+ 941 0768 08300BE5 		str	r3, [fp, #-8]
+ 942 076c 0030A0E3 		mov	r3, #0
+ 232:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode;
+ 233:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   signed int siCharCnt;
+ 234:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   DO(ParseArgsBuffer(szCmdLine, NULL, NULL, psiArgc, &siCharCnt));
+ 943              		.loc 1 234 3
+ 944 0770 10304BE2 		sub	r3, fp, #16
+ 945 0774 00308DE5 		str	r3, [sp]
+ 946 0778 20301BE5 		ldr	r3, [fp, #-32]
+ARM GAS  /tmp/cctRi5Mi.s 			page 23
+
+
+ 947 077c 0020A0E3 		mov	r2, #0
+ 948 0780 0010A0E3 		mov	r1, #0
+ 949 0784 18001BE5 		ldr	r0, [fp, #-24]
+ 950 0788 FEFFFFEB 		bl	ParseArgsBuffer(PLT)
+ 951 078c 0C000BE5 		str	r0, [fp, #-12]
+ 952 0790 0C301BE5 		ldr	r3, [fp, #-12]
+ 953 0794 000053E3 		cmp	r3, #0
+ 954 0798 0F00000A 		beq	.L54
+ 955              		.loc 1 234 3 is_stmt 0 discriminator 1
+ 956 079c 48319FE5 		ldr	r3, .L59+8
+ 957              	.LPIC25:
+ 958 07a0 03308FE0 		add	r3, pc, r3
+ 959 07a4 08308DE5 		str	r3, [sp, #8]
+ 960 07a8 40319FE5 		ldr	r3, .L59+12
+ 961              	.LPIC26:
+ 962 07ac 03308FE0 		add	r3, pc, r3
+ 963 07b0 04308DE5 		str	r3, [sp, #4]
+ 964 07b4 0C301BE5 		ldr	r3, [fp, #-12]
+ 965 07b8 00308DE5 		str	r3, [sp]
+ 966 07bc EA30A0E3 		mov	r3, #234
+ 967 07c0 2C219FE5 		ldr	r2, .L59+16
+ 968              	.LPIC27:
+ 969 07c4 02208FE0 		add	r2, pc, r2
+ 970 07c8 28119FE5 		ldr	r1, .L59+20
+ 971              	.LPIC28:
+ 972 07cc 01108FE0 		add	r1, pc, r1
+ 973 07d0 4500A0E3 		mov	r0, #69
+ 974 07d4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 975 07d8 330000EA 		b	.L55
+ 976              	.L54:
+ 235:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   *pszArgv=(char**)malloc(((*psiArgc)*sizeof(char*))+(siCharCnt*sizeof(char)));
+ 977              		.loc 1 235 29 is_stmt 1
+ 978 07dc 20301BE5 		ldr	r3, [fp, #-32]
+ 979 07e0 003093E5 		ldr	r3, [r3]
+ 980              		.loc 1 235 38
+ 981 07e4 0331A0E1 		lsl	r3, r3, #2
+ 982              		.loc 1 235 64
+ 983 07e8 10201BE5 		ldr	r2, [fp, #-16]
+ 984              		.loc 1 235 20
+ 985 07ec 023083E0 		add	r3, r3, r2
+ 986 07f0 0300A0E1 		mov	r0, r3
+ 987 07f4 FEFFFFEB 		bl	malloc(PLT)
+ 988 07f8 0030A0E1 		mov	r3, r0
+ 989 07fc 0320A0E1 		mov	r2, r3
+ 990              		.loc 1 235 11
+ 991 0800 1C301BE5 		ldr	r3, [fp, #-28]
+ 992 0804 002083E5 		str	r2, [r3]
+ 236:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EAPI_APP_ASSERT_PARAMATER_NULL(
+ 993              		.loc 1 236 3
+ 994 0808 1C301BE5 		ldr	r3, [fp, #-28]
+ 995 080c 003093E5 		ldr	r3, [r3]
+ 996 0810 000053E3 		cmp	r3, #0
+ 997 0814 1100001A 		bne	.L56
+ 998              		.loc 1 236 3 is_stmt 0 discriminator 1
+ 999 0818 DC309FE5 		ldr	r3, .L59+24
+ 1000              	.LPIC29:
+ 1001 081c 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/cctRi5Mi.s 			page 24
+
+
+ 1002 0820 08308DE5 		str	r3, [sp, #8]
+ 1003 0824 D4309FE5 		ldr	r3, .L59+28
+ 1004              	.LPIC30:
+ 1005 0828 03308FE0 		add	r3, pc, r3
+ 1006 082c 04308DE5 		str	r3, [sp, #4]
+ 1007 0830 0230E0E3 		mvn	r3, #2
+ 1008 0834 00308DE5 		str	r3, [sp]
+ 1009 0838 EC30A0E3 		mov	r3, #236
+ 1010 083c C0209FE5 		ldr	r2, .L59+32
+ 1011              	.LPIC31:
+ 1012 0840 02208FE0 		add	r2, pc, r2
+ 1013 0844 BC109FE5 		ldr	r1, .L59+36
+ 1014              	.LPIC32:
+ 1015 0848 01108FE0 		add	r1, pc, r1
+ 1016 084c 4500A0E3 		mov	r0, #69
+ 1017 0850 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1018 0854 0230E0E3 		mvn	r3, #2
+ 1019 0858 0C300BE5 		str	r3, [fp, #-12]
+ 1020 085c 120000EA 		b	.L55
+ 1021              	.L56:
+ 237:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       CreateArgvArgcBuffer,
+ 238:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       EAPI_STATUS_ALLOC_ERROR,
+ 239:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       *pszArgv
+ 240:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     );
+ 241:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   (*psiArgc) --;
+ 1022              		.loc 1 241 4 is_stmt 1
+ 1023 0860 20301BE5 		ldr	r3, [fp, #-32]
+ 1024 0864 003093E5 		ldr	r3, [r3]
+ 1025              		.loc 1 241 14
+ 1026 0868 012043E2 		sub	r2, r3, #1
+ 1027 086c 20301BE5 		ldr	r3, [fp, #-32]
+ 1028 0870 002083E5 		str	r2, [r3]
+ 242:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   StatusCode=ParseArgsBuffer(
+ 1029              		.loc 1 242 14
+ 1030 0874 1C301BE5 		ldr	r3, [fp, #-28]
+ 1031 0878 001093E5 		ldr	r1, [r3]
+ 243:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           szCmdLine, 
+ 244:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           *pszArgv, 
+ 245:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           (char *)((*pszArgv)+(*psiArgc)), 
+ 1032              		.loc 1 245 21
+ 1033 087c 1C301BE5 		ldr	r3, [fp, #-28]
+ 1034 0880 002093E5 		ldr	r2, [r3]
+ 1035              		.loc 1 245 32
+ 1036 0884 20301BE5 		ldr	r3, [fp, #-32]
+ 1037 0888 003093E5 		ldr	r3, [r3]
+ 1038              		.loc 1 245 30
+ 1039 088c 0331A0E1 		lsl	r3, r3, #2
+ 1040 0890 032082E0 		add	r2, r2, r3
+ 242:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   StatusCode=ParseArgsBuffer(
+ 1041              		.loc 1 242 14
+ 1042 0894 10304BE2 		sub	r3, fp, #16
+ 1043 0898 00308DE5 		str	r3, [sp]
+ 1044 089c 20301BE5 		ldr	r3, [fp, #-32]
+ 1045 08a0 18001BE5 		ldr	r0, [fp, #-24]
+ 1046 08a4 FEFFFFEB 		bl	ParseArgsBuffer(PLT)
+ 1047 08a8 0C000BE5 		str	r0, [fp, #-12]
+ 1048              	.L55:
+ARM GAS  /tmp/cctRi5Mi.s 			page 25
+
+
+ 246:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           psiArgc, 
+ 247:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           &siCharCnt
+ 248:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         );
+ 249:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EAPI_APP_ASSERT_EXIT
+ 250:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return StatusCode;
+ 1049              		.loc 1 250 10
+ 1050 08ac 0C301BE5 		ldr	r3, [fp, #-12]
+ 231:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode;
+ 1051              		.loc 1 231 1
+ 1052 08b0 54109FE5 		ldr	r1, .L59+40
+ 1053              	.LPIC34:
+ 1054 08b4 01108FE0 		add	r1, pc, r1
+ 251:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 1055              		.loc 1 251 1
+ 1056 08b8 28209FE5 		ldr	r2, .L59+4
+ 1057 08bc 022091E7 		ldr	r2, [r1, r2]
+ 1058 08c0 001092E5 		ldr	r1, [r2]
+ 1059 08c4 08201BE5 		ldr	r2, [fp, #-8]
+ 1060 08c8 011032E0 		eors	r1, r2, r1
+ 1061 08cc 0020A0E3 		mov	r2, #0
+ 1062 08d0 0000000A 		beq	.L58
+ 1063 08d4 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 1064              	.L58:
+ 1065 08d8 0300A0E1 		mov	r0, r3
+ 1066 08dc 04D04BE2 		sub	sp, fp, #4
+ 1067              		.cfi_def_cfa 13, 8
+ 1068              		@ sp needed
+ 1069 08e0 0088BDE8 		pop	{fp, pc}
+ 1070              	.L60:
+ 1071              		.align	2
+ 1072              	.L59:
+ 1073 08e4 84010000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC33+8)
+ 1074 08e8 00000000 		.word	__stack_chk_guard(GOT)
+ 1075 08ec F4030000 		.word	.LC22-(.LPIC25+8)
+ 1076 08f0 1C020000 		.word	.LC11-(.LPIC26+8)
+ 1077 08f4 68010000 		.word	.LC8-(.LPIC27+8)
+ 1078 08f8 68010000 		.word	.LC9-(.LPIC28+8)
+ 1079 08fc DC030000 		.word	.LC24-(.LPIC29+8)
+ 1080 0900 B0010000 		.word	.LC11-(.LPIC30+8)
+ 1081 0904 A8030000 		.word	.LC23-(.LPIC31+8)
+ 1082 0908 FC000000 		.word	.LC9-(.LPIC32+8)
+ 1083 090c 50000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC34+8)
+ 1084              		.cfi_endproc
+ 1085              	.LFE6:
+ 1087              		.section	.rodata
+ 1088 0315 000000   		.align	2
+ 1089              	.LC25:
+ 1090 0318 4572726F 		.ascii	"Error Reading %s\000"
+ 1090      72205265 
+ 1090      6164696E 
+ 1090      67202573 
+ 1090      00
+ 1091 0329 000000   		.align	2
+ 1092              	.LC26:
+ 1093 032c 50617273 		.ascii	"ParseArgs\000"
+ 1093      65417267 
+ 1093      7300
+ARM GAS  /tmp/cctRi5Mi.s 			page 26
+
+
+ 1094 0336 0000     		.align	2
+ 1095              	.LC27:
+ 1096 0338 43726561 		.ascii	"CreateArgvArgcBuffer(szFileBuffer, &pszArgv, &siArg"
+ 1096      74654172 
+ 1096      67764172 
+ 1096      67634275 
+ 1096      66666572 
+ 1097 036b 632900   		.ascii	"c)\000"
+ 1098 036e 0000     		.align	2
+ 1099              	.LC28:
+ 1100 0370 50617273 		.ascii	"ParseArgs(siArgc - 1, (const char **)pszArgv, pCmdD"
+ 1100      65417267 
+ 1100      73287369 
+ 1100      41726763 
+ 1100      202D2031 
+ 1101 03a3 6573632C 		.ascii	"esc, stArgDescCnt)\000"
+ 1101      20737441 
+ 1101      72674465 
+ 1101      7363436E 
+ 1101      742900
+ 1102              		.text
+ 1103              		.align	2
+ 1104              		.global	ParseArgsFile
+ 1105              		.syntax unified
+ 1106              		.arm
+ 1107              		.fpu vfpv3
+ 1109              	ParseArgsFile:
+ 1110              	.LFB7:
+ 252:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 253:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t
+ 254:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** ParseArgsFile(
+ 255:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char*szFilename,
+ 256:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     CmdDesc_t *pCmdDesc,
+ 257:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     size_t    stArgDescCnt
+ 258:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+ 259:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 1111              		.loc 1 259 1
+ 1112              		.cfi_startproc
+ 1113              		@ args = 0, pretend = 0, frame = 248
+ 1114              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1115 0910 00482DE9 		push	{fp, lr}
+ 1116              		.cfi_def_cfa_offset 8
+ 1117              		.cfi_offset 11, -8
+ 1118              		.cfi_offset 14, -4
+ 1119 0914 04B08DE2 		add	fp, sp, #4
+ 1120              		.cfi_def_cfa 11, 4
+ 1121 0918 42DF4DE2 		sub	sp, sp, #264
+ 1122 091c F0000BE5 		str	r0, [fp, #-240]
+ 1123 0920 F4100BE5 		str	r1, [fp, #-244]
+ 1124 0924 F8200BE5 		str	r2, [fp, #-248]
+ 1125              		.loc 1 259 1
+ 1126 0928 E0219FE5 		ldr	r2, .L70
+ 1127              	.LPIC47:
+ 1128 092c 02208FE0 		add	r2, pc, r2
+ 1129 0930 DC319FE5 		ldr	r3, .L70+4
+ 1130 0934 033092E7 		ldr	r3, [r2, r3]
+ 1131 0938 003093E5 		ldr	r3, [r3]
+ARM GAS  /tmp/cctRi5Mi.s 			page 27
+
+
+ 1132 093c 08300BE5 		str	r3, [fp, #-8]
+ 1133 0940 0030A0E3 		mov	r3, #0
+ 260:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode;
+ 261:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   signed int siArgc;
+ 262:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   char**pszArgv=NULL;
+ 1134              		.loc 1 262 9
+ 1135 0944 0030A0E3 		mov	r3, #0
+ 1136 0948 E4300BE5 		str	r3, [fp, #-228]
+ 263:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   void *pvFileBuffer;
+ 264:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   char *szFileBuffer;
+ 265:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   size_t stFileSize;
+ 266:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   char ErrBuffer[200];
+ 267:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   StatusCode=ReadTextFile(szFilename, &pvFileBuffer, &stFileSize);
+ 1137              		.loc 1 267 14
+ 1138 094c DC204BE2 		sub	r2, fp, #220
+ 1139 0950 E0304BE2 		sub	r3, fp, #224
+ 1140 0954 0310A0E1 		mov	r1, r3
+ 1141 0958 F0001BE5 		ldr	r0, [fp, #-240]
+ 1142 095c FEFFFFEB 		bl	ReadTextFile(PLT)
+ 1143 0960 D8000BE5 		str	r0, [fp, #-216]
+ 268:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   szFileBuffer=pvFileBuffer;
+ 1144              		.loc 1 268 15
+ 1145 0964 E0301BE5 		ldr	r3, [fp, #-224]
+ 1146 0968 D4300BE5 		str	r3, [fp, #-212]
+ 269:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 270:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   if(!EAPI_TEST_SUCCESS(StatusCode)){
+ 1147              		.loc 1 270 5
+ 1148 096c D8301BE5 		ldr	r3, [fp, #-216]
+ 1149 0970 000053E3 		cmp	r3, #0
+ 1150 0974 1400000A 		beq	.L62
+ 271:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     EApiSprintfA(
+ 1151              		.loc 1 271 5
+ 1152 0978 D0004BE2 		sub	r0, fp, #208
+ 1153 097c F0301BE5 		ldr	r3, [fp, #-240]
+ 1154 0980 90219FE5 		ldr	r2, .L70+8
+ 1155              	.LPIC35:
+ 1156 0984 02208FE0 		add	r2, pc, r2
+ 1157 0988 C810A0E3 		mov	r1, #200
+ 1158 098c FEFFFFEB 		bl	EApiSprintfA(PLT)
+ 272:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         ErrBuffer, ARRAY_SIZE(ErrBuffer),
+ 273:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         "Error Reading %s", szFilename
+ 274:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         );
+ 275:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     EAPI_APP_RETURN_ERROR(
+ 1159              		.loc 1 275 5
+ 1160 0990 D0304BE2 		sub	r3, fp, #208
+ 1161 0994 08308DE5 		str	r3, [sp, #8]
+ 1162 0998 7C319FE5 		ldr	r3, .L70+12
+ 1163              	.LPIC36:
+ 1164 099c 03308FE0 		add	r3, pc, r3
+ 1165 09a0 04308DE5 		str	r3, [sp, #4]
+ 1166 09a4 D8301BE5 		ldr	r3, [fp, #-216]
+ 1167 09a8 00308DE5 		str	r3, [sp]
+ 1168 09ac 133100E3 		movw	r3, #275
+ 1169 09b0 68219FE5 		ldr	r2, .L70+16
+ 1170              	.LPIC37:
+ 1171 09b4 02208FE0 		add	r2, pc, r2
+ 1172 09b8 64119FE5 		ldr	r1, .L70+20
+ARM GAS  /tmp/cctRi5Mi.s 			page 28
+
+
+ 1173              	.LPIC38:
+ 1174 09bc 01108FE0 		add	r1, pc, r1
+ 1175 09c0 4500A0E3 		mov	r0, #69
+ 1176 09c4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1177 09c8 3A0000EA 		b	.L63
+ 1178              	.L62:
+ 276:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         ParseArgs,
+ 277:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         StatusCode,
+ 278:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         ErrBuffer
+ 279:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       );
+ 280:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   }
+ 281:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   DO(CreateArgvArgcBuffer(szFileBuffer, &pszArgv, &siArgc));
+ 1179              		.loc 1 281 3
+ 1180 09cc E8204BE2 		sub	r2, fp, #232
+ 1181 09d0 E4304BE2 		sub	r3, fp, #228
+ 1182 09d4 0310A0E1 		mov	r1, r3
+ 1183 09d8 D4001BE5 		ldr	r0, [fp, #-212]
+ 1184 09dc FEFFFFEB 		bl	CreateArgvArgcBuffer(PLT)
+ 1185 09e0 D8000BE5 		str	r0, [fp, #-216]
+ 1186 09e4 D8301BE5 		ldr	r3, [fp, #-216]
+ 1187 09e8 000053E3 		cmp	r3, #0
+ 1188 09ec 0F00000A 		beq	.L64
+ 1189              		.loc 1 281 3 is_stmt 0 discriminator 1
+ 1190 09f0 30319FE5 		ldr	r3, .L70+24
+ 1191              	.LPIC39:
+ 1192 09f4 03308FE0 		add	r3, pc, r3
+ 1193 09f8 08308DE5 		str	r3, [sp, #8]
+ 1194 09fc 28319FE5 		ldr	r3, .L70+28
+ 1195              	.LPIC40:
+ 1196 0a00 03308FE0 		add	r3, pc, r3
+ 1197 0a04 04308DE5 		str	r3, [sp, #4]
+ 1198 0a08 D8301BE5 		ldr	r3, [fp, #-216]
+ 1199 0a0c 00308DE5 		str	r3, [sp]
+ 1200 0a10 193100E3 		movw	r3, #281
+ 1201 0a14 14219FE5 		ldr	r2, .L70+32
+ 1202              	.LPIC41:
+ 1203 0a18 02208FE0 		add	r2, pc, r2
+ 1204 0a1c 10119FE5 		ldr	r1, .L70+36
+ 1205              	.LPIC42:
+ 1206 0a20 01108FE0 		add	r1, pc, r1
+ 1207 0a24 4500A0E3 		mov	r0, #69
+ 1208 0a28 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1209 0a2c 210000EA 		b	.L63
+ 1210              	.L64:
+ 282:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   if(szFileBuffer!=NULL) free(szFileBuffer);
+ 1211              		.loc 1 282 5 is_stmt 1
+ 1212 0a30 D4301BE5 		ldr	r3, [fp, #-212]
+ 1213 0a34 000053E3 		cmp	r3, #0
+ 1214 0a38 0100000A 		beq	.L65
+ 1215              		.loc 1 282 26 discriminator 1
+ 1216 0a3c D4001BE5 		ldr	r0, [fp, #-212]
+ 1217 0a40 FEFFFFEB 		bl	free(PLT)
+ 1218              	.L65:
+ 283:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   szFileBuffer=NULL;
+ 1219              		.loc 1 283 15
+ 1220 0a44 0030A0E3 		mov	r3, #0
+ 1221 0a48 D4300BE5 		str	r3, [fp, #-212]
+ARM GAS  /tmp/cctRi5Mi.s 			page 29
+
+
+ 284:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 285:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   DO(ParseArgs(siArgc - 1, (const char **)pszArgv, pCmdDesc, stArgDescCnt));
+ 1222              		.loc 1 285 3
+ 1223 0a4c E8301BE5 		ldr	r3, [fp, #-232]
+ 1224 0a50 010043E2 		sub	r0, r3, #1
+ 1225 0a54 E4101BE5 		ldr	r1, [fp, #-228]
+ 1226 0a58 F8301BE5 		ldr	r3, [fp, #-248]
+ 1227 0a5c F4201BE5 		ldr	r2, [fp, #-244]
+ 1228 0a60 FEFFFFEB 		bl	ParseArgs(PLT)
+ 1229 0a64 D8000BE5 		str	r0, [fp, #-216]
+ 1230 0a68 D8301BE5 		ldr	r3, [fp, #-216]
+ 1231 0a6c 000053E3 		cmp	r3, #0
+ 1232 0a70 0F00000A 		beq	.L69
+ 1233              		.loc 1 285 3 is_stmt 0 discriminator 1
+ 1234 0a74 BC309FE5 		ldr	r3, .L70+40
+ 1235              	.LPIC43:
+ 1236 0a78 03308FE0 		add	r3, pc, r3
+ 1237 0a7c 08308DE5 		str	r3, [sp, #8]
+ 1238 0a80 B4309FE5 		ldr	r3, .L70+44
+ 1239              	.LPIC44:
+ 1240 0a84 03308FE0 		add	r3, pc, r3
+ 1241 0a88 04308DE5 		str	r3, [sp, #4]
+ 1242 0a8c D8301BE5 		ldr	r3, [fp, #-216]
+ 1243 0a90 00308DE5 		str	r3, [sp]
+ 1244 0a94 1D3100E3 		movw	r3, #285
+ 1245 0a98 A0209FE5 		ldr	r2, .L70+48
+ 1246              	.LPIC45:
+ 1247 0a9c 02208FE0 		add	r2, pc, r2
+ 1248 0aa0 9C109FE5 		ldr	r1, .L70+52
+ 1249              	.LPIC46:
+ 1250 0aa4 01108FE0 		add	r1, pc, r1
+ 1251 0aa8 4500A0E3 		mov	r0, #69
+ 1252 0aac FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1253 0ab0 000000EA 		b	.L63
+ 1254              	.L69:
+ 286:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 287:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EAPI_APP_ASSERT_EXIT
+ 1255              		.loc 1 287 1 is_stmt 1
+ 1256 0ab4 00F020E3 		nop
+ 1257              	.L63:
+ 288:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   if(pszArgv  !=NULL) free(pszArgv  );
+ 1258              		.loc 1 288 15
+ 1259 0ab8 E4301BE5 		ldr	r3, [fp, #-228]
+ 1260              		.loc 1 288 5
+ 1261 0abc 000053E3 		cmp	r3, #0
+ 1262 0ac0 0200000A 		beq	.L66
+ 1263              		.loc 1 288 23 discriminator 1
+ 1264 0ac4 E4301BE5 		ldr	r3, [fp, #-228]
+ 1265 0ac8 0300A0E1 		mov	r0, r3
+ 1266 0acc FEFFFFEB 		bl	free(PLT)
+ 1267              	.L66:
+ 289:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   pszArgv=NULL;
+ 1268              		.loc 1 289 10
+ 1269 0ad0 0030A0E3 		mov	r3, #0
+ 1270 0ad4 E4300BE5 		str	r3, [fp, #-228]
+ 290:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return StatusCode;
+ 1271              		.loc 1 290 10
+ARM GAS  /tmp/cctRi5Mi.s 			page 30
+
+
+ 1272 0ad8 D8301BE5 		ldr	r3, [fp, #-216]
+ 259:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode;
+ 1273              		.loc 1 259 1
+ 1274 0adc 64109FE5 		ldr	r1, .L70+56
+ 1275              	.LPIC48:
+ 1276 0ae0 01108FE0 		add	r1, pc, r1
+ 291:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 1277              		.loc 1 291 1
+ 1278 0ae4 28209FE5 		ldr	r2, .L70+4
+ 1279 0ae8 022091E7 		ldr	r2, [r1, r2]
+ 1280 0aec 001092E5 		ldr	r1, [r2]
+ 1281 0af0 08201BE5 		ldr	r2, [fp, #-8]
+ 1282 0af4 011032E0 		eors	r1, r2, r1
+ 1283 0af8 0020A0E3 		mov	r2, #0
+ 1284 0afc 0000000A 		beq	.L68
+ 1285 0b00 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 1286              	.L68:
+ 1287 0b04 0300A0E1 		mov	r0, r3
+ 1288 0b08 04D04BE2 		sub	sp, fp, #4
+ 1289              		.cfi_def_cfa 13, 8
+ 1290              		@ sp needed
+ 1291 0b0c 0088BDE8 		pop	{fp, pc}
+ 1292              	.L71:
+ 1293              		.align	2
+ 1294              	.L70:
+ 1295 0b10 DC010000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC47+8)
+ 1296 0b14 00000000 		.word	__stack_chk_guard(GOT)
+ 1297 0b18 A4040000 		.word	.LC25-(.LPIC35+8)
+ 1298 0b1c 58020000 		.word	.LC11-(.LPIC36+8)
+ 1299 0b20 90040000 		.word	.LC26-(.LPIC37+8)
+ 1300 0b24 A4010000 		.word	.LC9-(.LPIC38+8)
+ 1301 0b28 64040000 		.word	.LC27-(.LPIC39+8)
+ 1302 0b2c 04020000 		.word	.LC11-(.LPIC40+8)
+ 1303 0b30 50010000 		.word	.LC8-(.LPIC41+8)
+ 1304 0b34 50010000 		.word	.LC9-(.LPIC42+8)
+ 1305 0b38 28040000 		.word	.LC28-(.LPIC43+8)
+ 1306 0b3c 90010000 		.word	.LC11-(.LPIC44+8)
+ 1307 0b40 DC000000 		.word	.LC8-(.LPIC45+8)
+ 1308 0b44 DC000000 		.word	.LC9-(.LPIC46+8)
+ 1309 0b48 60000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC48+8)
+ 1310              		.cfi_endproc
+ 1311              	.LFE7:
+ 1313              		.section	.rodata
+ 1314 03b6 0000     		.align	2
+ 1315              	.LC29:
+ 1316 03b8 4552524F 		.ascii	"ERROR: Missing Required Argument (%s)\012\000"
+ 1316      523A204D 
+ 1316      69737369 
+ 1316      6E672052 
+ 1316      65717569 
+ 1317 03df 00       		.align	2
+ 1318              	.LC30:
+ 1319 03e0 70417267 		.ascii	"pArgDesc->Handle(pArgDesc, pArgDesc->pValue, **ppsz"
+ 1319      44657363 
+ 1319      2D3E4861 
+ 1319      6E646C65 
+ 1319      28704172 
+ARM GAS  /tmp/cctRi5Mi.s 			page 31
+
+
+ 1320 0413 41726776 		.ascii	"Argv)\000"
+ 1320      2900
+ 1321              		.text
+ 1322              		.align	2
+ 1323              		.global	ParseSubArgs
+ 1324              		.syntax unified
+ 1325              		.arm
+ 1326              		.fpu vfpv3
+ 1328              	ParseSubArgs:
+ 1329              	.LFB8:
+ 292:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 293:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 294:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t
+ 295:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** ParseSubArgs(
+ 296:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       signed int *psiArgc    ,
+ 297:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       const char***ppszArgv  ,
+ 298:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       size_t     stArgCount,
+ 299:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       ArgDesc_t *pArgDesc  
+ 300:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+ 301:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 1330              		.loc 1 301 1
+ 1331              		.cfi_startproc
+ 1332              		@ args = 0, pretend = 0, frame = 24
+ 1333              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1334 0b4c 00482DE9 		push	{fp, lr}
+ 1335              		.cfi_def_cfa_offset 8
+ 1336              		.cfi_offset 11, -8
+ 1337              		.cfi_offset 14, -4
+ 1338 0b50 04B08DE2 		add	fp, sp, #4
+ 1339              		.cfi_def_cfa 11, 4
+ 1340 0b54 28D04DE2 		sub	sp, sp, #40
+ 1341 0b58 10000BE5 		str	r0, [fp, #-16]
+ 1342 0b5c 14100BE5 		str	r1, [fp, #-20]
+ 1343 0b60 18200BE5 		str	r2, [fp, #-24]
+ 1344 0b64 1C300BE5 		str	r3, [fp, #-28]
+ 302:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 1345              		.loc 1 302 16
+ 1346 0b68 0030A0E3 		mov	r3, #0
+ 1347 0b6c 08300BE5 		str	r3, [fp, #-8]
+ 303:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   while(stArgCount -- ){
+ 1348              		.loc 1 303 8
+ 1349 0b70 340000EA 		b	.L73
+ 1350              	.L78:
+ 304:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(!(*psiArgc)--){
+ 1351              		.loc 1 304 10
+ 1352 0b74 10301BE5 		ldr	r3, [fp, #-16]
+ 1353 0b78 003093E5 		ldr	r3, [r3]
+ 1354              		.loc 1 304 19
+ 1355 0b7c 011043E2 		sub	r1, r3, #1
+ 1356 0b80 10201BE5 		ldr	r2, [fp, #-16]
+ 1357 0b84 001082E5 		str	r1, [r2]
+ 1358              		.loc 1 304 7
+ 1359 0b88 000053E3 		cmp	r3, #0
+ 1360 0b8c 0800001A 		bne	.L74
+ 305:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       printf("ERROR: Missing Required Argument (%s)\n", pArgDesc->cszHelp);
+ 1361              		.loc 1 305 7
+ 1362 0b90 1C301BE5 		ldr	r3, [fp, #-28]
+ARM GAS  /tmp/cctRi5Mi.s 			page 32
+
+
+ 1363 0b94 083093E5 		ldr	r3, [r3, #8]
+ 1364 0b98 0310A0E1 		mov	r1, r3
+ 1365 0b9c CC309FE5 		ldr	r3, .L79
+ 1366              	.LPIC49:
+ 1367 0ba0 03308FE0 		add	r3, pc, r3
+ 1368 0ba4 0300A0E1 		mov	r0, r3
+ 1369 0ba8 FEFFFFEB 		bl	printf(PLT)
+ 306:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       return EAPI_STATUS_ERROR;
+ 1370              		.loc 1 306 14
+ 1371 0bac 0F3CE0E3 		mvn	r3, #3840
+ 1372 0bb0 2B0000EA 		b	.L75
+ 1373              	.L74:
+ 307:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     }
+ 308:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     ++(*ppszArgv);
+ 1374              		.loc 1 308 8
+ 1375 0bb4 14301BE5 		ldr	r3, [fp, #-20]
+ 1376 0bb8 003093E5 		ldr	r3, [r3]
+ 1377              		.loc 1 308 5
+ 1378 0bbc 042083E2 		add	r2, r3, #4
+ 1379 0bc0 14301BE5 		ldr	r3, [fp, #-20]
+ 1380 0bc4 002083E5 		str	r2, [r3]
+ 309:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     DO(pArgDesc->Handle(pArgDesc, pArgDesc->pValue, **ppszArgv));
+ 1381              		.loc 1 309 5
+ 1382 0bc8 1C301BE5 		ldr	r3, [fp, #-28]
+ 1383 0bcc 0C3093E5 		ldr	r3, [r3, #12]
+ 1384 0bd0 1C201BE5 		ldr	r2, [fp, #-28]
+ 1385 0bd4 001092E5 		ldr	r1, [r2]
+ 1386 0bd8 14201BE5 		ldr	r2, [fp, #-20]
+ 1387 0bdc 002092E5 		ldr	r2, [r2]
+ 1388 0be0 002092E5 		ldr	r2, [r2]
+ 1389 0be4 1C001BE5 		ldr	r0, [fp, #-28]
+ 1390 0be8 33FF2FE1 		blx	r3
+ 1391              	.LVL0:
+ 1392 0bec 08000BE5 		str	r0, [fp, #-8]
+ 1393 0bf0 08301BE5 		ldr	r3, [fp, #-8]
+ 1394 0bf4 000053E3 		cmp	r3, #0
+ 1395 0bf8 0F00000A 		beq	.L76
+ 1396              		.loc 1 309 5 is_stmt 0 discriminator 1
+ 1397 0bfc 70309FE5 		ldr	r3, .L79+4
+ 1398              	.LPIC50:
+ 1399 0c00 03308FE0 		add	r3, pc, r3
+ 1400 0c04 08308DE5 		str	r3, [sp, #8]
+ 1401 0c08 68309FE5 		ldr	r3, .L79+8
+ 1402              	.LPIC51:
+ 1403 0c0c 03308FE0 		add	r3, pc, r3
+ 1404 0c10 04308DE5 		str	r3, [sp, #4]
+ 1405 0c14 08301BE5 		ldr	r3, [fp, #-8]
+ 1406 0c18 00308DE5 		str	r3, [sp]
+ 1407 0c1c 353100E3 		movw	r3, #309
+ 1408 0c20 54209FE5 		ldr	r2, .L79+12
+ 1409              	.LPIC52:
+ 1410 0c24 02208FE0 		add	r2, pc, r2
+ 1411 0c28 50109FE5 		ldr	r1, .L79+16
+ 1412              	.LPIC53:
+ 1413 0c2c 01108FE0 		add	r1, pc, r1
+ 1414 0c30 4500A0E3 		mov	r0, #69
+ 1415 0c34 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ARM GAS  /tmp/cctRi5Mi.s 			page 33
+
+
+ 1416 0c38 080000EA 		b	.L77
+ 1417              	.L76:
+ 310:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     ++pArgDesc;
+ 1418              		.loc 1 310 5 is_stmt 1
+ 1419 0c3c 1C301BE5 		ldr	r3, [fp, #-28]
+ 1420 0c40 103083E2 		add	r3, r3, #16
+ 1421 0c44 1C300BE5 		str	r3, [fp, #-28]
+ 1422              	.L73:
+ 303:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(!(*psiArgc)--){
+ 1423              		.loc 1 303 20
+ 1424 0c48 18301BE5 		ldr	r3, [fp, #-24]
+ 1425 0c4c 012043E2 		sub	r2, r3, #1
+ 1426 0c50 18200BE5 		str	r2, [fp, #-24]
+ 303:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(!(*psiArgc)--){
+ 1427              		.loc 1 303 9
+ 1428 0c54 000053E3 		cmp	r3, #0
+ 1429 0c58 C5FFFF1A 		bne	.L78
+ 311:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   }
+ 312:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EAPI_APP_ASSERT_EXIT
+ 1430              		.loc 1 312 1
+ 1431 0c5c 00F020E3 		nop
+ 1432              	.L77:
+ 313:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return StatusCode;
+ 1433              		.loc 1 313 10
+ 1434 0c60 08301BE5 		ldr	r3, [fp, #-8]
+ 1435              	.L75:
+ 314:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 1436              		.loc 1 314 1
+ 1437 0c64 0300A0E1 		mov	r0, r3
+ 1438 0c68 04D04BE2 		sub	sp, fp, #4
+ 1439              		.cfi_def_cfa 13, 8
+ 1440              		@ sp needed
+ 1441 0c6c 0088BDE8 		pop	{fp, pc}
+ 1442              	.L80:
+ 1443              		.align	2
+ 1444              	.L79:
+ 1445 0c70 80040000 		.word	.LC29-(.LPIC49+8)
+ 1446 0c74 4C040000 		.word	.LC30-(.LPIC50+8)
+ 1447 0c78 44010000 		.word	.LC11-(.LPIC51+8)
+ 1448 0c7c 90000000 		.word	.LC8-(.LPIC52+8)
+ 1449 0c80 90000000 		.word	.LC9-(.LPIC53+8)
+ 1450              		.cfi_endproc
+ 1451              	.LFE8:
+ 1453              		.section	.rodata
+ 1454 0419 000000   		.align	2
+ 1455              	.LC31:
+ 1456 041c 50617273 		.ascii	"ParseArgsFile(szCurOption, pCmdDesc, stArgDescCnt)\000"
+ 1456      65417267 
+ 1456      7346696C 
+ 1456      6528737A 
+ 1456      4375724F 
+ 1457 044f 00       		.align	2
+ 1458              	.LC32:
+ 1459 0450 50617273 		.ascii	"ParseSubArgs(&siArgc, &pszCurArg, pCurArgDesc->stAr"
+ 1459      65537562 
+ 1459      41726773 
+ 1459      28267369 
+ARM GAS  /tmp/cctRi5Mi.s 			page 34
+
+
+ 1459      41726763 
+ 1460 0483 67732C20 		.ascii	"gs, pCurArgDesc->pArgs)\000"
+ 1460      70437572 
+ 1460      41726744 
+ 1460      6573632D 
+ 1460      3E704172 
+ 1461 049b 00       		.align	2
+ 1462              	.LC33:
+ 1463 049c 70437572 		.ascii	"pCurArgDesc->handler(pCurArgDesc->pArgData)\000"
+ 1463      41726744 
+ 1463      6573632D 
+ 1463      3E68616E 
+ 1463      646C6572 
+ 1464              		.align	2
+ 1465              	.LC34:
+ 1466 04c8 4552524F 		.ascii	"ERROR: Unknown Arg [%c] in (%s)\012\000"
+ 1466      523A2055 
+ 1466      6E6B6E6F 
+ 1466      776E2041 
+ 1466      7267205B 
+ 1467 04e9 000000   		.align	2
+ 1468              	.LC35:
+ 1469 04ec 4552524F 		.ascii	"ERROR: Unknown Arg (%s)\012\000"
+ 1469      523A2055 
+ 1469      6E6B6E6F 
+ 1469      776E2041 
+ 1469      72672028 
+ 1470              		.text
+ 1471              		.align	2
+ 1472              		.global	ParseArgs
+ 1473              		.syntax unified
+ 1474              		.arm
+ 1475              		.fpu vfpv3
+ 1477              	ParseArgs:
+ 1478              	.LFB9:
+ 315:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 316:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 317:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EApiStatus_t
+ 318:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** ParseArgs(
+ 319:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     signed int siArgc,
+ 320:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     const char**pszArgv,
+ 321:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     CmdDesc_t *pCmdDesc,
+ 322:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     size_t    stArgDescCnt
+ 323:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     )
+ 324:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** {
+ 1479              		.loc 1 324 1
+ 1480              		.cfi_startproc
+ 1481              		@ args = 0, pretend = 0, frame = 48
+ 1482              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1483 0c84 00482DE9 		push	{fp, lr}
+ 1484              		.cfi_def_cfa_offset 8
+ 1485              		.cfi_offset 11, -8
+ 1486              		.cfi_offset 14, -4
+ 1487 0c88 04B08DE2 		add	fp, sp, #4
+ 1488              		.cfi_def_cfa 11, 4
+ 1489 0c8c 40D04DE2 		sub	sp, sp, #64
+ 1490 0c90 28000BE5 		str	r0, [fp, #-40]
+ARM GAS  /tmp/cctRi5Mi.s 			page 35
+
+
+ 1491 0c94 2C100BE5 		str	r1, [fp, #-44]
+ 1492 0c98 30200BE5 		str	r2, [fp, #-48]
+ 1493 0c9c 34300BE5 		str	r3, [fp, #-52]
+ 1494              		.loc 1 324 1
+ 1495 0ca0 08259FE5 		ldr	r2, .L116
+ 1496              	.LPIC76:
+ 1497 0ca4 02208FE0 		add	r2, pc, r2
+ 1498 0ca8 04359FE5 		ldr	r3, .L116+4
+ 1499 0cac 033092E7 		ldr	r3, [r2, r3]
+ 1500 0cb0 003093E5 		ldr	r3, [r3]
+ 1501 0cb4 08300BE5 		str	r3, [fp, #-8]
+ 1502 0cb8 0030A0E3 		mov	r3, #0
+ 325:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 1503              		.loc 1 325 16
+ 1504 0cbc 0030A0E3 		mov	r3, #0
+ 1505 0cc0 20300BE5 		str	r3, [fp, #-32]
+ 326:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   const char **pszCurArg=pszArgv;
+ 1506              		.loc 1 326 16
+ 1507 0cc4 2C301BE5 		ldr	r3, [fp, #-44]
+ 1508 0cc8 24300BE5 		str	r3, [fp, #-36]
+ 327:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   CmdDesc_t *pCurArgDesc;
+ 328:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   size_t stI;
+ 329:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   unsigned int uiValid,uiSyntaxError;
+ 330:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   const char *szCurOption;
+ 331:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   uiSyntaxError=0;
+ 1509              		.loc 1 331 16
+ 1510 0ccc 0030A0E3 		mov	r3, #0
+ 1511 0cd0 10300BE5 		str	r3, [fp, #-16]
+ 332:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   while(siArgc -- && *pszCurArg!=NULL){
+ 1512              		.loc 1 332 8
+ 1513 0cd4 170100EA 		b	.L82
+ 1514              	.L109:
+ 333:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*     printf("DEBUG: Arg[%u] (%s)\n", siArgc, *pszCurArg); */
+ 334:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     uiValid=0;
+ 1515              		.loc 1 334 12
+ 1516 0cd8 0030A0E3 		mov	r3, #0
+ 1517 0cdc 14300BE5 		str	r3, [fp, #-20]
+ 335:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     szCurOption=*pszCurArg;
+ 1518              		.loc 1 335 17
+ 1519 0ce0 24301BE5 		ldr	r3, [fp, #-36]
+ 1520              		.loc 1 335 16
+ 1521 0ce4 003093E5 		ldr	r3, [r3]
+ 1522 0ce8 0C300BE5 		str	r3, [fp, #-12]
+ 336:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     switch(*szCurOption++){
+ 1523              		.loc 1 336 24
+ 1524 0cec 0C301BE5 		ldr	r3, [fp, #-12]
+ 1525 0cf0 012083E2 		add	r2, r3, #1
+ 1526 0cf4 0C200BE5 		str	r2, [fp, #-12]
+ 1527              		.loc 1 336 12
+ 1528 0cf8 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1529              		.loc 1 336 5
+ 1530 0cfc 2D0053E3 		cmp	r3, #45
+ 1531 0d00 1D00000A 		beq	.L83
+ 1532 0d04 400053E3 		cmp	r3, #64
+ 1533 0d08 F900001A 		bne	.L112
+ 337:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       case '@':
+ 338:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         DO(ParseArgsFile(szCurOption, pCmdDesc, stArgDescCnt));
+ARM GAS  /tmp/cctRi5Mi.s 			page 36
+
+
+ 1534              		.loc 1 338 9
+ 1535 0d0c 34201BE5 		ldr	r2, [fp, #-52]
+ 1536 0d10 30101BE5 		ldr	r1, [fp, #-48]
+ 1537 0d14 0C001BE5 		ldr	r0, [fp, #-12]
+ 1538 0d18 FEFFFFEB 		bl	ParseArgsFile(PLT)
+ 1539 0d1c 20000BE5 		str	r0, [fp, #-32]
+ 1540 0d20 20301BE5 		ldr	r3, [fp, #-32]
+ 1541 0d24 000053E3 		cmp	r3, #0
+ 1542 0d28 0F00000A 		beq	.L85
+ 1543              		.loc 1 338 9 is_stmt 0 discriminator 1
+ 1544 0d2c 84349FE5 		ldr	r3, .L116+8
+ 1545              	.LPIC54:
+ 1546 0d30 03308FE0 		add	r3, pc, r3
+ 1547 0d34 08308DE5 		str	r3, [sp, #8]
+ 1548 0d38 7C349FE5 		ldr	r3, .L116+12
+ 1549              	.LPIC55:
+ 1550 0d3c 03308FE0 		add	r3, pc, r3
+ 1551 0d40 04308DE5 		str	r3, [sp, #4]
+ 1552 0d44 20301BE5 		ldr	r3, [fp, #-32]
+ 1553 0d48 00308DE5 		str	r3, [sp]
+ 1554 0d4c 523100E3 		movw	r3, #338
+ 1555 0d50 68249FE5 		ldr	r2, .L116+16
+ 1556              	.LPIC56:
+ 1557 0d54 02208FE0 		add	r2, pc, r2
+ 1558 0d58 64149FE5 		ldr	r1, .L116+20
+ 1559              	.LPIC57:
+ 1560 0d5c 01108FE0 		add	r1, pc, r1
+ 1561 0d60 4500A0E3 		mov	r0, #69
+ 1562 0d64 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1563 0d68 020100EA 		b	.L86
+ 1564              	.L85:
+ 339:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         ++uiValid;
+ 1565              		.loc 1 339 9 is_stmt 1
+ 1566 0d6c 14301BE5 		ldr	r3, [fp, #-20]
+ 1567 0d70 013083E2 		add	r3, r3, #1
+ 1568 0d74 14300BE5 		str	r3, [fp, #-20]
+ 340:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         break;
+ 1569              		.loc 1 340 9
+ 1570 0d78 DE0000EA 		b	.L87
+ 1571              	.L83:
+ 341:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       case '-':
+ 342:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         if(*szCurOption=='-'){
+ 1572              		.loc 1 342 12
+ 1573 0d7c 0C301BE5 		ldr	r3, [fp, #-12]
+ 1574 0d80 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1575              		.loc 1 342 11
+ 1576 0d84 2D0053E3 		cmp	r3, #45
+ 1577 0d88 D200001A 		bne	.L97
+ 343:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           ++szCurOption;
+ 1578              		.loc 1 343 11
+ 1579 0d8c 0C301BE5 		ldr	r3, [fp, #-12]
+ 1580 0d90 013083E2 		add	r3, r3, #1
+ 1581 0d94 0C300BE5 		str	r3, [fp, #-12]
+ 344:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           /*
+ 345:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           * Parse Long Commands
+ 346:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           */
+ 347:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           stI=stArgDescCnt;
+ARM GAS  /tmp/cctRi5Mi.s 			page 37
+
+
+ 1582              		.loc 1 347 14
+ 1583 0d98 34301BE5 		ldr	r3, [fp, #-52]
+ 1584 0d9c 18300BE5 		str	r3, [fp, #-24]
+ 348:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           pCurArgDesc=pCmdDesc;
+ 1585              		.loc 1 348 22
+ 1586 0da0 30301BE5 		ldr	r3, [fp, #-48]
+ 1587 0da4 1C300BE5 		str	r3, [fp, #-28]
+ 349:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           while(stI --){
+ 1588              		.loc 1 349 16
+ 1589 0da8 530000EA 		b	.L89
+ 1590              	.L95:
+ 350:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             if( pCurArgDesc->cszLong!=NULL&&
+ 1591              		.loc 1 350 28
+ 1592 0dac 1C301BE5 		ldr	r3, [fp, #-28]
+ 1593 0db0 043093E5 		ldr	r3, [r3, #4]
+ 1594              		.loc 1 350 15
+ 1595 0db4 000053E3 		cmp	r3, #0
+ 1596 0db8 4C00000A 		beq	.L90
+ 351:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 !strcmp(szCurOption, pCurArgDesc->cszLong)
+ 1597              		.loc 1 351 18 discriminator 1
+ 1598 0dbc 1C301BE5 		ldr	r3, [fp, #-28]
+ 1599 0dc0 043093E5 		ldr	r3, [r3, #4]
+ 1600 0dc4 0310A0E1 		mov	r1, r3
+ 1601 0dc8 0C001BE5 		ldr	r0, [fp, #-12]
+ 1602 0dcc FEFFFFEB 		bl	strcmp(PLT)
+ 1603 0dd0 0030A0E1 		mov	r3, r0
+ 350:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             if( pCurArgDesc->cszLong!=NULL&&
+ 1604              		.loc 1 350 43 discriminator 1
+ 1605 0dd4 000053E3 		cmp	r3, #0
+ 1606 0dd8 4400001A 		bne	.L90
+ 352:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 )
+ 353:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             {
+ 354:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               if(pCurArgDesc->puiResult!=NULL){
+ 1607              		.loc 1 354 29
+ 1608 0ddc 1C301BE5 		ldr	r3, [fp, #-28]
+ 1609 0de0 083093E5 		ldr	r3, [r3, #8]
+ 1610              		.loc 1 354 17
+ 1611 0de4 000053E3 		cmp	r3, #0
+ 1612 0de8 0400000A 		beq	.L91
+ 355:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 ++(*pCurArgDesc->puiResult);
+ 1613              		.loc 1 355 32
+ 1614 0dec 1C301BE5 		ldr	r3, [fp, #-28]
+ 1615 0df0 083093E5 		ldr	r3, [r3, #8]
+ 1616              		.loc 1 355 20
+ 1617 0df4 002093E5 		ldr	r2, [r3]
+ 1618              		.loc 1 355 17
+ 1619 0df8 012082E2 		add	r2, r2, #1
+ 1620 0dfc 002083E5 		str	r2, [r3]
+ 1621              	.L91:
+ 356:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               }
+ 357:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               DO(ParseSubArgs(&siArgc, &pszCurArg, pCurArgDesc->stArgs, pCurArgDesc->pArgs));
+ 1622              		.loc 1 357 15
+ 1623 0e00 1C301BE5 		ldr	r3, [fp, #-28]
+ 1624 0e04 142093E5 		ldr	r2, [r3, #20]
+ 1625 0e08 1C301BE5 		ldr	r3, [fp, #-28]
+ 1626 0e0c 103093E5 		ldr	r3, [r3, #16]
+ 1627 0e10 24104BE2 		sub	r1, fp, #36
+ARM GAS  /tmp/cctRi5Mi.s 			page 38
+
+
+ 1628 0e14 28004BE2 		sub	r0, fp, #40
+ 1629 0e18 FEFFFFEB 		bl	ParseSubArgs(PLT)
+ 1630 0e1c 20000BE5 		str	r0, [fp, #-32]
+ 1631 0e20 20301BE5 		ldr	r3, [fp, #-32]
+ 1632 0e24 000053E3 		cmp	r3, #0
+ 1633 0e28 0F00000A 		beq	.L92
+ 1634              		.loc 1 357 15 is_stmt 0 discriminator 1
+ 1635 0e2c 94339FE5 		ldr	r3, .L116+24
+ 1636              	.LPIC58:
+ 1637 0e30 03308FE0 		add	r3, pc, r3
+ 1638 0e34 08308DE5 		str	r3, [sp, #8]
+ 1639 0e38 8C339FE5 		ldr	r3, .L116+28
+ 1640              	.LPIC59:
+ 1641 0e3c 03308FE0 		add	r3, pc, r3
+ 1642 0e40 04308DE5 		str	r3, [sp, #4]
+ 1643 0e44 20301BE5 		ldr	r3, [fp, #-32]
+ 1644 0e48 00308DE5 		str	r3, [sp]
+ 1645 0e4c 653100E3 		movw	r3, #357
+ 1646 0e50 78239FE5 		ldr	r2, .L116+32
+ 1647              	.LPIC60:
+ 1648 0e54 02208FE0 		add	r2, pc, r2
+ 1649 0e58 74139FE5 		ldr	r1, .L116+36
+ 1650              	.LPIC61:
+ 1651 0e5c 01108FE0 		add	r1, pc, r1
+ 1652 0e60 4500A0E3 		mov	r0, #69
+ 1653 0e64 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1654 0e68 C20000EA 		b	.L86
+ 1655              	.L92:
+ 358:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               ++uiValid;
+ 1656              		.loc 1 358 15 is_stmt 1
+ 1657 0e6c 14301BE5 		ldr	r3, [fp, #-20]
+ 1658 0e70 013083E2 		add	r3, r3, #1
+ 1659 0e74 14300BE5 		str	r3, [fp, #-20]
+ 359:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               if(pCurArgDesc->handler!=NULL){
+ 1660              		.loc 1 359 29
+ 1661 0e78 1C301BE5 		ldr	r3, [fp, #-28]
+ 1662 0e7c 1C3093E5 		ldr	r3, [r3, #28]
+ 1663              		.loc 1 359 17
+ 1664 0e80 000053E3 		cmp	r3, #0
+ 1665 0e84 9800000A 		beq	.L113
+ 360:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 DO(pCurArgDesc->handler(pCurArgDesc->pArgData));
+ 1666              		.loc 1 360 17
+ 1667 0e88 1C301BE5 		ldr	r3, [fp, #-28]
+ 1668 0e8c 1C3093E5 		ldr	r3, [r3, #28]
+ 1669 0e90 1C201BE5 		ldr	r2, [fp, #-28]
+ 1670 0e94 182092E5 		ldr	r2, [r2, #24]
+ 1671 0e98 0200A0E1 		mov	r0, r2
+ 1672 0e9c 33FF2FE1 		blx	r3
+ 1673              	.LVL1:
+ 1674 0ea0 20000BE5 		str	r0, [fp, #-32]
+ 1675 0ea4 20301BE5 		ldr	r3, [fp, #-32]
+ 1676 0ea8 000053E3 		cmp	r3, #0
+ 1677 0eac 8E00000A 		beq	.L113
+ 1678              		.loc 1 360 17 is_stmt 0 discriminator 1
+ 1679 0eb0 20339FE5 		ldr	r3, .L116+40
+ 1680              	.LPIC62:
+ 1681 0eb4 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/cctRi5Mi.s 			page 39
+
+
+ 1682 0eb8 08308DE5 		str	r3, [sp, #8]
+ 1683 0ebc 18339FE5 		ldr	r3, .L116+44
+ 1684              	.LPIC63:
+ 1685 0ec0 03308FE0 		add	r3, pc, r3
+ 1686 0ec4 04308DE5 		str	r3, [sp, #4]
+ 1687 0ec8 20301BE5 		ldr	r3, [fp, #-32]
+ 1688 0ecc 00308DE5 		str	r3, [sp]
+ 1689 0ed0 5A3FA0E3 		mov	r3, #360
+ 1690 0ed4 04239FE5 		ldr	r2, .L116+48
+ 1691              	.LPIC64:
+ 1692 0ed8 02208FE0 		add	r2, pc, r2
+ 1693 0edc 00139FE5 		ldr	r1, .L116+52
+ 1694              	.LPIC65:
+ 1695 0ee0 01108FE0 		add	r1, pc, r1
+ 1696 0ee4 4500A0E3 		mov	r0, #69
+ 1697 0ee8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1698 0eec A10000EA 		b	.L86
+ 1699              	.L90:
+ 361:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               }
+ 362:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               break;
+ 363:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             }
+ 364:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             ++pCurArgDesc;
+ 1700              		.loc 1 364 13 is_stmt 1
+ 1701 0ef0 1C301BE5 		ldr	r3, [fp, #-28]
+ 1702 0ef4 203083E2 		add	r3, r3, #32
+ 1703 0ef8 1C300BE5 		str	r3, [fp, #-28]
+ 1704              	.L89:
+ 349:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             if( pCurArgDesc->cszLong!=NULL&&
+ 1705              		.loc 1 349 21
+ 1706 0efc 18301BE5 		ldr	r3, [fp, #-24]
+ 1707 0f00 012043E2 		sub	r2, r3, #1
+ 1708 0f04 18200BE5 		str	r2, [fp, #-24]
+ 349:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             if( pCurArgDesc->cszLong!=NULL&&
+ 1709              		.loc 1 349 17
+ 1710 0f08 000053E3 		cmp	r3, #0
+ 1711 0f0c A6FFFF1A 		bne	.L95
+ 365:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           }
+ 366:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         }else {
+ 367:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           /*
+ 368:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           * Parse Short Commands
+ 369:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           */
+ 370:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           while(*szCurOption){
+ 371:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             stI=stArgDescCnt;
+ 372:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             pCurArgDesc=pCmdDesc;
+ 373:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             uiValid=0;
+ 374:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             while(stI --){
+ 375:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               if(*szCurOption==pCurArgDesc->cShort){
+ 376:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 if(pCurArgDesc->puiResult!=NULL){
+ 377:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                   ++(*pCurArgDesc->puiResult);
+ 378:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 379:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 DO(ParseSubArgs(&siArgc, &pszCurArg, pCurArgDesc->stArgs, pCurArgDesc->pArgs));
+ 380:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 ++uiValid;
+ 381:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 if(pCurArgDesc->handler!=NULL){
+ 382:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                   DO(pCurArgDesc->handler(pCurArgDesc->pArgData));
+ 383:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 384:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 break;
+ 385:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               }
+ARM GAS  /tmp/cctRi5Mi.s 			page 40
+
+
+ 386:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               ++pCurArgDesc;
+ 387:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             }
+ 388:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             if(!uiValid){
+ 389:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               ++uiSyntaxError;
+ 390:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               printf("ERROR: Unknown Arg [%c] in (%s)\n", *szCurOption, *pszCurArg);
+ 391:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               uiValid=0;
+ 392:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             }
+ 393:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             ++szCurOption;
+ 394:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           }
+ 395:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         }
+ 396:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         break;
+ 1712              		.loc 1 396 9
+ 1713 0f10 780000EA 		b	.L87
+ 1714              	.L106:
+ 371:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             pCurArgDesc=pCmdDesc;
+ 1715              		.loc 1 371 16
+ 1716 0f14 34301BE5 		ldr	r3, [fp, #-52]
+ 1717 0f18 18300BE5 		str	r3, [fp, #-24]
+ 372:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             uiValid=0;
+ 1718              		.loc 1 372 24
+ 1719 0f1c 30301BE5 		ldr	r3, [fp, #-48]
+ 1720 0f20 1C300BE5 		str	r3, [fp, #-28]
+ 373:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             while(stI --){
+ 1721              		.loc 1 373 20
+ 1722 0f24 0030A0E3 		mov	r3, #0
+ 1723 0f28 14300BE5 		str	r3, [fp, #-20]
+ 374:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               if(*szCurOption==pCurArgDesc->cShort){
+ 1724              		.loc 1 374 18
+ 1725 0f2c 4D0000EA 		b	.L98
+ 1726              	.L104:
+ 375:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 if(pCurArgDesc->puiResult!=NULL){
+ 1727              		.loc 1 375 18
+ 1728 0f30 0C301BE5 		ldr	r3, [fp, #-12]
+ 1729 0f34 0020D3E5 		ldrb	r2, [r3]	@ zero_extendqisi2
+ 375:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 if(pCurArgDesc->puiResult!=NULL){
+ 1730              		.loc 1 375 43
+ 1731 0f38 1C301BE5 		ldr	r3, [fp, #-28]
+ 1732 0f3c 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 375:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 if(pCurArgDesc->puiResult!=NULL){
+ 1733              		.loc 1 375 17
+ 1734 0f40 030052E1 		cmp	r2, r3
+ 1735 0f44 4400001A 		bne	.L99
+ 376:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                   ++(*pCurArgDesc->puiResult);
+ 1736              		.loc 1 376 31
+ 1737 0f48 1C301BE5 		ldr	r3, [fp, #-28]
+ 1738 0f4c 083093E5 		ldr	r3, [r3, #8]
+ 376:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                   ++(*pCurArgDesc->puiResult);
+ 1739              		.loc 1 376 19
+ 1740 0f50 000053E3 		cmp	r3, #0
+ 1741 0f54 0400000A 		beq	.L100
+ 377:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 1742              		.loc 1 377 34
+ 1743 0f58 1C301BE5 		ldr	r3, [fp, #-28]
+ 1744 0f5c 083093E5 		ldr	r3, [r3, #8]
+ 377:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 1745              		.loc 1 377 22
+ 1746 0f60 002093E5 		ldr	r2, [r3]
+ARM GAS  /tmp/cctRi5Mi.s 			page 41
+
+
+ 377:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 1747              		.loc 1 377 19
+ 1748 0f64 012082E2 		add	r2, r2, #1
+ 1749 0f68 002083E5 		str	r2, [r3]
+ 1750              	.L100:
+ 379:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 ++uiValid;
+ 1751              		.loc 1 379 17
+ 1752 0f6c 1C301BE5 		ldr	r3, [fp, #-28]
+ 1753 0f70 142093E5 		ldr	r2, [r3, #20]
+ 1754 0f74 1C301BE5 		ldr	r3, [fp, #-28]
+ 1755 0f78 103093E5 		ldr	r3, [r3, #16]
+ 1756 0f7c 24104BE2 		sub	r1, fp, #36
+ 1757 0f80 28004BE2 		sub	r0, fp, #40
+ 1758 0f84 FEFFFFEB 		bl	ParseSubArgs(PLT)
+ 1759 0f88 20000BE5 		str	r0, [fp, #-32]
+ 1760 0f8c 20301BE5 		ldr	r3, [fp, #-32]
+ 1761 0f90 000053E3 		cmp	r3, #0
+ 1762 0f94 0F00000A 		beq	.L101
+ 379:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 ++uiValid;
+ 1763              		.loc 1 379 17 is_stmt 0 discriminator 1
+ 1764 0f98 48329FE5 		ldr	r3, .L116+56
+ 1765              	.LPIC66:
+ 1766 0f9c 03308FE0 		add	r3, pc, r3
+ 1767 0fa0 08308DE5 		str	r3, [sp, #8]
+ 1768 0fa4 40329FE5 		ldr	r3, .L116+60
+ 1769              	.LPIC67:
+ 1770 0fa8 03308FE0 		add	r3, pc, r3
+ 1771 0fac 04308DE5 		str	r3, [sp, #4]
+ 1772 0fb0 20301BE5 		ldr	r3, [fp, #-32]
+ 1773 0fb4 00308DE5 		str	r3, [sp]
+ 1774 0fb8 7B3100E3 		movw	r3, #379
+ 1775 0fbc 2C229FE5 		ldr	r2, .L116+64
+ 1776              	.LPIC68:
+ 1777 0fc0 02208FE0 		add	r2, pc, r2
+ 1778 0fc4 28129FE5 		ldr	r1, .L116+68
+ 1779              	.LPIC69:
+ 1780 0fc8 01108FE0 		add	r1, pc, r1
+ 1781 0fcc 4500A0E3 		mov	r0, #69
+ 1782 0fd0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1783 0fd4 670000EA 		b	.L86
+ 1784              	.L101:
+ 380:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 if(pCurArgDesc->handler!=NULL){
+ 1785              		.loc 1 380 17 is_stmt 1
+ 1786 0fd8 14301BE5 		ldr	r3, [fp, #-20]
+ 1787 0fdc 013083E2 		add	r3, r3, #1
+ 1788 0fe0 14300BE5 		str	r3, [fp, #-20]
+ 381:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                   DO(pCurArgDesc->handler(pCurArgDesc->pArgData));
+ 1789              		.loc 1 381 31
+ 1790 0fe4 1C301BE5 		ldr	r3, [fp, #-28]
+ 1791 0fe8 1C3093E5 		ldr	r3, [r3, #28]
+ 381:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                   DO(pCurArgDesc->handler(pCurArgDesc->pArgData));
+ 1792              		.loc 1 381 19
+ 1793 0fec 000053E3 		cmp	r3, #0
+ 1794 0ff0 2200000A 		beq	.L114
+ 382:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 1795              		.loc 1 382 19
+ 1796 0ff4 1C301BE5 		ldr	r3, [fp, #-28]
+ARM GAS  /tmp/cctRi5Mi.s 			page 42
+
+
+ 1797 0ff8 1C3093E5 		ldr	r3, [r3, #28]
+ 1798 0ffc 1C201BE5 		ldr	r2, [fp, #-28]
+ 1799 1000 182092E5 		ldr	r2, [r2, #24]
+ 1800 1004 0200A0E1 		mov	r0, r2
+ 1801 1008 33FF2FE1 		blx	r3
+ 1802              	.LVL2:
+ 1803 100c 20000BE5 		str	r0, [fp, #-32]
+ 1804 1010 20301BE5 		ldr	r3, [fp, #-32]
+ 1805 1014 000053E3 		cmp	r3, #0
+ 1806 1018 1800000A 		beq	.L114
+ 382:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****                 }
+ 1807              		.loc 1 382 19 is_stmt 0 discriminator 1
+ 1808 101c D4319FE5 		ldr	r3, .L116+72
+ 1809              	.LPIC70:
+ 1810 1020 03308FE0 		add	r3, pc, r3
+ 1811 1024 08308DE5 		str	r3, [sp, #8]
+ 1812 1028 CC319FE5 		ldr	r3, .L116+76
+ 1813              	.LPIC71:
+ 1814 102c 03308FE0 		add	r3, pc, r3
+ 1815 1030 04308DE5 		str	r3, [sp, #4]
+ 1816 1034 20301BE5 		ldr	r3, [fp, #-32]
+ 1817 1038 00308DE5 		str	r3, [sp]
+ 1818 103c 7E3100E3 		movw	r3, #382
+ 1819 1040 B8219FE5 		ldr	r2, .L116+80
+ 1820              	.LPIC72:
+ 1821 1044 02208FE0 		add	r2, pc, r2
+ 1822 1048 B4119FE5 		ldr	r1, .L116+84
+ 1823              	.LPIC73:
+ 1824 104c 01108FE0 		add	r1, pc, r1
+ 1825 1050 4500A0E3 		mov	r0, #69
+ 1826 1054 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1827 1058 460000EA 		b	.L86
+ 1828              	.L99:
+ 386:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             }
+ 1829              		.loc 1 386 15 is_stmt 1
+ 1830 105c 1C301BE5 		ldr	r3, [fp, #-28]
+ 1831 1060 203083E2 		add	r3, r3, #32
+ 1832 1064 1C300BE5 		str	r3, [fp, #-28]
+ 1833              	.L98:
+ 374:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               if(*szCurOption==pCurArgDesc->cShort){
+ 1834              		.loc 1 374 23
+ 1835 1068 18301BE5 		ldr	r3, [fp, #-24]
+ 1836 106c 012043E2 		sub	r2, r3, #1
+ 1837 1070 18200BE5 		str	r2, [fp, #-24]
+ 374:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               if(*szCurOption==pCurArgDesc->cShort){
+ 1838              		.loc 1 374 19
+ 1839 1074 000053E3 		cmp	r3, #0
+ 1840 1078 ACFFFF1A 		bne	.L104
+ 1841 107c 000000EA 		b	.L103
+ 1842              	.L114:
+ 384:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               }
+ 1843              		.loc 1 384 17
+ 1844 1080 00F020E3 		nop
+ 1845              	.L103:
+ 388:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               ++uiSyntaxError;
+ 1846              		.loc 1 388 15
+ 1847 1084 14301BE5 		ldr	r3, [fp, #-20]
+ARM GAS  /tmp/cctRi5Mi.s 			page 43
+
+
+ 1848 1088 000053E3 		cmp	r3, #0
+ 1849 108c 0E00001A 		bne	.L105
+ 389:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               printf("ERROR: Unknown Arg [%c] in (%s)\n", *szCurOption, *pszCurArg);
+ 1850              		.loc 1 389 15
+ 1851 1090 10301BE5 		ldr	r3, [fp, #-16]
+ 1852 1094 013083E2 		add	r3, r3, #1
+ 1853 1098 10300BE5 		str	r3, [fp, #-16]
+ 390:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               uiValid=0;
+ 1854              		.loc 1 390 59
+ 1855 109c 0C301BE5 		ldr	r3, [fp, #-12]
+ 1856 10a0 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 390:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****               uiValid=0;
+ 1857              		.loc 1 390 15
+ 1858 10a4 0310A0E1 		mov	r1, r3
+ 1859 10a8 24301BE5 		ldr	r3, [fp, #-36]
+ 1860 10ac 003093E5 		ldr	r3, [r3]
+ 1861 10b0 0320A0E1 		mov	r2, r3
+ 1862 10b4 4C319FE5 		ldr	r3, .L116+88
+ 1863              	.LPIC74:
+ 1864 10b8 03308FE0 		add	r3, pc, r3
+ 1865 10bc 0300A0E1 		mov	r0, r3
+ 1866 10c0 FEFFFFEB 		bl	printf(PLT)
+ 391:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             }
+ 1867              		.loc 1 391 22
+ 1868 10c4 0030A0E3 		mov	r3, #0
+ 1869 10c8 14300BE5 		str	r3, [fp, #-20]
+ 1870              	.L105:
+ 393:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****           }
+ 1871              		.loc 1 393 13
+ 1872 10cc 0C301BE5 		ldr	r3, [fp, #-12]
+ 1873 10d0 013083E2 		add	r3, r3, #1
+ 1874 10d4 0C300BE5 		str	r3, [fp, #-12]
+ 1875              	.L97:
+ 370:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             stI=stArgDescCnt;
+ 1876              		.loc 1 370 17
+ 1877 10d8 0C301BE5 		ldr	r3, [fp, #-12]
+ 1878 10dc 0030D3E5 		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1879 10e0 000053E3 		cmp	r3, #0
+ 1880 10e4 8AFFFF1A 		bne	.L106
+ 1881              		.loc 1 396 9
+ 1882 10e8 020000EA 		b	.L87
+ 1883              	.L113:
+ 362:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****             }
+ 1884              		.loc 1 362 15
+ 1885 10ec 00F020E3 		nop
+ 1886              		.loc 1 396 9
+ 1887 10f0 000000EA 		b	.L87
+ 1888              	.L112:
+ 397:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       default:
+ 398:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****         break;
+ 1889              		.loc 1 398 9
+ 1890 10f4 00F020E3 		nop
+ 1891              	.L87:
+ 399:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     }
+ 400:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     if(!uiValid){
+ 1892              		.loc 1 400 7
+ 1893 10f8 14301BE5 		ldr	r3, [fp, #-20]
+ARM GAS  /tmp/cctRi5Mi.s 			page 44
+
+
+ 1894 10fc 000053E3 		cmp	r3, #0
+ 1895 1100 0900001A 		bne	.L107
+ 401:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       uiSyntaxError++;
+ 1896              		.loc 1 401 20
+ 1897 1104 10301BE5 		ldr	r3, [fp, #-16]
+ 1898 1108 013083E2 		add	r3, r3, #1
+ 1899 110c 10300BE5 		str	r3, [fp, #-16]
+ 402:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****       printf("ERROR: Unknown Arg (%s)\n", *pszCurArg);
+ 1900              		.loc 1 402 7
+ 1901 1110 24301BE5 		ldr	r3, [fp, #-36]
+ 1902 1114 003093E5 		ldr	r3, [r3]
+ 1903 1118 0310A0E1 		mov	r1, r3
+ 1904 111c E8309FE5 		ldr	r3, .L116+92
+ 1905              	.LPIC75:
+ 1906 1120 03308FE0 		add	r3, pc, r3
+ 1907 1124 0300A0E1 		mov	r0, r3
+ 1908 1128 FEFFFFEB 		bl	printf(PLT)
+ 1909              	.L107:
+ 403:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     }
+ 404:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****     ++pszCurArg;
+ 1910              		.loc 1 404 5
+ 1911 112c 24301BE5 		ldr	r3, [fp, #-36]
+ 1912 1130 043083E2 		add	r3, r3, #4
+ 1913 1134 24300BE5 		str	r3, [fp, #-36]
+ 1914              	.L82:
+ 332:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*     printf("DEBUG: Arg[%u] (%s)\n", siArgc, *pszCurArg); */
+ 1915              		.loc 1 332 16
+ 1916 1138 28301BE5 		ldr	r3, [fp, #-40]
+ 1917 113c 012043E2 		sub	r2, r3, #1
+ 1918 1140 28200BE5 		str	r2, [fp, #-40]
+ 332:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*     printf("DEBUG: Arg[%u] (%s)\n", siArgc, *pszCurArg); */
+ 1919              		.loc 1 332 19
+ 1920 1144 000053E3 		cmp	r3, #0
+ 1921 1148 0300000A 		beq	.L108
+ 332:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*     printf("DEBUG: Arg[%u] (%s)\n", siArgc, *pszCurArg); */
+ 1922              		.loc 1 332 22 discriminator 1
+ 1923 114c 24301BE5 		ldr	r3, [fp, #-36]
+ 1924 1150 003093E5 		ldr	r3, [r3]
+ 332:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** /*     printf("DEBUG: Arg[%u] (%s)\n", siArgc, *pszCurArg); */
+ 1925              		.loc 1 332 19 discriminator 1
+ 1926 1154 000053E3 		cmp	r3, #0
+ 1927 1158 DEFEFF1A 		bne	.L109
+ 1928              	.L108:
+ 405:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   }
+ 406:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** 
+ 407:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   if(uiSyntaxError)
+ 1929              		.loc 1 407 5
+ 1930 115c 10301BE5 		ldr	r3, [fp, #-16]
+ 1931 1160 000053E3 		cmp	r3, #0
+ 1932 1164 0200000A 		beq	.L115
+ 408:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   StatusCode=EAPI_STATUS_INVALID_PARAMETER;
+ 1933              		.loc 1 408 13
+ 1934 1168 013CE0E3 		mvn	r3, #256
+ 1935 116c 20300BE5 		str	r3, [fp, #-32]
+ 1936 1170 000000EA 		b	.L86
+ 1937              	.L115:
+ 409:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** EAPI_APP_ASSERT_EXIT
+ARM GAS  /tmp/cctRi5Mi.s 			page 45
+
+
+ 1938              		.loc 1 409 1
+ 1939 1174 00F020E3 		nop
+ 1940              	.L86:
+ 410:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   return StatusCode;
+ 1941              		.loc 1 410 10
+ 1942 1178 20301BE5 		ldr	r3, [fp, #-32]
+ 324:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 1943              		.loc 1 324 1
+ 1944 117c 8C109FE5 		ldr	r1, .L116+96
+ 1945              	.LPIC77:
+ 1946 1180 01108FE0 		add	r1, pc, r1
+ 411:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../ArgParse.c **** }
+ 1947              		.loc 1 411 1
+ 1948 1184 28209FE5 		ldr	r2, .L116+4
+ 1949 1188 022091E7 		ldr	r2, [r1, r2]
+ 1950 118c 001092E5 		ldr	r1, [r2]
+ 1951 1190 08201BE5 		ldr	r2, [fp, #-8]
+ 1952 1194 011032E0 		eors	r1, r2, r1
+ 1953 1198 0020A0E3 		mov	r2, #0
+ 1954 119c 0000000A 		beq	.L111
+ 1955 11a0 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 1956              	.L111:
+ 1957 11a4 0300A0E1 		mov	r0, r3
+ 1958 11a8 04D04BE2 		sub	sp, fp, #4
+ 1959              		.cfi_def_cfa 13, 8
+ 1960              		@ sp needed
+ 1961 11ac 0088BDE8 		pop	{fp, pc}
+ 1962              	.L117:
+ 1963              		.align	2
+ 1964              	.L116:
+ 1965 11b0 04050000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC76+8)
+ 1966 11b4 00000000 		.word	__stack_chk_guard(GOT)
+ 1967 11b8 9C080000 		.word	.LC31-(.LPIC54+8)
+ 1968 11bc 58050000 		.word	.LC11-(.LPIC55+8)
+ 1969 11c0 A4040000 		.word	.LC8-(.LPIC56+8)
+ 1970 11c4 A4040000 		.word	.LC9-(.LPIC57+8)
+ 1971 11c8 E0070000 		.word	.LC32-(.LPIC58+8)
+ 1972 11cc 68040000 		.word	.LC11-(.LPIC59+8)
+ 1973 11d0 B4030000 		.word	.LC8-(.LPIC60+8)
+ 1974 11d4 B4030000 		.word	.LC9-(.LPIC61+8)
+ 1975 11d8 B8070000 		.word	.LC33-(.LPIC62+8)
+ 1976 11dc F4030000 		.word	.LC11-(.LPIC63+8)
+ 1977 11e0 40030000 		.word	.LC8-(.LPIC64+8)
+ 1978 11e4 40030000 		.word	.LC9-(.LPIC65+8)
+ 1979 11e8 94060000 		.word	.LC32-(.LPIC66+8)
+ 1980 11ec 1C030000 		.word	.LC11-(.LPIC67+8)
+ 1981 11f0 68020000 		.word	.LC8-(.LPIC68+8)
+ 1982 11f4 68020000 		.word	.LC9-(.LPIC69+8)
+ 1983 11f8 6C060000 		.word	.LC33-(.LPIC70+8)
+ 1984 11fc A8020000 		.word	.LC11-(.LPIC71+8)
+ 1985 1200 F4010000 		.word	.LC8-(.LPIC72+8)
+ 1986 1204 F4010000 		.word	.LC9-(.LPIC73+8)
+ 1987 1208 10060000 		.word	.LC34-(.LPIC74+8)
+ 1988 120c D0050000 		.word	.LC35-(.LPIC75+8)
+ 1989 1210 88000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC77+8)
+ 1990              		.cfi_endproc
+ 1991              	.LFE9:
+ARM GAS  /tmp/cctRi5Mi.s 			page 46
+
+
+ 1993              	.Letext0:
+ 1994              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 1995              		.file 3 "../../../include/EApi.h"
+ 1996              		.file 4 "../ArgParse.h"
+ 1997              		.file 5 "../StrFuncs.h"
+ 1998              		.file 6 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 1999              		.file 7 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 2000              		.file 8 "../../include/EApiAHStr.h"
+ 2001              		.file 9 "../BinFuncs.h"
+ 2002              		.file 10 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/inclu
+ 2003              		.file 11 "../StrPrint.h"
+ 2004              		.file 12 "../Str2Value.h"
+ 2005              		.file 13 "../../include/DbgChk.h"
+ARM GAS  /tmp/cctRi5Mi.s 			page 47
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 ArgParse.c
+     /tmp/cctRi5Mi.s:16     .text:0000000000000000 $a
+     /tmp/cctRi5Mi.s:25     .text:0000000000000000 StringArg
+     /tmp/cctRi5Mi.s:62     .rodata:0000000000000000 $d
+     /tmp/cctRi5Mi.s:87     .data.rel.local:0000000000000000 $d
+     /tmp/cctRi5Mi.s:90     .data.rel.local:0000000000000000 SizeMacros
+     /tmp/cctRi5Mi.s:102    .data.rel.local:0000000000000020 SizeMacroDesc
+     /tmp/cctRi5Mi.s:127    .text:0000000000000040 SizeArg
+     /tmp/cctRi5Mi.s:195    .text:00000000000000e0 $d
+     /tmp/cctRi5Mi.s:209    .text:00000000000000f4 $a
+     /tmp/cctRi5Mi.s:215    .text:00000000000000f4 NumberArg
+     /tmp/cctRi5Mi.s:281    .text:0000000000000190 $d
+     /tmp/cctRi5Mi.s:293    .rodata:0000000000000128 cszHeader
+     /tmp/cctRi5Mi.s:303    .rodata:000000000000021c cszFooter
+     /tmp/cctRi5Mi.s:334    .text:00000000000001a0 $a
+     /tmp/cctRi5Mi.s:340    .text:00000000000001a0 PrintUsage
+     /tmp/cctRi5Mi.s:574    .text:0000000000000408 $d
+     /tmp/cctRi5Mi.s:593    .text:0000000000000448 $a
+     /tmp/cctRi5Mi.s:599    .text:0000000000000448 ParseArgsBuffer
+     /tmp/cctRi5Mi.s:918    .text:000000000000073c CreateArgvArgcBuffer
+     /tmp/cctRi5Mi.s:1073   .text:00000000000008e4 $d
+     /tmp/cctRi5Mi.s:1103   .text:0000000000000910 $a
+     /tmp/cctRi5Mi.s:1109   .text:0000000000000910 ParseArgsFile
+     /tmp/cctRi5Mi.s:1477   .text:0000000000000c84 ParseArgs
+     /tmp/cctRi5Mi.s:1295   .text:0000000000000b10 $d
+     /tmp/cctRi5Mi.s:1322   .text:0000000000000b4c $a
+     /tmp/cctRi5Mi.s:1328   .text:0000000000000b4c ParseSubArgs
+     /tmp/cctRi5Mi.s:1445   .text:0000000000000c70 $d
+     /tmp/cctRi5Mi.s:1471   .text:0000000000000c84 $a
+     /tmp/cctRi5Mi.s:1965   .text:00000000000011b0 $d
+
+UNDEFINED SYMBOLS
+strdup
+ParseAsciiEquEx_VA
+siFormattedMessage_SC
+ParseAsciiEqu_VA
+fwrite
+fprintf
+PrintStringBlock
+malloc
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard
+ReadTextFile
+EApiSprintfA
+free
+printf
+strcmp

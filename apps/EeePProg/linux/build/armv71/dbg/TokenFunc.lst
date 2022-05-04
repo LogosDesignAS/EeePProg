@@ -1,0 +1,610 @@
+ARM GAS  /tmp/ccQ46Rqc.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"TokenFunc.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.rodata
+  17              		.align	2
+  18              	.LC0:
+  19 0000 00       		.ascii	"\000"
+  20              		.text
+  21              		.align	2
+  22              		.global	GetTokenFlags
+  23              		.arch armv7-a
+  24              		.arch_extension mp
+  25              		.arch_extension sec
+  26              		.syntax unified
+  27              		.arm
+  28              		.fpu vfpv3
+  30              	GetTokenFlags:
+  31              	.LFB1:
+  32              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+   5:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/apps/EeePProg/TokenFunc.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I   Copyright: Copyright (c) 2002-2010, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I     License: This program contains proprietary and confidential 
+  12:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I              information. All rights reserved except as may be 
+  13:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I              permitted by prior written consent.
+  14:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I
+  15:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I Description: Auto Created for sEAPI_printf.c
+  16:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I
+  17:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *+-------------------------------------------------------------------------
+  18:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I
+  19:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  File Name            : TokenFunc.c
+  20:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  File Location        : apps\EeePProg
+  21:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  Last committed       : $Revision: 74 $
+  22:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  Last changed by      : $Author: dethrophes $
+  23:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  24:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I  ID                   : $Id: TokenFunc.c 74 2010-06-23 19:26:50Z dethrophes $
+  25:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *+=========================================================================
+ARM GAS  /tmp/ccQ46Rqc.s 			page 2
+
+
+  27:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  *</KHeader>
+  28:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****  */
+  29:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** 
+  30:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** #include <EeePApp.h>
+  31:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** 
+  32:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** 
+  33:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** EApiStatus_t
+  34:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** GetTokenFlags(
+  35:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __OUT   char               *szStrBuf   ,
+  36:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __INOUT signed int         *psiStrBufLen,
+  37:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const char           *cszFirstLine,
+  38:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const char           *cszOtherLines,
+  39:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const char           *cszName      ,
+  40:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const TokenListDesc_t*pcTokenDesc,
+  41:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  size_t                stValue
+  42:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     )
+  43:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** {
+  33              		.loc 1 43 1
+  34              		.cfi_startproc
+  35              		@ args = 12, pretend = 0, frame = 32
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 00482DE9 		push	{fp, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 11, -8
+  40              		.cfi_offset 14, -4
+  41 0004 04B08DE2 		add	fp, sp, #4
+  42              		.cfi_def_cfa 11, 4
+  43 0008 28D04DE2 		sub	sp, sp, #40
+  44 000c 18000BE5 		str	r0, [fp, #-24]
+  45 0010 1C100BE5 		str	r1, [fp, #-28]
+  46 0014 20200BE5 		str	r2, [fp, #-32]
+  47 0018 24300BE5 		str	r3, [fp, #-36]
+  44:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   const TokenDesc_t *pcTokenList=pcTokenDesc->pTokenList;
+  48              		.loc 1 44 22
+  49 001c 08309BE5 		ldr	r3, [fp, #8]
+  50 0020 043093E5 		ldr	r3, [r3, #4]
+  51 0024 10300BE5 		str	r3, [fp, #-16]
+  45:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   size_t             stTokenList=pcTokenDesc->uiTokenCount;
+  52              		.loc 1 45 22
+  53 0028 08309BE5 		ldr	r3, [fp, #8]
+  54 002c 003093E5 		ldr	r3, [r3]
+  55 0030 0C300BE5 		str	r3, [fp, #-12]
+  46:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   unsigned int siStrLen=0;
+  56              		.loc 1 46 16
+  57 0034 0030A0E3 		mov	r3, #0
+  58 0038 08300BE5 		str	r3, [fp, #-8]
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   for(;stTokenList --;pcTokenList++){
+  59              		.loc 1 47 3
+  60 003c 300000EA 		b	.L2
+  61              	.L5:
+  48:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue&pcTokenList->ulTokenValue){
+  62              		.loc 1 48 27
+  63 0040 10301BE5 		ldr	r3, [fp, #-16]
+  64 0044 042093E5 		ldr	r2, [r3, #4]
+  65              		.loc 1 48 15
+  66 0048 0C309BE5 		ldr	r3, [fp, #12]
+  67 004c 023003E0 		and	r3, r3, r2
+ARM GAS  /tmp/ccQ46Rqc.s 			page 3
+
+
+  68              		.loc 1 48 7
+  69 0050 000053E3 		cmp	r3, #0
+  70 0054 2700000A 		beq	.L3
+  49:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       if(siStrLen){
+  71              		.loc 1 49 9
+  72 0058 08301BE5 		ldr	r3, [fp, #-8]
+  73 005c 000053E3 		cmp	r3, #0
+  74 0060 1100000A 		beq	.L4
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         siStrLen+=EApiSprintfA(
+  75              		.loc 1 50 19
+  76 0064 18201BE5 		ldr	r2, [fp, #-24]
+  77 0068 08301BE5 		ldr	r3, [fp, #-8]
+  78 006c 030082E0 		add	r0, r2, r3
+  51:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+  52:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             *psiStrBufLen-siStrLen ,
+  79              		.loc 1 52 13
+  80 0070 1C301BE5 		ldr	r3, [fp, #-28]
+  81 0074 003093E5 		ldr	r3, [r3]
+  82 0078 0320A0E1 		mov	r2, r3
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         siStrLen+=EApiSprintfA(
+  83              		.loc 1 50 19
+  84 007c 08301BE5 		ldr	r3, [fp, #-8]
+  85 0080 031042E0 		sub	r1, r2, r3
+  53:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             cszOtherLines, 
+  54:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             pcTokenList->pszTokenList 
+  86              		.loc 1 54 24
+  87 0084 10301BE5 		ldr	r3, [fp, #-16]
+  88 0088 003093E5 		ldr	r3, [r3]
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+  89              		.loc 1 50 19
+  90 008c 24201BE5 		ldr	r2, [fp, #-36]
+  91 0090 FEFFFFEB 		bl	EApiSprintfA(PLT)
+  92 0094 0030A0E1 		mov	r3, r0
+  93 0098 0320A0E1 		mov	r2, r3
+  50:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+  94              		.loc 1 50 17
+  95 009c 08301BE5 		ldr	r3, [fp, #-8]
+  96 00a0 023083E0 		add	r3, r3, r2
+  97 00a4 08300BE5 		str	r3, [fp, #-8]
+  98 00a8 120000EA 		b	.L3
+  99              	.L4:
+  55:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         );
+  56:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       }else{
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         siStrLen+=EApiSprintfA(
+ 100              		.loc 1 57 19
+ 101 00ac 18201BE5 		ldr	r2, [fp, #-24]
+ 102 00b0 08301BE5 		ldr	r3, [fp, #-8]
+ 103 00b4 030082E0 		add	r0, r2, r3
+  58:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+  59:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             *psiStrBufLen-siStrLen ,
+ 104              		.loc 1 59 13
+ 105 00b8 1C301BE5 		ldr	r3, [fp, #-28]
+ 106 00bc 003093E5 		ldr	r3, [r3]
+ 107 00c0 0320A0E1 		mov	r2, r3
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+ 108              		.loc 1 57 19
+ 109 00c4 08301BE5 		ldr	r3, [fp, #-8]
+ARM GAS  /tmp/ccQ46Rqc.s 			page 4
+
+
+ 110 00c8 031042E0 		sub	r1, r2, r3
+  60:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             cszFirstLine, 
+  61:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             cszName, 
+  62:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             pcTokenList->pszTokenList 
+ 111              		.loc 1 62 24
+ 112 00cc 10301BE5 		ldr	r3, [fp, #-16]
+ 113 00d0 003093E5 		ldr	r3, [r3]
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+ 114              		.loc 1 57 19
+ 115 00d4 00308DE5 		str	r3, [sp]
+ 116 00d8 04309BE5 		ldr	r3, [fp, #4]
+ 117 00dc 20201BE5 		ldr	r2, [fp, #-32]
+ 118 00e0 FEFFFFEB 		bl	EApiSprintfA(PLT)
+ 119 00e4 0030A0E1 		mov	r3, r0
+ 120 00e8 0320A0E1 		mov	r2, r3
+  57:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+ 121              		.loc 1 57 17
+ 122 00ec 08301BE5 		ldr	r3, [fp, #-8]
+ 123 00f0 023083E0 		add	r3, r3, r2
+ 124 00f4 08300BE5 		str	r3, [fp, #-8]
+ 125              	.L3:
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue&pcTokenList->ulTokenValue){
+ 126              		.loc 1 47 34
+ 127 00f8 10301BE5 		ldr	r3, [fp, #-16]
+ 128 00fc 083083E2 		add	r3, r3, #8
+ 129 0100 10300BE5 		str	r3, [fp, #-16]
+ 130              	.L2:
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue&pcTokenList->ulTokenValue){
+ 131              		.loc 1 47 20 discriminator 1
+ 132 0104 0C301BE5 		ldr	r3, [fp, #-12]
+ 133 0108 012043E2 		sub	r2, r3, #1
+ 134 010c 0C200BE5 		str	r2, [fp, #-12]
+  47:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue&pcTokenList->ulTokenValue){
+ 135              		.loc 1 47 8 discriminator 1
+ 136 0110 000053E3 		cmp	r3, #0
+ 137 0114 C9FFFF1A 		bne	.L5
+  63:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         );
+  64:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       }
+  65:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     }
+  66:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   }
+  67:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   if(!siStrLen)
+ 138              		.loc 1 67 5
+ 139 0118 08301BE5 		ldr	r3, [fp, #-8]
+ 140 011c 000053E3 		cmp	r3, #0
+ 141 0120 1200001A 		bne	.L6
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         siStrLen+=EApiSprintfA(
+ 142              		.loc 1 68 19
+ 143 0124 18201BE5 		ldr	r2, [fp, #-24]
+ 144 0128 08301BE5 		ldr	r3, [fp, #-8]
+ 145 012c 030082E0 		add	r0, r2, r3
+  69:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             szStrBuf+siStrLen     ,
+  70:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             *psiStrBufLen-siStrLen ,
+ 146              		.loc 1 70 13
+ 147 0130 1C301BE5 		ldr	r3, [fp, #-28]
+ 148 0134 003093E5 		ldr	r3, [r3]
+ 149 0138 0320A0E1 		mov	r2, r3
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         siStrLen+=EApiSprintfA(
+ARM GAS  /tmp/ccQ46Rqc.s 			page 5
+
+
+ 150              		.loc 1 68 19
+ 151 013c 08301BE5 		ldr	r3, [fp, #-8]
+ 152 0140 031042E0 		sub	r1, r2, r3
+ 153 0144 40309FE5 		ldr	r3, .L8
+ 154              	.LPIC0:
+ 155 0148 03308FE0 		add	r3, pc, r3
+ 156 014c 00308DE5 		str	r3, [sp]
+ 157 0150 04309BE5 		ldr	r3, [fp, #4]
+ 158 0154 20201BE5 		ldr	r2, [fp, #-32]
+ 159 0158 FEFFFFEB 		bl	EApiSprintfA(PLT)
+ 160 015c 0030A0E1 		mov	r3, r0
+ 161 0160 0320A0E1 		mov	r2, r3
+  68:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         siStrLen+=EApiSprintfA(
+ 162              		.loc 1 68 17
+ 163 0164 08301BE5 		ldr	r3, [fp, #-8]
+ 164 0168 023083E0 		add	r3, r3, r2
+ 165 016c 08300BE5 		str	r3, [fp, #-8]
+ 166              	.L6:
+  71:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             cszFirstLine, 
+  72:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             cszName, 
+  73:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****             "" 
+  74:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****         );
+  75:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   *psiStrBufLen=siStrLen;
+ 167              		.loc 1 75 16
+ 168 0170 08201BE5 		ldr	r2, [fp, #-8]
+ 169 0174 1C301BE5 		ldr	r3, [fp, #-28]
+ 170 0178 002083E5 		str	r2, [r3]
+  76:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   return EAPI_STATUS_SUCCESS;
+ 171              		.loc 1 76 10
+ 172 017c 0030A0E3 		mov	r3, #0
+  77:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** }
+ 173              		.loc 1 77 1
+ 174 0180 0300A0E1 		mov	r0, r3
+ 175 0184 04D04BE2 		sub	sp, fp, #4
+ 176              		.cfi_def_cfa 13, 8
+ 177              		@ sp needed
+ 178 0188 0088BDE8 		pop	{fp, pc}
+ 179              	.L9:
+ 180              		.align	2
+ 181              	.L8:
+ 182 018c 3C000000 		.word	.LC0-(.LPIC0+8)
+ 183              		.cfi_endproc
+ 184              	.LFE1:
+ 186              		.section	.rodata
+ 187 0001 000000   		.align	2
+ 188              	.LC1:
+ 189 0004 257300   		.ascii	"%s\000"
+ 190 0007 00       		.align	2
+ 191              	.LC2:
+ 192 0008 554E4B4E 		.ascii	"UNKNOWN VALUE(0x%08lX)\000"
+ 192      4F574E20 
+ 192      56414C55 
+ 192      45283078 
+ 192      2530386C 
+ 193              		.text
+ 194              		.align	2
+ 195              		.global	GetValueToken
+ARM GAS  /tmp/ccQ46Rqc.s 			page 6
+
+
+ 196              		.syntax unified
+ 197              		.arm
+ 198              		.fpu vfpv3
+ 200              	GetValueToken:
+ 201              	.LFB2:
+  78:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** EApiStatus_t
+  79:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** GetValueToken(
+  80:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __OUT char                 *pszBuffer,
+  81:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  size_t                stBufLen  ,
+  82:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const TokenListDesc_t*pcTokenDesc,
+  83:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  size_t                stValue
+  84:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     )
+  85:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** {
+ 202              		.loc 1 85 1
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 24
+ 205              		@ frame_needed = 1, uses_anonymous_args = 0
+ 206 0190 00482DE9 		push	{fp, lr}
+ 207              		.cfi_def_cfa_offset 8
+ 208              		.cfi_offset 11, -8
+ 209              		.cfi_offset 14, -4
+ 210 0194 04B08DE2 		add	fp, sp, #4
+ 211              		.cfi_def_cfa 11, 4
+ 212 0198 18D04DE2 		sub	sp, sp, #24
+ 213 019c 10000BE5 		str	r0, [fp, #-16]
+ 214 01a0 14100BE5 		str	r1, [fp, #-20]
+ 215 01a4 18200BE5 		str	r2, [fp, #-24]
+ 216 01a8 1C300BE5 		str	r3, [fp, #-28]
+  86:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   const TokenDesc_t *pcTokenList=pcTokenDesc->pTokenList;
+ 217              		.loc 1 86 22
+ 218 01ac 18301BE5 		ldr	r3, [fp, #-24]
+ 219 01b0 043093E5 		ldr	r3, [r3, #4]
+ 220 01b4 0C300BE5 		str	r3, [fp, #-12]
+  87:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   size_t             stTokenList=pcTokenDesc->uiTokenCount;
+ 221              		.loc 1 87 22
+ 222 01b8 18301BE5 		ldr	r3, [fp, #-24]
+ 223 01bc 003093E5 		ldr	r3, [r3]
+ 224 01c0 08300BE5 		str	r3, [fp, #-8]
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   for(;stTokenList --;pcTokenList++){
+ 225              		.loc 1 88 3
+ 226 01c4 100000EA 		b	.L11
+ 227              	.L14:
+  89:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue==pcTokenList->ulTokenValue){
+ 228              		.loc 1 89 28
+ 229 01c8 0C301BE5 		ldr	r3, [fp, #-12]
+ 230 01cc 043093E5 		ldr	r3, [r3, #4]
+ 231              		.loc 1 89 7
+ 232 01d0 1C201BE5 		ldr	r2, [fp, #-28]
+ 233 01d4 030052E1 		cmp	r2, r3
+ 234 01d8 0800001A 		bne	.L12
+  90:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       EApiSprintfA(pszBuffer, stBufLen, "%s", pcTokenList->pszTokenList);
+ 235              		.loc 1 90 58
+ 236 01dc 0C301BE5 		ldr	r3, [fp, #-12]
+ 237 01e0 003093E5 		ldr	r3, [r3]
+ 238              		.loc 1 90 7
+ 239 01e4 5C209FE5 		ldr	r2, .L15
+ 240              	.LPIC1:
+ARM GAS  /tmp/ccQ46Rqc.s 			page 7
+
+
+ 241 01e8 02208FE0 		add	r2, pc, r2
+ 242 01ec 14101BE5 		ldr	r1, [fp, #-20]
+ 243 01f0 10001BE5 		ldr	r0, [fp, #-16]
+ 244 01f4 FEFFFFEB 		bl	EApiSprintfA(PLT)
+  91:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       return EAPI_STATUS_SUCCESS;
+ 245              		.loc 1 91 14
+ 246 01f8 0030A0E3 		mov	r3, #0
+ 247 01fc 0E0000EA 		b	.L13
+ 248              	.L12:
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue==pcTokenList->ulTokenValue){
+ 249              		.loc 1 88 34
+ 250 0200 0C301BE5 		ldr	r3, [fp, #-12]
+ 251 0204 083083E2 		add	r3, r3, #8
+ 252 0208 0C300BE5 		str	r3, [fp, #-12]
+ 253              	.L11:
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue==pcTokenList->ulTokenValue){
+ 254              		.loc 1 88 20 discriminator 1
+ 255 020c 08301BE5 		ldr	r3, [fp, #-8]
+ 256 0210 012043E2 		sub	r2, r3, #1
+ 257 0214 08200BE5 		str	r2, [fp, #-8]
+  88:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(stValue==pcTokenList->ulTokenValue){
+ 258              		.loc 1 88 8 discriminator 1
+ 259 0218 000053E3 		cmp	r3, #0
+ 260 021c E9FFFF1A 		bne	.L14
+  92:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     }
+  93:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   }
+  94:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   EApiSprintfA(pszBuffer, stBufLen, "UNKNOWN VALUE(0x%08lX)", (unsigned long)stValue);
+ 261              		.loc 1 94 3
+ 262 0220 1C301BE5 		ldr	r3, [fp, #-28]
+ 263 0224 20209FE5 		ldr	r2, .L15+4
+ 264              	.LPIC2:
+ 265 0228 02208FE0 		add	r2, pc, r2
+ 266 022c 14101BE5 		ldr	r1, [fp, #-20]
+ 267 0230 10001BE5 		ldr	r0, [fp, #-16]
+ 268 0234 FEFFFFEB 		bl	EApiSprintfA(PLT)
+  95:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   return EAPI_STATUS_ERROR;
+ 269              		.loc 1 95 10
+ 270 0238 0F3CE0E3 		mvn	r3, #3840
+ 271              	.L13:
+  96:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** }
+ 272              		.loc 1 96 1
+ 273 023c 0300A0E1 		mov	r0, r3
+ 274 0240 04D04BE2 		sub	sp, fp, #4
+ 275              		.cfi_def_cfa 13, 8
+ 276              		@ sp needed
+ 277 0244 0088BDE8 		pop	{fp, pc}
+ 278              	.L16:
+ 279              		.align	2
+ 280              	.L15:
+ 281 0248 5C000000 		.word	.LC1-(.LPIC1+8)
+ 282 024c 24000000 		.word	.LC2-(.LPIC2+8)
+ 283              		.cfi_endproc
+ 284              	.LFE2:
+ 286              		.align	2
+ 287              		.global	GetTokenValue
+ 288              		.syntax unified
+ 289              		.arm
+ARM GAS  /tmp/ccQ46Rqc.s 			page 8
+
+
+ 290              		.fpu vfpv3
+ 292              	GetTokenValue:
+ 293              	.LFB3:
+  97:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** 
+  98:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** EApiStatus_t
+  99:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** GetTokenValue(
+ 100:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const TokenListDesc_t*pcTokenDesc,
+ 101:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const char   *szValue  ,
+ 102:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __OUT unsigned long*pulValue
+ 103:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   )
+ 104:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** { 
+ 294              		.loc 1 104 1
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 24
+ 297              		@ frame_needed = 1, uses_anonymous_args = 0
+ 298 0250 00482DE9 		push	{fp, lr}
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 11, -8
+ 301              		.cfi_offset 14, -4
+ 302 0254 04B08DE2 		add	fp, sp, #4
+ 303              		.cfi_def_cfa 11, 4
+ 304 0258 18D04DE2 		sub	sp, sp, #24
+ 305 025c 10000BE5 		str	r0, [fp, #-16]
+ 306 0260 14100BE5 		str	r1, [fp, #-20]
+ 307 0264 18200BE5 		str	r2, [fp, #-24]
+ 105:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   const TokenDesc_t *pcTokenList=pcTokenDesc->pTokenList;
+ 308              		.loc 1 105 22
+ 309 0268 10301BE5 		ldr	r3, [fp, #-16]
+ 310 026c 043093E5 		ldr	r3, [r3, #4]
+ 311 0270 0C300BE5 		str	r3, [fp, #-12]
+ 106:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   size_t             stTokenList=pcTokenDesc->uiTokenCount;
+ 312              		.loc 1 106 22
+ 313 0274 10301BE5 		ldr	r3, [fp, #-16]
+ 314 0278 003093E5 		ldr	r3, [r3]
+ 315 027c 08300BE5 		str	r3, [fp, #-8]
+ 107:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   *pulValue=0;
+ 316              		.loc 1 107 12
+ 317 0280 18301BE5 		ldr	r3, [fp, #-24]
+ 318 0284 0020A0E3 		mov	r2, #0
+ 319 0288 002083E5 		str	r2, [r3]
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   for(;stTokenList --;pcTokenList++){
+ 320              		.loc 1 108 3
+ 321 028c 100000EA 		b	.L18
+ 322              	.L21:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(!strcmp(pcTokenList->pszTokenList, szValue)){
+ 323              		.loc 1 109 27
+ 324 0290 0C301BE5 		ldr	r3, [fp, #-12]
+ 325 0294 003093E5 		ldr	r3, [r3]
+ 326              		.loc 1 109 9
+ 327 0298 14101BE5 		ldr	r1, [fp, #-20]
+ 328 029c 0300A0E1 		mov	r0, r3
+ 329 02a0 FEFFFFEB 		bl	strcmp(PLT)
+ 330 02a4 0030A0E1 		mov	r3, r0
+ 331              		.loc 1 109 7
+ 332 02a8 000053E3 		cmp	r3, #0
+ 333 02ac 0500001A 		bne	.L19
+ 110:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       *pulValue=pcTokenList->ulTokenValue;
+ARM GAS  /tmp/ccQ46Rqc.s 			page 9
+
+
+ 334              		.loc 1 110 28
+ 335 02b0 0C301BE5 		ldr	r3, [fp, #-12]
+ 336 02b4 042093E5 		ldr	r2, [r3, #4]
+ 337              		.loc 1 110 16
+ 338 02b8 18301BE5 		ldr	r3, [fp, #-24]
+ 339 02bc 002083E5 		str	r2, [r3]
+ 111:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****       return EAPI_STATUS_SUCCESS;
+ 340              		.loc 1 111 14
+ 341 02c0 0030A0E3 		mov	r3, #0
+ 342 02c4 080000EA 		b	.L20
+ 343              	.L19:
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(!strcmp(pcTokenList->pszTokenList, szValue)){
+ 344              		.loc 1 108 34
+ 345 02c8 0C301BE5 		ldr	r3, [fp, #-12]
+ 346 02cc 083083E2 		add	r3, r3, #8
+ 347 02d0 0C300BE5 		str	r3, [fp, #-12]
+ 348              	.L18:
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(!strcmp(pcTokenList->pszTokenList, szValue)){
+ 349              		.loc 1 108 20 discriminator 1
+ 350 02d4 08301BE5 		ldr	r3, [fp, #-8]
+ 351 02d8 012043E2 		sub	r2, r3, #1
+ 352 02dc 08200BE5 		str	r2, [fp, #-8]
+ 108:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     if(!strcmp(pcTokenList->pszTokenList, szValue)){
+ 353              		.loc 1 108 8 discriminator 1
+ 354 02e0 000053E3 		cmp	r3, #0
+ 355 02e4 E9FFFF1A 		bne	.L21
+ 112:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     }
+ 113:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   }
+ 114:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   return EAPI_STATUS_ERROR;
+ 356              		.loc 1 114 10
+ 357 02e8 0F3CE0E3 		mvn	r3, #3840
+ 358              	.L20:
+ 115:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** 
+ 116:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** }
+ 359              		.loc 1 116 1
+ 360 02ec 0300A0E1 		mov	r0, r3
+ 361 02f0 04D04BE2 		sub	sp, fp, #4
+ 362              		.cfi_def_cfa 13, 8
+ 363              		@ sp needed
+ 364 02f4 0088BDE8 		pop	{fp, pc}
+ 365              		.cfi_endproc
+ 366              	.LFE3:
+ 368              		.align	2
+ 369              		.global	GetTokenValueStrip
+ 370              		.syntax unified
+ 371              		.arm
+ 372              		.fpu vfpv3
+ 374              	GetTokenValueStrip:
+ 375              	.LFB4:
+ 117:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** 
+ 118:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** EApiStatus_t
+ 119:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** GetTokenValueStrip(
+ 120:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  const TokenListDesc_t*pcTokenDesc,
+ 121:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __IN  char   *szValue  ,
+ 122:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     __OUT unsigned long*pulValue
+ 123:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****     )
+ 124:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** {
+ARM GAS  /tmp/ccQ46Rqc.s 			page 10
+
+
+ 376              		.loc 1 124 1
+ 377              		.cfi_startproc
+ 378              		@ args = 0, pretend = 0, frame = 16
+ 379              		@ frame_needed = 1, uses_anonymous_args = 0
+ 380 02f8 00482DE9 		push	{fp, lr}
+ 381              		.cfi_def_cfa_offset 8
+ 382              		.cfi_offset 11, -8
+ 383              		.cfi_offset 14, -4
+ 384 02fc 04B08DE2 		add	fp, sp, #4
+ 385              		.cfi_def_cfa 11, 4
+ 386 0300 10D04DE2 		sub	sp, sp, #16
+ 387 0304 08000BE5 		str	r0, [fp, #-8]
+ 388 0308 0C100BE5 		str	r1, [fp, #-12]
+ 389 030c 10200BE5 		str	r2, [fp, #-16]
+ 125:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   szValue=skipWhiteSpaces(szValue);
+ 390              		.loc 1 125 11
+ 391 0310 0C001BE5 		ldr	r0, [fp, #-12]
+ 392 0314 FEFFFFEB 		bl	skipWhiteSpaces(PLT)
+ 393 0318 0C000BE5 		str	r0, [fp, #-12]
+ 126:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   stripWhiteSpaces(szValue);
+ 394              		.loc 1 126 3
+ 395 031c 0C001BE5 		ldr	r0, [fp, #-12]
+ 396 0320 FEFFFFEB 		bl	stripWhiteSpaces(PLT)
+ 127:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c ****   return GetTokenValue(pcTokenDesc, szValue, pulValue);
+ 397              		.loc 1 127 10
+ 398 0324 10201BE5 		ldr	r2, [fp, #-16]
+ 399 0328 0C101BE5 		ldr	r1, [fp, #-12]
+ 400 032c 08001BE5 		ldr	r0, [fp, #-8]
+ 401 0330 FEFFFFEB 		bl	GetTokenValue(PLT)
+ 402 0334 0030A0E1 		mov	r3, r0
+ 128:/home/hkh/git/eapidk-code-r76-trunk/apps/EeePProg/linux/../TokenFunc.c **** }
+ 403              		.loc 1 128 1
+ 404 0338 0300A0E1 		mov	r0, r3
+ 405 033c 04D04BE2 		sub	sp, fp, #4
+ 406              		.cfi_def_cfa 13, 8
+ 407              		@ sp needed
+ 408 0340 0088BDE8 		pop	{fp, pc}
+ 409              		.cfi_endproc
+ 410              	.LFE4:
+ 412              	.Letext0:
+ 413              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 414              		.file 3 "../../../include/EApi.h"
+ 415              		.file 4 "../TokenFunc.h"
+ 416              		.file 5 "../StrFuncs.h"
+ 417              		.file 6 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 418              		.file 7 "../../include/EApiAHStr.h"
+ARM GAS  /tmp/ccQ46Rqc.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 TokenFunc.c
+     /tmp/ccQ46Rqc.s:17     .rodata:0000000000000000 $d
+     /tmp/ccQ46Rqc.s:21     .text:0000000000000000 $a
+     /tmp/ccQ46Rqc.s:30     .text:0000000000000000 GetTokenFlags
+     /tmp/ccQ46Rqc.s:182    .text:000000000000018c $d
+     /tmp/ccQ46Rqc.s:194    .text:0000000000000190 $a
+     /tmp/ccQ46Rqc.s:200    .text:0000000000000190 GetValueToken
+     /tmp/ccQ46Rqc.s:281    .text:0000000000000248 $d
+     /tmp/ccQ46Rqc.s:286    .text:0000000000000250 $a
+     /tmp/ccQ46Rqc.s:292    .text:0000000000000250 GetTokenValue
+     /tmp/ccQ46Rqc.s:374    .text:00000000000002f8 GetTokenValueStrip
+
+UNDEFINED SYMBOLS
+EApiSprintfA
+strcmp
+skipWhiteSpaces
+stripWhiteSpaces

@@ -1,0 +1,3617 @@
+ARM GAS  /tmp/ccBFmFol.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiAPI.cpp"
+  13              		.text
+  14              		.section	.rodata.str1.4,"aMS",%progbits,1
+  15              		.align	2
+  16              	.LC0:
+  17 0000 45417069 		.ascii	"EApiI2CGetBusCap\000"
+  17      49324347 
+  17      65744275 
+  17      73436170 
+  17      00
+  18 0011 000000   		.align	2
+  19              	.LC1:
+  20 0014 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+  20      652F686B 
+  20      682F6769 
+  20      742F6561 
+  20      7069646B 
+  21 0047 70694150 		.ascii	"piAPI.cpp\000"
+  21      492E6370 
+  21      7000
+  22 0051 000000   		.align	2
+  23              	.LC2:
+  24 0054 4C696272 		.ascii	"Library Uninitialized\000"
+  24      61727920 
+  24      556E696E 
+  24      69746961 
+  24      6C697A65 
+  25 006a 0000     		.align	2
+  26              	.LC3:
+  27 006c 25730A00 		.ascii	"%s\012\000"
+  28              		.align	2
+  29              	.LC4:
+  30 0070 28704D61 		.ascii	"(pMaxBlkLen==NULL)\000"
+  30      78426C6B 
+  30      4C656E3D 
+  30      3D4E554C 
+  30      4C2900
+  31              		.text
+  32              		.align	2
+  33              		.global	EApiI2CGetBusCap
+  34              		.arch armv7-a
+  35              		.arch_extension mp
+  36              		.arch_extension sec
+  37              		.syntax unified
+  38              		.arm
+  39              		.fpu vfpv3
+ARM GAS  /tmp/ccBFmFol.s 			page 2
+
+
+  41              	EApiI2CGetBusCap:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44 0000 98309FE5 		ldr	r3, .L10
+  45 0004 10402DE9 		push	{r4, lr}
+  46 0008 10D04DE2 		sub	sp, sp, #16
+  47              	.LPIC0:
+  48 000c 03308FE0 		add	r3, pc, r3
+  49 0010 003093E5 		ldr	r3, [r3]
+  50 0014 000053E3 		cmp	r3, #0
+  51 0018 0400000A 		beq	.L8
+  52 001c 000051E3 		cmp	r1, #0
+  53 0020 1300000A 		beq	.L9
+  54 0024 10D08DE2 		add	sp, sp, #16
+  55              		@ sp needed
+  56 0028 1040BDE8 		pop	{r4, lr}
+  57 002c FEFFFFEA 		b	EApiI2CGetBusCapEmul(PLT)
+  58              	.L8:
+  59 0030 6CC09FE5 		ldr	ip, .L10+4
+  60 0034 0040E0E3 		mvn	r4, #0
+  61 0038 68009FE5 		ldr	r0, .L10+8
+  62 003c 4C30A0E3 		mov	r3, #76
+  63 0040 64209FE5 		ldr	r2, .L10+12
+  64 0044 64109FE5 		ldr	r1, .L10+16
+  65              	.LPIC3:
+  66 0048 0CC08FE0 		add	ip, pc, ip
+  67              	.LPIC4:
+  68 004c 00008FE0 		add	r0, pc, r0
+  69              	.LPIC1:
+  70 0050 02208FE0 		add	r2, pc, r2
+  71              	.LPIC2:
+  72 0054 01108FE0 		add	r1, pc, r1
+  73              	.L6:
+  74 0058 01108DE9 		stmib	sp, {r0, ip}
+  75 005c 4500A0E3 		mov	r0, #69
+  76 0060 00408DE5 		str	r4, [sp]
+  77 0064 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+  78 0068 0400A0E1 		mov	r0, r4
+  79 006c 10D08DE2 		add	sp, sp, #16
+  80              		@ sp needed
+  81 0070 1080BDE8 		pop	{r4, pc}
+  82              	.L3:
+  83              	.L9:
+  84 0074 38C09FE5 		ldr	ip, .L10+20
+  85 0078 014CE0E3 		mvn	r4, #256
+  86 007c 34009FE5 		ldr	r0, .L10+24
+  87 0080 4D30A0E3 		mov	r3, #77
+  88 0084 30209FE5 		ldr	r2, .L10+28
+  89 0088 30109FE5 		ldr	r1, .L10+32
+  90              	.LPIC7:
+  91 008c 0CC08FE0 		add	ip, pc, ip
+  92              	.LPIC8:
+  93 0090 00008FE0 		add	r0, pc, r0
+  94              	.LPIC5:
+  95 0094 02208FE0 		add	r2, pc, r2
+  96              	.LPIC6:
+  97 0098 01108FE0 		add	r1, pc, r1
+ARM GAS  /tmp/ccBFmFol.s 			page 3
+
+
+  98 009c EDFFFFEA 		b	.L6
+  99              	.L11:
+ 100              		.align	2
+ 101              	.L10:
+ 102 00a0 8C000000 		.word	.LANCHOR0-(.LPIC0+8)
+ 103 00a4 54000000 		.word	.LC2-(.LPIC3+8)
+ 104 00a8 54000000 		.word	.LC3-(.LPIC4+8)
+ 105 00ac 54000000 		.word	.LC0-(.LPIC1+8)
+ 106 00b0 54000000 		.word	.LC1-(.LPIC2+8)
+ 107 00b4 20000000 		.word	.LC4-(.LPIC7+8)
+ 108 00b8 20000000 		.word	.LC3-(.LPIC8+8)
+ 109 00bc 20000000 		.word	.LC0-(.LPIC5+8)
+ 110 00c0 20000000 		.word	.LC1-(.LPIC6+8)
+ 112              		.section	.rodata.str1.4
+ 113 0083 00       		.align	2
+ 114              	.LC5:
+ 115 0084 45417069 		.ascii	"EApiI2CWriteReadRaw\000"
+ 115      49324357 
+ 115      72697465 
+ 115      52656164 
+ 115      52617700 
+ 116              		.align	2
+ 117              	.LC6:
+ 118 0098 70574275 		.ascii	"pWBuffer is NULL\000"
+ 118      66666572 
+ 118      20697320 
+ 118      4E554C4C 
+ 118      00
+ 119 00a9 000000   		.align	2
+ 120              	.LC7:
+ 121 00ac 45417069 		.ascii	"EApiI2CWriteTransfer\000"
+ 121      49324357 
+ 121      72697465 
+ 121      5472616E 
+ 121      73666572 
+ 122 00c1 000000   		.align	2
+ 123              	.LC8:
+ 124 00c4 41444452 		.ascii	"ADDR=%02X WriteBCnt=%04X RBufLen=%04X WriteBCnt=%04"
+ 124      3D253032 
+ 124      58205772 
+ 124      69746542 
+ 124      436E743D 
+ 125 00f7 58205265 		.ascii	"X ReadBCnt=%04X %08X\012\000"
+ 125      61644243 
+ 125      6E743D25 
+ 125      30345820 
+ 125      25303858 
+ 126 010d 000000   		.align	2
+ 127              	.LC9:
+ 128 0110 496E666F 		.ascii	"Info\000"
+ 128      00
+ 129 0115 000000   		.align	2
+ 130              	.LC10:
+ 131 0118 70524275 		.ascii	"pRBuffer is NULL\000"
+ 131      66666572 
+ 131      20697320 
+ 131      4E554C4C 
+ARM GAS  /tmp/ccBFmFol.s 			page 4
+
+
+ 131      00
+ 132 0129 000000   		.align	2
+ 133              	.LC11:
+ 134 012c 52427566 		.ascii	"RBufLen is ZERO\000"
+ 134      4C656E20 
+ 134      6973205A 
+ 134      45524F00 
+ 135              		.align	2
+ 136              	.LC12:
+ 137 013c 4E4F2052 		.ascii	"NO READ NO WRITE\000"
+ 137      45414420 
+ 137      4E4F2057 
+ 137      52495445 
+ 137      00
+ 138 014d 000000   		.align	2
+ 139              	.LC13:
+ 140 0150 20704275 		.ascii	" pBuffer Overflow PreventedReadBCnt>RBufLen+1\000"
+ 140      66666572 
+ 140      204F7665 
+ 140      72666C6F 
+ 140      77205072 
+ 141              		.text
+ 142              		.align	2
+ 143              		.global	EApiI2CWriteReadRaw
+ 144              		.syntax unified
+ 145              		.arm
+ 146              		.fpu vfpv3
+ 148              	EApiI2CWriteReadRaw:
+ 149              		@ args = 12, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151 00c4 F04F2DE9 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 152 00c8 0350A0E1 		mov	r5, r3
+ 153 00cc 80329FE5 		ldr	r3, .L33
+ 154 00d0 24D04DE2 		sub	sp, sp, #36
+ 155 00d4 4CB09DE5 		ldr	fp, [sp, #76]
+ 156              	.LPIC9:
+ 157 00d8 03308FE0 		add	r3, pc, r3
+ 158 00dc 50709DE5 		ldr	r7, [sp, #80]
+ 159 00e0 003093E5 		ldr	r3, [r3]
+ 160 00e4 000053E3 		cmp	r3, #0
+ 161 00e8 5000000A 		beq	.L27
+ 162 00ec 010055E3 		cmp	r5, #1
+ 163 00f0 0260A0E1 		mov	r6, r2
+ 164 00f4 0030A093 		movls	r3, #0
+ 165 00f8 0130A083 		movhi	r3, #1
+ 166 00fc 000052E3 		cmp	r2, #0
+ 167 0100 0030A013 		movne	r3, #0
+ 168 0104 000053E3 		cmp	r3, #0
+ 169 0108 5900001A 		bne	.L28
+ 170 010c 000055E3 		cmp	r5, #0
+ 171 0110 40A29FE5 		ldr	r10, .L33+4
+ 172 0114 00309215 		ldrne	r3, [r2]
+ 173 0118 0530A001 		moveq	r3, r5
+ 174 011c 38229FE5 		ldr	r2, .L33+8
+ 175 0120 0090A0E1 		mov	r9, r0
+ 176              	.LPIC19:
+ 177 0124 0AA08FE0 		add	r10, pc, r10
+ARM GAS  /tmp/ccBFmFol.s 			page 5
+
+
+ 178 0128 08108DE5 		str	r1, [sp, #8]
+ 179 012c 1C308DE5 		str	r3, [sp, #28]
+ 180 0130 0180A0E1 		mov	r8, r1
+ 181 0134 24329FE5 		ldr	r3, .L33+12
+ 182              	.LPIC18:
+ 183 0138 02208FE0 		add	r2, pc, r2
+ 184 013c 0A10A0E1 		mov	r1, r10
+ 185 0140 4C00A0E3 		mov	r0, #76
+ 186 0144 18708DE5 		str	r7, [sp, #24]
+ 187              	.LPIC20:
+ 188 0148 03308FE0 		add	r3, pc, r3
+ 189 014c 14508DE5 		str	r5, [sp, #20]
+ 190 0150 04308DE5 		str	r3, [sp, #4]
+ 191 0154 08329FE5 		ldr	r3, .L33+16
+ 192 0158 10B08DE5 		str	fp, [sp, #16]
+ 193 015c 0C508DE5 		str	r5, [sp, #12]
+ 194              	.LPIC21:
+ 195 0160 03308FE0 		add	r3, pc, r3
+ 196 0164 00308DE5 		str	r3, [sp]
+ 197 0168 7330A0E3 		mov	r3, #115
+ 198 016c FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 199 0170 48309DE5 		ldr	r3, [sp, #72]
+ 200 0174 010057E3 		cmp	r7, #1
+ 201 0178 0040A093 		movls	r4, #0
+ 202 017c 0140A083 		movhi	r4, #1
+ 203 0180 000053E3 		cmp	r3, #0
+ 204 0184 0030A013 		movne	r3, #0
+ 205 0188 01300402 		andeq	r3, r4, #1
+ 206 018c 000053E3 		cmp	r3, #0
+ 207 0190 4200001A 		bne	.L29
+ 208 0194 00005BE3 		cmp	fp, #0
+ 209 0198 0040A013 		movne	r4, #0
+ 210 019c 01400402 		andeq	r4, r4, #1
+ 211 01a0 000054E3 		cmp	r4, #0
+ 212 01a4 4C00001A 		bne	.L30
+ 213 01a8 073095E1 		orrs	r3, r5, r7
+ 214 01ac 5900000A 		beq	.L31
+ 215 01b0 01B08BE2 		add	fp, fp, #1
+ 216 01b4 07005BE1 		cmp	fp, r7
+ 217 01b8 0C00003A 		bcc	.L32
+ 218              	.L20:
+ 219 01bc 48309DE5 		ldr	r3, [sp, #72]
+ 220 01c0 0620A0E1 		mov	r2, r6
+ 221 01c4 0810A0E1 		mov	r1, r8
+ 222 01c8 0900A0E1 		mov	r0, r9
+ 223 01cc 04708DE5 		str	r7, [sp, #4]
+ 224 01d0 00308DE5 		str	r3, [sp]
+ 225 01d4 0530A0E1 		mov	r3, r5
+ 226 01d8 FEFFFFEB 		bl	EApiI2CWriteReadEmul(PLT)
+ 227 01dc 000050E3 		cmp	r0, #0
+ 228 01e0 0040A011 		movne	r4, r0
+ 229              	.L14:
+ 230              	.L12:
+ 231 01e4 0400A0E1 		mov	r0, r4
+ 232 01e8 24D08DE2 		add	sp, sp, #36
+ 233              		@ sp needed
+ 234 01ec F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ARM GAS  /tmp/ccBFmFol.s 			page 6
+
+
+ 235              	.L32:
+ 236 01f0 70319FE5 		ldr	r3, .L33+20
+ 237 01f4 064CE0E3 		mvn	r4, #1536
+ 238 01f8 6C219FE5 		ldr	r2, .L33+24
+ 239 01fc 0A10A0E1 		mov	r1, r10
+ 240 0200 00408DE5 		str	r4, [sp]
+ 241 0204 4500A0E3 		mov	r0, #69
+ 242              	.LPIC36:
+ 243 0208 03308FE0 		add	r3, pc, r3
+ 244 020c 0B70A0E1 		mov	r7, fp
+ 245 0210 08308DE5 		str	r3, [sp, #8]
+ 246              	.LPIC34:
+ 247 0214 02208FE0 		add	r2, pc, r2
+ 248 0218 50319FE5 		ldr	r3, .L33+28
+ 249              	.LPIC37:
+ 250 021c 03308FE0 		add	r3, pc, r3
+ 251 0220 04308DE5 		str	r3, [sp, #4]
+ 252 0224 8C30A0E3 		mov	r3, #140
+ 253 0228 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 254 022c E2FFFFEA 		b	.L20
+ 255              	.L27:
+ 256 0230 3CC19FE5 		ldr	ip, .L33+32
+ 257 0234 0040E0E3 		mvn	r4, #0
+ 258 0238 38019FE5 		ldr	r0, .L33+36
+ 259 023c 6830A0E3 		mov	r3, #104
+ 260 0240 34219FE5 		ldr	r2, .L33+40
+ 261 0244 34119FE5 		ldr	r1, .L33+44
+ 262              	.LPIC12:
+ 263 0248 0CC08FE0 		add	ip, pc, ip
+ 264              	.LPIC13:
+ 265 024c 00008FE0 		add	r0, pc, r0
+ 266              	.LPIC10:
+ 267 0250 02208FE0 		add	r2, pc, r2
+ 268              	.LPIC11:
+ 269 0254 01108FE0 		add	r1, pc, r1
+ 270              	.L26:
+ 271 0258 01108DE9 		stmib	sp, {r0, ip}
+ 272 025c 4500A0E3 		mov	r0, #69
+ 273 0260 00408DE5 		str	r4, [sp]
+ 274 0264 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 275 0268 0400A0E1 		mov	r0, r4
+ 276 026c 24D08DE2 		add	sp, sp, #36
+ 277              		@ sp needed
+ 278 0270 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 279              	.L28:
+ 280 0274 08C19FE5 		ldr	ip, .L33+48
+ 281 0278 014CE0E3 		mvn	r4, #256
+ 282 027c 04019FE5 		ldr	r0, .L33+52
+ 283 0280 6930A0E3 		mov	r3, #105
+ 284 0284 00219FE5 		ldr	r2, .L33+56
+ 285 0288 00119FE5 		ldr	r1, .L33+60
+ 286              	.LPIC16:
+ 287 028c 0CC08FE0 		add	ip, pc, ip
+ 288              	.LPIC17:
+ 289 0290 00008FE0 		add	r0, pc, r0
+ 290              	.LPIC14:
+ 291 0294 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/ccBFmFol.s 			page 7
+
+
+ 292              	.LPIC15:
+ 293 0298 01108FE0 		add	r1, pc, r1
+ 294 029c EDFFFFEA 		b	.L26
+ 295              	.L29:
+ 296 02a0 EC209FE5 		ldr	r2, .L33+64
+ 297 02a4 014CE0E3 		mvn	r4, #256
+ 298 02a8 E8009FE5 		ldr	r0, .L33+68
+ 299 02ac 7C30A0E3 		mov	r3, #124
+ 300 02b0 0A10A0E1 		mov	r1, r10
+ 301 02b4 00408DE5 		str	r4, [sp]
+ 302              	.LPIC25:
+ 303 02b8 02208FE0 		add	r2, pc, r2
+ 304 02bc 04208DE5 		str	r2, [sp, #4]
+ 305              	.LPIC24:
+ 306 02c0 00008FE0 		add	r0, pc, r0
+ 307 02c4 D0209FE5 		ldr	r2, .L33+72
+ 308 02c8 08008DE5 		str	r0, [sp, #8]
+ 309 02cc 4500A0E3 		mov	r0, #69
+ 310              	.LPIC22:
+ 311 02d0 02208FE0 		add	r2, pc, r2
+ 312 02d4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 313 02d8 C1FFFFEA 		b	.L12
+ 314              	.L30:
+ 315 02dc BC209FE5 		ldr	r2, .L33+76
+ 316 02e0 014CE0E3 		mvn	r4, #256
+ 317 02e4 B8009FE5 		ldr	r0, .L33+80
+ 318 02e8 8130A0E3 		mov	r3, #129
+ 319 02ec 0A10A0E1 		mov	r1, r10
+ 320 02f0 00408DE5 		str	r4, [sp]
+ 321              	.LPIC29:
+ 322 02f4 02208FE0 		add	r2, pc, r2
+ 323 02f8 04208DE5 		str	r2, [sp, #4]
+ 324              	.LPIC28:
+ 325 02fc 00008FE0 		add	r0, pc, r0
+ 326 0300 A0209FE5 		ldr	r2, .L33+84
+ 327 0304 08008DE5 		str	r0, [sp, #8]
+ 328 0308 4500A0E3 		mov	r0, #69
+ 329              	.LPIC26:
+ 330 030c 02208FE0 		add	r2, pc, r2
+ 331 0310 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 332 0314 B2FFFFEA 		b	.L12
+ 333              	.L31:
+ 334 0318 8C209FE5 		ldr	r2, .L33+88
+ 335 031c 014CE0E3 		mvn	r4, #256
+ 336 0320 88009FE5 		ldr	r0, .L33+92
+ 337 0324 8630A0E3 		mov	r3, #134
+ 338 0328 0A10A0E1 		mov	r1, r10
+ 339 032c 00408DE5 		str	r4, [sp]
+ 340              	.LPIC33:
+ 341 0330 02208FE0 		add	r2, pc, r2
+ 342 0334 04208DE5 		str	r2, [sp, #4]
+ 343              	.LPIC32:
+ 344 0338 00008FE0 		add	r0, pc, r0
+ 345 033c 70209FE5 		ldr	r2, .L33+96
+ 346 0340 08008DE5 		str	r0, [sp, #8]
+ 347 0344 4500A0E3 		mov	r0, #69
+ 348              	.LPIC30:
+ARM GAS  /tmp/ccBFmFol.s 			page 8
+
+
+ 349 0348 02208FE0 		add	r2, pc, r2
+ 350 034c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 351 0350 A3FFFFEA 		b	.L12
+ 352              	.L34:
+ 353              		.align	2
+ 354              	.L33:
+ 355 0354 74020000 		.word	.LANCHOR0-(.LPIC9+8)
+ 356 0358 2C020000 		.word	.LC1-(.LPIC19+8)
+ 357 035c 1C020000 		.word	.LC7-(.LPIC18+8)
+ 358 0360 10020000 		.word	.LC8-(.LPIC20+8)
+ 359 0364 FC010000 		.word	.LC9-(.LPIC21+8)
+ 360 0368 58010000 		.word	.LC13-(.LPIC36+8)
+ 361 036c 50010000 		.word	.LC5-(.LPIC34+8)
+ 362 0370 4C010000 		.word	.LC3-(.LPIC37+8)
+ 363 0374 24010000 		.word	.LC2-(.LPIC12+8)
+ 364 0378 24010000 		.word	.LC3-(.LPIC13+8)
+ 365 037c 24010000 		.word	.LC5-(.LPIC10+8)
+ 366 0380 24010000 		.word	.LC1-(.LPIC11+8)
+ 367 0384 F0000000 		.word	.LC6-(.LPIC16+8)
+ 368 0388 F0000000 		.word	.LC3-(.LPIC17+8)
+ 369 038c F0000000 		.word	.LC5-(.LPIC14+8)
+ 370 0390 F0000000 		.word	.LC1-(.LPIC15+8)
+ 371 0394 D4000000 		.word	.LC3-(.LPIC25+8)
+ 372 0398 D0000000 		.word	.LC10-(.LPIC24+8)
+ 373 039c C4000000 		.word	.LC5-(.LPIC22+8)
+ 374 03a0 A4000000 		.word	.LC3-(.LPIC29+8)
+ 375 03a4 A0000000 		.word	.LC11-(.LPIC28+8)
+ 376 03a8 94000000 		.word	.LC5-(.LPIC26+8)
+ 377 03ac 74000000 		.word	.LC3-(.LPIC33+8)
+ 378 03b0 70000000 		.word	.LC12-(.LPIC32+8)
+ 379 03b4 64000000 		.word	.LC5-(.LPIC30+8)
+ 381              		.section	.rodata.str1.4
+ 382 017e 0000     		.align	2
+ 383              	.LC14:
+ 384 0180 45417069 		.ascii	"EApiI2CReadTransfer\000"
+ 384      49324352 
+ 384      65616454 
+ 384      72616E73 
+ 384      66657200 
+ 385              		.align	2
+ 386              	.LC15:
+ 387 0194 49643D25 		.ascii	"Id=%08X ADDR=%04X CMD=%04X BCNT=%04X\012\000"
+ 387      30385820 
+ 387      41444452 
+ 387      3D253034 
+ 387      5820434D 
+ 388 01ba 0000     		.align	2
+ 389              	.LC16:
+ 390 01bc 28704275 		.ascii	"(pBuffer==NULL)\000"
+ 390      66666572 
+ 390      3D3D4E55 
+ 390      4C4C2900 
+ 391              		.align	2
+ 392              	.LC17:
+ 393 01cc 28427566 		.ascii	"(BufLen==0)\000"
+ 393      4C656E3D 
+ 393      3D302900 
+ARM GAS  /tmp/ccBFmFol.s 			page 9
+
+
+ 394              		.align	2
+ 395              	.LC18:
+ 396 01d8 28427974 		.ascii	"(ByteCnt==0)\000"
+ 396      65436E74 
+ 396      3D3D3029 
+ 396      00
+ 397 01e5 000000   		.align	2
+ 398              	.LC19:
+ 399 01e8 20547261 		.ascii	" Transfer Length too long for interface\000"
+ 399      6E736665 
+ 399      72204C65 
+ 399      6E677468 
+ 399      20746F6F 
+ 400              		.text
+ 401              		.align	2
+ 402              		.global	EApiI2CReadTransfer
+ 403              		.syntax unified
+ 404              		.arm
+ 405              		.fpu vfpv3
+ 407              	EApiI2CReadTransfer:
+ 408              		@ args = 8, pretend = 0, frame = 16
+ 409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410 03b8 F04F2DE9 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 411 03bc 0270A0E1 		mov	r7, r2
+ 412 03c0 D0229FE5 		ldr	r2, .L59
+ 413 03c4 0390A0E1 		mov	r9, r3
+ 414 03c8 2CD04DE2 		sub	sp, sp, #44
+ 415 03cc 0050A0E3 		mov	r5, #0
+ 416 03d0 C4329FE5 		ldr	r3, .L59+4
+ 417              	.LPIC64:
+ 418 03d4 02208FE0 		add	r2, pc, r2
+ 419 03d8 50A09DE5 		ldr	r10, [sp, #80]
+ 420 03dc 54809DE5 		ldr	r8, [sp, #84]
+ 421 03e0 033092E7 		ldr	r3, [r2, r3]
+ 422 03e4 003093E5 		ldr	r3, [r3]
+ 423 03e8 24308DE5 		str	r3, [sp, #36]
+ 424 03ec 0030A0E3 		mov	r3, #0
+ 425 03f0 A8329FE5 		ldr	r3, .L59+8
+ 426 03f4 1C508DE5 		str	r5, [sp, #28]
+ 427 03f8 20508DE5 		str	r5, [sp, #32]
+ 428              	.LPIC38:
+ 429 03fc 03308FE0 		add	r3, pc, r3
+ 430 0400 003093E5 		ldr	r3, [r3]
+ 431 0404 000053E3 		cmp	r3, #0
+ 432 0408 4200000A 		beq	.L51
+ 433 040c 90329FE5 		ldr	r3, .L59+12
+ 434 0410 0060A0E1 		mov	r6, r0
+ 435 0414 8CB29FE5 		ldr	fp, .L59+16
+ 436 0418 0140A0E1 		mov	r4, r1
+ 437 041c 88229FE5 		ldr	r2, .L59+20
+ 438              	.LPIC45:
+ 439 0420 03308FE0 		add	r3, pc, r3
+ 440 0424 0C108DE5 		str	r1, [sp, #12]
+ 441 0428 04308DE5 		str	r3, [sp, #4]
+ 442              	.LPIC44:
+ 443 042c 0BB08FE0 		add	fp, pc, fp
+ 444 0430 78329FE5 		ldr	r3, .L59+24
+ARM GAS  /tmp/ccBFmFol.s 			page 10
+
+
+ 445              	.LPIC43:
+ 446 0434 02208FE0 		add	r2, pc, r2
+ 447 0438 08008DE5 		str	r0, [sp, #8]
+ 448 043c 0B10A0E1 		mov	r1, fp
+ 449 0440 4C00A0E3 		mov	r0, #76
+ 450 0444 14808DE5 		str	r8, [sp, #20]
+ 451              	.LPIC46:
+ 452 0448 03308FE0 		add	r3, pc, r3
+ 453 044c 10708DE5 		str	r7, [sp, #16]
+ 454 0450 00308DE5 		str	r3, [sp]
+ 455 0454 BC30A0E3 		mov	r3, #188
+ 456 0458 FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 457 045c 000059E3 		cmp	r9, #0
+ 458 0460 7B00000A 		beq	.L52
+ 459 0464 00005AE3 		cmp	r10, #0
+ 460 0468 6900000A 		beq	.L53
+ 461 046c 000058E3 		cmp	r8, #0
+ 462 0470 5700000A 		beq	.L54
+ 463 0474 18108DE2 		add	r1, sp, #24
+ 464 0478 0600A0E1 		mov	r0, r6
+ 465 047c FEFFFFEB 		bl	EApiI2CGetBusCap(PLT)
+ 466 0480 18309DE5 		ldr	r3, [sp, #24]
+ 467 0484 080053E1 		cmp	r3, r8
+ 468 0488 3900003A 		bcc	.L55
+ 469 048c 3E3B04E2 		and	r3, r4, #63488
+ 470 0490 0F0A53E3 		cmp	r3, #61440
+ 471 0494 4600000A 		beq	.L56
+ 472 0498 0130A0E3 		mov	r3, #1
+ 473 049c 0210A0E3 		mov	r1, #2
+ 474 04a0 03C0A0E3 		mov	ip, #3
+ 475 04a4 0300A0E1 		mov	r0, r3
+ 476              	.L42:
+ 477 04a8 032107E2 		and	r2, r7, #-1073741824
+ 478 04ac 010152E3 		cmp	r2, #1073741824
+ 479 04b0 0500000A 		beq	.L43
+ 480 04b4 020152E3 		cmp	r2, #-2147483648
+ 481 04b8 2600000A 		beq	.L57
+ 482              	.L44:
+ 483 04bc 282085E2 		add	r2, r5, #40
+ 484 04c0 0130A0E1 		mov	r3, r1
+ 485 04c4 02508DE0 		add	r5, sp, r2
+ 486 04c8 0C7045E5 		strb	r7, [r5, #-12]
+ 487              	.L43:
+ 488 04cc 018088E2 		add	r8, r8, #1
+ 489 04d0 7410EFE6 		uxtb	r1, r4
+ 490 04d4 1C208DE2 		add	r2, sp, #28
+ 491 04d8 04A08DE5 		str	r10, [sp, #4]
+ 492 04dc 0600A0E1 		mov	r0, r6
+ 493 04e0 08808DE5 		str	r8, [sp, #8]
+ 494 04e4 00908DE5 		str	r9, [sp]
+ 495 04e8 FEFFFFEB 		bl	EApiI2CWriteReadRaw(PLT)
+ 496              	.L37:
+ 497              	.L35:
+ 498 04ec C0219FE5 		ldr	r2, .L59+28
+ 499 04f0 A4319FE5 		ldr	r3, .L59+4
+ 500              	.LPIC63:
+ 501 04f4 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/ccBFmFol.s 			page 11
+
+
+ 502 04f8 033092E7 		ldr	r3, [r2, r3]
+ 503 04fc 002093E5 		ldr	r2, [r3]
+ 504 0500 24309DE5 		ldr	r3, [sp, #36]
+ 505 0504 022033E0 		eors	r2, r3, r2
+ 506 0508 0030A0E3 		mov	r3, #0
+ 507 050c 6000001A 		bne	.L58
+ 508 0510 2CD08DE2 		add	sp, sp, #44
+ 509              		@ sp needed
+ 510 0514 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 511              	.L51:
+ 512 0518 98C19FE5 		ldr	ip, .L59+32
+ 513 051c 0040E0E3 		mvn	r4, #0
+ 514 0520 94019FE5 		ldr	r0, .L59+36
+ 515 0524 B530A0E3 		mov	r3, #181
+ 516 0528 90219FE5 		ldr	r2, .L59+40
+ 517 052c 90119FE5 		ldr	r1, .L59+44
+ 518              	.LPIC41:
+ 519 0530 0CC08FE0 		add	ip, pc, ip
+ 520              	.LPIC42:
+ 521 0534 00008FE0 		add	r0, pc, r0
+ 522 0538 00408DE5 		str	r4, [sp]
+ 523 053c 01108DE9 		stmib	sp, {r0, ip}
+ 524              	.LPIC39:
+ 525 0540 02208FE0 		add	r2, pc, r2
+ 526              	.LPIC40:
+ 527 0544 01108FE0 		add	r1, pc, r1
+ 528 0548 4500A0E3 		mov	r0, #69
+ 529 054c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 530 0550 0400A0E1 		mov	r0, r4
+ 531 0554 E4FFFFEA 		b	.L35
+ 532              	.L57:
+ 533 0558 283085E2 		add	r3, r5, #40
+ 534 055c 2724A0E1 		lsr	r2, r7, #8
+ 535 0560 03308DE0 		add	r3, sp, r3
+ 536 0564 0C10A0E1 		mov	r1, ip
+ 537 0568 0050A0E1 		mov	r5, r0
+ 538 056c 0C2043E5 		strb	r2, [r3, #-12]
+ 539 0570 D1FFFFEA 		b	.L44
+ 540              	.L55:
+ 541 0574 4C219FE5 		ldr	r2, .L59+48
+ 542 0578 014CE0E3 		mvn	r4, #256
+ 543 057c 48019FE5 		ldr	r0, .L59+52
+ 544 0580 CA30A0E3 		mov	r3, #202
+ 545 0584 0B10A0E1 		mov	r1, fp
+ 546 0588 00408DE5 		str	r4, [sp]
+ 547              	.LPIC62:
+ 548 058c 02208FE0 		add	r2, pc, r2
+ 549 0590 04208DE5 		str	r2, [sp, #4]
+ 550              	.LPIC61:
+ 551 0594 00008FE0 		add	r0, pc, r0
+ 552 0598 30219FE5 		ldr	r2, .L59+56
+ 553 059c 08008DE5 		str	r0, [sp, #8]
+ 554 05a0 4500A0E3 		mov	r0, #69
+ 555              	.LPIC59:
+ 556 05a4 02208FE0 		add	r2, pc, r2
+ 557 05a8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 558 05ac 0400A0E1 		mov	r0, r4
+ARM GAS  /tmp/ccBFmFol.s 			page 12
+
+
+ 559 05b0 CDFFFFEA 		b	.L35
+ 560              	.L56:
+ 561 05b4 0230A0E3 		mov	r3, #2
+ 562 05b8 1C40CDE5 		strb	r4, [sp, #28]
+ 563 05bc 0310A0E3 		mov	r1, #3
+ 564 05c0 2444A0E1 		lsr	r4, r4, #8
+ 565 05c4 04C0A0E3 		mov	ip, #4
+ 566 05c8 0300A0E1 		mov	r0, r3
+ 567 05cc 0150A0E3 		mov	r5, #1
+ 568 05d0 B4FFFFEA 		b	.L42
+ 569              	.L54:
+ 570 05d4 F8209FE5 		ldr	r2, .L59+60
+ 571 05d8 014CE0E3 		mvn	r4, #256
+ 572 05dc F4009FE5 		ldr	r0, .L59+64
+ 573 05e0 C530A0E3 		mov	r3, #197
+ 574 05e4 0B10A0E1 		mov	r1, fp
+ 575 05e8 00408DE5 		str	r4, [sp]
+ 576              	.LPIC58:
+ 577 05ec 02208FE0 		add	r2, pc, r2
+ 578 05f0 04208DE5 		str	r2, [sp, #4]
+ 579              	.LPIC57:
+ 580 05f4 00008FE0 		add	r0, pc, r0
+ 581 05f8 DC209FE5 		ldr	r2, .L59+68
+ 582 05fc 08008DE5 		str	r0, [sp, #8]
+ 583 0600 4500A0E3 		mov	r0, #69
+ 584              	.LPIC55:
+ 585 0604 02208FE0 		add	r2, pc, r2
+ 586 0608 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 587 060c 0400A0E1 		mov	r0, r4
+ 588 0610 B5FFFFEA 		b	.L35
+ 589              	.L53:
+ 590 0614 C4209FE5 		ldr	r2, .L59+72
+ 591 0618 014CE0E3 		mvn	r4, #256
+ 592 061c C0009FE5 		ldr	r0, .L59+76
+ 593 0620 C430A0E3 		mov	r3, #196
+ 594 0624 0B10A0E1 		mov	r1, fp
+ 595 0628 00408DE5 		str	r4, [sp]
+ 596              	.LPIC54:
+ 597 062c 02208FE0 		add	r2, pc, r2
+ 598 0630 04208DE5 		str	r2, [sp, #4]
+ 599              	.LPIC53:
+ 600 0634 00008FE0 		add	r0, pc, r0
+ 601 0638 A8209FE5 		ldr	r2, .L59+80
+ 602 063c 08008DE5 		str	r0, [sp, #8]
+ 603 0640 4500A0E3 		mov	r0, #69
+ 604              	.LPIC51:
+ 605 0644 02208FE0 		add	r2, pc, r2
+ 606 0648 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 607 064c 0400A0E1 		mov	r0, r4
+ 608 0650 A5FFFFEA 		b	.L35
+ 609              	.L52:
+ 610 0654 90209FE5 		ldr	r2, .L59+84
+ 611 0658 014CE0E3 		mvn	r4, #256
+ 612 065c 8C009FE5 		ldr	r0, .L59+88
+ 613 0660 C330A0E3 		mov	r3, #195
+ 614 0664 0B10A0E1 		mov	r1, fp
+ 615 0668 00408DE5 		str	r4, [sp]
+ARM GAS  /tmp/ccBFmFol.s 			page 13
+
+
+ 616              	.LPIC50:
+ 617 066c 02208FE0 		add	r2, pc, r2
+ 618 0670 04208DE5 		str	r2, [sp, #4]
+ 619              	.LPIC49:
+ 620 0674 00008FE0 		add	r0, pc, r0
+ 621 0678 74209FE5 		ldr	r2, .L59+92
+ 622 067c 08008DE5 		str	r0, [sp, #8]
+ 623 0680 4500A0E3 		mov	r0, #69
+ 624              	.LPIC47:
+ 625 0684 02208FE0 		add	r2, pc, r2
+ 626 0688 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 627 068c 0400A0E1 		mov	r0, r4
+ 628 0690 95FFFFEA 		b	.L35
+ 629              	.L58:
+ 630 0694 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 631              	.L60:
+ 632              		.align	2
+ 633              	.L59:
+ 634 0698 BC020000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC64+8)
+ 635 069c 00000000 		.word	__stack_chk_guard(GOT)
+ 636 06a0 9C020000 		.word	.LANCHOR0-(.LPIC38+8)
+ 637 06a4 7C020000 		.word	.LC15-(.LPIC45+8)
+ 638 06a8 74020000 		.word	.LC1-(.LPIC44+8)
+ 639 06ac 70020000 		.word	.LC7-(.LPIC43+8)
+ 640 06b0 60020000 		.word	.LC9-(.LPIC46+8)
+ 641 06b4 B8010000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC63+8)
+ 642 06b8 80010000 		.word	.LC2-(.LPIC41+8)
+ 643 06bc 80010000 		.word	.LC3-(.LPIC42+8)
+ 644 06c0 78010000 		.word	.LC14-(.LPIC39+8)
+ 645 06c4 78010000 		.word	.LC1-(.LPIC40+8)
+ 646 06c8 34010000 		.word	.LC3-(.LPIC62+8)
+ 647 06cc 30010000 		.word	.LC19-(.LPIC61+8)
+ 648 06d0 24010000 		.word	.LC14-(.LPIC59+8)
+ 649 06d4 E0000000 		.word	.LC3-(.LPIC58+8)
+ 650 06d8 DC000000 		.word	.LC18-(.LPIC57+8)
+ 651 06dc D0000000 		.word	.LC14-(.LPIC55+8)
+ 652 06e0 AC000000 		.word	.LC3-(.LPIC54+8)
+ 653 06e4 A8000000 		.word	.LC17-(.LPIC53+8)
+ 654 06e8 9C000000 		.word	.LC14-(.LPIC51+8)
+ 655 06ec 78000000 		.word	.LC3-(.LPIC50+8)
+ 656 06f0 74000000 		.word	.LC16-(.LPIC49+8)
+ 657 06f4 68000000 		.word	.LC14-(.LPIC47+8)
+ 659              		.section	.rodata.str1.4
+ 660              		.align	2
+ 661              	.LC20:
+ 662 0210 49643D25 		.ascii	"Id=%08X ADDR=%04X CMD=%04X BCNT=%04X %08X\012\000"
+ 662      30385820 
+ 662      41444452 
+ 662      3D253034 
+ 662      5820434D 
+ 663 023b 00       		.align	2
+ 664              	.LC21:
+ 665 023c 4572726F 		.ascii	"Error Allocating Memory\000"
+ 665      7220416C 
+ 665      6C6F6361 
+ 665      74696E67 
+ 665      204D656D 
+ARM GAS  /tmp/ccBFmFol.s 			page 14
+
+
+ 666              		.align	2
+ 667              	.LC22:
+ 668 0254 5472616E 		.ascii	"Transfer Length too long for interface\000"
+ 668      73666572 
+ 668      204C656E 
+ 668      67746820 
+ 668      746F6F20 
+ 669              		.text
+ 670              		.align	2
+ 671              		.global	EApiI2CWriteTransfer
+ 672              		.syntax unified
+ 673              		.arm
+ 674              		.fpu vfpv3
+ 676              	EApiI2CWriteTransfer:
+ 677              		@ args = 4, pretend = 0, frame = 16
+ 678              		@ frame_needed = 0, uses_anonymous_args = 0
+ 679 06f8 F04F2DE9 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 680 06fc 0260A0E1 		mov	r6, r2
+ 681 0700 98239FE5 		ldr	r2, .L84
+ 682 0704 0380A0E1 		mov	r8, r3
+ 683 0708 34D04DE2 		sub	sp, sp, #52
+ 684 070c 90339FE5 		ldr	r3, .L84+4
+ 685              	.LPIC99:
+ 686 0710 02208FE0 		add	r2, pc, r2
+ 687 0714 58909DE5 		ldr	r9, [sp, #88]
+ 688 0718 033092E7 		ldr	r3, [r2, r3]
+ 689 071c 003093E5 		ldr	r3, [r3]
+ 690 0720 2C308DE5 		str	r3, [sp, #44]
+ 691 0724 0030A0E3 		mov	r3, #0
+ 692 0728 78339FE5 		ldr	r3, .L84+8
+ 693              	.LPIC65:
+ 694 072c 03308FE0 		add	r3, pc, r3
+ 695 0730 003093E5 		ldr	r3, [r3]
+ 696 0734 000053E3 		cmp	r3, #0
+ 697 0738 B000000A 		beq	.L78
+ 698 073c 000058E3 		cmp	r8, #0
+ 699 0740 B900000A 		beq	.L79
+ 700 0744 0C108DE5 		str	r1, [sp, #12]
+ 701 0748 0070A0E1 		mov	r7, r0
+ 702 074c 08008DE5 		str	r0, [sp, #8]
+ 703 0750 0150A0E1 		mov	r5, r1
+ 704 0754 14908DE5 		str	r9, [sp, #20]
+ 705 0758 4C00A0E3 		mov	r0, #76
+ 706 075c 10608DE5 		str	r6, [sp, #16]
+ 707 0760 003098E5 		ldr	r3, [r8]
+ 708 0764 40439FE5 		ldr	r4, .L84+12
+ 709 0768 40B39FE5 		ldr	fp, .L84+16
+ 710 076c 18308DE5 		str	r3, [sp, #24]
+ 711 0770 3C339FE5 		ldr	r3, .L84+20
+ 712              	.LPIC74:
+ 713 0774 04408FE0 		add	r4, pc, r4
+ 714              	.LPIC75:
+ 715 0778 0BB08FE0 		add	fp, pc, fp
+ 716 077c 0420A0E1 		mov	r2, r4
+ 717 0780 0B10A0E1 		mov	r1, fp
+ 718              	.LPIC76:
+ 719 0784 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/ccBFmFol.s 			page 15
+
+
+ 720 0788 04308DE5 		str	r3, [sp, #4]
+ 721 078c 24339FE5 		ldr	r3, .L84+24
+ 722              	.LPIC77:
+ 723 0790 03308FE0 		add	r3, pc, r3
+ 724 0794 00308DE5 		str	r3, [sp]
+ 725 0798 053100E3 		movw	r3, #261
+ 726 079c FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 727 07a0 000059E3 		cmp	r9, #0
+ 728 07a4 7700000A 		beq	.L80
+ 729 07a8 030089E2 		add	r0, r9, #3
+ 730 07ac FEFFFFEB 		bl	malloc(PLT)
+ 731 07b0 00A050E2 		subs	r10, r0, #0
+ 732 07b4 A800000A 		beq	.L81
+ 733 07b8 3E3B05E2 		and	r3, r5, #63488
+ 734 07bc 0F0A53E3 		cmp	r3, #61440
+ 735 07c0 033106E2 		and	r3, r6, #-1073741824
+ 736 07c4 0050CA05 		strbeq	r5, [r10]
+ 737 07c8 0310A003 		moveq	r1, #3
+ 738 07cc 2554A001 		lsreq	r5, r5, #8
+ 739 07d0 0220A003 		moveq	r2, #2
+ 740 07d4 0140A003 		moveq	r4, #1
+ 741 07d8 0210A013 		movne	r1, #2
+ 742 07dc 0120A013 		movne	r2, #1
+ 743 07e0 0040A013 		movne	r4, #0
+ 744 07e4 010153E3 		cmp	r3, #1073741824
+ 745 07e8 3D00000A 		beq	.L68
+ 746 07ec 020153E3 		cmp	r3, #-2147483648
+ 747 07f0 0700A0E1 		mov	r0, r7
+ 748 07f4 2634A001 		lsreq	r3, r6, #8
+ 749 07f8 0430CA07 		strbeq	r3, [r10, r4]
+ 750 07fc 0240A001 		moveq	r4, r2
+ 751 0800 0460CAE7 		strb	r6, [r10, r4]
+ 752 0804 0120A001 		moveq	r2, r1
+ 753 0808 28108DE2 		add	r1, sp, #40
+ 754 080c 24208DE5 		str	r2, [sp, #36]
+ 755 0810 FEFFFFEB 		bl	EApiI2CGetBusCap(PLT)
+ 756 0814 D422CDE1 		ldrd	r2, [sp, #36]
+ 757 0818 021089E0 		add	r1, r9, r2
+ 758 081c 030051E1 		cmp	r1, r3
+ 759 0820 24108DE5 		str	r1, [sp, #36]
+ 760 0824 75B0EF96 		uxtbls	fp, r5
+ 761 0828 6500008A 		bhi	.L71
+ 762              	.L70:
+ 763 082c 0810A0E1 		mov	r1, r8
+ 764 0830 02008AE0 		add	r0, r10, r2
+ 765 0834 0920A0E1 		mov	r2, r9
+ 766 0838 0040A0E3 		mov	r4, #0
+ 767 083c FEFFFFEB 		bl	memcpy(PLT)
+ 768 0840 00309AE5 		ldr	r3, [r10]
+ 769 0844 4C00A0E3 		mov	r0, #76
+ 770 0848 6C229FE5 		ldr	r2, .L84+28
+ 771 084c 6C129FE5 		ldr	r1, .L84+32
+ 772 0850 18308DE5 		str	r3, [sp, #24]
+ 773 0854 68329FE5 		ldr	r3, .L84+36
+ 774              	.LPIC90:
+ 775 0858 02208FE0 		add	r2, pc, r2
+ 776              	.LPIC91:
+ARM GAS  /tmp/ccBFmFol.s 			page 16
+
+
+ 777 085c 01108FE0 		add	r1, pc, r1
+ 778 0860 14908DE5 		str	r9, [sp, #20]
+ 779 0864 10608DE5 		str	r6, [sp, #16]
+ 780              	.LPIC92:
+ 781 0868 03308FE0 		add	r3, pc, r3
+ 782 086c 0C508DE5 		str	r5, [sp, #12]
+ 783 0870 88008DE9 		stmib	sp, {r3, r7}
+ 784 0874 4C329FE5 		ldr	r3, .L84+40
+ 785              	.LPIC93:
+ 786 0878 03308FE0 		add	r3, pc, r3
+ 787 087c 00308DE5 		str	r3, [sp]
+ 788 0880 393100E3 		movw	r3, #313
+ 789 0884 FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 790 0888 24309DE5 		ldr	r3, [sp, #36]
+ 791 088c 0B10A0E1 		mov	r1, fp
+ 792 0890 0700A0E1 		mov	r0, r7
+ 793 0894 0A20A0E1 		mov	r2, r10
+ 794 0898 08408DE5 		str	r4, [sp, #8]
+ 795 089c 013083E2 		add	r3, r3, #1
+ 796 08a0 04408DE5 		str	r4, [sp, #4]
+ 797 08a4 00408DE5 		str	r4, [sp]
+ 798 08a8 FEFFFFEB 		bl	EApiI2CWriteReadRaw(PLT)
+ 799 08ac 0A00A0E1 		mov	r0, r10
+ 800 08b0 FEFFFFEB 		bl	free(PLT)
+ 801              	.L61:
+ 802 08b4 10229FE5 		ldr	r2, .L84+44
+ 803 08b8 E4319FE5 		ldr	r3, .L84+4
+ 804              	.LPIC98:
+ 805 08bc 02208FE0 		add	r2, pc, r2
+ 806 08c0 033092E7 		ldr	r3, [r2, r3]
+ 807 08c4 002093E5 		ldr	r2, [r3]
+ 808 08c8 2C309DE5 		ldr	r3, [sp, #44]
+ 809 08cc 022033E0 		eors	r2, r3, r2
+ 810 08d0 0030A0E3 		mov	r3, #0
+ 811 08d4 5F00001A 		bne	.L82
+ 812 08d8 0400A0E1 		mov	r0, r4
+ 813 08dc 34D08DE2 		add	sp, sp, #52
+ 814              		@ sp needed
+ 815 08e0 F08FBDE8 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 816              	.L68:
+ 817 08e4 28108DE2 		add	r1, sp, #40
+ 818 08e8 0700A0E1 		mov	r0, r7
+ 819 08ec FEFFFFEB 		bl	EApiI2CGetBusCap(PLT)
+ 820 08f0 28309DE5 		ldr	r3, [sp, #40]
+ 821 08f4 092084E0 		add	r2, r4, r9
+ 822 08f8 24208DE5 		str	r2, [sp, #36]
+ 823 08fc 030052E1 		cmp	r2, r3
+ 824 0900 2F00008A 		bhi	.L71
+ 825 0904 000054E3 		cmp	r4, #0
+ 826 0908 75B0EFE6 		uxtb	fp, r5
+ 827 090c 6100001A 		bne	.L83
+ 828              	.L63:
+ 829 0910 0A00A0E1 		mov	r0, r10
+ 830 0914 FEFFFFEB 		bl	free(PLT)
+ 831 0918 10608DE5 		str	r6, [sp, #16]
+ 832 091c 4C00A0E3 		mov	r0, #76
+ 833 0920 0C508DE5 		str	r5, [sp, #12]
+ARM GAS  /tmp/ccBFmFol.s 			page 17
+
+
+ 834 0924 14908DE5 		str	r9, [sp, #20]
+ 835 0928 08708DE5 		str	r7, [sp, #8]
+ 836 092c 003098E5 		ldr	r3, [r8]
+ 837 0930 98219FE5 		ldr	r2, .L84+48
+ 838 0934 98119FE5 		ldr	r1, .L84+52
+ 839 0938 18308DE5 		str	r3, [sp, #24]
+ 840 093c 94319FE5 		ldr	r3, .L84+56
+ 841              	.LPIC94:
+ 842 0940 02208FE0 		add	r2, pc, r2
+ 843              	.LPIC95:
+ 844 0944 01108FE0 		add	r1, pc, r1
+ 845              	.LPIC96:
+ 846 0948 03308FE0 		add	r3, pc, r3
+ 847 094c 04308DE5 		str	r3, [sp, #4]
+ 848 0950 84319FE5 		ldr	r3, .L84+60
+ 849              	.LPIC97:
+ 850 0954 03308FE0 		add	r3, pc, r3
+ 851 0958 00308DE5 		str	r3, [sp]
+ 852 095c 393100E3 		movw	r3, #313
+ 853 0960 FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 854 0964 013089E2 		add	r3, r9, #1
+ 855 0968 0820A0E1 		mov	r2, r8
+ 856 096c 0B10A0E1 		mov	r1, fp
+ 857 0970 0700A0E1 		mov	r0, r7
+ 858 0974 08408DE5 		str	r4, [sp, #8]
+ 859 0978 04408DE5 		str	r4, [sp, #4]
+ 860 097c 00408DE5 		str	r4, [sp]
+ 861 0980 FEFFFFEB 		bl	EApiI2CWriteReadRaw(PLT)
+ 862 0984 CAFFFFEA 		b	.L61
+ 863              	.L80:
+ 864 0988 50019FE5 		ldr	r0, .L84+64
+ 865 098c 01CCE0E3 		mvn	ip, #256
+ 866 0990 4C319FE5 		ldr	r3, .L84+68
+ 867 0994 0420A0E1 		mov	r2, r4
+ 868 0998 0B10A0E1 		mov	r1, fp
+ 869 099c 00C08DE5 		str	ip, [sp]
+ 870              	.LPIC80:
+ 871 09a0 00008FE0 		add	r0, pc, r0
+ 872 09a4 0C40A0E1 		mov	r4, ip
+ 873              	.LPIC81:
+ 874 09a8 03308FE0 		add	r3, pc, r3
+ 875 09ac 08008DE5 		str	r0, [sp, #8]
+ 876 09b0 04308DE5 		str	r3, [sp, #4]
+ 877 09b4 4500A0E3 		mov	r0, #69
+ 878 09b8 433FA0E3 		mov	r3, #268
+ 879 09bc FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 880 09c0 BBFFFFEA 		b	.L61
+ 881              	.L71:
+ 882 09c4 1CC19FE5 		ldr	ip, .L84+72
+ 883 09c8 014CE0E3 		mvn	r4, #256
+ 884 09cc 18019FE5 		ldr	r0, .L84+76
+ 885 09d0 263100E3 		movw	r3, #294
+ 886 09d4 14219FE5 		ldr	r2, .L84+80
+ 887 09d8 14119FE5 		ldr	r1, .L84+84
+ 888              	.LPIC88:
+ 889 09dc 0CC08FE0 		add	ip, pc, ip
+ 890              	.LPIC89:
+ARM GAS  /tmp/ccBFmFol.s 			page 18
+
+
+ 891 09e0 00008FE0 		add	r0, pc, r0
+ 892              	.LPIC86:
+ 893 09e4 02208FE0 		add	r2, pc, r2
+ 894              	.LPIC87:
+ 895 09e8 01108FE0 		add	r1, pc, r1
+ 896              	.L77:
+ 897 09ec 01108DE9 		stmib	sp, {r0, ip}
+ 898 09f0 4500A0E3 		mov	r0, #69
+ 899 09f4 00408DE5 		str	r4, [sp]
+ 900 09f8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 901 09fc ACFFFFEA 		b	.L61
+ 902              	.L78:
+ 903 0a00 F0C09FE5 		ldr	ip, .L84+88
+ 904 0a04 0040E0E3 		mvn	r4, #0
+ 905 0a08 EC009FE5 		ldr	r0, .L84+92
+ 906 0a0c FD30A0E3 		mov	r3, #253
+ 907 0a10 E8209FE5 		ldr	r2, .L84+96
+ 908 0a14 E8109FE5 		ldr	r1, .L84+100
+ 909              	.LPIC68:
+ 910 0a18 0CC08FE0 		add	ip, pc, ip
+ 911              	.LPIC69:
+ 912 0a1c 00008FE0 		add	r0, pc, r0
+ 913              	.LPIC66:
+ 914 0a20 02208FE0 		add	r2, pc, r2
+ 915              	.LPIC67:
+ 916 0a24 01108FE0 		add	r1, pc, r1
+ 917 0a28 EFFFFFEA 		b	.L77
+ 918              	.L79:
+ 919 0a2c D4C09FE5 		ldr	ip, .L84+104
+ 920 0a30 014CE0E3 		mvn	r4, #256
+ 921 0a34 D0009FE5 		ldr	r0, .L84+108
+ 922 0a38 FF30A0E3 		mov	r3, #255
+ 923 0a3c CC209FE5 		ldr	r2, .L84+112
+ 924 0a40 CC109FE5 		ldr	r1, .L84+116
+ 925              	.LPIC72:
+ 926 0a44 0CC08FE0 		add	ip, pc, ip
+ 927              	.LPIC73:
+ 928 0a48 00008FE0 		add	r0, pc, r0
+ 929              	.LPIC70:
+ 930 0a4c 02208FE0 		add	r2, pc, r2
+ 931              	.LPIC71:
+ 932 0a50 01108FE0 		add	r1, pc, r1
+ 933 0a54 E4FFFFEA 		b	.L77
+ 934              	.L82:
+ 935 0a58 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 936              	.L81:
+ 937 0a5c B4009FE5 		ldr	r0, .L84+120
+ 938 0a60 02C0E0E3 		mvn	ip, #2
+ 939 0a64 B0309FE5 		ldr	r3, .L84+124
+ 940 0a68 0420A0E1 		mov	r2, r4
+ 941 0a6c 0B10A0E1 		mov	r1, fp
+ 942 0a70 00C08DE5 		str	ip, [sp]
+ 943              	.LPIC84:
+ 944 0a74 00008FE0 		add	r0, pc, r0
+ 945 0a78 0C40A0E1 		mov	r4, ip
+ 946              	.LPIC85:
+ 947 0a7c 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/ccBFmFol.s 			page 19
+
+
+ 948 0a80 08008DE5 		str	r0, [sp, #8]
+ 949 0a84 04308DE5 		str	r3, [sp, #4]
+ 950 0a88 4500A0E3 		mov	r0, #69
+ 951 0a8c 0F3100E3 		movw	r3, #271
+ 952 0a90 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 953 0a94 86FFFFEA 		b	.L61
+ 954              	.L83:
+ 955 0a98 0420A0E1 		mov	r2, r4
+ 956 0a9c 62FFFFEA 		b	.L70
+ 957              	.L85:
+ 958              		.align	2
+ 959              	.L84:
+ 960 0aa0 88030000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC99+8)
+ 961 0aa4 00000000 		.word	__stack_chk_guard(GOT)
+ 962 0aa8 74030000 		.word	.LANCHOR0-(.LPIC65+8)
+ 963 0aac 30030000 		.word	.LC7-(.LPIC74+8)
+ 964 0ab0 30030000 		.word	.LC1-(.LPIC75+8)
+ 965 0ab4 28030000 		.word	.LC20-(.LPIC76+8)
+ 966 0ab8 20030000 		.word	.LC9-(.LPIC77+8)
+ 967 0abc 5C020000 		.word	.LC7-(.LPIC90+8)
+ 968 0ac0 5C020000 		.word	.LC1-(.LPIC91+8)
+ 969 0ac4 54020000 		.word	.LC20-(.LPIC92+8)
+ 970 0ac8 48020000 		.word	.LC9-(.LPIC93+8)
+ 971 0acc 08020000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC98+8)
+ 972 0ad0 88010000 		.word	.LC7-(.LPIC94+8)
+ 973 0ad4 88010000 		.word	.LC1-(.LPIC95+8)
+ 974 0ad8 88010000 		.word	.LC20-(.LPIC96+8)
+ 975 0adc 80010000 		.word	.LC9-(.LPIC97+8)
+ 976 0ae0 38010000 		.word	.LC18-(.LPIC80+8)
+ 977 0ae4 34010000 		.word	.LC3-(.LPIC81+8)
+ 978 0ae8 04010000 		.word	.LC22-(.LPIC88+8)
+ 979 0aec 04010000 		.word	.LC3-(.LPIC89+8)
+ 980 0af0 04010000 		.word	.LC7-(.LPIC86+8)
+ 981 0af4 04010000 		.word	.LC1-(.LPIC87+8)
+ 982 0af8 D8000000 		.word	.LC2-(.LPIC68+8)
+ 983 0afc D8000000 		.word	.LC3-(.LPIC69+8)
+ 984 0b00 D8000000 		.word	.LC7-(.LPIC66+8)
+ 985 0b04 D8000000 		.word	.LC1-(.LPIC67+8)
+ 986 0b08 BC000000 		.word	.LC16-(.LPIC72+8)
+ 987 0b0c BC000000 		.word	.LC3-(.LPIC73+8)
+ 988 0b10 BC000000 		.word	.LC7-(.LPIC70+8)
+ 989 0b14 BC000000 		.word	.LC1-(.LPIC71+8)
+ 990 0b18 9C000000 		.word	.LC21-(.LPIC84+8)
+ 991 0b1c 98000000 		.word	.LC3-(.LPIC85+8)
+ 993              		.align	2
+ 994              		.global	EApiI2CProbeDevice
+ 995              		.syntax unified
+ 996              		.arm
+ 997              		.fpu vfpv3
+ 999              	EApiI2CProbeDevice:
+ 1000              		@ args = 0, pretend = 0, frame = 16
+ 1001              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1002 0b20 F0309FE5 		ldr	r3, .L95
+ 1003 0b24 0020A0E3 		mov	r2, #0
+ 1004 0b28 10402DE9 		push	{r4, lr}
+ 1005 0b2c 20D04DE2 		sub	sp, sp, #32
+ 1006 0b30 E4E09FE5 		ldr	lr, .L95+4
+ARM GAS  /tmp/ccBFmFol.s 			page 20
+
+
+ 1007              	.LPIC100:
+ 1008 0b34 03308FE0 		add	r3, pc, r3
+ 1009 0b38 E0C09FE5 		ldr	ip, .L95+8
+ 1010 0b3c 003093E5 		ldr	r3, [r3]
+ 1011              	.LPIC106:
+ 1012 0b40 0EE08FE0 		add	lr, pc, lr
+ 1013 0b44 0CC09EE7 		ldr	ip, [lr, ip]
+ 1014 0b48 020053E1 		cmp	r3, r2
+ 1015 0b4c 00C09CE5 		ldr	ip, [ip]
+ 1016 0b50 1CC08DE5 		str	ip, [sp, #28]
+ 1017 0b54 00C0A0E3 		mov	ip, #0
+ 1018 0b58 14208DE5 		str	r2, [sp, #20]
+ 1019 0b5c 18208DE5 		str	r2, [sp, #24]
+ 1020 0b60 1B00000A 		beq	.L93
+ 1021 0b64 3E3B01E2 		and	r3, r1, #63488
+ 1022 0b68 00C0A0E3 		mov	ip, #0
+ 1023 0b6c 0F0A53E3 		cmp	r3, #61440
+ 1024 0b70 14208DE2 		add	r2, sp, #20
+ 1025 0b74 1410CD05 		strbeq	r1, [sp, #20]
+ 1026 0b78 2114A001 		lsreq	r1, r1, #8
+ 1027 0b7c 0230A003 		moveq	r3, #2
+ 1028 0b80 08C08DE5 		str	ip, [sp, #8]
+ 1029 0b84 0130A013 		movne	r3, #1
+ 1030 0b88 7110EFE6 		uxtb	r1, r1
+ 1031 0b8c 04C08DE5 		str	ip, [sp, #4]
+ 1032 0b90 00C08DE5 		str	ip, [sp]
+ 1033 0b94 FEFFFFEB 		bl	EApiI2CWriteReadRaw(PLT)
+ 1034 0b98 FE3A0FE3 		movw	r3, #64254
+ 1035 0b9c FF3F4FE3 		movt	r3, 65535
+ 1036 0ba0 030050E1 		cmp	r0, r3
+ 1037 0ba4 010BE003 		mvneq	r0, #1024
+ 1038              	.L88:
+ 1039              	.L86:
+ 1040 0ba8 74209FE5 		ldr	r2, .L95+12
+ 1041 0bac 6C309FE5 		ldr	r3, .L95+8
+ 1042              	.LPIC105:
+ 1043 0bb0 02208FE0 		add	r2, pc, r2
+ 1044 0bb4 033092E7 		ldr	r3, [r2, r3]
+ 1045 0bb8 002093E5 		ldr	r2, [r3]
+ 1046 0bbc 1C309DE5 		ldr	r3, [sp, #28]
+ 1047 0bc0 022033E0 		eors	r2, r3, r2
+ 1048 0bc4 0030A0E3 		mov	r3, #0
+ 1049 0bc8 1100001A 		bne	.L94
+ 1050 0bcc 20D08DE2 		add	sp, sp, #32
+ 1051              		@ sp needed
+ 1052 0bd0 1080BDE8 		pop	{r4, pc}
+ 1053              	.L93:
+ 1054 0bd4 4CC09FE5 		ldr	ip, .L95+16
+ 1055 0bd8 0040E0E3 		mvn	r4, #0
+ 1056 0bdc 48009FE5 		ldr	r0, .L95+20
+ 1057 0be0 573FA0E3 		mov	r3, #348
+ 1058 0be4 44209FE5 		ldr	r2, .L95+24
+ 1059 0be8 44109FE5 		ldr	r1, .L95+28
+ 1060              	.LPIC103:
+ 1061 0bec 0CC08FE0 		add	ip, pc, ip
+ 1062              	.LPIC104:
+ 1063 0bf0 00008FE0 		add	r0, pc, r0
+ARM GAS  /tmp/ccBFmFol.s 			page 21
+
+
+ 1064 0bf4 00408DE5 		str	r4, [sp]
+ 1065 0bf8 01108DE9 		stmib	sp, {r0, ip}
+ 1066              	.LPIC101:
+ 1067 0bfc 02208FE0 		add	r2, pc, r2
+ 1068              	.LPIC102:
+ 1069 0c00 01108FE0 		add	r1, pc, r1
+ 1070 0c04 4500A0E3 		mov	r0, #69
+ 1071 0c08 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1072 0c0c 0400A0E1 		mov	r0, r4
+ 1073 0c10 E4FFFFEA 		b	.L86
+ 1074              	.L94:
+ 1075 0c14 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 1076              	.L96:
+ 1077              		.align	2
+ 1078              	.L95:
+ 1079 0c18 DC000000 		.word	.LANCHOR0-(.LPIC100+8)
+ 1080 0c1c D4000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC106+8)
+ 1081 0c20 00000000 		.word	__stack_chk_guard(GOT)
+ 1082 0c24 6C000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC105+8)
+ 1083 0c28 34000000 		.word	.LC2-(.LPIC103+8)
+ 1084 0c2c 34000000 		.word	.LC3-(.LPIC104+8)
+ 1085 0c30 2C000000 		.word	.LC7-(.LPIC101+8)
+ 1086 0c34 2C000000 		.word	.LC1-(.LPIC102+8)
+ 1088              		.section	.rodata.str1.4
+ 1089 027b 00       		.align	2
+ 1090              	.LC23:
+ 1091 027c 45417069 		.ascii	"EApiBoardGetStringA\000"
+ 1091      426F6172 
+ 1091      64476574 
+ 1091      53747269 
+ 1091      6E674100 
+ 1092              		.align	2
+ 1093              	.LC24:
+ 1094 0290 28704275 		.ascii	"(pBufLen==NULL)\000"
+ 1094      664C656E 
+ 1094      3D3D4E55 
+ 1094      4C4C2900 
+ 1095              		.align	2
+ 1096              	.LC25:
+ 1097 02a0 70427566 		.ascii	"pBuffer is NULL\000"
+ 1097      66657220 
+ 1097      6973204E 
+ 1097      554C4C00 
+ 1098              		.text
+ 1099              		.align	2
+ 1100              		.global	EApiBoardGetStringA
+ 1101              		.syntax unified
+ 1102              		.arm
+ 1103              		.fpu vfpv3
+ 1105              	EApiBoardGetStringA:
+ 1106              		@ args = 0, pretend = 0, frame = 0
+ 1107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1108 0c38 10402DE9 		push	{r4, lr}
+ 1109 0c3c 10D04DE2 		sub	sp, sp, #16
+ 1110 0c40 D8E09FE5 		ldr	lr, .L107
+ 1111              	.LPIC107:
+ 1112 0c44 0EE08FE0 		add	lr, pc, lr
+ARM GAS  /tmp/ccBFmFol.s 			page 22
+
+
+ 1113 0c48 00E09EE5 		ldr	lr, [lr]
+ 1114 0c4c 00005EE3 		cmp	lr, #0
+ 1115 0c50 0B00000A 		beq	.L104
+ 1116 0c54 000052E3 		cmp	r2, #0
+ 1117 0c58 1A00000A 		beq	.L105
+ 1118 0c5c 003092E5 		ldr	r3, [r2]
+ 1119 0c60 003053E2 		subs	r3, r3, #0
+ 1120 0c64 0130A013 		movne	r3, #1
+ 1121 0c68 000051E3 		cmp	r1, #0
+ 1122 0c6c 0030A013 		movne	r3, #0
+ 1123 0c70 000053E3 		cmp	r3, #0
+ 1124 0c74 1E00001A 		bne	.L106
+ 1125 0c78 10D08DE2 		add	sp, sp, #16
+ 1126              		@ sp needed
+ 1127 0c7c 1040BDE8 		pop	{r4, lr}
+ 1128 0c80 FEFFFFEA 		b	EApiBoardGetStringAEmul(PLT)
+ 1129              	.L104:
+ 1130 0c84 98C09FE5 		ldr	ip, .L107+4
+ 1131 0c88 0040E0E3 		mvn	r4, #0
+ 1132 0c8c 94009FE5 		ldr	r0, .L107+8
+ 1133 0c90 833100E3 		movw	r3, #387
+ 1134 0c94 90209FE5 		ldr	r2, .L107+12
+ 1135 0c98 90109FE5 		ldr	r1, .L107+16
+ 1136              	.LPIC110:
+ 1137 0c9c 0CC08FE0 		add	ip, pc, ip
+ 1138              	.LPIC111:
+ 1139 0ca0 00008FE0 		add	r0, pc, r0
+ 1140              	.LPIC108:
+ 1141 0ca4 02208FE0 		add	r2, pc, r2
+ 1142              	.LPIC109:
+ 1143 0ca8 01108FE0 		add	r1, pc, r1
+ 1144              	.L103:
+ 1145 0cac 01108DE9 		stmib	sp, {r0, ip}
+ 1146 0cb0 4500A0E3 		mov	r0, #69
+ 1147 0cb4 00408DE5 		str	r4, [sp]
+ 1148 0cb8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1149 0cbc 0400A0E1 		mov	r0, r4
+ 1150 0cc0 10D08DE2 		add	sp, sp, #16
+ 1151              		@ sp needed
+ 1152 0cc4 1080BDE8 		pop	{r4, pc}
+ 1153              	.L99:
+ 1154              	.L105:
+ 1155 0cc8 64C09FE5 		ldr	ip, .L107+20
+ 1156 0ccc 014CE0E3 		mvn	r4, #256
+ 1157 0cd0 60009FE5 		ldr	r0, .L107+24
+ 1158 0cd4 613FA0E3 		mov	r3, #388
+ 1159 0cd8 5C209FE5 		ldr	r2, .L107+28
+ 1160 0cdc 5C109FE5 		ldr	r1, .L107+32
+ 1161              	.LPIC114:
+ 1162 0ce0 0CC08FE0 		add	ip, pc, ip
+ 1163              	.LPIC115:
+ 1164 0ce4 00008FE0 		add	r0, pc, r0
+ 1165              	.LPIC112:
+ 1166 0ce8 02208FE0 		add	r2, pc, r2
+ 1167              	.LPIC113:
+ 1168 0cec 01108FE0 		add	r1, pc, r1
+ 1169 0cf0 EDFFFFEA 		b	.L103
+ARM GAS  /tmp/ccBFmFol.s 			page 23
+
+
+ 1170              	.L106:
+ 1171 0cf4 48C09FE5 		ldr	ip, .L107+36
+ 1172 0cf8 014CE0E3 		mvn	r4, #256
+ 1173 0cfc 44009FE5 		ldr	r0, .L107+40
+ 1174 0d00 853100E3 		movw	r3, #389
+ 1175 0d04 40209FE5 		ldr	r2, .L107+44
+ 1176 0d08 40109FE5 		ldr	r1, .L107+48
+ 1177              	.LPIC118:
+ 1178 0d0c 0CC08FE0 		add	ip, pc, ip
+ 1179              	.LPIC119:
+ 1180 0d10 00008FE0 		add	r0, pc, r0
+ 1181              	.LPIC116:
+ 1182 0d14 02208FE0 		add	r2, pc, r2
+ 1183              	.LPIC117:
+ 1184 0d18 01108FE0 		add	r1, pc, r1
+ 1185 0d1c E2FFFFEA 		b	.L103
+ 1186              	.L108:
+ 1187              		.align	2
+ 1188              	.L107:
+ 1189 0d20 D4000000 		.word	.LANCHOR0-(.LPIC107+8)
+ 1190 0d24 80000000 		.word	.LC2-(.LPIC110+8)
+ 1191 0d28 80000000 		.word	.LC3-(.LPIC111+8)
+ 1192 0d2c 80000000 		.word	.LC23-(.LPIC108+8)
+ 1193 0d30 80000000 		.word	.LC1-(.LPIC109+8)
+ 1194 0d34 4C000000 		.word	.LC24-(.LPIC114+8)
+ 1195 0d38 4C000000 		.word	.LC3-(.LPIC115+8)
+ 1196 0d3c 4C000000 		.word	.LC23-(.LPIC112+8)
+ 1197 0d40 4C000000 		.word	.LC1-(.LPIC113+8)
+ 1198 0d44 30000000 		.word	.LC25-(.LPIC118+8)
+ 1199 0d48 30000000 		.word	.LC3-(.LPIC119+8)
+ 1200 0d4c 30000000 		.word	.LC23-(.LPIC116+8)
+ 1201 0d50 30000000 		.word	.LC1-(.LPIC117+8)
+ 1203              		.section	.rodata.str1.4
+ 1204              		.align	2
+ 1205              	.LC26:
+ 1206 02b0 45417069 		.ascii	"EApiBoardGetValue\000"
+ 1206      426F6172 
+ 1206      64476574 
+ 1206      56616C75 
+ 1206      6500
+ 1207 02c2 0000     		.align	2
+ 1208              	.LC27:
+ 1209 02c4 28705661 		.ascii	"(pValue==NULL)\000"
+ 1209      6C75653D 
+ 1209      3D4E554C 
+ 1209      4C2900
+ 1210 02d3 00       		.align	2
+ 1211              	.LC28:
+ 1212 02d4 00       		.ascii	"\000"
+ 1213              		.text
+ 1214              		.align	2
+ 1215              		.global	EApiBoardGetValue
+ 1216              		.syntax unified
+ 1217              		.arm
+ 1218              		.fpu vfpv3
+ 1220              	EApiBoardGetValue:
+ 1221              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccBFmFol.s 			page 24
+
+
+ 1222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1223 0d54 EC209FE5 		ldr	r2, .L119
+ 1224 0d58 10402DE9 		push	{r4, lr}
+ 1225 0d5c 10D04DE2 		sub	sp, sp, #16
+ 1226              	.LPIC120:
+ 1227 0d60 02208FE0 		add	r2, pc, r2
+ 1228 0d64 002092E5 		ldr	r2, [r2]
+ 1229 0d68 000052E3 		cmp	r2, #0
+ 1230 0d6c 1900000A 		beq	.L116
+ 1231 0d70 000051E3 		cmp	r1, #0
+ 1232 0d74 2800000A 		beq	.L117
+ 1233 0d78 000050E3 		cmp	r0, #0
+ 1234 0d7c 0040A0E1 		mov	r4, r0
+ 1235 0d80 0200000A 		beq	.L118
+ 1236 0d84 10D08DE2 		add	sp, sp, #16
+ 1237              		@ sp needed
+ 1238 0d88 1040BDE8 		pop	{r4, lr}
+ 1239 0d8c FEFFFFEA 		b	EApiBoardGetValueEmul(PLT)
+ 1240              	.L118:
+ 1241 0d90 0124A0E3 		mov	r2, #16777216
+ 1242 0d94 B0C09FE5 		ldr	ip, .L119+4
+ 1243 0d98 B0009FE5 		ldr	r0, .L119+8
+ 1244 0d9c A63100E3 		movw	r3, #422
+ 1245 0da0 00408DE5 		str	r4, [sp]
+ 1246 0da4 002081E5 		str	r2, [r1]
+ 1247              	.LPIC131:
+ 1248 0da8 0CC08FE0 		add	ip, pc, ip
+ 1249 0dac A0209FE5 		ldr	r2, .L119+12
+ 1250              	.LPIC132:
+ 1251 0db0 00008FE0 		add	r0, pc, r0
+ 1252 0db4 9C109FE5 		ldr	r1, .L119+16
+ 1253 0db8 01108DE9 		stmib	sp, {r0, ip}
+ 1254 0dbc 4C00A0E3 		mov	r0, #76
+ 1255              	.LPIC129:
+ 1256 0dc0 02208FE0 		add	r2, pc, r2
+ 1257              	.LPIC130:
+ 1258 0dc4 01108FE0 		add	r1, pc, r1
+ 1259 0dc8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1260 0dcc 0400A0E1 		mov	r0, r4
+ 1261 0dd0 10D08DE2 		add	sp, sp, #16
+ 1262              		@ sp needed
+ 1263 0dd4 1080BDE8 		pop	{r4, pc}
+ 1264              	.L111:
+ 1265              	.L116:
+ 1266 0dd8 7CC09FE5 		ldr	ip, .L119+20
+ 1267 0ddc 0040E0E3 		mvn	r4, #0
+ 1268 0de0 78009FE5 		ldr	r0, .L119+24
+ 1269 0de4 A13100E3 		movw	r3, #417
+ 1270 0de8 74209FE5 		ldr	r2, .L119+28
+ 1271 0dec 74109FE5 		ldr	r1, .L119+32
+ 1272              	.LPIC123:
+ 1273 0df0 0CC08FE0 		add	ip, pc, ip
+ 1274              	.LPIC124:
+ 1275 0df4 00008FE0 		add	r0, pc, r0
+ 1276              	.LPIC121:
+ 1277 0df8 02208FE0 		add	r2, pc, r2
+ 1278              	.LPIC122:
+ARM GAS  /tmp/ccBFmFol.s 			page 25
+
+
+ 1279 0dfc 01108FE0 		add	r1, pc, r1
+ 1280              	.L115:
+ 1281 0e00 01108DE9 		stmib	sp, {r0, ip}
+ 1282 0e04 4500A0E3 		mov	r0, #69
+ 1283 0e08 00408DE5 		str	r4, [sp]
+ 1284 0e0c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1285 0e10 0400A0E1 		mov	r0, r4
+ 1286 0e14 10D08DE2 		add	sp, sp, #16
+ 1287              		@ sp needed
+ 1288 0e18 1080BDE8 		pop	{r4, pc}
+ 1289              	.L117:
+ 1290 0e1c 48C09FE5 		ldr	ip, .L119+36
+ 1291 0e20 014CE0E3 		mvn	r4, #256
+ 1292 0e24 44009FE5 		ldr	r0, .L119+40
+ 1293 0e28 A23100E3 		movw	r3, #418
+ 1294 0e2c 40209FE5 		ldr	r2, .L119+44
+ 1295 0e30 40109FE5 		ldr	r1, .L119+48
+ 1296              	.LPIC127:
+ 1297 0e34 0CC08FE0 		add	ip, pc, ip
+ 1298              	.LPIC128:
+ 1299 0e38 00008FE0 		add	r0, pc, r0
+ 1300              	.LPIC125:
+ 1301 0e3c 02208FE0 		add	r2, pc, r2
+ 1302              	.LPIC126:
+ 1303 0e40 01108FE0 		add	r1, pc, r1
+ 1304 0e44 EDFFFFEA 		b	.L115
+ 1305              	.L120:
+ 1306              		.align	2
+ 1307              	.L119:
+ 1308 0e48 E0000000 		.word	.LANCHOR0-(.LPIC120+8)
+ 1309 0e4c 9C000000 		.word	.LC28-(.LPIC131+8)
+ 1310 0e50 98000000 		.word	.LC3-(.LPIC132+8)
+ 1311 0e54 8C000000 		.word	.LC26-(.LPIC129+8)
+ 1312 0e58 8C000000 		.word	.LC1-(.LPIC130+8)
+ 1313 0e5c 64000000 		.word	.LC2-(.LPIC123+8)
+ 1314 0e60 64000000 		.word	.LC3-(.LPIC124+8)
+ 1315 0e64 64000000 		.word	.LC26-(.LPIC121+8)
+ 1316 0e68 64000000 		.word	.LC1-(.LPIC122+8)
+ 1317 0e6c 30000000 		.word	.LC27-(.LPIC127+8)
+ 1318 0e70 30000000 		.word	.LC3-(.LPIC128+8)
+ 1319 0e74 30000000 		.word	.LC26-(.LPIC125+8)
+ 1320 0e78 30000000 		.word	.LC1-(.LPIC126+8)
+ 1322              		.section	.rodata.str1.4
+ 1323 02d5 000000   		.align	2
+ 1324              	.LC29:
+ 1325 02d8 45417069 		.ascii	"EApiVgaGetBacklightEnable\000"
+ 1325      56676147 
+ 1325      65744261 
+ 1325      636B6C69 
+ 1325      67687445 
+ 1326 02f2 0000     		.align	2
+ 1327              	.LC30:
+ 1328 02f4 2870456E 		.ascii	"(pEnable==NULL)\000"
+ 1328      61626C65 
+ 1328      3D3D4E55 
+ 1328      4C4C2900 
+ 1329              		.text
+ARM GAS  /tmp/ccBFmFol.s 			page 26
+
+
+ 1330              		.align	2
+ 1331              		.global	EApiVgaGetBacklightEnable
+ 1332              		.syntax unified
+ 1333              		.arm
+ 1334              		.fpu vfpv3
+ 1336              	EApiVgaGetBacklightEnable:
+ 1337              		@ args = 0, pretend = 0, frame = 0
+ 1338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1339 0e7c 98309FE5 		ldr	r3, .L129
+ 1340 0e80 10402DE9 		push	{r4, lr}
+ 1341 0e84 10D04DE2 		sub	sp, sp, #16
+ 1342              	.LPIC133:
+ 1343 0e88 03308FE0 		add	r3, pc, r3
+ 1344 0e8c 003093E5 		ldr	r3, [r3]
+ 1345 0e90 000053E3 		cmp	r3, #0
+ 1346 0e94 0400000A 		beq	.L127
+ 1347 0e98 000051E3 		cmp	r1, #0
+ 1348 0e9c 1300000A 		beq	.L128
+ 1349 0ea0 10D08DE2 		add	sp, sp, #16
+ 1350              		@ sp needed
+ 1351 0ea4 1040BDE8 		pop	{r4, lr}
+ 1352 0ea8 FEFFFFEA 		b	EApiVgaGetBacklightEnableEmul(PLT)
+ 1353              	.L127:
+ 1354 0eac 6CC09FE5 		ldr	ip, .L129+4
+ 1355 0eb0 0040E0E3 		mvn	r4, #0
+ 1356 0eb4 68009FE5 		ldr	r0, .L129+8
+ 1357 0eb8 073DA0E3 		mov	r3, #448
+ 1358 0ebc 64209FE5 		ldr	r2, .L129+12
+ 1359 0ec0 64109FE5 		ldr	r1, .L129+16
+ 1360              	.LPIC136:
+ 1361 0ec4 0CC08FE0 		add	ip, pc, ip
+ 1362              	.LPIC137:
+ 1363 0ec8 00008FE0 		add	r0, pc, r0
+ 1364              	.LPIC134:
+ 1365 0ecc 02208FE0 		add	r2, pc, r2
+ 1366              	.LPIC135:
+ 1367 0ed0 01108FE0 		add	r1, pc, r1
+ 1368              	.L126:
+ 1369 0ed4 01108DE9 		stmib	sp, {r0, ip}
+ 1370 0ed8 4500A0E3 		mov	r0, #69
+ 1371 0edc 00408DE5 		str	r4, [sp]
+ 1372 0ee0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1373 0ee4 0400A0E1 		mov	r0, r4
+ 1374 0ee8 10D08DE2 		add	sp, sp, #16
+ 1375              		@ sp needed
+ 1376 0eec 1080BDE8 		pop	{r4, pc}
+ 1377              	.L123:
+ 1378              	.L128:
+ 1379 0ef0 38C09FE5 		ldr	ip, .L129+20
+ 1380 0ef4 014CE0E3 		mvn	r4, #256
+ 1381 0ef8 34009FE5 		ldr	r0, .L129+24
+ 1382 0efc C13100E3 		movw	r3, #449
+ 1383 0f00 30209FE5 		ldr	r2, .L129+28
+ 1384 0f04 30109FE5 		ldr	r1, .L129+32
+ 1385              	.LPIC140:
+ 1386 0f08 0CC08FE0 		add	ip, pc, ip
+ 1387              	.LPIC141:
+ARM GAS  /tmp/ccBFmFol.s 			page 27
+
+
+ 1388 0f0c 00008FE0 		add	r0, pc, r0
+ 1389              	.LPIC138:
+ 1390 0f10 02208FE0 		add	r2, pc, r2
+ 1391              	.LPIC139:
+ 1392 0f14 01108FE0 		add	r1, pc, r1
+ 1393 0f18 EDFFFFEA 		b	.L126
+ 1394              	.L130:
+ 1395              		.align	2
+ 1396              	.L129:
+ 1397 0f1c 8C000000 		.word	.LANCHOR0-(.LPIC133+8)
+ 1398 0f20 54000000 		.word	.LC2-(.LPIC136+8)
+ 1399 0f24 54000000 		.word	.LC3-(.LPIC137+8)
+ 1400 0f28 54000000 		.word	.LC29-(.LPIC134+8)
+ 1401 0f2c 54000000 		.word	.LC1-(.LPIC135+8)
+ 1402 0f30 20000000 		.word	.LC30-(.LPIC140+8)
+ 1403 0f34 20000000 		.word	.LC3-(.LPIC141+8)
+ 1404 0f38 20000000 		.word	.LC29-(.LPIC138+8)
+ 1405 0f3c 20000000 		.word	.LC1-(.LPIC139+8)
+ 1407              		.section	.rodata.str1.4
+ 1408              		.align	2
+ 1409              	.LC31:
+ 1410 0304 45417069 		.ascii	"EApiVgaSetBacklightEnable\000"
+ 1410      56676153 
+ 1410      65744261 
+ 1410      636B6C69 
+ 1410      67687445 
+ 1411 031e 0000     		.align	2
+ 1412              	.LC32:
+ 1413 0320 456E6162 		.ascii	"Enable Invalid Value\000"
+ 1413      6C652049 
+ 1413      6E76616C 
+ 1413      69642056 
+ 1413      616C7565 
+ 1414              		.text
+ 1415              		.align	2
+ 1416              		.global	EApiVgaSetBacklightEnable
+ 1417              		.syntax unified
+ 1418              		.arm
+ 1419              		.fpu vfpv3
+ 1421              	EApiVgaSetBacklightEnable:
+ 1422              		@ args = 0, pretend = 0, frame = 0
+ 1423              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1424 0f40 84309FE5 		ldr	r3, .L136
+ 1425 0f44 10402DE9 		push	{r4, lr}
+ 1426 0f48 10D04DE2 		sub	sp, sp, #16
+ 1427              	.LPIC142:
+ 1428 0f4c 03308FE0 		add	r3, pc, r3
+ 1429 0f50 003093E5 		ldr	r3, [r3]
+ 1430 0f54 000053E3 		cmp	r3, #0
+ 1431 0f58 1000001A 		bne	.L132
+ 1432 0f5c 6CC09FE5 		ldr	ip, .L136+4
+ 1433 0f60 0040E0E3 		mvn	r4, #0
+ 1434 0f64 68009FE5 		ldr	r0, .L136+8
+ 1435 0f68 D13100E3 		movw	r3, #465
+ 1436 0f6c 64209FE5 		ldr	r2, .L136+12
+ 1437 0f70 64109FE5 		ldr	r1, .L136+16
+ 1438              	.LPIC145:
+ARM GAS  /tmp/ccBFmFol.s 			page 28
+
+
+ 1439 0f74 0CC08FE0 		add	ip, pc, ip
+ 1440              	.LPIC146:
+ 1441 0f78 00008FE0 		add	r0, pc, r0
+ 1442              	.LPIC143:
+ 1443 0f7c 02208FE0 		add	r2, pc, r2
+ 1444              	.LPIC144:
+ 1445 0f80 01108FE0 		add	r1, pc, r1
+ 1446              	.L135:
+ 1447              	.L133:
+ 1448 0f84 01108DE9 		stmib	sp, {r0, ip}
+ 1449 0f88 4500A0E3 		mov	r0, #69
+ 1450 0f8c 00408DE5 		str	r4, [sp]
+ 1451 0f90 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1452 0f94 0400A0E1 		mov	r0, r4
+ 1453 0f98 10D08DE2 		add	sp, sp, #16
+ 1454              		@ sp needed
+ 1455 0f9c 1080BDE8 		pop	{r4, pc}
+ 1456              	.L132:
+ 1457 0fa0 38C09FE5 		ldr	ip, .L136+20
+ 1458 0fa4 014CE0E3 		mvn	r4, #256
+ 1459 0fa8 34009FE5 		ldr	r0, .L136+24
+ 1460 0fac D23100E3 		movw	r3, #466
+ 1461 0fb0 30209FE5 		ldr	r2, .L136+28
+ 1462 0fb4 30109FE5 		ldr	r1, .L136+32
+ 1463              	.LPIC149:
+ 1464 0fb8 0CC08FE0 		add	ip, pc, ip
+ 1465              	.LPIC150:
+ 1466 0fbc 00008FE0 		add	r0, pc, r0
+ 1467              	.LPIC147:
+ 1468 0fc0 02208FE0 		add	r2, pc, r2
+ 1469              	.LPIC148:
+ 1470 0fc4 01108FE0 		add	r1, pc, r1
+ 1471 0fc8 EDFFFFEA 		b	.L135
+ 1472              	.L137:
+ 1473              		.align	2
+ 1474              	.L136:
+ 1475 0fcc 78000000 		.word	.LANCHOR0-(.LPIC142+8)
+ 1476 0fd0 54000000 		.word	.LC2-(.LPIC145+8)
+ 1477 0fd4 54000000 		.word	.LC3-(.LPIC146+8)
+ 1478 0fd8 54000000 		.word	.LC31-(.LPIC143+8)
+ 1479 0fdc 54000000 		.word	.LC1-(.LPIC144+8)
+ 1480 0fe0 20000000 		.word	.LC32-(.LPIC149+8)
+ 1481 0fe4 20000000 		.word	.LC3-(.LPIC150+8)
+ 1482 0fe8 20000000 		.word	.LC31-(.LPIC147+8)
+ 1483 0fec 20000000 		.word	.LC1-(.LPIC148+8)
+ 1485              		.section	.rodata.str1.4
+ 1486 0335 000000   		.align	2
+ 1487              	.LC33:
+ 1488 0338 45417069 		.ascii	"EApiVgaGetBacklightBrightness\000"
+ 1488      56676147 
+ 1488      65744261 
+ 1488      636B6C69 
+ 1488      67687442 
+ 1489 0356 0000     		.align	2
+ 1490              	.LC34:
+ 1491 0358 28704272 		.ascii	"(pBright==NULL)\000"
+ 1491      69676874 
+ARM GAS  /tmp/ccBFmFol.s 			page 29
+
+
+ 1491      3D3D4E55 
+ 1491      4C4C2900 
+ 1492              		.text
+ 1493              		.align	2
+ 1494              		.global	EApiVgaGetBacklightBrightness
+ 1495              		.syntax unified
+ 1496              		.arm
+ 1497              		.fpu vfpv3
+ 1499              	EApiVgaGetBacklightBrightness:
+ 1500              		@ args = 0, pretend = 0, frame = 0
+ 1501              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1502 0ff0 98309FE5 		ldr	r3, .L146
+ 1503 0ff4 10402DE9 		push	{r4, lr}
+ 1504 0ff8 10D04DE2 		sub	sp, sp, #16
+ 1505              	.LPIC151:
+ 1506 0ffc 03308FE0 		add	r3, pc, r3
+ 1507 1000 003093E5 		ldr	r3, [r3]
+ 1508 1004 000053E3 		cmp	r3, #0
+ 1509 1008 0400000A 		beq	.L144
+ 1510 100c 000051E3 		cmp	r1, #0
+ 1511 1010 1300000A 		beq	.L145
+ 1512 1014 10D08DE2 		add	sp, sp, #16
+ 1513              		@ sp needed
+ 1514 1018 1040BDE8 		pop	{r4, lr}
+ 1515 101c FEFFFFEA 		b	EApiVgaGetBacklightBrightnessEmul(PLT)
+ 1516              	.L144:
+ 1517 1020 6CC09FE5 		ldr	ip, .L146+4
+ 1518 1024 0040E0E3 		mvn	r4, #0
+ 1519 1028 68009FE5 		ldr	r0, .L146+8
+ 1520 102c 793FA0E3 		mov	r3, #484
+ 1521 1030 64209FE5 		ldr	r2, .L146+12
+ 1522 1034 64109FE5 		ldr	r1, .L146+16
+ 1523              	.LPIC154:
+ 1524 1038 0CC08FE0 		add	ip, pc, ip
+ 1525              	.LPIC155:
+ 1526 103c 00008FE0 		add	r0, pc, r0
+ 1527              	.LPIC152:
+ 1528 1040 02208FE0 		add	r2, pc, r2
+ 1529              	.LPIC153:
+ 1530 1044 01108FE0 		add	r1, pc, r1
+ 1531              	.L143:
+ 1532 1048 01108DE9 		stmib	sp, {r0, ip}
+ 1533 104c 4500A0E3 		mov	r0, #69
+ 1534 1050 00408DE5 		str	r4, [sp]
+ 1535 1054 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1536 1058 0400A0E1 		mov	r0, r4
+ 1537 105c 10D08DE2 		add	sp, sp, #16
+ 1538              		@ sp needed
+ 1539 1060 1080BDE8 		pop	{r4, pc}
+ 1540              	.L140:
+ 1541              	.L145:
+ 1542 1064 38C09FE5 		ldr	ip, .L146+20
+ 1543 1068 014CE0E3 		mvn	r4, #256
+ 1544 106c 34009FE5 		ldr	r0, .L146+24
+ 1545 1070 E53100E3 		movw	r3, #485
+ 1546 1074 30209FE5 		ldr	r2, .L146+28
+ 1547 1078 30109FE5 		ldr	r1, .L146+32
+ARM GAS  /tmp/ccBFmFol.s 			page 30
+
+
+ 1548              	.LPIC158:
+ 1549 107c 0CC08FE0 		add	ip, pc, ip
+ 1550              	.LPIC159:
+ 1551 1080 00008FE0 		add	r0, pc, r0
+ 1552              	.LPIC156:
+ 1553 1084 02208FE0 		add	r2, pc, r2
+ 1554              	.LPIC157:
+ 1555 1088 01108FE0 		add	r1, pc, r1
+ 1556 108c EDFFFFEA 		b	.L143
+ 1557              	.L147:
+ 1558              		.align	2
+ 1559              	.L146:
+ 1560 1090 8C000000 		.word	.LANCHOR0-(.LPIC151+8)
+ 1561 1094 54000000 		.word	.LC2-(.LPIC154+8)
+ 1562 1098 54000000 		.word	.LC3-(.LPIC155+8)
+ 1563 109c 54000000 		.word	.LC33-(.LPIC152+8)
+ 1564 10a0 54000000 		.word	.LC1-(.LPIC153+8)
+ 1565 10a4 20000000 		.word	.LC34-(.LPIC158+8)
+ 1566 10a8 20000000 		.word	.LC3-(.LPIC159+8)
+ 1567 10ac 20000000 		.word	.LC33-(.LPIC156+8)
+ 1568 10b0 20000000 		.word	.LC1-(.LPIC157+8)
+ 1570              		.section	.rodata.str1.4
+ 1571              		.align	2
+ 1572              	.LC35:
+ 1573 0368 45417069 		.ascii	"EApiVgaSetBacklightBrightness\000"
+ 1573      56676153 
+ 1573      65744261 
+ 1573      636B6C69 
+ 1573      67687442 
+ 1574 0386 0000     		.align	2
+ 1575              	.LC36:
+ 1576 0388 42726967 		.ascii	"Brightness Invalid Value\000"
+ 1576      68746E65 
+ 1576      73732049 
+ 1576      6E76616C 
+ 1576      69642056 
+ 1577              		.text
+ 1578              		.align	2
+ 1579              		.global	EApiVgaSetBacklightBrightness
+ 1580              		.syntax unified
+ 1581              		.arm
+ 1582              		.fpu vfpv3
+ 1584              	EApiVgaSetBacklightBrightness:
+ 1585              		@ args = 0, pretend = 0, frame = 0
+ 1586              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1587 10b4 98309FE5 		ldr	r3, .L156
+ 1588 10b8 10402DE9 		push	{r4, lr}
+ 1589 10bc 10D04DE2 		sub	sp, sp, #16
+ 1590              	.LPIC160:
+ 1591 10c0 03308FE0 		add	r3, pc, r3
+ 1592 10c4 003093E5 		ldr	r3, [r3]
+ 1593 10c8 000053E3 		cmp	r3, #0
+ 1594 10cc 1500000A 		beq	.L154
+ 1595 10d0 FF0051E3 		cmp	r1, #255
+ 1596 10d4 0200008A 		bhi	.L155
+ 1597 10d8 10D08DE2 		add	sp, sp, #16
+ 1598              		@ sp needed
+ARM GAS  /tmp/ccBFmFol.s 			page 31
+
+
+ 1599 10dc 1040BDE8 		pop	{r4, lr}
+ 1600 10e0 FEFFFFEA 		b	EApiVgaSetBacklightBrightnessEmul(PLT)
+ 1601              	.L155:
+ 1602 10e4 6CC09FE5 		ldr	ip, .L156+4
+ 1603 10e8 014CE0E3 		mvn	r4, #256
+ 1604 10ec 68009FE5 		ldr	r0, .L156+8
+ 1605 10f0 F53100E3 		movw	r3, #501
+ 1606 10f4 64209FE5 		ldr	r2, .L156+12
+ 1607 10f8 64109FE5 		ldr	r1, .L156+16
+ 1608              	.LPIC167:
+ 1609 10fc 0CC08FE0 		add	ip, pc, ip
+ 1610              	.LPIC168:
+ 1611 1100 00008FE0 		add	r0, pc, r0
+ 1612              	.LPIC165:
+ 1613 1104 02208FE0 		add	r2, pc, r2
+ 1614              	.LPIC166:
+ 1615 1108 01108FE0 		add	r1, pc, r1
+ 1616              	.L153:
+ 1617 110c 01108DE9 		stmib	sp, {r0, ip}
+ 1618 1110 4500A0E3 		mov	r0, #69
+ 1619 1114 00408DE5 		str	r4, [sp]
+ 1620 1118 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1621 111c 0400A0E1 		mov	r0, r4
+ 1622 1120 10D08DE2 		add	sp, sp, #16
+ 1623              		@ sp needed
+ 1624 1124 1080BDE8 		pop	{r4, pc}
+ 1625              	.L150:
+ 1626              	.L154:
+ 1627 1128 38C09FE5 		ldr	ip, .L156+20
+ 1628 112c 0040E0E3 		mvn	r4, #0
+ 1629 1130 34009FE5 		ldr	r0, .L156+24
+ 1630 1134 7D3FA0E3 		mov	r3, #500
+ 1631 1138 30209FE5 		ldr	r2, .L156+28
+ 1632 113c 30109FE5 		ldr	r1, .L156+32
+ 1633              	.LPIC163:
+ 1634 1140 0CC08FE0 		add	ip, pc, ip
+ 1635              	.LPIC164:
+ 1636 1144 00008FE0 		add	r0, pc, r0
+ 1637              	.LPIC161:
+ 1638 1148 02208FE0 		add	r2, pc, r2
+ 1639              	.LPIC162:
+ 1640 114c 01108FE0 		add	r1, pc, r1
+ 1641 1150 EDFFFFEA 		b	.L153
+ 1642              	.L157:
+ 1643              		.align	2
+ 1644              	.L156:
+ 1645 1154 8C000000 		.word	.LANCHOR0-(.LPIC160+8)
+ 1646 1158 54000000 		.word	.LC36-(.LPIC167+8)
+ 1647 115c 54000000 		.word	.LC3-(.LPIC168+8)
+ 1648 1160 54000000 		.word	.LC35-(.LPIC165+8)
+ 1649 1164 54000000 		.word	.LC1-(.LPIC166+8)
+ 1650 1168 20000000 		.word	.LC2-(.LPIC163+8)
+ 1651 116c 20000000 		.word	.LC3-(.LPIC164+8)
+ 1652 1170 20000000 		.word	.LC35-(.LPIC161+8)
+ 1653 1174 20000000 		.word	.LC1-(.LPIC162+8)
+ 1655              		.section	.rodata.str1.4
+ 1656 03a1 000000   		.align	2
+ARM GAS  /tmp/ccBFmFol.s 			page 32
+
+
+ 1657              	.LC37:
+ 1658 03a4 45417069 		.ascii	"EApiGPIOGetLevel\000"
+ 1658      4750494F 
+ 1658      4765744C 
+ 1658      6576656C 
+ 1658      00
+ 1659 03b5 000000   		.align	2
+ 1660              	.LC38:
+ 1661 03b8 28426974 		.ascii	"(Bitmask==0)\000"
+ 1661      6D61736B 
+ 1661      3D3D3029 
+ 1661      00
+ 1662 03c5 000000   		.align	2
+ 1663              	.LC39:
+ 1664 03c8 28704C65 		.ascii	"(pLevel==NULL)\000"
+ 1664      76656C3D 
+ 1664      3D4E554C 
+ 1664      4C2900
+ 1665              		.text
+ 1666              		.align	2
+ 1667              		.global	EApiGPIOGetLevel
+ 1668              		.syntax unified
+ 1669              		.arm
+ 1670              		.fpu vfpv3
+ 1672              	EApiGPIOGetLevel:
+ 1673              		@ args = 0, pretend = 0, frame = 0
+ 1674              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1675 1178 10402DE9 		push	{r4, lr}
+ 1676 117c 10D04DE2 		sub	sp, sp, #16
+ 1677 1180 C4E09FE5 		ldr	lr, .L168
+ 1678              	.LPIC169:
+ 1679 1184 0EE08FE0 		add	lr, pc, lr
+ 1680 1188 00E09EE5 		ldr	lr, [lr]
+ 1681 118c 00005EE3 		cmp	lr, #0
+ 1682 1190 0600000A 		beq	.L165
+ 1683 1194 000051E3 		cmp	r1, #0
+ 1684 1198 1500000A 		beq	.L166
+ 1685 119c 000052E3 		cmp	r2, #0
+ 1686 11a0 1E00000A 		beq	.L167
+ 1687 11a4 10D08DE2 		add	sp, sp, #16
+ 1688              		@ sp needed
+ 1689 11a8 1040BDE8 		pop	{r4, lr}
+ 1690 11ac FEFFFFEA 		b	EApiGPIOGetLevelEmul(PLT)
+ 1691              	.L165:
+ 1692 11b0 98C09FE5 		ldr	ip, .L168+4
+ 1693 11b4 0040E0E3 		mvn	r4, #0
+ 1694 11b8 94009FE5 		ldr	r0, .L168+8
+ 1695 11bc 173200E3 		movw	r3, #535
+ 1696 11c0 90209FE5 		ldr	r2, .L168+12
+ 1697 11c4 90109FE5 		ldr	r1, .L168+16
+ 1698              	.LPIC172:
+ 1699 11c8 0CC08FE0 		add	ip, pc, ip
+ 1700              	.LPIC173:
+ 1701 11cc 00008FE0 		add	r0, pc, r0
+ 1702              	.LPIC170:
+ 1703 11d0 02208FE0 		add	r2, pc, r2
+ 1704              	.LPIC171:
+ARM GAS  /tmp/ccBFmFol.s 			page 33
+
+
+ 1705 11d4 01108FE0 		add	r1, pc, r1
+ 1706              	.L164:
+ 1707 11d8 01108DE9 		stmib	sp, {r0, ip}
+ 1708 11dc 4500A0E3 		mov	r0, #69
+ 1709 11e0 00408DE5 		str	r4, [sp]
+ 1710 11e4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1711 11e8 0400A0E1 		mov	r0, r4
+ 1712 11ec 10D08DE2 		add	sp, sp, #16
+ 1713              		@ sp needed
+ 1714 11f0 1080BDE8 		pop	{r4, pc}
+ 1715              	.L160:
+ 1716              	.L166:
+ 1717 11f4 64C09FE5 		ldr	ip, .L168+20
+ 1718 11f8 014CE0E3 		mvn	r4, #256
+ 1719 11fc 60009FE5 		ldr	r0, .L168+24
+ 1720 1200 863FA0E3 		mov	r3, #536
+ 1721 1204 5C209FE5 		ldr	r2, .L168+28
+ 1722 1208 5C109FE5 		ldr	r1, .L168+32
+ 1723              	.LPIC176:
+ 1724 120c 0CC08FE0 		add	ip, pc, ip
+ 1725              	.LPIC177:
+ 1726 1210 00008FE0 		add	r0, pc, r0
+ 1727              	.LPIC174:
+ 1728 1214 02208FE0 		add	r2, pc, r2
+ 1729              	.LPIC175:
+ 1730 1218 01108FE0 		add	r1, pc, r1
+ 1731 121c EDFFFFEA 		b	.L164
+ 1732              	.L167:
+ 1733 1220 48C09FE5 		ldr	ip, .L168+36
+ 1734 1224 014CE0E3 		mvn	r4, #256
+ 1735 1228 44009FE5 		ldr	r0, .L168+40
+ 1736 122c 193200E3 		movw	r3, #537
+ 1737 1230 40209FE5 		ldr	r2, .L168+44
+ 1738 1234 40109FE5 		ldr	r1, .L168+48
+ 1739              	.LPIC180:
+ 1740 1238 0CC08FE0 		add	ip, pc, ip
+ 1741              	.LPIC181:
+ 1742 123c 00008FE0 		add	r0, pc, r0
+ 1743              	.LPIC178:
+ 1744 1240 02208FE0 		add	r2, pc, r2
+ 1745              	.LPIC179:
+ 1746 1244 01108FE0 		add	r1, pc, r1
+ 1747 1248 E2FFFFEA 		b	.L164
+ 1748              	.L169:
+ 1749              		.align	2
+ 1750              	.L168:
+ 1751 124c C0000000 		.word	.LANCHOR0-(.LPIC169+8)
+ 1752 1250 80000000 		.word	.LC2-(.LPIC172+8)
+ 1753 1254 80000000 		.word	.LC3-(.LPIC173+8)
+ 1754 1258 80000000 		.word	.LC37-(.LPIC170+8)
+ 1755 125c 80000000 		.word	.LC1-(.LPIC171+8)
+ 1756 1260 4C000000 		.word	.LC38-(.LPIC176+8)
+ 1757 1264 4C000000 		.word	.LC3-(.LPIC177+8)
+ 1758 1268 4C000000 		.word	.LC37-(.LPIC174+8)
+ 1759 126c 4C000000 		.word	.LC1-(.LPIC175+8)
+ 1760 1270 30000000 		.word	.LC39-(.LPIC180+8)
+ 1761 1274 30000000 		.word	.LC3-(.LPIC181+8)
+ARM GAS  /tmp/ccBFmFol.s 			page 34
+
+
+ 1762 1278 30000000 		.word	.LC37-(.LPIC178+8)
+ 1763 127c 30000000 		.word	.LC1-(.LPIC179+8)
+ 1765              		.section	.rodata.str1.4
+ 1766 03d7 00       		.align	2
+ 1767              	.LC40:
+ 1768 03d8 45417069 		.ascii	"EApiGPIOSetLevel\000"
+ 1768      4750494F 
+ 1768      5365744C 
+ 1768      6576656C 
+ 1768      00
+ 1769              		.text
+ 1770              		.align	2
+ 1771              		.global	EApiGPIOSetLevel
+ 1772              		.syntax unified
+ 1773              		.arm
+ 1774              		.fpu vfpv3
+ 1776              	EApiGPIOSetLevel:
+ 1777              		@ args = 0, pretend = 0, frame = 0
+ 1778              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1779 1280 98309FE5 		ldr	r3, .L178
+ 1780 1284 10402DE9 		push	{r4, lr}
+ 1781 1288 10D04DE2 		sub	sp, sp, #16
+ 1782              	.LPIC182:
+ 1783 128c 03308FE0 		add	r3, pc, r3
+ 1784 1290 003093E5 		ldr	r3, [r3]
+ 1785 1294 000053E3 		cmp	r3, #0
+ 1786 1298 1500000A 		beq	.L176
+ 1787 129c 000051E3 		cmp	r1, #0
+ 1788 12a0 0200000A 		beq	.L177
+ 1789 12a4 10D08DE2 		add	sp, sp, #16
+ 1790              		@ sp needed
+ 1791 12a8 1040BDE8 		pop	{r4, lr}
+ 1792 12ac FEFFFFEA 		b	EApiGPIOSetLevelEmul(PLT)
+ 1793              	.L177:
+ 1794 12b0 6CC09FE5 		ldr	ip, .L178+4
+ 1795 12b4 014CE0E3 		mvn	r4, #256
+ 1796 12b8 68009FE5 		ldr	r0, .L178+8
+ 1797 12bc 8B3FA0E3 		mov	r3, #556
+ 1798 12c0 64209FE5 		ldr	r2, .L178+12
+ 1799 12c4 64109FE5 		ldr	r1, .L178+16
+ 1800              	.LPIC189:
+ 1801 12c8 0CC08FE0 		add	ip, pc, ip
+ 1802              	.LPIC190:
+ 1803 12cc 00008FE0 		add	r0, pc, r0
+ 1804              	.LPIC187:
+ 1805 12d0 02208FE0 		add	r2, pc, r2
+ 1806              	.LPIC188:
+ 1807 12d4 01108FE0 		add	r1, pc, r1
+ 1808              	.L175:
+ 1809 12d8 01108DE9 		stmib	sp, {r0, ip}
+ 1810 12dc 4500A0E3 		mov	r0, #69
+ 1811 12e0 00408DE5 		str	r4, [sp]
+ 1812 12e4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1813 12e8 0400A0E1 		mov	r0, r4
+ 1814 12ec 10D08DE2 		add	sp, sp, #16
+ 1815              		@ sp needed
+ 1816 12f0 1080BDE8 		pop	{r4, pc}
+ARM GAS  /tmp/ccBFmFol.s 			page 35
+
+
+ 1817              	.L172:
+ 1818              	.L176:
+ 1819 12f4 38C09FE5 		ldr	ip, .L178+20
+ 1820 12f8 0040E0E3 		mvn	r4, #0
+ 1821 12fc 34009FE5 		ldr	r0, .L178+24
+ 1822 1300 2B3200E3 		movw	r3, #555
+ 1823 1304 30209FE5 		ldr	r2, .L178+28
+ 1824 1308 30109FE5 		ldr	r1, .L178+32
+ 1825              	.LPIC185:
+ 1826 130c 0CC08FE0 		add	ip, pc, ip
+ 1827              	.LPIC186:
+ 1828 1310 00008FE0 		add	r0, pc, r0
+ 1829              	.LPIC183:
+ 1830 1314 02208FE0 		add	r2, pc, r2
+ 1831              	.LPIC184:
+ 1832 1318 01108FE0 		add	r1, pc, r1
+ 1833 131c EDFFFFEA 		b	.L175
+ 1834              	.L179:
+ 1835              		.align	2
+ 1836              	.L178:
+ 1837 1320 8C000000 		.word	.LANCHOR0-(.LPIC182+8)
+ 1838 1324 54000000 		.word	.LC38-(.LPIC189+8)
+ 1839 1328 54000000 		.word	.LC3-(.LPIC190+8)
+ 1840 132c 54000000 		.word	.LC40-(.LPIC187+8)
+ 1841 1330 54000000 		.word	.LC1-(.LPIC188+8)
+ 1842 1334 20000000 		.word	.LC2-(.LPIC185+8)
+ 1843 1338 20000000 		.word	.LC3-(.LPIC186+8)
+ 1844 133c 20000000 		.word	.LC40-(.LPIC183+8)
+ 1845 1340 20000000 		.word	.LC1-(.LPIC184+8)
+ 1847              		.section	.rodata.str1.4
+ 1848 03e9 000000   		.align	2
+ 1849              	.LC41:
+ 1850 03ec 45417069 		.ascii	"EApiGPIOGetDirection\000"
+ 1850      4750494F 
+ 1850      47657444 
+ 1850      69726563 
+ 1850      74696F6E 
+ 1851 0401 000000   		.align	2
+ 1852              	.LC42:
+ 1853 0404 28704469 		.ascii	"(pDirection==NULL)\000"
+ 1853      72656374 
+ 1853      696F6E3D 
+ 1853      3D4E554C 
+ 1853      4C2900
+ 1854              		.text
+ 1855              		.align	2
+ 1856              		.global	EApiGPIOGetDirection
+ 1857              		.syntax unified
+ 1858              		.arm
+ 1859              		.fpu vfpv3
+ 1861              	EApiGPIOGetDirection:
+ 1862              		@ args = 0, pretend = 0, frame = 0
+ 1863              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1864 1344 10402DE9 		push	{r4, lr}
+ 1865 1348 10D04DE2 		sub	sp, sp, #16
+ 1866 134c C4E09FE5 		ldr	lr, .L190
+ 1867              	.LPIC191:
+ARM GAS  /tmp/ccBFmFol.s 			page 36
+
+
+ 1868 1350 0EE08FE0 		add	lr, pc, lr
+ 1869 1354 00E09EE5 		ldr	lr, [lr]
+ 1870 1358 00005EE3 		cmp	lr, #0
+ 1871 135c 0600000A 		beq	.L187
+ 1872 1360 000051E3 		cmp	r1, #0
+ 1873 1364 1500000A 		beq	.L188
+ 1874 1368 000052E3 		cmp	r2, #0
+ 1875 136c 1E00000A 		beq	.L189
+ 1876 1370 10D08DE2 		add	sp, sp, #16
+ 1877              		@ sp needed
+ 1878 1374 1040BDE8 		pop	{r4, lr}
+ 1879 1378 FEFFFFEA 		b	EApiGPIOGetDirectionEmul(PLT)
+ 1880              	.L187:
+ 1881 137c 98C09FE5 		ldr	ip, .L190+4
+ 1882 1380 0040E0E3 		mvn	r4, #0
+ 1883 1384 94009FE5 		ldr	r0, .L190+8
+ 1884 1388 3E3200E3 		movw	r3, #574
+ 1885 138c 90209FE5 		ldr	r2, .L190+12
+ 1886 1390 90109FE5 		ldr	r1, .L190+16
+ 1887              	.LPIC194:
+ 1888 1394 0CC08FE0 		add	ip, pc, ip
+ 1889              	.LPIC195:
+ 1890 1398 00008FE0 		add	r0, pc, r0
+ 1891              	.LPIC192:
+ 1892 139c 02208FE0 		add	r2, pc, r2
+ 1893              	.LPIC193:
+ 1894 13a0 01108FE0 		add	r1, pc, r1
+ 1895              	.L186:
+ 1896 13a4 01108DE9 		stmib	sp, {r0, ip}
+ 1897 13a8 4500A0E3 		mov	r0, #69
+ 1898 13ac 00408DE5 		str	r4, [sp]
+ 1899 13b0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 1900 13b4 0400A0E1 		mov	r0, r4
+ 1901 13b8 10D08DE2 		add	sp, sp, #16
+ 1902              		@ sp needed
+ 1903 13bc 1080BDE8 		pop	{r4, pc}
+ 1904              	.L182:
+ 1905              	.L188:
+ 1906 13c0 64C09FE5 		ldr	ip, .L190+20
+ 1907 13c4 014CE0E3 		mvn	r4, #256
+ 1908 13c8 60009FE5 		ldr	r0, .L190+24
+ 1909 13cc 3F3200E3 		movw	r3, #575
+ 1910 13d0 5C209FE5 		ldr	r2, .L190+28
+ 1911 13d4 5C109FE5 		ldr	r1, .L190+32
+ 1912              	.LPIC198:
+ 1913 13d8 0CC08FE0 		add	ip, pc, ip
+ 1914              	.LPIC199:
+ 1915 13dc 00008FE0 		add	r0, pc, r0
+ 1916              	.LPIC196:
+ 1917 13e0 02208FE0 		add	r2, pc, r2
+ 1918              	.LPIC197:
+ 1919 13e4 01108FE0 		add	r1, pc, r1
+ 1920 13e8 EDFFFFEA 		b	.L186
+ 1921              	.L189:
+ 1922 13ec 48C09FE5 		ldr	ip, .L190+36
+ 1923 13f0 014CE0E3 		mvn	r4, #256
+ 1924 13f4 44009FE5 		ldr	r0, .L190+40
+ARM GAS  /tmp/ccBFmFol.s 			page 37
+
+
+ 1925 13f8 093DA0E3 		mov	r3, #576
+ 1926 13fc 40209FE5 		ldr	r2, .L190+44
+ 1927 1400 40109FE5 		ldr	r1, .L190+48
+ 1928              	.LPIC202:
+ 1929 1404 0CC08FE0 		add	ip, pc, ip
+ 1930              	.LPIC203:
+ 1931 1408 00008FE0 		add	r0, pc, r0
+ 1932              	.LPIC200:
+ 1933 140c 02208FE0 		add	r2, pc, r2
+ 1934              	.LPIC201:
+ 1935 1410 01108FE0 		add	r1, pc, r1
+ 1936 1414 E2FFFFEA 		b	.L186
+ 1937              	.L191:
+ 1938              		.align	2
+ 1939              	.L190:
+ 1940 1418 C0000000 		.word	.LANCHOR0-(.LPIC191+8)
+ 1941 141c 80000000 		.word	.LC2-(.LPIC194+8)
+ 1942 1420 80000000 		.word	.LC3-(.LPIC195+8)
+ 1943 1424 80000000 		.word	.LC41-(.LPIC192+8)
+ 1944 1428 80000000 		.word	.LC1-(.LPIC193+8)
+ 1945 142c 4C000000 		.word	.LC38-(.LPIC198+8)
+ 1946 1430 4C000000 		.word	.LC3-(.LPIC199+8)
+ 1947 1434 4C000000 		.word	.LC41-(.LPIC196+8)
+ 1948 1438 4C000000 		.word	.LC1-(.LPIC197+8)
+ 1949 143c 30000000 		.word	.LC42-(.LPIC202+8)
+ 1950 1440 30000000 		.word	.LC3-(.LPIC203+8)
+ 1951 1444 30000000 		.word	.LC41-(.LPIC200+8)
+ 1952 1448 30000000 		.word	.LC1-(.LPIC201+8)
+ 1954              		.section	.rodata.str1.4
+ 1955 0417 00       		.align	2
+ 1956              	.LC43:
+ 1957 0418 45417069 		.ascii	"EApiGPIOSetDirection\000"
+ 1957      4750494F 
+ 1957      53657444 
+ 1957      69726563 
+ 1957      74696F6E 
+ 1958              		.text
+ 1959              		.align	2
+ 1960              		.global	EApiGPIOSetDirection
+ 1961              		.syntax unified
+ 1962              		.arm
+ 1963              		.fpu vfpv3
+ 1965              	EApiGPIOSetDirection:
+ 1966              		@ args = 0, pretend = 0, frame = 0
+ 1967              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1968 144c 98309FE5 		ldr	r3, .L200
+ 1969 1450 10402DE9 		push	{r4, lr}
+ 1970 1454 10D04DE2 		sub	sp, sp, #16
+ 1971              	.LPIC204:
+ 1972 1458 03308FE0 		add	r3, pc, r3
+ 1973 145c 003093E5 		ldr	r3, [r3]
+ 1974 1460 000053E3 		cmp	r3, #0
+ 1975 1464 1500000A 		beq	.L198
+ 1976 1468 000051E3 		cmp	r1, #0
+ 1977 146c 0200000A 		beq	.L199
+ 1978 1470 10D08DE2 		add	sp, sp, #16
+ 1979              		@ sp needed
+ARM GAS  /tmp/ccBFmFol.s 			page 38
+
+
+ 1980 1474 1040BDE8 		pop	{r4, lr}
+ 1981 1478 FEFFFFEA 		b	EApiGPIOSetDirectionEmul(PLT)
+ 1982              	.L199:
+ 1983 147c 6CC09FE5 		ldr	ip, .L200+4
+ 1984 1480 014CE0E3 		mvn	r4, #256
+ 1985 1484 68009FE5 		ldr	r0, .L200+8
+ 1986 1488 533200E3 		movw	r3, #595
+ 1987 148c 64209FE5 		ldr	r2, .L200+12
+ 1988 1490 64109FE5 		ldr	r1, .L200+16
+ 1989              	.LPIC211:
+ 1990 1494 0CC08FE0 		add	ip, pc, ip
+ 1991              	.LPIC212:
+ 1992 1498 00008FE0 		add	r0, pc, r0
+ 1993              	.LPIC209:
+ 1994 149c 02208FE0 		add	r2, pc, r2
+ 1995              	.LPIC210:
+ 1996 14a0 01108FE0 		add	r1, pc, r1
+ 1997              	.L197:
+ 1998 14a4 01108DE9 		stmib	sp, {r0, ip}
+ 1999 14a8 4500A0E3 		mov	r0, #69
+ 2000 14ac 00408DE5 		str	r4, [sp]
+ 2001 14b0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2002 14b4 0400A0E1 		mov	r0, r4
+ 2003 14b8 10D08DE2 		add	sp, sp, #16
+ 2004              		@ sp needed
+ 2005 14bc 1080BDE8 		pop	{r4, pc}
+ 2006              	.L194:
+ 2007              	.L198:
+ 2008 14c0 38C09FE5 		ldr	ip, .L200+20
+ 2009 14c4 0040E0E3 		mvn	r4, #0
+ 2010 14c8 34009FE5 		ldr	r0, .L200+24
+ 2011 14cc 523200E3 		movw	r3, #594
+ 2012 14d0 30209FE5 		ldr	r2, .L200+28
+ 2013 14d4 30109FE5 		ldr	r1, .L200+32
+ 2014              	.LPIC207:
+ 2015 14d8 0CC08FE0 		add	ip, pc, ip
+ 2016              	.LPIC208:
+ 2017 14dc 00008FE0 		add	r0, pc, r0
+ 2018              	.LPIC205:
+ 2019 14e0 02208FE0 		add	r2, pc, r2
+ 2020              	.LPIC206:
+ 2021 14e4 01108FE0 		add	r1, pc, r1
+ 2022 14e8 EDFFFFEA 		b	.L197
+ 2023              	.L201:
+ 2024              		.align	2
+ 2025              	.L200:
+ 2026 14ec 8C000000 		.word	.LANCHOR0-(.LPIC204+8)
+ 2027 14f0 54000000 		.word	.LC38-(.LPIC211+8)
+ 2028 14f4 54000000 		.word	.LC3-(.LPIC212+8)
+ 2029 14f8 54000000 		.word	.LC43-(.LPIC209+8)
+ 2030 14fc 54000000 		.word	.LC1-(.LPIC210+8)
+ 2031 1500 20000000 		.word	.LC2-(.LPIC207+8)
+ 2032 1504 20000000 		.word	.LC3-(.LPIC208+8)
+ 2033 1508 20000000 		.word	.LC43-(.LPIC205+8)
+ 2034 150c 20000000 		.word	.LC1-(.LPIC206+8)
+ 2036              		.section	.rodata.str1.4
+ 2037 042d 000000   		.align	2
+ARM GAS  /tmp/ccBFmFol.s 			page 39
+
+
+ 2038              	.LC44:
+ 2039 0430 45417069 		.ascii	"EApiGPIOGetDirectionCaps\000"
+ 2039      4750494F 
+ 2039      47657444 
+ 2039      69726563 
+ 2039      74696F6E 
+ 2040 0449 000000   		.align	2
+ 2041              	.LC45:
+ 2042 044c 2828704F 		.ascii	"((pOutputs==NULL)&&(pInputs==NULL))\000"
+ 2042      75747075 
+ 2042      74733D3D 
+ 2042      4E554C4C 
+ 2042      29262628 
+ 2043              		.text
+ 2044              		.align	2
+ 2045              		.global	EApiGPIOGetDirectionCaps
+ 2046              		.syntax unified
+ 2047              		.arm
+ 2048              		.fpu vfpv3
+ 2050              	EApiGPIOGetDirectionCaps:
+ 2051              		@ args = 0, pretend = 0, frame = 8
+ 2052              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2053 1510 EC309FE5 		ldr	r3, .L214
+ 2054 1514 10402DE9 		push	{r4, lr}
+ 2055 1518 18D04DE2 		sub	sp, sp, #24
+ 2056 151c E4E09FE5 		ldr	lr, .L214+4
+ 2057              	.LPIC213:
+ 2058 1520 03308FE0 		add	r3, pc, r3
+ 2059 1524 E0C09FE5 		ldr	ip, .L214+8
+ 2060 1528 003093E5 		ldr	r3, [r3]
+ 2061              	.LPIC223:
+ 2062 152c 0EE08FE0 		add	lr, pc, lr
+ 2063 1530 0CC09EE7 		ldr	ip, [lr, ip]
+ 2064 1534 000053E3 		cmp	r3, #0
+ 2065 1538 00C09CE5 		ldr	ip, [ip]
+ 2066 153c 14C08DE5 		str	ip, [sp, #20]
+ 2067 1540 00C0A0E3 		mov	ip, #0
+ 2068 1544 1200000A 		beq	.L211
+ 2069 1548 013092E1 		orrs	r3, r2, r1
+ 2070 154c 2000000A 		beq	.L212
+ 2071 1550 000051E3 		cmp	r1, #0
+ 2072 1554 10108D02 		addeq	r1, sp, #16
+ 2073 1558 0100000A 		beq	.L206
+ 2074 155c 000052E3 		cmp	r2, #0
+ 2075 1560 10208D02 		addeq	r2, sp, #16
+ 2076              	.L206:
+ 2077 1564 FEFFFFEB 		bl	EApiGPIOGetDirectionCapsEmul(PLT)
+ 2078              	.L204:
+ 2079              	.L202:
+ 2080 1568 A0209FE5 		ldr	r2, .L214+12
+ 2081 156c 98309FE5 		ldr	r3, .L214+8
+ 2082              	.LPIC222:
+ 2083 1570 02208FE0 		add	r2, pc, r2
+ 2084 1574 033092E7 		ldr	r3, [r2, r3]
+ 2085 1578 002093E5 		ldr	r2, [r3]
+ 2086 157c 14309DE5 		ldr	r3, [sp, #20]
+ 2087 1580 022033E0 		eors	r2, r3, r2
+ARM GAS  /tmp/ccBFmFol.s 			page 40
+
+
+ 2088 1584 0030A0E3 		mov	r3, #0
+ 2089 1588 1C00001A 		bne	.L213
+ 2090 158c 18D08DE2 		add	sp, sp, #24
+ 2091              		@ sp needed
+ 2092 1590 1080BDE8 		pop	{r4, pc}
+ 2093              	.L211:
+ 2094 1594 78C09FE5 		ldr	ip, .L214+16
+ 2095 1598 0040E0E3 		mvn	r4, #0
+ 2096 159c 74009FE5 		ldr	r0, .L214+20
+ 2097 15a0 693200E3 		movw	r3, #617
+ 2098 15a4 70209FE5 		ldr	r2, .L214+24
+ 2099 15a8 70109FE5 		ldr	r1, .L214+28
+ 2100              	.LPIC216:
+ 2101 15ac 0CC08FE0 		add	ip, pc, ip
+ 2102              	.LPIC217:
+ 2103 15b0 00008FE0 		add	r0, pc, r0
+ 2104              	.LPIC214:
+ 2105 15b4 02208FE0 		add	r2, pc, r2
+ 2106              	.LPIC215:
+ 2107 15b8 01108FE0 		add	r1, pc, r1
+ 2108              	.L210:
+ 2109 15bc 01108DE9 		stmib	sp, {r0, ip}
+ 2110 15c0 4500A0E3 		mov	r0, #69
+ 2111 15c4 00408DE5 		str	r4, [sp]
+ 2112 15c8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2113 15cc 0400A0E1 		mov	r0, r4
+ 2114 15d0 E4FFFFEA 		b	.L202
+ 2115              	.L212:
+ 2116 15d4 48C09FE5 		ldr	ip, .L214+32
+ 2117 15d8 014CE0E3 		mvn	r4, #256
+ 2118 15dc 44009FE5 		ldr	r0, .L214+36
+ 2119 15e0 6A3200E3 		movw	r3, #618
+ 2120 15e4 40209FE5 		ldr	r2, .L214+40
+ 2121 15e8 40109FE5 		ldr	r1, .L214+44
+ 2122              	.LPIC220:
+ 2123 15ec 0CC08FE0 		add	ip, pc, ip
+ 2124              	.LPIC221:
+ 2125 15f0 00008FE0 		add	r0, pc, r0
+ 2126              	.LPIC218:
+ 2127 15f4 02208FE0 		add	r2, pc, r2
+ 2128              	.LPIC219:
+ 2129 15f8 01108FE0 		add	r1, pc, r1
+ 2130 15fc EEFFFFEA 		b	.L210
+ 2131              	.L213:
+ 2132 1600 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 2133              	.L215:
+ 2134              		.align	2
+ 2135              	.L214:
+ 2136 1604 DC000000 		.word	.LANCHOR0-(.LPIC213+8)
+ 2137 1608 D4000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC223+8)
+ 2138 160c 00000000 		.word	__stack_chk_guard(GOT)
+ 2139 1610 98000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC222+8)
+ 2140 1614 60000000 		.word	.LC2-(.LPIC216+8)
+ 2141 1618 60000000 		.word	.LC3-(.LPIC217+8)
+ 2142 161c 60000000 		.word	.LC44-(.LPIC214+8)
+ 2143 1620 60000000 		.word	.LC1-(.LPIC215+8)
+ 2144 1624 30000000 		.word	.LC45-(.LPIC220+8)
+ARM GAS  /tmp/ccBFmFol.s 			page 41
+
+
+ 2145 1628 30000000 		.word	.LC3-(.LPIC221+8)
+ 2146 162c 30000000 		.word	.LC44-(.LPIC218+8)
+ 2147 1630 30000000 		.word	.LC1-(.LPIC219+8)
+ 2149              		.section	.rodata.str1.4
+ 2150              		.align	2
+ 2151              	.LC46:
+ 2152 0470 45417069 		.ascii	"EApiLibInitialize\000"
+ 2152      4C696249 
+ 2152      6E697469 
+ 2152      616C697A 
+ 2152      6500
+ 2153 0482 0000     		.align	2
+ 2154              	.LC47:
+ 2155 0484 4C696272 		.ascii	"Library Already Initialized\000"
+ 2155      61727920 
+ 2155      416C7265 
+ 2155      61647920 
+ 2155      496E6974 
+ 2156              		.text
+ 2157              		.align	2
+ 2158              		.global	EApiLibInitialize
+ 2159              		.syntax unified
+ 2160              		.arm
+ 2161              		.fpu vfpv3
+ 2163              	EApiLibInitialize:
+ 2164              		@ args = 0, pretend = 0, frame = 0
+ 2165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2166 1634 A8309FE5 		ldr	r3, .L221
+ 2167 1638 10402DE9 		push	{r4, lr}
+ 2168 163c 10D04DE2 		sub	sp, sp, #16
+ 2169              	.LPIC224:
+ 2170 1640 03308FE0 		add	r3, pc, r3
+ 2171 1644 002093E5 		ldr	r2, [r3]
+ 2172 1648 010052E3 		cmp	r2, #1
+ 2173 164c 1300000A 		beq	.L220
+ 2174              	.L218:
+ 2175 1650 0120A0E3 		mov	r2, #1
+ 2176 1654 0040A0E3 		mov	r4, #0
+ 2177 1658 002083E5 		str	r2, [r3]
+ 2178 165c FEFFFFEB 		bl	EApiInitLib(PLT)
+ 2179 1660 80C09FE5 		ldr	ip, .L221+4
+ 2180 1664 A33FA0E3 		mov	r3, #652
+ 2181 1668 7C009FE5 		ldr	r0, .L221+8
+ 2182 166c 7C209FE5 		ldr	r2, .L221+12
+ 2183 1670 7C109FE5 		ldr	r1, .L221+16
+ 2184              	.LPIC232:
+ 2185 1674 0CC08FE0 		add	ip, pc, ip
+ 2186              	.LPIC233:
+ 2187 1678 00008FE0 		add	r0, pc, r0
+ 2188 167c 00408DE5 		str	r4, [sp]
+ 2189 1680 01108DE9 		stmib	sp, {r0, ip}
+ 2190              	.LPIC230:
+ 2191 1684 02208FE0 		add	r2, pc, r2
+ 2192              	.LPIC231:
+ 2193 1688 01108FE0 		add	r1, pc, r1
+ 2194 168c 4C00A0E3 		mov	r0, #76
+ 2195 1690 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ARM GAS  /tmp/ccBFmFol.s 			page 42
+
+
+ 2196 1694 0400A0E1 		mov	r0, r4
+ 2197 1698 10D08DE2 		add	sp, sp, #16
+ 2198              		@ sp needed
+ 2199 169c 1080BDE8 		pop	{r4, pc}
+ 2200              	.L220:
+ 2201 16a0 50C09FE5 		ldr	ip, .L221+20
+ 2202 16a4 0040E0E3 		mvn	r4, #0
+ 2203 16a8 4C009FE5 		ldr	r0, .L221+24
+ 2204 16ac 893200E3 		movw	r3, #649
+ 2205 16b0 48209FE5 		ldr	r2, .L221+28
+ 2206 16b4 48109FE5 		ldr	r1, .L221+32
+ 2207              	.LPIC227:
+ 2208 16b8 0CC08FE0 		add	ip, pc, ip
+ 2209              	.LPIC228:
+ 2210 16bc 00008FE0 		add	r0, pc, r0
+ 2211 16c0 00408DE5 		str	r4, [sp]
+ 2212 16c4 01108DE9 		stmib	sp, {r0, ip}
+ 2213              	.LPIC225:
+ 2214 16c8 02208FE0 		add	r2, pc, r2
+ 2215              	.LPIC226:
+ 2216 16cc 01108FE0 		add	r1, pc, r1
+ 2217 16d0 4500A0E3 		mov	r0, #69
+ 2218 16d4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2219 16d8 0400A0E1 		mov	r0, r4
+ 2220 16dc 10D08DE2 		add	sp, sp, #16
+ 2221              		@ sp needed
+ 2222 16e0 1080BDE8 		pop	{r4, pc}
+ 2223              	.L222:
+ 2224              		.align	2
+ 2225              	.L221:
+ 2226 16e4 9C000000 		.word	.LANCHOR0-(.LPIC224+8)
+ 2227 16e8 6C000000 		.word	.LC28-(.LPIC232+8)
+ 2228 16ec 6C000000 		.word	.LC3-(.LPIC233+8)
+ 2229 16f0 64000000 		.word	.LC46-(.LPIC230+8)
+ 2230 16f4 64000000 		.word	.LC1-(.LPIC231+8)
+ 2231 16f8 38000000 		.word	.LC47-(.LPIC227+8)
+ 2232 16fc 38000000 		.word	.LC3-(.LPIC228+8)
+ 2233 1700 30000000 		.word	.LC46-(.LPIC225+8)
+ 2234 1704 30000000 		.word	.LC1-(.LPIC226+8)
+ 2236              		.section	.rodata.str1.4
+ 2237              		.align	2
+ 2238              	.LC48:
+ 2239 04a0 45417069 		.ascii	"EApiLibUnInitialize\000"
+ 2239      4C696255 
+ 2239      6E496E69 
+ 2239      7469616C 
+ 2239      697A6500 
+ 2240              		.text
+ 2241              		.align	2
+ 2242              		.global	EApiLibUnInitialize
+ 2243              		.syntax unified
+ 2244              		.arm
+ 2245              		.fpu vfpv3
+ 2247              	EApiLibUnInitialize:
+ 2248              		@ args = 0, pretend = 0, frame = 0
+ 2249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2250 1708 30402DE9 		push	{r4, r5, lr}
+ARM GAS  /tmp/ccBFmFol.s 			page 43
+
+
+ 2251 170c 14D04DE2 		sub	sp, sp, #20
+ 2252 1710 A0509FE5 		ldr	r5, .L228
+ 2253              	.LPIC234:
+ 2254 1714 05508FE0 		add	r5, pc, r5
+ 2255 1718 003095E5 		ldr	r3, [r5]
+ 2256 171c 000053E3 		cmp	r3, #0
+ 2257 1720 1300000A 		beq	.L227
+ 2258              	.L225:
+ 2259 1724 FEFFFFEB 		bl	EApiUninitLib(PLT)
+ 2260 1728 8C109FE5 		ldr	r1, .L228+4
+ 2261 172c 0040A0E3 		mov	r4, #0
+ 2262 1730 88009FE5 		ldr	r0, .L228+8
+ 2263 1734 993200E3 		movw	r3, #665
+ 2264 1738 84209FE5 		ldr	r2, .L228+12
+ 2265              	.LPIC243:
+ 2266 173c 01108FE0 		add	r1, pc, r1
+ 2267 1740 00408DE5 		str	r4, [sp]
+ 2268 1744 04108DE5 		str	r1, [sp, #4]
+ 2269              	.LPIC242:
+ 2270 1748 00008FE0 		add	r0, pc, r0
+ 2271 174c 74109FE5 		ldr	r1, .L228+16
+ 2272              	.LPIC240:
+ 2273 1750 02208FE0 		add	r2, pc, r2
+ 2274 1754 08008DE5 		str	r0, [sp, #8]
+ 2275 1758 4C00A0E3 		mov	r0, #76
+ 2276 175c 004085E5 		str	r4, [r5]
+ 2277              	.LPIC241:
+ 2278 1760 01108FE0 		add	r1, pc, r1
+ 2279 1764 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2280 1768 0400A0E1 		mov	r0, r4
+ 2281 176c 14D08DE2 		add	sp, sp, #20
+ 2282              		@ sp needed
+ 2283 1770 3080BDE8 		pop	{r4, r5, pc}
+ 2284              	.L227:
+ 2285 1774 50C09FE5 		ldr	ip, .L228+20
+ 2286 1778 0040E0E3 		mvn	r4, #0
+ 2287 177c 4C009FE5 		ldr	r0, .L228+24
+ 2288 1780 963200E3 		movw	r3, #662
+ 2289 1784 48209FE5 		ldr	r2, .L228+28
+ 2290 1788 48109FE5 		ldr	r1, .L228+32
+ 2291              	.LPIC237:
+ 2292 178c 0CC08FE0 		add	ip, pc, ip
+ 2293              	.LPIC238:
+ 2294 1790 00008FE0 		add	r0, pc, r0
+ 2295 1794 00408DE5 		str	r4, [sp]
+ 2296 1798 01108DE9 		stmib	sp, {r0, ip}
+ 2297              	.LPIC235:
+ 2298 179c 02208FE0 		add	r2, pc, r2
+ 2299              	.LPIC236:
+ 2300 17a0 01108FE0 		add	r1, pc, r1
+ 2301 17a4 4500A0E3 		mov	r0, #69
+ 2302 17a8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2303 17ac 0400A0E1 		mov	r0, r4
+ 2304 17b0 14D08DE2 		add	sp, sp, #20
+ 2305              		@ sp needed
+ 2306 17b4 3080BDE8 		pop	{r4, r5, pc}
+ 2307              	.L229:
+ARM GAS  /tmp/ccBFmFol.s 			page 44
+
+
+ 2308              		.align	2
+ 2309              	.L228:
+ 2310 17b8 9C000000 		.word	.LANCHOR0-(.LPIC234+8)
+ 2311 17bc 78000000 		.word	.LC3-(.LPIC243+8)
+ 2312 17c0 70000000 		.word	.LC28-(.LPIC242+8)
+ 2313 17c4 6C000000 		.word	.LC48-(.LPIC240+8)
+ 2314 17c8 60000000 		.word	.LC1-(.LPIC241+8)
+ 2315 17cc 38000000 		.word	.LC2-(.LPIC237+8)
+ 2316 17d0 38000000 		.word	.LC3-(.LPIC238+8)
+ 2317 17d4 30000000 		.word	.LC48-(.LPIC235+8)
+ 2318 17d8 30000000 		.word	.LC1-(.LPIC236+8)
+ 2320              		.section	.rodata.str1.4
+ 2321              		.align	2
+ 2322              	.LC49:
+ 2323 04b4 45417069 		.ascii	"EApiWDogGetCap\000"
+ 2323      57446F67 
+ 2323      47657443 
+ 2323      617000
+ 2324 04c3 00       		.align	2
+ 2325              	.LC50:
+ 2326 04c4 2828704D 		.ascii	"((pMaxDelay==NULL)&&(pMaxEventTimeout==NULL)&&(pMax"
+ 2326      61784465 
+ 2326      6C61793D 
+ 2326      3D4E554C 
+ 2326      4C292626 
+ 2327 04f7 52657365 		.ascii	"ResetTimeout==NULL))\000"
+ 2327      7454696D 
+ 2327      656F7574 
+ 2327      3D3D4E55 
+ 2327      4C4C2929 
+ 2328              		.text
+ 2329              		.align	2
+ 2330              		.global	EApiWDogGetCap
+ 2331              		.syntax unified
+ 2332              		.arm
+ 2333              		.fpu vfpv3
+ 2335              	EApiWDogGetCap:
+ 2336              		@ args = 0, pretend = 0, frame = 8
+ 2337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2338 17dc 08319FE5 		ldr	r3, .L244
+ 2339 17e0 10402DE9 		push	{r4, lr}
+ 2340 17e4 18D04DE2 		sub	sp, sp, #24
+ 2341 17e8 00E19FE5 		ldr	lr, .L244+4
+ 2342              	.LPIC244:
+ 2343 17ec 03308FE0 		add	r3, pc, r3
+ 2344 17f0 FCC09FE5 		ldr	ip, .L244+8
+ 2345 17f4 003093E5 		ldr	r3, [r3]
+ 2346              	.LPIC254:
+ 2347 17f8 0EE08FE0 		add	lr, pc, lr
+ 2348 17fc 0CC09EE7 		ldr	ip, [lr, ip]
+ 2349 1800 000053E3 		cmp	r3, #0
+ 2350 1804 00C09CE5 		ldr	ip, [ip]
+ 2351 1808 14C08DE5 		str	ip, [sp, #20]
+ 2352 180c 00C0A0E3 		mov	ip, #0
+ 2353 1810 2200000A 		beq	.L241
+ 2354 1814 013090E1 		orrs	r3, r0, r1
+ 2355 1818 1100000A 		beq	.L242
+ARM GAS  /tmp/ccBFmFol.s 			page 45
+
+
+ 2356 181c 000050E3 		cmp	r0, #0
+ 2357 1820 2F00000A 		beq	.L238
+ 2358 1824 000051E3 		cmp	r1, #0
+ 2359 1828 10108D02 		addeq	r1, sp, #16
+ 2360              	.L235:
+ 2361 182c 000052E3 		cmp	r2, #0
+ 2362 1830 10208D02 		addeq	r2, sp, #16
+ 2363              	.L234:
+ 2364 1834 FEFFFFEB 		bl	EApiWDogGetCapEmul(PLT)
+ 2365              	.L232:
+ 2366              	.L230:
+ 2367 1838 B8209FE5 		ldr	r2, .L244+12
+ 2368 183c B0309FE5 		ldr	r3, .L244+8
+ 2369              	.LPIC253:
+ 2370 1840 02208FE0 		add	r2, pc, r2
+ 2371 1844 033092E7 		ldr	r3, [r2, r3]
+ 2372 1848 002093E5 		ldr	r2, [r3]
+ 2373 184c 14309DE5 		ldr	r3, [sp, #20]
+ 2374 1850 022033E0 		eors	r2, r3, r2
+ 2375 1854 0030A0E3 		mov	r3, #0
+ 2376 1858 2000001A 		bne	.L243
+ 2377 185c 18D08DE2 		add	sp, sp, #24
+ 2378              		@ sp needed
+ 2379 1860 1080BDE8 		pop	{r4, pc}
+ 2380              	.L242:
+ 2381 1864 000052E3 		cmp	r2, #0
+ 2382 1868 10008D12 		addne	r0, sp, #16
+ 2383 186c 0010A011 		movne	r1, r0
+ 2384 1870 EFFFFF1A 		bne	.L234
+ 2385 1874 80C09FE5 		ldr	ip, .L244+16
+ 2386 1878 014CE0E3 		mvn	r4, #256
+ 2387 187c 7C009FE5 		ldr	r0, .L244+20
+ 2388 1880 BE3200E3 		movw	r3, #702
+ 2389 1884 78209FE5 		ldr	r2, .L244+24
+ 2390 1888 78109FE5 		ldr	r1, .L244+28
+ 2391              	.LPIC251:
+ 2392 188c 0CC08FE0 		add	ip, pc, ip
+ 2393              	.LPIC252:
+ 2394 1890 00008FE0 		add	r0, pc, r0
+ 2395              	.LPIC249:
+ 2396 1894 02208FE0 		add	r2, pc, r2
+ 2397              	.LPIC250:
+ 2398 1898 01108FE0 		add	r1, pc, r1
+ 2399 189c 090000EA 		b	.L240
+ 2400              	.L241:
+ 2401 18a0 64C09FE5 		ldr	ip, .L244+32
+ 2402 18a4 0040E0E3 		mvn	r4, #0
+ 2403 18a8 60009FE5 		ldr	r0, .L244+36
+ 2404 18ac BD3200E3 		movw	r3, #701
+ 2405 18b0 5C209FE5 		ldr	r2, .L244+40
+ 2406 18b4 5C109FE5 		ldr	r1, .L244+44
+ 2407              	.LPIC247:
+ 2408 18b8 0CC08FE0 		add	ip, pc, ip
+ 2409              	.LPIC248:
+ 2410 18bc 00008FE0 		add	r0, pc, r0
+ 2411              	.LPIC245:
+ 2412 18c0 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/ccBFmFol.s 			page 46
+
+
+ 2413              	.LPIC246:
+ 2414 18c4 01108FE0 		add	r1, pc, r1
+ 2415              	.L240:
+ 2416 18c8 01108DE9 		stmib	sp, {r0, ip}
+ 2417 18cc 4500A0E3 		mov	r0, #69
+ 2418 18d0 00408DE5 		str	r4, [sp]
+ 2419 18d4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2420 18d8 0400A0E1 		mov	r0, r4
+ 2421 18dc D5FFFFEA 		b	.L230
+ 2422              	.L243:
+ 2423 18e0 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 2424              	.L238:
+ 2425 18e4 10008DE2 		add	r0, sp, #16
+ 2426 18e8 CFFFFFEA 		b	.L235
+ 2427              	.L245:
+ 2428              		.align	2
+ 2429              	.L244:
+ 2430 18ec F8000000 		.word	.LANCHOR0-(.LPIC244+8)
+ 2431 18f0 F0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC254+8)
+ 2432 18f4 00000000 		.word	__stack_chk_guard(GOT)
+ 2433 18f8 B0000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC253+8)
+ 2434 18fc 68000000 		.word	.LC50-(.LPIC251+8)
+ 2435 1900 68000000 		.word	.LC3-(.LPIC252+8)
+ 2436 1904 68000000 		.word	.LC49-(.LPIC249+8)
+ 2437 1908 68000000 		.word	.LC1-(.LPIC250+8)
+ 2438 190c 4C000000 		.word	.LC2-(.LPIC247+8)
+ 2439 1910 4C000000 		.word	.LC3-(.LPIC248+8)
+ 2440 1914 4C000000 		.word	.LC49-(.LPIC245+8)
+ 2441 1918 4C000000 		.word	.LC1-(.LPIC246+8)
+ 2443              		.section	.rodata.str1.4
+ 2444              		.align	2
+ 2445              	.LC51:
+ 2446 050c 45417069 		.ascii	"EApiWDogStart\000"
+ 2446      57446F67 
+ 2446      53746172 
+ 2446      7400
+ 2447              		.text
+ 2448              		.align	2
+ 2449              		.global	EApiWDogStart
+ 2450              		.syntax unified
+ 2451              		.arm
+ 2452              		.fpu vfpv3
+ 2454              	EApiWDogStart:
+ 2455              		@ args = 0, pretend = 0, frame = 0
+ 2456              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2457 191c 5C309FE5 		ldr	r3, .L253
+ 2458              	.LPIC255:
+ 2459 1920 03308FE0 		add	r3, pc, r3
+ 2460 1924 003093E5 		ldr	r3, [r3]
+ 2461 1928 000053E3 		cmp	r3, #0
+ 2462 192c 0000000A 		beq	.L250
+ 2463 1930 FEFFFFEA 		b	EApiWDogStartEmul(PLT)
+ 2464              	.L250:
+ 2465              	.L248:
+ 2466 1934 48C09FE5 		ldr	ip, .L253+4
+ 2467 1938 D93200E3 		movw	r3, #729
+ 2468 193c 44009FE5 		ldr	r0, .L253+8
+ARM GAS  /tmp/ccBFmFol.s 			page 47
+
+
+ 2469 1940 44209FE5 		ldr	r2, .L253+12
+ 2470 1944 44109FE5 		ldr	r1, .L253+16
+ 2471              	.LPIC258:
+ 2472 1948 0CC08FE0 		add	ip, pc, ip
+ 2473 194c 10402DE9 		push	{r4, lr}
+ 2474              	.LPIC259:
+ 2475 1950 00008FE0 		add	r0, pc, r0
+ 2476 1954 10D04DE2 		sub	sp, sp, #16
+ 2477 1958 0040E0E3 		mvn	r4, #0
+ 2478              	.LPIC256:
+ 2479 195c 02208FE0 		add	r2, pc, r2
+ 2480              	.LPIC257:
+ 2481 1960 01108FE0 		add	r1, pc, r1
+ 2482 1964 01108DE9 		stmib	sp, {r0, ip}
+ 2483 1968 4500A0E3 		mov	r0, #69
+ 2484 196c 00408DE5 		str	r4, [sp]
+ 2485 1970 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2486 1974 0400A0E1 		mov	r0, r4
+ 2487 1978 10D08DE2 		add	sp, sp, #16
+ 2488              		@ sp needed
+ 2489 197c 1080BDE8 		pop	{r4, pc}
+ 2490              	.L254:
+ 2491              		.align	2
+ 2492              	.L253:
+ 2493 1980 58000000 		.word	.LANCHOR0-(.LPIC255+8)
+ 2494 1984 34000000 		.word	.LC2-(.LPIC258+8)
+ 2495 1988 30000000 		.word	.LC3-(.LPIC259+8)
+ 2496 198c 28000000 		.word	.LC51-(.LPIC256+8)
+ 2497 1990 28000000 		.word	.LC1-(.LPIC257+8)
+ 2499              		.section	.rodata.str1.4
+ 2500 051a 0000     		.align	2
+ 2501              	.LC52:
+ 2502 051c 45417069 		.ascii	"EApiWDogTrigger\000"
+ 2502      57446F67 
+ 2502      54726967 
+ 2502      67657200 
+ 2503              		.text
+ 2504              		.align	2
+ 2505              		.global	EApiWDogTrigger
+ 2506              		.syntax unified
+ 2507              		.arm
+ 2508              		.fpu vfpv3
+ 2510              	EApiWDogTrigger:
+ 2511              		@ args = 0, pretend = 0, frame = 0
+ 2512              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2513 1994 5C309FE5 		ldr	r3, .L262
+ 2514              	.LPIC260:
+ 2515 1998 03308FE0 		add	r3, pc, r3
+ 2516 199c 003093E5 		ldr	r3, [r3]
+ 2517 19a0 000053E3 		cmp	r3, #0
+ 2518 19a4 0000000A 		beq	.L259
+ 2519 19a8 FEFFFFEA 		b	EApiWDogTriggerEmul(PLT)
+ 2520              	.L259:
+ 2521              	.L257:
+ 2522 19ac 48C09FE5 		ldr	ip, .L262+4
+ 2523 19b0 E33200E3 		movw	r3, #739
+ 2524 19b4 44009FE5 		ldr	r0, .L262+8
+ARM GAS  /tmp/ccBFmFol.s 			page 48
+
+
+ 2525 19b8 44209FE5 		ldr	r2, .L262+12
+ 2526 19bc 44109FE5 		ldr	r1, .L262+16
+ 2527              	.LPIC263:
+ 2528 19c0 0CC08FE0 		add	ip, pc, ip
+ 2529 19c4 10402DE9 		push	{r4, lr}
+ 2530              	.LPIC264:
+ 2531 19c8 00008FE0 		add	r0, pc, r0
+ 2532 19cc 10D04DE2 		sub	sp, sp, #16
+ 2533 19d0 0040E0E3 		mvn	r4, #0
+ 2534              	.LPIC261:
+ 2535 19d4 02208FE0 		add	r2, pc, r2
+ 2536              	.LPIC262:
+ 2537 19d8 01108FE0 		add	r1, pc, r1
+ 2538 19dc 01108DE9 		stmib	sp, {r0, ip}
+ 2539 19e0 4500A0E3 		mov	r0, #69
+ 2540 19e4 00408DE5 		str	r4, [sp]
+ 2541 19e8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2542 19ec 0400A0E1 		mov	r0, r4
+ 2543 19f0 10D08DE2 		add	sp, sp, #16
+ 2544              		@ sp needed
+ 2545 19f4 1080BDE8 		pop	{r4, pc}
+ 2546              	.L263:
+ 2547              		.align	2
+ 2548              	.L262:
+ 2549 19f8 58000000 		.word	.LANCHOR0-(.LPIC260+8)
+ 2550 19fc 34000000 		.word	.LC2-(.LPIC263+8)
+ 2551 1a00 30000000 		.word	.LC3-(.LPIC264+8)
+ 2552 1a04 28000000 		.word	.LC52-(.LPIC261+8)
+ 2553 1a08 28000000 		.word	.LC1-(.LPIC262+8)
+ 2555              		.section	.rodata.str1.4
+ 2556              		.align	2
+ 2557              	.LC53:
+ 2558 052c 45417069 		.ascii	"EApiWDogStop\000"
+ 2558      57446F67 
+ 2558      53746F70 
+ 2558      00
+ 2559              		.text
+ 2560              		.align	2
+ 2561              		.global	EApiWDogStop
+ 2562              		.syntax unified
+ 2563              		.arm
+ 2564              		.fpu vfpv3
+ 2566              	EApiWDogStop:
+ 2567              		@ args = 0, pretend = 0, frame = 0
+ 2568              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2569 1a0c 5C309FE5 		ldr	r3, .L271
+ 2570              	.LPIC265:
+ 2571 1a10 03308FE0 		add	r3, pc, r3
+ 2572 1a14 003093E5 		ldr	r3, [r3]
+ 2573 1a18 000053E3 		cmp	r3, #0
+ 2574 1a1c 0000000A 		beq	.L268
+ 2575 1a20 FEFFFFEA 		b	EApiWDogStopEmul(PLT)
+ 2576              	.L268:
+ 2577              	.L266:
+ 2578 1a24 48C09FE5 		ldr	ip, .L271+4
+ 2579 1a28 ED3200E3 		movw	r3, #749
+ 2580 1a2c 44009FE5 		ldr	r0, .L271+8
+ARM GAS  /tmp/ccBFmFol.s 			page 49
+
+
+ 2581 1a30 44209FE5 		ldr	r2, .L271+12
+ 2582 1a34 44109FE5 		ldr	r1, .L271+16
+ 2583              	.LPIC268:
+ 2584 1a38 0CC08FE0 		add	ip, pc, ip
+ 2585 1a3c 10402DE9 		push	{r4, lr}
+ 2586              	.LPIC269:
+ 2587 1a40 00008FE0 		add	r0, pc, r0
+ 2588 1a44 10D04DE2 		sub	sp, sp, #16
+ 2589 1a48 0040E0E3 		mvn	r4, #0
+ 2590              	.LPIC266:
+ 2591 1a4c 02208FE0 		add	r2, pc, r2
+ 2592              	.LPIC267:
+ 2593 1a50 01108FE0 		add	r1, pc, r1
+ 2594 1a54 01108DE9 		stmib	sp, {r0, ip}
+ 2595 1a58 4500A0E3 		mov	r0, #69
+ 2596 1a5c 00408DE5 		str	r4, [sp]
+ 2597 1a60 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2598 1a64 0400A0E1 		mov	r0, r4
+ 2599 1a68 10D08DE2 		add	sp, sp, #16
+ 2600              		@ sp needed
+ 2601 1a6c 1080BDE8 		pop	{r4, pc}
+ 2602              	.L272:
+ 2603              		.align	2
+ 2604              	.L271:
+ 2605 1a70 58000000 		.word	.LANCHOR0-(.LPIC265+8)
+ 2606 1a74 34000000 		.word	.LC2-(.LPIC268+8)
+ 2607 1a78 30000000 		.word	.LC3-(.LPIC269+8)
+ 2608 1a7c 28000000 		.word	.LC53-(.LPIC266+8)
+ 2609 1a80 28000000 		.word	.LC1-(.LPIC267+8)
+ 2611              		.section	.rodata.str1.4
+ 2612 0539 000000   		.align	2
+ 2613              	.LC54:
+ 2614 053c 45417069 		.ascii	"EApiStorageCap\000"
+ 2614      53746F72 
+ 2614      61676543 
+ 2614      617000
+ 2615 054b 00       		.align	2
+ 2616              	.LC55:
+ 2617 054c 28287042 		.ascii	"((pBlockLength==NULL)&&(pStorageSize==NULL))\000"
+ 2617      6C6F636B 
+ 2617      4C656E67 
+ 2617      74683D3D 
+ 2617      4E554C4C 
+ 2618              		.text
+ 2619              		.align	2
+ 2620              		.global	EApiStorageCap
+ 2621              		.syntax unified
+ 2622              		.arm
+ 2623              		.fpu vfpv3
+ 2625              	EApiStorageCap:
+ 2626              		@ args = 0, pretend = 0, frame = 8
+ 2627              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2628 1a84 EC309FE5 		ldr	r3, .L285
+ 2629 1a88 10402DE9 		push	{r4, lr}
+ 2630 1a8c 18D04DE2 		sub	sp, sp, #24
+ 2631 1a90 E4E09FE5 		ldr	lr, .L285+4
+ 2632              	.LPIC270:
+ARM GAS  /tmp/ccBFmFol.s 			page 50
+
+
+ 2633 1a94 03308FE0 		add	r3, pc, r3
+ 2634 1a98 E0C09FE5 		ldr	ip, .L285+8
+ 2635 1a9c 003093E5 		ldr	r3, [r3]
+ 2636              	.LPIC280:
+ 2637 1aa0 0EE08FE0 		add	lr, pc, lr
+ 2638 1aa4 0CC09EE7 		ldr	ip, [lr, ip]
+ 2639 1aa8 000053E3 		cmp	r3, #0
+ 2640 1aac 00C09CE5 		ldr	ip, [ip]
+ 2641 1ab0 14C08DE5 		str	ip, [sp, #20]
+ 2642 1ab4 00C0A0E3 		mov	ip, #0
+ 2643 1ab8 1200000A 		beq	.L282
+ 2644 1abc 013092E1 		orrs	r3, r2, r1
+ 2645 1ac0 2000000A 		beq	.L283
+ 2646 1ac4 000051E3 		cmp	r1, #0
+ 2647 1ac8 10108D02 		addeq	r1, sp, #16
+ 2648 1acc 0100000A 		beq	.L277
+ 2649 1ad0 000052E3 		cmp	r2, #0
+ 2650 1ad4 10208D02 		addeq	r2, sp, #16
+ 2651              	.L277:
+ 2652 1ad8 FEFFFFEB 		bl	EApiStorageCapEmul(PLT)
+ 2653              	.L275:
+ 2654              	.L273:
+ 2655 1adc A0209FE5 		ldr	r2, .L285+12
+ 2656 1ae0 98309FE5 		ldr	r3, .L285+8
+ 2657              	.LPIC279:
+ 2658 1ae4 02208FE0 		add	r2, pc, r2
+ 2659 1ae8 033092E7 		ldr	r3, [r2, r3]
+ 2660 1aec 002093E5 		ldr	r2, [r3]
+ 2661 1af0 14309DE5 		ldr	r3, [sp, #20]
+ 2662 1af4 022033E0 		eors	r2, r3, r2
+ 2663 1af8 0030A0E3 		mov	r3, #0
+ 2664 1afc 1C00001A 		bne	.L284
+ 2665 1b00 18D08DE2 		add	sp, sp, #24
+ 2666              		@ sp needed
+ 2667 1b04 1080BDE8 		pop	{r4, pc}
+ 2668              	.L282:
+ 2669 1b08 78C09FE5 		ldr	ip, .L285+16
+ 2670 1b0c 0040E0E3 		mvn	r4, #0
+ 2671 1b10 74009FE5 		ldr	r0, .L285+20
+ 2672 1b14 073300E3 		movw	r3, #775
+ 2673 1b18 70209FE5 		ldr	r2, .L285+24
+ 2674 1b1c 70109FE5 		ldr	r1, .L285+28
+ 2675              	.LPIC273:
+ 2676 1b20 0CC08FE0 		add	ip, pc, ip
+ 2677              	.LPIC274:
+ 2678 1b24 00008FE0 		add	r0, pc, r0
+ 2679              	.LPIC271:
+ 2680 1b28 02208FE0 		add	r2, pc, r2
+ 2681              	.LPIC272:
+ 2682 1b2c 01108FE0 		add	r1, pc, r1
+ 2683              	.L281:
+ 2684 1b30 01108DE9 		stmib	sp, {r0, ip}
+ 2685 1b34 4500A0E3 		mov	r0, #69
+ 2686 1b38 00408DE5 		str	r4, [sp]
+ 2687 1b3c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2688 1b40 0400A0E1 		mov	r0, r4
+ 2689 1b44 E4FFFFEA 		b	.L273
+ARM GAS  /tmp/ccBFmFol.s 			page 51
+
+
+ 2690              	.L283:
+ 2691 1b48 48C09FE5 		ldr	ip, .L285+32
+ 2692 1b4c 014CE0E3 		mvn	r4, #256
+ 2693 1b50 44009FE5 		ldr	r0, .L285+36
+ 2694 1b54 C23FA0E3 		mov	r3, #776
+ 2695 1b58 40209FE5 		ldr	r2, .L285+40
+ 2696 1b5c 40109FE5 		ldr	r1, .L285+44
+ 2697              	.LPIC277:
+ 2698 1b60 0CC08FE0 		add	ip, pc, ip
+ 2699              	.LPIC278:
+ 2700 1b64 00008FE0 		add	r0, pc, r0
+ 2701              	.LPIC275:
+ 2702 1b68 02208FE0 		add	r2, pc, r2
+ 2703              	.LPIC276:
+ 2704 1b6c 01108FE0 		add	r1, pc, r1
+ 2705 1b70 EEFFFFEA 		b	.L281
+ 2706              	.L284:
+ 2707 1b74 FEFFFFEB 		bl	__stack_chk_fail(PLT)
+ 2708              	.L286:
+ 2709              		.align	2
+ 2710              	.L285:
+ 2711 1b78 DC000000 		.word	.LANCHOR0-(.LPIC270+8)
+ 2712 1b7c D4000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC280+8)
+ 2713 1b80 00000000 		.word	__stack_chk_guard(GOT)
+ 2714 1b84 98000000 		.word	_GLOBAL_OFFSET_TABLE_-(.LPIC279+8)
+ 2715 1b88 60000000 		.word	.LC2-(.LPIC273+8)
+ 2716 1b8c 60000000 		.word	.LC3-(.LPIC274+8)
+ 2717 1b90 60000000 		.word	.LC54-(.LPIC271+8)
+ 2718 1b94 60000000 		.word	.LC1-(.LPIC272+8)
+ 2719 1b98 30000000 		.word	.LC55-(.LPIC277+8)
+ 2720 1b9c 30000000 		.word	.LC3-(.LPIC278+8)
+ 2721 1ba0 30000000 		.word	.LC54-(.LPIC275+8)
+ 2722 1ba4 30000000 		.word	.LC1-(.LPIC276+8)
+ 2724              		.section	.rodata.str1.4
+ 2725 0579 000000   		.align	2
+ 2726              	.LC56:
+ 2727 057c 45417069 		.ascii	"EApiStorageAreaRead\000"
+ 2727      53746F72 
+ 2727      61676541 
+ 2727      72656152 
+ 2727      65616400 
+ 2728              		.align	2
+ 2729              	.LC57:
+ 2730 0590 49643D25 		.ascii	"Id=%08X Offset=%04X BufLen=%04X ByteCnt=%04X\012\000"
+ 2730      30385820 
+ 2730      4F666673 
+ 2730      65743D25 
+ 2730      30345820 
+ 2731 05be 0000     		.align	2
+ 2732              	.LC58:
+ 2733 05c0 20704275 		.ascii	" pBuffer Overflow PreventedByteCnt>BufLen\000"
+ 2733      66666572 
+ 2733      204F7665 
+ 2733      72666C6F 
+ 2733      77205072 
+ 2734              		.text
+ 2735              		.align	2
+ARM GAS  /tmp/ccBFmFol.s 			page 52
+
+
+ 2736              		.global	EApiStorageAreaRead
+ 2737              		.syntax unified
+ 2738              		.arm
+ 2739              		.fpu vfpv3
+ 2741              	EApiStorageAreaRead:
+ 2742              		@ args = 4, pretend = 0, frame = 0
+ 2743              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2744 1ba8 F0432DE9 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 2745 1bac 0340A0E1 		mov	r4, r3
+ 2746 1bb0 EC319FE5 		ldr	r3, .L303
+ 2747 1bb4 1CD04DE2 		sub	sp, sp, #28
+ 2748 1bb8 38809DE5 		ldr	r8, [sp, #56]
+ 2749              	.LPIC281:
+ 2750 1bbc 03308FE0 		add	r3, pc, r3
+ 2751 1bc0 003093E5 		ldr	r3, [r3]
+ 2752 1bc4 000053E3 		cmp	r3, #0
+ 2753 1bc8 2700000A 		beq	.L298
+ 2754 1bcc D4319FE5 		ldr	r3, .L303+4
+ 2755 1bd0 0270A0E1 		mov	r7, r2
+ 2756 1bd4 D0919FE5 		ldr	r9, .L303+8
+ 2757 1bd8 0050A0E1 		mov	r5, r0
+ 2758 1bdc CC219FE5 		ldr	r2, .L303+12
+ 2759 1be0 0160A0E1 		mov	r6, r1
+ 2760              	.LPIC288:
+ 2761 1be4 03308FE0 		add	r3, pc, r3
+ 2762 1be8 0C108DE5 		str	r1, [sp, #12]
+ 2763 1bec 04308DE5 		str	r3, [sp, #4]
+ 2764              	.LPIC287:
+ 2765 1bf0 09908FE0 		add	r9, pc, r9
+ 2766 1bf4 B8319FE5 		ldr	r3, .L303+16
+ 2767              	.LPIC286:
+ 2768 1bf8 02208FE0 		add	r2, pc, r2
+ 2769 1bfc 08008DE5 		str	r0, [sp, #8]
+ 2770 1c00 0910A0E1 		mov	r1, r9
+ 2771 1c04 4C00A0E3 		mov	r0, #76
+ 2772 1c08 14808DE5 		str	r8, [sp, #20]
+ 2773              	.LPIC289:
+ 2774 1c0c 03308FE0 		add	r3, pc, r3
+ 2775 1c10 10408DE5 		str	r4, [sp, #16]
+ 2776 1c14 00308DE5 		str	r3, [sp]
+ 2777 1c18 CA3FA0E3 		mov	r3, #808
+ 2778 1c1c FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 2779 1c20 000057E3 		cmp	r7, #0
+ 2780 1c24 4F00000A 		beq	.L299
+ 2781 1c28 000058E3 		cmp	r8, #0
+ 2782 1c2c 2F00000A 		beq	.L300
+ 2783 1c30 000054E3 		cmp	r4, #0
+ 2784 1c34 3C00000A 		beq	.L301
+ 2785 1c38 080054E1 		cmp	r4, r8
+ 2786 1c3c 0040A023 		movcs	r4, #0
+ 2787 1c40 1A00003A 		bcc	.L302
+ 2788              	.L293:
+ 2789 1c44 0830A0E1 		mov	r3, r8
+ 2790 1c48 0720A0E1 		mov	r2, r7
+ 2791 1c4c 0610A0E1 		mov	r1, r6
+ 2792 1c50 0500A0E1 		mov	r0, r5
+ 2793 1c54 FEFFFFEB 		bl	EApiStorageAreaReadEmul(PLT)
+ARM GAS  /tmp/ccBFmFol.s 			page 53
+
+
+ 2794 1c58 000050E3 		cmp	r0, #0
+ 2795 1c5c 0040A011 		movne	r4, r0
+ 2796              	.L289:
+ 2797              	.L287:
+ 2798 1c60 0400A0E1 		mov	r0, r4
+ 2799 1c64 1CD08DE2 		add	sp, sp, #28
+ 2800              		@ sp needed
+ 2801 1c68 F083BDE8 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 2802              	.L298:
+ 2803 1c6c 44C19FE5 		ldr	ip, .L303+20
+ 2804 1c70 0040E0E3 		mvn	r4, #0
+ 2805 1c74 40019FE5 		ldr	r0, .L303+24
+ 2806 1c78 223300E3 		movw	r3, #802
+ 2807 1c7c 3C219FE5 		ldr	r2, .L303+28
+ 2808 1c80 3C119FE5 		ldr	r1, .L303+32
+ 2809              	.LPIC284:
+ 2810 1c84 0CC08FE0 		add	ip, pc, ip
+ 2811              	.LPIC285:
+ 2812 1c88 00008FE0 		add	r0, pc, r0
+ 2813 1c8c 00408DE5 		str	r4, [sp]
+ 2814 1c90 01108DE9 		stmib	sp, {r0, ip}
+ 2815              	.LPIC282:
+ 2816 1c94 02208FE0 		add	r2, pc, r2
+ 2817              	.LPIC283:
+ 2818 1c98 01108FE0 		add	r1, pc, r1
+ 2819 1c9c 4500A0E3 		mov	r0, #69
+ 2820 1ca0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2821 1ca4 0400A0E1 		mov	r0, r4
+ 2822 1ca8 1CD08DE2 		add	sp, sp, #28
+ 2823              		@ sp needed
+ 2824 1cac F083BDE8 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 2825              	.L302:
+ 2826 1cb0 10319FE5 		ldr	r3, .L303+36
+ 2827 1cb4 0480A0E1 		mov	r8, r4
+ 2828 1cb8 0C219FE5 		ldr	r2, .L303+40
+ 2829 1cbc 064CE0E3 		mvn	r4, #1536
+ 2830 1cc0 0910A0E1 		mov	r1, r9
+ 2831 1cc4 00408DE5 		str	r4, [sp]
+ 2832              	.LPIC304:
+ 2833 1cc8 03308FE0 		add	r3, pc, r3
+ 2834 1ccc 4500A0E3 		mov	r0, #69
+ 2835 1cd0 08308DE5 		str	r3, [sp, #8]
+ 2836              	.LPIC302:
+ 2837 1cd4 02208FE0 		add	r2, pc, r2
+ 2838 1cd8 F0309FE5 		ldr	r3, .L303+44
+ 2839              	.LPIC305:
+ 2840 1cdc 03308FE0 		add	r3, pc, r3
+ 2841 1ce0 04308DE5 		str	r3, [sp, #4]
+ 2842 1ce4 333300E3 		movw	r3, #819
+ 2843 1ce8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2844 1cec D4FFFFEA 		b	.L293
+ 2845              	.L300:
+ 2846 1cf0 DC209FE5 		ldr	r2, .L303+48
+ 2847 1cf4 014CE0E3 		mvn	r4, #256
+ 2848 1cf8 D8009FE5 		ldr	r0, .L303+52
+ 2849 1cfc 333EA0E3 		mov	r3, #816
+ 2850 1d00 0910A0E1 		mov	r1, r9
+ARM GAS  /tmp/ccBFmFol.s 			page 54
+
+
+ 2851 1d04 00408DE5 		str	r4, [sp]
+ 2852              	.LPIC297:
+ 2853 1d08 02208FE0 		add	r2, pc, r2
+ 2854 1d0c 04208DE5 		str	r2, [sp, #4]
+ 2855              	.LPIC296:
+ 2856 1d10 00008FE0 		add	r0, pc, r0
+ 2857 1d14 C0209FE5 		ldr	r2, .L303+56
+ 2858 1d18 08008DE5 		str	r0, [sp, #8]
+ 2859 1d1c 4500A0E3 		mov	r0, #69
+ 2860              	.LPIC294:
+ 2861 1d20 02208FE0 		add	r2, pc, r2
+ 2862 1d24 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2863 1d28 CCFFFFEA 		b	.L287
+ 2864              	.L301:
+ 2865 1d2c AC209FE5 		ldr	r2, .L303+60
+ 2866 1d30 014CE0E3 		mvn	r4, #256
+ 2867 1d34 A8009FE5 		ldr	r0, .L303+64
+ 2868 1d38 313300E3 		movw	r3, #817
+ 2869 1d3c 0910A0E1 		mov	r1, r9
+ 2870 1d40 00408DE5 		str	r4, [sp]
+ 2871              	.LPIC301:
+ 2872 1d44 02208FE0 		add	r2, pc, r2
+ 2873 1d48 04208DE5 		str	r2, [sp, #4]
+ 2874              	.LPIC300:
+ 2875 1d4c 00008FE0 		add	r0, pc, r0
+ 2876 1d50 90209FE5 		ldr	r2, .L303+68
+ 2877 1d54 08008DE5 		str	r0, [sp, #8]
+ 2878 1d58 4500A0E3 		mov	r0, #69
+ 2879              	.LPIC298:
+ 2880 1d5c 02208FE0 		add	r2, pc, r2
+ 2881 1d60 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2882 1d64 BDFFFFEA 		b	.L287
+ 2883              	.L299:
+ 2884 1d68 7C209FE5 		ldr	r2, .L303+72
+ 2885 1d6c 014CE0E3 		mvn	r4, #256
+ 2886 1d70 78009FE5 		ldr	r0, .L303+76
+ 2887 1d74 2F3300E3 		movw	r3, #815
+ 2888 1d78 0910A0E1 		mov	r1, r9
+ 2889 1d7c 00408DE5 		str	r4, [sp]
+ 2890              	.LPIC293:
+ 2891 1d80 02208FE0 		add	r2, pc, r2
+ 2892 1d84 04208DE5 		str	r2, [sp, #4]
+ 2893              	.LPIC292:
+ 2894 1d88 00008FE0 		add	r0, pc, r0
+ 2895 1d8c 60209FE5 		ldr	r2, .L303+80
+ 2896 1d90 08008DE5 		str	r0, [sp, #8]
+ 2897 1d94 4500A0E3 		mov	r0, #69
+ 2898              	.LPIC290:
+ 2899 1d98 02208FE0 		add	r2, pc, r2
+ 2900 1d9c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 2901 1da0 AEFFFFEA 		b	.L287
+ 2902              	.L304:
+ 2903              		.align	2
+ 2904              	.L303:
+ 2905 1da4 E0010000 		.word	.LANCHOR0-(.LPIC281+8)
+ 2906 1da8 BC010000 		.word	.LC57-(.LPIC288+8)
+ 2907 1dac B4010000 		.word	.LC1-(.LPIC287+8)
+ARM GAS  /tmp/ccBFmFol.s 			page 55
+
+
+ 2908 1db0 B0010000 		.word	.LC7-(.LPIC286+8)
+ 2909 1db4 A0010000 		.word	.LC9-(.LPIC289+8)
+ 2910 1db8 2C010000 		.word	.LC2-(.LPIC284+8)
+ 2911 1dbc 2C010000 		.word	.LC3-(.LPIC285+8)
+ 2912 1dc0 24010000 		.word	.LC56-(.LPIC282+8)
+ 2913 1dc4 24010000 		.word	.LC1-(.LPIC283+8)
+ 2914 1dc8 F8000000 		.word	.LC58-(.LPIC304+8)
+ 2915 1dcc F0000000 		.word	.LC56-(.LPIC302+8)
+ 2916 1dd0 EC000000 		.word	.LC3-(.LPIC305+8)
+ 2917 1dd4 C4000000 		.word	.LC3-(.LPIC297+8)
+ 2918 1dd8 C0000000 		.word	.LC18-(.LPIC296+8)
+ 2919 1ddc B4000000 		.word	.LC56-(.LPIC294+8)
+ 2920 1de0 94000000 		.word	.LC3-(.LPIC301+8)
+ 2921 1de4 90000000 		.word	.LC17-(.LPIC300+8)
+ 2922 1de8 84000000 		.word	.LC56-(.LPIC298+8)
+ 2923 1dec 64000000 		.word	.LC3-(.LPIC293+8)
+ 2924 1df0 60000000 		.word	.LC16-(.LPIC292+8)
+ 2925 1df4 54000000 		.word	.LC56-(.LPIC290+8)
+ 2927              		.section	.rodata.str1.4
+ 2928 05ea 0000     		.align	2
+ 2929              	.LC59:
+ 2930 05ec 45417069 		.ascii	"EApiStorageAreaWrite\000"
+ 2930      53746F72 
+ 2930      61676541 
+ 2930      72656157 
+ 2930      72697465 
+ 2931 0601 000000   		.align	2
+ 2932              	.LC60:
+ 2933 0604 49643D25 		.ascii	"Id=%08X Offset=%04X ByteCnt=%04X\012\000"
+ 2933      30385820 
+ 2933      4F666673 
+ 2933      65743D25 
+ 2933      30345820 
+ 2934              		.text
+ 2935              		.align	2
+ 2936              		.global	EApiStorageAreaWrite
+ 2937              		.syntax unified
+ 2938              		.arm
+ 2939              		.fpu vfpv3
+ 2941              	EApiStorageAreaWrite:
+ 2942              		@ args = 0, pretend = 0, frame = 0
+ 2943              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2944 1df8 5CC19FE5 		ldr	ip, .L314
+ 2945 1dfc F0412DE9 		push	{r4, r5, r6, r7, r8, lr}
+ 2946 1e00 0050A0E1 		mov	r5, r0
+ 2947 1e04 18D04DE2 		sub	sp, sp, #24
+ 2948              	.LPIC306:
+ 2949 1e08 0CC08FE0 		add	ip, pc, ip
+ 2950 1e0c 00009CE5 		ldr	r0, [ip]
+ 2951 1e10 000050E3 		cmp	r0, #0
+ 2952 1e14 1E00000A 		beq	.L311
+ 2953 1e18 10308DE5 		str	r3, [sp, #16]
+ 2954 1e1c 0340A0E1 		mov	r4, r3
+ 2955 1e20 38319FE5 		ldr	r3, .L314+4
+ 2956 1e24 0270A0E1 		mov	r7, r2
+ 2957 1e28 34819FE5 		ldr	r8, .L314+8
+ 2958 1e2c 0160A0E1 		mov	r6, r1
+ARM GAS  /tmp/ccBFmFol.s 			page 56
+
+
+ 2959 1e30 30219FE5 		ldr	r2, .L314+12
+ 2960 1e34 4C00A0E3 		mov	r0, #76
+ 2961              	.LPIC313:
+ 2962 1e38 03308FE0 		add	r3, pc, r3
+ 2963 1e3c 0C108DE5 		str	r1, [sp, #12]
+ 2964 1e40 04308DE5 		str	r3, [sp, #4]
+ 2965              	.LPIC312:
+ 2966 1e44 08808FE0 		add	r8, pc, r8
+ 2967 1e48 1C319FE5 		ldr	r3, .L314+16
+ 2968              	.LPIC311:
+ 2969 1e4c 02208FE0 		add	r2, pc, r2
+ 2970 1e50 0810A0E1 		mov	r1, r8
+ 2971 1e54 08508DE5 		str	r5, [sp, #8]
+ 2972              	.LPIC314:
+ 2973 1e58 03308FE0 		add	r3, pc, r3
+ 2974 1e5c 00308DE5 		str	r3, [sp]
+ 2975 1e60 4D3300E3 		movw	r3, #845
+ 2976 1e64 FEFFFFEB 		bl	siFormattedMessage_M2(PLT)
+ 2977 1e68 000057E3 		cmp	r7, #0
+ 2978 1e6c 2A00000A 		beq	.L312
+ 2979 1e70 000054E3 		cmp	r4, #0
+ 2980 1e74 1700000A 		beq	.L313
+ 2981 1e78 0430A0E1 		mov	r3, r4
+ 2982 1e7c 0720A0E1 		mov	r2, r7
+ 2983 1e80 0610A0E1 		mov	r1, r6
+ 2984 1e84 0500A0E1 		mov	r0, r5
+ 2985 1e88 18D08DE2 		add	sp, sp, #24
+ 2986              		@ sp needed
+ 2987 1e8c F041BDE8 		pop	{r4, r5, r6, r7, r8, lr}
+ 2988 1e90 FEFFFFEA 		b	EApiStorageAreaWriteEmul(PLT)
+ 2989              	.L311:
+ 2990 1e94 D4C09FE5 		ldr	ip, .L314+20
+ 2991 1e98 0040E0E3 		mvn	r4, #0
+ 2992 1e9c D0009FE5 		ldr	r0, .L314+24
+ 2993 1ea0 473300E3 		movw	r3, #839
+ 2994 1ea4 CC209FE5 		ldr	r2, .L314+28
+ 2995 1ea8 CC109FE5 		ldr	r1, .L314+32
+ 2996              	.LPIC309:
+ 2997 1eac 0CC08FE0 		add	ip, pc, ip
+ 2998              	.LPIC310:
+ 2999 1eb0 00008FE0 		add	r0, pc, r0
+ 3000 1eb4 00408DE5 		str	r4, [sp]
+ 3001 1eb8 01108DE9 		stmib	sp, {r0, ip}
+ 3002              	.LPIC307:
+ 3003 1ebc 02208FE0 		add	r2, pc, r2
+ 3004              	.LPIC308:
+ 3005 1ec0 01108FE0 		add	r1, pc, r1
+ 3006 1ec4 4500A0E3 		mov	r0, #69
+ 3007 1ec8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 3008 1ecc 0400A0E1 		mov	r0, r4
+ 3009              	.L307:
+ 3010              	.L305:
+ 3011 1ed0 18D08DE2 		add	sp, sp, #24
+ 3012              		@ sp needed
+ 3013 1ed4 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 3014              	.L313:
+ 3015 1ed8 A0209FE5 		ldr	r2, .L314+36
+ARM GAS  /tmp/ccBFmFol.s 			page 57
+
+
+ 3016 1edc 014CE0E3 		mvn	r4, #256
+ 3017 1ee0 9C009FE5 		ldr	r0, .L314+40
+ 3018 1ee4 553300E3 		movw	r3, #853
+ 3019 1ee8 0810A0E1 		mov	r1, r8
+ 3020 1eec 00408DE5 		str	r4, [sp]
+ 3021              	.LPIC322:
+ 3022 1ef0 02208FE0 		add	r2, pc, r2
+ 3023 1ef4 04208DE5 		str	r2, [sp, #4]
+ 3024              	.LPIC321:
+ 3025 1ef8 00008FE0 		add	r0, pc, r0
+ 3026 1efc 84209FE5 		ldr	r2, .L314+44
+ 3027 1f00 08008DE5 		str	r0, [sp, #8]
+ 3028 1f04 4500A0E3 		mov	r0, #69
+ 3029              	.LPIC319:
+ 3030 1f08 02208FE0 		add	r2, pc, r2
+ 3031 1f0c FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 3032 1f10 0400A0E1 		mov	r0, r4
+ 3033 1f14 18D08DE2 		add	sp, sp, #24
+ 3034              		@ sp needed
+ 3035 1f18 F081BDE8 		pop	{r4, r5, r6, r7, r8, pc}
+ 3036              	.L312:
+ 3037 1f1c 68209FE5 		ldr	r2, .L314+48
+ 3038 1f20 014CE0E3 		mvn	r4, #256
+ 3039 1f24 64009FE5 		ldr	r0, .L314+52
+ 3040 1f28 D53FA0E3 		mov	r3, #852
+ 3041 1f2c 0810A0E1 		mov	r1, r8
+ 3042 1f30 00408DE5 		str	r4, [sp]
+ 3043              	.LPIC318:
+ 3044 1f34 02208FE0 		add	r2, pc, r2
+ 3045 1f38 04208DE5 		str	r2, [sp, #4]
+ 3046              	.LPIC317:
+ 3047 1f3c 00008FE0 		add	r0, pc, r0
+ 3048 1f40 4C209FE5 		ldr	r2, .L314+56
+ 3049 1f44 08008DE5 		str	r0, [sp, #8]
+ 3050 1f48 4500A0E3 		mov	r0, #69
+ 3051              	.LPIC315:
+ 3052 1f4c 02208FE0 		add	r2, pc, r2
+ 3053 1f50 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 3054 1f54 0400A0E1 		mov	r0, r4
+ 3055 1f58 DCFFFFEA 		b	.L305
+ 3056              	.L315:
+ 3057              		.align	2
+ 3058              	.L314:
+ 3059 1f5c 4C010000 		.word	.LANCHOR0-(.LPIC306+8)
+ 3060 1f60 20010000 		.word	.LC60-(.LPIC313+8)
+ 3061 1f64 18010000 		.word	.LC1-(.LPIC312+8)
+ 3062 1f68 14010000 		.word	.LC7-(.LPIC311+8)
+ 3063 1f6c 0C010000 		.word	.LC9-(.LPIC314+8)
+ 3064 1f70 BC000000 		.word	.LC2-(.LPIC309+8)
+ 3065 1f74 BC000000 		.word	.LC3-(.LPIC310+8)
+ 3066 1f78 B4000000 		.word	.LC59-(.LPIC307+8)
+ 3067 1f7c B4000000 		.word	.LC1-(.LPIC308+8)
+ 3068 1f80 88000000 		.word	.LC3-(.LPIC322+8)
+ 3069 1f84 84000000 		.word	.LC18-(.LPIC321+8)
+ 3070 1f88 78000000 		.word	.LC59-(.LPIC319+8)
+ 3071 1f8c 50000000 		.word	.LC3-(.LPIC318+8)
+ 3072 1f90 4C000000 		.word	.LC16-(.LPIC317+8)
+ARM GAS  /tmp/ccBFmFol.s 			page 58
+
+
+ 3073 1f94 40000000 		.word	.LC59-(.LPIC315+8)
+ 3075              		.hidden	Initialized
+ 3076              		.global	Initialized
+ 3077              		.bss
+ 3078              		.align	2
+ 3079              		.set	.LANCHOR0,. + 0
+ 3082              	Initialized:
+ 3083 0000 00000000 		.space	4
+ 3084              		.ident	"GCC: (Buildroot 2022.02) 11.2.0"
+ 3085              		.section	.note.GNU-stack,"",%progbits
+ARM GAS  /tmp/ccBFmFol.s 			page 59
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiAPI.cpp
+     /tmp/ccBFmFol.s:15     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccBFmFol.s:16     .rodata.str1.4:0000000000000000 .LC0
+     /tmp/ccBFmFol.s:19     .rodata.str1.4:0000000000000014 .LC1
+     /tmp/ccBFmFol.s:23     .rodata.str1.4:0000000000000054 .LC2
+     /tmp/ccBFmFol.s:26     .rodata.str1.4:000000000000006c .LC3
+     /tmp/ccBFmFol.s:29     .rodata.str1.4:0000000000000070 .LC4
+     /tmp/ccBFmFol.s:32     .text:0000000000000000 $a
+     /tmp/ccBFmFol.s:41     .text:0000000000000000 EApiI2CGetBusCap
+     /tmp/ccBFmFol.s:102    .text:00000000000000a0 $d
+     /tmp/ccBFmFol.s:114    .rodata.str1.4:0000000000000084 .LC5
+     /tmp/ccBFmFol.s:117    .rodata.str1.4:0000000000000098 .LC6
+     /tmp/ccBFmFol.s:120    .rodata.str1.4:00000000000000ac .LC7
+     /tmp/ccBFmFol.s:123    .rodata.str1.4:00000000000000c4 .LC8
+     /tmp/ccBFmFol.s:127    .rodata.str1.4:0000000000000110 .LC9
+     /tmp/ccBFmFol.s:130    .rodata.str1.4:0000000000000118 .LC10
+     /tmp/ccBFmFol.s:133    .rodata.str1.4:000000000000012c .LC11
+     /tmp/ccBFmFol.s:136    .rodata.str1.4:000000000000013c .LC12
+     /tmp/ccBFmFol.s:139    .rodata.str1.4:0000000000000150 .LC13
+     /tmp/ccBFmFol.s:142    .text:00000000000000c4 $a
+     /tmp/ccBFmFol.s:148    .text:00000000000000c4 EApiI2CWriteReadRaw
+     /tmp/ccBFmFol.s:355    .text:0000000000000354 $d
+     /tmp/ccBFmFol.s:383    .rodata.str1.4:0000000000000180 .LC14
+     /tmp/ccBFmFol.s:386    .rodata.str1.4:0000000000000194 .LC15
+     /tmp/ccBFmFol.s:389    .rodata.str1.4:00000000000001bc .LC16
+     /tmp/ccBFmFol.s:392    .rodata.str1.4:00000000000001cc .LC17
+     /tmp/ccBFmFol.s:395    .rodata.str1.4:00000000000001d8 .LC18
+     /tmp/ccBFmFol.s:398    .rodata.str1.4:00000000000001e8 .LC19
+     /tmp/ccBFmFol.s:401    .text:00000000000003b8 $a
+     /tmp/ccBFmFol.s:407    .text:00000000000003b8 EApiI2CReadTransfer
+     /tmp/ccBFmFol.s:634    .text:0000000000000698 $d
+     /tmp/ccBFmFol.s:661    .rodata.str1.4:0000000000000210 .LC20
+     /tmp/ccBFmFol.s:664    .rodata.str1.4:000000000000023c .LC21
+     /tmp/ccBFmFol.s:667    .rodata.str1.4:0000000000000254 .LC22
+     /tmp/ccBFmFol.s:670    .text:00000000000006f8 $a
+     /tmp/ccBFmFol.s:676    .text:00000000000006f8 EApiI2CWriteTransfer
+     /tmp/ccBFmFol.s:960    .text:0000000000000aa0 $d
+     /tmp/ccBFmFol.s:993    .text:0000000000000b20 $a
+     /tmp/ccBFmFol.s:999    .text:0000000000000b20 EApiI2CProbeDevice
+     /tmp/ccBFmFol.s:1079   .text:0000000000000c18 $d
+     /tmp/ccBFmFol.s:1090   .rodata.str1.4:000000000000027c .LC23
+     /tmp/ccBFmFol.s:1093   .rodata.str1.4:0000000000000290 .LC24
+     /tmp/ccBFmFol.s:1096   .rodata.str1.4:00000000000002a0 .LC25
+     /tmp/ccBFmFol.s:1099   .text:0000000000000c38 $a
+     /tmp/ccBFmFol.s:1105   .text:0000000000000c38 EApiBoardGetStringA
+     /tmp/ccBFmFol.s:1189   .text:0000000000000d20 $d
+     /tmp/ccBFmFol.s:1205   .rodata.str1.4:00000000000002b0 .LC26
+     /tmp/ccBFmFol.s:1208   .rodata.str1.4:00000000000002c4 .LC27
+     /tmp/ccBFmFol.s:1211   .rodata.str1.4:00000000000002d4 .LC28
+     /tmp/ccBFmFol.s:1214   .text:0000000000000d54 $a
+     /tmp/ccBFmFol.s:1220   .text:0000000000000d54 EApiBoardGetValue
+     /tmp/ccBFmFol.s:1308   .text:0000000000000e48 $d
+     /tmp/ccBFmFol.s:1324   .rodata.str1.4:00000000000002d8 .LC29
+     /tmp/ccBFmFol.s:1327   .rodata.str1.4:00000000000002f4 .LC30
+     /tmp/ccBFmFol.s:1330   .text:0000000000000e7c $a
+     /tmp/ccBFmFol.s:1336   .text:0000000000000e7c EApiVgaGetBacklightEnable
+ARM GAS  /tmp/ccBFmFol.s 			page 60
+
+
+     /tmp/ccBFmFol.s:1397   .text:0000000000000f1c $d
+     /tmp/ccBFmFol.s:1409   .rodata.str1.4:0000000000000304 .LC31
+     /tmp/ccBFmFol.s:1412   .rodata.str1.4:0000000000000320 .LC32
+     /tmp/ccBFmFol.s:1415   .text:0000000000000f40 $a
+     /tmp/ccBFmFol.s:1421   .text:0000000000000f40 EApiVgaSetBacklightEnable
+     /tmp/ccBFmFol.s:1475   .text:0000000000000fcc $d
+     /tmp/ccBFmFol.s:1487   .rodata.str1.4:0000000000000338 .LC33
+     /tmp/ccBFmFol.s:1490   .rodata.str1.4:0000000000000358 .LC34
+     /tmp/ccBFmFol.s:1493   .text:0000000000000ff0 $a
+     /tmp/ccBFmFol.s:1499   .text:0000000000000ff0 EApiVgaGetBacklightBrightness
+     /tmp/ccBFmFol.s:1560   .text:0000000000001090 $d
+     /tmp/ccBFmFol.s:1572   .rodata.str1.4:0000000000000368 .LC35
+     /tmp/ccBFmFol.s:1575   .rodata.str1.4:0000000000000388 .LC36
+     /tmp/ccBFmFol.s:1578   .text:00000000000010b4 $a
+     /tmp/ccBFmFol.s:1584   .text:00000000000010b4 EApiVgaSetBacklightBrightness
+     /tmp/ccBFmFol.s:1645   .text:0000000000001154 $d
+     /tmp/ccBFmFol.s:1657   .rodata.str1.4:00000000000003a4 .LC37
+     /tmp/ccBFmFol.s:1660   .rodata.str1.4:00000000000003b8 .LC38
+     /tmp/ccBFmFol.s:1663   .rodata.str1.4:00000000000003c8 .LC39
+     /tmp/ccBFmFol.s:1666   .text:0000000000001178 $a
+     /tmp/ccBFmFol.s:1672   .text:0000000000001178 EApiGPIOGetLevel
+     /tmp/ccBFmFol.s:1751   .text:000000000000124c $d
+     /tmp/ccBFmFol.s:1767   .rodata.str1.4:00000000000003d8 .LC40
+     /tmp/ccBFmFol.s:1770   .text:0000000000001280 $a
+     /tmp/ccBFmFol.s:1776   .text:0000000000001280 EApiGPIOSetLevel
+     /tmp/ccBFmFol.s:1837   .text:0000000000001320 $d
+     /tmp/ccBFmFol.s:1849   .rodata.str1.4:00000000000003ec .LC41
+     /tmp/ccBFmFol.s:1852   .rodata.str1.4:0000000000000404 .LC42
+     /tmp/ccBFmFol.s:1855   .text:0000000000001344 $a
+     /tmp/ccBFmFol.s:1861   .text:0000000000001344 EApiGPIOGetDirection
+     /tmp/ccBFmFol.s:1940   .text:0000000000001418 $d
+     /tmp/ccBFmFol.s:1956   .rodata.str1.4:0000000000000418 .LC43
+     /tmp/ccBFmFol.s:1959   .text:000000000000144c $a
+     /tmp/ccBFmFol.s:1965   .text:000000000000144c EApiGPIOSetDirection
+     /tmp/ccBFmFol.s:2026   .text:00000000000014ec $d
+     /tmp/ccBFmFol.s:2038   .rodata.str1.4:0000000000000430 .LC44
+     /tmp/ccBFmFol.s:2041   .rodata.str1.4:000000000000044c .LC45
+     /tmp/ccBFmFol.s:2044   .text:0000000000001510 $a
+     /tmp/ccBFmFol.s:2050   .text:0000000000001510 EApiGPIOGetDirectionCaps
+     /tmp/ccBFmFol.s:2136   .text:0000000000001604 $d
+     /tmp/ccBFmFol.s:2151   .rodata.str1.4:0000000000000470 .LC46
+     /tmp/ccBFmFol.s:2154   .rodata.str1.4:0000000000000484 .LC47
+     /tmp/ccBFmFol.s:2157   .text:0000000000001634 $a
+     /tmp/ccBFmFol.s:2163   .text:0000000000001634 EApiLibInitialize
+     /tmp/ccBFmFol.s:2226   .text:00000000000016e4 $d
+     /tmp/ccBFmFol.s:2238   .rodata.str1.4:00000000000004a0 .LC48
+     /tmp/ccBFmFol.s:2241   .text:0000000000001708 $a
+     /tmp/ccBFmFol.s:2247   .text:0000000000001708 EApiLibUnInitialize
+     /tmp/ccBFmFol.s:2310   .text:00000000000017b8 $d
+     /tmp/ccBFmFol.s:2322   .rodata.str1.4:00000000000004b4 .LC49
+     /tmp/ccBFmFol.s:2325   .rodata.str1.4:00000000000004c4 .LC50
+     /tmp/ccBFmFol.s:2329   .text:00000000000017dc $a
+     /tmp/ccBFmFol.s:2335   .text:00000000000017dc EApiWDogGetCap
+     /tmp/ccBFmFol.s:2430   .text:00000000000018ec $d
+     /tmp/ccBFmFol.s:2445   .rodata.str1.4:000000000000050c .LC51
+     /tmp/ccBFmFol.s:2448   .text:000000000000191c $a
+     /tmp/ccBFmFol.s:2454   .text:000000000000191c EApiWDogStart
+ARM GAS  /tmp/ccBFmFol.s 			page 61
+
+
+     /tmp/ccBFmFol.s:2493   .text:0000000000001980 $d
+     /tmp/ccBFmFol.s:2501   .rodata.str1.4:000000000000051c .LC52
+     /tmp/ccBFmFol.s:2504   .text:0000000000001994 $a
+     /tmp/ccBFmFol.s:2510   .text:0000000000001994 EApiWDogTrigger
+     /tmp/ccBFmFol.s:2549   .text:00000000000019f8 $d
+     /tmp/ccBFmFol.s:2557   .rodata.str1.4:000000000000052c .LC53
+     /tmp/ccBFmFol.s:2560   .text:0000000000001a0c $a
+     /tmp/ccBFmFol.s:2566   .text:0000000000001a0c EApiWDogStop
+     /tmp/ccBFmFol.s:2605   .text:0000000000001a70 $d
+     /tmp/ccBFmFol.s:2613   .rodata.str1.4:000000000000053c .LC54
+     /tmp/ccBFmFol.s:2616   .rodata.str1.4:000000000000054c .LC55
+     /tmp/ccBFmFol.s:2619   .text:0000000000001a84 $a
+     /tmp/ccBFmFol.s:2625   .text:0000000000001a84 EApiStorageCap
+     /tmp/ccBFmFol.s:2711   .text:0000000000001b78 $d
+     /tmp/ccBFmFol.s:2726   .rodata.str1.4:000000000000057c .LC56
+     /tmp/ccBFmFol.s:2729   .rodata.str1.4:0000000000000590 .LC57
+     /tmp/ccBFmFol.s:2732   .rodata.str1.4:00000000000005c0 .LC58
+     /tmp/ccBFmFol.s:2735   .text:0000000000001ba8 $a
+     /tmp/ccBFmFol.s:2741   .text:0000000000001ba8 EApiStorageAreaRead
+     /tmp/ccBFmFol.s:2905   .text:0000000000001da4 $d
+     /tmp/ccBFmFol.s:2929   .rodata.str1.4:00000000000005ec .LC59
+     /tmp/ccBFmFol.s:2932   .rodata.str1.4:0000000000000604 .LC60
+     /tmp/ccBFmFol.s:2935   .text:0000000000001df8 $a
+     /tmp/ccBFmFol.s:2941   .text:0000000000001df8 EApiStorageAreaWrite
+     /tmp/ccBFmFol.s:3059   .text:0000000000001f5c $d
+     /tmp/ccBFmFol.s:3082   .bss:0000000000000000 Initialized
+     /tmp/ccBFmFol.s:3078   .bss:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+EApiI2CGetBusCapEmul
+siFormattedMessage_SC
+siFormattedMessage_M2
+EApiI2CWriteReadEmul
+__stack_chk_fail
+_GLOBAL_OFFSET_TABLE_
+__stack_chk_guard
+malloc
+memcpy
+free
+EApiBoardGetStringAEmul
+EApiBoardGetValueEmul
+EApiVgaGetBacklightEnableEmul
+EApiVgaGetBacklightBrightnessEmul
+EApiVgaSetBacklightBrightnessEmul
+EApiGPIOGetLevelEmul
+EApiGPIOSetLevelEmul
+EApiGPIOGetDirectionEmul
+EApiGPIOSetDirectionEmul
+EApiGPIOGetDirectionCapsEmul
+EApiInitLib
+EApiUninitLib
+EApiWDogGetCapEmul
+EApiWDogStartEmul
+EApiWDogTriggerEmul
+EApiWDogStopEmul
+EApiStorageCapEmul
+EApiStorageAreaReadEmul
+ARM GAS  /tmp/ccBFmFol.s 			page 62
+
+
+EApiStorageAreaWriteEmul

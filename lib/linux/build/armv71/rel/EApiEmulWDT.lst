@@ -1,0 +1,484 @@
+ARM GAS  /tmp/cck3gtcd.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiEmulWDT.c"
+  13              		.text
+  14              		.section	.rodata.str1.4,"aMS",%progbits,1
+  15              		.align	2
+  16              	.LC0:
+  17 0000 45417069 		.ascii	"EApiWDogGetCapEmul\000"
+  17      57446F67 
+  17      47657443 
+  17      6170456D 
+  17      756C00
+  18 0013 00       		.align	2
+  19              	.LC1:
+  20 0014 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+  20      652F686B 
+  20      682F6769 
+  20      742F6561 
+  20      7069646B 
+  21 0047 7069456D 		.ascii	"piEmulWDT.c\000"
+  21      756C5744 
+  21      542E6300 
+  22 0053 00       		.align	2
+  23              	.LC2:
+  24 0054 00       		.ascii	"\000"
+  25 0055 000000   		.align	2
+  26              	.LC3:
+  27 0058 25730A00 		.ascii	"%s\012\000"
+  28              		.text
+  29              		.align	2
+  30              		.global	EApiWDogGetCapEmul
+  31              		.arch armv7-a
+  32              		.arch_extension mp
+  33              		.arch_extension sec
+  34              		.syntax unified
+  35              		.arm
+  36              		.fpu vfpv3
+  38              	EApiWDogGetCapEmul:
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41 0000 5C309FE5 		ldr	r3, .L4
+  42 0004 9FCDA0E3 		mov	ip, #10176
+  43 0008 10402DE9 		push	{r4, lr}
+  44 000c 09C040E3 		movt	ip, 9
+  45 0010 10D04DE2 		sub	sp, sp, #16
+  46 0014 4CE09FE5 		ldr	lr, .L4+4
+  47              	.LPIC2:
+  48 0018 03308FE0 		add	r3, pc, r3
+ARM GAS  /tmp/cck3gtcd.s 			page 2
+
+
+  49 001c 0040A0E3 		mov	r4, #0
+  50 0020 08308DE5 		str	r3, [sp, #8]
+  51 0024 4F30A0E3 		mov	r3, #79
+  52 0028 00C080E5 		str	ip, [r0]
+  53              	.LPIC3:
+  54 002c 0EE08FE0 		add	lr, pc, lr
+  55 0030 00C081E5 		str	ip, [r1]
+  56 0034 4C00A0E3 		mov	r0, #76
+  57 0038 00C082E5 		str	ip, [r2]
+  58 003c 28109FE5 		ldr	r1, .L4+8
+  59 0040 28209FE5 		ldr	r2, .L4+12
+  60 0044 04E08DE5 		str	lr, [sp, #4]
+  61              	.LPIC1:
+  62 0048 01108FE0 		add	r1, pc, r1
+  63 004c 00408DE5 		str	r4, [sp]
+  64              	.LPIC0:
+  65 0050 02208FE0 		add	r2, pc, r2
+  66 0054 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+  67 0058 0400A0E1 		mov	r0, r4
+  68 005c 10D08DE2 		add	sp, sp, #16
+  69              		@ sp needed
+  70 0060 1080BDE8 		pop	{r4, pc}
+  71              	.L5:
+  72              		.align	2
+  73              	.L4:
+  74 0064 44000000 		.word	.LC2-(.LPIC2+8)
+  75 0068 34000000 		.word	.LC3-(.LPIC3+8)
+  76 006c 1C000000 		.word	.LC1-(.LPIC1+8)
+  77 0070 18000000 		.word	.LC0-(.LPIC0+8)
+  79              		.section	.rodata.str1.4
+  80              		.align	2
+  81              	.LC4:
+  82 005c 45417069 		.ascii	"EApiWDogStartEmul\000"
+  82      57446F67 
+  82      53746172 
+  82      74456D75 
+  82      6C00
+  83 006e 0000     		.align	2
+  84              	.LC5:
+  85 0070 57617463 		.ascii	"Watchdog alread runing, need to stop before startin"
+  85      68646F67 
+  85      20616C72 
+  85      65616420 
+  85      72756E69 
+  86 00a3 6700     		.ascii	"g\000"
+  87 00a5 000000   		.align	2
+  88              	.LC6:
+  89 00a8 2844656C 		.ascii	"(Delay>pMaxDelay)\000"
+  89      61793E70 
+  89      4D617844 
+  89      656C6179 
+  89      2900
+  90 00ba 0000     		.align	2
+  91              	.LC7:
+  92 00bc 28457665 		.ascii	"(EventTimeout>pMaxEventTimeout)\000"
+  92      6E745469 
+  92      6D656F75 
+ARM GAS  /tmp/cck3gtcd.s 			page 3
+
+
+  92      743E704D 
+  92      61784576 
+  93              		.align	2
+  94              	.LC8:
+  95 00dc 28526573 		.ascii	"(ResetTimeout>pMaxResetTimeout)\000"
+  95      65745469 
+  95      6D656F75 
+  95      743E704D 
+  95      61785265 
+  96              		.text
+  97              		.align	2
+  98              		.global	EApiWDogStartEmul
+  99              		.hidden	EApiWDogStartEmul
+ 100              		.syntax unified
+ 101              		.arm
+ 102              		.fpu vfpv3
+ 104              	EApiWDogStartEmul:
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107 0074 50C19FE5 		ldr	ip, .L18
+ 108 0078 10402DE9 		push	{r4, lr}
+ 109 007c 10D04DE2 		sub	sp, sp, #16
+ 110              	.LPIC4:
+ 111 0080 0CC08FE0 		add	ip, pc, ip
+ 112 0084 00309CE5 		ldr	r3, [ip]
+ 113 0088 010073E3 		cmn	r3, #1
+ 114 008c 4200000A 		beq	.L14
+ 115 0090 9F3DA0E3 		mov	r3, #10176
+ 116 0094 093040E3 		movt	r3, 9
+ 117 0098 030050E1 		cmp	r0, r3
+ 118 009c 2800008A 		bhi	.L15
+ 119 00a0 030051E1 		cmp	r1, r3
+ 120 00a4 3100008A 		bhi	.L16
+ 121 00a8 030052E1 		cmp	r2, r3
+ 122 00ac 1300008A 		bhi	.L17
+ 123              	.L8:
+ 124 00b0 18E19FE5 		ldr	lr, .L18+4
+ 125 00b4 0040A0E3 		mov	r4, #0
+ 126 00b8 14019FE5 		ldr	r0, .L18+8
+ 127 00bc 0030E0E3 		mvn	r3, #0
+ 128 00c0 10219FE5 		ldr	r2, .L18+12
+ 129 00c4 10119FE5 		ldr	r1, .L18+16
+ 130              	.LPIC24:
+ 131 00c8 0EE08FE0 		add	lr, pc, lr
+ 132 00cc 00408DE5 		str	r4, [sp]
+ 133              	.LPIC25:
+ 134 00d0 00008FE0 		add	r0, pc, r0
+ 135 00d4 00308CE5 		str	r3, [ip]
+ 136 00d8 0EC0A0E1 		mov	ip, lr
+ 137 00dc 01108DE9 		stmib	sp, {r0, ip}
+ 138              	.LPIC22:
+ 139 00e0 02208FE0 		add	r2, pc, r2
+ 140              	.LPIC23:
+ 141 00e4 01108FE0 		add	r1, pc, r1
+ 142 00e8 7730A0E3 		mov	r3, #119
+ 143 00ec 4C00A0E3 		mov	r0, #76
+ 144 00f0 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ARM GAS  /tmp/cck3gtcd.s 			page 4
+
+
+ 145 00f4 0400A0E1 		mov	r0, r4
+ 146 00f8 10D08DE2 		add	sp, sp, #16
+ 147              		@ sp needed
+ 148 00fc 1080BDE8 		pop	{r4, pc}
+ 149              	.L17:
+ 150 0100 D8C09FE5 		ldr	ip, .L18+20
+ 151 0104 014CE0E3 		mvn	r4, #256
+ 152 0108 D4009FE5 		ldr	r0, .L18+24
+ 153 010c 7130A0E3 		mov	r3, #113
+ 154 0110 D0209FE5 		ldr	r2, .L18+28
+ 155 0114 D0109FE5 		ldr	r1, .L18+32
+ 156              	.LPIC19:
+ 157 0118 0CC08FE0 		add	ip, pc, ip
+ 158              	.LPIC20:
+ 159 011c 00008FE0 		add	r0, pc, r0
+ 160              	.LPIC17:
+ 161 0120 02208FE0 		add	r2, pc, r2
+ 162              	.LPIC18:
+ 163 0124 01108FE0 		add	r1, pc, r1
+ 164              	.L13:
+ 165 0128 01108DE9 		stmib	sp, {r0, ip}
+ 166 012c 4500A0E3 		mov	r0, #69
+ 167 0130 00408DE5 		str	r4, [sp]
+ 168 0134 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 169 0138 0400A0E1 		mov	r0, r4
+ 170 013c 10D08DE2 		add	sp, sp, #16
+ 171              		@ sp needed
+ 172 0140 1080BDE8 		pop	{r4, pc}
+ 173              	.L15:
+ 174 0144 A4C09FE5 		ldr	ip, .L18+36
+ 175 0148 014CE0E3 		mvn	r4, #256
+ 176 014c A0009FE5 		ldr	r0, .L18+40
+ 177 0150 6730A0E3 		mov	r3, #103
+ 178 0154 9C209FE5 		ldr	r2, .L18+44
+ 179 0158 9C109FE5 		ldr	r1, .L18+48
+ 180              	.LPIC11:
+ 181 015c 0CC08FE0 		add	ip, pc, ip
+ 182              	.LPIC12:
+ 183 0160 00008FE0 		add	r0, pc, r0
+ 184              	.LPIC9:
+ 185 0164 02208FE0 		add	r2, pc, r2
+ 186              	.LPIC10:
+ 187 0168 01108FE0 		add	r1, pc, r1
+ 188 016c EDFFFFEA 		b	.L13
+ 189              	.L16:
+ 190 0170 88C09FE5 		ldr	ip, .L18+52
+ 191 0174 014CE0E3 		mvn	r4, #256
+ 192 0178 84009FE5 		ldr	r0, .L18+56
+ 193 017c 6C30A0E3 		mov	r3, #108
+ 194 0180 80209FE5 		ldr	r2, .L18+60
+ 195 0184 80109FE5 		ldr	r1, .L18+64
+ 196              	.LPIC15:
+ 197 0188 0CC08FE0 		add	ip, pc, ip
+ 198              	.LPIC16:
+ 199 018c 00008FE0 		add	r0, pc, r0
+ 200              	.LPIC13:
+ 201 0190 02208FE0 		add	r2, pc, r2
+ARM GAS  /tmp/cck3gtcd.s 			page 5
+
+
+ 202              	.LPIC14:
+ 203 0194 01108FE0 		add	r1, pc, r1
+ 204 0198 E2FFFFEA 		b	.L13
+ 205              	.L14:
+ 206 019c 6CC09FE5 		ldr	ip, .L18+68
+ 207 01a0 FA4E0FE3 		movw	r4, #65274
+ 208 01a4 68009FE5 		ldr	r0, .L18+72
+ 209 01a8 FF4F4FE3 		movt	r4, 65535
+ 210 01ac 64209FE5 		ldr	r2, .L18+76
+ 211 01b0 6130A0E3 		mov	r3, #97
+ 212 01b4 60109FE5 		ldr	r1, .L18+80
+ 213              	.LPIC7:
+ 214 01b8 0CC08FE0 		add	ip, pc, ip
+ 215              	.LPIC8:
+ 216 01bc 00008FE0 		add	r0, pc, r0
+ 217              	.LPIC5:
+ 218 01c0 02208FE0 		add	r2, pc, r2
+ 219              	.LPIC6:
+ 220 01c4 01108FE0 		add	r1, pc, r1
+ 221 01c8 D6FFFFEA 		b	.L13
+ 222              	.L19:
+ 223              		.align	2
+ 224              	.L18:
+ 225 01cc 44010000 		.word	.LANCHOR0-(.LPIC4+8)
+ 226 01d0 00010000 		.word	.LC2-(.LPIC24+8)
+ 227 01d4 FC000000 		.word	.LC3-(.LPIC25+8)
+ 228 01d8 F0000000 		.word	.LC4-(.LPIC22+8)
+ 229 01dc F0000000 		.word	.LC1-(.LPIC23+8)
+ 230 01e0 C0000000 		.word	.LC8-(.LPIC19+8)
+ 231 01e4 C0000000 		.word	.LC3-(.LPIC20+8)
+ 232 01e8 C0000000 		.word	.LC4-(.LPIC17+8)
+ 233 01ec C0000000 		.word	.LC1-(.LPIC18+8)
+ 234 01f0 8C000000 		.word	.LC6-(.LPIC11+8)
+ 235 01f4 8C000000 		.word	.LC3-(.LPIC12+8)
+ 236 01f8 8C000000 		.word	.LC4-(.LPIC9+8)
+ 237 01fc 8C000000 		.word	.LC1-(.LPIC10+8)
+ 238 0200 70000000 		.word	.LC7-(.LPIC15+8)
+ 239 0204 70000000 		.word	.LC3-(.LPIC16+8)
+ 240 0208 70000000 		.word	.LC4-(.LPIC13+8)
+ 241 020c 70000000 		.word	.LC1-(.LPIC14+8)
+ 242 0210 50000000 		.word	.LC5-(.LPIC7+8)
+ 243 0214 50000000 		.word	.LC3-(.LPIC8+8)
+ 244 0218 50000000 		.word	.LC4-(.LPIC5+8)
+ 245 021c 50000000 		.word	.LC1-(.LPIC6+8)
+ 247              		.section	.rodata.str1.4
+ 248              		.align	2
+ 249              	.LC9:
+ 250 00fc 45417069 		.ascii	"EApiWDogTriggerEmul\000"
+ 250      57446F67 
+ 250      54726967 
+ 250      67657245 
+ 250      6D756C00 
+ 251              		.align	2
+ 252              	.LC10:
+ 253 0110 57617463 		.ascii	"Watchdog Disabled therefore not possible to trigger"
+ 253      68646F67 
+ 253      20446973 
+ARM GAS  /tmp/cck3gtcd.s 			page 6
+
+
+ 253      61626C65 
+ 253      64207468 
+ 254 0143 00       		.ascii	"\000"
+ 255              		.text
+ 256              		.align	2
+ 257              		.global	EApiWDogTriggerEmul
+ 258              		.hidden	EApiWDogTriggerEmul
+ 259              		.syntax unified
+ 260              		.arm
+ 261              		.fpu vfpv3
+ 263              	EApiWDogTriggerEmul:
+ 264              		@ args = 0, pretend = 0, frame = 0
+ 265              		@ frame_needed = 0, uses_anonymous_args = 0
+ 266 0220 9C309FE5 		ldr	r3, .L25
+ 267 0224 10402DE9 		push	{r4, lr}
+ 268 0228 10D04DE2 		sub	sp, sp, #16
+ 269              	.LPIC26:
+ 270 022c 03308FE0 		add	r3, pc, r3
+ 271 0230 003093E5 		ldr	r3, [r3]
+ 272 0234 000053E3 		cmp	r3, #0
+ 273 0238 1000000A 		beq	.L24
+ 274              	.L22:
+ 275 023c 84C09FE5 		ldr	ip, .L25+4
+ 276 0240 0040A0E3 		mov	r4, #0
+ 277 0244 80009FE5 		ldr	r0, .L25+8
+ 278 0248 8730A0E3 		mov	r3, #135
+ 279 024c 7C209FE5 		ldr	r2, .L25+12
+ 280 0250 7C109FE5 		ldr	r1, .L25+16
+ 281              	.LPIC33:
+ 282 0254 0CC08FE0 		add	ip, pc, ip
+ 283              	.LPIC34:
+ 284 0258 00008FE0 		add	r0, pc, r0
+ 285 025c 00408DE5 		str	r4, [sp]
+ 286 0260 01108DE9 		stmib	sp, {r0, ip}
+ 287              	.LPIC31:
+ 288 0264 02208FE0 		add	r2, pc, r2
+ 289              	.LPIC32:
+ 290 0268 01108FE0 		add	r1, pc, r1
+ 291 026c 4C00A0E3 		mov	r0, #76
+ 292 0270 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 293 0274 0400A0E1 		mov	r0, r4
+ 294 0278 10D08DE2 		add	sp, sp, #16
+ 295              		@ sp needed
+ 296 027c 1080BDE8 		pop	{r4, pc}
+ 297              	.L24:
+ 298 0280 50C09FE5 		ldr	ip, .L25+20
+ 299 0284 0F4CE0E3 		mvn	r4, #3840
+ 300 0288 4C009FE5 		ldr	r0, .L25+24
+ 301 028c 8030A0E3 		mov	r3, #128
+ 302 0290 48209FE5 		ldr	r2, .L25+28
+ 303 0294 48109FE5 		ldr	r1, .L25+32
+ 304              	.LPIC29:
+ 305 0298 0CC08FE0 		add	ip, pc, ip
+ 306              	.LPIC30:
+ 307 029c 00008FE0 		add	r0, pc, r0
+ 308 02a0 00408DE5 		str	r4, [sp]
+ 309 02a4 01108DE9 		stmib	sp, {r0, ip}
+ARM GAS  /tmp/cck3gtcd.s 			page 7
+
+
+ 310              	.LPIC27:
+ 311 02a8 02208FE0 		add	r2, pc, r2
+ 312              	.LPIC28:
+ 313 02ac 01108FE0 		add	r1, pc, r1
+ 314 02b0 4500A0E3 		mov	r0, #69
+ 315 02b4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 316 02b8 0400A0E1 		mov	r0, r4
+ 317 02bc 10D08DE2 		add	sp, sp, #16
+ 318              		@ sp needed
+ 319 02c0 1080BDE8 		pop	{r4, pc}
+ 320              	.L26:
+ 321              		.align	2
+ 322              	.L25:
+ 323 02c4 90000000 		.word	.LANCHOR0-(.LPIC26+8)
+ 324 02c8 6C000000 		.word	.LC2-(.LPIC33+8)
+ 325 02cc 6C000000 		.word	.LC3-(.LPIC34+8)
+ 326 02d0 64000000 		.word	.LC9-(.LPIC31+8)
+ 327 02d4 64000000 		.word	.LC1-(.LPIC32+8)
+ 328 02d8 38000000 		.word	.LC10-(.LPIC29+8)
+ 329 02dc 38000000 		.word	.LC3-(.LPIC30+8)
+ 330 02e0 30000000 		.word	.LC9-(.LPIC27+8)
+ 331 02e4 30000000 		.word	.LC1-(.LPIC28+8)
+ 333              		.section	.rodata.str1.4
+ 334              		.align	2
+ 335              	.LC11:
+ 336 0144 45417069 		.ascii	"EApiWDogStopEmul\000"
+ 336      57446F67 
+ 336      53746F70 
+ 336      456D756C 
+ 336      00
+ 337              		.text
+ 338              		.align	2
+ 339              		.global	EApiWDogStopEmul
+ 340              		.hidden	EApiWDogStopEmul
+ 341              		.syntax unified
+ 342              		.arm
+ 343              		.fpu vfpv3
+ 345              	EApiWDogStopEmul:
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348 02e8 50C09FE5 		ldr	ip, .L29
+ 349 02ec 9430A0E3 		mov	r3, #148
+ 350 02f0 4C109FE5 		ldr	r1, .L29+4
+ 351 02f4 10402DE9 		push	{r4, lr}
+ 352 02f8 10D04DE2 		sub	sp, sp, #16
+ 353              	.LPIC38:
+ 354 02fc 0CC08FE0 		add	ip, pc, ip
+ 355 0300 40009FE5 		ldr	r0, .L29+8
+ 356              	.LPIC39:
+ 357 0304 01108FE0 		add	r1, pc, r1
+ 358 0308 0040A0E3 		mov	r4, #0
+ 359 030c 02108DE9 		stmib	sp, {r1, ip}
+ 360 0310 34209FE5 		ldr	r2, .L29+12
+ 361              	.LPIC35:
+ 362 0314 00008FE0 		add	r0, pc, r0
+ 363 0318 30109FE5 		ldr	r1, .L29+16
+ 364 031c 00408DE5 		str	r4, [sp]
+ARM GAS  /tmp/cck3gtcd.s 			page 8
+
+
+ 365              	.LPIC36:
+ 366 0320 02208FE0 		add	r2, pc, r2
+ 367 0324 004080E5 		str	r4, [r0]
+ 368              	.LPIC37:
+ 369 0328 01108FE0 		add	r1, pc, r1
+ 370 032c 4C00A0E3 		mov	r0, #76
+ 371 0330 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 372 0334 0400A0E1 		mov	r0, r4
+ 373 0338 10D08DE2 		add	sp, sp, #16
+ 374              		@ sp needed
+ 375 033c 1080BDE8 		pop	{r4, pc}
+ 376              	.L30:
+ 377              		.align	2
+ 378              	.L29:
+ 379 0340 3C000000 		.word	.LC2-(.LPIC38+8)
+ 380 0344 38000000 		.word	.LC3-(.LPIC39+8)
+ 381 0348 2C000000 		.word	.LANCHOR0-(.LPIC35+8)
+ 382 034c 24000000 		.word	.LC11-(.LPIC36+8)
+ 383 0350 20000000 		.word	.LC1-(.LPIC37+8)
+ 385              		.bss
+ 386              		.align	2
+ 387              		.set	.LANCHOR0,. + 0
+ 390              	WatchdogState:
+ 391 0000 00000000 		.space	4
+ 392              		.ident	"GCC: (Buildroot 2022.02) 11.2.0"
+ 393              		.section	.note.GNU-stack,"",%progbits
+ARM GAS  /tmp/cck3gtcd.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulWDT.c
+     /tmp/cck3gtcd.s:15     .rodata.str1.4:0000000000000000 $d
+     /tmp/cck3gtcd.s:16     .rodata.str1.4:0000000000000000 .LC0
+     /tmp/cck3gtcd.s:19     .rodata.str1.4:0000000000000014 .LC1
+     /tmp/cck3gtcd.s:23     .rodata.str1.4:0000000000000054 .LC2
+     /tmp/cck3gtcd.s:26     .rodata.str1.4:0000000000000058 .LC3
+     /tmp/cck3gtcd.s:29     .text:0000000000000000 $a
+     /tmp/cck3gtcd.s:38     .text:0000000000000000 EApiWDogGetCapEmul
+     /tmp/cck3gtcd.s:74     .text:0000000000000064 $d
+     /tmp/cck3gtcd.s:81     .rodata.str1.4:000000000000005c .LC4
+     /tmp/cck3gtcd.s:84     .rodata.str1.4:0000000000000070 .LC5
+     /tmp/cck3gtcd.s:88     .rodata.str1.4:00000000000000a8 .LC6
+     /tmp/cck3gtcd.s:91     .rodata.str1.4:00000000000000bc .LC7
+     /tmp/cck3gtcd.s:94     .rodata.str1.4:00000000000000dc .LC8
+     /tmp/cck3gtcd.s:97     .text:0000000000000074 $a
+     /tmp/cck3gtcd.s:104    .text:0000000000000074 EApiWDogStartEmul
+     /tmp/cck3gtcd.s:225    .text:00000000000001cc $d
+     /tmp/cck3gtcd.s:249    .rodata.str1.4:00000000000000fc .LC9
+     /tmp/cck3gtcd.s:252    .rodata.str1.4:0000000000000110 .LC10
+     /tmp/cck3gtcd.s:256    .text:0000000000000220 $a
+     /tmp/cck3gtcd.s:263    .text:0000000000000220 EApiWDogTriggerEmul
+     /tmp/cck3gtcd.s:323    .text:00000000000002c4 $d
+     /tmp/cck3gtcd.s:335    .rodata.str1.4:0000000000000144 .LC11
+     /tmp/cck3gtcd.s:338    .text:00000000000002e8 $a
+     /tmp/cck3gtcd.s:345    .text:00000000000002e8 EApiWDogStopEmul
+     /tmp/cck3gtcd.s:379    .text:0000000000000340 $d
+     /tmp/cck3gtcd.s:386    .bss:0000000000000000 $d
+     /tmp/cck3gtcd.s:390    .bss:0000000000000000 WatchdogState
+
+UNDEFINED SYMBOLS
+siFormattedMessage_SC

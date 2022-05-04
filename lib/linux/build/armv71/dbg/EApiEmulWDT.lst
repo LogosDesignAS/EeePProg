@@ -1,0 +1,793 @@
+ARM GAS  /tmp/cc50D5xe.s 			page 1
+
+
+   1              		.cpu cortex-a9
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 2
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"EApiEmulWDT.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.local	WatchdogState
+  17              		.comm	WatchdogState,4,4
+  18              		.section	.rodata
+  19              		.align	2
+  20              	.LC0:
+  21 0000 45417069 		.ascii	"EApiWDogGetCapEmul\000"
+  21      57446F67 
+  21      47657443 
+  21      6170456D 
+  21      756C00
+  22 0013 00       		.align	2
+  23              	.LC1:
+  24 0014 2F686F6D 		.ascii	"/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EA"
+  24      652F686B 
+  24      682F6769 
+  24      742F6561 
+  24      7069646B 
+  25 0047 7069456D 		.ascii	"piEmulWDT.c\000"
+  25      756C5744 
+  25      542E6300 
+  26 0053 00       		.align	2
+  27              	.LC2:
+  28 0054 00       		.ascii	"\000"
+  29 0055 000000   		.align	2
+  30              	.LC3:
+  31 0058 25730A00 		.ascii	"%s\012\000"
+  32              		.text
+  33              		.align	2
+  34              		.global	EApiWDogGetCapEmul
+  35              		.arch armv7-a
+  36              		.arch_extension mp
+  37              		.arch_extension sec
+  38              		.syntax unified
+  39              		.arm
+  40              		.fpu vfpv3
+  42              	EApiWDogGetCapEmul:
+  43              	.LFB1:
+  44              		.file 1 "/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c"
+   1:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** /*
+   2:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *<KHeader>
+   3:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *+=========================================================================
+   4:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  Project Name: EApiDK Embedded Application Development Kit
+ARM GAS  /tmp/cc50D5xe.s 			page 2
+
+
+   5:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *+=========================================================================
+   6:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  $HeadURL: file:///svn/p/eapidk/code/trunk/lib/EApiEmulWDT.c $
+   7:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *+=========================================================================
+   8:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I   Copyright: Copyright (c) 2002-2009, Kontron Embedded Modules GmbH
+   9:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I      Author: John Kearney,                  John.Kearney@kontron.com
+  10:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I
+  11:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I     License: All rights reserved. This program and the accompanying 
+  12:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              materials are licensed and made available under the 
+  13:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              terms and conditions of the BSD License which 
+  14:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              accompanies this distribution. The full text of the 
+  15:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              license may be found at 
+  16:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              http://opensource.org/licenses/bsd-license.php
+  17:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              
+  18:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "
+  19:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF 
+  20:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I              ANY KIND, EITHER EXPRESS OR IMPLIED.
+  21:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I
+  22:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I Description: Auto Created for EApiEmulWDT.c
+  23:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I
+  24:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *+-------------------------------------------------------------------------
+  25:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I
+  26:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  File Name            : EApiEmulWDT.c
+  27:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  File Location        : lib
+  28:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  Last committed       : $Revision: 74 $
+  29:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  Last changed by      : $Author: dethrophes $
+  30:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  Last changed date    : $Date: 2010-06-23 19:26:50 +0000 (Wed, 23 Jun 2010) $
+  31:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I  ID                   : $Id: EApiEmulWDT.c 74 2010-06-23 19:26:50Z dethrophes $
+  32:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *I
+  33:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *+=========================================================================
+  34:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *</KHeader>
+  35:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  */
+  36:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  37:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #include <EApiLib.h>
+  38:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  39:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  40:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** /*
+  41:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *
+  42:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *  
+  43:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *
+  44:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *  W A T C H D O G
+  45:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *
+  46:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *
+  47:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  *
+  48:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****  */
+  49:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #define WATCHDOG_ENABLED  ((unsigned)-1)
+  50:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #define WATCHDOG_DISABLED ((unsigned)0)
+  51:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** static unsigned WatchdogState=WATCHDOG_DISABLED;
+  52:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  53:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  54:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #define MIN_IN_millisec(x) ((x)*60*1000)
+  55:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #define MaxDelay        MIN_IN_millisec(10)
+  56:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #define MaxEventTimeout MIN_IN_millisec(10)
+  57:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** #define MaxResetTimeout MIN_IN_millisec(10)
+  58:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiStatus_t 
+  59:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EAPI_CALLTYPE
+  60:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiWDogGetCapEmul(
+  61:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     __OUTOPT uint32_t *pMaxDelay       ,/* Maximum Supported 
+ARM GAS  /tmp/cc50D5xe.s 			page 3
+
+
+  62:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          * Delay in milliseconds
+  63:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          */
+  64:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     __OUTOPT uint32_t *pMaxEventTimeout,/* Maximum Supported 
+  65:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          * Event Timeout in 
+  66:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          * milliseconds
+  67:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          * 0 == Unsupported
+  68:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          */
+  69:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     __OUTOPT uint32_t *pMaxResetTimeout /* Maximum Supported 
+  70:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          * Reset Timeout in 
+  71:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          * milliseconds
+  72:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                          */
+  73:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     )
+  74:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** {
+  45              		.loc 1 74 1
+  46              		.cfi_startproc
+  47              		@ args = 0, pretend = 0, frame = 24
+  48              		@ frame_needed = 1, uses_anonymous_args = 0
+  49 0000 00482DE9 		push	{fp, lr}
+  50              		.cfi_def_cfa_offset 8
+  51              		.cfi_offset 11, -8
+  52              		.cfi_offset 14, -4
+  53 0004 04B08DE2 		add	fp, sp, #4
+  54              		.cfi_def_cfa 11, 4
+  55 0008 28D04DE2 		sub	sp, sp, #40
+  56 000c 10000BE5 		str	r0, [fp, #-16]
+  57 0010 14100BE5 		str	r1, [fp, #-20]
+  58 0014 18200BE5 		str	r2, [fp, #-24]
+  75:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+  59              		.loc 1 75 16
+  60 0018 0030A0E3 		mov	r3, #0
+  61 001c 08300BE5 		str	r3, [fp, #-8]
+  76:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   *pMaxDelay        =MaxDelay;
+  62              		.loc 1 76 21
+  63 0020 10201BE5 		ldr	r2, [fp, #-16]
+  64 0024 9F3DA0E3 		mov	r3, #10176
+  65 0028 093040E3 		movt	r3, 9
+  66 002c 003082E5 		str	r3, [r2]
+  77:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   *pMaxEventTimeout =MaxEventTimeout;
+  67              		.loc 1 77 21
+  68 0030 14201BE5 		ldr	r2, [fp, #-20]
+  69 0034 9F3DA0E3 		mov	r3, #10176
+  70 0038 093040E3 		movt	r3, 9
+  71 003c 003082E5 		str	r3, [r2]
+  78:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   *pMaxResetTimeout =MaxResetTimeout;
+  72              		.loc 1 78 21
+  73 0040 18201BE5 		ldr	r2, [fp, #-24]
+  74 0044 9F3DA0E3 		mov	r3, #10176
+  75 0048 093040E3 		movt	r3, 9
+  76 004c 003082E5 		str	r3, [r2]
+  79:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_RETURN_SUCCESS(EApiWDogGetCapEmul, "");
+  77              		.loc 1 79 3
+  78 0050 50309FE5 		ldr	r3, .L4
+  79              	.LPIC0:
+  80 0054 03308FE0 		add	r3, pc, r3
+  81 0058 08308DE5 		str	r3, [sp, #8]
+  82 005c 48309FE5 		ldr	r3, .L4+4
+  83              	.LPIC1:
+ARM GAS  /tmp/cc50D5xe.s 			page 4
+
+
+  84 0060 03308FE0 		add	r3, pc, r3
+  85 0064 04308DE5 		str	r3, [sp, #4]
+  86 0068 0030A0E3 		mov	r3, #0
+  87 006c 00308DE5 		str	r3, [sp]
+  88 0070 4F30A0E3 		mov	r3, #79
+  89 0074 34209FE5 		ldr	r2, .L4+8
+  90              	.LPIC2:
+  91 0078 02208FE0 		add	r2, pc, r2
+  92 007c 30109FE5 		ldr	r1, .L4+12
+  93              	.LPIC3:
+  94 0080 01108FE0 		add	r1, pc, r1
+  95 0084 4C00A0E3 		mov	r0, #76
+  96 0088 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+  97 008c 0030A0E3 		mov	r3, #0
+  98 0090 08300BE5 		str	r3, [fp, #-8]
+  99 0094 00F020E3 		nop
+ 100              	.L2:
+  80:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  81:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EAPI_LIB_ASSERT_EXIT
+  82:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+  83:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   return StatusCode;
+ 101              		.loc 1 83 10
+ 102 0098 08301BE5 		ldr	r3, [fp, #-8]
+  84:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** }
+ 103              		.loc 1 84 1
+ 104 009c 0300A0E1 		mov	r0, r3
+ 105 00a0 04D04BE2 		sub	sp, fp, #4
+ 106              		.cfi_def_cfa 13, 8
+ 107              		@ sp needed
+ 108 00a4 0088BDE8 		pop	{fp, pc}
+ 109              	.L5:
+ 110              		.align	2
+ 111              	.L4:
+ 112 00a8 A0000000 		.word	.LC2-(.LPIC0+8)
+ 113 00ac 9C000000 		.word	.LC3-(.LPIC1+8)
+ 114 00b0 30000000 		.word	.LC0-(.LPIC2+8)
+ 115 00b4 40000000 		.word	.LC1-(.LPIC3+8)
+ 116              		.cfi_endproc
+ 117              	.LFE1:
+ 119              		.section	.rodata
+ 120              		.align	2
+ 121              	.LC4:
+ 122 005c 45417069 		.ascii	"EApiWDogStartEmul\000"
+ 122      57446F67 
+ 122      53746172 
+ 122      74456D75 
+ 122      6C00
+ 123 006e 0000     		.align	2
+ 124              	.LC5:
+ 125 0070 57617463 		.ascii	"Watchdog alread runing, need to stop before startin"
+ 125      68646F67 
+ 125      20616C72 
+ 125      65616420 
+ 125      72756E69 
+ 126 00a3 6700     		.ascii	"g\000"
+ 127 00a5 000000   		.align	2
+ 128              	.LC6:
+ARM GAS  /tmp/cc50D5xe.s 			page 5
+
+
+ 129 00a8 2844656C 		.ascii	"(Delay>pMaxDelay)\000"
+ 129      61793E70 
+ 129      4D617844 
+ 129      656C6179 
+ 129      2900
+ 130 00ba 0000     		.align	2
+ 131              	.LC7:
+ 132 00bc 28457665 		.ascii	"(EventTimeout>pMaxEventTimeout)\000"
+ 132      6E745469 
+ 132      6D656F75 
+ 132      743E704D 
+ 132      61784576 
+ 133              		.align	2
+ 134              	.LC8:
+ 135 00dc 28526573 		.ascii	"(ResetTimeout>pMaxResetTimeout)\000"
+ 135      65745469 
+ 135      6D656F75 
+ 135      743E704D 
+ 135      61785265 
+ 136              		.text
+ 137              		.align	2
+ 138              		.global	EApiWDogStartEmul
+ 139              		.hidden	EApiWDogStartEmul
+ 140              		.syntax unified
+ 141              		.arm
+ 142              		.fpu vfpv3
+ 144              	EApiWDogStartEmul:
+ 145              	.LFB2:
+  85:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiStatus_t 
+  86:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiWDogStartEmul(
+  87:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     __IN  uint32_t Delay       , /* Delay in milliseconds */
+  88:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     __IN  uint32_t EventTimeout, /* Event Timeout in 
+  89:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                   * milliseconds 
+  90:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                   */
+  91:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     __IN  uint32_t ResetTimeout  /* Reset Timeout in 
+  92:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                   * milliseconds 
+  93:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****                                   */
+  94:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     )
+  95:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** {
+ 146              		.loc 1 95 1
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 24
+ 149              		@ frame_needed = 1, uses_anonymous_args = 0
+ 150 00b8 00482DE9 		push	{fp, lr}
+ 151              		.cfi_def_cfa_offset 8
+ 152              		.cfi_offset 11, -8
+ 153              		.cfi_offset 14, -4
+ 154 00bc 04B08DE2 		add	fp, sp, #4
+ 155              		.cfi_def_cfa 11, 4
+ 156 00c0 28D04DE2 		sub	sp, sp, #40
+ 157 00c4 10000BE5 		str	r0, [fp, #-16]
+ 158 00c8 14100BE5 		str	r1, [fp, #-20]
+ 159 00cc 18200BE5 		str	r2, [fp, #-24]
+  96:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 160              		.loc 1 96 16
+ 161 00d0 0030A0E3 		mov	r3, #0
+ 162 00d4 08300BE5 		str	r3, [fp, #-8]
+ARM GAS  /tmp/cc50D5xe.s 			page 6
+
+
+  97:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_RETURN_ERROR_IF(
+ 163              		.loc 1 97 3
+ 164 00d8 D8319FE5 		ldr	r3, .L13
+ 165              	.LPIC4:
+ 166 00dc 03308FE0 		add	r3, pc, r3
+ 167 00e0 003093E5 		ldr	r3, [r3]
+ 168 00e4 010073E3 		cmn	r3, #1
+ 169 00e8 1300001A 		bne	.L7
+ 170              		.loc 1 97 3 is_stmt 0 discriminator 1
+ 171 00ec C8319FE5 		ldr	r3, .L13+4
+ 172              	.LPIC5:
+ 173 00f0 03308FE0 		add	r3, pc, r3
+ 174 00f4 08308DE5 		str	r3, [sp, #8]
+ 175 00f8 C0319FE5 		ldr	r3, .L13+8
+ 176              	.LPIC6:
+ 177 00fc 03308FE0 		add	r3, pc, r3
+ 178 0100 04308DE5 		str	r3, [sp, #4]
+ 179 0104 FA3E0FE3 		movw	r3, #65274
+ 180 0108 FF3F4FE3 		movt	r3, 65535
+ 181 010c 00308DE5 		str	r3, [sp]
+ 182 0110 6130A0E3 		mov	r3, #97
+ 183 0114 A8219FE5 		ldr	r2, .L13+12
+ 184              	.LPIC7:
+ 185 0118 02208FE0 		add	r2, pc, r2
+ 186 011c A4119FE5 		ldr	r1, .L13+16
+ 187              	.LPIC8:
+ 188 0120 01108FE0 		add	r1, pc, r1
+ 189 0124 4500A0E3 		mov	r0, #69
+ 190 0128 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 191 012c FA3E0FE3 		movw	r3, #65274
+ 192 0130 FF3F4FE3 		movt	r3, 65535
+ 193 0134 08300BE5 		str	r3, [fp, #-8]
+ 194 0138 5A0000EA 		b	.L8
+ 195              	.L7:
+  98:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       EApiWDogStartEmul, 
+  99:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       (WatchdogState==WATCHDOG_ENABLED), 
+ 100:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       EAPI_STATUS_RUNNING, 
+ 101:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       "Watchdog alread runing, need to stop before starting"
+ 102:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       );
+ 103:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_ASSERT_PARAMATER_CHECK(
+ 196              		.loc 1 103 3 is_stmt 1
+ 197 013c 10201BE5 		ldr	r2, [fp, #-16]
+ 198 0140 9F3DA0E3 		mov	r3, #10176
+ 199 0144 093040E3 		movt	r3, 9
+ 200 0148 030052E1 		cmp	r2, r3
+ 201 014c 1100009A 		bls	.L9
+ 202              		.loc 1 103 3 is_stmt 0 discriminator 1
+ 203 0150 74319FE5 		ldr	r3, .L13+20
+ 204              	.LPIC9:
+ 205 0154 03308FE0 		add	r3, pc, r3
+ 206 0158 08308DE5 		str	r3, [sp, #8]
+ 207 015c 6C319FE5 		ldr	r3, .L13+24
+ 208              	.LPIC10:
+ 209 0160 03308FE0 		add	r3, pc, r3
+ 210 0164 04308DE5 		str	r3, [sp, #4]
+ 211 0168 013CE0E3 		mvn	r3, #256
+ 212 016c 00308DE5 		str	r3, [sp]
+ARM GAS  /tmp/cc50D5xe.s 			page 7
+
+
+ 213 0170 6730A0E3 		mov	r3, #103
+ 214 0174 58219FE5 		ldr	r2, .L13+28
+ 215              	.LPIC11:
+ 216 0178 02208FE0 		add	r2, pc, r2
+ 217 017c 54119FE5 		ldr	r1, .L13+32
+ 218              	.LPIC12:
+ 219 0180 01108FE0 		add	r1, pc, r1
+ 220 0184 4500A0E3 		mov	r0, #69
+ 221 0188 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 222 018c 013CE0E3 		mvn	r3, #256
+ 223 0190 08300BE5 		str	r3, [fp, #-8]
+ 224 0194 430000EA 		b	.L8
+ 225              	.L9:
+ 104:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     EApiWDogStartEmul, 
+ 105:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     (Delay>MaxDelay), 
+ 106:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****    "(Delay>pMaxDelay)"
+ 107:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   );
+ 108:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_ASSERT_PARAMATER_CHECK(
+ 226              		.loc 1 108 3 is_stmt 1
+ 227 0198 14201BE5 		ldr	r2, [fp, #-20]
+ 228 019c 9F3DA0E3 		mov	r3, #10176
+ 229 01a0 093040E3 		movt	r3, 9
+ 230 01a4 030052E1 		cmp	r2, r3
+ 231 01a8 1100009A 		bls	.L10
+ 232              		.loc 1 108 3 is_stmt 0 discriminator 1
+ 233 01ac 28319FE5 		ldr	r3, .L13+36
+ 234              	.LPIC13:
+ 235 01b0 03308FE0 		add	r3, pc, r3
+ 236 01b4 08308DE5 		str	r3, [sp, #8]
+ 237 01b8 20319FE5 		ldr	r3, .L13+40
+ 238              	.LPIC14:
+ 239 01bc 03308FE0 		add	r3, pc, r3
+ 240 01c0 04308DE5 		str	r3, [sp, #4]
+ 241 01c4 013CE0E3 		mvn	r3, #256
+ 242 01c8 00308DE5 		str	r3, [sp]
+ 243 01cc 6C30A0E3 		mov	r3, #108
+ 244 01d0 0C219FE5 		ldr	r2, .L13+44
+ 245              	.LPIC15:
+ 246 01d4 02208FE0 		add	r2, pc, r2
+ 247 01d8 08119FE5 		ldr	r1, .L13+48
+ 248              	.LPIC16:
+ 249 01dc 01108FE0 		add	r1, pc, r1
+ 250 01e0 4500A0E3 		mov	r0, #69
+ 251 01e4 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 252 01e8 013CE0E3 		mvn	r3, #256
+ 253 01ec 08300BE5 		str	r3, [fp, #-8]
+ 254 01f0 2C0000EA 		b	.L8
+ 255              	.L10:
+ 109:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     EApiWDogStartEmul, 
+ 110:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     (EventTimeout>MaxEventTimeout), 
+ 111:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****    "(EventTimeout>pMaxEventTimeout)"
+ 112:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   );
+ 113:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_ASSERT_PARAMATER_CHECK(
+ 256              		.loc 1 113 3 is_stmt 1
+ 257 01f4 18201BE5 		ldr	r2, [fp, #-24]
+ 258 01f8 9F3DA0E3 		mov	r3, #10176
+ 259 01fc 093040E3 		movt	r3, 9
+ARM GAS  /tmp/cc50D5xe.s 			page 8
+
+
+ 260 0200 030052E1 		cmp	r2, r3
+ 261 0204 1100009A 		bls	.L11
+ 262              		.loc 1 113 3 is_stmt 0 discriminator 1
+ 263 0208 DC309FE5 		ldr	r3, .L13+52
+ 264              	.LPIC17:
+ 265 020c 03308FE0 		add	r3, pc, r3
+ 266 0210 08308DE5 		str	r3, [sp, #8]
+ 267 0214 D4309FE5 		ldr	r3, .L13+56
+ 268              	.LPIC18:
+ 269 0218 03308FE0 		add	r3, pc, r3
+ 270 021c 04308DE5 		str	r3, [sp, #4]
+ 271 0220 013CE0E3 		mvn	r3, #256
+ 272 0224 00308DE5 		str	r3, [sp]
+ 273 0228 7130A0E3 		mov	r3, #113
+ 274 022c C0209FE5 		ldr	r2, .L13+60
+ 275              	.LPIC19:
+ 276 0230 02208FE0 		add	r2, pc, r2
+ 277 0234 BC109FE5 		ldr	r1, .L13+64
+ 278              	.LPIC20:
+ 279 0238 01108FE0 		add	r1, pc, r1
+ 280 023c 4500A0E3 		mov	r0, #69
+ 281 0240 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 282 0244 013CE0E3 		mvn	r3, #256
+ 283 0248 08300BE5 		str	r3, [fp, #-8]
+ 284 024c 150000EA 		b	.L8
+ 285              	.L11:
+ 114:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     EApiWDogStartEmul, 
+ 115:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****     (ResetTimeout>MaxResetTimeout), 
+ 116:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****    "(ResetTimeout>pMaxResetTimeout)"
+ 117:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   );
+ 118:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   WatchdogState=WATCHDOG_ENABLED;
+ 286              		.loc 1 118 16 is_stmt 1
+ 287 0250 A4309FE5 		ldr	r3, .L13+68
+ 288              	.LPIC21:
+ 289 0254 03308FE0 		add	r3, pc, r3
+ 290 0258 0020E0E3 		mvn	r2, #0
+ 291 025c 002083E5 		str	r2, [r3]
+ 119:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_RETURN_SUCCESS(EApiWDogStartEmul, "");
+ 292              		.loc 1 119 3
+ 293 0260 98309FE5 		ldr	r3, .L13+72
+ 294              	.LPIC22:
+ 295 0264 03308FE0 		add	r3, pc, r3
+ 296 0268 08308DE5 		str	r3, [sp, #8]
+ 297 026c 90309FE5 		ldr	r3, .L13+76
+ 298              	.LPIC23:
+ 299 0270 03308FE0 		add	r3, pc, r3
+ 300 0274 04308DE5 		str	r3, [sp, #4]
+ 301 0278 0030A0E3 		mov	r3, #0
+ 302 027c 00308DE5 		str	r3, [sp]
+ 303 0280 7730A0E3 		mov	r3, #119
+ 304 0284 7C209FE5 		ldr	r2, .L13+80
+ 305              	.LPIC24:
+ 306 0288 02208FE0 		add	r2, pc, r2
+ 307 028c 78109FE5 		ldr	r1, .L13+84
+ 308              	.LPIC25:
+ 309 0290 01108FE0 		add	r1, pc, r1
+ 310 0294 4C00A0E3 		mov	r0, #76
+ARM GAS  /tmp/cc50D5xe.s 			page 9
+
+
+ 311 0298 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 312 029c 0030A0E3 		mov	r3, #0
+ 313 02a0 08300BE5 		str	r3, [fp, #-8]
+ 314 02a4 00F020E3 		nop
+ 315              	.L8:
+ 120:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EAPI_LIB_ASSERT_EXIT
+ 121:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+ 122:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   return StatusCode;
+ 316              		.loc 1 122 10
+ 317 02a8 08301BE5 		ldr	r3, [fp, #-8]
+ 123:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** }
+ 318              		.loc 1 123 1
+ 319 02ac 0300A0E1 		mov	r0, r3
+ 320 02b0 04D04BE2 		sub	sp, fp, #4
+ 321              		.cfi_def_cfa 13, 8
+ 322              		@ sp needed
+ 323 02b4 0088BDE8 		pop	{fp, pc}
+ 324              	.L14:
+ 325              		.align	2
+ 326              	.L13:
+ 327 02b8 D4010000 		.word	WatchdogState-(.LPIC4+8)
+ 328 02bc 34020000 		.word	.LC5-(.LPIC5+8)
+ 329 02c0 14020000 		.word	.LC3-(.LPIC6+8)
+ 330 02c4 00020000 		.word	.LC4-(.LPIC7+8)
+ 331 02c8 B4010000 		.word	.LC1-(.LPIC8+8)
+ 332 02cc 18020000 		.word	.LC6-(.LPIC9+8)
+ 333 02d0 C0010000 		.word	.LC3-(.LPIC10+8)
+ 334 02d4 B0010000 		.word	.LC4-(.LPIC11+8)
+ 335 02d8 64010000 		.word	.LC1-(.LPIC12+8)
+ 336 02dc E0010000 		.word	.LC7-(.LPIC13+8)
+ 337 02e0 74010000 		.word	.LC3-(.LPIC14+8)
+ 338 02e4 64010000 		.word	.LC4-(.LPIC15+8)
+ 339 02e8 18010000 		.word	.LC1-(.LPIC16+8)
+ 340 02ec B4010000 		.word	.LC8-(.LPIC17+8)
+ 341 02f0 28010000 		.word	.LC3-(.LPIC18+8)
+ 342 02f4 18010000 		.word	.LC4-(.LPIC19+8)
+ 343 02f8 CC000000 		.word	.LC1-(.LPIC20+8)
+ 344 02fc A0000000 		.word	WatchdogState-(.LPIC21+8)
+ 345 0300 E8000000 		.word	.LC2-(.LPIC22+8)
+ 346 0304 E4000000 		.word	.LC3-(.LPIC23+8)
+ 347 0308 D4000000 		.word	.LC4-(.LPIC24+8)
+ 348 030c 88000000 		.word	.LC1-(.LPIC25+8)
+ 349              		.cfi_endproc
+ 350              	.LFE2:
+ 352              		.section	.rodata
+ 353              		.align	2
+ 354              	.LC9:
+ 355 00fc 45417069 		.ascii	"EApiWDogTriggerEmul\000"
+ 355      57446F67 
+ 355      54726967 
+ 355      67657245 
+ 355      6D756C00 
+ 356              		.align	2
+ 357              	.LC10:
+ 358 0110 57617463 		.ascii	"Watchdog Disabled therefore not possible to trigger"
+ 358      68646F67 
+ 358      20446973 
+ARM GAS  /tmp/cc50D5xe.s 			page 10
+
+
+ 358      61626C65 
+ 358      64207468 
+ 359 0143 00       		.ascii	"\000"
+ 360              		.text
+ 361              		.align	2
+ 362              		.global	EApiWDogTriggerEmul
+ 363              		.hidden	EApiWDogTriggerEmul
+ 364              		.syntax unified
+ 365              		.arm
+ 366              		.fpu vfpv3
+ 368              	EApiWDogTriggerEmul:
+ 369              	.LFB3:
+ 124:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiStatus_t 
+ 125:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiWDogTriggerEmul(void)
+ 126:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** {
+ 370              		.loc 1 126 1
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 8
+ 373              		@ frame_needed = 1, uses_anonymous_args = 0
+ 374 0310 00482DE9 		push	{fp, lr}
+ 375              		.cfi_def_cfa_offset 8
+ 376              		.cfi_offset 11, -8
+ 377              		.cfi_offset 14, -4
+ 378 0314 04B08DE2 		add	fp, sp, #4
+ 379              		.cfi_def_cfa 11, 4
+ 380 0318 18D04DE2 		sub	sp, sp, #24
+ 127:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 381              		.loc 1 127 16
+ 382 031c 0030A0E3 		mov	r3, #0
+ 383 0320 08300BE5 		str	r3, [fp, #-8]
+ 128:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_RETURN_ERROR_IF(
+ 384              		.loc 1 128 3
+ 385 0324 AC309FE5 		ldr	r3, .L19
+ 386              	.LPIC26:
+ 387 0328 03308FE0 		add	r3, pc, r3
+ 388 032c 003093E5 		ldr	r3, [r3]
+ 389 0330 000053E3 		cmp	r3, #0
+ 390 0334 1100001A 		bne	.L16
+ 391              		.loc 1 128 3 is_stmt 0 discriminator 1
+ 392 0338 9C309FE5 		ldr	r3, .L19+4
+ 393              	.LPIC27:
+ 394 033c 03308FE0 		add	r3, pc, r3
+ 395 0340 08308DE5 		str	r3, [sp, #8]
+ 396 0344 94309FE5 		ldr	r3, .L19+8
+ 397              	.LPIC28:
+ 398 0348 03308FE0 		add	r3, pc, r3
+ 399 034c 04308DE5 		str	r3, [sp, #4]
+ 400 0350 0F3CE0E3 		mvn	r3, #3840
+ 401 0354 00308DE5 		str	r3, [sp]
+ 402 0358 8030A0E3 		mov	r3, #128
+ 403 035c 80209FE5 		ldr	r2, .L19+12
+ 404              	.LPIC29:
+ 405 0360 02208FE0 		add	r2, pc, r2
+ 406 0364 7C109FE5 		ldr	r1, .L19+16
+ 407              	.LPIC30:
+ 408 0368 01108FE0 		add	r1, pc, r1
+ 409 036c 4500A0E3 		mov	r0, #69
+ARM GAS  /tmp/cc50D5xe.s 			page 11
+
+
+ 410 0370 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 411 0374 0F3CE0E3 		mvn	r3, #3840
+ 412 0378 08300BE5 		str	r3, [fp, #-8]
+ 413 037c 110000EA 		b	.L17
+ 414              	.L16:
+ 129:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       EApiWDogTriggerEmul, 
+ 130:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       (WatchdogState==WATCHDOG_DISABLED), 
+ 131:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       EAPI_STATUS_ERROR, 
+ 132:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       "Watchdog Disabled therefore not possible to trigger"
+ 133:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       );
+ 134:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+ 135:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_RETURN_SUCCESS(
+ 415              		.loc 1 135 3 is_stmt 1
+ 416 0380 64309FE5 		ldr	r3, .L19+20
+ 417              	.LPIC31:
+ 418 0384 03308FE0 		add	r3, pc, r3
+ 419 0388 08308DE5 		str	r3, [sp, #8]
+ 420 038c 5C309FE5 		ldr	r3, .L19+24
+ 421              	.LPIC32:
+ 422 0390 03308FE0 		add	r3, pc, r3
+ 423 0394 04308DE5 		str	r3, [sp, #4]
+ 424 0398 0030A0E3 		mov	r3, #0
+ 425 039c 00308DE5 		str	r3, [sp]
+ 426 03a0 8730A0E3 		mov	r3, #135
+ 427 03a4 48209FE5 		ldr	r2, .L19+28
+ 428              	.LPIC33:
+ 429 03a8 02208FE0 		add	r2, pc, r2
+ 430 03ac 44109FE5 		ldr	r1, .L19+32
+ 431              	.LPIC34:
+ 432 03b0 01108FE0 		add	r1, pc, r1
+ 433 03b4 4C00A0E3 		mov	r0, #76
+ 434 03b8 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 435 03bc 0030A0E3 		mov	r3, #0
+ 436 03c0 08300BE5 		str	r3, [fp, #-8]
+ 437 03c4 00F020E3 		nop
+ 438              	.L17:
+ 136:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       EApiWDogTriggerEmul, 
+ 137:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       ""
+ 138:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       );
+ 139:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EAPI_LIB_ASSERT_EXIT
+ 140:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+ 141:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   return StatusCode;
+ 439              		.loc 1 141 10
+ 440 03c8 08301BE5 		ldr	r3, [fp, #-8]
+ 142:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** }
+ 441              		.loc 1 142 1
+ 442 03cc 0300A0E1 		mov	r0, r3
+ 443 03d0 04D04BE2 		sub	sp, fp, #4
+ 444              		.cfi_def_cfa 13, 8
+ 445              		@ sp needed
+ 446 03d4 0088BDE8 		pop	{fp, pc}
+ 447              	.L20:
+ 448              		.align	2
+ 449              	.L19:
+ 450 03d8 A8000000 		.word	WatchdogState-(.LPIC26+8)
+ 451 03dc A8010000 		.word	.LC10-(.LPIC27+8)
+ 452 03e0 E8000000 		.word	.LC3-(.LPIC28+8)
+ARM GAS  /tmp/cc50D5xe.s 			page 12
+
+
+ 453 03e4 78010000 		.word	.LC9-(.LPIC29+8)
+ 454 03e8 8C000000 		.word	.LC1-(.LPIC30+8)
+ 455 03ec B4000000 		.word	.LC2-(.LPIC31+8)
+ 456 03f0 B0000000 		.word	.LC3-(.LPIC32+8)
+ 457 03f4 40010000 		.word	.LC9-(.LPIC33+8)
+ 458 03f8 54000000 		.word	.LC1-(.LPIC34+8)
+ 459              		.cfi_endproc
+ 460              	.LFE3:
+ 462              		.section	.rodata
+ 463              		.align	2
+ 464              	.LC11:
+ 465 0144 45417069 		.ascii	"EApiWDogStopEmul\000"
+ 465      57446F67 
+ 465      53746F70 
+ 465      456D756C 
+ 465      00
+ 466              		.text
+ 467              		.align	2
+ 468              		.global	EApiWDogStopEmul
+ 469              		.hidden	EApiWDogStopEmul
+ 470              		.syntax unified
+ 471              		.arm
+ 472              		.fpu vfpv3
+ 474              	EApiWDogStopEmul:
+ 475              	.LFB4:
+ 143:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiStatus_t 
+ 144:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EApiWDogStopEmul(void)
+ 145:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** {
+ 476              		.loc 1 145 1
+ 477              		.cfi_startproc
+ 478              		@ args = 0, pretend = 0, frame = 8
+ 479              		@ frame_needed = 1, uses_anonymous_args = 0
+ 480 03fc 00482DE9 		push	{fp, lr}
+ 481              		.cfi_def_cfa_offset 8
+ 482              		.cfi_offset 11, -8
+ 483              		.cfi_offset 14, -4
+ 484 0400 04B08DE2 		add	fp, sp, #4
+ 485              		.cfi_def_cfa 11, 4
+ 486 0404 18D04DE2 		sub	sp, sp, #24
+ 146:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EApiStatus_t StatusCode=EAPI_STATUS_SUCCESS;
+ 487              		.loc 1 146 16
+ 488 0408 0030A0E3 		mov	r3, #0
+ 489 040c 08300BE5 		str	r3, [fp, #-8]
+ 147:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   WatchdogState=WATCHDOG_DISABLED;
+ 490              		.loc 1 147 16
+ 491 0410 60309FE5 		ldr	r3, .L24
+ 492              	.LPIC35:
+ 493 0414 03308FE0 		add	r3, pc, r3
+ 494 0418 0020A0E3 		mov	r2, #0
+ 495 041c 002083E5 		str	r2, [r3]
+ 148:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   EAPI_LIB_RETURN_SUCCESS(
+ 496              		.loc 1 148 3
+ 497 0420 54309FE5 		ldr	r3, .L24+4
+ 498              	.LPIC36:
+ 499 0424 03308FE0 		add	r3, pc, r3
+ 500 0428 08308DE5 		str	r3, [sp, #8]
+ 501 042c 4C309FE5 		ldr	r3, .L24+8
+ARM GAS  /tmp/cc50D5xe.s 			page 13
+
+
+ 502              	.LPIC37:
+ 503 0430 03308FE0 		add	r3, pc, r3
+ 504 0434 04308DE5 		str	r3, [sp, #4]
+ 505 0438 0030A0E3 		mov	r3, #0
+ 506 043c 00308DE5 		str	r3, [sp]
+ 507 0440 9430A0E3 		mov	r3, #148
+ 508 0444 38209FE5 		ldr	r2, .L24+12
+ 509              	.LPIC38:
+ 510 0448 02208FE0 		add	r2, pc, r2
+ 511 044c 34109FE5 		ldr	r1, .L24+16
+ 512              	.LPIC39:
+ 513 0450 01108FE0 		add	r1, pc, r1
+ 514 0454 4C00A0E3 		mov	r0, #76
+ 515 0458 FEFFFFEB 		bl	siFormattedMessage_SC(PLT)
+ 516 045c 0030A0E3 		mov	r3, #0
+ 517 0460 08300BE5 		str	r3, [fp, #-8]
+ 518 0464 00F020E3 		nop
+ 519              	.L22:
+ 149:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       EApiWDogStopEmul, 
+ 150:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       ""
+ 151:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****       );
+ 152:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** EAPI_LIB_ASSERT_EXIT
+ 153:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** 
+ 154:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c ****   return StatusCode;
+ 520              		.loc 1 154 10
+ 521 0468 08301BE5 		ldr	r3, [fp, #-8]
+ 155:/home/hkh/git/eapidk-code-r76-trunk/lib/linux/../EApiEmulWDT.c **** }
+ 522              		.loc 1 155 1
+ 523 046c 0300A0E1 		mov	r0, r3
+ 524 0470 04D04BE2 		sub	sp, fp, #4
+ 525              		.cfi_def_cfa 13, 8
+ 526              		@ sp needed
+ 527 0474 0088BDE8 		pop	{fp, pc}
+ 528              	.L25:
+ 529              		.align	2
+ 530              	.L24:
+ 531 0478 5C000000 		.word	WatchdogState-(.LPIC35+8)
+ 532 047c A4000000 		.word	.LC2-(.LPIC36+8)
+ 533 0480 A0000000 		.word	.LC3-(.LPIC37+8)
+ 534 0484 78010000 		.word	.LC11-(.LPIC38+8)
+ 535 0488 44000000 		.word	.LC1-(.LPIC39+8)
+ 536              		.cfi_endproc
+ 537              	.LFE4:
+ 539              	.Letext0:
+ 540              		.file 2 "/home/hkh/buildroot-2022.02/output/host/arm-buildroot-linux-musleabihf/sysroot/usr/includ
+ 541              		.file 3 "../../include/EApi.h"
+ 542              		.file 4 "../include/DbgChk.h"
+ARM GAS  /tmp/cc50D5xe.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 EApiEmulWDT.c
+     /tmp/cc50D5xe.s:17     .bss:0000000000000000 WatchdogState
+                             .bss:0000000000000000 $d
+     /tmp/cc50D5xe.s:19     .rodata:0000000000000000 $d
+     /tmp/cc50D5xe.s:33     .text:0000000000000000 $a
+     /tmp/cc50D5xe.s:42     .text:0000000000000000 EApiWDogGetCapEmul
+     /tmp/cc50D5xe.s:112    .text:00000000000000a8 $d
+     /tmp/cc50D5xe.s:137    .text:00000000000000b8 $a
+     /tmp/cc50D5xe.s:144    .text:00000000000000b8 EApiWDogStartEmul
+     /tmp/cc50D5xe.s:327    .text:00000000000002b8 $d
+     /tmp/cc50D5xe.s:361    .text:0000000000000310 $a
+     /tmp/cc50D5xe.s:368    .text:0000000000000310 EApiWDogTriggerEmul
+     /tmp/cc50D5xe.s:450    .text:00000000000003d8 $d
+     /tmp/cc50D5xe.s:467    .text:00000000000003fc $a
+     /tmp/cc50D5xe.s:474    .text:00000000000003fc EApiWDogStopEmul
+     /tmp/cc50D5xe.s:531    .text:0000000000000478 $d
+
+UNDEFINED SYMBOLS
+siFormattedMessage_SC
